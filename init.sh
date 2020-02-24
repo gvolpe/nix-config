@@ -21,3 +21,4 @@ ssh-add ~/.ssh/id_rsa
 # NeoVim config
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/plugged
+cp nvim/* ~/.config/nvim/.
