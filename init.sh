@@ -17,3 +17,6 @@ git config --global alias.st status
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+
+# NeoVim config
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
