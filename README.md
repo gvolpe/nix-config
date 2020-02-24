@@ -19,7 +19,8 @@ More info: https://nixos.org/nix/download.html
 > nix-env -irf packages.nix
 ```
 
-- `i` -> install
-- `r` -> remove all previous packages
-- `f` -> force
+3. Run configuration commands
 
+```
+> ./init.sh
+```

@@ -7,11 +7,12 @@ in
     brave # web browser
     cachix # nix caching
     git # source version control
-    kdiff3 # git dif
+    kdiff3 # git diff
     neovim # best text editor ever
+    nodejs # required by coc.nvim (autocompletion plugin)
     openjdk8 # Java development kit
     python3 # for vim plugins
-    sbt # Scala build tool      
+    sbt # Scala build tool
   ]
 ) ++ (
   with pkgs; [
@@ -27,7 +28,7 @@ in
 ) ++ (
   with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
-    tig # diff and comit view
+    tig # diff and commit view
   ]
 ) ++ (
   with pkgs.haskellPackages; [
