@@ -4,11 +4,9 @@ let
 in
 (
   with fixed; [
-    brave # web browser
     cachix # nix caching
     git # source version control
     kdiff3 # git diff
-    neovim # best text editor ever
     nodejs # required by coc.nvim (autocompletion plugin)
     openjdk8 # Java development kit
     python3 # for vim plugins
@@ -16,11 +14,13 @@ in
   ]
 ) ++ (
   with pkgs; [
+    brave # web browser
     bloop # Scala build server
     fd # "find" for files
     fzf # fuzzy find tool
     glow # markdown viewer
     metals # Scala LSP server
+    neovim # best text editor ever
     niv # nix package manager
     nix # nix commands
     ripgrep # fast grep
