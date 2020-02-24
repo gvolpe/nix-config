@@ -7,15 +7,18 @@ in
     brave # web browser
     cachix # nix caching
     git # source version control
+    kdiff3 # git dif
     neovim # best text editor ever
     openjdk8 # Java development kit
-    sbt # Scala build tool    
+    python3 # for vim plugins
+    sbt # Scala build tool      
   ]
 ) ++ (
   with pkgs; [
     fd # "find" for files
     fzf # fuzzy find tool
     glow # markdown viewer
+    metals # Scala LSP server
     niv # nix package manager
     nix # nix commands
     ripgrep # fast grep
