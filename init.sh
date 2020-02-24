@@ -22,3 +22,9 @@ ssh-add ~/.ssh/id_rsa
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/plugged
 cp nvim/* ~/.config/nvim/.
+
+# Fixing locales
+echo 'export LC_ALL="en_US.UTF-8"' >> ~/.bashrc
+echo 'export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"' >> ~/.bashrc
+echo 'export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"' >> ~/.bashrc
+echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> ~/.bashrc
