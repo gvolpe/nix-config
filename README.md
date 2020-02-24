@@ -24,3 +24,11 @@ More info: https://nixos.org/nix/download.html
 ```
 > ./init.sh
 ```
+
+## Native packages
+
+Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
+
+```
+sudo apt install docker docker-compose terminator
+```
