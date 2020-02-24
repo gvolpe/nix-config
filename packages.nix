@@ -15,6 +15,7 @@ in
   ]
 ) ++ (
   with pkgs; [
+    bloop # Scala build server
     fd # "find" for files
     fzf # fuzzy find tool
     glow # markdown viewer
@@ -33,4 +34,8 @@ in
     brittany # code formatter
     hoogle # documentation
   ]
-) 
+) ++ (
+  with pkgs.python3Packages; [
+    pynvim # for vim plugins that require python
+  ]
+)
