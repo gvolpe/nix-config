@@ -24,6 +24,7 @@ in
     niv # nix package manager
     nix # nix commands
     ripgrep # fast grep
+    tree # display files in a tree view
   ]
 ) ++ (
   with pkgs.gitAndTools; [

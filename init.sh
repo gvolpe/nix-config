@@ -7,6 +7,7 @@ git config --global user.name "Gabriel Volpe"
 # Git aliases
 git config --global alias.amend 'commit --amend -m'
 git config --global alias.br branch
+git config --global alias.ca 'commit -am'
 git config --global alias.cm 'commit -m'
 git config --global alias.co checkout
 git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'

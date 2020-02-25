@@ -30,5 +30,5 @@ More info: https://nixos.org/nix/download.html
 Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
 
 ```
-sudo apt install docker docker-compose terminator
+sudo apt install calibre docker docker-compose terminator
 ```
