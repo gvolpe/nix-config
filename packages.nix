@@ -40,4 +40,8 @@ in
   with pkgs.python3Packages; [
     pynvim # for vim plugins that require python
   ]
+) ++ (
+  with pkgs.nodePackages; [
+    node2nix # to convert node packages
+  ]
 )
