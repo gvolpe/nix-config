@@ -26,9 +26,8 @@ echo 'export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibc
 echo 'export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"' >> ~/.bashrc
 echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> ~/.bashrc
 
-# Nix config
-mkdir -p ~/.config/nixpkgs
-cp confix.nix ~/.config/nixpkgs/.
+# Spotify in 4k display
+echo 'alias spotify="~/.nix-profile/bin/spotify --force-device-scale-factor=2.0"' >> ~/.bashrc
 
 # SSH key
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
