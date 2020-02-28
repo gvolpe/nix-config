@@ -29,6 +29,9 @@ echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> ~/.bashrc
 # Spotify in 4k display
 echo 'alias spotify="~/.nix-profile/bin/spotify --force-device-scale-factor=2.0"' >> ~/.bashrc
 
+# Toggle touchpad
+cp toggle-touchpad.sh ~/.
+
 # SSH key
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
