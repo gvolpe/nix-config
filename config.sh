@@ -32,6 +32,10 @@ echo 'alias spotify="~/.nix-profile/bin/spotify --force-device-scale-factor=2.0"
 # Toggle touchpad
 cp toggle-touchpad.sh ~/.
 
+# Desktop applications with icons
+cp desktop/* ~/Desktop/.
+sudo cp desktop/* /usr/share/applications/.
+
 # SSH key
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
