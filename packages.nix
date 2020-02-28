@@ -25,6 +25,7 @@ in
     niv # nix package manager
     nix # nix commands
     ripgrep # fast grep
+    spotify # music source
     tree # display files in a tree view
   ]
 ) ++ (
