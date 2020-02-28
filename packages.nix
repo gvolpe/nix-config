@@ -21,6 +21,7 @@ in
     glow # markdown viewer
     metals # Scala LSP server
     neovim # best text editor ever
+    ngrok # secure tunnels to localhost
     niv # nix package manager
     nix # nix commands
     ripgrep # fast grep

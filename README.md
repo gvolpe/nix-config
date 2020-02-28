@@ -1,7 +1,7 @@
 nix-config
 ==========
 
-Nix configuration of the packages I use.
+Nix configuration for the software I use.
 
 ## How to install
 
