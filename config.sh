@@ -34,6 +34,7 @@ cp toggle-touchpad.sh ~/.
 
 # Desktop applications with icons
 cp desktop/* ~/Desktop/.
+chmod +x ~/Desktop/*
 sudo cp desktop/* /usr/share/applications/.
 
 # SSH key
