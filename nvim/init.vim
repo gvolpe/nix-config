@@ -19,8 +19,6 @@ Plug 'neomake/neomake'                                            " run programs
 Plug 'Valloric/MatchTagAlways'                                    " highlights html enclosing tags
 Plug 'Twinside/vim-hoogle'                                        " Hoogle search (Haskell) in Vim
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }                " ghcid for Haskell
-Plug 'Shougo/unite.vim'                                           " Required by some haskell plugins
-Plug 'ujihisa/unite-haskellimport'                                " Suggestions on imports
 Plug 'vmchale/dhall-vim'                                          " Syntax highlighting for Dhall lang
 Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors selection, etc
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin
@@ -47,10 +45,6 @@ let g:rg_command = 'rg --vimgrep -S'
 
 " airline: status bar at the bottom
 let g:airline_powerline_fonts=1
-
-" if you want to disable auto detect, comment out those two lines (COC)
-"let g:airline#extensions#disable_rtp_load = 1
-"let g:airline_extensions = ['branch', 'hunks', 'coc']
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
@@ -200,16 +194,11 @@ augroup vimscript_augroup
   autocmd FileType vim nnoremap <buffer> <M-z> :execute "help" expand("<cword>")<CR>
 augroup END
 
-" Spell check
+" Spell check for markdown files
 au BufNewFile,BufRead *.md set spell
 
 " Fuzzy finder shortcut
 nnoremap <C-p> :FZF<CR>
-
-" Disable touchpad on startup / Enable it back on exit (at the OS level)
-"autocmd VimEnter * !~/development/touchpad-off.sh
-"autocmd VimLeave * !~/development/touchpad-on.sh
-nnoremap <silent> <F3> :!~/development/touchpad-toggle.sh <enter><CR>
 
 " Disable arrow keys and page up / down
 noremap <Up> <nop>
@@ -346,20 +335,3 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-
-" No preview window on autocompletion (vim-lsc)
-"set completeopt-=preview
-
-" Close preview window on autocompletion (metals / vim-lsc)
-"autocmd CompleteDone * silent! pclose
-
-" Haskell plugins
-nnoremap <silent> ;h :execute "Unite -start-insert haskellimport"<CR>
-"nnoremap <silent> <C-h> :execute "Unite hoogle"<CR> " too slow
-
-" Diagnostics highlighting
-"hi link ALEError Error
-"hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
-"hi link ALEWarning Warning
-"hi link ALEInfo SpellCap
