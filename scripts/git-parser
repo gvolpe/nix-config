@@ -1,0 +1,29 @@
+
+# Git Parser #
+function parse_git_branch {
+ git branch --no-color 2> /dev/null | sed -e ' /^[^*]/d' -e 's/* \(.*\)/:\1/'
+}
+
+function proml {
+ local  LIGHT_BLUE="\e[94m"
+ local        CYAN="\e[96m"
+ local     MAGENTA="\e[95m"
+ local  LIGHT_GRAY="\[\033[0;1;37m\]"
+ local      NORMAL="\[\033[0m\]"
+ case $TERM in
+   xterm*)
+   TITLEBAR='\[\033]0;\W\007\]'
+   ;;
+   *)
+   TITLEBAR=""
+   ;;
+ esac
+PS1="${TITLEBAR}\
+$LIGHT_GRAY\
+$MAGENTA λ $LIGHT_BLUE\W$CYAN\$(parse_git_branch)$LIGHT_GRAY \
+$NORMAL"
+PS2='> '
+PS4='+ '
+}
+proml
+

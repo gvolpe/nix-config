@@ -37,6 +37,9 @@ cp desktop/* ~/Desktop/.
 chmod +x ~/Desktop/*
 sudo cp desktop/* /usr/share/applications/.
 
+# Git parser
+cat scripts/git-parser >> ~/.bashrc
+
 # SSH key
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"

@@ -10,4 +10,4 @@ mkdir -p ~/.config/nixpkgs && cp confix.nix ~/.config/nixpkgs/.
 nix-env -irf packages.nix
 
 # Configure software
-./config.sh
+scripts/config.sh
