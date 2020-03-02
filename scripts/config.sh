@@ -40,6 +40,10 @@ sudo cp desktop/* /usr/share/applications/.
 # Git parser
 cat scripts/git-parser >> ~/.bashrc
 
+# SBT / Sonatype credentials
+cp sbt/sonatype_credentials ~/.sbt/.
+cp sbt/sonatype.sbt ~/.sbt/1.0/.
+
 # SSH key
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
