@@ -46,4 +46,9 @@ in
   with pkgs.nodePackages; [
     node2nix # to convert node packages
   ]
+) ++ (
+  with pkgs.haskellPackages; [
+    cabal-install # package manager for Haskell
+    ghc # Haskell compiler
+  ]
 )

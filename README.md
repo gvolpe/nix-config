@@ -14,5 +14,5 @@ Nix configuration for the software I use.
 Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
 
 ```
-sudo apt install calibre docker docker-compose terminator
+sudo apt install calibre docker docker-compose gimp terminator
 ```
