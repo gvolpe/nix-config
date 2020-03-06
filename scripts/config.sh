@@ -52,6 +52,9 @@ cp sbt/sonatype_credentials ~/.sbt/.
 cp sbt/sonatype.sbt ~/.sbt/1.0/.
 echo ">>> Remember to set up username and password for Sonatype"
 
+# Hoogle database
+hoogle generate
+
 # SSH key
 echo ">>> Configuring SSH key"
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
