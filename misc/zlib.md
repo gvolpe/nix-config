@@ -1,10 +1,9 @@
 ## Zlib issues
 
-Install GHC with package zlib:
+Remove default cabal environment (to fix ghcide 'cannot satisfy ghc...' error):
 
 ```
-nix-env -e ghc
-nix-env -i -f '<nixpkgs>' -E 'pkgs: (pkgs {}).ghc.withPackages (hp: with hp; [ zlib ])'
+rm ~/.ghc/x86_64-linux-8.6.5/environments/default
 ```
 
 Create symlinks to header files (search with `nix-locate`):
