@@ -36,6 +36,7 @@ in
 ) ++ (
   with pkgs.haskellPackages; [
     brittany # code formatter
+    cabal2nix # convert cabal projects to nix
     cabal-install # package manager
     ghc # compiler
     hoogle # documentation
