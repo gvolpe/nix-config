@@ -20,8 +20,7 @@
       "filetypes": [
         "hs",
         "lhs",
-        "haskell",
-        "cabal"
+        "haskell"
       ]
     }
   }
