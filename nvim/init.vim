@@ -280,6 +280,9 @@ nmap <leader>ac <Plug>(coc-codeaction)
 "nmap <silent> F <Plug>(coc-action-format) "does not work
 nnoremap <silent> F :call CocAction('format')<CR>
 
+" Temporary command to run brittany in Haskell projects and using ghcide, which does not support formatting yet
+nnoremap <leader>af :r !brittany --write-mode=inplace %:p<CR>
+
 " Show signature help
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
