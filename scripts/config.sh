@@ -32,6 +32,7 @@ echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> ~/.bashrc
 # Spotify in 4k display
 echo ">>> Configuring Spotify in 4k"
 echo 'alias spotify="~/.nix-profile/bin/spotify --force-device-scale-factor=2.0"' >> ~/.bashrc
+echo ">>> Remember to configure media keys for Spotify: https://fabianlee.org/2016/05/25/ubuntu-enabling-media-keys-for-spotify/"
 
 # Toggle touchpad
 cp toggle-touchpad.sh ~/.
