@@ -28,6 +28,7 @@ Plug 'jremmen/vim-ripgrep'                                        " blazing fast
 Plug 'stefandtw/quickfix-reflector.vim'                           " make modifications right in the quickfix window
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
 Plug 'LnL7/vim-nix'                                               " nix support (highlighting, etc)
+Plug 'skywind3000/asyncrun.vim'                                   " run async commands, show result in quickfix window
 
 " Plug 'easymotion/vim-easymotion'
 " Plug 'tpope/vim-repeat'
@@ -42,6 +43,12 @@ autocmd InsertLeave * write
 
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
+
+" open quickfix windown when running AsyncRun
+let g:asyncrun_open = 8
+
+" close quickfix window
+nnoremap <Esc> :cclose<CR>
 
 " airline: status bar at the bottom
 let g:airline_powerline_fonts=1
@@ -284,7 +291,7 @@ nnoremap <silent> F :call CocAction('format')<CR>
 nnoremap <leader>af :r !brittany --write-mode=inplace %:p<CR>
 
 " Temporary command to run hlint in Haskell projects (ghcide does not support it yet)
-nnoremap <leader>al :!hlint %:p<CR>
+nnoremap <leader>al :AsyncRun hlint %:p<CR>
 
 " Show signature help
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -318,9 +325,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" close preview (shown for hover / signature help)
-nnoremap <leader> <Esc> :pclose<CR>
 
 nnoremap <silent> <M-B> :call CocRequest('metals', 'workspace/executeCommand', { 'command': 'build-import' })<CR>
 "nnoremap <silent> <M-Z> :ccl<CR>
