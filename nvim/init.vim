@@ -38,9 +38,6 @@ call plug#end()
 " End of plugins here
 " ===================
 
-" save when leaving insert mode
-autocmd InsertLeave * write
-
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
 
@@ -65,6 +62,9 @@ filetype plugin on
 " Better Unix support
 set viewoptions=folds,options,cursor,unix,slash
 set encoding=utf-8
+
+" Relative numbers
+set relativenumber
 
 " Handle window actions with Meta instead of <C-w>
 " Switching
