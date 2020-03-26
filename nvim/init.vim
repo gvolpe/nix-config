@@ -40,7 +40,7 @@ call plug#end()
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
 
-" open quickfix windown when running AsyncRun
+" open quickfix windows when running AsyncRun
 let g:asyncrun_open = 8
 
 " close quickfix window
@@ -54,6 +54,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 " Highlighting for jsonc filetype
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" EasyMotion search with highlighting
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " Nerd commenter
 filetype plugin on
