@@ -20,7 +20,7 @@ git config --global alias.st status
 echo ">>> Configuring NeoVim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.local/share/nvim/plugged
-cp nvim/* ~/.config/nvim/.
+cp ../nvim/* ~/.config/nvim/.
 
 # Fixing locales
 echo ">>> Configuring locales"
@@ -40,17 +40,16 @@ echo ">>> Remember to add key-shortcut to Toggle Touchpad"
 
 # Desktop applications with icons
 echo ">>> Configuring desktop apps"
-cp desktop/* ~/Desktop/.
 chmod +x ~/Desktop/*
-sudo cp desktop/* /usr/share/applications/.
+sudo cp ../desktop/* /usr/share/applications/.
 
 # Git parser
-cat scripts/git-parser >> ~/.bashrc
+cat git-parser >> ~/.bashrc
 
 # SBT / Sonatype credentials
 echo ">>> Configuring sbt-sonatype"
-cp sbt/sonatype_credentials ~/.sbt/.
-cp sbt/sonatype.sbt ~/.sbt/1.0/.
+cp ../sbt/sonatype_credentials ~/.sbt/.
+cp ../sbt/sonatype.sbt ~/.sbt/1.0/.
 echo ">>> Remember to set up username and password for Sonatype"
 
 # Hoogle database
