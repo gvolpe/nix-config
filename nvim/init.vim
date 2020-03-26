@@ -6,6 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'                                         " git plugin
 Plug 'tpope/vim-repeat'                                           " repeat plugin commands with (.)
+Plug 'easymotion/vim-easymotion'                                  " highlights keys to move quickly
 Plug 'vim-airline/vim-airline'                                    " bottom status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
