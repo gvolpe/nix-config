@@ -5,6 +5,7 @@ filetype off                " required
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'                                         " git plugin
+Plug 'tpope/vim-repeat'                                           " repeat plugin commands with (.)
 Plug 'vim-airline/vim-airline'                                    " bottom status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
@@ -29,9 +30,6 @@ Plug 'stefandtw/quickfix-reflector.vim'                           " make modific
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
 Plug 'LnL7/vim-nix'                                               " nix support (highlighting, etc)
 Plug 'skywind3000/asyncrun.vim'                                   " run async commands, show result in quickfix window
-
-" Plug 'easymotion/vim-easymotion'
-" Plug 'tpope/vim-repeat'
 
 call plug#end()
 
