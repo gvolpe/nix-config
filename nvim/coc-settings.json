@@ -23,5 +23,6 @@
         "haskell"
       ]
     }
-  }
+  },
+  "yank.highlight.duration": 700
 }

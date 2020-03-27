@@ -37,6 +37,9 @@ call plug#end()
 " End of plugins here
 " ===================
 
+" shows list of yanked text (coc-yank plugin)
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
 
