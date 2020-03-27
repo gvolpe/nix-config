@@ -27,6 +27,7 @@ in
     nix # nix commands
     ripgrep # fast grep
     spotify # music source
+    tmux # terminal multiplexer and sessions
     tree # display files in a tree view
   ]
 ) ++ (
