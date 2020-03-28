@@ -63,6 +63,9 @@ cp tmux/Ubuntu-Mono-Nerd-Font-Complete.ttf $HOME/.local/share/fonts/.
 cp tmux/.tmux.conf $HOME/.
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
+# Gnome settings (keybindings, etc) - requires gnome-tweak-tool
+dconf load / < gnome/settings.dconf
+
 # Hoogle database
 hoogle generate
 
