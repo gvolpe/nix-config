@@ -7,10 +7,10 @@ set +x
 curl https://nixos.org/nix/install | sh
 
 # Configure Nix
-mkdir -p $HOME/.config/nixpkgs && cp config.nix $HOME/.config/nixpkgs/.
+mkdir -p $HOME/.config/nixpkgs && cp nix/config.nix $HOME/.config/nixpkgs/.
 
 # Install software
-nix-env -irf packages.nix
+nix-env -irf nix/packages.nix
 
 # Install Haskell IDE
 cachix use ghcide-nix
