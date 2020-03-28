@@ -31,6 +31,7 @@ Plug 'stefandtw/quickfix-reflector.vim'                           " make modific
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
 Plug 'LnL7/vim-nix'                                               " nix support (highlighting, etc)
 Plug 'skywind3000/asyncrun.vim'                                   " run async commands, show result in quickfix window
+Plug 'tmux-plugins/vim-tmux'                                      " syntax highlighting for tmux conf file and more
 
 call plug#end()
 
