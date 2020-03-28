@@ -57,6 +57,12 @@ ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_rsa
 
+# Tmux configuration (including patched font for Ubuntu)
+mkdir -p $HOME/.local/share/fonts/.
+cp tmux/Ubuntu-Mono-Nerd-Font-Complete.ttf $HOME/.local/share/fonts/.
+cp tmux/.tmux.conf $HOME/.
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
 # Hoogle database
 hoogle generate
 
