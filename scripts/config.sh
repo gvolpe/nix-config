@@ -63,10 +63,13 @@ cp tmux/Ubuntu-Mono-Nerd-Font-Complete.ttf $HOME/.local/share/fonts/.
 cp tmux/.tmux.conf $HOME/.
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-# Gnome settings (keybindings, etc) - requires gnome-tweak-tool
-dconf load / < gnome/settings.dconf
-
 # Hoogle database
 hoogle generate
+
+# Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
+sudo apt install calibre docker docker-compose gimp gnome-tweak-tool terminator vlc -y
+
+# Gnome settings (keybindings, etc) - requires gnome-tweak-tool
+dconf load / < gnome/settings.dconf
 
 echo ">>> Installation & Configuration DONE"
