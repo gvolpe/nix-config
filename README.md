@@ -1,7 +1,7 @@
-nix-config
-==========
+dotfiles
+========
 
-Nix configuration for the software I use.
+Configuration for all the software I use, ready for a fresh install.
 
 ## Install and configure software
 
