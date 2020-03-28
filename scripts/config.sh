@@ -30,16 +30,12 @@ echo 'export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibc
 echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> $HOME/.bashrc
 
 # Spotify in 4k display
-echo ">>> Configuring Spotify in 4k"
 echo 'alias spotify="$HOME/.nix-profile/bin/spotify --force-device-scale-factor=2.0"' >> $HOME/.bashrc
-echo ">>> Remember to configure media keys for Spotify: https://fabianlee.org/2016/05/25/ubuntu-enabling-media-keys-for-spotify/"
 
 # Toggle touchpad
 cp scripts/toggle-touchpad.sh $HOME/.
-echo ">>> Remember to add key-shortcut to Toggle Touchpad"
 
 # Desktop applications with icons
-echo ">>> Configuring desktop apps"
 sudo cp desktop/* /usr/share/applications/.
 
 # Git parser
@@ -52,7 +48,6 @@ cp sbt/sonatype.sbt $HOME/.sbt/1.0/.
 echo ">>> Remember to set up username and password for Sonatype"
 
 # SSH key
-echo ">>> Configuring SSH key"
 ssh-keygen -t rsa -b 4096 -C "volpegabriel@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_rsa
