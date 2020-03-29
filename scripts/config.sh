@@ -59,6 +59,7 @@ cp tmux/tmux.conf $HOME/.tmux.conf
 cp tmux/sessions.sh $HOME/tmux-sessions.sh
 chmod +x $HOME/tmux-sessions.sh
 echo 'alias tm="$HOME/tmux-sessions.sh"' >> $HOME/.bashrc
+echo 'alias ta="tmux a"' >> $HOME/.bashrc
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 # Hoogle database
