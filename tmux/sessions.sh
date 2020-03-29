@@ -11,15 +11,15 @@ echo ""
 
 select opt in $sessions
 do
-	case $opt in
-		"New")
-			read -rp "Enter new session name: " SESSION_NAME
-			tmux new -s "$SESSION_NAME"
-			break
-			;;
-		*)
-			tmux a -t "$opt"
-			break
-			;;
-	esac
+  case $opt in
+    "New")
+      read -rp "Enter new session name: " SESSION_NAME
+      tmux new -s "$SESSION_NAME"
+      break
+      ;;
+    *)
+      tmux a -t "$opt"
+      break
+      ;;
+  esac
 done
