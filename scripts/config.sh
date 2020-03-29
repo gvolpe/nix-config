@@ -62,6 +62,10 @@ echo 'alias tm="$HOME/tmux-sessions.sh"' >> $HOME/.bashrc
 echo 'alias ta="tmux a"' >> $HOME/.bashrc
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
+# Bloop bash autocompletion (not installed with Nix)
+cp bash/bloop.bash $HOME/.bloop.bash
+echo '[ -f ~/.bloop.bash ] && source ~/.bloop.bash' >> $HOME/.bashrc
+
 # Hoogle database
 hoogle generate
 
