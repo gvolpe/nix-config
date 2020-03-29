@@ -14,8 +14,10 @@ in
   ]
 ) ++ (
   with pkgs; [
+    bat # a better `cat`
     brave # web browser
     bloop # Scala build server
+    exa # a better `ls`
     fd # "find" for files
     fzf # fuzzy find tool
     glow # markdown viewer
