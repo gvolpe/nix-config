@@ -11,7 +11,8 @@ Plug 'vim-airline/vim-airline'                                    " bottom statu
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
 Plug 'junegunn/fzf.vim'                                           " fuzzy finder
-Plug 'scrooloose/nerdtree'                                        " folders tree
+Plug 'ryanoasis/vim-devicons'                                     " dev icons shown in the tree explorer
+Plug 'scrooloose/nerdtree'                                        " tree explorer
 Plug 'scrooloose/nerdcommenter'                                   " code commenter
 Plug 'jacoborus/tender.vim'                                       " my favorite theme so far :)
 Plug 'kien/rainbow_parentheses.vim'                               " for nested parentheses
