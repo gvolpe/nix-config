@@ -5,6 +5,7 @@
   go_next = <Primary>Tab
   go_prev = <Primary><Shift>Tab
   split_vert = <Primary><Shift>e
+  search = <Super>f
   layout_launcher = <Shift><Alt>l
 [profiles]
   [[default]]
