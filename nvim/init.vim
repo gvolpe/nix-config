@@ -27,6 +27,7 @@ Plug 'terryma/vim-multiple-cursors'                               " Multiple cur
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin
 Plug 'itchyny/lightline.vim'                                      " configurable status line (can be used by coc)
 Plug 'derekwyatt/vim-scala'                                       " scala plugin
+Plug 'dyng/ctrlsf.vim'                                            " edit file in place after searching with ripgrep
 Plug 'jremmen/vim-ripgrep'                                        " blazing fast search using ripgrep
 Plug 'stefandtw/quickfix-reflector.vim'                           " make modifications right in the quickfix window
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
@@ -44,6 +45,9 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
+
+" search work under cursor with ripgrep
+nnoremap <leader>g viw"ry:Rg <C-r>r<CR>
 
 " open quickfix windows when running AsyncRun
 let g:asyncrun_open = 8
