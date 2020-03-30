@@ -41,7 +41,9 @@ sudo cp desktop/* /usr/share/applications/.
 # Git parser
 cat scripts/git-parser >> $HOME/.bashrc
 
-# Overriding common tools like cat and ls
+# Overriding common tools like vi, cat and ls
+echo 'alias vi=nvim' >> $HOME/.bashrc
+echo 'alias vim=nvim' >> $HOME/.bashrc
 echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
 
