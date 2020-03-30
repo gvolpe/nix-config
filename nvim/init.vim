@@ -46,9 +46,6 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
 
-" search work under cursor with ripgrep
-nnoremap <leader>g viw"ry:Rg <C-r>r<CR>
-
 " open quickfix windows when running AsyncRun
 let g:asyncrun_open = 8
 
