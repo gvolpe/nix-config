@@ -41,6 +41,10 @@ sudo cp desktop/* /usr/share/applications/.
 # Git parser
 cat scripts/git-parser >> $HOME/.bashrc
 
+# Overriding common tools like cat and ls
+echo 'alias cat=bat' >> $HOME/.bashrc
+echo 'alias ls=exa' >> $HOME/.bashrc
+
 # SBT / Sonatype credentials
 mkdir -p $HOME/.sbt/1.0
 cp sbt/sonatype_credentials $HOME~/.sbt/.
