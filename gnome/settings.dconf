@@ -21,6 +21,9 @@ release-check-time=uint32 1584895584
 preload-engines=['xkb:us::eng']
 version='1.5.21'
 
+[desktop/ibus/panel/emoji]
+hotkey=@as []
+
 [org/gnome/Totem]
 active-plugins=['save-file', 'screensaver', 'movie-properties', 'skipto', 'media-player-keys', 'rotation', 'open-directory', 'vimeo', 'screenshot', 'variable-rate', 'apple-trailers', 'recent', 'autoload-subtitles']
 subtitle-encoding='UTF-8'
@@ -41,11 +44,11 @@ window-position=(1291, 406)
 word-size=64
 
 [org/gnome/control-center]
-last-panel='keyboard'
+last-panel='sound'
 
 [org/gnome/deja-dup]
 backend='google'
-prompt-check='2020-02-23T14:29:54.899652Z'
+prompt-check='2020-03-29T17:12:50.955331Z'
 
 [org/gnome/deja-dup/file]
 migrated=true
@@ -93,7 +96,7 @@ autorun-x-content-open-folder=@as []
 autorun-x-content-start-app=['x-content/unix-software']
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'brave-browser', 'gnome-network-panel', 'spotify', 'update-manager', 'calibre-gui', 'gimp', 'transmission-gtk', 'org-gnome-shell-portalhelper', 'telegramdesktop', 'gnome-calculator-gnome-calculator', 'org-gnome-software', 'spotify-spotify', 'eog']
+application-children=['org-gnome-nautilus', 'brave-browser', 'gnome-network-panel', 'spotify', 'update-manager', 'calibre-gui', 'gimp', 'transmission-gtk', 'org-gnome-shell-portalhelper', 'telegramdesktop', 'gnome-calculator-gnome-calculator', 'org-gnome-software', 'spotify-spotify', 'eog', 'org-gnome-dejadup', 'qasmixer']
 
 [org/gnome/desktop/notifications/application/brave-browser]
 application-id='brave-browser.desktop'
@@ -113,6 +116,9 @@ application-id='gnome-calculator_gnome-calculator.desktop'
 [org/gnome/desktop/notifications/application/gnome-network-panel]
 application-id='gnome-network-panel.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-dejadup]
+application-id='org.gnome.DejaDup.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
@@ -121,6 +127,9 @@ application-id='org.gnome.Shell.PortalHelper.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/qasmixer]
+application-id='qasmixer.desktop'
 
 [org/gnome/desktop/notifications/application/spotify-spotify]
 application-id='spotify_spotify.desktop'
@@ -165,6 +174,8 @@ idle-delay=uint32 0
 
 [org/gnome/desktop/sound]
 allow-volume-above-100-percent=true
+event-sounds=true
+theme-name='__custom'
 
 [org/gnome/desktop/wm/keybindings]
 close=['<Super>w']
@@ -245,7 +256,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [org/gnome/nautilus/window-state]
-initial-size=(890, 550)
+initial-size=(890, 472)
 maximized=false
 
 [org/gnome/nm-applet/eap/7c4a51a5-e4c0-42ce-bcdd-735431d8bcae]
@@ -308,7 +319,7 @@ num-columns=2
 num-columns=2
 
 [org/gnome/software]
-check-timestamp=int64 1585388020
+check-timestamp=int64 1585554212
 
 [org/gnome/system/location]
 enabled=false
@@ -316,7 +327,7 @@ enabled=false
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=173
