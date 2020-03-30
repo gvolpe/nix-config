@@ -1,0 +1,26 @@
+[global_config]
+  window_state = maximise
+  suppress_multiple_term_dialog = True
+[keybindings]
+  go_next = <Primary>Tab
+  go_prev = <Primary><Shift>Tab
+  split_vert = <Primary><Shift>e
+  layout_launcher = <Shift><Alt>l
+[profiles]
+  [[default]]
+    background_darkness = 0.75
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = UbuntuMono Nerd Font 13
+    show_titlebar = False
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
