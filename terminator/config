@@ -6,7 +6,7 @@
   go_prev = <Primary><Shift>Tab
   split_vert = <Primary><Shift>e
   search = <Super>f
-  layout_launcher = <Shift><Alt>l
+  layout_launcher = <Super>grave
 [profiles]
   [[default]]
     background_darkness = 0.75
