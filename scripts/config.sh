@@ -6,6 +6,12 @@ set +x
 git config --global user.email "volpegabriel@gmail.com"
 git config --global user.name "Gabriel Volpe"
 
+# Global git ignore
+touch $HOME/.gitignore_global
+git config --global core.excludesfile '$HOME/.gitignore_global'
+echo '*.bloop' >> $HOME/.gitignore_global
+echo '*.metals' >> $HOME/.gitignore_global
+
 # Git aliases
 git config --global alias.amend 'commit --amend -m'
 git config --global alias.br branch
