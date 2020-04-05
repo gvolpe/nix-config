@@ -1,9 +1,9 @@
 {
   "languageserver": {
     "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
+      "command": "~/metals/metals-vim",
+      "rootPatterns": ["build.sbt", "build.sc"],
+      "filetypes": ["scala", "sbt", "sc"]
     },
     "haskell": {
       "command": "ghcide",

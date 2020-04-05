@@ -53,6 +53,12 @@ echo 'alias vim=nvim' >> $HOME/.bashrc
 echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
 
+# Install Metals (Scala LSP client)
+mkdir -p $HOME/metals
+cp metals/update-metals.sh $HOME/metals/.
+chmod +x $HOME/metals/update-metals.sh
+$HOME/metals/update-metals.sh
+
 # SBT / Sonatype credentials
 mkdir -p $HOME/.sbt/1.0
 cp sbt/sonatype_credentials $HOME~/.sbt/.

@@ -22,7 +22,6 @@ in
     fzf # fuzzy find tool
     glow # markdown viewer
     htop # interactive processes viewer
-    metals # Scala LSP server
     neovim # best text editor ever
     ngrok # secure tunnels to localhost
     niv # nix package manager
