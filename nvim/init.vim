@@ -34,6 +34,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files 
 Plug 'LnL7/vim-nix'                                               " nix support (highlighting, etc)
 Plug 'skywind3000/asyncrun.vim'                                   " run async commands, show result in quickfix window
 Plug 'tmux-plugins/vim-tmux'                                      " syntax highlighting for tmux conf file and more
+Plug 'justinmk/vim-gtfo'                                          " go to terminal or file manager
 
 call plug#end()
 
