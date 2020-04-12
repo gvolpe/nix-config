@@ -17,11 +17,13 @@ in
     bat # a better `cat`
     brave # web browser
     bloop # Scala build server
+    direnv # load and unload environments on demand
     exa # a better `ls`
     fd # "find" for files
     fzf # fuzzy find tool
     glow # markdown viewer
     htop # interactive processes viewer
+    lorri # nix shell replacement (integrated with direnv)
     neovim # best text editor ever
     ngrok # secure tunnels to localhost
     niv # nix package manager

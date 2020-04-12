@@ -1,0 +1,9 @@
+[Unit]
+Description=Socket for Lorri Daemon
+
+[Socket]
+ListenStream=%t/lorri/daemon.socket
+RuntimeDirectory=lorri
+
+[Install]
+WantedBy=sockets.target

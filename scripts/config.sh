@@ -88,6 +88,15 @@ cp terminator/config $HOME/.config/terminator/.
 cp bash/bloop.bash $HOME/.bloop.bash
 echo '[ -f ~/.bloop.bash ] && source ~/.bloop.bash' >> $HOME/.bashrc
 
+# Direnv hook
+echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+
+# Lorri daemon
+mkdir -p $HOME/.config/systemd/user
+cp lorri/* $HOME/.config/systemd/user/.
+systemctl --user daemon-reload
+systemctl --user enable --now lorri.socket
+
 # Hoogle database
 hoogle generate
 
@@ -97,4 +106,4 @@ sudo apt install calibre docker docker-compose gimp gnome-tweak-tool terminator 
 # Gnome settings (keybindings, etc) - requires gnome-tweak-tool
 dconf load / < gnome/settings.dconf
 
-echo ">>> Installation & Configuration DONE"
+echo ">>> Installation & Configuration DONE <<<"
