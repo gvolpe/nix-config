@@ -30,6 +30,7 @@ in
     nix # nix commands
     ripgrep # fast grep
     spotify # music source
+    tldr # summary of a man page
     tmux # terminal multiplexer and sessions
     tree # display files in a tree view
   ]
