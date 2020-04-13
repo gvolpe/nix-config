@@ -56,6 +56,9 @@ echo 'alias vim=nvim' >> $HOME/.bashrc
 echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
 
+# Preview files using bat while fuzzy-finding with fzf
+echo $'alias z="fzf --preview=\'bat {} --color=always\'"' >> $HOME/.bashrc
+
 # Install Metals (Scala LSP client)
 mkdir -p $HOME/metals
 cp metals/update-metals.sh $HOME/metals/.
