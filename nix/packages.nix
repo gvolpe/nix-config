@@ -28,6 +28,7 @@ in
     ngrok # secure tunnels to localhost
     niv # nix package manager
     nix # nix commands
+    prettyping # a nicer ping
     ripgrep # fast grep
     spotify # music source
     tldr # summary of a man page
