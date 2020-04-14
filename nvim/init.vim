@@ -35,6 +35,7 @@ Plug 'LnL7/vim-nix'                                               " nix support 
 Plug 'skywind3000/asyncrun.vim'                                   " run async commands, show result in quickfix window
 Plug 'tmux-plugins/vim-tmux'                                      " syntax highlighting for tmux conf file and more
 Plug 'justinmk/vim-gtfo'                                          " go to terminal or file manager
+Plug 'ap/vim-css-color'                                           " preview css colors
 
 call plug#end()
 
