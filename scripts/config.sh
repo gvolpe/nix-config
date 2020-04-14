@@ -32,6 +32,11 @@ mkdir -p $HOME/.local/share/nvim/plugged
 mkdir -p $HOME/.config/nvim
 cp nvim/* $HOME/.config/nvim/.
 
+# FZF config (preview with bat, search with ripgrep or fd)
+echo '# FZF config' >> $HOME/.bashrc
+echo $'export FZF_DEFAULT_OPTS="--preview=\'bat {} --color=always\'"' >> $HOME/.bashrc
+echo 'export SKIM_DEFAULT_COMMAND="rg --files || fd || find ."' >> $HOME/.bashrc
+
 # Fixing locales
 echo 'export LC_ALL="en_US.UTF-8"' >> $HOME/.bashrc
 echo 'export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"' >> $HOME/.bashrc
@@ -55,9 +60,7 @@ echo 'alias vi=nvim' >> $HOME/.bashrc
 echo 'alias vim=nvim' >> $HOME/.bashrc
 echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
-
-# Preview files using bat while fuzzy-finding with fzf
-echo $'alias z="fzf --preview=\'bat {} --color=always\'"' >> $HOME/.bashrc
+echo 'alias ping=prettyping' >> $HOME/.bashrc
 
 # Install Metals (Scala LSP client)
 mkdir -p $HOME/metals
