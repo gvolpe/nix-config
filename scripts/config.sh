@@ -61,6 +61,7 @@ echo 'alias vim=nvim' >> $HOME/.bashrc
 echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
 echo 'alias ping=prettyping' >> $HOME/.bashrc
+echo 'alias du="ncdu --color dark -rr -x"' >> $HOME/.bashrc
 
 # Install Metals (Scala LSP client)
 mkdir -p $HOME/metals
