@@ -53,9 +53,6 @@ echo 'alias spotify="$HOME/.nix-profile/bin/spotify --force-device-scale-factor=
 # Toggle touchpad
 cp scripts/toggle-touchpad.sh $HOME/.
 
-# Desktop applications with icons
-sudo cp desktop/* /usr/share/applications/.
-
 # Git parser
 cat scripts/git-parser >> $HOME/.bashrc
 
@@ -107,6 +104,9 @@ systemctl --user enable --now lorri.socket
 
 # Hoogle database
 hoogle generate
+
+# Desktop applications with icons
+sudo cp desktop/* /usr/share/applications/.
 
 # Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
 sudo apt update
