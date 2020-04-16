@@ -109,6 +109,7 @@ systemctl --user enable --now lorri.socket
 hoogle generate
 
 # Other packages are better installed using `aptitude` since Nix support is not great outside NixOS.
+sudo apt update
 sudo apt install calibre docker docker-compose gimp gnome-tweak-tool terminator vlc -y
 
 # Gnome settings (keybindings, etc) - requires gnome-tweak-tool
