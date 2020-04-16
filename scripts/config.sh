@@ -32,6 +32,10 @@ mkdir -p $HOME/.local/share/nvim/plugged
 mkdir -p $HOME/.config/nvim
 cp nvim/* $HOME/.config/nvim/.
 
+# Install plugins and extensions
+nvim -c 'PlugInstall|qa'
+nvim -c 'CocInstall -sync coc-metals coc-yarn|qa'
+
 # FZF config (preview with bat, search with ripgrep or fd)
 echo '# FZF config' >> $HOME/.bashrc
 echo $'export FZF_DEFAULT_OPTS="--preview=\'bat {} --color=always\'"' >> $HOME/.bashrc
@@ -62,12 +66,6 @@ echo 'alias cat=bat' >> $HOME/.bashrc
 echo 'alias ls=exa' >> $HOME/.bashrc
 echo 'alias ping=prettyping' >> $HOME/.bashrc
 echo 'alias du="ncdu --color dark -rr -x"' >> $HOME/.bashrc
-
-# Install Metals (Scala LSP client)
-mkdir -p $HOME/metals
-cp metals/update-metals.sh $HOME/metals/.
-chmod +x $HOME/metals/update-metals.sh
-$HOME/metals/update-metals.sh
 
 # SBT / Sonatype credentials
 mkdir -p $HOME/.sbt/1.0
