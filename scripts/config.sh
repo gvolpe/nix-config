@@ -11,6 +11,7 @@ touch $HOME/.gitignore_global
 git config --global core.excludesfile '$HOME/.gitignore_global'
 echo '*.bloop' >> $HOME/.gitignore_global
 echo '*.metals' >> $HOME/.gitignore_global
+echo '*metals.sbt' >> $HOME/.gitignore_global
 
 # Git aliases
 git config --global alias.amend 'commit --amend -m'
