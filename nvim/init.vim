@@ -70,6 +70,11 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
+" Hoogle config
+let g:hoogle_search_count = 20
+au BufNewFile,BufRead *.hs map <silent> <F1> :Hoogle<CR>
+au BufNewFile,BufRead *.hs map <silent> <C-c> :HoogleClose<CR>
+
 " Nerd commenter
 filetype plugin on
 
@@ -220,6 +225,16 @@ au BufNewFile,BufRead *.md set spell
 
 " Fuzzy finder shortcut
 nnoremap <C-p> :FZF<CR>
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" Always enable preview window on the right with 60% width
+"let g:fzf_preview_window = 'right:60%'
 
 " Disable arrow keys and page up / down
 noremap <Up> <nop>
