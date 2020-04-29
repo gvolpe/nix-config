@@ -25,3 +25,11 @@ example:
 let
   pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs-channels/archive/1fe82110feb.tar.gz") {};
 ```
+
+## Installing package from specific version
+
+For example, Spotify:
+
+```nix
+nix-env -f https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz -iA spotify
+```
