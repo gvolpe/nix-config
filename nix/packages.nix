@@ -1,6 +1,6 @@
 let
   pkgs = import <nixpkgs> {};
-  fixed = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz") {};
+  fixed = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/20.03.tar.gz") {};
 in
 (
   with fixed; [
@@ -23,12 +23,12 @@ in
     fzf # fuzzy find tool
     glow # markdown viewer
     htop # interactive processes viewer
-    lorri # nix shell replacement (integrated with direnv)
     ncdu # disk space info (a better du)
     neovim # best text editor ever
     ngrok # secure tunnels to localhost
     niv # nix package manager
     nix # nix commands
+    nix-direnv # nix shell replacement (integrated with direnv)
     prettyping # a nicer ping
     ripgrep # fast grep
     spotify # music source

@@ -97,11 +97,9 @@ echo '[ -f ~/.bloop.bash ] && source ~/.bloop.bash' >> $HOME/.bashrc
 # Direnv hook
 echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
 
-# Lorri daemon
-mkdir -p $HOME/.config/systemd/user
-cp lorri/* $HOME/.config/systemd/user/.
-systemctl --user daemon-reload
-systemctl --user enable --now lorri.socket
+# Nix-direnv
+mkdir -p $HOME/.config/direnv
+cp nix-direnv/direnvrc $HOME/.config/direnv/.
 
 # Hoogle database
 hoogle generate
