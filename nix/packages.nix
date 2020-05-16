@@ -47,6 +47,7 @@ in
     cabal2nix # convert cabal projects to nix
     cabal-install # package manager
     ghc # compiler
+    ghcide # haskell IDE
     hoogle # documentation
   ]
 ) ++ (
