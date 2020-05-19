@@ -21,6 +21,7 @@ in
     exa # a better `ls`
     fd # "find" for files
     fzf # fuzzy find tool
+    gitui # terminal gui for git
     glow # markdown viewer
     htop # interactive processes viewer
     ncdu # disk space info (a better du)
