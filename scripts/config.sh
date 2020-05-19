@@ -3,29 +3,7 @@
 set +x
 
 # Git config
-git config --global user.email "volpegabriel@gmail.com"
-git config --global user.name "Gabriel Volpe"
-
-# Global git ignore
-touch $HOME/.gitignore_global
-git config --global core.excludesfile '$HOME/.gitignore_global'
-echo '*.bloop' >> $HOME/.gitignore_global
-echo '*.metals' >> $HOME/.gitignore_global
-echo '*metals.sbt' >> $HOME/.gitignore_global
-
-# Git aliases
-git config --global alias.amend 'commit --amend -m'
-git config --global alias.br branch
-git config --global alias.ca 'commit -am'
-git config --global alias.cm 'commit -m'
-git config --global alias.co checkout
-git config --global alias.dc 'diff --cached'
-git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
-git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
-git config --global alias.st status
-
-# Git overrides
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+cp git/* $HOME/.
 
 # NeoVim config
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

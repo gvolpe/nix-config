@@ -1,0 +1,5 @@
+*.bloop
+*.metals
+*.metals.sbt
+*metals.sbt
+*.direnv

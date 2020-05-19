@@ -1,0 +1,22 @@
+[user]
+	email = volpegabriel@gmail.com
+	name = Gabriel Volpe
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	amend = commit --amend -m
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+	cm = commit -m
+	ca = commit -am
+	dc = diff --cached
+[core]
+	excludesfile = ~/.gitignore_global
+  pager = diff-so-fancy | less --tabs=4 -RFX
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = false
