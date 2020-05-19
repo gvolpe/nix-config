@@ -236,6 +236,10 @@ command! -bang -nargs=? -complete=dir Files
 " Always enable preview window on the right with 60% width
 "let g:fzf_preview_window = 'right:60%'
 
+" Disable the annoying and useless ex-mode
+nnoremap Q <Nop>
+nnoremap gQ <Nop>
+
 " Disable arrow keys and page up / down
 noremap <Up> <nop>
 noremap <Down> <nop>
