@@ -48,3 +48,47 @@ unpacking...
 path is '/nix/store/6f8sd6qp6fqhw0pq5qli5izrqkhd7wv1-1fe82110feb.tar.gz'
 08x6saa7iljyq2m0j6p9phy0v17r3p8l7vklv7y7gvhdc7a85ppi
 ```
+
+When the package is not a `tar.gz` you don't need to use `--unpack`. E.g.:
+
+```
+$ nix-prefetch-url https://github.com/lihaoyi/mill/releases/download/0.7.3/0.7.3
+[0.0 MiB DL]
+path is '/nix/store/f72vwx1dxcq5ia5qmq6ywskwvin7lbrs-0.7.3'
+10rjhkncxswbh30jsq7j4is5ngp1r737j45xdwl9z1frmwz6l67d
+```
+
+## Start a Nix shell with a specific package version
+
+Say we want to use `nodejs`. If we query for the existing packages this is what we get:
+
+```
+$ nix-env -qa nodejs
+nodejs-10.20.1
+nodejs-10.20.1
+nodejs-12.16.3
+nodejs-13.14.0
+nodejs-14.3.0
+```
+
+Now how do we specify the version we want if we want to start a shell?
+
+```
+$ nix-shell -p nodejs-14.3.0
+error: undefined variable 'nodejs-14' at (string):1:94
+(use '--show-trace' to show detailed location information)
+```
+
+Oops! This doesn't work for a shell. There are a few ways we can retrieve the right name for the version we want. My favorite is `nix search`. E.g.:
+
+```
+$ nix search nodejs | rg 14
+* nixpkgs.nodejs-14_x (nodejs)
+* nixpkgs.nodejs-slim-14_x (nodejs-slim)
+```
+
+So we can now proceed with the desired version.
+
+```
+$ nix-shell -p nodejs-14_x
+```
