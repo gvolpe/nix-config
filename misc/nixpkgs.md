@@ -92,3 +92,11 @@ So we can now proceed with the desired version.
 ```
 $ nix-shell -p nodejs-14_x
 ```
+
+## List package dependencies
+
+For example, all the dependencies of `neovim`:
+
+```
+$ nix-store --query --references  $(nix-instantiate '<nixpkgs>' -A neovim)
+```
