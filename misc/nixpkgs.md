@@ -93,6 +93,8 @@ So we can now proceed with the desired version.
 $ nix-shell -p nodejs-14_x
 ```
 
+Note that you can also search for packages directly in your browser at https://nixos.org/nixos/packages.html?channel=nixpkgs-unstable.
+
 ## List package dependencies
 
 For example, all the dependencies of `neovim`:
