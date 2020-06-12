@@ -17,6 +17,7 @@ in
     direnv # load and unload environments on demand
     exa # a better `ls`
     fd # "find" for files
+    fish # better shell
     fzf # fuzzy find tool
     git # source version control
     gitui # terminal gui for git

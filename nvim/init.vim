@@ -36,6 +36,7 @@ Plug 'skywind3000/asyncrun.vim'                                   " run async co
 Plug 'tmux-plugins/vim-tmux'                                      " syntax highlighting for tmux conf file and more
 Plug 'justinmk/vim-gtfo'                                          " go to terminal or file manager
 Plug 'ap/vim-css-color'                                           " preview css colors
+Plug 'Stautob/vim-fish'                                           " fish shell highlighting
 
 call plug#end()
 
