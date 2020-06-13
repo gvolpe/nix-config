@@ -68,9 +68,9 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 mkdir -p $HOME/.config/terminator
 cp terminator/config $HOME/.config/terminator/.
 
-# Bloop bash autocompletion (not installed with Nix)
-cp bash/bloop.bash $HOME/.bloop.bash
-echo '[ -f ~/.bloop.bash ] && source ~/.bloop.bash' >> $HOME/.bashrc
+# Fish shell configuration
+mkdir -p $HOME/.config/fish/functions/
+cp -R fish/* $HOME/.config/fish/
 
 # Direnv hook
 echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
