@@ -19,7 +19,7 @@ function __bobthefish_prompt_nix -S -d 'Display current language environment'
         echo -ns $nix_glyph ' nix '
     else if test \( -e build.sbt \) -o \( -e build.sc \)
         __bobthefish_start_segment $color_nix
-        echo -ns $scala_glyph ' scala '
+        echo -ns $scala_glyph 'scala '
     end
 
     set_color normal
