@@ -59,4 +59,6 @@ in
     withPython3  = true; # for plugins
   };
 
+  xdg.configFile."nvim/coc-settings.json".source = ./coc-settings.json;
+
 }

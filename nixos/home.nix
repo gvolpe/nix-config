@@ -9,6 +9,8 @@
   # ./program/tmux.nix
   ];
 
+  xdg.enable = true;
+
   home.packages = with pkgs; [
     cachix # nix caching
     exa # a better `ls`
