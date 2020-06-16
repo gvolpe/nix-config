@@ -1,14 +1,14 @@
 " shows list of yanked text (coc-yank plugin)
-"nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
 " ripgrep smartcase (search with case insensitive)
-"let g:rg_command = 'rg --vimgrep -S'
+let g:rg_command = 'rg --vimgrep -S'
 
 " search work under cursor with CtrlSF (it uses ripgrep as the engine)
-"nmap <silent> <M-f> <Plug>CtrlSFCwordPath <CR>
+nmap <silent> <M-f> <Plug>CtrlSFCwordPath <CR>
 
 " open quickfix windows when running AsyncRun
-"let g:asyncrun_open = 8
+let g:asyncrun_open = 8
 
 " airline: status bar at the bottom
 let g:airline_powerline_fonts=1
