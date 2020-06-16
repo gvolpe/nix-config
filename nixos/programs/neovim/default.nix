@@ -28,6 +28,7 @@ let
     vim-hoogle              # Hoogle search (Haskell) in Vim
     vim-nix                 # nix support (highlighting, etc)
     vim-repeat              # repeat plugin commands with (.)
+    vim-ripgrep             # blazing fast search using ripgrep
     vim-scala               # scala plugin
     vim-surround            # quickly edit surroundings (brackets, html tags, etc)
     vim-tmux                # syntax highlighting for tmux conf file and more
