@@ -4,7 +4,9 @@ let
   plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-plugins.nix {};
 
   vimPlugins = with plugins; [
+    asyncrun.vim            # run async commands, show result in quickfix window
     coc-nvim                # LSP client + autocompletion plugin
+    ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
     fzf-vim                 # fuzzy finder
     ghcid                   # ghcid for Haskell
@@ -25,6 +27,7 @@ let
     vim-easymotion          # highlights keys to move quickly
     vim-fish                # fish shell highlighting
     vim-fugitive            # git plugin
+    vim-gtfo                # go to terminal or file manager
     vim-hoogle              # Hoogle search (Haskell) in Vim
     vim-nix                 # nix support (highlighting, etc)
     vim-repeat              # repeat plugin commands with (.)
@@ -32,12 +35,6 @@ let
     vim-scala               # scala plugin
     vim-surround            # quickly edit surroundings (brackets, html tags, etc)
     vim-tmux                # syntax highlighting for tmux conf file and more
-
-    #'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
-    #Valloric/MatchTagAlways'                                    # highlights html enclosing tags
-    #dyng/ctrlsf-vim                                            # edit file in place after searching with ripgrep
-    #skywind3000/asyncrun.vim'                                   # run async commands, show result in quickfix window
-    #justinmk/vim-gtfo'                                          # go to terminal or file manager
   ];
 
   baseConfig    = builtins.readFile ./config.vim;
@@ -55,7 +52,7 @@ in
     viAlias      = true;
     vimAlias     = true;
     vimdiffAlias = true;
-    withNodeJs   = false; # true if coc.nvim is needed
+    withNodeJs   = true; # needed for coc.nvim
     withPython   = true; # for plugins
     withPython3  = true; # for plugins
   };
