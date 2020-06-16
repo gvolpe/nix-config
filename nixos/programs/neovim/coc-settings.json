@@ -1,9 +1,10 @@
 {
   "languageserver": {
-    "metals": {
-      "command": "~/metals/metals-vim",
-      "rootPatterns": ["build.sbt", "build.sc"],
-      "filetypes": ["scala", "sbt", "sc"]
+    "dhall": {
+      "command": "dhall-lsp-server",
+      "filetypes": [
+        "dhall"
+      ]
     },
     "haskell": {
       "command": "ghcide",
@@ -21,6 +22,12 @@
         "hs",
         "lhs",
         "haskell"
+      ]
+    },
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": [
+        "nix"
       ]
     }
   },
