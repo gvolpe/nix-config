@@ -4,32 +4,39 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home = {
-    username = "gvolpe";
-    homeDirectory = "/home/gvolpe";
-    stateVersion = "20.09";
-  };
+  config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    bat # a better `cat`
     cachix # nix caching
     exa # a better `ls`
     fd # "find" for files
-    fish # better shell
-    htop # interactive processes viewer
     ncdu # disk space info (a better du)
     ngrok # secure tunnels to localhost
     prettyping # a nicer ping
     ripgrep # fast grep
     spotify # music source
     tldr # summary of a man page
-    tmux # terminal multiplexer and sessions
     tree # display files in a tree view
 
     # git stuff
-    gitAndTools.diff-so-fancy # git diff with colors  
+    gitAndTools.diff-so-fancy # git diff with colors
     gitAndTools.tig # diff and commit view
+
+    # unfortunate deps
+    nodejs # needed for coc.nvim
   ];
+
+  imports = [
+    ./program/git.nix
+    ./program/neovim.nix
+  # ./program/tmux.nix
+  ];
+
+  home = {
+    username = "gvolpe";
+    homeDirectory = "/home/gvolpe";
+    stateVersion = "20.09";
+  };
 
   # notifications about home-manager news
   news.display = "silent";
@@ -52,45 +59,20 @@
 
     direnv = {
       enable = true;
-      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    fish = {
+      enable = true;
     };
 
     fzf = {
       enable = true;
-      enableBashIntegration = true;
+      enableFishIntegration = true;
     };
 
-    git = {
+    gpg = {
       enable = true;
-      aliases = {
-        amend = "commit --amend -m";
-        br = "branch";
-        co = "checkout";
-        st = "status";
-        ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
-        ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
-        cm = "commit -m";
-        ca = "commit -am";
-        dc = "diff --cached";
-      };
-      extraConfig = {
-        core = {
-          pager = "diff-so-fancy | less --tabs=4 -RFX";
-        };
-        mergetool = {
-          cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
-          prompt = false;
-        };
-      };
-      ignores = [
-        "*.bloop"
-        "*.metals"
-        "*.metals.sbt"
-        "*metals.sbt"
-        "*.direnv"
-      ];
-      userEmail = "volpegabriel@gmail.com";
-      userName = "gvolpe";
     };
 
     htop = {
@@ -102,6 +84,11 @@
     jq = {
       enable = true;
     };
+
+    #obs-studio = {
+      #enable = true;
+      #plugins = [];
+    #};
 
     ssh = {
       enable = true;
