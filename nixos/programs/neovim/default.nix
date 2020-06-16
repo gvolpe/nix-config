@@ -5,7 +5,9 @@ let
 
   vimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
+    coc-metals              # Scala LSP client for CoC
     coc-nvim                # LSP client + autocompletion plugin
+    coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
     fzf-vim                 # fuzzy finder
