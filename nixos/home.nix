@@ -3,6 +3,12 @@
 {
   programs.home-manager.enable = true;
 
+  imports = [
+    ./programs/git/default.nix
+    ./programs/neovim/default.nix
+  # ./program/tmux.nix
+  ];
+
   home.packages = with pkgs; [
     cachix # nix caching
     exa # a better `ls`
@@ -29,12 +35,6 @@
 
     # unfortunate deps
     nodejs # needed for coc.nvim
-  ];
-
-  imports = [
-    ./program/git.nix
-    ./program/neovim.nix
-  # ./program/tmux.nix
   ];
 
   home = {
