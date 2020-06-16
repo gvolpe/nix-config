@@ -32,9 +32,6 @@
     # git stuff
     gitAndTools.diff-so-fancy # git diff with colors
     gitAndTools.tig # diff and commit view
-
-    # unfortunate deps
-    nodejs # needed for coc.nvim
   ];
 
   home = {

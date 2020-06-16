@@ -4,7 +4,7 @@ let
   plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-plugins.nix {};
 
   vimPlugins = with plugins; [
-    asyncrun.vim            # run async commands, show result in quickfix window
+    asyncrun-vim            # run async commands, show result in quickfix window
     coc-nvim                # LSP client + autocompletion plugin
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
