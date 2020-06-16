@@ -8,12 +8,20 @@
     exa # a better `ls`
     fd # "find" for files
     ncdu # disk space info (a better du)
-    ngrok # secure tunnels to localhost
     prettyping # a nicer ping
     ripgrep # fast grep
     spotify # music source
     tldr # summary of a man page
     tree # display files in a tree view
+
+    # fonts
+    (
+      nerdfonts.override {
+        fonts = [
+          "AnonymousPro"
+        ];
+      }
+    )
 
     # git stuff
     gitAndTools.diff-so-fancy # git diff with colors
