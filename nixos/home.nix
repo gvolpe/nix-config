@@ -12,15 +12,16 @@
   xdg.enable = true;
 
   home.packages = with pkgs; [
-    cachix # nix caching
-    exa # a better `ls`
-    fd # "find" for files
-    ncdu # disk space info (a better du)
+    cachix     # nix caching
+    exa        # a better `ls`
+    fd         # "find" for files
+    ncdu       # disk space info (a better du)
     prettyping # a nicer ping
-    ripgrep # fast grep
-    spotify # music source
-    tldr # summary of a man page
-    tree # display files in a tree view
+    ripgrep    # fast grep
+    rnix-lsp   # nix lsp server
+    spotify    # music source
+    tldr       # summary of a man page
+    tree       # display files in a tree view
 
     # fonts
     (
@@ -33,7 +34,7 @@
 
     # git stuff
     gitAndTools.diff-so-fancy # git diff with colors
-    gitAndTools.tig # diff and commit view
+    gitAndTools.tig           # diff and commit view
   ];
 
   home = {
