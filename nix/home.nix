@@ -4,6 +4,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  imports = [
+    ./programs/git.nix
+    ./programs/neovim.nix
+    ./programs/tmux.nix
+  ];
+
   home = {
     username = "gvolpe";
     homeDirectory = "/home/gvolpe";
@@ -31,45 +37,16 @@
 
     direnv = {
       enable = true;
-      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
+
+    fish = {
+      enable = true;
     };
 
     fzf = {
       enable = true;
-      enableBashIntegration = true;
-    };
-
-    git = {
-      enable = true;
-      aliases = {
-        amend = "commit --amend -m";
-        br = "branch";
-        co = "checkout";
-        st = "status";
-        ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
-        ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
-        cm = "commit -m";
-        ca = "commit -am";
-        dc = "diff --cached";
-      };
-      extraConfig = {
-        core = {
-          pager = "diff-so-fancy | less --tabs=4 -RFX";
-        };
-        mergetool = {
-          cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
-          prompt = false;
-        };
-        ignores = [
-          "*.bloop"
-          "*.metals"
-          "*.metals.sbt"
-          "*metals.sbt"
-          "*.direnv"
-        ];
-        userEmail = "volpegabriel@gmail.com";
-        userName = "gvolpe";
-      };
+      enableFishIntegration = true;
     };
 
     gpg = {
@@ -86,20 +63,6 @@
       enable = true;
     };
 
-    # TODO: Migrate init.vim here
-    neovim = {
-      enable = true;
-      extraConfig = ""; # init.vim content here
-      extraPythonPackages = "ps: []";
-      plugins = [];
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      withNodeJs = false; # true if coc.nvim is needed
-      withPython = true; # for plugins
-      withPython3 = true; # for plugins
-    };
-
     obs-studio = {
       enable = true;
       plugins = [];
@@ -107,29 +70,6 @@
 
     ssh = {
       enable = true;
-    };
-
-    # TODO: migrate tmux config
-    tmux = {
-      enable = true;
-      extraConfig = "";
-      keyMode = "vi";
-      plugins = with pkgs; [
-        tmuxPlugins.cpu
-        tmuxPlugins.nordTmux
-        {
-          plugin = tmuxPlugins.resurrect;
-          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-        }
-        {
-          plugin = tmuxPlugins.continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '60' # minutes
-          '';
-        }
-      ];
-      shortcut = "a";
     };
 
   };
