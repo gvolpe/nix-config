@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  vimPlugins = [
+  vimCustomPlugins = with pkgs.vimPlugins; [
     coc-nvim # LSP client + autocompletion plugin
     dhall-vim # Syntax highlighting for Dhall lang
     fzf-vim # fuzzy finder
@@ -343,9 +343,9 @@ in
 {
   programs.neovim = {
     enable = true;
-    extraConfig = vimCustomConfig ++ vimPluginsConfig;
-    extraPythonPackages = "ps: []";
-    plugins = vimPlugins;
+    extraConfig = vimCustomConfig + vimPluginsConfig;
+    # extraPythonPackages = "ps: []";
+    plugins = vimCustomPlugins;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

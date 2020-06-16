@@ -4,10 +4,14 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.packages = [
+    pkgs.gitAndTools.diff-so-fancy
+  ];
+
   imports = [
-    ./programs/git.nix
-    ./programs/neovim.nix
-    ./programs/tmux.nix
+    ./program/git.nix
+    ./program/neovim.nix
+  # ./program/tmux.nix
   ];
 
   home = {
