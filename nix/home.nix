@@ -6,6 +6,7 @@
 
   home.packages = [
     pkgs.gitAndTools.diff-so-fancy
+    pkgs.nodejs # needed for coc.nvim
   ];
 
   imports = [
