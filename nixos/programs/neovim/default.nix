@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  vimPlugins = with pkgs.vimPlugins; [
+  plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-plugins.nix {};
+
+  vimPlugins = with plugins; [
     coc-nvim                # LSP client + autocompletion plugin
     dhall-vim               # Syntax highlighting for Dhall lang
     fzf-vim                 # fuzzy finder
@@ -33,7 +35,6 @@ let
     #'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
     #Valloric/MatchTagAlways'                                    # highlights html enclosing tags
     #dyng/ctrlsf-vim                                            # edit file in place after searching with ripgrep
-    #jremmen/vim-ripgrep'                                        # blazing fast search using ripgrep
     #skywind3000/asyncrun.vim'                                   # run async commands, show result in quickfix window
     #justinmk/vim-gtfo'                                          # go to terminal or file manager
   ];
