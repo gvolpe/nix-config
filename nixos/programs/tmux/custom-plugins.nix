@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
+let
+  buildTmuxPlugin = pkgs.tmuxPlugins.mkDerivation;
+in
 {
-  nord-tmux = pkgs.stdenv.mkDerivation {
-    name = "nord-tmux";
+  nord-tmux = buildTmuxPlugin {
+    pluginName = "nord-tmux";
+    version = "v0.3.0";
     src = builtins.fetchTarball {
       name   = "Nord-Tmux-v0.3.0";
       url    = "https://github.com/arcticicestudio/nord-tmux/archive/v0.3.0.tar.gz";

@@ -7,7 +7,7 @@
     ./programs/fish/default.nix
     ./programs/git/default.nix
     ./programs/neovim/default.nix
-    ./program/tmux.nix
+    ./programs/tmux/default.nix
   ];
 
   xdg.enable = true;

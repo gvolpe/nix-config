@@ -6,11 +6,11 @@ in
 {
   programs.tmux = {
     enable = true;
-    extraConfig = tmuxConfig;
+    extraConfig = "";
     keyMode = "vi";
     plugins = with plugins; [
       cpu
-      nordTmux
+      nord-tmux
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";

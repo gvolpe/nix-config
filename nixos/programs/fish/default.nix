@@ -6,7 +6,7 @@ in
 {
   programs.fish = {
     enable = true;
-    extraConfig = fishConfig;
+    #extraConfig = fishConfig;
     # functions
     # plugins
     shellAliases = {
