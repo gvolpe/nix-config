@@ -25,8 +25,10 @@ in
     shellInit = fzfConfig;
   };
 
+  xdg.configFile."fish/functions/__bobthefish_prompt_nix.fish".source = ./functions/__bobthefish_prompt_nix.fish;
+
   # Hard-coded path where the theme is sourced. Is there a better way to do it?
-  home.activation.fish = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.fish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ln -sf /nix/store/jnz46wgfh3k7mxmiwfjgxy6gzb2gd45z-source/fish_prompt.fish ~/.config/fish/functions/
   '';
 }
