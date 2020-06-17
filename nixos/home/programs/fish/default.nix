@@ -1,27 +1,27 @@
 { config, pkgs, ... }:
 
 let
-  fishFunctions = builtins.readFile ./functions.nix;
-  fishPlugins   = builtins.readFile ./plugins.nix;
+  fishFunctions = pkgs.callPackage ./functions.nix {};
+  fishPlugins   = pkgs.callPackage ./plugins.nix {};
 
   fzfConfig = ''
-    # FZF config
-    set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'"
+    set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'" \n
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
   '';
 in
 {
   programs.fish = {
     enable = true;
-    extraConfig = fzfConfig;
-    functions = fishFunctions;
+    #functions = fishFunctions;
     plugins = fishPlugins;
+    promptInit = "";
     shellAliases = {
-      cat = bat;
-      du = "ncdu --color dark -rr -x";
-      ls = exa;
-      ll = "ls -a";
+      cat  = "bat";
+      du   = "ncdu --color dark -rr -x";
+      ls   = "exa";
+      ll   = "ls -a";
       ".." = "cd ..";
     };
+    shellInit = fzfConfig;
   };
 }
