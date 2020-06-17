@@ -1,18 +1,18 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 # Shows the output of every command
 set +x
 
-# Install Nix
-curl https://nixos.org/nix/install | sh
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+# Switch to the unstable channel
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+sudo nixos-rebuild switch --upgrade
 
-# Configure Nix
-mkdir -p $HOME/.config/nixpkgs && cp nix/config.nix $HOME/.config/nixpkgs/.
+# Nix configuration
+sudo cp nixos/configuration.nix /etc/nixos/
+cp -r nixos/home/* $HOME/.config/nixpkgs/
 
-# Install software
-nix-env -irf nix/packages.nix
-
-# Configure software
-chmod +x scripts/config.sh
-scripts/config.sh
+# Home manager
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+home-manager switch

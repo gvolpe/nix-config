@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 
 # Exit if already in a Tmux session
 [ "$TMUX" == "" ] || exit 0

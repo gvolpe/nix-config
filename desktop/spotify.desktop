@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Terminal=false
-Exec=$HOME/.nix-profile/bin/spotify --force-device-scale-factor=2.0
-Name=Spotify
-Icon=$HOME/.nix-profile/share/icons/hicolor/256x256/apps/spotify-client.png

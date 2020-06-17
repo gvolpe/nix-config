@@ -1,6 +1,12 @@
 dotfiles
 ========
 
-Configuration for all the software I use, ready for a fresh install.
+NixOS configuration files, home-manager, neovim, etc.
 
-🚧 Slowly migrating over to NixOS 🚧
+### Install
+
+On a fresh NixOS installation, run the following command:
+
+```
+./install.sh
+```

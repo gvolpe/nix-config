@@ -29,12 +29,6 @@ echo 'export LOCALE_ARCHIVE="/usr/bin/locale"' >> $HOME/.bashrc
 # Spotify in 4k display
 echo 'alias spotify="$HOME/.nix-profile/bin/spotify --force-device-scale-factor=2.0"' >> $HOME/.bashrc
 
-# Toggle touchpad
-cp scripts/toggle-touchpad.sh $HOME/.
-
-# Git parser
-cat scripts/git-parser >> $HOME/.bashrc
-
 # Overriding common tools like vi, cat and ls
 echo 'alias vi=nvim' >> $HOME/.bashrc
 echo 'alias vim=nvim' >> $HOME/.bashrc
