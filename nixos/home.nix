@@ -4,9 +4,10 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./programs/fish/default.nix
     ./programs/git/default.nix
     ./programs/neovim/default.nix
-  # ./program/tmux.nix
+    ./program/tmux.nix
   ];
 
   xdg.enable = true;
@@ -65,10 +66,6 @@
     direnv = {
       enable = true;
       enableFishIntegration = true;
-    };
-
-    fish = {
-      enable = true;
     };
 
     fzf = {

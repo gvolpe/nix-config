@@ -1,22 +1,22 @@
 { config, pkgs, ... }:
 
 let
-  tmuxConfig = "";
+  plugins = pkgs.tmuxPlugins // pkgs.callPackage ./custom-plugins.nix {};
 in
 {
   programs.tmux = {
     enable = true;
     extraConfig = tmuxConfig;
     keyMode = "vi";
-    plugins = with pkgs; [
-      tmuxPlugins.cpu
-      tmuxPlugins.nordTmux
+    plugins = with plugins; [
+      cpu
+      nordTmux
       {
-        plugin = tmuxPlugins.resurrect;
+        plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
       }
       {
-        plugin = tmuxPlugins.continuum;
+        plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '60' # minutes
