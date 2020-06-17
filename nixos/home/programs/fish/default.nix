@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   fishFunctions = pkgs.callPackage ./functions.nix {};
@@ -12,7 +12,7 @@ in
 {
   programs.fish = {
     enable = true;
-    functions = fishFunctions;
+    #functions = fishFunctions; # not working yet...
     plugins = fishPlugins;
     promptInit = "";
     shellAliases = {
@@ -24,4 +24,9 @@ in
     };
     shellInit = fzfConfig;
   };
+
+  # Hard-coded path where the theme is sourced. Is there a better way to do it?
+  home.activation.fish = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ln -sf /nix/store/jnz46wgfh3k7mxmiwfjgxy6gzb2gd45z-source/fish_prompt.fish ~/.config/fish/functions/
+  '';
 }
