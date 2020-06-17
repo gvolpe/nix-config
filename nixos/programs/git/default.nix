@@ -3,7 +3,8 @@
 let
   gitConfig = {
     core = {
-      pager = "diff-so-fancy | less --tabs=4 -RFX";
+      editor = "nvim";
+      pager  = "diff-so-fancy | less --tabs=4 -RFX";
     };
     mergetool = {
       cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
