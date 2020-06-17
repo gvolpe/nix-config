@@ -12,7 +12,7 @@ in
 {
   programs.fish = {
     enable = true;
-    #functions = fishFunctions;
+    functions = fishFunctions;
     plugins = fishPlugins;
     promptInit = "";
     shellAliases = {
