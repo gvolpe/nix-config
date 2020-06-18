@@ -13,17 +13,18 @@
   xdg.enable = true;
 
   home.packages = with pkgs; [
-    cachix     # nix caching
-    exa        # a better `ls`
-    fd         # "find" for files
-    ncdu       # disk space info (a better du)
-    prettyping # a nicer ping
-    ripgrep    # fast grep
-    rnix-lsp   # nix lsp server
-    slack      # messaging client
-    spotify    # music source
-    tldr       # summary of a man page
-    tree       # display files in a tree view
+    cachix         # nix caching
+    docker-compose # docker manager
+    exa            # a better `ls`
+    fd             # "find" for files
+    ncdu           # disk space info (a better du)
+    prettyping     # a nicer ping
+    ripgrep        # fast grep
+    rnix-lsp       # nix lsp server
+    slack          # messaging client
+    spotify        # music source
+    tldr           # summary of a man page
+    tree           # display files in a tree view
 
     # fonts
     (

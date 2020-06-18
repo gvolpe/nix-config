@@ -79,6 +79,12 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -105,7 +111,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
   # Allow unfree packages
