@@ -6,6 +6,14 @@ let
     set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'" \n
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
   '';
+  themeConfig = ''
+    set -g theme_display_date no
+    set -g theme_nerd_fonts yes
+    set -g theme_display_git_master_branch no
+    set -g theme_nerd_fonts yes
+    set -g theme_newline_cursor yes
+    set -g theme_color_scheme solarized
+  '';
 in
 {
   programs.fish = {
@@ -19,7 +27,7 @@ in
       ll   = "ls -a";
       ".." = "cd ..";
     };
-    shellInit = fzfConfig;
+    shellInit = fzfConfig + themeConfig;
   };
 
   # Hard-coded path where the theme is sourced. Is there a better way to do it?
