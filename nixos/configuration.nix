@@ -6,18 +6,25 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
+  boot = {
+    loader = {
+      grub = {
+        device = "/dev/sda"; # or "nodev" for efi only
+        enable = true;
+        version = 2;
+      };
+    };
+  };
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -25,8 +32,10 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s3.useDHCP = true;
+  networking = {
+    useDHCP = false;
+    interfaces.enp0s3.useDHCP = true;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -45,7 +54,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    chromium wget vim
+    chromium
+    wget
+    vim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -54,13 +65,10 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  #   pinentryFlavor = "gnome3";
+    pinentryFlavor = "gnome3";
   };
 
   # List services that you want to enable:
-  
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -76,17 +84,23 @@
   hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services = {
+    gnome3.chrome-gnome-shell.enable = true;
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+    # Enable the OpenSSH daemon.
+    openssh.enable = true;
 
-  # Enable the Pantheon Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.pantheon.enable = true;
-  services.pantheon.contractor.enable = true;
+    xserver = {
+      enable = true;
+      layout = "us";
+
+      # Enable touchpad support.
+      libinput.enable = true;
+      # Enable the Gnome3 desktop manager
+      displayManager.lightdm.enable = true;
+      desktopManager.gnome3.enable = true;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {

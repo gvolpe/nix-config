@@ -20,6 +20,7 @@
     prettyping # a nicer ping
     ripgrep    # fast grep
     rnix-lsp   # nix lsp server
+    slack      # messaging client
     spotify    # music source
     tldr       # summary of a man page
     tree       # display files in a tree view
