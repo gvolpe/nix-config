@@ -30,9 +30,10 @@ in
     shellInit = fzfConfig + themeConfig;
   };
 
-  # Hard-coded path where the theme is sourced. Is there a better way to do it?
-  # Find it by grepping the nix store: rg 'gvolpe/theme-bobthefish' /nix/store/
+  # Hack to get the prompt of the sourced theme. Is there a better way to do this?
   home.activation.fish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ln -sf /nix/store/fkp03ghyl8kgbfyvwaxijibpvkzfnj7f-source/fish_prompt.fish ~/.config/fish/functions/
+    prompt=$(find /nix/store -maxdepth 2 -name 'fish_prompt.fish' | tail -1)
+    mkdir -p ~/.config/fish/functions/
+    ln -sf $prompt ~/.config/fish/functions/
   '';
 }
