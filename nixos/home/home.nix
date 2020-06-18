@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  dconfSettings = import ./dconf.nix;
+in
 {
   programs.home-manager.enable = true;
 
@@ -37,7 +40,7 @@
 
     # git stuff
     gitAndTools.diff-so-fancy # git diff with colors
-    gitAndTools.tig           # diff and commit view
+    gitAndTools.tig # diff and commit view
   ];
 
   home = {
@@ -48,6 +51,9 @@
 
   # notifications about home-manager news
   news.display = "silent";
+
+  # Gnome3 settings via dconf
+  dconf.settings = dconfSettings;
 
   programs = {
 
@@ -90,8 +96,8 @@
     };
 
     #obs-studio = {
-      #enable = true;
-      #plugins = [];
+    #enable = true;
+    #plugins = [];
     #};
 
     ssh = {
