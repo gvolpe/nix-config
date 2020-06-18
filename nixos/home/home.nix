@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
-let
-  dconfSettings = import ./dconf.nix;
-in
 {
   programs.home-manager.enable = true;
 
   imports = [
+    ./dconf.nix
     ./programs/fish/default.nix
     ./programs/git/default.nix
     ./programs/neovim/default.nix
@@ -51,9 +49,6 @@ in
 
   # notifications about home-manager news
   news.display = "silent";
-
-  # Gnome3 settings via dconf
-  dconf.settings = dconfSettings;
 
   programs = {
 
