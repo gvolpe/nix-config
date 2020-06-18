@@ -31,7 +31,8 @@ in
   };
 
   # Hard-coded path where the theme is sourced. Is there a better way to do it?
+  # Find it by grepping the nix store: rg 'gvolpe/theme-bobthefish' /nix/store/
   home.activation.fish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ln -sf /nix/store/wi32bbh5jng7cm701c2zkmj0vab2l2fn-source/fish_prompt.fish ~/.config/fish/functions/
+    ln -sf /nix/store/fkp03ghyl8kgbfyvwaxijibpvkzfnj7f-source/fish_prompt.fish ~/.config/fish/functions/
   '';
 }
