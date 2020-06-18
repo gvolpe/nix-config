@@ -12,10 +12,12 @@ sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 
 # Nix configuration
 sudo cp nixos/configuration.nix /etc/nixos/
+mkdir -p $HOME/.config/nixpkgs/
 cp -r nixos/home/* $HOME/.config/nixpkgs/
 
 # Home manager - Pin to master on June 15th of 2020
 nix-channel --add https://github.com/rycee/home-manager/archive/ad4f33c.tar.gz home-manager
 nix-channel --update
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 nix-shell '<home-manager>' -A install
 home-manager switch
