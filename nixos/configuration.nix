@@ -112,6 +112,7 @@
   users.users.gvolpe = {
     isNormalUser = true;
     extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
