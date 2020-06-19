@@ -1,158 +1,11 @@
-[apps/update-manager]
-first-run=false
-launch-count=6
-launch-time=int64 1585129654
-show-details=true
-window-height=400
-window-width=645
-
-[ca/desrt/dconf-editor]
-saved-pathbar-path='/org/gnome/settings-daemon/plugins/media-keys/stop-static'
-saved-view='/org/gnome/settings-daemon/plugins/media-keys/'
-show-warning=false
-window-height=500
-window-is-maximized=true
-window-width=540
-
-[com/ubuntu/update-notifier]
-release-check-time=uint32 1584895584
-
-[desktop/ibus/general]
-preload-engines=['xkb:us::eng']
-version='1.5.21'
-
-[desktop/ibus/panel/emoji]
-hotkey=@as []
-
-[org/gnome/Totem]
-active-plugins=['save-file', 'screensaver', 'movie-properties', 'skipto', 'media-player-keys', 'rotation', 'open-directory', 'vimeo', 'screenshot', 'variable-rate', 'apple-trailers', 'recent', 'autoload-subtitles']
-subtitle-encoding='UTF-8'
-
-[org/gnome/calculator]
-accuracy=9
-angle-units='degrees'
-base=10
-button-mode='basic'
-number-format='automatic'
-show-thousands=false
-show-zeroes=false
-source-currency=''
-source-units='degree'
-target-currency=''
-target-units='radian'
-window-position=(1291, 406)
-word-size=64
-
-[org/gnome/control-center]
-last-panel='sound'
-
-[org/gnome/deja-dup]
-backend='google'
-prompt-check='2020-03-29T17:12:50.955331Z'
-
-[org/gnome/deja-dup/file]
-migrated=true
-
-[org/gnome/desktop/app-folders]
-folder-children=['Utilities', 'Sundry', 'YaST']
-
-[org/gnome/desktop/app-folders/folders/Sundry]
-apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
-categories=['X-GNOME-Sundry']
-name='X-GNOME-Sundry.directory'
-translate=true
-
-[org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
-categories=['X-GNOME-Utilities']
-name='X-GNOME-Utilities.directory'
-translate=true
-
-[org/gnome/desktop/app-folders/folders/YaST]
-categories=['X-SuSE-YaST']
-name='suse-yast.directory'
-translate=true
-
-[org/gnome/desktop/background]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///home/gvolpe/.local/share/backgrounds/2020-02-26-23-29-04-haskell-2.jpg'
-primary-color='#000000000000'
-secondary-color='#000000000000'
-
 [org/gnome/desktop/input-sources]
 sources=[('xkb', 'us')]
 xkb-options=['caps:ctrl_modifier']
-
-[org/gnome/desktop/interface]
-clock-show-weekday=true
-enable-hot-corners=false
-gtk-im-module='gtk-im-context-simple'
-show-battery-percentage=true
 
 [org/gnome/desktop/media-handling]
 autorun-x-content-ignore=@as []
 autorun-x-content-open-folder=@as []
 autorun-x-content-start-app=['x-content/unix-software']
-
-[org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'brave-browser', 'gnome-network-panel', 'spotify', 'update-manager', 'calibre-gui', 'gimp', 'transmission-gtk', 'org-gnome-shell-portalhelper', 'telegramdesktop', 'gnome-calculator-gnome-calculator', 'org-gnome-software', 'spotify-spotify', 'eog', 'org-gnome-dejadup', 'qasmixer']
-
-[org/gnome/desktop/notifications/application/brave-browser]
-application-id='brave-browser.desktop'
-
-[org/gnome/desktop/notifications/application/calibre-gui]
-application-id='calibre-gui.desktop'
-
-[org/gnome/desktop/notifications/application/eog]
-application-id='eog.desktop'
-
-[org/gnome/desktop/notifications/application/gimp]
-application-id='gimp.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-calculator-gnome-calculator]
-application-id='gnome-calculator_gnome-calculator.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-network-panel]
-application-id='gnome-network-panel.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-dejadup]
-application-id='org.gnome.DejaDup.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-nautilus]
-application-id='org.gnome.Nautilus.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-shell-portalhelper]
-application-id='org.gnome.Shell.PortalHelper.desktop'
-
-[org/gnome/desktop/notifications/application/org-gnome-software]
-application-id='org.gnome.Software.desktop'
-
-[org/gnome/desktop/notifications/application/qasmixer]
-application-id='qasmixer.desktop'
-
-[org/gnome/desktop/notifications/application/spotify-spotify]
-application-id='spotify_spotify.desktop'
-
-[org/gnome/desktop/notifications/application/spotify]
-application-id='spotify.desktop'
-
-[org/gnome/desktop/notifications/application/telegramdesktop]
-application-id='telegramdesktop.desktop'
-
-[org/gnome/desktop/notifications/application/transmission-gtk]
-application-id='transmission-gtk.desktop'
-
-[org/gnome/desktop/notifications/application/update-manager]
-application-id='update-manager.desktop'
-
-[org/gnome/desktop/peripherals/mouse]
-natural-scroll=false
-speed=-0.5
-
-[org/gnome/desktop/peripherals/touchpad]
-tap-to-click=false
-two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/privacy]
 disable-microphone=false
@@ -183,10 +36,6 @@ close=['<Super>w']
 [org/gnome/desktop/wm/preferences]
 button-layout='close,minimize,maximize:'
 num-workspaces=4
-
-[org/gnome/eog/view]
-background-color='rgb(0,0,0)'
-use-background-color=true
 
 [org/gnome/evince/default]
 window-ratio=(2.6438945318117049, 0.71214998585801448)
@@ -299,31 +148,6 @@ sleep-inactive-battery-type='nothing'
 [org/gnome/settings-daemon/plugins/xsettings]
 hinting='slight'
 
-[org/gnome/shell]
-command-history=['r']
-enabled-extensions=['workspace-grid@mathematical.coffee.gmail.com', 'wsmatrix@martin.zurowietz.de', 'ubuntu-dock@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['brave-browser.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'calibre-gui.desktop', 'gimp.desktop', 'transmission-gtk.desktop', 'insomnia.desktop', 'spotify.desktop']
-
-[org/gnome/shell/extensions/dash-to-dock]
-dock-fixed=false
-dock-position='BOTTOM'
-
-[org/gnome/shell/extensions/desktop-icons]
-show-home=false
-show-trash=false
-
-[org/gnome/shell/extensions/workspace-grid]
-num-columns=2
-
-[org/gnome/shell/extensions/wsmatrix]
-num-columns=2
-
-[org/gnome/software]
-check-timestamp=int64 1585554212
-
-[org/gnome/system/location]
-enabled=false
-
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
@@ -337,6 +161,3 @@ sort-order='ascending'
 type-format='category'
 window-position=(358, 67)
 window-size=(1203, 932)
-
-[system/locale]
-region='en_GB.UTF-8'

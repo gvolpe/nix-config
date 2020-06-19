@@ -4,12 +4,12 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./dconf.nix
-    ./programs/fish/default.nix
     ./programs/git/default.nix
+    ./programs/gnome/dconf.nix
+    ./programs/fish/default.nix
     ./programs/neovim/default.nix
-    ./programs/tmux/default.nix
     ./programs/terminator/default.nix
+    ./programs/tmux/default.nix
   ];
 
   xdg.enable = true;
