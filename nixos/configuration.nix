@@ -42,7 +42,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -96,6 +96,14 @@
     # Enable the OpenSSH daemon.
     openssh.enable = true;
 
+    # CR Packet VPN
+    openvpn.servers = {
+      packetVpn = {
+        config = '' config /root/nixos/openvpn/cr-packet-ewr1.conf '';
+      };
+    };
+
+    # GUI interface
     xserver = {
       enable = true;
       layout = "us";
