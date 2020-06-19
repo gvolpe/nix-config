@@ -9,6 +9,7 @@
     ./programs/git/default.nix
     ./programs/neovim/default.nix
     ./programs/tmux/default.nix
+    ./programs/terminator/default.nix
   ];
 
   xdg.enable = true;

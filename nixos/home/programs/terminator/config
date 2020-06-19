@@ -1,0 +1,27 @@
+[global_config]
+  window_state = maximise
+  suppress_multiple_term_dialog = True
+[keybindings]
+  go_next = <Primary>Tab
+  go_prev = <Primary><Shift>Tab
+  split_vert = <Primary><Shift>e
+  search = <Super>f
+  layout_launcher = <Super>grave
+  help = None
+[profiles]
+  [[default]]
+    background_darkness = 0.75
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    show_titlebar = False
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
