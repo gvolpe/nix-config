@@ -14,6 +14,9 @@ let
     set -g theme_newline_cursor yes
     set -g theme_color_scheme solarized
   '';
+  hooks = ''
+    eval (direnv hook fish)
+  '';
 in
 {
   programs.fish = {
@@ -27,7 +30,7 @@ in
       ll   = "ls -a";
       ".." = "cd ..";
     };
-    shellInit = fzfConfig + themeConfig;
+    shellInit = fzfConfig + themeConfig + hooks;
   };
 
   # Hack to get the prompt of the sourced theme. Is there a better way to do this?
