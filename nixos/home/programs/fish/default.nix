@@ -29,6 +29,7 @@ in
       ls   = "exa";
       ll   = "ls -a";
       ".." = "cd ..";
+      ping = "prettyping";
     };
     shellInit = fzfConfig + themeConfig + hooks;
   };

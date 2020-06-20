@@ -99,7 +99,9 @@
     # CR Packet VPN
     openvpn.servers = {
       packetVpn = {
-        config = '' config /root/nixos/openvpn/cr-packet-ewr1.conf '';
+        config = '' TODO '';
+        autoStart = false;
+        updateResolvConf = true;
       };
     };
 
