@@ -15,7 +15,7 @@
   boot = {
     loader = {
       grub = {
-        device = "/dev/sda"; # or "nodev" for efi only
+        device = "/dev/nvme0n1"; # or "nodev" for efi only
         enable = true;
         version = 2;
       };
@@ -33,8 +33,9 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking = {
+    interfaces.wlp2s0.useDHCP = true;
+    networkmanager.enable = true;  # Enables wireless support via network manager.
     useDHCP = false;
-    interfaces.enp0s3.useDHCP = true;
   };
 
   # Configure network proxy if necessary
@@ -74,11 +75,12 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
+  # Enable Docker support.
   virtualisation = {
     docker = {
       enable = true;
@@ -91,19 +93,21 @@
 
   # Enable the X11 windowing system.
   services = {
+    # Gnome3 config
+    dbus.packages = [ pkgs.gnome3.dconf ];
     gnome3.chrome-gnome-shell.enable = true;
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
 
     # CR Packet VPN
-    openvpn.servers = {
-      packetVpn = {
-        config = '' TODO '';
-        autoStart = false;
-        updateResolvConf = true;
-      };
-    };
+#    openvpn.servers = {
+#      packetVpn = {
+#        config = '' TODO '';
+#        autoStart = false;
+#        updateResolvConf = true;
+#      };
+#    };
 
     # GUI interface
     xserver = {
@@ -112,6 +116,7 @@
 
       # Enable touchpad support.
       libinput.enable = true;
+
       # Enable the Gnome3 desktop manager
       displayManager.lightdm.enable = true;
       desktopManager.gnome3.enable = true;
@@ -123,7 +128,6 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    initialHashedPassword = "test";
     extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
