@@ -56,6 +56,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     chromium
+    gnomeExtensions.appindicator
+#    gnomeExtensions.topicons-plus # system tray (broken)
     wget
     vim
   ];
@@ -96,6 +98,7 @@
     # Gnome3 config
     dbus.packages = [ pkgs.gnome3.dconf ];
     gnome3.chrome-gnome-shell.enable = true;
+    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -118,7 +121,7 @@
       libinput.enable = true;
 
       # Enable the Gnome3 desktop manager
-      displayManager.lightdm.enable = true;
+      displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
     };
   };
