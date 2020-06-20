@@ -116,9 +116,12 @@
     };
   };
 
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
+    initialHashedPassword = "test";
     extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
