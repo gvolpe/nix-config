@@ -16,6 +16,9 @@ let
     tldr           # summary of a man page
     tree           # display files in a tree view
 
+    # gnome3
+    gnome3.gnome-tweak-tool
+
     # fonts
     (
       nerdfonts.override {
@@ -45,7 +48,7 @@ in
 
   imports = [
     ./programs/git/default.nix
-    ./programs/gnome/dconf.nix
+    #./programs/gnome/dconf.nix # only for fresh install for now
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/sbt/default.nix
@@ -79,6 +82,7 @@ in
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
         "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
+        "gphhapmejobijbbhgpjhcjognlahblep" # gnome workspace grid extension
       ];
     };
 
@@ -117,10 +121,12 @@ in
 
   };
 
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
+  services = {
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 1800;
+      enableSshSupport = true;
+    };
   };
 
 }

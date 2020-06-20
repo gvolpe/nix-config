@@ -16,6 +16,7 @@ let
   '';
   hooks = ''
     eval (direnv hook fish)
+    clear
   '';
 in
 {
