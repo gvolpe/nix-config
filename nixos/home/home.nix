@@ -6,6 +6,7 @@ let
     docker-compose # docker manager
     exa            # a better `ls`
     fd             # "find" for files
+    k9s            # k8s pods manager
     ncdu           # disk space info (a better du)
     prettyping     # a nicer ping
     ripgrep        # fast grep
