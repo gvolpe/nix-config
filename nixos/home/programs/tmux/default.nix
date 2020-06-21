@@ -14,7 +14,7 @@ in
     keyMode = "vi";
     plugins = with plugins; [
       cpu
-      nord-tmux
+      nord # theme
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";
