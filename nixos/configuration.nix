@@ -30,11 +30,16 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking = {
-    networkmanager.enable = true;  # Enables wireless support via network manager.
+    # Enables wireless support and openvpn via network manager.
+    networkmanager = {
+      enable = true;  
+      packages = [ pkgs.networkmanager_openvpn ];
+    };
+
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
     useDHCP = false;
   };
 
@@ -103,15 +108,6 @@
     # Enable the OpenSSH daemon.
     openssh.enable = true;
 
-    # CR Packet VPN
-#    openvpn.servers = {
-#      packetVpn = {
-#        config = '' TODO '';
-#        autoStart = false;
-#        updateResolvConf = true;
-#      };
-#    };
-
     # GUI interface
     xserver = {
       enable = true;
@@ -131,7 +127,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "docker" "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
 
