@@ -12,6 +12,7 @@ sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 
 # Nix configuration
 sudo cp nixos/configuration.nix /etc/nixos/
+sudo cp nixos/machine/* /etc/nixos/
 mkdir -p $HOME/.config/nixpkgs/
 cp -r nixos/home/* $HOME/.config/nixpkgs/
 
