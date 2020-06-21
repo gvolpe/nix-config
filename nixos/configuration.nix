@@ -9,13 +9,14 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Machine-specific configuration
+      ./dell-xps.nix
     ];
 
   # Use the GRUB 2 boot loader.
   boot = {
     loader = {
       grub = {
-        device = "/dev/nvme0n1"; # or "nodev" for efi only
         enable = true;
         version = 2;
       };
@@ -33,7 +34,6 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking = {
-    interfaces.wlp2s0.useDHCP = true;
     networkmanager.enable = true;  # Enables wireless support via network manager.
     useDHCP = false;
   };
