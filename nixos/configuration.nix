@@ -4,6 +4,13 @@
 
 { config, pkgs, ... }:
 
+let
+  customFonts = pkgs.nerdfonts.override {
+    fonts = [
+      "AnonymousPro"
+    ];
+  };
+in  
 {
   imports =
     [
@@ -126,6 +133,7 @@
   fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
+    customFonts
   ];
 
   programs.fish.enable = true;

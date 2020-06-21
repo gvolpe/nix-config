@@ -21,15 +21,6 @@ let
     # desktop look & feel
     gnome3.gnome-tweak-tool
     gnome3.gnome-shell-extensions
-
-    # fonts
-    (
-      nerdfonts.override {
-        fonts = [
-          "AnonymousPro"
-        ];
-      }
-    )
   ];
 
   gitPkgs = with pkgs; [
