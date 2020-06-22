@@ -68,7 +68,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     chromium
-    gnomeExtensions.appindicator
+#    gnomeExtensions.appindicator
 #    gnomeExtensions.topicons-plus # system tray (broken)
     wget
     vim
@@ -109,7 +109,7 @@ in
   services = {
     # Gnome3 config
     dbus.packages = [ pkgs.gnome3.dconf ];
-    gnome3.chrome-gnome-shell.enable = true;
+    #gnome3.chrome-gnome-shell.enable = true;
     udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
 
     # Enable the OpenSSH daemon.

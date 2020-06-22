@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stdenv, ... }:
 
 let
+  customGnome3Ext = pkgs.callPackage ./programs/gnome/extensions.nix {};
+
   defaultPkgs = with pkgs; [
     cachix         # nix caching
     docker-compose # docker manager
@@ -20,7 +22,9 @@ let
 
     # desktop look & feel
     gnome3.gnome-tweak-tool
-    gnome3.gnome-shell-extensions
+    customGnome3Ext.dash-to-dock
+    customGnome3Ext.timepp
+    customGnome3Ext.topicons-plus
   ];
 
   gitPkgs = with pkgs; [
@@ -42,7 +46,7 @@ in
 
   imports = [
     ./programs/git/default.nix
-    #./programs/gnome/dconf.nix # only for fresh install for now
+    ./programs/gnome/dconf.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/sbt/default.nix
@@ -88,6 +92,10 @@ in
     fzf = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    gnome-terminal = {
+      enable = false;
     };
 
     gpg = {
