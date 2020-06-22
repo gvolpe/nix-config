@@ -62,14 +62,6 @@ in
     username = "gvolpe";
     homeDirectory = "/home/gvolpe";
     stateVersion = "20.09";
-
-    # Set user's profile picture for gnome3 (TODO: find a better way to do it as root)
-    activation = {
-      userPicture = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        sudo cp ~/.config/nixpkgs/gvolpe.png /var/lib/AccountsService/icons/gvolpe
-        sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
-      '';
-    };
   };
 
   # notifications about home-manager news

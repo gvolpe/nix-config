@@ -23,3 +23,7 @@ export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 nix-shell '<home-manager>' -A install
 cp nixos/home/nixos.png $HOME/Pictures/
 home-manager switch
+
+# Set user's profile picture for Gnome3
+sudo cp nixos/home/gvolpe.png /var/lib/AccountsService/icons/gvolpe
+sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
