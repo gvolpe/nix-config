@@ -7,7 +7,7 @@
 let
   customFonts = pkgs.nerdfonts.override {
     fonts = [
-      "AnonymousPro"
+      "JetBrainsMono"
     ];
   };
 in  
@@ -131,8 +131,6 @@ in
 
   # Making fonts accessible to applications.
   fonts.fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
     customFonts
   ];
 
