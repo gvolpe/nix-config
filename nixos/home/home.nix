@@ -33,12 +33,13 @@ let
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
-    brittany      # code formatter
-    cabal2nix     # convert cabal projects to nix
-    cabal-install # package manager
-    ghc           # compiler
-    ghcide        # haskell IDE
-    hoogle        # documentation
+    binutils-unwrapped # fixes the `ar` error required by cabal
+    brittany           # code formatter
+    cabal2nix          # convert cabal projects to nix
+    cabal-install      # package manager
+    ghc                # compiler
+    ghcide             # haskell IDE
+    hoogle             # documentation
   ];
 in
 {
