@@ -9,36 +9,36 @@ in
   dconf.settings = {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
-      picture-options = "zoom";
-      picture-uri = "file:///home/gvolpe/Pictures/nixos.png";
-      primary-color = "#000000000000";
-      secondary-color = "#000000000000";
+      picture-options    = "zoom";
+      picture-uri        = "file:///home/gvolpe/Pictures/nixos.png";
+      primary-color      = "#000000000000";
+      secondary-color    = "#000000000000";
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources = [ inputSrc ];
+      sources     = [ inputSrc ];
       xkb-options = [ " terminate:ctrl_alt_bksp " " lv3:ralt_switch " " caps:ctrl_modifier " ];
     };
 
     " org/gnome/desktop/interface " = {
-      clock-show-weekday = true;
-      document-font-name = " JetBrainsMono Nerd Font 11 ";
-      enable-hot-corners = false;
-      font-name = " JetBrainsMono Nerd Font 11 ";
-      gtk-im-module = " gtk-im-context-simple ";
-      gtk-theme = " Adwaita-dark ";
-      icon-theme = " Adwaita ";
-      monospace-font-name = " JetBrainsMono Nerd Font 10 ";
+      clock-show-weekday      = true;
+      document-font-name      = " JetBrainsMono Nerd Font 11 ";
+      enable-hot-corners      = false;
+      font-name               = " JetBrainsMono Nerd Font 11 ";
+      gtk-im-module           = " gtk-im-context-simple ";
+      gtk-theme               = " Adwaita-dark ";
+      icon-theme              = " Adwaita ";
+      monospace-font-name     = " JetBrainsMono Nerd Font 10 ";
       show-battery-percentage = true;
     };
 
     " org/gnome/desktop/peripherals/mouse " = {
       natural-scroll = false;
-      speed = -0.5;
+      speed          = -0.5;
     };
 
     " org/gnome/desktop/peripherals/touchpad " = {
-      tap-to-click = false;
+      tap-to-click                 = false;
       two-finger-scrolling-enabled = true;
     };
 
@@ -48,7 +48,7 @@ in
 
     " org/gnome/desktop/sound " = {
       allow-volume-above-100-percent = true;
-      event-sounds = true;
+      event-sounds                   = true;
     };
 
     " org/gnome/desktop/wm/keybindings " = {
@@ -56,8 +56,8 @@ in
     };
 
     " org/gnome/desktop/wm/preferences " = {
-      button-layout = " close,minimize,maximize:";
-      titlebar-font = "JetBrainsMono Nerd Font Mono 11";
+      button-layout   = " close,minimize,maximize:";
+      titlebar-font   = "JetBrainsMono Nerd Font Mono 11";
       workspace-names = "@as []";
     };
 
@@ -67,9 +67,9 @@ in
     };
 
     "org/gnome/nautilus/preferences" = {
-      default-folder-viewer = "icon-view";
+      default-folder-viewer   = "icon-view";
       search-filter-time-type = "last_modified";
-      search-view = "list-view";
+      search-view             = "list-view";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -83,7 +83,7 @@ in
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
+      sleep-inactive-ac-type      = "nothing";
       sleep-inactive-battery-type = "nothing";
     };
 
@@ -102,10 +102,8 @@ in
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "dash-to-dock@micxgx.gmail.com"
-        #"dash-to-dock@micheleg"
         "timepp@zagortenay333"
         "TopIcons@phocean.net"
-        #"topicons-plus@phocean"
       ];
       favorite-apps = [
         "chromium-browser.desktop"
@@ -119,25 +117,25 @@ in
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
-      background-opacity = 0.80000000000000004;
-      custom-theme-shrink = false;
-      dash-max-icon-size = 48;
-      dock-fixed = false;
-      dock-position = "BOTTOM";
-      extend-height = false;
-      force-straight-corner = false;
-      height-fraction = 0.90000000000000002;
-      hot-keys = false;
-      icon-size-fixed = false;
-      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
-      isolate-workspaces = true;
+      background-opacity      = 0.80000000000000004;
+      custom-theme-shrink     = false;
+      dash-max-icon-size      = 48;
+      dock-fixed              = false;
+      dock-position           = "BOTTOM";
+      extend-height           = false;
+      force-straight-corner   = false;
+      height-fraction         = 0.90000000000000002;
+      hot-keys                = false;
+      icon-size-fixed         = false;
+      intellihide-mode        = "FOCUS_APPLICATION_WINDOWS";
+      isolate-workspaces      = true;
       running-indicator-style = "DEFAULT";
-      show-trash = false;
-      transparency-mode = "DEFAULT";
+      show-trash              = false;
+      transparency-mode       = "DEFAULT";
     };
 
     "org/gnome/shell/extensions/desktop-icons" = {
-      show-home = false;
+      show-home  = false;
       show-trash = false;
     };
 

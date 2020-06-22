@@ -6,7 +6,6 @@ let
     , version
     , namePrefix ? "gnome-shell-extension-"
     , namePostfix ? "-${version}"
-    , makeFlags ? [ "INSTALLBASE=$(out)/share/gnome-shell/extensions" ]
     , src
     , meta
     , ...
@@ -31,6 +30,8 @@ rec {
       sha256 = "17a4fgl7p7f7hhwxjl0h4ay1z6r1myn59c1javgg9zfb2l3qf427";
     };
 
+    makeFlags = [ "INSTALLBASE=$(out)/share/gnome-shell/extensions" ];
+
     nativeBuildInputs = [ glib gettext ];
 
     meta = with stdenv.lib; {
@@ -54,8 +55,6 @@ rec {
 
     uuid = "timepp@zagortenay333";
 
-    makeFlags = [];
-
     installPhase = ''
       mkdir -p $out/share/gnome-shell/extensions/${uuid}
       cp -r . $out/share/gnome-shell/extensions/${uuid}
@@ -76,6 +75,8 @@ rec {
     buildInputs = [ glib ];
 
     nativeBuildInputs = [ gettext ];
+
+    makeFlags = [ "INSTALL_PATH=$(out)/share/gnome-shell/extensions" ];
 
     src = fetchFromGitHub {
       owner  = "phocean";
