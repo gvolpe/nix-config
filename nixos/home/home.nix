@@ -20,6 +20,9 @@ let
     tldr           # summary of a man page
     tree           # display files in a tree view
 
+    # fixes the `ar` error required by cabal
+    binutils-unwrapped
+
     # desktop look & feel
     gnome3.gnome-tweak-tool
     customGnome3Ext.dash-to-dock
@@ -33,13 +36,12 @@ let
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
-    binutils-unwrapped # fixes the `ar` error required by cabal
-    brittany           # code formatter
-    cabal2nix          # convert cabal projects to nix
-    cabal-install      # package manager
-    ghc                # compiler
-    ghcide             # haskell IDE
-    hoogle             # documentation
+    brittany      # code formatter
+    cabal2nix     # convert cabal projects to nix
+    cabal-install # package manager
+    ghc           # compiler
+    ghcide        # haskell IDE
+    hoogle        # documentation
   ];
 in
 {

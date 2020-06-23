@@ -7,9 +7,10 @@ let
       pager  = "diff-so-fancy | less --tabs=4 -RFX";
     };
     mergetool = {
-      cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+      cmd    = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
       prompt = false;
     };
+    pull.rebase = false;
   };
 in
 {
@@ -33,6 +34,7 @@ in
       "*.metals.sbt"
       "*metals.sbt"
       "*.direnv"
+      "*.envrc" # there is lorri, nix-direnv & simple direnv; let people decide
     ];
     userEmail = "volpegabriel@gmail.com";
     userName = "gvolpe";
