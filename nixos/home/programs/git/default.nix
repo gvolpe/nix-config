@@ -35,6 +35,7 @@ in
       "*metals.sbt"
       "*.direnv"
       "*.envrc" # there is lorri, nix-direnv & simple direnv; let people decide
+      "*.mill-version" # used by metals
     ];
     userEmail = "volpegabriel@gmail.com";
     userName = "gvolpe";
