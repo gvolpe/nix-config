@@ -67,11 +67,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    chromium
-#    gnomeExtensions.appindicator
-#    gnomeExtensions.topicons-plus # system tray (broken)
     wget
-    vim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
