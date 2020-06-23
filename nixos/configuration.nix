@@ -146,6 +146,12 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Avoid unwanted garbage collection when using nix-direnv
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

@@ -87,6 +87,7 @@ in
     direnv = {
       enable = true;
       enableFishIntegration = true;
+      enableNixDirenvIntegration = true;
     };
 
     fzf = {
