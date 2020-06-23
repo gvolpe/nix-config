@@ -22,17 +22,23 @@ let
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
-
-    # desktop look & feel
-    gnome3.gnome-tweak-tool
-    customGnome3Ext.dash-to-dock
-    customGnome3Ext.timepp
-    customGnome3Ext.topicons-plus
   ];
 
   gitPkgs = with pkgs; [
     gitAndTools.diff-so-fancy # git diff with colors
     gitAndTools.tig           # diff and commit view
+  ];
+
+  gnomePkgs = with pkgs.gnome3; [
+    # gnome3 apps
+    eog    # image viewer
+    evince # pdf reader
+
+    # desktop look & feel
+    gnome-tweak-tool
+    customGnome3Ext.dash-to-dock
+    customGnome3Ext.timepp
+    customGnome3Ext.topicons-plus
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -59,7 +65,7 @@ in
 
   xdg.enable = true;
 
-  home.packages = defaultPkgs ++ gitPkgs ++ haskellPkgs;
+  home.packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs;
 
   home = {
     username = "gvolpe";
