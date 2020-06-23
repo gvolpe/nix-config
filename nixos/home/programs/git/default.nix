@@ -6,6 +6,7 @@ let
       editor = "nvim";
       pager  = "diff-so-fancy | less --tabs=4 -RFX";
     };
+    merge.tool = "vimdiff";
     mergetool = {
       cmd    = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
       prompt = false;
