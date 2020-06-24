@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   customFonts = pkgs.nerdfonts.override {
@@ -10,7 +10,19 @@ let
       "JetBrainsMono"
     ];
   };
-in  
+
+#  waylandPkg = builtins.fetchTarball {  
+#    url = "https://github.com/colemickens/nixpkgs-wayland/archive/master.tar.gz";
+#    sha256 = "14h4gnljrr0mhxkfcdwc6nm3ysh8jjy9wq6b0iba1ppvyw59vdws";
+#  };
+#  waylandOverlay = import waylandPkg;
+
+#  chromiumPkg = builtins.fetchTarball {
+#    url    = "https://github.com/colemickens/nixpkgs-chromium/archive/master.tar.gz";
+#    sha256 = "0d5gmcnalh3x154mg40cx70d48a9nvn5x8kkcp2xxp0cha6hqh96";
+#  };
+#  chromium = import chromiumPkg;
+in
 {
   imports =
     [
@@ -19,6 +31,14 @@ in
       # Machine-specific configuration
       ./dell-xps.nix
     ];
+
+#  nix = {
+#    binaryCachePublicKeys = [ "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA=" ];
+#    binaryCaches = [ "https://nixpkgs-wayland.cachix.org" ];
+#  };
+  
+  # overlays
+  # nixpkgs.overlays = [ waylandOverlay ];
 
   # Use the GRUB 2 boot loader.
   boot = {
@@ -63,13 +83,14 @@ in
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
-
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #wayvnc 
     wget
   ];
-
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -87,9 +108,6 @@ in
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable Docker support.
   virtualisation = {
     docker = {
@@ -105,11 +123,16 @@ in
   services = {
     # Gnome3 config
     dbus.packages = [ pkgs.gnome3.dconf ];
-    #gnome3.chrome-gnome-shell.enable = true;
     udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    # Enable screen-sharing for Wayland (Gnome3)
+    # pipewire.enable = true;
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
 
     # GUI interface
     xserver = {
@@ -121,6 +144,7 @@ in
 
       # Enable the Gnome3 desktop manager
       displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = false; # screen-sharing is broken
       desktopManager.gnome3.enable = true;
     };
   };

@@ -3,6 +3,12 @@
 let
   customGnome3Ext = pkgs.callPackage ./programs/gnome/extensions.nix {};
 
+  #chromium-dev-ozone = builtins.fetchTarball {
+    #url    = "https://github.com/colemickens/nixpkgs-chromium/archive/master.tar.gz";
+    #sha256 = "0d5gmcnalh3x154mg40cx70d48a9nvn5x8kkcp2xxp0cha6hqh96";
+  #};
+  #crf = import chromium-dev-ozone;
+
   defaultPkgs = with pkgs; [
     cachix         # nix caching
     docker-compose # docker manager
@@ -21,6 +27,9 @@ let
     tree           # display files in a tree view
     xclip          # clipboard support (also for neovim)
 
+    # pipewire support for gnome3
+    #xdg-desktop-portal-gtk
+
     # fixes the `ar` error required by cabal
     binutils-unwrapped
   ];
@@ -36,10 +45,10 @@ let
     evince # pdf reader
 
     # desktop look & feel
-    gnome-tweak-tool
     customGnome3Ext.dash-to-dock
     customGnome3Ext.timepp
     customGnome3Ext.topicons-plus
+    gnome-tweak-tool
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -91,6 +100,7 @@ in
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
         "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       ];
+      #package = chromium-dev-ozone;
     };
 
     direnv = {
