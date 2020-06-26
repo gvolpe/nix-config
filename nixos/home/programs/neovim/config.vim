@@ -1,4 +1,8 @@
-filetype off                " required
+filetype off
+
+" Leader & Shell
+let mapleader=','
+set shell=/bin/fish
 
 " Better Unix support
 set viewoptions=folds,options,cursor,unix,slash
@@ -28,14 +32,29 @@ nnoremap <M--> <C-w>-
 nnoremap <M-<> <C-w><
 nnoremap <M->> <C-w>>
 
-" Other options
-let mapleader=','
-set backspace=2
+" Theme & other options
 colorscheme tender
 syntax on
-set shell=/bin/fish
+set backspace=2
 set laststatus=2
 set noshowmode
+
+" Tabs as spaces
+set expandtab     " Tab transformed in spaces
+set tabstop=2     " Sets tab character to correspond to x columns.
+                  " x spaces are automatically converted to <tab>.
+                  " If expandtab option is on each <tab> character is converted to x spaces.
+set softtabstop=2 " column offset when PRESSING the tab key or the backspace key.
+set shiftwidth=2  " column offset when using keys '>' and '<' in normal mode.
+
+" Non-mapped function for tab toggles
+function! TabToggle()
+  if &expandtab
+    set noexpandtab
+  else
+    set expandtab
+  endif
+endfunc
 
 " Clear search highlighting
 nnoremap <C-z> :nohlsearch<CR>
