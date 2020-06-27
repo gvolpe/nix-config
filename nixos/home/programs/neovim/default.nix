@@ -54,7 +54,7 @@ in
     viAlias      = true;
     vimAlias     = true;
     vimdiffAlias = true;
-    withNodeJs   = true; # needed for coc.nvim
+    withNodeJs   = true; # for coc.nvim
     withPython   = true; # for plugins
     withPython3  = true; # for plugins
   };
