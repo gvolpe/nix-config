@@ -41,10 +41,10 @@ nmap <leader>ac <Plug>(coc-codeaction)
 nnoremap <silent> F :call CocAction('format')<CR>
 
 " Temporary command to run brittany in Haskell projects (ghcide does not support it yet)
-"nnoremap <leader>af :r !brittany --write-mode=inplace %:p<CR>
+nnoremap <leader>af :r !brittany --write-mode=inplace %:p<CR>
 
 " Temporary command to run hlint in Haskell projects (ghcide does not support it yet)
-"nnoremap <leader>al :AsyncRun hlint %:p<CR>
+nnoremap <leader>al :AsyncRun hlint %:p<CR>
 
 " Show signature help
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')

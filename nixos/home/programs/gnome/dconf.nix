@@ -1,8 +1,7 @@
 { lib, ... }:
 
 let
-  mkTuple  = lib.hm.gvariant.mkTuple;
-  inputSrc = mkTuple [ "xkb" "us" ];
+  mkTuple = lib.hm.gvariant.mkTuple;
 in
 {
   # dconf dump / > dconf.settings
@@ -16,7 +15,7 @@ in
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources     = [ inputSrc ];
+      sources     = [ (mkTuple [ "xkb" "us" ]) ];
       xkb-options = [ " terminate:ctrl_alt_bksp " " lv3:ralt_switch " " caps:ctrl_modifier " ];
     };
 
