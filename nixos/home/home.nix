@@ -3,6 +3,8 @@
 let
   customGnome3Ext = pkgs.callPackage ./programs/gnome/extensions.nix {};
 
+  dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
+
   #chromium-dev-ozone = builtins.fetchTarball {
     #url    = "https://github.com/colemickens/nixpkgs-chromium/archive/master.tar.gz";
     #sha256 = "0d5gmcnalh3x154mg40cx70d48a9nvn5x8kkcp2xxp0cha6hqh96";
@@ -11,6 +13,7 @@ let
 
   defaultPkgs = with pkgs; [
     cachix         # nix caching
+    dconf2nix      # dconf (gnome) files to nix converter
     docker-compose # docker manager
     exa            # a better `ls`
     fd             # "find" for files
@@ -48,6 +51,7 @@ let
     customGnome3Ext.dash-to-dock
     customGnome3Ext.timepp
     customGnome3Ext.topicons-plus
+    pkgs.gnomeExtensions.sound-output-device-chooser
     gnome-tweak-tool
   ];
 
