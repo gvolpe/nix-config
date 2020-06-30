@@ -103,6 +103,7 @@ in
         "dash-to-dock@micxgx.gmail.com"
         "timepp@zagortenay333"
         "TopIcons@phocean.net"
+        "sound-output-device-chooser@kgshank.net"
       ];
       favorite-apps = [
         "chromium-browser.desktop"
