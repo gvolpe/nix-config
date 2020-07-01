@@ -19,43 +19,47 @@ in
       xkb-options = [ " terminate:ctrl_alt_bksp " " lv3:ralt_switch " " caps:ctrl_modifier " ];
     };
 
-    " org/gnome/desktop/interface " = {
+    "org/gnome/desktop/interface" = {
       clock-show-weekday      = true;
-      document-font-name      = " JetBrainsMono Nerd Font 11 ";
+      document-font-name      = "JetBrainsMono Nerd Font 11";
       enable-hot-corners      = false;
-      font-name               = " JetBrainsMono Nerd Font 11 ";
-      gtk-im-module           = " gtk-im-context-simple ";
-      gtk-theme               = " Adwaita-dark ";
-      icon-theme              = " Adwaita ";
-      monospace-font-name     = " JetBrainsMono Nerd Font 10 ";
+      font-name               = "JetBrainsMono Nerd Font 11";
+      gtk-im-module           = "gtk-im-context-simple";
+      gtk-theme               = "Adwaita-dark";
+      icon-theme              = "Adwaita";
+      monospace-font-name     = "JetBrainsMono Nerd Font 10";
       show-battery-percentage = true;
     };
 
-    " org/gnome/desktop/peripherals/mouse " = {
+    "org/gnome/desktop/peripherals/mouse" = {
       natural-scroll = false;
       speed          = -0.5;
     };
 
-    " org/gnome/desktop/peripherals/touchpad " = {
+    "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click                 = false;
       two-finger-scrolling-enabled = true;
     };
 
-    " org/gnome/desktop/screensaver " = {
-      picture-uri = " file:///home/gvolpe/Pictures/nixos.png ";
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file:///home/gvolpe/Pictures/nixos.png";
     };
 
-    " org/gnome/desktop/sound " = {
+    "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
       event-sounds                   = true;
     };
 
-    " org/gnome/desktop/wm/keybindings " = {
-      close = [ " <Super> w " ];
+    "org/gnome/desktop/wm/keybindings" = {
+      close                        = [ "<Super>w" ];
+      switch-applications          = "@as []";
+      switch-applications-backward = "@as []";
+      switch-windows               = [ "<Alt>Tab" ];
+      switch-windows-backward      = [ "<Shift><Alt>Tab" ];
     };
 
     " org/gnome/desktop/wm/preferences " = {
-      button-layout   = " close,minimize,maximize:";
+      button-layout   = "close,minimize,maximize:";
       titlebar-font   = "JetBrainsMono Nerd Font Mono 11";
       workspace-names = "@as []";
     };
@@ -100,6 +104,7 @@ in
         "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "clipboard-indicator@tudmotu.com"
         "dash-to-dock@micxgx.gmail.com"
         "timepp@zagortenay333"
         "TopIcons@phocean.net"
@@ -145,6 +150,21 @@ in
 
     "org/gnome/system/location" = {
       enabled = false;
+    };
+
+    "org/gtk/settings/file-chooser" = {
+      date-format            = "regular";
+      location-mode          = "path-bar";
+      show-hidden            = false;
+      show-size-column       = true;
+      show-type-column       = true;
+      sidebar-width          = 189;
+      sort-column            = "name";
+      sort-directories-first = false;
+      sort-order             = "ascending";
+      type-format            = "category";
+      window-position        = mkTuple [ 345 79 ];
+      window-size            = mkTuple [ 1231 902 ];
     };
 
     "system/locale" = {

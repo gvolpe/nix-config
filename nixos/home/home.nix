@@ -51,6 +51,7 @@ let
     customGnome3Ext.dash-to-dock
     customGnome3Ext.timepp
     customGnome3Ext.topicons-plus
+    pkgs.gnomeExtensions.clipboard-indicator
     pkgs.gnomeExtensions.sound-output-device-chooser
     gnome-tweak-tool
   ];
