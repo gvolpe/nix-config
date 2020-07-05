@@ -39,6 +39,6 @@ in
       "*.mill-version" # used by metals
     ];
     userEmail = "volpegabriel@gmail.com";
-    userName = "gvolpe";
+    userName = "Gabriel Volpe";
   };
 }
