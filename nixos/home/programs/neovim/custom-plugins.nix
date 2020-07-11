@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ buildVimPlugin }:
 
 {
-  asyncrun-vim = pkgs.vimUtils.buildVimPlugin {
+  asyncrun-vim = buildVimPlugin {
     name = "asyncrun-vim";
     src = builtins.fetchTarball {
       name   = "AsyncRun-Vim-v2.7.5";
@@ -10,7 +10,7 @@
     };
   };
 
-  ctrlsf-vim = pkgs.vimUtils.buildVimPlugin {
+  ctrlsf-vim = buildVimPlugin {
     name = "ctrlsf-vim";
     src = builtins.fetchTarball {
       name   = "CtrlSF-Vim-v2.1.2";
@@ -19,7 +19,7 @@
     };
   };
 
-  vim-gtfo = pkgs.vimUtils.buildVimPlugin {
+  vim-gtfo = buildVimPlugin {
     name = "vim-gtfo";
     src = builtins.fetchTarball {
       name   = "Vim-Gtfo-v2.0.0";
@@ -28,7 +28,7 @@
     };
   };
 
-  vim-ripgrep = pkgs.vimUtils.buildVimPlugin {
+  vim-ripgrep = buildVimPlugin {
     name = "vim-ripgrep";
     src = builtins.fetchTarball {
       name   = "RipGrep-v1.0.2";

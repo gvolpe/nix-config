@@ -6,8 +6,11 @@ let
     inherit (pkgs) lib vimPlugins;
   };
 
-  custom-plugins = pkgs.callPackage ./custom-plugins.nix {};
-  plugins        = pkgs.vimPlugins // coc-plugins // custom-plugins;
+  custom-plugins = pkgs.callPackage ./custom-plugins.nix {
+    inherit (pkgs.vimUtils) buildVimPlugin;
+  };
+
+  plugins = pkgs.vimPlugins // coc-plugins // custom-plugins;
 
   myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
