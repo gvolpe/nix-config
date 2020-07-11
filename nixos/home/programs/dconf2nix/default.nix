@@ -1,14 +1,14 @@
 { stdenv, ... }:
 
 let
-  version = "v0.0.1";
+  version = "v0.0.2";
 in
   stdenv.mkDerivation {
-    name = "dconf2nix";
+    name = "dconf2nix-${version}";
 
     src = builtins.fetchurl {
       url    = "https://github.com/gvolpe/dconf2nix/releases/download/${version}/dconf2nix-linux-x86-64";
-      sha256 = "00icz1nslj6a7cxfx2fpcpvrg6sczcnqfy1pr1585477l2n6d0sn";
+      sha256 = "135xl48aiqlbbcn2q95aj50p2bzfyk87h4jzbnk81qaak5043krp";
     };
 
     phases = ["installPhase" "patchPhase"];
