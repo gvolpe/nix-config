@@ -1,15 +1,9 @@
-{ config, pkgs, stdenv, lib, ... }:
+{ config, lib, pkgs, stdenv, ... }:
 
 let
   customGnome3Ext = pkgs.callPackage ./programs/gnome/extensions.nix {};
 
   dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
-
-  #chromium-dev-ozone = builtins.fetchTarball {
-    #url    = "https://github.com/colemickens/nixpkgs-chromium/archive/master.tar.gz";
-    #sha256 = "0d5gmcnalh3x154mg40cx70d48a9nvn5x8kkcp2xxp0cha6hqh96";
-  #};
-  #crf = import chromium-dev-ozone;
 
   defaultPkgs = with pkgs; [
     cachix         # nix caching
@@ -29,9 +23,6 @@ let
     tldr           # summary of a man page
     tree           # display files in a tree view
     xclip          # clipboard support (also for neovim)
-
-    # pipewire support for gnome3
-    #xdg-desktop-portal-gtk
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
@@ -64,9 +55,14 @@ let
     ghcide        # haskell IDE
     hoogle        # documentation
   ];
+
 in
 {
   programs.home-manager.enable = true;
+
+  nixpkgs.overlays = [
+    (import ./overlays/node-coc-metals.nix)
+  ];
 
   imports = [
     ./programs/git/default.nix
@@ -100,12 +96,12 @@ in
     chromium = {
       enable = true;
       extensions = [
+        "nckgahadagoaajjgafhacjanaoiihapd" # google hangouts
         "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
         "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       ];
-      #package = chromium-dev-ozone;
     };
 
     direnv = {

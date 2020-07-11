@@ -1,12 +1,18 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-plugins.nix {};
+  coc-plugins = pkgs.callPackage ./coc-plugins.nix {
+    inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
+    inherit (pkgs) lib vimPlugins;
+  };
 
-  vimPlugins = with plugins; [
+  custom-plugins = pkgs.callPackage ./custom-plugins.nix {};
+  plugins        = pkgs.vimPlugins // coc-plugins // custom-plugins;
+
+  myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
-    coc-metals              # Scala LSP client for CoC
     coc-nvim                # LSP client + autocompletion plugin
+    coc-metals              # Scala LSP client for CoC
     coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
@@ -41,6 +47,7 @@ let
 
   baseConfig    = builtins.readFile ./config.vim;
   cocConfig     = builtins.readFile ./coc.vim;
+  cocSettings   = builtins.toJSON (import ./coc-settings.nix);
   pluginsConfig = builtins.readFile ./plugins.vim;
   vimConfig     = baseConfig + pluginsConfig + cocConfig;
 
@@ -50,7 +57,7 @@ in
   programs.neovim = {
     enable       = true;
     extraConfig  = vimConfig;
-    plugins      = vimPlugins;
+    plugins      = myVimPlugins;
     viAlias      = true;
     vimAlias     = true;
     vimdiffAlias = true;
@@ -59,6 +66,8 @@ in
     withPython3  = true; # for plugins
   };
 
-  xdg.configFile."nvim/coc-settings.json".source = ./coc-settings.json;
+  xdg.configFile = {
+    "nvim/coc-settings.json".text = cocSettings;
+  };
 
 }
