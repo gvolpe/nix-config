@@ -44,7 +44,7 @@ in
   boot = {
     loader = {
       grub = {
-        enable = true;
+        enable  = true;
         version = 2;
       };
     };
@@ -60,7 +60,7 @@ in
   networking = {
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
-      enable = true;  
+      enable   = true;  
       packages = [ pkgs.networkmanager_openvpn ];
     };
 
@@ -95,9 +95,9 @@ in
   # started in user sessions.
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
-    enable = true;
+    enable           = true;
     enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
+    pinentryFlavor   = "gnome3";
   };
 
   # List services that you want to enable:
@@ -143,8 +143,8 @@ in
       libinput.enable = true;
 
       # Enable the Gnome3 desktop manager
-      displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = false; # screen-sharing is broken
+      displayManager.gdm.enable    = true;
+      displayManager.gdm.wayland   = false; # screen-sharing is broken
       desktopManager.gnome3.enable = true;
     };
   };
@@ -159,18 +159,31 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups = [ "docker" "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
+    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+    shell        = pkgs.fish;
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Avoid unwanted garbage collection when using nix-direnv
-  nix.extraOptions = ''
-    keep-outputs = true
-    keep-derivations = true
-  '';
+  # Nix daemon config
+  nix = {
+    # Automate `nix-store --optimise`
+    autoOptimiseStore = true;
+
+    # Automate garbage collection
+    gc = {
+      automatic = true;
+      dates     = "weekly";
+      options   = "--delete-older-than 7d";
+    };
+
+    # Avoid unwanted garbage collection when using nix-direnv
+    extraOptions = ''
+      keep-outputs     = true
+      keep-derivations = true
+    '';
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
