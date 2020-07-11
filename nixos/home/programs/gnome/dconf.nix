@@ -1,10 +1,10 @@
+# Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
 let
   mkTuple = lib.hm.gvariant.mkTuple;
 in
 {
-  # dconf dump / > dconf.settings
   dconf.settings = {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
