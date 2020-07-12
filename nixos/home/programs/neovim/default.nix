@@ -1,21 +1,21 @@
 { config, lib, pkgs, ... }:
 
 let
-  coc-plugins = pkgs.callPackage ./coc-plugins.nix {
-    inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
-    inherit (pkgs) lib vimPlugins;
-  };
+  #coc-plugins = pkgs.callPackage ./coc-plugins.nix {
+  #inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
+  #inherit (pkgs) lib vimPlugins;
+  #};
 
   custom-plugins = pkgs.callPackage ./custom-plugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
   };
 
-  plugins = pkgs.vimPlugins // coc-plugins // custom-plugins;
+  plugins = pkgs.vimPlugins // custom-plugins;
 
   myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
     coc-nvim                # LSP client + autocompletion plugin
-    coc-metals              # Scala LSP client for CoC
+    # coc-metals            # Scala LSP client for CoC
     coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
@@ -54,13 +54,26 @@ let
   pluginsConfig = builtins.readFile ./plugins.vim;
   vimConfig     = baseConfig + pluginsConfig + cocConfig;
 
+  # neovim-5 nightly stuff
+  neovim-5     = pkgs.callPackage ./dev/nightly.nix {};
+  nvim5-config = builtins.readFile ./dev/metals.vim;
+  new-plugins  = pkgs.callPackage ./dev/plugins.nix {
+    inherit (pkgs.vimUtils) buildVimPlugin;
+    inherit (pkgs) fetchFromGitHub;
+  };
+  nvim5-plugins = with new-plugins; [
+    completion-nvim
+    diagnostic-nvim
+    nvim-lsp
+    nvim-metals
+  ];
 in
-
 {
   programs.neovim = {
     enable       = true;
-    extraConfig  = vimConfig;
-    plugins      = myVimPlugins;
+    extraConfig  = vimConfig + nvim5-config;
+    package      = neovim-5;
+    plugins      = myVimPlugins ++ nvim5-plugins;
     viAlias      = true;
     vimAlias     = true;
     vimdiffAlias = true;
@@ -72,5 +85,4 @@ in
   xdg.configFile = {
     "nvim/coc-settings.json".text = cocSettings;
   };
-
 }
