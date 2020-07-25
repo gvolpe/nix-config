@@ -6,6 +6,7 @@ let
   dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
 
   defaultPkgs = with pkgs; [
+    asciinema      # record the terminal
     cachix         # nix caching
     dconf2nix      # dconf (gnome) files to nix converter
     docker-compose # docker manager
@@ -54,15 +55,16 @@ let
     ghc           # compiler
     ghcide        # haskell IDE
     hoogle        # documentation
+    nix-tree      # visualize nix dependencies
   ];
 
 in
 {
   programs.home-manager.enable = true;
 
-  nixpkgs.overlays = [
-    (import ./overlays/node-coc-metals.nix)
-  ];
+  #nixpkgs.overlays = [
+    #(import ./overlays/node-coc-metals.nix)
+  #];
 
   imports = [
     ./programs/git/default.nix
@@ -96,7 +98,7 @@ in
     chromium = {
       enable = true;
       extensions = [
-        "nckgahadagoaajjgafhacjanaoiihapd" # google hangouts
+        #"nckgahadagoaajjgafhacjanaoiihapd" # google hangouts
         "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
