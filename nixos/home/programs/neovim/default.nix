@@ -1,21 +1,20 @@
 { config, lib, pkgs, ... }:
 
 let
-  #coc-plugins = pkgs.callPackage ./coc-plugins.nix {
-  #inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
-  #inherit (pkgs) lib vimPlugins;
-  #};
-
   custom-plugins = pkgs.callPackage ./custom-plugins.nix {
     inherit (pkgs.vimUtils) buildVimPlugin;
   };
 
   plugins = pkgs.vimPlugins // custom-plugins;
 
+  overriddenPlugins = [
+    pkgs.nerdtree # tree explorer
+  ];
+
   myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
     coc-nvim                # LSP client + autocompletion plugin
-    # coc-metals            # Scala LSP client for CoC
+    coc-metals              # Scala LSP client for CoC
     coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
@@ -24,7 +23,6 @@ let
     lightline-vim           # configurable status line (can be used by coc)
     multiple-cursors        # Multiple cursors selection, etc
     neomake                 # run programs asynchronously and highlight errors
-    nerdtree                # tree explorer
     nerdcommenter           # code commenter
     nerdtree-git-plugin     # shows files git status on the NerdTree
     quickfix-reflector-vim  # make modifications right in the quickfix window
@@ -46,7 +44,7 @@ let
     vim-scala               # scala plugin
     vim-surround            # quickly edit surroundings (brackets, html tags, etc)
     vim-tmux                # syntax highlighting for tmux conf file and more
-  ];
+  ] ++ overriddenPlugins;
 
   baseConfig    = builtins.readFile ./config.vim;
   cocConfig     = builtins.readFile ./coc.vim;
@@ -71,9 +69,9 @@ in
 {
   programs.neovim = {
     enable       = true;
-    extraConfig  = vimConfig + nvim5-config;
+    extraConfig  = vimConfig;
     package      = neovim-5;
-    plugins      = myVimPlugins ++ nvim5-plugins;
+    plugins      = myVimPlugins;
     viAlias      = true;
     vimAlias     = true;
     vimdiffAlias = true;

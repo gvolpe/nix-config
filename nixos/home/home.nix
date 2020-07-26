@@ -62,9 +62,9 @@ in
 {
   programs.home-manager.enable = true;
 
-  #nixpkgs.overlays = [
-    #(import ./overlays/node-coc-metals.nix)
-  #];
+  nixpkgs.overlays = [
+    (import ./overlays/vim-plugins.nix)
+  ];
 
   imports = [
     ./programs/git/default.nix
@@ -98,7 +98,6 @@ in
     chromium = {
       enable = true;
       extensions = [
-        #"nckgahadagoaajjgafhacjanaoiihapd" # google hangouts
         "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
@@ -134,11 +133,6 @@ in
     jq = {
       enable = true;
     };
-
-    #obs-studio = {
-    #enable = true;
-    #plugins = [];
-    #};
 
     ssh = {
       enable = true;
