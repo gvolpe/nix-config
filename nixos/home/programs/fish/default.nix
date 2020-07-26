@@ -14,16 +14,15 @@ let
     set -g theme_newline_cursor yes
     set -g theme_color_scheme solarized
   '';
-  hooks = ''
-    eval (direnv hook fish)
-    clear
-  '';
 in
 {
   programs.fish = {
     enable = true;
     plugins = fishPlugins;
-    promptInit = "";
+    promptInit = ''
+      eval (direnv hook fish)
+      any-nix-shell fish --info-right | source
+    '';
     shellAliases = {
       cat  = "bat";
       du   = "ncdu --color dark -rr -x";
@@ -32,7 +31,7 @@ in
       ".." = "cd ..";
       ping = "prettyping";
     };
-    shellInit = fzfConfig + themeConfig + hooks;
+    shellInit = fzfConfig + themeConfig + "set fish_greeting";
   };
 
   # Hack to get the prompt of the sourced theme. Is there a better way to do this?

@@ -6,6 +6,7 @@ let
   dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
 
   defaultPkgs = with pkgs; [
+    any-nix-shell  # fish support for nix shell
     asciinema      # record the terminal
     cachix         # nix caching
     dconf2nix      # dconf (gnome) files to nix converter
