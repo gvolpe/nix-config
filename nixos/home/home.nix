@@ -1,9 +1,8 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  customGnome3Ext = pkgs.callPackage ./programs/gnome/extensions.nix {};
-
   dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
+  gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
 
   defaultPkgs = with pkgs; [
     any-nix-shell  # fish support for nix shell
@@ -33,20 +32,6 @@ let
   gitPkgs = with pkgs; [
     gitAndTools.diff-so-fancy # git diff with colors
     gitAndTools.tig           # diff and commit view
-  ];
-
-  gnomePkgs = with pkgs.gnome3; [
-    # gnome3 apps
-    eog    # image viewer
-    evince # pdf reader
-
-    # desktop look & feel
-    customGnome3Ext.dash-to-dock
-    customGnome3Ext.timepp
-    customGnome3Ext.topicons-plus
-    pkgs.gnomeExtensions.clipboard-indicator
-    pkgs.gnomeExtensions.sound-output-device-chooser
-    gnome-tweak-tool
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [

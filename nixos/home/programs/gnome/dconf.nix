@@ -106,7 +106,6 @@ in
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "clipboard-indicator@tudmotu.com"
         "dash-to-dock@micxgx.gmail.com"
-        "timepp@zagortenay333"
         "TopIcons@phocean.net"
         "sound-output-device-chooser@kgshank.net"
       ];
