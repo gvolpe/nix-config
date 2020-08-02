@@ -18,7 +18,7 @@ in
 {
   programs.fish = {
     enable = true;
-    plugins = fishPlugins;
+    plugins = [ fishPlugins.theme ];
     promptInit = ''
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
@@ -34,10 +34,5 @@ in
     shellInit = fzfConfig + themeConfig + "set fish_greeting";
   };
 
-  # Hack to get the prompt of the sourced theme. Is there a better way to do this?
-  home.activation.fish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    prompt=$(find /nix/store -maxdepth 2 -name 'fish_prompt.fish' | tail -1)
-    mkdir -p ~/.config/fish/functions/
-    ln -sf $prompt ~/.config/fish/functions/
-  '';
+  xdg.configFile."fish/functions/fish_prompt.fish".text = fishPlugins.prompt;
 }
