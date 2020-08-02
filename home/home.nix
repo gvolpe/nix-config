@@ -29,9 +29,9 @@ let
     binutils-unwrapped
   ];
 
-  gitPkgs = with pkgs; [
-    gitAndTools.diff-so-fancy # git diff with colors
-    gitAndTools.tig           # diff and commit view
+  gitPkgs = with pkgs.gitAndTools; [
+    diff-so-fancy # git diff with colors
+    tig           # diff and commit view
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -64,12 +64,16 @@ in
 
   xdg.enable = true;
 
-  home.packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs;
-
   home = {
-    username = "gvolpe";
+    username      = "gvolpe";
     homeDirectory = "/home/gvolpe";
-    stateVersion = "20.09";
+    stateVersion  = "20.09";
+
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs;
+
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   # notifications about home-manager news
