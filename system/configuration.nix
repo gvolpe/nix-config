@@ -11,7 +11,7 @@ let
     ];
   };
 
-#  waylandPkg = builtins.fetchTarball {  
+#  waylandPkg = builtins.fetchTarball {
 #    url = "https://github.com/colemickens/nixpkgs-wayland/archive/master.tar.gz";
 #    sha256 = "14h4gnljrr0mhxkfcdwc6nm3ysh8jjy9wq6b0iba1ppvyw59vdws";
 #  };
@@ -29,14 +29,14 @@ in
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Machine-specific configuration
-      ./dell-xps.nix
+      ./machine/dell-xps.nix
     ];
 
 #  nix = {
 #    binaryCachePublicKeys = [ "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA=" ];
 #    binaryCaches = [ "https://nixpkgs-wayland.cachix.org" ];
 #  };
-  
+
   # overlays
   # nixpkgs.overlays = [ waylandOverlay ];
 
@@ -60,7 +60,7 @@ in
   networking = {
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
-      enable   = true;  
+      enable   = true;
       packages = [ pkgs.networkmanager_openvpn ];
     };
 
@@ -83,14 +83,14 @@ in
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
-  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #wayvnc 
+    #wayvnc
     wget
   ];
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
