@@ -30,7 +30,7 @@ Here is an overview of the folders' structure:
 
 ### Programs
 
-The `home.nix` file contains details about all the software I use but here's a shout-out to the ones that are customized to my needs.
+The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
 
 #### Fish Shell
 
@@ -58,7 +58,7 @@ A great terminal multiplexer, easy to use.
 
 #### Tmux
 
-Another terminal multiplexer, also capable of keep SSH sessions alive.
+Another terminal multiplexer, also capable of keeping SSH sessions alive.
 
 ![tmux](imgs/tmux.png)
 
