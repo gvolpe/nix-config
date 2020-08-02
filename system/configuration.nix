@@ -10,18 +10,6 @@ let
       "JetBrainsMono"
     ];
   };
-
-#  waylandPkg = builtins.fetchTarball {
-#    url = "https://github.com/colemickens/nixpkgs-wayland/archive/master.tar.gz";
-#    sha256 = "14h4gnljrr0mhxkfcdwc6nm3ysh8jjy9wq6b0iba1ppvyw59vdws";
-#  };
-#  waylandOverlay = import waylandPkg;
-
-#  chromiumPkg = builtins.fetchTarball {
-#    url    = "https://github.com/colemickens/nixpkgs-chromium/archive/master.tar.gz";
-#    sha256 = "0d5gmcnalh3x154mg40cx70d48a9nvn5x8kkcp2xxp0cha6hqh96";
-#  };
-#  chromium = import chromiumPkg;
 in
 {
   imports =
@@ -31,14 +19,6 @@ in
       # Machine-specific configuration
       ./machine/dell-xps.nix
     ];
-
-#  nix = {
-#    binaryCachePublicKeys = [ "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA=" ];
-#    binaryCaches = [ "https://nixpkgs-wayland.cachix.org" ];
-#  };
-
-  # overlays
-  # nixpkgs.overlays = [ waylandOverlay ];
 
   # Use the GRUB 2 boot loader.
   boot = {
@@ -87,7 +67,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #wayvnc
     wget
   ];
 
@@ -127,9 +106,6 @@ in
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
-
-    # Enable screen-sharing for Wayland (Gnome3)
-    # pipewire.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
