@@ -1,11 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  fishPlugins = pkgs.callPackage ./plugins.nix {};
   fzfConfig = ''
     set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'" \n
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
   '';
+
   themeConfig = ''
     set -g theme_display_date no
     set -g theme_nerd_fonts yes
@@ -14,6 +14,13 @@ let
     set -g theme_newline_cursor yes
     set -g theme_color_scheme solarized
   '';
+
+  fishPlugins = pkgs.callPackage ./plugins.nix {};
+
+  fishConfig = ''
+    bind \t accept-autosuggestion
+    set fish_greeting
+  '' + fzfConfig + themeConfig;
 in
 {
   programs.fish = {
@@ -31,7 +38,7 @@ in
       ".." = "cd ..";
       ping = "prettyping";
     };
-    shellInit = fzfConfig + themeConfig + "set fish_greeting";
+    shellInit = fishConfig;
   };
 
   xdg.configFile."fish/functions/fish_prompt.fish".text = fishPlugins.prompt;
