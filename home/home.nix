@@ -12,6 +12,7 @@ let
     docker-compose # docker manager
     exa            # a better `ls`
     fd             # "find" for files
+    hyperfine      # command-line benchmarking tool
     k9s            # k8s pods manager
     ncdu           # disk space info (a better du)
     prettyping     # a nicer ping
@@ -24,6 +25,7 @@ let
     tldr           # summary of a man page
     tree           # display files in a tree view
     xclip          # clipboard support (also for neovim)
+    ytop           # alternative to top and htop
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
