@@ -147,6 +147,10 @@ in
       name = "";
     };
 
+    "org/gnome/shell/app-switcher" = {
+      current-workspace-only = true;
+    };
+
     "org/gnome/system/location" = {
       enabled = false;
     };
