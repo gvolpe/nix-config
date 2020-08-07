@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name    = "dconf2nix-${version}";
-  version = "v0.0.2";
+  version = "v0.0.5";
 
   src = builtins.fetchurl {
     url    = "https://github.com/gvolpe/dconf2nix/releases/download/${version}/dconf2nix-linux-x86-64";
-    sha256 = "135xl48aiqlbbcn2q95aj50p2bzfyk87h4jzbnk81qaak5043krp";
+    sha256 = "1hidf1vwsi8hmmf3vv4n1dvqs5wyk9xhly7bdckxqkqsq2gb44dg";
   };
 
   phases = ["installPhase" "patchPhase"];
