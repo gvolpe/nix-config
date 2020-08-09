@@ -93,6 +93,7 @@ in
         "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
+        "hkgfoiooedgoejojocmhlaklaeopbecg" # picture-in-picture
         "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       ];
     };
