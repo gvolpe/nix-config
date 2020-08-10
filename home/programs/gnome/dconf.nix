@@ -116,6 +116,7 @@ in
         "telegramdesktop.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.tweaks.desktop"
+        "insomnia.desktop"
         "terminator.desktop"
       ];
     };
