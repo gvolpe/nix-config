@@ -3,6 +3,7 @@
 let
   dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
   gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
+  nix-doc   = pkgs.callPackage ./programs/nix-doc/default.nix {};
 
   defaultPkgs = with pkgs; [
     any-nix-shell  # fish support for nix shell
@@ -13,8 +14,10 @@ let
     exa            # a better `ls`
     fd             # "find" for files
     hyperfine      # command-line benchmarking tool
+    insomnia       # rest client with graphql support
     k9s            # k8s pods manager
     ncdu           # disk space info (a better du)
+    nix-doc        # nix documentation search tool
     prettyping     # a nicer ping
     ripgrep        # fast grep
     rnix-lsp       # nix lsp server
