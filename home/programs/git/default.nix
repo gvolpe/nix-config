@@ -36,6 +36,7 @@ in
       "*metals.sbt"
       "*.direnv"
       "*.envrc" # there is lorri, nix-direnv & simple direnv; let people decide
+      "*hie.yaml" # ghcide files
       "*.mill-version" # used by metals
     ];
     userEmail = "volpegabriel@gmail.com";
