@@ -8,6 +8,7 @@ let
   defaultPkgs = with pkgs; [
     any-nix-shell  # fish support for nix shell
     asciinema      # record the terminal
+    broot          # interactive tree view
     cachix         # nix caching
     dconf2nix      # dconf (gnome) files to nix converter
     docker-compose # docker manager
