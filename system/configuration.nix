@@ -159,6 +159,9 @@ in
       keep-outputs     = true
       keep-derivations = true
     '';
+
+    # Required by Cachix to be used as non-root user
+    trustedUsers = [ "root" "gvolpe" ];
   };
 
   # This value determines the NixOS release from which the default
