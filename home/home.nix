@@ -9,6 +9,7 @@ let
     any-nix-shell  # fish support for nix shell
     asciinema      # record the terminal
     cachix         # nix caching
+    calibre        # e-book reader
     dconf2nix      # dconf (gnome) files to nix converter
     docker-compose # docker manager
     exa            # a better `ls`
