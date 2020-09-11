@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  plugins  = pkgs.tmuxPlugins // pkgs.callPackage ./custom-plugins.nix {};
+  plugins  = pkgs.tmuxPlugins; # // pkgs.callPackage ./custom-plugins.nix {};
   tmuxConf = builtins.readFile ./default.conf;
 in
 {
@@ -14,7 +14,7 @@ in
     keyMode = "vi";
     plugins = with plugins; [
       cpu
-      nord # theme
+      #nord # theme
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-strategy-nvim 'session'";

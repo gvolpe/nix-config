@@ -42,7 +42,7 @@ let g:NERDTreeDirArrows = 1
 filetype plugin on
 
 " Nerdtree git plugin symbols
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "ᵐ",
     \ "Staged"    : "ˢ",
     \ "Untracked" : "ᵘ",

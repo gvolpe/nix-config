@@ -22,6 +22,7 @@ in
 
   # Use the GRUB 2 boot loader.
   boot = {
+    kernelPackages = pkgs.linuxPackages_5_8;
     loader = {
       grub = {
         enable  = true;

@@ -85,6 +85,13 @@ in
   # notifications about home-manager news
   news.display = "silent";
 
+  # temporarily disable it until there is a fix upstream
+  manual = {
+    json.enable = false;
+    html.enable = false;
+    manpages.enable = false;
+  };
+
   programs = {
 
     bat = {
