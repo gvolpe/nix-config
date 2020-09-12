@@ -17,7 +17,7 @@ in
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Machine-specific configuration
-      ./machine/dell-xps.nix
+      ./machine/current.nix
     ];
 
   # Use the GRUB 2 boot loader.
