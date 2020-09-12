@@ -15,16 +15,16 @@ sudo cp system/configuration.nix /etc/nixos/
 sudo mkdir -p /etc/nixos/machine/
 sudo cp system/machine/* /etc/nixos/machine/
 mkdir -p $HOME/.config/nixpkgs/
-cp -r nixos/home/* $HOME/.config/nixpkgs/
+cp -r home/* $HOME/.config/nixpkgs/
 
 # Home manager
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 nix-shell '<home-manager>' -A install
-cp nixos/home/nixos.png $HOME/Pictures/
+cp home/nixos.png $HOME/Pictures/
 home-manager switch
 
 # Set user's profile picture for Gnome3
-sudo cp nixos/home/gvolpe.png /var/lib/AccountsService/icons/gvolpe
+sudo cp home/gvolpe.png /var/lib/AccountsService/icons/gvolpe
 sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
