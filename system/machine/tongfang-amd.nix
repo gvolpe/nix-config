@@ -1,11 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_5_8;
+
+    # Use the systemd-boot EFI boot loader.
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+   
+    initrd.kernelModules = [ "amdgpu" ];
+  };
+
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.interfaces.eno1.useDHCP = true;

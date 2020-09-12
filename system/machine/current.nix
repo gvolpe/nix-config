@@ -1,1 +1,0 @@
-dell-xps.nix
