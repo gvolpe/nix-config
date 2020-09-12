@@ -20,24 +20,6 @@ in
       ./machine/current.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot = {
-    kernelPackages = pkgs.linuxPackages_5_8;
-    loader = {
-      grub = {
-        enable  = true;
-        version = 2;
-      };
-    };
-  };
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   networking = {
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
@@ -57,10 +39,6 @@ in
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
