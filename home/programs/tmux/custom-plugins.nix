@@ -8,9 +8,9 @@ in
     pluginName = "nord";
     version = "v0.3.0";
     src = builtins.fetchTarball {
-      name   = "Nord-Tmux-v0.3.0";
-      url    = "https://github.com/arcticicestudio/nord-tmux/archive/v0.3.0.tar.gz";
-      sha256 = "14xhh49izvjw4ycwq5gx4if7a0bcnvgsf3irywc3qps6jjcf5ymk";
+      name   = "Nord-Tmux-2020-08-25";
+      url    = "https://github.com/arcticicestudio/nord-tmux/archive/4e2dc2a5065f5e8e67366700f803c733682e8f8c.tar.gz";
+      sha256 = "0l97cqbnq31f769jak31ffb7bkf8rrg72w3vd0g3fjpq0717864a";
     };
   };
 }
