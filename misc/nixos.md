@@ -22,19 +22,7 @@ nixos-generate --list
 nixos-generate -f install-iso -c amd-config.nix
 ```
 
-Where `amd-config.nix` is defined as follows:
-
-```nix
-{pkgs,...} :
-
-{
-  boot.kernelPackages = pkgs.linuxPackages_5_8;
-
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-}
-```
+See the custom `amd-config.nix` file, which contains `gparted` and uses Gnome3 by default
 
 ## Burn ISO to USB key
 
