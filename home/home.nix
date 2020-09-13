@@ -28,6 +28,7 @@ let
     terminator     # great terminal multiplexer
     tldr           # summary of a man page
     tree           # display files in a tree view
+    vivaldi        # private web browser based on chromium
     xclip          # clipboard support (also for neovim)
     ytop           # alternative to top and htop
 
@@ -66,6 +67,7 @@ in
     ./programs/sbt/default.nix
     ./programs/terminator/default.nix
     ./programs/tmux/default.nix
+    ./programs/vivaldi/default.nix
   ];
 
   xdg.enable = true;

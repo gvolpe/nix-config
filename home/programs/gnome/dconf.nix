@@ -111,6 +111,7 @@ in
       ];
       favorite-apps = [
         "chromium-browser.desktop"
+        "vivaldi.desktop"
         "spotify.desktop"
         "slack.desktop"
         "telegramdesktop.desktop"
