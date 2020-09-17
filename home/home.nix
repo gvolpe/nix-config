@@ -1,7 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
+  #dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
   gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
   nix-doc   = pkgs.callPackage ./programs/nix-doc/default.nix {};
 
