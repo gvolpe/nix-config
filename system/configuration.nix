@@ -137,7 +137,10 @@ in
     extraOptions = ''
       keep-outputs     = true
       keep-derivations = true
-    '';
+      experimental-features = nix-command flakes 
+   '';
+
+    package = pkgs.nixFlakes;
 
     # Required by Cachix to be used as non-root user
     trustedUsers = [ "root" "gvolpe" ];
