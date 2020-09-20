@@ -1,9 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  #dconf2nix = pkgs.callPackage ./programs/dconf2nix/default.nix {};
   gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
-  nix-doc   = pkgs.callPackage ./programs/nix-doc/default.nix {};
 
   defaultPkgs = with pkgs; [
     any-nix-shell  # fish support for nix shell
@@ -56,6 +54,7 @@ in
   programs.home-manager.enable = true;
 
   nixpkgs.overlays = [
+    (import ./overlays/dconf2nix.nix)
     (import ./overlays/vim-plugins.nix)
   ];
 
