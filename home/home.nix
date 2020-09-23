@@ -36,6 +36,7 @@ let
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
+    hub           # github command-line client
     tig           # diff and commit view
   ];
 
