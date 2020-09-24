@@ -158,7 +158,7 @@ in
       command-history = [ "gnome-tweaks" ];
       disabled-extensions = [ "apps-menu@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "horizontal-workspaces@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "clipboard-indicator@tudmotu.com" "dash-to-dock@micxgx.gmail.com" "TopIcons@phocean.net" "sound-output-device-chooser@kgshank.net" ];
-      favorite-apps = [ "vivaldi-stable.desktop" "spotify.desktop" "slack.desktop" "telegramdesktop.desktop" "org.gnome.Nautilus.desktop" "org.gnome.tweaks.desktop" "insomnia.desktop" "terminator.desktop" ];
+      favorite-apps = [ "chromium-browser.desktop" "vivaldi-stable.desktop" "spotify.desktop" "slack.desktop" "telegramdesktop.desktop" "org.gnome.Nautilus.desktop" "org.gnome.tweaks.desktop" "insomnia.desktop" "terminator.desktop" ];
     };
 
     "org/gnome/shell/app-switcher" = {
