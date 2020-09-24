@@ -3,7 +3,7 @@ self: super:
 rec {
   dconf2nix = super.dconf2nix.overrideAttrs (
     old: rec {
-      version = "0.0.6";
+      version = "v0.0.6";
 
       src = builtins.fetchurl {
         url    = "https://github.com/gvolpe/dconf2nix/releases/download/${version}/dconf2nix-linux-x86-64";
