@@ -10,6 +10,7 @@ let
     calibre        # e-book reader
     dconf2nix      # dconf (gnome) files to nix converter
     docker-compose # docker manager
+    dive           # explore docker layers
     exa            # a better `ls`
     fd             # "find" for files
     hyperfine      # command-line benchmarking tool
