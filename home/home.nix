@@ -108,6 +108,7 @@ in
     chromium = {
       enable = true;
       extensions = [
+        "odkdlljoangmamjilkamahebpkgpeacp" # github dark theme
         "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
         "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
         "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
