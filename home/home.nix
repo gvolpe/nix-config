@@ -61,6 +61,8 @@ in
   ];
 
   imports = [
+    ./programs/browsers/chromium.nix
+    ./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
     ./programs/gnome/dconf.nix
     ./programs/fish/default.nix
@@ -68,7 +70,6 @@ in
     ./programs/sbt/default.nix
     ./programs/terminator/default.nix
     ./programs/tmux/default.nix
-    ./programs/vivaldi/default.nix
   ];
 
   xdg.enable = true;
@@ -104,18 +105,6 @@ in
     broot = {
       enable = true;
       enableFishIntegration = true;
-    };
-
-    chromium = {
-      enable = true;
-      extensions = [
-        "odkdlljoangmamjilkamahebpkgpeacp" # github dark theme
-        "kklailfgofogmmdlhgmjgenehkjoioip" # google meet grid view
-        "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
-        "hdokiejnpimakedhajhdlcegeplioahd" # lastpass password manager
-        "hkgfoiooedgoejojocmhlaklaeopbecg" # picture-in-picture
-        "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
-      ];
     };
 
     direnv = {
