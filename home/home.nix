@@ -2,6 +2,11 @@
 
 let
   gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
+  unstable  = import (import ./unstable.nix) {};
+
+  unstablePkgs = with unstable; [
+    vivaldi # private web browser based on chromium
+  ];
 
   defaultPkgs = with pkgs; [
     any-nix-shell  # fish support for nix shell
@@ -27,7 +32,6 @@ let
     terminator     # great terminal multiplexer
     tldr           # summary of a man page
     tree           # display files in a tree view
-    vivaldi        # private web browser based on chromium
     xclip          # clipboard support (also for neovim)
     ytop           # alternative to top and htop
 
@@ -79,7 +83,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ unstablePkgs;
 
     sessionVariables = {
       EDITOR = "nvim";
