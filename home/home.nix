@@ -5,6 +5,7 @@ let
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
+    brave   # private web browser based on chromium
     vivaldi # private web browser based on chromium
   ];
 
@@ -65,6 +66,7 @@ in
   ];
 
   imports = [
+    ./programs/browsers/brave.nix
     ./programs/browsers/chromium.nix
     ./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
