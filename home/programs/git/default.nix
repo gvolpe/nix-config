@@ -39,6 +39,10 @@ in
       "*hie.yaml" # ghcide files
       "*.mill-version" # used by metals
     ];
+    signing = {
+      key = "121D4302A64B2261";
+      signByDefault = true;
+    };
     userEmail = "volpegabriel@gmail.com";
     userName = "Gabriel Volpe";
   };
