@@ -7,6 +7,7 @@ let
   unstablePkgs = with unstable; [
     brave   # private web browser based on chromium
     manix   # documentation searcher for nix
+    mupdf   # pdf vieview with vim-like keybindings
     vivaldi # private web browser based on chromium
   ];
 
