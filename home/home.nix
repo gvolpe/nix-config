@@ -64,6 +64,7 @@ in
 
   nixpkgs.overlays = [
     (import ./overlays/dconf2nix.nix)
+    (import ./overlays/manix.nix)
     (import ./overlays/vim-plugins.nix)
   ];
 
