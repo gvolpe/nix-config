@@ -6,9 +6,11 @@ let
 
   unstablePkgs = with unstable; [
     brave   # private web browser based on chromium
+    dmenu
+    i3lock
     manix   # documentation searcher for nix
     mupdf   # pdf viewer with vim-like keybindings
-    vivaldi # private web browser based on chromium
+    #vivaldi # private web browser based on chromium
   ];
 
   defaultPkgs = with pkgs; [
@@ -70,15 +72,17 @@ in
 
   imports = [
     ./programs/browsers/brave.nix
-    ./programs/browsers/chromium.nix
-    ./programs/browsers/vivaldi.nix
+    #./programs/browsers/chromium.nix
+    #./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
     ./programs/gnome/dconf.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/sbt/default.nix
     ./programs/terminator/default.nix
-    ./programs/tmux/default.nix
+    #./programs/tmux/default.nix
+    ./programs/xmonad/default.nix
+    ./programs/xmobar/default.nix
   ];
 
   xdg.enable = true;
