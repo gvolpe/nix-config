@@ -1,5 +1,4 @@
-Config { font = "xft:JetBrainsMono:pixelsize=12:antialias=true:hinting=true"
-       , additionalFonts = []
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
@@ -15,24 +14,66 @@ Config { font = "xft:JetBrainsMono:pixelsize=12:antialias=true:hinting=true"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C",
+       , commands = [ Run Weather "EPGD" ["-t","<station>: <tempC>C",
                                           "-L","18","-H","25",
                                           "--normal","green",
                                           "--high","red",
                                           "--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
+
                     , Run Network "wlp2s0" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
+
+                    , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+                                         , "--Low"      , "50"         -- units: %
+                                         , "--High"     , "85"         -- units: %
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 10
+
+                    , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                                         , "--Low"      , "70"        -- units: °C
+                                         , "--High"     , "80"        -- units: °C
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 50
+
+                    , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                                         , "--Low"      , "20"        -- units: %
+                                         , "--High"     , "90"        -- units: %
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 10
+
+                    , Run Battery        [ "--template" , "Batt: <acstatus>"
+                                         , "--Low"      , "10"        -- units: %
+                                         , "--High"     , "80"        -- units: %
+                                         , "--low"      , "darkred"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkgreen"
+
+                                         , "--" -- battery specific options
+                                                   -- discharging status
+                                                   , "-o"	, "<left>% (<timeleft>)"
+                                                   -- AC "on" status
+                                                   , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                                   -- charged status
+                                                   , "-i"	, "<fc=#006000>Charged</fc>"
+                                         ] 50
+
+                    , Run Com "status-vol" [] "volume" 5
+                    , Run Com "status-net" [] "net" 10
+
                     , Run Com "uname" ["-s","-r"] "" 36000
+
+                    , Run Com "nixos-version" [] "" 36000
+
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+       , template = "%multicpu% | %coretemp% | %memory% | %battery% | %wlp2s0% | %volume% | %net% }\
+                    \{ <fc=#ee9a00>%date%</fc>| %EPGD% | %uname% | %nixos-version%"
        }

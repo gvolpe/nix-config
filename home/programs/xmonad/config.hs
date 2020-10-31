@@ -1,26 +1,14 @@
---
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
---
-
 import Data.Monoid
 import System.Exit
 import XMonad
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Gaps
+import XMonad.Layout.Spacing
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
--- The preferred terminal program, which is used in a binding below and by
--- certain contrib modules.
---
-myTerminal      = "terminator"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -31,29 +19,15 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
---
-myBorderWidth   = 1
-
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt").  You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
---
-myModMask       = mod4Mask
+myBorderWidth = 2
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
 -- workspace name. The number of workspaces is determined by the length
 -- of this list.
---
--- A tagging example:
---
--- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
---
-myWorkspaces    = ["web", "oss", "dev", "msg", "music" ] ++ map show [6..9]
+myWorkspaces = ["web", "oss", "dev", "msg", "music" ] ++ map show [6..9]
 
 -- Border colors for unfocused and focused windows, respectively.
---
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
@@ -184,10 +158,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
+gap       = 5
+mySpacing = spacing gap
+myGaps    = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
+
 myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     tiled   = mySpacing . myGaps $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -246,7 +224,8 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+  spawnOnce "nitrogen --restore &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -254,7 +233,8 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  spawnPipe "-x 1 /home/gvolpe/.config/xmobar/config"
+  --spawnPipe "killall xmobar"
+  spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
   xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
@@ -265,11 +245,11 @@ main = do
 --
 defaults = def {
       -- simple stuff
-        terminal           = myTerminal,
+        terminal           = "terminator",
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
         borderWidth        = myBorderWidth,
-        modMask            = myModMask,
+        modMask            = mod4Mask, -- super as the mod key
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,

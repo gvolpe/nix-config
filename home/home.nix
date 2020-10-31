@@ -6,8 +6,11 @@ let
 
   unstablePkgs = with unstable; [
     brave   # private web browser based on chromium
+    compton
     dmenu
     i3lock
+    killall
+    #physlock  TODO: Try this one?
     manix   # documentation searcher for nix
     mupdf   # pdf viewer with vim-like keybindings
     #vivaldi # private web browser based on chromium
@@ -60,6 +63,17 @@ let
     nix-tree      # visualize nix dependencies
   ];
 
+  xmonadPkgs = with pkgs; [
+    haskellPackages.libmpd
+    haskellPackages.xmobar
+    networkmanager_dmenu
+    networkmanagerapplet
+    nitrogen
+    trayer
+    xcompmgr
+    xorg.xrandr
+  ];
+
 in
 {
   programs.home-manager.enable = true;
@@ -75,10 +89,10 @@ in
     #./programs/browsers/chromium.nix
     #./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
-    ./programs/gnome/dconf.nix
+    #./programs/gnome/dconf.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
-    ./programs/sbt/default.nix
+    #./programs/sbt/default.nix
     ./programs/terminator/default.nix
     #./programs/tmux/default.nix
     ./programs/xmonad/default.nix
@@ -92,7 +106,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ unstablePkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs ++ unstablePkgs;
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -155,12 +169,31 @@ in
 
   };
 
+  xdg.configFile."networkmanager-dmenu/config.ini".text = ''
+    [dmenu]
+    dmenu_command = rofi
+    rofi_highlight = True
+    [editor]
+    gui_if_available = True
+  '';
+
   services = {
+    flameshot.enable = true;
+
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
+
+    network-manager-applet.enable = true;
+
+    screen-locker = {
+      enable = true;
+      lockCmd = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+    };
+
+    stalonetray.enable = true;
   };
 
 }
