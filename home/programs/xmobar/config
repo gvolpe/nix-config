@@ -1,0 +1,78 @@
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Weather "EPGD" ["-t","<station>: <tempC>C",
+                                          "-L","18","-H","25",
+                                          "--normal","green",
+                                          "--high","red",
+                                          "--low","lightblue"] 36000
+
+                    , Run Network "wlp2s0" ["-L","0","-H","32",
+                                          "--normal","green","--high","red"] 10
+
+                    , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%"
+                                         , "--Low"      , "50"         -- units: %
+                                         , "--High"     , "85"         -- units: %
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 10
+
+                    , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                                         , "--Low"      , "70"        -- units: °C
+                                         , "--High"     , "80"        -- units: °C
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 50
+
+                    , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                                         , "--Low"      , "20"        -- units: %
+                                         , "--High"     , "90"        -- units: %
+                                         , "--low"      , "darkgreen"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkred"
+                                         ] 10
+
+                    , Run Battery        [ "--template" , "Batt: <acstatus>"
+                                         , "--Low"      , "10"        -- units: %
+                                         , "--High"     , "80"        -- units: %
+                                         , "--low"      , "darkred"
+                                         , "--normal"   , "darkorange"
+                                         , "--high"     , "darkgreen"
+
+                                         , "--" -- battery specific options
+                                                   -- discharging status
+                                                   , "-o"	, "<left>% (<timeleft>)"
+                                                   -- AC "on" status
+                                                   , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                                   -- charged status
+                                                   , "-i"	, "<fc=#006000>Charged</fc>"
+                                         ] 50
+
+                    , Run Com "uname" ["-s","-r"] "" 36000
+
+                    , Run Com "uname" ["-n"] "os" 36000
+
+                    , Run Com "nixos-version" [] "" 36000
+
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%multicpu% | %coretemp% | %memory% | %battery% | %wlp2s0% }\
+                    \{ <fc=#ee9a00>%date%</fc>| %EPGD% | %uname% | %os% %nixos-version%"
+       }

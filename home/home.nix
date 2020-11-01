@@ -5,10 +5,13 @@ let
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
-    brave   # private web browser based on chromium
-    manix   # documentation searcher for nix
-    mupdf   # pdf viewer with vim-like keybindings
-    vivaldi # private web browser based on chromium
+    betterlockscreen # fast lockscreen based on i3lock
+    brave            # private web browser based on chromium
+    compton          # composite manager for X11
+    dmenu            # application launcher
+    killall          # kill processes by name
+    manix            # documentation searcher for nix
+    mupdf            # pdf viewer with vim-like keybindings
   ];
 
   defaultPkgs = with pkgs; [
@@ -58,6 +61,15 @@ let
     nix-tree      # visualize nix dependencies
   ];
 
+  xmonadPkgs = with pkgs; [
+    haskellPackages.libmpd # music player daemon
+    haskellPackages.xmobar # status bar
+    networkmanager_dmenu   # networkmanager on dmenu
+    networkmanagerapplet   # networkmanager applet
+    nitrogen               # wallpaper manager
+    xorg.xrandr            # display manager (X Resize and Rotate protocol)
+  ];
+
 in
 {
   programs.home-manager.enable = true;
@@ -70,15 +82,13 @@ in
 
   imports = [
     ./programs/browsers/brave.nix
-    ./programs/browsers/chromium.nix
-    ./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
-    ./programs/gnome/dconf.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
-    ./programs/sbt/default.nix
+    ./programs/networkmanager/default.nix
     ./programs/terminator/default.nix
-    ./programs/tmux/default.nix
+    ./programs/xmonad/default.nix
+    ./programs/xmobar/default.nix
   ];
 
   xdg.enable = true;
@@ -88,7 +98,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ unstablePkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs ++ unstablePkgs;
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -152,11 +162,20 @@ in
   };
 
   services = {
+    flameshot.enable = true;
+
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
+
+    screen-locker = {
+      enable = true;
+      lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
+    };
+
+    stalonetray.enable = true;
   };
 
 }

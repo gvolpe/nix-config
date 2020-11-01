@@ -18,6 +18,8 @@ in
       ./hardware-configuration.nix
       # Machine-specific configuration
       ./machine/current.nix
+      # Window manager 
+      ./wm/xmonad.nix
     ];
 
   networking = {
@@ -46,6 +48,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    vim
     wget
   ];
 
@@ -55,7 +58,6 @@ in
   programs.gnupg.agent = {
     enable           = true;
     enableSSHSupport = true;
-    pinentryFlavor   = "gnome3";
   };
 
   # List services that you want to enable:
@@ -79,29 +81,11 @@ in
 
   # Enable the X11 windowing system.
   services = {
-    # Gnome3 config
-    dbus.packages = [ pkgs.gnome3.dconf ];
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
-
     # Enable the OpenSSH daemon.
     openssh.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
-
-    # GUI interface
-    xserver = {
-      enable = true;
-      layout = "us";
-
-      # Enable touchpad support.
-      libinput.enable = true;
-
-      # Enable the Gnome3 desktop manager
-      displayManager.gdm.enable    = true;
-      displayManager.gdm.wayland   = false; # screen-sharing is broken
-      desktopManager.gnome3.enable = true;
-    };
   };
 
   # Making fonts accessible to applications.
@@ -137,10 +121,7 @@ in
     extraOptions = ''
       keep-outputs     = true
       keep-derivations = true
-      experimental-features = nix-command flakes 
-   '';
-
-    package = pkgs.nixFlakes;
+    '';
 
     # Required by Cachix to be used as non-root user
     trustedUsers = [ "root" "gvolpe" ];
