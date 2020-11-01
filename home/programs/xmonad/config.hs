@@ -14,17 +14,6 @@ import           XMonad.Util.SpawnOnce          ( spawnOnce )
 import qualified XMonad.StackSet               as W
 import qualified Data.Map                      as M
 
--- Whether focus follows the mouse pointer.
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
-
--- Whether clicking on a window to focus also passes the click to the window
-myClickJustFocuses :: Bool
-myClickJustFocuses = False
-
--- Width of the window border in pixels.
-myBorderWidth = 2
-
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
 -- workspace name. The number of workspaces is determined by the length
@@ -276,9 +265,9 @@ main = do
 defaults = def {
       -- simple stuff
         terminal           = "terminator",
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
-        borderWidth        = myBorderWidth,
+        focusFollowsMouse  = False,
+        clickJustFocuses   = False,
+        borderWidth        = 2,
         modMask            = mod4Mask, -- super as the mod key
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
