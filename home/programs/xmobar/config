@@ -63,10 +63,9 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
                                                    , "-i"	, "<fc=#006000>Charged</fc>"
                                          ] 50
 
-                    , Run Com "status-vol" [] "volume" 5
-                    , Run Com "status-net" [] "net" 10
-
                     , Run Com "uname" ["-s","-r"] "" 36000
+
+                    , Run Com "uname" ["-n"] "os" 36000
 
                     , Run Com "nixos-version" [] "" 36000
 
@@ -74,6 +73,6 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%multicpu% | %coretemp% | %memory% | %battery% | %wlp2s0% | %volume% | %net% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %EPGD% | %uname% | %nixos-version%"
+       , template = "%multicpu% | %coretemp% | %memory% | %battery% | %wlp2s0% }\
+                    \{ <fc=#ee9a00>%date%</fc>| %EPGD% | %uname% | %os% %nixos-version%"
        }

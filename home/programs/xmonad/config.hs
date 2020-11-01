@@ -1,14 +1,18 @@
-import Data.Monoid
-import System.Exit
-import XMonad
-import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Gaps
-import XMonad.Layout.Spacing
-import XMonad.Util.Run
-import XMonad.Util.SpawnOnce
+import           Data.Monoid
+import           System.Exit
+import           Graphics.X11.ExtraTypes.XF86
+import           XMonad
+import           XMonad.Hooks.ManageDocks       ( Direction2D(..)
+                                                , avoidStruts
+                                                , docks
+                                                )
+import           XMonad.Layout.Gaps             ( gaps )
+import           XMonad.Layout.Spacing          ( spacing )
+import           XMonad.Util.Run                ( spawnPipe )
+import           XMonad.Util.SpawnOnce          ( spawnOnce )
 
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
+import qualified XMonad.StackSet               as W
+import qualified Data.Map                      as M
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -31,6 +35,8 @@ myWorkspaces = ["web", "oss", "dev", "msg", "music" ] ++ map show [6..9]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 
+screenLocker = "betterlockscreen -l dim"
+
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -44,6 +50,30 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    -- lock screen
+    , ((modm .|. controlMask, xK_l   ), spawn screenLocker)
+
+    -- Mute volume
+    , ((0, xF86XK_AudioMute          ), spawn "amixer -q set Master toggle")
+
+    -- Decrease volume
+    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer -q set Master 5%-")
+
+    -- Increase volume
+    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer -q set Master 5%+")
+
+    -- Play / Pause
+    , ((0, xF86XK_AudioPlay          ), spawn "amixer set Master Playback Switch toggle")
+
+    -- Stop (TODO)
+    , ((0, xF86XK_AudioStop          ), spawn "")
+
+    -- Previous song (TODO)
+    , ((0, xF86XK_AudioPrev          ), spawn "")
+
+    -- Next song (TODO)
+    , ((0, xF86XK_AudioNext          ), spawn "")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)

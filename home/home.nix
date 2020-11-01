@@ -8,12 +8,10 @@ let
     brave   # private web browser based on chromium
     compton
     dmenu
-    i3lock
+    betterlockscreen
     killall
-    #physlock  TODO: Try this one?
     manix   # documentation searcher for nix
     mupdf   # pdf viewer with vim-like keybindings
-    #vivaldi # private web browser based on chromium
   ];
 
   defaultPkgs = with pkgs; [
@@ -190,7 +188,7 @@ in
 
     screen-locker = {
       enable = true;
-      lockCmd = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+      lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
     };
 
     stalonetray.enable = true;
