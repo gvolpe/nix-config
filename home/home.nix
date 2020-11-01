@@ -5,13 +5,13 @@ let
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
-    brave   # private web browser based on chromium
-    compton
-    dmenu
-    betterlockscreen
-    killall
-    manix   # documentation searcher for nix
-    mupdf   # pdf viewer with vim-like keybindings
+    betterlockscreen # fast lockscreen based on i3lock
+    brave            # private web browser based on chromium
+    compton          # composite manager for X11
+    dmenu            # application launcher
+    killall          # kill processes by name
+    manix            # documentation searcher for nix
+    mupdf            # pdf viewer with vim-like keybindings
   ];
 
   defaultPkgs = with pkgs; [
@@ -62,14 +62,12 @@ let
   ];
 
   xmonadPkgs = with pkgs; [
-    haskellPackages.libmpd
-    haskellPackages.xmobar
-    networkmanager_dmenu
-    networkmanagerapplet
-    nitrogen
-    trayer
-    xcompmgr
-    xorg.xrandr
+    haskellPackages.libmpd # music player daemon
+    haskellPackages.xmobar # status bar
+    networkmanager_dmenu   # networkmanager on dmenu
+    networkmanagerapplet   # networkmanager applet
+    nitrogen               # wallpaper manager
+    xorg.xrandr            # display manager (X Resize and Rotate protocol)
   ];
 
 in
@@ -84,15 +82,11 @@ in
 
   imports = [
     ./programs/browsers/brave.nix
-    #./programs/browsers/chromium.nix
-    #./programs/browsers/vivaldi.nix
     ./programs/git/default.nix
-    #./programs/gnome/dconf.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
-    #./programs/sbt/default.nix
+    ./programs/networkmanager/default.nix
     ./programs/terminator/default.nix
-    #./programs/tmux/default.nix
     ./programs/xmonad/default.nix
     ./programs/xmobar/default.nix
   ];
@@ -167,14 +161,6 @@ in
 
   };
 
-  xdg.configFile."networkmanager-dmenu/config.ini".text = ''
-    [dmenu]
-    dmenu_command = rofi
-    rofi_highlight = True
-    [editor]
-    gui_if_available = True
-  '';
-
   services = {
     flameshot.enable = true;
 
@@ -183,8 +169,6 @@ in
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
-
-    network-manager-applet.enable = true;
 
     screen-locker = {
       enable = true;
