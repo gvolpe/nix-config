@@ -86,6 +86,9 @@ in
 
     # Enable CUPS to print documents.
     printing.enable = true;
+
+    # Gnome keyring
+    gnome3.gnome-keyring.enable = true;
   };
 
   # Making fonts accessible to applications.
