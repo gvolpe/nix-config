@@ -76,7 +76,10 @@ in
   };
 
   # Enable sound.
-  sound.enable = true;
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
   hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
