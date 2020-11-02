@@ -12,6 +12,7 @@ let
     killall          # kill processes by name
     manix            # documentation searcher for nix
     mupdf            # pdf viewer with vim-like keybindings
+    taffybar         # awesome status bar
   ];
 
   defaultPkgs = with pkgs; [
@@ -77,6 +78,7 @@ in
   nixpkgs.overlays = [
     (import ./overlays/dconf2nix.nix)
     (import ./overlays/manix.nix)
+    (import ./overlays/taffybar.nix)
     (import ./overlays/vim-plugins.nix)
   ];
 
@@ -86,6 +88,7 @@ in
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/networkmanager/default.nix
+    ./programs/taffybar/default.nix
     ./programs/terminator/default.nix
     ./programs/xmonad/default.nix
     ./programs/xmobar/default.nix
@@ -173,9 +176,10 @@ in
     screen-locker = {
       enable = true;
       lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
+      xautolockExtraOptions = [];
     };
 
-    stalonetray.enable = true;
+    taffybar.enable = true;
   };
 
 }

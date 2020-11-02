@@ -6,6 +6,8 @@
   go_prev = <Primary><Shift>Tab
   split_vert = <Primary><Shift>e
   search = <Super>f
+  group_all = <Super>backslash
+  group_all_toggle = <Shift><Super>bar
   layout_launcher = <Super>grave
   help = None
 [profiles]
