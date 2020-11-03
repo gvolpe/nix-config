@@ -6,8 +6,9 @@ in
   {
     gnomePkgs = with pkgs.gnome3; [
       # gnome3 apps
-      eog    # image viewer
-      evince # pdf reader
+      eog      # image viewer
+      evince   # pdf reader
+      nautilus # file manager
 
       # desktop look & feel
       customGnome3Ext.dash-to-dock
