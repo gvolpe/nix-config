@@ -19,6 +19,7 @@ Here is an overview of the folders' structure:
 └── system
     ├── configuration.nix
     └── machine
+    └── wm
 ```
 
 - `home`: all the user programs and dotfiles.
@@ -26,7 +27,7 @@ Here is an overview of the folders' structure:
 - `install.sh`: the install script.
 - `misc`: cheat-sheets, docs and useful commands.
 - `scripts`: a few scripts I find useful.
-- `system`: the NixOS configuration, including settings for different laptops.
+- `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ### Programs
 
@@ -34,19 +35,19 @@ The `home.nix` file contains details about all the software I use but here's a s
 
 #### Fish Shell
 
-I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish). Here's a screenshot:
+I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish). Here's a screenshot.
 
 ![fish](imgs/fish.png)
 
-#### Gnome3
+#### XMonad
 
-My desktop manager of choice, including a few extensions like `dash-to-dock`, `clipboard-indicator` and `sound-output-device-chooser`.
+The current Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
 
-![gnome3](imgs/gnome3.png)
+![xmonad](imgs/xmonad.png)
 
 #### NeoVim
 
-My favorite text editor and IDE powered by LSP (language server protocol). I use too many plugins to name so here's a screenshot taken while editing this file:
+My favorite text editor and IDE powered by LSP (language server protocol). I use too many plugins to name so here's a screenshot taken while editing this file.
 
 ![neovim](imgs/neovim.png)
 
@@ -73,3 +74,7 @@ nix-shell --run \
   -p wget s-tar
 chmod +x install.sh && ./install.sh
 ```
+
+### Previous config using Gnome3
+
+I've been using Gnome3 for a while before switching to XMonad. Have a look at [Gnome3](./GNOME.md) for more.
