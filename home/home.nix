@@ -12,6 +12,10 @@ let
     killall          # kill processes by name
     manix            # documentation searcher for nix
     mupdf            # pdf viewer with vim-like keybindings
+    neofetch         # command-line system information
+    pavucontrol      # pulseaudio volume control
+    paprefs          # pulseaudio preferences
+    pasystray        # pulseaudio systray
     taffybar         # awesome status bar
   ];
 
