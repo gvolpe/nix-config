@@ -92,6 +92,7 @@ in
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/networkmanager/default.nix
+    ./programs/rofi/default.nix
     ./programs/taffybar/default.nix
     ./programs/terminator/default.nix
     ./programs/xmonad/default.nix
