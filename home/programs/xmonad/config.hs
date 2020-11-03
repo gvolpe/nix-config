@@ -18,22 +18,39 @@ import qualified XMonad.StackSet               as W
 import qualified Data.Map                      as M
 
 ------------------------------------------------------------------------
+
 main :: IO ()
-main = do
+main = xmonad . docks . ewmh $ def
+  { terminal           = "terminator"
+  , focusFollowsMouse  = False
+  , clickJustFocuses   = False
+  , borderWidth        = 2
+  , modMask            = mod4Mask -- super as the mod key
+  , workspaces         = ["web", "oss", "dev", "chat", "music", "etc"]
+  , normalBorderColor  = "#dddddd"
+  , focusedBorderColor = "#1681f2"
+
+  -- key bindings
+  , keys               = myKeys
+  , mouseBindings      = myMouseBindings
+
+  -- hooks, layouts
+  , layoutHook         = myLayout
+  , manageHook         = myManageHook
+  , handleEventHook    = myEventHook
+  , logHook            = myLogHook
+  , startupHook        = myStartupHook
+  }
+
+-- Perform an arbitrary action each time xmonad starts or is restarted
+-- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
+-- per-workspace layout choices.
+myStartupHook = do
+  spawnOnce "nitrogen --restore &"
+  spawnOnce "if [ -z '$(pgrep taffybar)' ] ; then taffybar & fi"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
-  spawnPipe "taffybar &"
-  xmonad . docks . ewmh $ defaults
 
--- The default number of workspaces (virtual screens) and their names.
--- By default we use numeric strings, but any string may be used as a
--- workspace name. The number of workspaces is determined by the length
--- of this list.
-myWorkspaces = ["web", "oss", "dev", "msg", "music" ] ++ map show [6..9]
-
--- Border colors for unfocused and focused windows, respectively.
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
-
+appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
 
 ------------------------------------------------------------------------
@@ -45,7 +62,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "rofi -modi drun,ssh,window -show drun -show-icons")
+    , ((modm,               xK_p     ), spawn appLauncher)
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -62,8 +79,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer -q set Master 5%+")
 
-    -- Play / Pause
-    , ((0, xF86XK_AudioPlay          ), spawn "amixer set Master Playback Switch toggle")
+    -- Play / Pause (TODO)
+    , ((0, xF86XK_AudioPlay          ), spawn "")
 
     -- Stop (TODO)
     , ((0, xF86XK_AudioStop          ), spawn "")
@@ -187,7 +204,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-gap       = 5
+gap       = 10
 mySpacing = spacing gap
 myGaps    = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
 
@@ -244,46 +261,6 @@ myEventHook = mempty
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook = return ()
-
-------------------------------------------------------------------------
--- Startup hook
-
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
-myStartupHook = do
-  spawnOnce "nitrogen --restore &"
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
-      -- simple stuff
-        terminal           = "terminator",
-        focusFollowsMouse  = False,
-        clickJustFocuses   = False,
-        borderWidth        = 2,
-        modMask            = mod4Mask, -- super as the mod key
-        workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
-
-      -- key bindings
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
-
-      -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook,
-        startupHook        = myStartupHook
-    }
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
