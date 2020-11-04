@@ -13,6 +13,7 @@ let
     manix            # documentation searcher for nix
     mupdf            # pdf viewer with vim-like keybindings
     neofetch         # command-line system information
+    nyancat          # the famous rainbow cat!
     pavucontrol      # pulseaudio volume control
     paprefs          # pulseaudio preferences
     pasystray        # pulseaudio systray
@@ -91,12 +92,14 @@ in
     ./programs/git/default.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
-    ./programs/networkmanager/default.nix
     ./programs/rofi/default.nix
     ./programs/taffybar/default.nix
     ./programs/terminator/default.nix
     ./programs/xmonad/default.nix
     ./programs/xmobar/default.nix
+    ./services/dunst/default.nix
+    ./services/networkmanager/default.nix
+    ./services/screenlocker/default.nix
   ];
 
   xdg.enable = true;
@@ -124,10 +127,7 @@ in
   };
 
   programs = {
-
-    bat = {
-      enable = true;
-    };
+    bat.enable = true;
 
     broot = {
       enable = true;
@@ -145,13 +145,7 @@ in
       enableFishIntegration = true;
     };
 
-    gnome-terminal = {
-      enable = false;
-    };
-
-    gpg = {
-      enable = true;
-    };
+    gpg.enable = true;
 
     htop = {
       enable = true;
@@ -159,14 +153,8 @@ in
       sortKey = "PERCENT_CPU";
     };
 
-    jq = {
-      enable = true;
-    };
-
-    ssh = {
-      enable = true;
-    };
-
+    jq.enable = true;
+    ssh.enable = true;
   };
 
   services = {
@@ -176,12 +164,6 @@ in
       enable = true;
       defaultCacheTtl = 1800;
       enableSshSupport = true;
-    };
-
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 60;
-      lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
     };
 
     taffybar.enable = true;
