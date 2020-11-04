@@ -2,17 +2,19 @@
 
 module Main where
 
+import           Data.Functor                   ( void )
 import           System.Taffybar
 import           System.Taffybar.Context        ( TaffybarConfig(..) )
 import           System.Taffybar.Hooks
-import           System.Taffybar.Information.CPU
+import           System.Taffybar.Information.CPU2
 import           System.Taffybar.Information.Memory
 import           System.Taffybar.SimpleConfig
+import           System.Taffybar.Util           ( runCommandFromPath )
 import           System.Taffybar.Widget
 import           System.Taffybar.Widget.Generic.PollingGraph
 
 main :: IO ()
-main = dyreTaffybar exampleTaffybarConfig
+main = dyreTaffybar . appendHook notifySystemD $ myConfig
 
 transparent, yellow1, yellow2, green1, green2, taffyBlue
   :: (Double, Double, Double, Double)
@@ -46,37 +48,39 @@ memCallback = do
   return [memoryUsedRatio mi]
 
 cpuCallback :: IO [Double]
-cpuCallback = do
-  (_, systemLoad, totalLoad) <- cpuLoad
-  return [totalLoad, systemLoad]
+cpuCallback = getCPULoad "cpu"
 
-exampleTaffybarConfig :: TaffybarConfig
-exampleTaffybarConfig =
+notifySystemD = void $ runCommandFromPath ["systemd-notify", "--ready"]
+
+myConfig :: TaffybarConfig
+myConfig =
   let myWorkspacesConfig = defaultWorkspacesConfig
         { minIcons        = 1
         , widgetGap       = 0
         , showWorkspaceFn = hideEmpty
         }
       workspaces = workspacesNew myWorkspacesConfig
-      cpu        = pollingGraphNew cpuCfg 0.5 cpuCallback
+      bat        = textBatteryNew "$percentage$%"
+      cpu        = pollingGraphNew cpuCfg 1 cpuCallback
       mem        = pollingGraphNew memCfg 1 memCallback
       net        = networkGraphNew netCfg Nothing
+      netmon     = networkMonitorNew defaultNetFormat Nothing
       clock      = textClockNewWith defaultClockConfig
+        { clockUpdateStrategy = ConstantInterval 1.0
+        , clockFormatString   = "%a %b %d %I:%M:%S %p"
+        }
       layout     = layoutNew defaultLayoutConfig
       windowsW   = windowsNew defaultWindowsConfig
       -- See https://github.com/taffybar/gtk-sni-tray#statusnotifierwatcher
       -- for a better way to set up the sni tray
       tray       = sniTrayThatStartsWatcherEvenThoughThisIsABadWayToDoIt
       myConfig   = defaultSimpleTaffyConfig
-        { startWidgets  = workspaces
-                            : map (>>= buildContentsBox) [layout, windowsW]
-        , endWidgets    = map
-                            (>>= buildContentsBox)
-                            [batteryIconNew, clock, tray, cpu, mem, net, mpris2New]
+        { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
+        , endWidgets    = map (>>= buildContentsBox)
+                            [bat, batteryIconNew, clock, tray, cpu, mem, net, netmon, mpris2New]
         , barPosition   = Top
         , barPadding    = 10
         , barHeight     = 50
-        , widgetSpacing = 0
+        , widgetSpacing = 1
         }
-  in  withBatteryRefresh $ withLogServer $ withToggleServer $ toTaffyConfig
-        myConfig
+  in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ myConfig

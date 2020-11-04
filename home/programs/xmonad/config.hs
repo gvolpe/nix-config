@@ -1,8 +1,8 @@
 import           Data.Monoid
-import           System.Exit
 import           Graphics.X11.ExtraTypes.XF86
---import           System.Taffybar.Support.PagerHints
-                                                --( pagerHints )
+import           System.Exit
+import           System.Taffybar.Support.PagerHints
+                                                ( pagerHints )
 import           XMonad
 import           XMonad.Hooks.EwmhDesktops      ( ewmh )
 import           XMonad.Hooks.ManageDocks       ( Direction2D(..)
@@ -20,15 +20,15 @@ import qualified Data.Map                      as M
 ------------------------------------------------------------------------
 
 main :: IO ()
-main = xmonad . docks . ewmh $ def
+main = xmonad . docks . ewmh . pagerHints $ def
   { terminal           = "terminator"
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
-  , borderWidth        = 2
+  , borderWidth        = 3
   , modMask            = mod4Mask -- super as the mod key
   , workspaces         = ["web", "oss", "dev", "chat", "music", "etc"]
-  , normalBorderColor  = "#dddddd"
-  , focusedBorderColor = "#1681f2"
+  , normalBorderColor  = "#dddddd" -- light gray (default)
+  , focusedBorderColor = "#1681f2" -- blue
 
   -- key bindings
   , keys               = myKeys
