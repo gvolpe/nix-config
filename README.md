@@ -11,7 +11,8 @@ Here is an overview of the folders' structure:
 ├── home
 │   ├── home.nix
 │   ├── overlays
-│   └── programs
+│   ├── programs
+│   └── services
 ├── imgs
 ├── install.sh
 ├── misc
@@ -22,7 +23,7 @@ Here is an overview of the folders' structure:
     └── wm
 ```
 
-- `home`: all the user programs and dotfiles.
+- `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `install.sh`: the install script.
 - `misc`: cheat-sheets, docs and useful commands.
