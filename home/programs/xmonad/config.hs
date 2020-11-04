@@ -9,6 +9,7 @@ import           XMonad.Hooks.ManageDocks       ( Direction2D(..)
                                                 , avoidStruts
                                                 , docks
                                                 )
+import           XMonad.Hooks.ManageHelpers     ( doCenterFloat )
 import           XMonad.Layout.Gaps             ( gaps )
 import           XMonad.Layout.Spacing          ( spacing )
 import           XMonad.Util.Run                ( spawnPipe )
@@ -240,7 +241,8 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-    , className =? "Nautilus"       --> doFloat
+    , className =? "Nautilus"       --> doCenterFloat
+    , className =? "Pavucontrol"    --> doCenterFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 

@@ -25,22 +25,27 @@ green1 = (0, 1, 0, 1)
 green2 = (1, 0, 1, 0.5)
 taffyBlue = (0.129, 0.588, 0.953, 1)
 
-myGraphConfig, netCfg, memCfg, cpuCfg :: GraphConfig
+myGraphConfig :: GraphConfig
 myGraphConfig = defaultGraphConfig { graphPadding         = 0
                                    , graphBorderWidth     = 0
                                    , graphWidth           = 75
                                    , graphBackgroundColor = transparent
                                    }
 
+netCfg :: GraphConfig
 netCfg = myGraphConfig { graphDataColors = [yellow1, yellow2]
                        , graphLabel      = Just "net"
                        }
 
-memCfg =
-  myGraphConfig { graphDataColors = [taffyBlue], graphLabel = Just "mem" }
+memCfg :: GraphConfig
+memCfg = myGraphConfig { graphDataColors = [taffyBlue]
+                       , graphLabel      = Just "mem"
+                       }
 
-cpuCfg =
-  myGraphConfig { graphDataColors = [green1, green2], graphLabel = Just "cpu" }
+cpuCfg :: GraphConfig
+cpuCfg = myGraphConfig { graphDataColors = [green1, green2]
+                       , graphLabel      = Just "cpu"
+                       }
 
 memCallback :: IO [Double]
 memCallback = do
