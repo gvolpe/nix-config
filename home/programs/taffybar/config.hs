@@ -1,10 +1,23 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE LambdaCase, OverloadedStrings #-}
 
 module Main where
 
-import           Data.Functor                   ( void )
+import           Control.Exception              ( SomeException
+                                                , try
+                                                )
+import           Data.Functor                   ( (<&>)
+                                                , void
+                                                )
+import           Data.Text                      ( Text )
+import qualified Data.Text                      as T
+import           GI.Gtk                         ( Widget
+                                                , toWidget
+                                                , widgetShowAll
+                                                )
 import           System.Taffybar
-import           System.Taffybar.Context        ( TaffybarConfig(..) )
+import           System.Taffybar.Context        ( TaffybarConfig(..)
+                                                , TaffyIO
+                                                )
 import           System.Taffybar.Hooks
 import           System.Taffybar.Information.CPU2
 import           System.Taffybar.Information.Memory
@@ -12,6 +25,8 @@ import           System.Taffybar.SimpleConfig
 import           System.Taffybar.Util           ( runCommandFromPath )
 import           System.Taffybar.Widget
 import           System.Taffybar.Widget.Generic.PollingGraph
+import           System.Taffybar.Widget.Generic.PollingLabel
+import           System.Taffybar.Widget.Util
 
 main :: IO ()
 main = dyreTaffybar . appendHook notifySystemD $ myConfig
@@ -76,16 +91,55 @@ myConfig =
         }
       layout     = layoutNew defaultLayoutConfig
       windowsW   = windowsNew defaultWindowsConfig
-      -- See https://github.com/taffybar/gtk-sni-tray#statusnotifierwatcher
-      -- for a better way to set up the sni tray
-      tray       = sniTrayThatStartsWatcherEvenThoughThisIsABadWayToDoIt
+      tray       = sniTrayNew
       myConfig   = defaultSimpleTaffyConfig
         { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
         , endWidgets    = map (>>= buildContentsBox)
-                            [bat, batteryIconNew, clock, tray, cpu, mem, net, netmon, mpris2New]
+                            [bat, batteryIconNew, volumeNew, clock, tray, cpu, mem, netmon, net, mpris2New]
         , barPosition   = Top
         , barPadding    = 10
         , barHeight     = 50
         , widgetSpacing = 1
         }
   in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ myConfig
+
+------------- Volume status ---------------
+
+volumeNew :: TaffyIO Widget
+volumeNew = do
+  label <- pollingLabelNew 1 tryGetVolume
+  widgetShowAll label
+  toWidget label
+
+data AudioStatus = AudioOn | AudioOff deriving (Eq, Show)
+
+-- could use the alsa-mixer package but that requires a fork of taffybar to add the package; not today.
+parseVolume :: IO (Int, AudioStatus)
+parseVolume = do
+  runCommandFromPath ["amixer", "get", "Master"] >>= \case
+    Left _  -> return (0, AudioOff)
+    Right s ->
+      let raw    = takeWhile (/= '\n') $ dropWhile (/= '[') s
+          volume = read $ takeWhile (/= '%') $ drop 1 (takeWhile (/= ' ') raw)
+          status = case takeWhile (/= ']') $ drop 2 (dropWhile (/= ' ') raw) of
+                     "on" -> AudioOn
+                     _    -> AudioOff
+      in return (volume, status)
+
+volIcon :: Int -> Text
+volIcon x | x == 0 = "🔇"
+          | x < 30 = "🔈"
+          | x < 60 = "🔉"
+          | True   = "🔊"
+
+tryGetVolume :: IO Text
+tryGetVolume = (try getVolume :: IO (Either SomeException Text)) <&> \case
+  Left _  -> "Error"
+  Right x -> x
+
+getVolume :: IO Text
+getVolume = parseVolume <&> \case
+  (_, AudioOff) -> volIcon 0 <> " Mute"
+  (v, AudioOn)  -> volIcon v <> T.pack (" " <> show v <> "%")
+
+-----------------------------------------

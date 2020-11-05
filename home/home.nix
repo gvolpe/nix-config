@@ -17,7 +17,12 @@ let
     pavucontrol      # pulseaudio volume control
     paprefs          # pulseaudio preferences
     pasystray        # pulseaudio systray
-    taffybar         # awesome status bar
+    playerctl        # music player controller
+
+    # status bar packages
+    taffybar                             # awesome status bar
+    haskellPackages.gtk-sni-tray         # gtk-sni-tray-standalone
+    haskellPackages.status-notifier-item # status-notifier-watcher for taffybar
   ];
 
   defaultPkgs = with pkgs; [

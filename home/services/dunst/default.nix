@@ -48,7 +48,7 @@ in
         show_indicators = "yes";
         sort = true;
         stack_duplicates = true;
-        startup_notification = true;
+        startup_notification = false;
         hide_duplicate_count = true;
       };
       urgency_low = {

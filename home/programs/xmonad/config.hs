@@ -48,8 +48,12 @@ main = xmonad . docks . ewmh . pagerHints $ def
 -- per-workspace layout choices.
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
-  spawnOnce "if [ -z '$(pgrep taffybar)' ] ; then taffybar & fi"
+  spawnSingleProcess "status-notifier-watcher"
+  spawnSingleProcess "taffybar"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
+
+spawnSingleProcess p =
+  spawnOnce $ "if [ -z $(pgrep " <> p <> ") ] ; then " <> p <> " & fi"
 
 appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
@@ -80,17 +84,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer -q set Master 5%+")
 
-    -- Play / Pause (TODO)
-    , ((0, xF86XK_AudioPlay          ), spawn "")
+    -- Play / Pause
+    , ((0, xF86XK_AudioPlay          ), spawn "playerctl play-pause")
 
-    -- Stop (TODO)
-    , ((0, xF86XK_AudioStop          ), spawn "")
+    -- Stop
+    , ((0, xF86XK_AudioStop          ), spawn "playerctl stop")
 
-    -- Previous song (TODO)
-    , ((0, xF86XK_AudioPrev          ), spawn "")
+    -- Previous song
+    , ((0, xF86XK_AudioPrev          ), spawn "playerctl previous")
 
-    -- Next song (TODO)
-    , ((0, xF86XK_AudioNext          ), spawn "")
+    -- Next song
+    , ((0, xF86XK_AudioNext          ), spawn "playerctl next")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
