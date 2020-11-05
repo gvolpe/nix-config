@@ -1,22 +1,29 @@
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
-import           System.Taffybar.Support.PagerHints
-                                                ( pagerHints )
+import           System.Taffybar.Support.PagerHints    ( pagerHints )
 import           XMonad
-import           XMonad.Hooks.EwmhDesktops      ( ewmh )
-import           XMonad.Hooks.ManageDocks       ( Direction2D(..)
-                                                , avoidStruts
-                                                , docks
-                                                )
-import           XMonad.Hooks.ManageHelpers     ( doCenterFloat )
-import           XMonad.Layout.Gaps             ( gaps )
-import           XMonad.Layout.Spacing          ( spacing )
-import           XMonad.Util.Run                ( spawnPipe )
-import           XMonad.Util.SpawnOnce          ( spawnOnce )
+import           XMonad.Hooks.EwmhDesktops             ( ewmh )
+import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
+                                                       , avoidStruts
+                                                       , docks
+                                                       )
+import           XMonad.Hooks.ManageHelpers            ( doCenterFloat
+                                                       , doFullFloat
+                                                       )
+import           XMonad.Layout.Gaps                    ( gaps )
+import           XMonad.Layout.Spacing                 ( spacing )
+import           XMonad.Util.NamedScratchpad           ( NamedScratchpad(..)
+                                                       , customFloating
+                                                       , defaultFloating
+                                                       , namedScratchpadAction
+                                                       , namedScratchpadManageHook
+                                                       )
+import           XMonad.Util.Run                       ( spawnPipe )
+import           XMonad.Util.SpawnOnce                 ( spawnOnce )
 
-import qualified XMonad.StackSet               as W
-import qualified Data.Map                      as M
+import qualified XMonad.StackSet                       as W
+import qualified Data.Map                              as M
 
 ------------------------------------------------------------------------
 
@@ -96,6 +103,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Next song
     , ((0, xF86XK_AudioNext          ), spawn "playerctl next")
+
+    {----------------- Scratchpads ---------------------}
+
+    -- run spotify (or show if already running)
+    , ((modm .|. controlMask,  xK_s  ), runScratchpadApp spotify)
+
+    -- run neofetch (or show if already running)
+    , ((modm .|. controlMask,  xK_n  ), runScratchpadApp neofetch)
+
+    -- run nautilus (or show if already running)
+    , ((modm .|. controlMask,  xK_f  ), runScratchpadApp nautilus)
+
+    -- run ytop (or show if already running)
+    , ((modm .|. controlMask,  xK_y  ), runScratchpadApp ytop)
+
+    {----------------- Windows ---------------------}
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -244,15 +267,46 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| full)
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = composeAll
-    [ className =? "MPlayer"            --> doFloat
-    , className =? "Gimp"               --> doFloat
-    , className =? "spotify"            --> doFloat
-    , className =? "org.gnome.Nautilus" --> doCenterFloat
-    , className =? "Pavucontrol"        --> doCenterFloat
-    , resource  =? "desktop_window"     --> doIgnore
-    , resource  =? "kdesktop"           --> doIgnore
-    ]
+
+type AppTitle     = String
+type AppClassName = String
+type AppCommand   = String
+
+data App = App
+  { appTitle :: AppTitle
+  , appClassName :: AppClassName
+  , appCommand :: AppCommand
+  } deriving Show
+
+gimp     = App "gimp"     "Gimp"               "gimp"
+nautilus = App "files"    "Org.gnome.Nautilus" "nautilus"
+neofetch = App "neofetch" "neofetch"           "alacritty -t neofetch -e neofetch"
+pavuctrl = App "pactl"    "Pavucontrol"        "pavucontrol"
+spotify  = App "spotify"  "Spotify"            "spotify -force-device-scale-factor=2.0 %U"
+ytop     = App "ytop"     "ytop"               "alacritty -t ytop -e ytop"
+
+manageApps = composeAll
+  [ className =? appClassName gimp     --> doFloat
+  , className =? appClassName spotify  --> doFullFloat
+  , className =? appClassName nautilus --> doCenterFloat
+  , className =? appClassName pavuctrl --> doCenterFloat
+  , title     =? appTitle ytop         --> doFullFloat
+  , title     =? appTitle neofetch     --> doCenterFloat
+  , resource  =? "desktop_window"      --> doIgnore
+  , resource  =? "kdesktop"            --> doIgnore
+  ]
+
+myManageHook = manageApps <+> namedScratchpadManageHook scratchpads
+
+scratchpadApp :: Query String -> App -> NamedScratchpad
+scratchpadApp query (App t cn cmd) = NS t cmd (query =? cn) defaultFloating
+
+runScratchpadApp (App t _ _) = namedScratchpadAction scratchpads t
+
+scratchpads =
+  let byTitle = scratchpadApp title     <$> [ neofetch, ytop ]
+      byClass = scratchpadApp className <$> [ nautilus, spotify ]
+  in  byTitle <> byClass
 
 ------------------------------------------------------------------------
 -- Event handling

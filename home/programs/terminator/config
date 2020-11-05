@@ -18,6 +18,7 @@
     font = JetBrainsMono Nerd Font Medium 10
     show_titlebar = False
     scrollback_infinite = True
+    exit_action = hold
     use_system_font = False
 [layouts]
   [[default]]

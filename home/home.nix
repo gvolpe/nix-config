@@ -5,6 +5,7 @@ let
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
+    alacritty        # alternative terminal
     betterlockscreen # fast lockscreen based on i3lock
     brave            # private web browser based on chromium
     compton          # composite manager for X11

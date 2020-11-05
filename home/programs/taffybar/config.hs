@@ -2,28 +2,29 @@
 
 module Main where
 
-import           Control.Exception              ( SomeException
-                                                , try
-                                                )
-import           Data.Functor                   ( (<&>)
-                                                , void
-                                                )
-import           Data.Text                      ( Text )
-import qualified Data.Text                      as T
-import           GI.Gtk                         ( Widget
-                                                , toWidget
-                                                , widgetShowAll
-                                                )
+import           Control.Exception                           ( SomeException
+                                                             , try
+                                                             )
+import           Data.Functor                                ( (<&>)
+                                                             , void
+                                                             )
+import           Data.Text                                   ( Text )
+import qualified Data.Text                                   as T
+import           GI.Gtk                                      ( Widget
+                                                             , toWidget
+                                                             , widgetShowAll
+                                                             )
 import           System.Taffybar
-import           System.Taffybar.Context        ( TaffybarConfig(..)
-                                                , TaffyIO
-                                                )
+import           System.Taffybar.Context                     ( TaffybarConfig(..)
+                                                             , TaffyIO
+                                                             )
 import           System.Taffybar.Hooks
 import           System.Taffybar.Information.CPU2
 import           System.Taffybar.Information.Memory
 import           System.Taffybar.SimpleConfig
-import           System.Taffybar.Util           ( runCommandFromPath )
+import           System.Taffybar.Util                        ( runCommandFromPath )
 import           System.Taffybar.Widget
+import           System.Taffybar.Widget.Decorators           ( buildPadBox )
 import           System.Taffybar.Widget.Generic.PollingGraph
 import           System.Taffybar.Widget.Generic.PollingLabel
 import           System.Taffybar.Widget.Util
@@ -34,11 +35,11 @@ main = dyreTaffybar . appendHook notifySystemD $ myConfig
 transparent, yellow1, yellow2, green1, green2, taffyBlue
   :: (Double, Double, Double, Double)
 transparent = (0.0, 0.0, 0.0, 0.0)
-yellow1 = (0.9453125, 0.63671875, 0.2109375, 1.0)
-yellow2 = (0.9921875, 0.796875, 0.32421875, 1.0)
-green1 = (0, 1, 0, 1)
-green2 = (1, 0, 1, 0.5)
-taffyBlue = (0.129, 0.588, 0.953, 1)
+yellow1     = (0.9453125, 0.63671875, 0.2109375, 1.0)
+yellow2     = (0.9921875, 0.796875, 0.32421875, 1.0)
+green1      = (0, 1, 0, 1)
+green2      = (1, 0, 1, 0.5)
+taffyBlue   = (0.129, 0.588, 0.953, 1)
 
 myGraphConfig :: GraphConfig
 myGraphConfig = defaultGraphConfig { graphPadding         = 0
@@ -63,9 +64,7 @@ cpuCfg = myGraphConfig { graphDataColors = [green1, green2]
                        }
 
 memCallback :: IO [Double]
-memCallback = do
-  mi <- parseMeminfo
-  return [memoryUsedRatio mi]
+memCallback = (return . memoryUsedRatio) <$> parseMeminfo
 
 cpuCallback :: IO [Double]
 cpuCallback = getCPULoad "cpu"
@@ -139,5 +138,3 @@ getVolume :: IO Text
 getVolume = parseVolume <&> \case
   (_, AudioOff) -> volIcon 0 <> " Mute"
   (v, AudioOn)  -> volIcon v <> T.pack (" " <> show v <> "%")
-
------------------------------------------
