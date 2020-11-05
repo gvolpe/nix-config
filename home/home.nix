@@ -18,6 +18,7 @@ let
     paprefs          # pulseaudio preferences
     pasystray        # pulseaudio systray
     playerctl        # music player controller
+    pulsemixer       # pulseaudio mixer
 
     # status bar packages
     taffybar                             # awesome status bar

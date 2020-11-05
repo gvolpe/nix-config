@@ -210,23 +210,24 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-gap       = 10
-mySpacing = spacing gap
-myGaps    = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
-
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| full)
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = mySpacing . myGaps $ Tall nmaster delta ratio
+     tiled    = gapSpaced 10 $ Tall nmaster delta ratio
+     full     = gapSpaced 5 $ Full
 
      -- The default number of windows in the master pane
-     nmaster = 1
+     nmaster  = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
+     ratio    = 1/2
 
      -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+     delta    = 3/100
+
+     -- Gaps bewteen windows
+     myGaps gap  = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
+     gapSpaced g = spacing g . myGaps g
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -244,12 +245,14 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , className =? "Nautilus"       --> doCenterFloat
-    , className =? "Pavucontrol"    --> doCenterFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    [ className =? "MPlayer"            --> doFloat
+    , className =? "Gimp"               --> doFloat
+    , className =? "spotify"            --> doFloat
+    , className =? "org.gnome.Nautilus" --> doCenterFloat
+    , className =? "Pavucontrol"        --> doCenterFloat
+    , resource  =? "desktop_window"     --> doIgnore
+    , resource  =? "kdesktop"           --> doIgnore
+    ]
 
 ------------------------------------------------------------------------
 -- Event handling

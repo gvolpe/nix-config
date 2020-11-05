@@ -85,23 +85,21 @@ myConfig =
       mem        = pollingGraphNew memCfg 1 memCallback
       net        = networkGraphNew netCfg Nothing
       netmon     = networkMonitorNew defaultNetFormat Nothing
-      clock      = textClockNewWith defaultClockConfig
-        { clockUpdateStrategy = ConstantInterval 1.0
-        , clockFormatString   = "%a %b %d %I:%M:%S %p"
-        }
+      clock      = textClockNew Nothing "📅 %b %_d 🕐 %_H:%M" 1.0
       layout     = layoutNew defaultLayoutConfig
       windowsW   = windowsNew defaultWindowsConfig
       tray       = sniTrayNew
-      myConfig   = defaultSimpleTaffyConfig
+      taffyCfg   = defaultSimpleTaffyConfig
         { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
+        , centerWidgets = map (>>= buildContentsBox) [mpris2New]
         , endWidgets    = map (>>= buildContentsBox)
-                            [bat, batteryIconNew, volumeNew, clock, tray, cpu, mem, netmon, net, mpris2New]
+                            [bat, batteryIconNew, volumeNew, clock, tray, cpu, mem, net, netmon]
         , barPosition   = Top
         , barPadding    = 10
         , barHeight     = 50
         , widgetSpacing = 1
         }
-  in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ myConfig
+  in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ taffyCfg
 
 ------------- Volume status ---------------
 
