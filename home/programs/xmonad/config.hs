@@ -47,13 +47,14 @@ main = xmonad . docks . ewmh . pagerHints $ def
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 myStartupHook = do
+  spawnOnceIf "status-notifier-watcher"
   spawnOnce "nitrogen --restore &"
-  spawnSingleProcess "status-notifier-watcher"
-  spawnSingleProcess "taffybar"
+  spawn "pidof taffybar-linux-x86_64 && killall -q taffybar-linux-x86_64"
+  spawn "taffybar &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
 
-spawnSingleProcess p =
-  spawnOnce $ "if [ -z $(pgrep " <> p <> ") ] ; then " <> p <> " & fi"
+spawnOnceIf p =
+  spawnOnce $ "if [ -z $(pidof " <> p <> ") ] ; then " <> p <> " & fi"
 
 appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
