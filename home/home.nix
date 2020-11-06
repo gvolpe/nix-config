@@ -1,7 +1,6 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  gnomePkgs = (pkgs.callPackage ./programs/gnome/default.nix {}).gnomePkgs;
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
@@ -64,6 +63,15 @@ let
     tig           # diff and commit view
   ];
 
+  gnomePkgs = with pkgs.gnome3; [
+    eog      # image viewer
+    evince   # pdf reader
+    nautilus # file manager
+    # themes
+    adwaita-icon-theme
+    pkgs.hicolor-icon-theme
+  ];
+
   haskellPkgs = with pkgs.haskellPackages; [
     brittany      # code formatter
     cabal2nix     # convert cabal projects to nix
@@ -90,7 +98,8 @@ in
   nixpkgs.overlays = [
     (import ./overlays/dconf2nix.nix)
     (import ./overlays/manix.nix)
-    (import ./overlays/taffybar.nix)
+    (import ./overlays/taffybar-deps.nix)
+    (import ./overlays/taffybar-wrapper.nix)
     (import ./overlays/vim-plugins.nix)
   ];
 
@@ -133,6 +142,18 @@ in
     manpages.enable = false;
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome3.adwaita-icon-theme;
+    };
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome3.adwaita-icon-theme;
+    };
+  };
+
   programs = {
     bat.enable = true;
 
@@ -172,8 +193,6 @@ in
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
-
-    taffybar.enable = true;
   };
 
 }

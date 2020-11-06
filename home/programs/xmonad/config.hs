@@ -59,6 +59,7 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawn "pidof taffybar-linux-x86_64 && killall -q taffybar-linux-x86_64"
   spawn "taffybar &"
+  spawnOnce "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
 
 spawnOnceIf p =

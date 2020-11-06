@@ -30,7 +30,11 @@ import           System.Taffybar.Widget.Generic.PollingLabel
 import           System.Taffybar.Widget.Util
 
 main :: IO ()
-main = dyreTaffybar . appendHook notifySystemD $ myConfig
+main =
+  dyreTaffybar
+    . appendHook notifySystemD
+    . appendHook (void $ getHost False)
+    $ myConfig
 
 transparent, yellow1, yellow2, green1, green2, taffyBlue
   :: (Double, Double, Double, Double)
@@ -92,7 +96,7 @@ myConfig =
         { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
         , centerWidgets = map (>>= buildContentsBox) [mpris2New]
         , endWidgets    = map (>>= buildContentsBox)
-                            [bat, batteryIconNew, volumeNew, clock, tray, cpu, mem, net, netmon]
+                            [tray, bat, batteryIconNew, volumeNew, clock, cpu, mem, net, netmon]
         , barPosition   = Top
         , barPadding    = 10
         , barHeight     = 50
