@@ -68,7 +68,7 @@ cpuCfg = myGraphConfig { graphDataColors = [green1, green2]
                        }
 
 memCallback :: IO [Double]
-memCallback = (return . memoryUsedRatio) <$> parseMeminfo
+memCallback = return . memoryUsedRatio <$> parseMeminfo
 
 cpuCallback :: IO [Double]
 cpuCallback = getCPULoad "cpu"
