@@ -96,7 +96,7 @@ myConfig =
         { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
         , centerWidgets = map (>>= buildContentsBox) [mpris2New]
         , endWidgets    = map (>>= buildContentsBox)
-                            [tray, bat, batteryIconNew, volumeNew, clock, cpu, mem, net, netmon]
+                            [bat, batteryIconNew, tray, volumeNew, clock, cpu, mem, net, netmon]
         , barPosition   = Top
         , barPadding    = 10
         , barHeight     = 50

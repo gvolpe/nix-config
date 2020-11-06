@@ -35,7 +35,7 @@ main = xmonad . docks . ewmh . pagerHints $ def
   , clickJustFocuses   = False
   , borderWidth        = 3
   , modMask            = mod4Mask -- super as the mod key
-  , workspaces         = ["web", "oss", "dev", "chat", "music", "etc"]
+  , workspaces         = ["web", "oss", "dev", "chat", "etc"]
   , normalBorderColor  = "#dddddd" -- light gray (default)
   , focusedBorderColor = "#1681f2" -- blue
 
@@ -51,13 +51,15 @@ main = xmonad . docks . ewmh . pagerHints $ def
   , startupHook        = myStartupHook
   }
 
+taffybarExec = "taffybar-linux-x86_64.taffybar-wrapped"
+
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 myStartupHook = do
   spawnOnceIf "status-notifier-watcher"
   spawnOnce "nitrogen --restore &"
-  spawn "pidof taffybar-linux-x86_64 && killall -q taffybar-linux-x86_64"
+  spawn $ "pidof " <> taffybarExec <> " && killall -q " <> taffybarExec
   spawn "taffybar &"
   spawnOnce "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
