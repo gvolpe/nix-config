@@ -1,0 +1,127 @@
+@define-color transparent rgba(0.0, 0.0, 0.0, 0.0);
+@define-color white #FFFFFF;
+@define-color black #000000;
+@define-color active #0c7cd5;
+
+@define-color active-window-color @white;
+@define-color urgent-window-color @active;
+@define-color font-color @white;
+@define-color menu-background-color @white;
+@define-color menu-font-color @black;
+
+/* Top level styling */
+
+.taffy-window * {
+	/*
+		This removes any existing styling from UI elements. Taffybar will not
+		cohere with your gtk theme.
+	*/
+	all: unset;
+
+	font-family: "Noto Sans", sans-serif;
+	font-size: 10pt;
+	color: @font-color;
+}
+
+.taffy-box {
+	border-radius: 10px;
+	background-color: rgba(0.0, 0.0, 0.0, 0.3);
+}
+
+.inner-pad {
+	padding-bottom: 5px;
+	padding-top: 5px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.contents {
+	padding-bottom: 4px;
+	padding-top: 4px;
+	padding-right: 2px;
+	padding-left: 2px;
+	transition: background-color .5s;
+	border-radius: 5px;
+}
+
+/* Workspaces styling */
+
+.workspace-label {
+	padding-right: 3px;
+	padding-left: 2px;
+	font-size: 12pt;
+}
+
+.active .contents {
+	background-color: rgba(0.0, 0.0, 0.0, 0.5);
+}
+
+.visible .contents {
+	background-color: rgba(0.0, 0.0, 0.0, 0.2);
+}
+
+.window-icon-container {
+	transition: opacity .5s, box-shadow .5s;
+	opacity: 1;
+}
+
+/* This gives space for the box-shadow (they look like underlines) that follow.
+   This will actually affect all widgets, (not just the workspace icons), but
+   that is what we want since we want the icons to look the same. */
+.auto-size-image, .sni-tray {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.window-icon-container.active {
+	box-shadow: inset 0 -3px @white;
+}
+
+.window-icon-container.urgent {
+	box-shadow: inset 0 -3px @urgent-window-color;
+}
+
+.window-icon-container.inactive .window-icon {
+	padding: 0px;
+}
+
+.window-icon-container.minimized .window-icon {
+	opacity: .3;
+}
+
+.window-icon {
+	opacity: 1;
+	transition: opacity .5s;
+}
+
+/* Button styling */
+
+button {
+	background-color: @transparent;
+	border-width: 0px;
+	border-radius: 0px;
+}
+
+button:checked, button:hover .Contents:hover {
+	box-shadow: inset 0 -3px @active;
+}
+
+/* Menu styling */
+
+/* The ".taffy-window" prefixed selectors are needed because if they aren't present,
+   the top level .Taffybar selector takes precedence */
+.taffy-window menuitem *,  menuitem * {
+	color: @menu-font-color;
+}
+
+.taffy-window menuitem, menuitem {
+	background-color: @menu-background-color;
+}
+
+.taffy-window menuitem:hover, menuitem:hover {
+	background-color: @active;
+}
+
+.taffy-window menuitem:hover > label, menuitem:hover > label {
+	color: @white;
+}

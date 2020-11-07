@@ -14,8 +14,9 @@ import           GI.Gtk                                      ( Widget
                                                              , toWidget
                                                              , widgetShowAll
                                                              )
+import           System.Environment.XDG.BaseDir              ( getUserConfigFile )
 import           System.Taffybar
-import           System.Taffybar.Context                     ( TaffybarConfig(..)
+import           System.Taffybar.Context                     ( TaffybarConfig
                                                              , TaffyIO
                                                              )
 import           System.Taffybar.Hooks
@@ -30,11 +31,12 @@ import           System.Taffybar.Widget.Generic.PollingLabel
 import           System.Taffybar.Widget.Util
 
 main :: IO ()
-main =
+main = do
+  css <- getUserConfigFile "taffybar" "taffybar.css"
   dyreTaffybar
     . appendHook notifySystemD
     . appendHook (void $ getHost False)
-    $ myConfig
+    $ myConfig css
 
 transparent, yellow1, yellow2, green1, green2, taffyBlue
   :: (Double, Double, Double, Double)
@@ -75,8 +77,8 @@ cpuCallback = getCPULoad "cpu"
 
 notifySystemD = void $ runCommandFromPath ["systemd-notify", "--ready"]
 
-myConfig :: TaffybarConfig
-myConfig =
+myConfig :: FilePath -> TaffybarConfig
+myConfig myCss =
   let myWorkspacesConfig = defaultWorkspacesConfig
         { minIcons        = 1
         , widgetGap       = 0
@@ -101,6 +103,7 @@ myConfig =
         , barPadding    = 10
         , barHeight     = 50
         , widgetSpacing = 1
+        , cssPath       = return myCss
         }
   in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ taffyCfg
 

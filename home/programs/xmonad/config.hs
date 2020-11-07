@@ -228,7 +228,7 @@ nextWS' = switchWS Next
 prevWS' = switchWS Prev
 
 switchWS dir =
-  findWorkspace filterOutNSP dir NonEmptyWS 1 >>= windows . W.view
+  findWorkspace filterOutNSP dir AnyWS 1 >>= windows . W.view
 
 filterOutNSP =
   let g f xs = filter (\(W.Workspace t _ _) -> t /= "NSP") (f xs)
