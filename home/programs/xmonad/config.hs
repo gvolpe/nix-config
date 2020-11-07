@@ -66,6 +66,8 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawn $ killall taffybarExec
   spawn "taffybar &"
+  spawn "killall .pasystray-wrap"
+  spawn "pasystray &"
   spawn $ killall "nm-applet"
   spawn "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
