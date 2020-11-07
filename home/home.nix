@@ -4,21 +4,23 @@ let
   unstable  = import (import ./unstable.nix) {};
 
   unstablePkgs = with unstable; [
-    alacritty        # alternative terminal
-    betterlockscreen # fast lockscreen based on i3lock
-    brave            # private web browser based on chromium
-    compton          # composite manager for X11
-    dmenu            # application launcher
-    killall          # kill processes by name
-    manix            # documentation searcher for nix
-    mupdf            # pdf viewer with vim-like keybindings
-    neofetch         # command-line system information
-    nyancat          # the famous rainbow cat!
-    pavucontrol      # pulseaudio volume control
-    paprefs          # pulseaudio preferences
-    pasystray        # pulseaudio systray
-    playerctl        # music player controller
-    pulsemixer       # pulseaudio mixer
+    alacritty            # alternative terminal
+    betterlockscreen     # fast lockscreen based on i3lock
+    brave                # private web browser based on chromium
+    compton              # composite manager for X11
+    dmenu                # application launcher
+    killall              # kill processes by name
+    manix                # documentation searcher for nix
+    mupdf                # pdf viewer with vim-like keybindings
+    neofetch             # command-line system information
+    nyancat              # the famous rainbow cat!
+    pavucontrol          # pulseaudio volume control
+    paprefs              # pulseaudio preferences
+    pasystray            # pulseaudio systray
+    playerctl            # music player controller
+    pulsemixer           # pulseaudio mixer
+    simplescreenrecorder # self-explanatory
+    vlc                  # media player
 
     # status bar packages
     taffybar                             # awesome status bar

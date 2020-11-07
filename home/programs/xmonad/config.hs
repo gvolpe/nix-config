@@ -125,14 +125,17 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     {----------------- Scratchpads ---------------------}
 
-    -- run spotify (or show if already running)
-    , ((modm .|. controlMask,  xK_s  ), runScratchpadApp spotify)
-
     -- run neofetch (or show if already running)
     , ((modm .|. controlMask,  xK_n  ), runScratchpadApp neofetch)
 
     -- run nautilus (or show if already running)
     , ((modm .|. controlMask,  xK_f  ), runScratchpadApp nautilus)
+
+    -- run simplescreenrecorder (or show if already running)
+    , ((modm .|. controlMask,  xK_r  ), runScratchpadApp scr)
+
+    -- run spotify (or show if already running)
+    , ((modm .|. controlMask,  xK_s  ), runScratchpadApp spotify)
 
     -- run ytop (or show if already running)
     , ((modm .|. controlMask,  xK_y  ), runScratchpadApp ytop)
@@ -325,18 +328,20 @@ data App = App
   , appCommand :: AppCommand
   } deriving Show
 
-gimp     = App "gimp"     "Gimp"               "gimp"
-nautilus = App "files"    "Org.gnome.Nautilus" "nautilus"
-neofetch = App "neofetch" "neofetch"           "alacritty -t neofetch -e neofetch"
-pavuctrl = App "pactl"    "Pavucontrol"        "pavucontrol"
-spotify  = App "spotify"  "Spotify"            "spotify -force-device-scale-factor=2.0 %U"
-ytop     = App "ytop"     "ytop"               "alacritty -t ytop -e ytop"
+gimp     = App "gimp"     "Gimp"                 "gimp"
+nautilus = App "files"    "Org.gnome.Nautilus"   "nautilus"
+neofetch = App "neofetch" "neofetch"             "alacritty -t neofetch -e neofetch"
+pavuctrl = App "pactl"    "Pavucontrol"          "pavucontrol"
+scr      = App "scr"      "SimpleScreenRecorder" "simplescreenrecorder"
+spotify  = App "spotify"  "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
+ytop     = App "ytop"     "ytop"                 "alacritty -t ytop -e ytop"
 
 manageApps = composeAll
   [ className =? appClassName gimp     --> doFloat
   , className =? appClassName spotify  --> doFullFloat
   , className =? appClassName nautilus --> doCenterFloat
   , className =? appClassName pavuctrl --> doCenterFloat
+  , className =? appClassName scr      --> doCenterFloat
   , title     =? appTitle ytop         --> doFullFloat
   , title     =? appTitle neofetch     --> doCenterFloat
   , appName   =? "eog"                 --> doCenterFloat
@@ -354,7 +359,7 @@ runScratchpadApp (App t _ _) = namedScratchpadAction scratchpads t
 
 scratchpads =
   let byTitle = scratchpadApp title     <$> [ neofetch, ytop ]
-      byClass = scratchpadApp className <$> [ nautilus, spotify ]
+      byClass = scratchpadApp className <$> [ nautilus, scr, spotify ]
   in  byTitle <> byClass
 
 ------------------------------------------------------------------------
