@@ -12,6 +12,7 @@ import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
                                                        )
 import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh )
+import           XMonad.Hooks.FadeInactive             ( fadeInactiveLogHook )
 import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
                                                        , avoidStruts
@@ -373,4 +374,4 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+myLogHook = fadeInactiveLogHook 0.8
