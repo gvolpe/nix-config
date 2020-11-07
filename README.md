@@ -3,7 +3,7 @@ nix-config
 
 My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
 
-### Structure
+## Structure
 
 Here is an overview of the folders' structure:
 
@@ -30,43 +30,25 @@ Here is an overview of the folders' structure:
 - `scripts`: a few scripts I find useful.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
-### Programs
+## Programs
 
 The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
 
-#### XMonad
+### XMonad
 
-The current Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
+A customizable Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
 
 ![xmonad](imgs/xmonad-2.png)
 
 ![xmonad](imgs/xmonad-1.png)
 
-#### Fish Shell
+### More
 
-I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish). Here's a screenshot.
+- `Fish Shell`: I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish).
+- `NeoVim`: My favorite text editor and IDE powered by LSP (language server protocol).
+- `Terminator`: A great terminal multiplexer, easy to use.
 
-![fish](imgs/fish.png)
-
-#### NeoVim
-
-My favorite text editor and IDE powered by LSP (language server protocol). I use too many plugins to name so here's a screenshot taken while editing this file.
-
-![neovim](imgs/neovim.png)
-
-#### Terminator
-
-A great terminal multiplexer, easy to use.
-
-![terminator](imgs/terminator.png)
-
-#### Tmux
-
-Another terminal multiplexer, also capable of keeping SSH sessions alive.
-
-![tmux](imgs/tmux.png)
-
-### Install
+## Install
 
 On a fresh NixOS installation, run the following commands:
 
@@ -78,6 +60,6 @@ nix-shell --run \
 chmod +x install.sh && ./install.sh
 ```
 
-### Previous config using Gnome3
+## Gnome3 (previous config)
 
 I've been using Gnome3 for a while before switching to XMonad. Have a look at [Gnome3](./GNOME.md) for more.
