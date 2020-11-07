@@ -7,6 +7,10 @@ import           XMonad.Actions.CycleWS                ( Direction1D(..)
                                                        , WSType(..)
                                                        , findWorkspace
                                                        )
+import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
+                                                       , keysResizeWindow
+                                                       )
+import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh )
 import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
@@ -181,6 +185,15 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+
+    -- Resize focused windows
+    , ((modm,               xK_d     ), withFocused (keysResizeWindow (-10,-10) (1,1)))
+    , ((modm,               xK_s     ), withFocused (keysResizeWindow (10,10) (1,1)))
+    , ((modm .|. shiftMask, xK_d     ), withFocused (keysAbsResizeWindow (-10,-10) (1024,752)))
+    , ((modm .|. shiftMask, xK_s     ), withFocused (keysAbsResizeWindow (10,10) (1024,752)))
+
+    -- Rotate only slave windows (leave master alone)
+    , ((modm .|. shiftMask, xK_Tab   ), rotSlavesUp)
 
     {----------------- Workspaces ---------------------}
 
