@@ -34,17 +34,19 @@ Here is an overview of the folders' structure:
 
 The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
 
+#### XMonad
+
+The current Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
+
+![xmonad](imgs/xmonad-2.png)
+
+![xmonad](imgs/xmonad-1.png)
+
 #### Fish Shell
 
 I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish). Here's a screenshot.
 
 ![fish](imgs/fish.png)
-
-#### XMonad
-
-The current Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
-
-![xmonad](imgs/xmonad.png)
 
 #### NeoVim
 

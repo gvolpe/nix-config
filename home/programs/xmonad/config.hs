@@ -64,10 +64,13 @@ taffybarExec = "taffybar-linux-x86_64.taffybar-wrapped"
 myStartupHook = do
   spawnOnceIf "status-notifier-watcher"
   spawnOnce "nitrogen --restore &"
-  spawn $ "pidof " <> taffybarExec <> " && killall -q " <> taffybarExec
+  spawn $ killall taffybarExec
   spawn "taffybar &"
-  spawnOnce "nm-applet --sm-disable --indicator &"
+  spawn $ killall "nm-applet"
+  spawn "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
+
+killall p = "pidof " <> p <> " && killall -q " <> p
 
 spawnOnceIf p =
   spawnOnce $ "if [ -z $(pidof " <> p <> ") ] ; then " <> p <> " & fi"
