@@ -1,0 +1,13 @@
+xkb_symbols "us-custom"
+{
+  include "us(basic)"            // includes the base US keys
+  include "level3(ralt_switch)"  // configures right alt as a third level switch
+
+  // set tab and backslash as hyper keys (inspired by https://github.com/altercation/dotfiles-tilingwm)
+  // needs to be combined with `xcape -e "Hyper_L=Tab;Hyper_R=backslash"`
+  key  <TAB> { [ Hyper_L, Hyper_L ] };
+  key <BKSL> { [ Hyper_R, Hyper_R ] };
+  key <I252> { [ Tab,	ISO_Left_Tab ] };
+  key <I253> { [ backslash, bar ] };
+  modifier_map Mod4 { Super_L, Super_R, Hyper_L, Hyper_R };
+};
