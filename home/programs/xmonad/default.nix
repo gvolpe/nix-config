@@ -6,6 +6,8 @@
     "Xft.hinting" = 1;
     "Xft.antialias" = 1;
     "Xft.rgba" = "rgb";
+    "Xcursor*theme" = "Vanilla-DMZ-AA";
+    "Xcursor*size" = 24;
   };
 
   xsession = {
@@ -14,6 +16,7 @@
     initExtra = ''
       setterm -blank 0 -powersave off -powerdown 0
       xset s off
+      xcape -e "Hyper_L=Tab;Hyper_R=backslash"
     '';
 
     windowManager.xmonad = {

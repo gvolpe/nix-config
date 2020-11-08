@@ -202,10 +202,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     {----------------- Workspaces ---------------------}
 
     -- Move to the next workspace
-    , ((modm              , xK_Right  ), nextWS')
+    , ((modm              , xK_period ), nextWS')
 
     -- Move to the previous workspace
-    , ((modm              , xK_Left   ), prevWS')
+    , ((modm              , xK_comma  ), prevWS')
 
     {----------------- Miscelaneous ---------------------}
 
