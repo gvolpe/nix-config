@@ -7,6 +7,11 @@ import           XMonad.Actions.CycleWS                ( Direction1D(..)
                                                        , WSType(..)
                                                        , findWorkspace
                                                        )
+import           XMonad.Actions.DynamicProjects        ( Project(..)
+                                                       , dynamicProjects
+                                                       , switchProjectPrompt
+                                                       )
+import           XMonad.Actions.DynamicWorkspaces      ( removeWorkspace )
 import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
                                                        , keysResizeWindow
                                                        )
@@ -22,7 +27,12 @@ import           XMonad.Hooks.ManageHelpers            ( doCenterFloat
                                                        , doFullFloat
                                                        )
 import           XMonad.Layout.Gaps                    ( gaps )
+import           XMonad.Layout.PerWorkspace            ( onWorkspace )
 import           XMonad.Layout.Spacing                 ( spacing )
+import           XMonad.Prompt                         ( XPConfig(..)
+                                                       , amberXPConfig
+                                                       , XPPosition(CenteredAt)
+                                                       )
 import           XMonad.Util.NamedScratchpad           ( NamedScratchpad(..)
                                                        , customFloating
                                                        , defaultFloating
@@ -37,7 +47,7 @@ import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
 
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints $ def
+main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects $ def
   { terminal           = "terminator"
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
@@ -58,8 +68,6 @@ main = xmonad . docks . ewmh . pagerHints $ def
   , logHook            = myLogHook
   , startupHook        = myStartupHook
   }
-
-myWS = ["web", "oss", "dev", "chat", "etc"]
 
 taffybarExec = "taffybar-linux-x86_64.taffybar-wrapped"
 
@@ -143,31 +151,28 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     {----------------- Windows ---------------------}
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm              , xK_BackSpace), kill)
 
      -- Rotate through the available layout algorithms
-    , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm              , xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
+    , ((modm              , xK_n     ), refresh)
 
     -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
-
-    -- Move focus to the next window
-    , ((modm,               xK_j     ), windows W.focusDown)
+    , ((modm              , xK_j     ), windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp)
+    , ((modm              , xK_k     ), windows W.focusUp)
 
     -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster)
+    , ((modm              , xK_m     ), windows W.focusMaster)
 
     -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
+    , ((modm              , xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)
@@ -176,13 +181,13 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp)
 
     -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm              , xK_h     ), sendMessage Shrink)
 
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm              , xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ((modm              , xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
@@ -206,6 +211,13 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- Move to the previous workspace
     , ((modm              , xK_comma  ), prevWS')
+
+    -- Remove workspace
+    , ((modm .|. shiftMask, xK_BackSpace), removeWorkspace)
+
+    {----------------- DynamicProjects ---------------------}
+
+    , ((modm              , xK_o      ), switchProjectPrompt projectsTheme)
 
     {----------------- Miscelaneous ---------------------}
 
@@ -283,24 +295,29 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| full)
+myLayout = avoidStruts . comWs . devWs . webWs $ (tiled ||| Mirror tiled ||| full)
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled    = gapSpaced 10 $ Tall nmaster delta ratio
-     full     = gapSpaced 5 Full
+     tiled   = gapSpaced 10 $ Tall nmaster delta ratio
+     full    = gapSpaced 5 Full
 
      -- The default number of windows in the master pane
-     nmaster  = 1
+     nmaster = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio    = 1/2
+     ratio   = 1/2
 
      -- Percent of screen to increment by when resizing panes
-     delta    = 3/100
+     delta   = 3/100
 
      -- Gaps bewteen windows
      myGaps gap  = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
      gapSpaced g = spacing g . myGaps g
+
+     -- Per workspace layout
+     comWs = onWorkspace "com" full
+     devWs = onWorkspace "dev" (Mirror tiled)
+     webWs = onWorkspace "web" full
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -361,6 +378,45 @@ scratchpads =
   let byTitle = scratchpadApp title     <$> [ neofetch, ytop ]
       byClass = scratchpadApp className <$> [ nautilus, scr, spotify ]
   in  byTitle <> byClass
+
+------------------------------------------------------------------------
+-- Dynamic Projects
+--
+projects :: [Project]
+projects =
+  [ Project { projectName      = "web"
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ spawn "brave"
+            }
+  , Project { projectName      = "oss"
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do spawn "terminator"
+                                           spawn "terminator"
+                                           spawn "terminator -x home-manager edit"
+            }
+  , Project { projectName      = "dev"
+            , projectDirectory = "~/workspace/cr/app"
+            , projectStartHook = Just $ sequence_ (replicate 3 $ spawn "terminator")
+            }
+  , Project { projectName      = "com"
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ spawn "telegram-desktop"
+            }
+  , Project { projectName      = "sys"
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ spawn "terminator -x sudo su"
+            }
+  ]
+
+myWS = projectName <$> projects
+
+projectsTheme :: XPConfig
+projectsTheme = amberXPConfig
+  { bgHLight = "#002b36"
+  , font     = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
+  , height   = 50
+  , position = CenteredAt 0.5 0.5
+  }
 
 ------------------------------------------------------------------------
 -- Event handling
