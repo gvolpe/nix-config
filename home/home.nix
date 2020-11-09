@@ -69,6 +69,7 @@ let
     eog      # image viewer
     evince   # pdf reader
     nautilus # file manager
+    zenity   # display dialogs
     # themes
     adwaita-icon-theme
     pkgs.hicolor-icon-theme

@@ -1,6 +1,9 @@
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
+import           System.IO                             ( hPutStr
+                                                       , hClose
+                                                       )
 import           System.Taffybar.Support.PagerHints    ( pagerHints )
 import           XMonad
 import           XMonad.Actions.CycleWS                ( Direction1D(..)
@@ -33,6 +36,14 @@ import           XMonad.Prompt                         ( XPConfig(..)
                                                        , amberXPConfig
                                                        , XPPosition(CenteredAt)
                                                        )
+import           XMonad.Util.EZConfig                  ( mkNamedKeymap )
+import           XMonad.Util.NamedActions              ( (^++^)
+                                                       , NamedAction (..)
+                                                       , addDescrKeys'
+                                                       , addName
+                                                       , showKm
+                                                       , subtitle
+                                                       )
 import           XMonad.Util.NamedScratchpad           ( NamedScratchpad(..)
                                                        , customFloating
                                                        , defaultFloating
@@ -47,7 +58,7 @@ import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
 
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects $ def
+main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects . keybindingsHelp $ def
   { terminal           = "terminator"
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
@@ -56,18 +67,16 @@ main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects $ def
   , workspaces         = myWS
   , normalBorderColor  = "#dddddd" -- light gray (default)
   , focusedBorderColor = "#1681f2" -- blue
-
-  -- key bindings
-  , keys               = myKeys
   , mouseBindings      = myMouseBindings
-
-  -- hooks, layouts
   , layoutHook         = myLayout
   , manageHook         = myManageHook
   , handleEventHook    = myEventHook
   , logHook            = myLogHook
   , startupHook        = myStartupHook
   }
+
+keybindingsHelp conf@XConfig {XMonad.modMask = modm} =
+  addDescrKeys' ((modm, xK_F1), showKeybindings) myKeys $ conf
 
 taffybarExec = "taffybar-linux-x86_64.taffybar-wrapped"
 
@@ -96,162 +105,86 @@ screenLocker = "betterlockscreen -l dim"
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
-myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
+showKeybindings x = addName "Show Keybindings" $ io $ do
+  h <- spawnPipe "zenity --text-info --font=terminus"
+  hPutStr h (unlines $ showKm x)
+  hClose h
 
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn appLauncher)
-
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
-
-    -- lock screen
-    , ((modm .|. controlMask, xK_l   ), spawn screenLocker)
-
-    -- Mute volume
-    , ((0, xF86XK_AudioMute          ), spawn "amixer -q set Master toggle")
-
-    -- Decrease volume
-    , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer -q set Master 5%-")
-
-    -- Increase volume
-    , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer -q set Master 5%+")
-
-    -- Play / Pause
-    , ((0, xF86XK_AudioPlay          ), spawn "playerctl play-pause")
-
-    -- Stop
-    , ((0, xF86XK_AudioStop          ), spawn "playerctl stop")
-
-    -- Previous song
-    , ((0, xF86XK_AudioPrev          ), spawn "playerctl previous")
-
-    -- Next song
-    , ((0, xF86XK_AudioNext          ), spawn "playerctl next")
-
-    {----------------- Scratchpads ---------------------}
-
-    -- run neofetch (or show if already running)
-    , ((modm .|. controlMask,  xK_n  ), runScratchpadApp neofetch)
-
-    -- run nautilus (or show if already running)
-    , ((modm .|. controlMask,  xK_f  ), runScratchpadApp nautilus)
-
-    -- run simplescreenrecorder (or show if already running)
-    , ((modm .|. controlMask,  xK_r  ), runScratchpadApp scr)
-
-    -- run spotify (or show if already running)
-    , ((modm .|. controlMask,  xK_s  ), runScratchpadApp spotify)
-
-    -- run ytop (or show if already running)
-    , ((modm .|. controlMask,  xK_y  ), runScratchpadApp ytop)
-
-    {----------------- Windows ---------------------}
-
-    -- close focused window
-    , ((modm              , xK_BackSpace), kill)
-
-     -- Rotate through the available layout algorithms
-    , ((modm              , xK_space ), sendMessage NextLayout)
-
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
-
-    -- Resize viewed windows to the correct size
-    , ((modm              , xK_n     ), refresh)
-
-    -- Move focus to the next window
-    , ((modm              , xK_j     ), windows W.focusDown)
-
-    -- Move focus to the previous window
-    , ((modm              , xK_k     ), windows W.focusUp)
-
-    -- Move focus to the master window
-    , ((modm              , xK_m     ), windows W.focusMaster)
-
-    -- Swap the focused window and the master window
-    , ((modm              , xK_Return), windows W.swapMaster)
-
-    -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)
-
-    -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp)
-
-    -- Shrink the master area
-    , ((modm              , xK_h     ), sendMessage Shrink)
-
-    -- Expand the master area
-    , ((modm              , xK_l     ), sendMessage Expand)
-
-    -- Push window back into tiling
-    , ((modm              , xK_t     ), withFocused $ windows . W.sink)
-
-    -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-
-    -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-
-    -- Resize focused windows
-    , ((modm,               xK_d     ), withFocused (keysResizeWindow (-10,-10) (1,1)))
-    , ((modm,               xK_s     ), withFocused (keysResizeWindow (10,10) (1,1)))
-    , ((modm .|. shiftMask, xK_d     ), withFocused (keysAbsResizeWindow (-10,-10) (1024,752)))
-    , ((modm .|. shiftMask, xK_s     ), withFocused (keysAbsResizeWindow (10,10) (1024,752)))
-
-    -- Rotate only slave windows (leave master alone)
-    , ((modm .|. shiftMask, xK_Tab   ), rotSlavesUp)
-
-    {----------------- Workspaces ---------------------}
-
-    -- Move to the next workspace
-    , ((modm              , xK_period ), nextWS')
-
-    -- Move to the previous workspace
-    , ((modm              , xK_comma  ), prevWS')
-
-    -- Remove workspace
-    , ((modm .|. shiftMask, xK_BackSpace), removeWorkspace)
-
-    {----------------- DynamicProjects ---------------------}
-
-    , ((modm              , xK_o      ), switchProjectPrompt projectsTheme)
-
-    {----------------- Miscelaneous ---------------------}
-
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    , ((modm              , xK_b     ), sendMessage ToggleStruts)
-
-    -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io exitSuccess)
-
-    -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-    ]
-    ++
-
-    --
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
-    --
-    [((m .|. modm, k), windows $ f i)
+myKeys conf@XConfig {XMonad.modMask = modm} =
+  keySet "Audio"
+    [ key "Mute"          (0, xF86XK_AudioMute              ) $ spawn "amixer -q set Master toggle"
+    , key "Lower volume"  (0, xF86XK_AudioLowerVolume       ) $ spawn "amixer -q set Master 5%-"
+    , key "Raise volume"  (0, xF86XK_AudioRaiseVolume       ) $ spawn "amixer -q set Master 5%+"
+    , key "Play / Pause"  (0, xF86XK_AudioPlay              ) $ spawn "playerctl play-pause"
+    , key "Stop"          (0, xF86XK_AudioStop              ) $ spawn "playerctl stop"
+    , key "Previous"      (0, xF86XK_AudioPrev              ) $ spawn "playerctl previous"
+    , key "Next"          (0, xF86XK_AudioNext              ) $ spawn "playerctl next"
+    ] ^++^
+  keySet "Launchers"
+    [ key "Terminal"      (modm .|. shiftMask  , xK_Return  ) $ spawn (XMonad.terminal conf)
+    , key "Apps (Rofi)"   (modm                , xK_p       ) $ spawn appLauncher
+    , key "Lock screen"   (modm .|. controlMask, xK_l       ) $ spawn screenLocker
+    ] ^++^
+  keySet "Layouts"
+    [ key "Next"          (modm              , xK_space     ) $ sendMessage NextLayout
+    , key "Reset"         (modm .|. shiftMask, xK_space     ) $ setLayout (XMonad.layoutHook conf)
+    ] ^++^
+  keySet "Projects"
+    [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
+    ] ^++^
+  keySet "Scratchpads"
+    [ key "Neofetch"        (modm .|. controlMask,  xK_n    ) $ runScratchpadApp neofetch
+    , key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
+    , key "Screen recorder" (modm .|. controlMask,  xK_r    ) $ runScratchpadApp scr
+    , key "Spotify"         (modm .|. controlMask,  xK_s    ) $ runScratchpadApp spotify
+    , key "ytop"            (modm .|. controlMask,  xK_y    ) $ runScratchpadApp ytop
+    ] ^++^
+  keySet "Screens" switchScreen ^++^
+  keySet "System"
+    [ key "Toggle status bar gap" (modm              , xK_b ) $ sendMessage ToggleStruts
+    , key "Logout (quit XMonad)"  (modm .|. shiftMask, xK_q ) $ io exitSuccess
+    , key "Restart XMonad"        (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
+    ] ^++^
+  keySet "Windows"
+    [ key "Close focused"  (modm              , xK_BackSpace) kill
+    , key "Refresh size"   (modm              , xK_n        ) refresh
+    , key "Focus next"     (modm              , xK_j        ) $ windows W.focusDown
+    , key "Focus previous" (modm              , xK_k        ) $ windows W.focusUp
+    , key "Focus master"   (modm              , xK_m        ) $ windows W.focusMaster
+    , key "Swap master"    (modm              , xK_Return   ) $ windows W.swapMaster
+    , key "Swap next"      (modm .|. shiftMask, xK_j        ) $ windows W.swapDown
+    , key "Swap previous"  (modm .|. shiftMask, xK_k        ) $ windows W.swapUp
+    , key "Shrink master"  (modm              , xK_h        ) $ sendMessage Shrink
+    , key "Expand master"  (modm              , xK_l        ) $ sendMessage Expand
+    , key "Switch to tile" (modm              , xK_t        ) $ withFocused (windows . W.sink)
+    , key "Rotate slaves"  (modm .|. shiftMask, xK_Tab      ) rotSlavesUp
+    , key "Decrease size"  (modm              , xK_d        ) $ withFocused (keysResizeWindow (-10,-10) (1,1))
+    , key "Increase size"  (modm              , xK_s        ) $ withFocused (keysResizeWindow (10,10) (1,1))
+    , key "Decr  abs size" (modm .|. shiftMask, xK_d        ) $ withFocused (keysAbsResizeWindow (-10,-10) (1024,752))
+    , key "Incr  abs size" (modm .|. shiftMask, xK_s        ) $ withFocused (keysAbsResizeWindow (10,10) (1024,752))
+    ] ^++^
+  keySet "Workspaces"
+    [ key "Next"          (modm              , xK_period    ) nextWS'
+    , key "Previous"      (modm              , xK_comma     ) prevWS'
+    , key "Remove"        (modm .|. shiftMask, xK_BackSpace ) removeWorkspace
+    ] ++ switchWsById
+ where
+  keySet s ks = subtitle s : ks
+  key n k a = (k, addName n a)
+  action m = if m == shiftMask then "Move to " else "Switch to "
+  -- mod-[1..9]: Switch to workspace N | mod-shift-[1..9]: Move client to workspace N
+  switchWsById =
+    [ key (action m <> show i) (m .|. modm, k) (windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
-
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
+  -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+  -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+  switchScreen =
+    [ key (action m <> show sc) (m .|. modm, k) (screenWorkspace sc >>= flip whenJust (windows . f))
+        | (k, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+        , (f, m)  <- [(W.view, 0), (W.shift, shiftMask)]]
 
 ----------- Cycle through workspaces one by one but filtering out NSP (scratchpads) -----------
 
@@ -361,6 +294,7 @@ manageApps = composeAll
   , className =? appClassName scr      --> doCenterFloat
   , title     =? appTitle ytop         --> doFullFloat
   , title     =? appTitle neofetch     --> doCenterFloat
+  , className =? "Zenity"              --> doFullFloat
   , appName   =? "eog"                 --> doCenterFloat
   , appName   =? "vlc"                 --> doFullFloat
   , resource  =? "desktop_window"      --> doIgnore
