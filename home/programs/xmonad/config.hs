@@ -230,7 +230,7 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts . comWs . devWs . webWs $ (tiled ||| Mirror tiled ||| full)
+myLayout = avoidStruts . comWs . devWs $ (tiled ||| Mirror tiled ||| full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
@@ -252,7 +252,6 @@ myLayout = avoidStruts . comWs . devWs . webWs $ (tiled ||| Mirror tiled ||| ful
      -- Per workspace layout
      comWs = onWorkspace "com" full
      devWs = onWorkspace "dev" (Mirror tiled)
-     webWs = onWorkspace "web" full
 
 ------------------------------------------------------------------------
 -- Window rules:
