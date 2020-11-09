@@ -61,7 +61,7 @@ import qualified XMonad.StackSet                       as W
 
 main :: IO ()
 main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings $ def
-  { terminal           = "terminator"
+  { terminal           = myTerminal
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
   , borderWidth        = 3
@@ -104,6 +104,7 @@ myStartupHook = do
 -- Key bindings. Add, modify or remove key bindings here.
 --
 
+myTerminal   = "alacritty"
 appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
 
@@ -326,13 +327,12 @@ projects =
             }
   , Project { projectName      = "oss"
             , projectDirectory = "~/"
-            , projectStartHook = Just $ do spawn "terminator"
-                                           spawn "terminator"
-                                           spawn "terminator -x home-manager edit"
+            , projectStartHook = Just $ do sequence_ (replicate 2 $ spawn myTerminal)
+                                           spawn $ myTerminal <> " -e home-manager edit"
             }
   , Project { projectName      = "dev"
             , projectDirectory = "~/workspace/cr/app"
-            , projectStartHook = Just $ sequence_ (replicate 3 $ spawn "terminator")
+            , projectStartHook = Just . sequence_ . replicate 3 $ spawn myTerminal
             }
   , Project { projectName      = "com"
             , projectDirectory = "~/"
@@ -340,7 +340,7 @@ projects =
             }
   , Project { projectName      = "sys"
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "terminator -x sudo su"
+            , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
             }
   ]
 

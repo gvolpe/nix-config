@@ -44,9 +44,9 @@ A customizable Window Manager, combined with `taffybar` as the status bar and `r
 
 ### More
 
-- `Fish Shell`: I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish).
-- `NeoVim`: My favorite text editor and IDE powered by LSP (language server protocol).
-- `Terminator`: A great terminal multiplexer, easy to use.
+- [Alacritty](https://github.com/alacritty/alacritty): My default terminal emulator.
+- [Fish Shell](https://fishshell.com/): I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish).
+- [NeoVim](https://neovim.io/): My all-time favorite text editor and IDE, powered by the Language Server Protocol.
 
 ## Install
 
