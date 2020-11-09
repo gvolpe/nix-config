@@ -78,18 +78,18 @@ main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects . keybindin
 keybindingsHelp conf@XConfig {XMonad.modMask = modm} =
   addDescrKeys' ((modm, xK_F1), showKeybindings) myKeys $ conf
 
-taffybarExec = "taffybar-linux-x86_64.taffybar-wrapped"
-
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 myStartupHook = do
   spawnOnceIf "status-notifier-watcher"
   spawnOnce "nitrogen --restore &"
-  spawn $ killall taffybarExec
+  spawn $ killall "taffybar-linux-x86_64.taffybar-wrapped"
   spawn "taffybar &"
   spawn "killall .pasystray-wrap"
   spawn "pasystray &"
+  spawn "killall .blueman-applet-wrapped-wrapped"
+  spawn "blueman-applet &"
   spawn $ killall "nm-applet"
   spawn "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
