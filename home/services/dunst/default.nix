@@ -27,7 +27,7 @@ in
     settings = with config.lib.base16.theme; {
       global = {
         monitor = 0;
-        geometry = "400x50-50+65";
+        geometry = "600x50-50+65";
         shrink = "yes";
         transparency = 50;
         padding = 16;
@@ -62,10 +62,10 @@ in
         timeout = 4;
       };
       urgency_critical = {
-        background = "#${base00-hex}";
-        forefrond = "#${base05-hex}";
+        background = "#${base0A-hex}";
+        forefrond = "#${base0D-hex}";
         frame_color = "#${base08-hex}";
-        timeout = 4;
+        timeout = 10;
       };
     };
   };
