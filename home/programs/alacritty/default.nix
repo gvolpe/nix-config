@@ -5,6 +5,11 @@
     enable = true;
     settings = {
       background_opacity = 0.8;
+      bell = {
+        animation = "EaseOutExpo";
+        duration = 5;
+        color = "#ffffff";
+      };
       colors = {
         primary = {
           background = "#040404";
@@ -18,6 +23,7 @@
         };
         size = 10;
       };
+      selection.save_to_clipboard = true;
       shell.program = "${pkgs.fish}/bin/fish";
       window = {
         decorations = "full";

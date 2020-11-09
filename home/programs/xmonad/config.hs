@@ -1,3 +1,4 @@
+import           Data.Foldable                         ( traverse_ )
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
@@ -40,6 +41,9 @@ import           XMonad.Hooks.ManageHelpers            ( (-?>)
                                                        , doCenterFloat
                                                        , doFullFloat
                                                        )
+import           XMonad.Hooks.UrgencyHook              ( UrgencyHook(..)
+                                                       , withUrgencyHook
+                                                       )
 import           XMonad.Layout.Gaps                    ( gaps )
 import           XMonad.Layout.MultiToggle             ( Toggle(..)
                                                        , mkToggle
@@ -67,15 +71,18 @@ import           XMonad.Util.NamedScratchpad           ( NamedScratchpad(..)
                                                        , namedScratchpadAction
                                                        , namedScratchpadManageHook
                                                        )
-import           XMonad.Util.Run                       ( spawnPipe )
+import           XMonad.Util.Run                       ( safeSpawn
+                                                       , spawnPipe
+                                                       )
 import           XMonad.Util.SpawnOnce                 ( spawnOnce )
 import           XMonad.Util.WorkspaceCompare          ( getSortByIndex )
 
 import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
+import qualified XMonad.Util.NamedWindows              as W
 
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings $ def
+main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings . urgencyHook $ def
   { terminal           = myTerminal
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
@@ -95,11 +102,21 @@ main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings $ def
   myModMask   = mod4Mask -- super as the mod key
   dynProjects = dynamicProjects projects
   keybindings = addDescrKeys' ((myModMask, xK_F1), showKeybindings) myKeys
+  urgencyHook = withUrgencyHook LibNotifyUrgencyHook
 
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 myStartupHook = startupHook def
+
+-- original idea: https://pbrisbin.com/posts/using_notify_osd_for_xmonad_notifications/
+data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
+
+instance UrgencyHook LibNotifyUrgencyHook where
+  urgencyHook LibNotifyUrgencyHook w = do
+    name     <- W.getName w
+    maybeIdx <- W.findTag w <$> gets windowset
+    traverse_ (\i -> safeSpawn "notify-send" [show name, "workspace " ++ i]) maybeIdx
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.

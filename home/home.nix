@@ -9,6 +9,7 @@ let
     compton              # composite manager for X11
     dmenu                # application launcher
     killall              # kill processes by name
+    libnotify            # notify-send command
     manix                # documentation searcher for nix
     mupdf                # pdf viewer with vim-like keybindings
     neofetch             # command-line system information
