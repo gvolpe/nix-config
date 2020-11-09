@@ -13,8 +13,8 @@ in
   # More schemes at: https://github.com/atpotts/base16-nix/blob/master/schemes.json
   themes.base16 = {
     enable  = true;
-    scheme  = "vulcan";
-    variant = "vulcan";
+    scheme  = "helios";
+    variant = "helios";
   };
 
   services.dunst = {
