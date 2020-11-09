@@ -19,7 +19,9 @@ import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
                                                        , keysResizeWindow
                                                        )
 import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
-import           XMonad.Hooks.EwmhDesktops             ( ewmh )
+import           XMonad.Hooks.EwmhDesktops             ( ewmh
+                                                       , ewmhDesktopsEventHook
+                                                       )
 import           XMonad.Hooks.FadeInactive             ( fadeInactiveLogHook )
 import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
@@ -58,12 +60,12 @@ import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
 
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects . keybindingsHelp $ def
+main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings $ def
   { terminal           = "terminator"
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
   , borderWidth        = 3
-  , modMask            = mod4Mask -- super as the mod key
+  , modMask            = myModMask
   , workspaces         = myWS
   , normalBorderColor  = "#dddddd" -- light gray (default)
   , focusedBorderColor = "#1681f2" -- blue
@@ -74,9 +76,10 @@ main = xmonad . docks . ewmh . pagerHints . dynamicProjects projects . keybindin
   , logHook            = myLogHook
   , startupHook        = myStartupHook
   }
-
-keybindingsHelp conf@XConfig {XMonad.modMask = modm} =
-  addDescrKeys' ((modm, xK_F1), showKeybindings) myKeys $ conf
+ where
+  myModMask   = mod4Mask -- super as the mod key
+  dynProjects = dynamicProjects projects
+  keybindings = addDescrKeys' ((myModMask, xK_F1), showKeybindings) myKeys
 
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
@@ -93,18 +96,16 @@ myStartupHook = do
   spawn $ killall "nm-applet"
   spawn "nm-applet --sm-disable --indicator &"
   --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
-
-killall p = "pidof " <> p <> " && killall -q " <> p
-
-spawnOnceIf p =
-  spawnOnce $ "if [ -z $(pidof " <> p <> ") ] ; then " <> p <> " & fi"
-
-appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
-screenLocker = "betterlockscreen -l dim"
+ where
+  killall p     = "pidof " <> p <> " && killall -q " <> p
+  spawnOnceIf p = spawnOnce $ "if [ -z $(pidof " <> p <> ") ] ; then " <> p <> " & fi"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
+
+appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
+screenLocker = "betterlockscreen -l dim"
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings x = addName "Show Keybindings" $ io $ do
@@ -286,22 +287,23 @@ scr      = App "scr"      "SimpleScreenRecorder" "simplescreenrecorder"
 spotify  = App "spotify"  "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
 ytop     = App "ytop"     "ytop"                 "alacritty -t ytop -e ytop"
 
-manageApps = composeAll
-  [ className =? appClassName gimp     --> doFloat
-  , className =? appClassName spotify  --> doFullFloat
-  , className =? appClassName nautilus --> doCenterFloat
-  , className =? appClassName pavuctrl --> doCenterFloat
-  , className =? appClassName scr      --> doCenterFloat
-  , title     =? appTitle ytop         --> doFullFloat
-  , title     =? appTitle neofetch     --> doCenterFloat
-  , className =? "Zenity"              --> doFullFloat
-  , appName   =? "eog"                 --> doCenterFloat
-  , appName   =? "vlc"                 --> doFullFloat
-  , resource  =? "desktop_window"      --> doIgnore
-  , resource  =? "kdesktop"            --> doIgnore
-  ]
-
-myManageHook = manageApps <+> namedScratchpadManageHook scratchpads
+myManageHook = manageApps <+> manageScratchpads
+ where
+  manageScratchpads = namedScratchpadManageHook scratchpads
+  manageApps = composeAll
+    [ className =? appClassName gimp     --> doFloat
+    , className =? appClassName spotify  --> doFullFloat
+    , className =? appClassName nautilus --> doCenterFloat
+    , className =? appClassName pavuctrl --> doCenterFloat
+    , className =? appClassName scr      --> doCenterFloat
+    , title     =? appTitle ytop         --> doFullFloat
+    , title     =? appTitle neofetch     --> doCenterFloat
+    , className =? "Zenity"              --> doFullFloat
+    , appName   =? "eog"                 --> doCenterFloat
+    , appName   =? "vlc"                 --> doFullFloat
+    , resource  =? "desktop_window"      --> doIgnore
+    , resource  =? "kdesktop"            --> doIgnore
+    ]
 
 scratchpadApp :: Query String -> App -> NamedScratchpad
 scratchpadApp query (App t cn cmd) = NS t cmd (query =? cn) defaultFloating
@@ -361,7 +363,7 @@ projectsTheme = amberXPConfig
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = ewmhDesktopsEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
