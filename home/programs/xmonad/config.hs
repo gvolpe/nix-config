@@ -21,17 +21,32 @@ import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
 import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh
                                                        , ewmhDesktopsEventHook
+                                                       , fullscreenEventHook
                                                        )
 import           XMonad.Hooks.FadeInactive             ( fadeInactiveLogHook )
+import           XMonad.Hooks.InsertPosition           ( Focus(Newer)
+                                                       , Position(Below)
+                                                       , insertPosition
+                                                       )
 import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
                                                        , avoidStruts
                                                        , docks
                                                        )
-import           XMonad.Hooks.ManageHelpers            ( doCenterFloat
+import           XMonad.Hooks.ManageHelpers            ( (-?>)
+                                                       , isDialog
+                                                       , isFullscreen
+                                                       , isInProperty
+                                                       , doCenterFloat
                                                        , doFullFloat
                                                        )
 import           XMonad.Layout.Gaps                    ( gaps )
+import           XMonad.Layout.MultiToggle             ( Toggle(..)
+                                                       , mkToggle
+                                                       , single
+                                                       )
+import           XMonad.Layout.MultiToggle.Instances   ( StdTransformers(NBFULL) )
+import           XMonad.Layout.NoBorders               ( smartBorders )
 import           XMonad.Layout.PerWorkspace            ( onWorkspace )
 import           XMonad.Layout.Spacing                 ( spacing )
 import           XMonad.Prompt                         ( XPConfig(..)
@@ -84,21 +99,7 @@ main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings $ def
 -- Perform an arbitrary action each time xmonad starts or is restarted
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
-myStartupHook = do
-  spawnOnceIf "status-notifier-watcher"
-  spawnOnce "nitrogen --restore &"
-  spawn $ killall "taffybar-linux-x86_64.taffybar-wrapped"
-  spawn "taffybar &"
-  spawn "killall .pasystray-wrap"
-  spawn "pasystray &"
-  spawn "killall .blueman-applet-wrapped-wrapped"
-  spawn "blueman-applet &"
-  spawn $ killall "nm-applet"
-  spawn "nm-applet --sm-disable --indicator &"
-  --spawnPipe "xmobar -x 0 /home/gvolpe/.config/xmobar/config"
- where
-  killall p     = "pidof " <> p <> " && killall -q " <> p
-  spawnOnceIf p = spawnOnce $ "if [ -z $(pidof " <> p <> ") ] ; then " <> p <> " & fi"
+myStartupHook = startupHook def
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -132,13 +133,13 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
   keySet "Layouts"
     [ key "Next"          (modm              , xK_space     ) $ sendMessage NextLayout
     , key "Reset"         (modm .|. shiftMask, xK_space     ) $ setLayout (XMonad.layoutHook conf)
+    , key "Fullscreen"    (modm              , xK_f         ) $ sendMessage (Toggle NBFULL)
     ] ^++^
   keySet "Projects"
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
     ] ^++^
   keySet "Scratchpads"
-    [ key "Neofetch"        (modm .|. controlMask,  xK_n    ) $ runScratchpadApp neofetch
-    , key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
+    [ key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
     , key "Screen recorder" (modm .|. controlMask,  xK_r    ) $ runScratchpadApp scr
     , key "Spotify"         (modm .|. controlMask,  xK_s    ) $ runScratchpadApp spotify
     , key "ytop"            (modm .|. controlMask,  xK_y    ) $ runScratchpadApp ytop
@@ -230,7 +231,7 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts . comWs . devWs $ (tiled ||| Mirror tiled ||| full)
+myLayout = avoidStruts . smartBorders . fullScreenToggle . comWs . devWs $ (tiled ||| Mirror tiled ||| full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
@@ -252,6 +253,9 @@ myLayout = avoidStruts . comWs . devWs $ (tiled ||| Mirror tiled ||| full)
      -- Per workspace layout
      comWs = onWorkspace "com" full
      devWs = onWorkspace "dev" (Mirror tiled)
+
+     -- Fullscreen
+     fullScreenToggle = mkToggle (single NBFULL)
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -281,7 +285,6 @@ data App = App
 
 gimp     = App "gimp"     "Gimp"                 "gimp"
 nautilus = App "files"    "Org.gnome.Nautilus"   "nautilus"
-neofetch = App "neofetch" "neofetch"             "alacritty -t neofetch -e neofetch"
 pavuctrl = App "pactl"    "Pavucontrol"          "pavucontrol"
 scr      = App "scr"      "SimpleScreenRecorder" "simplescreenrecorder"
 spotify  = App "spotify"  "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
@@ -289,6 +292,12 @@ ytop     = App "ytop"     "ytop"                 "alacritty -t ytop -e ytop"
 
 myManageHook = manageApps <+> manageScratchpads
  where
+  isBrowserDialog     = isDialog <&&> className =? "Brave-browser"
+  isFileChooserDialog = isRole =? "GtkFileChooserDialog"
+  isPopup             = isRole =? "pop-up"
+  isSplash            = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_SPLASH"
+  isRole              = stringProperty "WM_WINDOW_ROLE"
+  tileBelow           = insertPosition Below Newer
   manageScratchpads = namedScratchpadManageHook scratchpads
   manageApps = composeAll
     [ className =? appClassName gimp     --> doFloat
@@ -297,12 +306,20 @@ myManageHook = manageApps <+> manageScratchpads
     , className =? appClassName pavuctrl --> doCenterFloat
     , className =? appClassName scr      --> doCenterFloat
     , title     =? appTitle ytop         --> doFullFloat
-    , title     =? appTitle neofetch     --> doCenterFloat
+    , className =? "Vlc"                 --> doFullFloat
     , className =? "Zenity"              --> doFullFloat
     , appName   =? "eog"                 --> doCenterFloat
-    , appName   =? "vlc"                 --> doFullFloat
     , resource  =? "desktop_window"      --> doIgnore
     , resource  =? "kdesktop"            --> doIgnore
+    -- dialogs
+    , isBrowserDialog     --> doCenterFloat
+    , isFileChooserDialog --> doCenterFloat
+    , isDialog            --> doCenterFloat
+    , isPopup             --> doCenterFloat
+    , isSplash            --> doCenterFloat
+    -- misc
+    , isFullscreen --> doFullFloat
+    , pure True    --> tileBelow
     ]
 
 scratchpadApp :: Query String -> App -> NamedScratchpad
@@ -311,7 +328,7 @@ scratchpadApp query (App t cn cmd) = NS t cmd (query =? cn) defaultFloating
 runScratchpadApp (App t _ _) = namedScratchpadAction scratchpads t
 
 scratchpads =
-  let byTitle = scratchpadApp title     <$> [ neofetch, ytop ]
+  let byTitle = scratchpadApp title     <$> [ ytop ]
       byClass = scratchpadApp className <$> [ nautilus, scr, spotify ]
   in  byTitle <> byClass
 
@@ -362,7 +379,7 @@ projectsTheme = amberXPConfig
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = ewmhDesktopsEventHook
+myEventHook = ewmhDesktopsEventHook <> fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging

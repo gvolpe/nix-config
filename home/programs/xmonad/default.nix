@@ -17,6 +17,13 @@
       setterm -blank 0 -powersave off -powerdown 0
       xset s off
       xcape -e "Hyper_L=Tab;Hyper_R=backslash"
+
+      status-notifier-watcher &
+      nitrogen --restore &
+      taffybar &
+      pasystray &
+      blueman-applet &
+      nm-applet --sm-disable --indicator &
     '';
 
     windowManager.xmonad = {
