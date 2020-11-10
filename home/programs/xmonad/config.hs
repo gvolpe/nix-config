@@ -77,6 +77,7 @@ import           XMonad.Util.Run                       ( safeSpawn
 import           XMonad.Util.SpawnOnce                 ( spawnOnce )
 import           XMonad.Util.WorkspaceCompare          ( getSortByIndex )
 
+import qualified Control.Exception                     as E
 import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
 import qualified XMonad.Util.NamedWindows              as W
@@ -127,10 +128,8 @@ appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
-showKeybindings x = addName "Show Keybindings" $ io $ do
-  h <- spawnPipe "zenity --text-info --font=terminus"
-  hPutStr h (unlines $ showKm x)
-  hClose h
+showKeybindings x = addName "Show Keybindings" . io $
+  E.bracket (spawnPipe $ getAppCommand zenity) hClose (\h -> hPutStr h (unlines $ showKm x))
 
 myKeys conf@XConfig {XMonad.modMask = modm} =
   keySet "Audio"
@@ -290,22 +289,27 @@ myLayout = avoidStruts . smartBorders . fullScreenToggle . comWs . devWs $ (tile
 -- 'className' and 'resource' are used below.
 --
 
+type AppName      = String
 type AppTitle     = String
 type AppClassName = String
 type AppCommand   = String
 
-data App = App
-  { appTitle :: AppTitle
-  , appClassName :: AppClassName
-  , appCommand :: AppCommand
-  } deriving Show
+data App
+  = ClassApp AppClassName AppCommand
+  | TitleApp AppTitle AppCommand
+  | NameApp AppName AppCommand
+  deriving Show
 
-gimp     = App "gimp"     "Gimp"                 "gimp"
-nautilus = App "files"    "Org.gnome.Nautilus"   "nautilus"
-pavuctrl = App "pactl"    "Pavucontrol"          "pavucontrol"
-scr      = App "scr"      "SimpleScreenRecorder" "simplescreenrecorder"
-spotify  = App "spotify"  "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
-ytop     = App "ytop"     "ytop"                 "alacritty -t ytop -e ytop"
+eog, gimp, nautilus, pavuctrl, scr, spotify, vlc, ytop, zenity :: App
+eog      = NameApp  "eog"                  "eog"
+gimp     = ClassApp "Gimp"                 "gimp"
+nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
+pavuctrl = ClassApp "Pavucontrol"          "pavucontrol"
+scr      = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
+spotify  = ClassApp "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
+vlc      = ClassApp "Vlc"                  "vlc"
+ytop     = TitleApp "ytop"                 "alacritty -t ytop -e ytop"
+zenity   = ClassApp "Zenity"               "zenity --text-info --font=terminus"
 
 myManageHook = manageApps <+> manageScratchpads
  where
@@ -317,37 +321,43 @@ myManageHook = manageApps <+> manageScratchpads
   tileBelow           = insertPosition Below Newer
   manageScratchpads = namedScratchpadManageHook scratchpads
   manageApps = composeAll
-    [ className =? appClassName gimp     --> doFloat
-    , className =? appClassName spotify  --> doFullFloat
-    , className =? appClassName nautilus --> doCenterFloat
-    , className =? appClassName pavuctrl --> doCenterFloat
-    , className =? appClassName scr      --> doCenterFloat
-    , title     =? appTitle ytop         --> doFullFloat
-    , className =? "Vlc"                 --> doFullFloat
-    , className =? "Zenity"              --> doFullFloat
-    , appName   =? "eog"                 --> doCenterFloat
-    , resource  =? "desktop_window"      --> doIgnore
-    , resource  =? "kdesktop"            --> doIgnore
-    -- dialogs
-    , isBrowserDialog     --> doCenterFloat
-    , isFileChooserDialog --> doCenterFloat
-    , isDialog            --> doCenterFloat
-    , isPopup             --> doCenterFloat
-    , isSplash            --> doCenterFloat
-    -- misc
-    , isFullscreen --> doFullFloat
-    , pure True    --> tileBelow
+    [ isInstance gimp                                 --> doFloat
+    , isInstance spotify                              --> doFullFloat
+    , (
+        isInstance eog <||> isInstance nautilus <||>
+        isInstance pavuctrl <||> isInstance scr
+      )                                               --> doCenterFloat
+    , (
+        isInstance vlc <||> isInstance ytop <||>
+        isInstance zenity
+      )                                               --> doFullFloat
+    , resource  =? "desktop_window"                   --> doIgnore
+    , resource  =? "kdesktop"                         --> doIgnore
+    , (
+        isBrowserDialog <||> isFileChooserDialog <||>
+        isDialog <||> isPopup <||> isSplash
+      )                                               --> doCenterFloat
+    , isFullscreen                                    --> doFullFloat
+    , pure True                                       --> tileBelow
     ]
 
-scratchpadApp :: Query String -> App -> NamedScratchpad
-scratchpadApp query (App t cn cmd) = NS t cmd (query =? cn) defaultFloating
+isInstance (ClassApp c _) = className =? c
+isInstance (TitleApp t _) = title =? t
+isInstance (NameApp n _)  = appName =? n
 
-runScratchpadApp (App t _ _) = namedScratchpadAction scratchpads t
+getNameCommand (ClassApp n c) = (n, c)
+getNameCommand (TitleApp n c) = (n, c)
+getNameCommand (NameApp  n c) = (n, c)
 
-scratchpads =
-  let byTitle = scratchpadApp title     <$> [ ytop ]
-      byClass = scratchpadApp className <$> [ nautilus, scr, spotify ]
-  in  byTitle <> byClass
+getAppName    = fst . getNameCommand
+getAppCommand = snd . getNameCommand
+
+scratchpadApp :: App -> NamedScratchpad
+scratchpadApp app = NS (getAppName app) (getAppCommand app) (isInstance app) defaultFloating
+
+runScratchpadApp = namedScratchpadAction scratchpads . getAppName
+
+scratchpads = scratchpadApp <$> [ nautilus, scr, spotify, ytop ]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
