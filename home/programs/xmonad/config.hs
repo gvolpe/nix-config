@@ -20,6 +20,9 @@ import           XMonad.Actions.FloatKeys              ( keysAbsResizeWindow
                                                        , keysResizeWindow
                                                        )
 import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
+import           XMonad.Actions.SpawnOn                ( manageSpawn
+                                                       , spawnOn
+                                                       )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh
                                                        , ewmhDesktopsEventHook
                                                        , fullscreenEventHook
@@ -132,6 +135,9 @@ showKeybindings x = addName "Show Keybindings" . io $
   E.bracket (spawnPipe $ getAppCommand zenity) hClose (\h -> hPutStr h (unlines $ showKm x))
 
 myKeys conf@XConfig {XMonad.modMask = modm} =
+  keySet "Applications"
+    [ key "Slack"         (modm                , xK_F2      ) $ spawnOn comWs "slack"
+    ] ^++^
   keySet "Audio"
     [ key "Mute"          (0, xF86XK_AudioMute              ) $ spawn "amixer -q set Master toggle"
     , key "Lower volume"  (0, xF86XK_AudioLowerVolume       ) $ spawn "amixer -q set Master 5%-"
@@ -247,8 +253,13 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts . smartBorders . fullScreenToggle . comWs . devWs $ (tiled ||| Mirror tiled ||| full)
-  where
+myLayout =
+  avoidStruts
+    . smartBorders
+    . fullScreenToggle
+    . comLayout
+    . devLayout $ (tiled ||| Mirror tiled ||| full)
+   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
      full    = gapSpaced 5 Full
@@ -267,8 +278,8 @@ myLayout = avoidStruts . smartBorders . fullScreenToggle . comWs . devWs $ (tile
      gapSpaced g = spacing g . myGaps g
 
      -- Per workspace layout
-     comWs = onWorkspace "com" full
-     devWs = onWorkspace "dev" (Mirror tiled)
+     comLayout = onWorkspace comWs full
+     devLayout = onWorkspace devWs (Mirror tiled)
 
      -- Fullscreen
      fullScreenToggle = mkToggle (single NBFULL)
@@ -300,7 +311,6 @@ data App
   | NameApp AppName AppCommand
   deriving Show
 
-eog, gimp, nautilus, pavuctrl, scr, spotify, vlc, ytop, zenity :: App
 eog      = NameApp  "eog"                  "eog"
 gimp     = ClassApp "Gimp"                 "gimp"
 nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
@@ -311,7 +321,7 @@ vlc      = ClassApp "Vlc"                  "vlc"
 ytop     = TitleApp "ytop"                 "alacritty -t ytop -e ytop"
 zenity   = ClassApp "Zenity"               "zenity --text-info --font=terminus"
 
-myManageHook = manageApps <+> manageScratchpads
+myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
  where
   isBrowserDialog     = isDialog <&&> className =? "Brave-browser"
   isFileChooserDialog = isRole =? "GtkFileChooserDialog"
@@ -360,34 +370,44 @@ runScratchpadApp = namedScratchpadAction scratchpads . getAppName
 scratchpads = scratchpadApp <$> [ nautilus, scr, spotify, ytop ]
 
 ------------------------------------------------------------------------
+-- Workspaces
+--
+webWs = "web"
+ossWs = "oss"
+devWs = "dev"
+comWs = "com"
+sysWs = "sys"
+
+myWS :: [WorkspaceId]
+myWS = [webWs, ossWs, devWs, comWs, sysWs]
+
+------------------------------------------------------------------------
 -- Dynamic Projects
 --
 projects :: [Project]
 projects =
-  [ Project { projectName      = "web"
+  [ Project { projectName      = webWs
             , projectDirectory = "~/"
             , projectStartHook = Just $ spawn "brave"
             }
-  , Project { projectName      = "oss"
+  , Project { projectName      = ossWs
             , projectDirectory = "~/"
             , projectStartHook = Just $ do sequence_ (replicate 2 $ spawn myTerminal)
                                            spawn $ myTerminal <> " -e home-manager edit"
             }
-  , Project { projectName      = "dev"
+  , Project { projectName      = devWs
             , projectDirectory = "~/workspace/cr/app"
             , projectStartHook = Just . sequence_ . replicate 3 $ spawn myTerminal
             }
-  , Project { projectName      = "com"
+  , Project { projectName      = comWs
             , projectDirectory = "~/"
             , projectStartHook = Just $ spawn "telegram-desktop"
             }
-  , Project { projectName      = "sys"
+  , Project { projectName      = sysWs
             , projectDirectory = "~/"
             , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
             }
   ]
-
-myWS = projectName <$> projects
 
 projectsTheme :: XPConfig
 projectsTheme = amberXPConfig
