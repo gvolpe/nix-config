@@ -85,8 +85,17 @@ import qualified Data.Map                              as M
 import qualified XMonad.StackSet                       as W
 import qualified XMonad.Util.NamedWindows              as W
 
+-- Imports for Polybar --
+import qualified Codec.Binary.UTF8.String              as UTF8
+import qualified DBus                                  as D
+import qualified DBus.Client                           as D
+import           XMonad.Hooks.DynamicLog
+
 main :: IO ()
-main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings . urgencyHook $ def
+main = mkDbusClient >>= main'
+
+main' :: D.Client -> IO ()
+main' dbus = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings . urgencyHook $ def
   { terminal           = myTerminal
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
@@ -99,7 +108,7 @@ main = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings . urgencyH
   , layoutHook         = myLayout
   , manageHook         = myManageHook
   , handleEventHook    = myEventHook
-  , logHook            = myLogHook
+  , logHook            = myPolybarLogHook dbus
   , startupHook        = myStartupHook
   }
  where
@@ -121,6 +130,44 @@ instance UrgencyHook LibNotifyUrgencyHook where
     name     <- W.getName w
     maybeIdx <- W.findTag w <$> gets windowset
     traverse_ (\i -> safeSpawn "notify-send" [show name, "workspace " ++ i]) maybeIdx
+
+------------------------------------------------------------------------
+-- Polybar settings (needs DBus client).
+--
+mkDbusClient :: IO D.Client
+mkDbusClient = do
+  dbus <- D.connectSession
+  D.requestName dbus (D.busName_ "org.xmonad.log") opts
+  return dbus
+ where
+  opts = [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
+
+-- Emit a DBus signal on log updates
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str =
+  let opath  = D.objectPath_ "/org/xmonad/Log"
+      iname  = D.interfaceName_ "org.xmonad.Log"
+      mname  = D.memberName_ "Update"
+      signal = (D.signal opath iname mname)
+      body   = [D.toVariant $ UTF8.decodeString str]
+  in  D.emit dbus $ signal { D.signalBody = body }
+
+polybarHook :: D.Client -> PP
+polybarHook dbus = def
+  { ppOutput  = dbusOutput dbus
+  , ppCurrent = wrap ("%{F" <> blue  <> "} ") " %{F-}"
+  , ppVisible = wrap ("%{F" <> gray  <> "} ") " %{F-}"
+  , ppUrgent  = wrap ("%{F" <> red   <> "} ") " %{F-}"
+  , ppHidden  = wrap ("%{F" <> gray  <> "} ") " %{F-}"
+  , ppTitle   = wrap ("%{F" <> gray2 <> "} ") " %{F-}"
+  }
+ where
+  gray  = "#7F7F7F"
+  gray2 = "#222222"
+  red   = "#900000"
+  blue  = "#2E9AFE"
+
+myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -404,7 +451,7 @@ projects =
             , projectStartHook = Just $ spawn "telegram-desktop"
             }
   , Project { projectName      = sysWs
-            , projectDirectory = "~/"
+            , projectDirectory = "/etc/nixos/"
             , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
             }
   ]

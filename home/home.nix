@@ -85,6 +85,11 @@ let
     nix-tree      # visualize nix dependencies
   ];
 
+  polybarPkgs = with pkgs; [
+    font-awesome-ttf      # awesome fonts
+    material-design-icons # fonts with glyphs
+  ];
+
   xmonadPkgs = with pkgs; [
     haskellPackages.libmpd # music player daemon
     haskellPackages.xmobar # status bar
@@ -122,6 +127,7 @@ in
     ./programs/xmobar/default.nix
     ./services/dunst/default.nix
     ./services/networkmanager/default.nix
+    ./services/polybar/default.nix
     ./services/screenlocker/default.nix
   ];
 
@@ -132,7 +138,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs ++ unstablePkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs ++ unstablePkgs;
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -200,6 +206,24 @@ in
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
+
+    mpd = {
+      enable = true;
+      extraConfig = ''
+        audio_output {
+          type            "alsa"
+          name            "USB-Audio - Scarlett 2i4 USB"
+          device          "hw:1"
+        }
+
+        audio_output {
+          type            "pulse"
+          name            "nixos"
+        }
+      '';
+    };
+
+    mpdris2.enable = true;
   };
 
 }

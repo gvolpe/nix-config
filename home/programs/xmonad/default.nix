@@ -1,3 +1,26 @@
+let
+  extra = ''
+    setterm -blank 0 -powersave off -powerdown 0
+    xset s off
+    xcape -e "Hyper_L=Tab;Hyper_R=backslash"
+  '';
+
+  polybarOpts = ''
+    nitrogen --restore &
+    pasystray &
+    blueman-applet &
+    nm-applet --sm-disable --indicator &
+  '';
+
+  taffybarOpts = ''
+    status-notifier-watcher &
+    nitrogen --restore &
+    taffybar &
+    pasystray &
+    blueman-applet &
+    nm-applet --sm-disable --indicator &
+  '';
+in
 {
   xresources.properties = {
     "Xft.dpi" = 180;
@@ -13,18 +36,7 @@
   xsession = {
     enable = true;
 
-    initExtra = ''
-      setterm -blank 0 -powersave off -powerdown 0
-      xset s off
-      xcape -e "Hyper_L=Tab;Hyper_R=backslash"
-
-      status-notifier-watcher &
-      nitrogen --restore &
-      taffybar &
-      pasystray &
-      blueman-applet &
-      nm-applet --sm-disable --indicator &
-    '';
+    initExtra = extra + polybarOpts;
 
     windowManager.xmonad = {
       enable = true;
