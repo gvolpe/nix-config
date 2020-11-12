@@ -481,4 +481,4 @@ myEventHook = ewmhDesktopsEventHook <> fullscreenEventHook
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = fadeInactiveLogHook 0.8
+myLogHook = fadeInactiveLogHook 0.9

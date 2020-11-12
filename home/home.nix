@@ -72,8 +72,9 @@ let
     zenity   # display dialogs
     # themes
     adwaita-icon-theme
-    pkgs.hicolor-icon-theme
     pkgs.material-design-icons
+    # needed for taffybar systray
+    #pkgs.hicolor-icon-theme
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
