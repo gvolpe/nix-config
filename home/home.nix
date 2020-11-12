@@ -72,7 +72,9 @@ let
     zenity   # display dialogs
     # themes
     adwaita-icon-theme
-    pkgs.hicolor-icon-theme
+    pkgs.material-design-icons
+    # needed for taffybar systray
+    #pkgs.hicolor-icon-theme
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -83,6 +85,11 @@ let
     ghcide        # haskell IDE
     hoogle        # documentation
     nix-tree      # visualize nix dependencies
+  ];
+
+  polybarPkgs = with pkgs; [
+    font-awesome-ttf      # awesome fonts
+    material-design-icons # fonts with glyphs
   ];
 
   xmonadPkgs = with pkgs; [
@@ -122,6 +129,7 @@ in
     ./programs/xmobar/default.nix
     ./services/dunst/default.nix
     ./services/networkmanager/default.nix
+    ./services/polybar/default.nix
     ./services/screenlocker/default.nix
   ];
 
@@ -132,7 +140,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs ++ unstablePkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs ++ unstablePkgs;
 
     sessionVariables = {
       EDITOR = "nvim";

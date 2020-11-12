@@ -8,8 +8,11 @@ let
   customFonts = pkgs.nerdfonts.override {
     fonts = [
       "JetBrainsMono"
+      "Iosevka"
     ];
   };
+
+  myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
 in
 {
   imports =
@@ -94,6 +97,8 @@ in
   # Making fonts accessible to applications.
   fonts.fonts = with pkgs; [
     customFonts
+    font-awesome-ttf
+    myfonts.icomoon-feather
   ];
 
   programs.fish.enable = true;
