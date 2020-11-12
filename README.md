@@ -36,11 +36,13 @@ The `home.nix` file contains details about all the software I use but here's a s
 
 ### XMonad
 
-A customizable Window Manager, combined with `taffybar` as the status bar and `rofi` as the application launcher.
+A customizable Window Manager, combined with `polybar` as the status bar and `rofi` as the application launcher.
 
-![xmonad](imgs/xmonad-4.png)
+![poly](imgs/polybar.jpeg)
 
-![xmonad](imgs/xmonad-3.png)
+Here's also an example using `taffybar` instead.
+
+![taffy](imgs/taffybar.png)
 
 ### More
 
