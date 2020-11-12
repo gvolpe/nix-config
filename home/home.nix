@@ -208,24 +208,6 @@ in
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
-
-    mpd = {
-      enable = true;
-      extraConfig = ''
-        audio_output {
-          type            "alsa"
-          name            "USB-Audio - Scarlett 2i4 USB"
-          device          "hw:1"
-        }
-
-        audio_output {
-          type            "pulse"
-          name            "nixos"
-        }
-      '';
-    };
-
-    mpdris2.enable = true;
   };
 
 }
