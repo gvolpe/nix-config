@@ -8,6 +8,7 @@ let
     pulseSupport = true;
   };
 
+  # theme adapted from: https://github.com/adi1090x/polybar-themes#-polybar-5
   bars   = builtins.readFile ./bars.ini;
   colors = builtins.readFile ./colors.ini;
   mods1  = builtins.readFile ./modules.ini;
@@ -29,7 +30,7 @@ in
     extraConfig = bars + colors + mods1 + mods2 + xmonad;
     script = ''
       polybar top &
-      sleep 1
+      ${pkgs.coreutils}/bin/sleep 1
       polybar bottom &
     '';
   };

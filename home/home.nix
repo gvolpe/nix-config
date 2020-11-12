@@ -73,6 +73,7 @@ let
     # themes
     adwaita-icon-theme
     pkgs.hicolor-icon-theme
+    pkgs.material-design-icons
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
