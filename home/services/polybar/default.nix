@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-# TODO: Missing reproducible installation of required font
 let
   mypolybar = pkgs.polybar.override {
     alsaSupport  = true;
