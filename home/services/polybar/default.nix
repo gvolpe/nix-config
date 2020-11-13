@@ -23,6 +23,8 @@ let
     exec = ${mprisScript}/bin/mpris
     tail = true
 
+    label-maxlen = 60
+
     interval = 2
     format =   <label>
     format-padding = 2
