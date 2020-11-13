@@ -2,9 +2,10 @@
 
 let
   mypolybar = pkgs.polybar.override {
-    alsaSupport  = true;
-    mpdSupport   = true;
-    pulseSupport = true;
+    alsaSupport   = true;
+    githubSupport = true;
+    mpdSupport    = true;
+    pulseSupport  = true;
   };
 
   # theme adapted from: https://github.com/adi1090x/polybar-themes#-polybar-5
@@ -23,7 +24,7 @@ let
     tail = true
 
     interval = 2
-    format =   <label>
+    format =   <label>
     format-padding = 2
   '';
 
