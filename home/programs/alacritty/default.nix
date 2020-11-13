@@ -27,6 +27,10 @@
       shell.program = "${pkgs.fish}/bin/fish";
       window = {
         decorations = "full";
+        padding = {
+          x = 5;
+          y = 5;
+        };
       };
     };
   };
