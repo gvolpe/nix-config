@@ -143,6 +143,7 @@ in
     packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs ++ unstablePkgs;
 
     sessionVariables = {
+      DISPLAY = ":0";
       EDITOR = "nvim";
     };
   };
