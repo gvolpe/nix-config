@@ -14,7 +14,16 @@ let
   mods1  = builtins.readFile ./modules.ini;
   mods2  = builtins.readFile ./user_modules.ini;
 
-  mprisScript = pkgs.callPackage ./scripts/mpris.nix {};
+  bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
+  mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
+
+  bctl = ''
+    [module/bctl]
+    type = custom/script
+    exec = ${bluetoothScript}/bin/bluetooth-ctl
+    tail = true
+    click-left = ${bluetoothScript}/bin/bluetooth-ctl --toggle &
+  '';
 
   mpris = ''
     [module/mpris]
@@ -43,7 +52,7 @@ in
     enable = true;
     package = mypolybar;
     config = ./config.ini;
-    extraConfig = bars + colors + mods1 + mods2 + mpris + xmonad;
+    extraConfig = bars + colors + mods1 + mods2 + bctl + mpris + xmonad;
     script = ''
       polybar top &
       ${pkgs.coreutils}/bin/sleep 1
