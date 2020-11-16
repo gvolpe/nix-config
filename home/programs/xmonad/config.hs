@@ -35,6 +35,7 @@ import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
                                                        , avoidStruts
                                                        , docks
+                                                       , docksEventHook
                                                        )
 import           XMonad.Hooks.ManageHelpers            ( (-?>)
                                                        , isDialog
@@ -154,17 +155,17 @@ dbusOutput dbus str =
 polybarHook :: D.Client -> PP
 polybarHook dbus = def
   { ppOutput  = dbusOutput dbus
-  , ppCurrent = wrap ("%{F" <> blue  <> "} ") " %{F-}"
-  , ppVisible = wrap ("%{F" <> gray  <> "} ") " %{F-}"
-  , ppUrgent  = wrap ("%{F" <> red   <> "} ") " %{F-}"
-  , ppHidden  = wrap ("%{F" <> gray  <> "} ") " %{F-}"
-  , ppTitle   = wrap ("%{F" <> gray2 <> "} ") " %{F-}"
+  , ppCurrent = wrap ("%{F" <> blue   <> "} ") " %{F-}"
+  , ppVisible = wrap ("%{F" <> gray   <> "} ") " %{F-}"
+  , ppUrgent  = wrap ("%{F" <> red    <> "} ") " %{F-}"
+  , ppHidden  = wrap ("%{F" <> gray   <> "} ") " %{F-}"
+  , ppTitle   = wrap ("%{F" <> purple <> "} ") " %{F-}"
   }
  where
-  gray  = "#7F7F7F"
-  gray2 = "#222222"
-  red   = "#900000"
-  blue  = "#2E9AFE"
+  gray   = "#7F7F7F"
+  purple = "#9058c7"
+  red    = "#900000"
+  blue   = "#2E9AFE"
 
 myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 
@@ -202,6 +203,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     [ key "Next"          (modm              , xK_space     ) $ sendMessage NextLayout
     , key "Reset"         (modm .|. shiftMask, xK_space     ) $ setLayout (XMonad.layoutHook conf)
     , key "Fullscreen"    (modm              , xK_f         ) $ sendMessage (Toggle NBFULL)
+    ] ^++^
+  keySet "Polybar"
+    [ key "Hide"          (modm              , xK_minus     ) $ spawn "polybar-msg cmd hide &"
+    , key "Show"          (modm              , xK_equal     ) $ spawn "polybar-msg cmd show &"
     ] ^++^
   keySet "Projects"
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
@@ -472,7 +477,7 @@ projectsTheme = amberXPConfig
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = ewmhDesktopsEventHook <> fullscreenEventHook
+myEventHook = docksEventHook <+> ewmhDesktopsEventHook <+> fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
