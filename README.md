@@ -15,8 +15,7 @@ Here is an overview of the folders' structure:
 │   └── services
 ├── imgs
 ├── install.sh
-├── misc
-├── scripts
+├── notes
 └── system
     ├── configuration.nix
     └── machine
@@ -26,8 +25,7 @@ Here is an overview of the folders' structure:
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `install.sh`: the install script.
-- `misc`: cheat-sheets, docs and useful commands.
-- `scripts`: a few scripts I find useful.
+- `notes`: cheat-sheets, docs, etc.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Programs
@@ -38,11 +36,9 @@ The `home.nix` file contains details about all the software I use but here's a s
 
 A customizable Window Manager, combined with `polybar` as the status bar and `rofi` as the application launcher.
 
-![poly](imgs/polybar.jpeg)
+![poly](imgs/xmonad-polybar.jpg)
 
-Here's also an example using `taffybar` instead.
-
-![taffy](imgs/taffybar.png)
+Here's also an example using [taffybar](imgs/taffybar.png) instead.
 
 ### More
 
