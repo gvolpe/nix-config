@@ -21,11 +21,6 @@ let
     pulsemixer           # pulseaudio mixer
     simplescreenrecorder # self-explanatory
     vlc                  # media player
-
-    # status bar packages
-    taffybar                             # awesome status bar
-    haskellPackages.gtk-sni-tray         # gtk-sni-tray-standalone
-    haskellPackages.status-notifier-item # status-notifier-watcher for taffybar
   ];
 
   defaultPkgs = with pkgs; [
@@ -73,8 +68,6 @@ let
     # themes
     adwaita-icon-theme
     pkgs.material-design-icons
-    # needed for taffybar systray
-    #pkgs.hicolor-icon-theme
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -90,6 +83,13 @@ let
   polybarPkgs = with pkgs; [
     font-awesome-ttf      # awesome fonts
     material-design-icons # fonts with glyphs
+  ];
+
+  taffybarPkgs = with unstable; [
+    pkgs.hicolor-icon-theme              # theme needed for taffybar systray
+    taffybar                             # status bar written in Haskell
+    haskellPackages.gtk-sni-tray         # gtk-sni-tray-standalone
+    haskellPackages.status-notifier-item # status-notifier-watcher for taffybar
   ];
 
   xmonadPkgs = with pkgs; [
@@ -111,8 +111,6 @@ in
   nixpkgs.overlays = [
     (import ./overlays/dconf2nix.nix)
     (import ./overlays/manix.nix)
-    (import ./overlays/taffybar-deps.nix)
-    (import ./overlays/taffybar-wrapper.nix)
     (import ./overlays/vim-plugins.nix)
   ];
 
@@ -123,10 +121,7 @@ in
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/rofi/default.nix
-    ./programs/taffybar/default.nix
-    ./programs/terminator/default.nix
     ./programs/xmonad/default.nix
-    ./programs/xmobar/default.nix
     ./services/dunst/default.nix
     ./services/networkmanager/default.nix
     ./services/polybar/default.nix

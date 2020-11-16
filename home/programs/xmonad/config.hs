@@ -5,7 +5,6 @@ import           System.Exit
 import           System.IO                             ( hPutStr
                                                        , hClose
                                                        )
-import           System.Taffybar.Support.PagerHints    ( pagerHints )
 import           XMonad
 import           XMonad.Actions.CycleWS                ( Direction1D(..)
                                                        , WSType(..)
@@ -95,7 +94,7 @@ main :: IO ()
 main = mkDbusClient >>= main'
 
 main' :: D.Client -> IO ()
-main' dbus = xmonad . docks . ewmh . pagerHints . dynProjects . keybindings . urgencyHook $ def
+main' dbus = xmonad . docks . ewmh . dynProjects . keybindings . urgencyHook $ def
   { terminal           = myTerminal
   , focusFollowsMouse  = False
   , clickJustFocuses   = False

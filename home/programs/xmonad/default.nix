@@ -43,8 +43,8 @@ in
       enable = true;
       enableContribAndExtras = true;
       extraPackages = hp: [
+        hp.dbus
         hp.monad-logger
-        hp.taffybar
         hp.xmonad-contrib
       ];
       config = ./config.hs;
