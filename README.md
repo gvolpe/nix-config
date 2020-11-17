@@ -38,12 +38,12 @@ The `home.nix` file contains details about all the software I use but here's a s
 | :------------- | :----------: |
 | Editor         | [NeoVim](https://neovim.io/) |
 | Launcher       | [Rofi](https://github.com/davatorium/rofi) |
-| Shell          | [Fish Shell](https://fishshell.com/) |
+| Shell          | [Fish](https://fishshell.com/) |
 | Status Bar     | [Polybar](https://polybar.github.io/) |
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
 
-I've also tried using `taffybar` for a while, here's a [screenshot](imgs/taffybar.png).
+I've also tried using `taffybar` for a while, configuration files still live in this repo. Here's a [screenshot](imgs/taffybar.png)
 
 ## Install
 
