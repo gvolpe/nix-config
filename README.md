@@ -3,6 +3,8 @@ nix-config
 
 My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
 
+![poly](imgs/xmonad-polybar.jpg)
+
 ## Structure
 
 Here is an overview of the folders' structure:
@@ -32,19 +34,16 @@ Here is an overview of the folders' structure:
 
 The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
 
-### XMonad
+| Type           | Program      |
+| :------------- | :----------: |
+| Editor         | [NeoVim](https://neovim.io/) |
+| Launcher       | [Rofi](https://github.com/davatorium/rofi) |
+| Shell          | [Fish Shell](https://fishshell.com/) |
+| Status Bar     | [Polybar](https://polybar.github.io/) |
+| Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
+| Window Manager | [XMonad](https://xmonad.org/) |
 
-A customizable Window Manager, combined with `polybar` as the status bar and `rofi` as the application launcher.
-
-![poly](imgs/xmonad-polybar.jpg)
-
-Here's also an example using [taffybar](imgs/taffybar.png) instead.
-
-### More
-
-- [Alacritty](https://github.com/alacritty/alacritty): My default terminal emulator.
-- [Fish Shell](https://fishshell.com/): I use a customized version of [bobthefish theme](https://github.com/oh-my-fish/theme-bobthefish).
-- [NeoVim](https://neovim.io/): My all-time favorite text editor and IDE, powered by the Language Server Protocol.
+I've also tried using `taffybar` for a while, here's a [screenshot](imgs/taffybar.png).
 
 ## Install
 
