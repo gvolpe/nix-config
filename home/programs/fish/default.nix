@@ -32,6 +32,9 @@ in
     '';
     shellAliases = {
       cat  = "bat";
+      dc   = "docker-compose";
+      dps  = "docker-compose ps";
+      dcd  = "docker-compose down --remove-orphans";
       du   = "ncdu --color dark -rr -x";
       ls   = "exa";
       ll   = "ls -a";
