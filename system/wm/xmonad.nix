@@ -43,7 +43,7 @@
         enableContribAndExtras = true;
       };
 
-      xkbOptions = "shift:both_capslock, caps:ctrl_modifier";
+      xkbOptions = "caps:ctrl_modifier";
     };
   };
 
