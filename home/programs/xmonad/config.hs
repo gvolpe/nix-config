@@ -56,6 +56,7 @@ import           XMonad.Layout.MultiToggle.Instances   ( StdTransformers(NBFULL)
 import           XMonad.Layout.NoBorders               ( smartBorders )
 import           XMonad.Layout.PerWorkspace            ( onWorkspace )
 import           XMonad.Layout.Spacing                 ( spacing )
+import           XMonad.Layout.ThreeColumns            ( ThreeCol(..) )
 import           XMonad.Prompt                         ( XPConfig(..)
                                                        , amberXPConfig
                                                        , XPPosition(CenteredAt)
@@ -309,11 +310,12 @@ myLayout =
     . smartBorders
     . fullScreenToggle
     . comLayout
-    . devLayout $ (tiled ||| Mirror tiled ||| full)
+    . devLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
      full    = gapSpaced 5 Full
+     column3 = gapSpaced 10 $ ThreeColMid 1 (3/100) (1/2)
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -428,9 +430,10 @@ ossWs = "oss"
 devWs = "dev"
 comWs = "com"
 sysWs = "sys"
+etcWs = "etc"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, sysWs]
+myWS = [webWs, ossWs, devWs, comWs, sysWs, etcWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -457,6 +460,10 @@ projects =
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
             , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
+            }
+  , Project { projectName      = etcWs
+            , projectDirectory = "~/"
+            , projectStartHook = Nothing
             }
   ]
 
