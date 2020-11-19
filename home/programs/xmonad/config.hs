@@ -154,19 +154,22 @@ dbusOutput dbus str =
   in  D.emit dbus $ signal { D.signalBody = body }
 
 polybarHook :: D.Client -> PP
-polybarHook dbus = def
-  { ppOutput  = dbusOutput dbus
-  , ppCurrent = wrap ("%{F" <> blue   <> "} ") " %{F-}"
-  , ppVisible = wrap ("%{F" <> gray   <> "} ") " %{F-}"
-  , ppUrgent  = wrap ("%{F" <> red    <> "} ") " %{F-}"
-  , ppHidden  = wrap ("%{F" <> gray   <> "} ") " %{F-}"
-  , ppTitle   = wrap ("%{F" <> purple <> "} ") " %{F-}"
-  }
- where
-  gray   = "#7F7F7F"
-  purple = "#9058c7"
-  red    = "#900000"
-  blue   = "#2E9AFE"
+polybarHook dbus =
+  let wrapper c s | s /= "NSP" = wrap ("%{F" <> c <> "} ") " %{F-}" s
+                  | otherwise  = mempty
+      blue   = "#2E9AFE"
+      gray   = "#7F7F7F"
+      orange = "#ea4300"
+      purple = "#9058c7"
+      red    = "#722222"
+  in  def { ppOutput          = dbusOutput dbus
+          , ppCurrent         = wrapper blue
+          , ppVisible         = wrapper gray
+          , ppUrgent          = wrapper orange
+          , ppHidden          = wrapper gray
+          , ppHiddenNoWindows = wrapper red
+          , ppTitle           = shorten 100 . wrapper purple
+          }
 
 myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 
