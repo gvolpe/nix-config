@@ -180,6 +180,7 @@ myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 myTerminal   = "alacritty"
 appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 screenLocker = "betterlockscreen -l dim"
+playerctl c  = "playerctl --player=spotify,%any " <> c
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings x = addName "Show Keybindings" . io $
@@ -193,10 +194,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     [ key "Mute"          (0, xF86XK_AudioMute              ) $ spawn "amixer -q set Master toggle"
     , key "Lower volume"  (0, xF86XK_AudioLowerVolume       ) $ spawn "amixer -q set Master 5%-"
     , key "Raise volume"  (0, xF86XK_AudioRaiseVolume       ) $ spawn "amixer -q set Master 5%+"
-    , key "Play / Pause"  (0, xF86XK_AudioPlay              ) $ spawn "playerctl play-pause"
-    , key "Stop"          (0, xF86XK_AudioStop              ) $ spawn "playerctl stop"
-    , key "Previous"      (0, xF86XK_AudioPrev              ) $ spawn "playerctl previous"
-    , key "Next"          (0, xF86XK_AudioNext              ) $ spawn "playerctl next"
+    , key "Play / Pause"  (0, xF86XK_AudioPlay              ) $ spawn $ playerctl "play-pause"
+    , key "Stop"          (0, xF86XK_AudioStop              ) $ spawn $ playerctl "stop"
+    , key "Previous"      (0, xF86XK_AudioPrev              ) $ spawn $ playerctl "previous"
+    , key "Next"          (0, xF86XK_AudioNext              ) $ spawn $ playerctl "next"
     ] ^++^
   keySet "Launchers"
     [ key "Terminal"      (modm .|. shiftMask  , xK_Return  ) $ spawn (XMonad.terminal conf)
