@@ -2,7 +2,7 @@ filetype off
 
 " Leader & Shell
 let mapleader=','
-set shell=/run/current-system/sw/bin/bash
+set shell=/run/current-system/sw/bin/fish
 
 " Better Unix support
 set viewoptions=folds,options,cursor,unix,slash
@@ -32,8 +32,13 @@ nnoremap <M--> <C-w>-
 nnoremap <M-<> <C-w><
 nnoremap <M->> <C-w>>
 
-" Theme & other options
-colorscheme tender
+" True color support
+set termguicolors
+
+" Theme
+colorscheme material
+
+" Other options
 syntax on
 set backspace=2
 set laststatus=2
@@ -80,12 +85,11 @@ set hidden                  " Hide files when leaving them.
 set number                  " Show line numbers.
 set numberwidth=1           " Minimum line number column width.
 set cmdheight=2             " Number of screen lines to use for the commandline.
-set textwidth=120           " Lines length limit (0 if no limit).
+set textwidth=0             " Lines length limit (0 if no limit).
 set formatoptions=jtcrq     " Sensible default line auto cutting and formatting.
 set linebreak               " Don't cut lines in the middle of a word .
 set showmatch               " Shows matching parenthesis.
 set matchtime=2             " Time during which the matching parenthesis is shown.
-set background=dark         " Color adapted to dark background.
 set listchars=tab:▸\ ,eol:¬ " Invisible characters representation when :set list.
 set clipboard=unnamedplus   " Copy/Paste to/from clipboard
 set cursorline              " Highlight line cursor is currently on

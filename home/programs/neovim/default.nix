@@ -22,6 +22,7 @@ let
     fzf-vim                 # fuzzy finder
     ghcid                   # ghcid for Haskell
     lightline-vim           # configurable status line (can be used by coc)
+    material-vim            # modern theme with true colors support
     multiple-cursors        # Multiple cursors selection, etc
     neomake                 # run programs asynchronously and highlight errors
     nerdcommenter           # code commenter

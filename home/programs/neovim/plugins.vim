@@ -73,3 +73,8 @@ command! -bang -nargs=? -complete=dir Files
 
 " vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
+
+" Theme material-vim
+"let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+let g:material_theme_style = 'ocean-community'
+let g:lightline = { 'colorscheme': 'material_vim' }
