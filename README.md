@@ -3,7 +3,22 @@ nix-config
 
 My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
 
-![poly](imgs/xmonad-polybar.jpg)
+![desktop](imgs/desktop.jpg)
+
+## Programs
+
+The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
+
+| Type           | Program      |
+| :------------- | :----------: |
+| Editor         | [NeoVim](https://neovim.io/) |
+| Launcher       | [Rofi](https://github.com/davatorium/rofi) |
+| Shell          | [Fish](https://fishshell.com/) |
+| Status Bar     | [Polybar](https://polybar.github.io/) |
+| Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
+| Window Manager | [XMonad](https://xmonad.org/) |
+
+I've also tried using `taffybar` for a while, configuration files still live in this repo. Here's a [screenshot](imgs/taffybar.png).
 
 ## Structure
 
@@ -29,21 +44,6 @@ Here is an overview of the folders' structure:
 - `install.sh`: the install script.
 - `notes`: cheat-sheets, docs, etc.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
-
-## Programs
-
-The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
-
-| Type           | Program      |
-| :------------- | :----------: |
-| Editor         | [NeoVim](https://neovim.io/) |
-| Launcher       | [Rofi](https://github.com/davatorium/rofi) |
-| Shell          | [Fish](https://fishshell.com/) |
-| Status Bar     | [Polybar](https://polybar.github.io/) |
-| Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
-| Window Manager | [XMonad](https://xmonad.org/) |
-
-I've also tried using `taffybar` for a while, configuration files still live in this repo. Here's a [screenshot](imgs/taffybar.png)
 
 ## Install
 
