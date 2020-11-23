@@ -6,7 +6,6 @@ let
   unstablePkgs = with unstable; [
     betterlockscreen     # fast lockscreen based on i3lock
     brave                # private web browser based on chromium
-    compton              # composite manager for X11
     dmenu                # application launcher
     killall              # kill processes by name
     libnotify            # notify-send command
@@ -20,6 +19,7 @@ let
     playerctl            # music player controller
     pulsemixer           # pulseaudio mixer
     simplescreenrecorder # self-explanatory
+    tdesktop             # telegram messaging client
     vlc                  # media player
   ];
 
@@ -43,7 +43,6 @@ let
     rnix-lsp       # nix lsp server
     slack          # messaging client
     spotify        # music source
-    tdesktop       # telegram messaging client
     terminator     # great terminal multiplexer
     tldr           # summary of a man page
     tree           # display files in a tree view
@@ -124,6 +123,7 @@ in
     ./programs/xmonad/default.nix
     ./services/dunst/default.nix
     ./services/networkmanager/default.nix
+    ./services/picom/default.nix
     ./services/polybar/default.nix
     ./services/screenlocker/default.nix
   ];
