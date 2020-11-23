@@ -5,5 +5,8 @@
     inactiveOpacity = "0.8";
     backend = "glx";
     fade = true;
+    fadeDelta = 5;
+    shadow = true;
+    shadowOpacity = "0.75";
   };
 }
