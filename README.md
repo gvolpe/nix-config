@@ -3,7 +3,7 @@ nix-config
 
 My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
 
-![desktop](imgs/desktop.jpg)
+![desktop](imgs/desktop-1.jpg)
 
 ## Programs
 
