@@ -157,3 +157,6 @@ nnoremap <C-z> :nohlsearch<CR>
 
 " Terminal mode exit shortcut
 :tnoremap <Esc> <C-\><C-n>
+
+" Disable background (let picom manage it)
+hi Normal guibg=NONE ctermbg=NONE
