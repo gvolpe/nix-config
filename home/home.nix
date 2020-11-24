@@ -122,10 +122,12 @@ in
     ./programs/rofi/default.nix
     ./programs/xmonad/default.nix
     ./services/dunst/default.nix
+    ./services/gpg-agent/default.nix
     ./services/networkmanager/default.nix
     ./services/picom/default.nix
     ./services/polybar/default.nix
     ./services/screenlocker/default.nix
+    ./services/udiskie/default.nix
   ];
 
   xdg.enable = true;
@@ -198,12 +200,6 @@ in
 
   services = {
     flameshot.enable = true;
-
-    gpg-agent = {
-      enable = true;
-      defaultCacheTtl = 1800;
-      enableSshSupport = true;
-    };
   };
 
 }
