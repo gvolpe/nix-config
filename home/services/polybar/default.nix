@@ -55,7 +55,6 @@ in
     extraConfig = bars + colors + mods1 + mods2 + bctl + mpris + xmonad;
     script = ''
       polybar top &
-      ${pkgs.coreutils}/bin/sleep 1
       polybar bottom &
     '';
   };
