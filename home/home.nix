@@ -7,6 +7,7 @@ let
     betterlockscreen     # fast lockscreen based on i3lock
     brave                # private web browser based on chromium
     dmenu                # application launcher
+    gimp                 # gnu image manipulation program
     killall              # kill processes by name
     libnotify            # notify-send command
     manix                # documentation searcher for nix
