@@ -227,6 +227,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     [ key "Toggle status bar gap" (modm              , xK_b ) $ sendMessage ToggleStruts
     , key "Logout (quit XMonad)"  (modm .|. shiftMask, xK_q ) $ io exitSuccess
     , key "Restart XMonad"        (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
+    , key "Capture entire screen" (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
     ] ^++^
   keySet "Windows"
     [ key "Close focused"  (modm              , xK_BackSpace) kill
