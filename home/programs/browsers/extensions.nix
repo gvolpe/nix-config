@@ -1,4 +1,5 @@
 {
+  color-piker        = "anjjklgikjggiojapklkllfgehkbljpd";
   dark-reader        = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
   github-dark-theme  = "odkdlljoangmamjilkamahebpkgpeacp";
   google-meet-grid   = "kklailfgofogmmdlhgmjgenehkjoioip";
