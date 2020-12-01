@@ -61,10 +61,11 @@ let
   ];
 
   gnomePkgs = with pkgs.gnome3; [
-    eog      # image viewer
-    evince   # pdf reader
-    nautilus # file manager
-    zenity   # display dialogs
+    eog            # image viewer
+    evince         # pdf reader
+    gnome-calendar # calendar
+    nautilus       # file manager
+    zenity         # display dialogs
     # themes
     adwaita-icon-theme
     pkgs.material-design-icons

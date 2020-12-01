@@ -367,6 +367,7 @@ data App
   | NameApp AppName AppCommand
   deriving Show
 
+calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
 eog      = NameApp  "eog"                  "eog"
 gimp     = ClassApp "Gimp"                 "gimp"
 nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
@@ -385,9 +386,11 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   isSplash            = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_SPLASH"
   isRole              = stringProperty "WM_WINDOW_ROLE"
   tileBelow           = insertPosition Below Newer
+  doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 8) (1 / 8))
   manageScratchpads = namedScratchpadManageHook scratchpads
   manageApps = composeAll
-    [ isInstance gimp                                 --> doFloat
+    [ isInstance calendar                             --> doCalendarFloat
+    , isInstance gimp                                 --> doFloat
     , isInstance spotify                              --> doFullFloat
     , (
         isInstance eog <||> isInstance nautilus <||>

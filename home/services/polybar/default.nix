@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 let
+  calendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
+
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
     githubSupport = true;
@@ -23,6 +25,12 @@ let
     exec = ${bluetoothScript}/bin/bluetooth-ctl
     tail = true
     click-left = ${bluetoothScript}/bin/bluetooth-ctl --toggle &
+  '';
+
+  cal = ''
+    [module/clickable-date]
+    inherit = module/date
+    label = %{A1:${calendar}:}%time%%{A}
   '';
 
   mpris = ''
@@ -52,7 +60,7 @@ in
     enable = true;
     package = mypolybar;
     config = ./config.ini;
-    extraConfig = bars + colors + mods1 + mods2 + bctl + mpris + xmonad;
+    extraConfig = bars + colors + mods1 + mods2 + bctl + cal + mpris + xmonad;
     script = ''
       polybar top &
       polybar bottom &
