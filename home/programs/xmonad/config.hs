@@ -210,7 +210,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Fullscreen"    (modm              , xK_f         ) $ sendMessage (Toggle NBFULL)
     ] ^++^
   keySet "Polybar"
-    [ key "Toggle"        (modm              , xK_equal     ) $ spawn "polybar-msg cmd toggle &"
+    [ key "Toggle"        (modm              , xK_equal     ) $ togglePolybar
     ] ^++^
   keySet "Projects"
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
@@ -223,7 +223,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     ] ^++^
   keySet "Screens" switchScreen ^++^
   keySet "System"
-    [ key "Toggle status bar gap" (modm              , xK_b ) $ sendMessage ToggleStruts
+    [ key "Toggle status bar gap" (modm              , xK_b ) $ toggleStruts
     , key "Logout (quit XMonad)"  (modm .|. shiftMask, xK_q ) $ io exitSuccess
     , key "Restart XMonad"        (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
     , key "Capture entire screen" (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
@@ -252,6 +252,8 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Remove"        (modm .|. shiftMask, xK_BackSpace ) removeWorkspace
     ] ++ switchWsById
  where
+  togglePolybar = spawn "polybar-msg cmd toggle &"
+  toggleStruts = togglePolybar >> sendMessage ToggleStruts
   keySet s ks = subtitle s : ks
   key n k a = (k, addName n a)
   action m = if m == shiftMask then "Move to " else "Switch to "
