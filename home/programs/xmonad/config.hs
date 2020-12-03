@@ -210,8 +210,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Fullscreen"    (modm              , xK_f         ) $ sendMessage (Toggle NBFULL)
     ] ^++^
   keySet "Polybar"
-    [ key "Hide"          (modm              , xK_minus     ) $ spawn "polybar-msg cmd hide &"
-    , key "Show"          (modm              , xK_equal     ) $ spawn "polybar-msg cmd show &"
+    [ key "Toggle"        (modm              , xK_equal     ) $ spawn "polybar-msg cmd toggle &"
     ] ^++^
   keySet "Projects"
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
