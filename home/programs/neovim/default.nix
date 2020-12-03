@@ -19,6 +19,7 @@ let
     coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep
     dhall-vim               # Syntax highlighting for Dhall lang
+    fzf-hoogle              # search hoogle with fzf
     fzf-vim                 # fuzzy finder
     ghcid                   # ghcid for Haskell
     lightline-vim           # configurable status line (can be used by coc)
@@ -38,7 +39,6 @@ let
     vim-fish                # fish shell highlighting
     vim-fugitive            # git plugin
     vim-gtfo                # go to terminal or file manager
-    vim-hoogle              # Hoogle search (Haskell) in Vim
     vim-nix                 # nix support (highlighting, etc)
     vim-repeat              # repeat plugin commands with (.)
     vim-ripgrep             # blazing fast search using ripgrep

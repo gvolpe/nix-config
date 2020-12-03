@@ -78,3 +78,7 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 "let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
 let g:material_theme_style = 'ocean-community'
 let g:lightline = { 'colorscheme': 'material_vim' }
+
+" FZF Hoogle
+let g:hoogle_fzf_cache_file = '~/.cache/fzf-hoogle/cache.json'
+nnoremap <leader>h :Hoogle <CR>

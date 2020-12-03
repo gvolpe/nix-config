@@ -19,6 +19,15 @@
     };
   };
 
+  fzf-hoogle = buildVimPlugin {
+    name = "fzf-hoogle-vim";
+    src = builtins.fetchTarball {
+      name   = "fzf-hoogle-vim-v2.2.1-patched";
+      url    = "https://github.com/monkoose/fzf-hoogle.vim/archive/0054042.tar.gz";
+      sha256 = "0a9ml4mw8cgpig50bwfqywglzakhnrnlkl3n1acs1f5yjxvnl0n4";
+    };
+  };
+
   material-vim = buildVimPlugin {
     name = "material-vim";
     src = builtins.fetchTarball {
