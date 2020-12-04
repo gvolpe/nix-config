@@ -25,6 +25,7 @@ let
   ];
 
   defaultPkgs = with pkgs; [
+    act            # run github actions locally
     any-nix-shell  # fish support for nix shell
     asciinema      # record the terminal
     cachix         # nix caching
@@ -110,6 +111,7 @@ in
   programs.home-manager.enable = true;
 
   nixpkgs.overlays = [
+    (import ./overlays/act.nix)
     (import ./overlays/dconf2nix.nix)
     (import ./overlays/manix.nix)
     (import ./overlays/vim-plugins.nix)
