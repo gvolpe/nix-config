@@ -9,6 +9,7 @@ let
     dmenu                # application launcher
     gimp                 # gnu image manipulation program
     killall              # kill processes by name
+    libreoffice          # office suite
     libnotify            # notify-send command
     manix                # documentation searcher for nix
     mupdf                # pdf viewer with vim-like keybindings
