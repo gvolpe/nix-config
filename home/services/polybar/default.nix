@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  calendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
+  openCalendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
+  openGithub   = "${pkgs.xdg_utils}/bin/xdg-open https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
@@ -9,6 +10,11 @@ let
     mpdSupport    = true;
     pulseSupport  = true;
   };
+
+  myenv = [
+    ''"DISPLAY=:0"''
+    ''"PATH=${mypolybar}/bin:/run/wrappers/bin:/run/current-system/sw/bin"''
+  ];
 
   # theme adapted from: https://github.com/adi1090x/polybar-themes#-polybar-5
   bars   = builtins.readFile ./bars.ini;
@@ -30,7 +36,13 @@ let
   cal = ''
     [module/clickable-date]
     inherit = module/date
-    label = %{A1:${calendar}:}%time%%{A}
+    label = %{A1:${openCalendar}:}%time%%{A}
+  '';
+
+  github = ''
+    [module/clickable-github]
+    inherit = module/github
+    label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
 
   mpris = ''
@@ -54,16 +66,20 @@ let
 
     tail = true
   '';
+
+  customMods = bctl + cal + github + mpris + xmonad;
 in
 {
   services.polybar = {
     enable = true;
     package = mypolybar;
     config = ./config.ini;
-    extraConfig = bars + colors + mods1 + mods2 + bctl + cal + mpris + xmonad;
+    extraConfig = bars + colors + mods1 + mods2 + customMods;
     script = ''
-      polybar top &
-      polybar bottom &
+      polybar top 2>${config.xdg.configHome}/polybar/logs/top.log &
+      polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log &
     '';
   };
+
+  systemd.user.services.polybar.Service.Environment = pkgs.lib.mkForce myenv;
 }
