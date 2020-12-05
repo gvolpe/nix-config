@@ -38,11 +38,12 @@ import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , docksEventHook
                                                        )
 import           XMonad.Hooks.ManageHelpers            ( (-?>)
+                                                       , composeOne
+                                                       , doCenterFloat
+                                                       , doFullFloat
                                                        , isDialog
                                                        , isFullscreen
                                                        , isInProperty
-                                                       , doCenterFloat
-                                                       , doFullFloat
                                                        )
 import           XMonad.Hooks.UrgencyHook              ( UrgencyHook(..)
                                                        , withUrgencyHook
@@ -372,6 +373,7 @@ calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
 eog      = NameApp  "eog"                  "eog"
 gimp     = ClassApp "Gimp"                 "gimp"
 nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
+office   = ClassApp "libreoffice-draw"     "libreoffice-draw"
 pavuctrl = ClassApp "Pavucontrol"          "pavucontrol"
 scr      = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
 spotify  = ClassApp "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
@@ -389,26 +391,26 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   tileBelow           = insertPosition Below Newer
   doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 8) (1 / 8))
   manageScratchpads = namedScratchpadManageHook scratchpads
-  manageApps = composeAll
-    [ isInstance calendar                             --> doCalendarFloat
-    , isInstance gimp                                 --> doFloat
-    , isInstance spotify                              --> doFullFloat
+  manageApps = composeOne
+    [ isInstance calendar                             -?> doCalendarFloat
+    , isInstance gimp <||> isInstance office          -?> doFloat
+    , isInstance spotify                              -?> doFullFloat
     , (
         isInstance eog <||> isInstance nautilus <||>
         isInstance pavuctrl <||> isInstance scr
-      )                                               --> doCenterFloat
+      )                                               -?> doCenterFloat
     , (
         isInstance vlc <||> isInstance ytop <||>
         isInstance zenity
-      )                                               --> doFullFloat
-    , resource  =? "desktop_window"                   --> doIgnore
-    , resource  =? "kdesktop"                         --> doIgnore
+      )                                               -?> doFullFloat
+    , resource  =? "desktop_window"                   -?> doIgnore
+    , resource  =? "kdesktop"                         -?> doIgnore
     , (
         isBrowserDialog <||> isFileChooserDialog <||>
         isDialog <||> isPopup <||> isSplash
-      )                                               --> doCenterFloat
-    , isFullscreen                                    --> doFullFloat
-    , pure True                                       --> tileBelow
+      )                                               -?> doCenterFloat
+    , isFullscreen                                    -?> doFullFloat
+    , pure True                                       -?> tileBelow
     ]
 
 isInstance (ClassApp c _) = className =? c
