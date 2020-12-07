@@ -29,6 +29,7 @@ Here is an overview of the folders' structure:
 │   ├── home.nix
 │   ├── overlays
 │   ├── programs
+│   └── secrets
 │   └── services
 ├── imgs
 ├── install.sh
