@@ -15,6 +15,11 @@ sudo mkdir -p /etc/nixos/machine/
 sudo cp system/machine/* /etc/nixos/machine/
 sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 
+# Manual steps
+mkdir -p $HOME/.config/polybar/logs
+touch $HOME/.config/polybar/logs/bottom.log
+touch $HOME/.config/polybar/logs/top.log
+
 # Home manager
 mkdir -p $HOME/.config/nixpkgs/
 cp -r home/* $HOME/.config/nixpkgs/
