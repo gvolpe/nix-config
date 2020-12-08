@@ -122,6 +122,7 @@ in
 
   imports = [
     ./programs/alacritty/default.nix
+    ./programs/autorandr/default.nix
     ./programs/browsers/brave.nix
     ./programs/git/default.nix
     ./programs/fish/default.nix
