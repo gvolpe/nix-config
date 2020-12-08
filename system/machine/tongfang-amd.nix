@@ -13,8 +13,13 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp1s0.useDHCP = true;
+  networking = {
+    hostName = "tongfang-amd-ryzen-7";
+    interfaces = {
+      eno1.useDHCP = true;
+      wlp1s0.useDHCP = true;
+    };
+  };  
 
   fileSystems."/data" = { 
     device = "/dev/nvme0n1p3";
