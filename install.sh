@@ -36,4 +36,4 @@ sudo cp home/gvolpe.png /var/lib/AccountsService/icons/gvolpe
 sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
 
 # Set screenlock wallpaper
-betterlockscreen -u imgs/nixos.png
+betterlockscreen -u home/nixos.png
