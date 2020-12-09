@@ -23,6 +23,7 @@ let
   mods2  = builtins.readFile ./user_modules.ini;
 
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
+  monitorScript   = pkgs.callPackage ./scripts/monitor.nix {};
   mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
 
   bctl = ''
@@ -79,6 +80,8 @@ in
     config = ./config.ini;
     extraConfig = bars + colors + mods1 + mods2 + customMods;
     script = ''
+      export MONITOR=$(${monitorScript}/bin/monitor)
+      echo "Running polybar on $MONITOR"
       polybar top 2>${config.xdg.configHome}/polybar/logs/top.log &
       polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log &
     '';
