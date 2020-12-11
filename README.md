@@ -26,6 +26,7 @@ Here is an overview of the folders' structure:
 
 ```
 ├── home
+│   ├── display
 │   ├── home.nix
 │   ├── overlays
 │   ├── programs
@@ -36,6 +37,7 @@ Here is an overview of the folders' structure:
 ├── notes
 └── system
     ├── configuration.nix
+    └── fonts
     └── machine
     └── wm
 ```
