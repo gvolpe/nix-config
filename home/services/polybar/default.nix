@@ -1,8 +1,17 @@
 { config, pkgs, ... }:
 
 let
+  xdgUtils = pkgs.xdg_utils.overrideAttrs (
+    old: {
+      nativeBuildInputs = old.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
+      postInstall = old.postInstall + "\n" + ''
+        wrapProgram $out/bin/xdg-open --suffix PATH : /run/current-system/sw/bin
+      '';
+    }
+  );
+
   openCalendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
-  openGithub   = "${pkgs.xdg_utils}/bin/xdg-open https\\://github.com/notifications";
+  openGithub   = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
@@ -10,11 +19,6 @@ let
     mpdSupport    = true;
     pulseSupport  = true;
   };
-
-  myenv = [
-    ''"DISPLAY=:0"''
-    ''"PATH=${mypolybar}/bin:/run/wrappers/bin:/run/current-system/sw/bin"''
-  ];
 
   # theme adapted from: https://github.com/adi1090x/polybar-themes#-polybar-5
   bars   = builtins.readFile ./bars.ini;
@@ -86,6 +90,4 @@ in
       polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log &
     '';
   };
-
-  systemd.user.services.polybar.Service.Environment = pkgs.lib.mkForce myenv;
 }
