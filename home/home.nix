@@ -5,56 +5,54 @@ let
 
   hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
 
-  unstablePkgs = with unstable; [
+  unstablePkgs = [ ];
+
+  defaultPkgs = with pkgs; [
+    act                  # run github actions locally
+    any-nix-shell        # fish support for nix shell
+    asciinema            # record the terminal
     betterlockscreen     # fast lockscreen based on i3lock
     brave                # private web browser based on chromium
+    cachix               # nix caching
+    calibre              # e-book reader
+    dconf2nix            # dconf (gnome) files to nix converter
     dmenu                # application launcher
+    docker-compose       # docker manager
+    dive                 # explore docker layers
     element-desktop      # a feature-rich client for Matrix.org
+    exa                  # a better `ls`
+    fd                   # "find" for files
     gimp                 # gnu image manipulation program
+    hms                  # custom home-manager switcher
+    hyperfine            # command-line benchmarking tool
+    insomnia             # rest client with graphql support
+    k9s                  # k8s pods manager
     killall              # kill processes by name
     libreoffice          # office suite
     libnotify            # notify-send command
+    ncdu                 # disk space info (a better du)
+    neofetch             # command-line system information
+    nix-doc              # nix documentation search tool
+    nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
     mupdf                # pdf viewer with vim-like keybindings
-    neofetch             # command-line system information
-    nyancat              # the famous rainbow cat!
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
     playerctl            # music player controller
+    prettyping           # a nicer ping
     pulsemixer           # pulseaudio mixer
+    ripgrep              # fast grep
+    rnix-lsp             # nix lsp server
     simplescreenrecorder # self-explanatory
+    slack                # messaging client
+    spotify              # music source
     tdesktop             # telegram messaging client
+    terminator           # great terminal multiplexer
+    tldr                 # summary of a man page
+    tree                 # display files in a tree view
     vlc                  # media player
-  ];
-
-  defaultPkgs = with pkgs; [
-    act            # run github actions locally
-    any-nix-shell  # fish support for nix shell
-    asciinema      # record the terminal
-    cachix         # nix caching
-    calibre        # e-book reader
-    dconf2nix      # dconf (gnome) files to nix converter
-    docker-compose # docker manager
-    dive           # explore docker layers
-    exa            # a better `ls`
-    fd             # "find" for files
-    hms            # custom home-manager switcher
-    hyperfine      # command-line benchmarking tool
-    insomnia       # rest client with graphql support
-    k9s            # k8s pods manager
-    ncdu           # disk space info (a better du)
-    nix-doc        # nix documentation search tool
-    prettyping     # a nicer ping
-    ripgrep        # fast grep
-    rnix-lsp       # nix lsp server
-    slack          # messaging client
-    spotify        # music source
-    terminator     # great terminal multiplexer
-    tldr           # summary of a man page
-    tree           # display files in a tree view
-    xclip          # clipboard support (also for neovim)
-    ytop           # alternative to top and htop
+    xclip                # clipboard support (also for neovim)
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
@@ -118,9 +116,6 @@ in
 
   nixpkgs.overlays = [
     (import ./overlays/act.nix)
-    (import ./overlays/dconf2nix.nix)
-    (import ./overlays/manix.nix)
-    (import ./overlays/vim-plugins.nix)
   ];
 
   imports = [
@@ -155,13 +150,6 @@ in
 
   # notifications about home-manager news
   news.display = "silent";
-
-  # temporarily disable it until there is a fix upstream
-  manual = {
-    json.enable = false;
-    html.enable = false;
-    manpages.enable = false;
-  };
 
   gtk = {
     enable = true;
