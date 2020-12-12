@@ -3,8 +3,8 @@
 # Shows the output of every command
 set +x
 
-# Pin Nixpkgs to NixOS unstable on September 11th of 2020
-export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs-channels/archive/61525137fd1.tar.gz"
+# Pin Nixpkgs to NixOS unstable on December 12th of 2020
+export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs/archive/e9158eca70a.tar.gz"
 
 # Switch to the unstable channel
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
