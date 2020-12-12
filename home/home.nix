@@ -124,7 +124,6 @@ in
   ];
 
   imports = [
-    ./programs/alacritty/default.nix
     ./programs/browsers/brave.nix
     ./programs/git/default.nix
     ./programs/fish/default.nix
@@ -135,7 +134,6 @@ in
     ./services/gpg-agent/default.nix
     ./services/networkmanager/default.nix
     ./services/picom/default.nix
-    ./services/polybar/default.nix
     ./services/screenlocker/default.nix
     ./services/udiskie/default.nix
   ];

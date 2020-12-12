@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ mainBar, openCalendar, config, pkgs, ... }:
 
 let
   xdgUtils = pkgs.xdg_utils.overrideAttrs (
@@ -10,7 +10,6 @@ let
     }
   );
 
-  openCalendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
   openGithub   = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
@@ -29,6 +28,7 @@ let
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
   monitorScript   = pkgs.callPackage ./scripts/monitor.nix {};
   mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
+  networkScript   = pkgs.callPackage ./scripts/network.nix {};
 
   bctl = ''
     [module/bctl]
@@ -73,7 +73,7 @@ let
     tail = true
   '';
 
-  customMods = bctl + cal + github + mpris + xmonad;
+  customMods = mainBar + bctl + cal + github + mpris + xmonad;
 in
 {
   xdg.configFile."polybar/github-notifications-token".source = ../../secrets/github-notifications-token;
@@ -86,6 +86,9 @@ in
     script = ''
       export MONITOR=$(${monitorScript}/bin/monitor)
       echo "Running polybar on $MONITOR"
+      export ETH_INTERFACE=$(${networkScript}/bin/check-network eth)
+      export WIFI_INTERFACE=$(${networkScript}/bin/check-network wifi)
+      echo "Network interfaces $ETH_INTERFACE & $WIFI_INTERFACE"
       polybar top 2>${config.xdg.configHome}/polybar/logs/top.log &
       polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log &
     '';
