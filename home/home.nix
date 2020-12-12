@@ -3,6 +3,8 @@
 let
   unstable  = import (import ./unstable.nix) {};
 
+  hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
+
   unstablePkgs = with unstable; [
     betterlockscreen     # fast lockscreen based on i3lock
     brave                # private web browser based on chromium
@@ -37,6 +39,7 @@ let
     dive           # explore docker layers
     exa            # a better `ls`
     fd             # "find" for files
+    hms            # custom home-manager switcher
     hyperfine      # command-line benchmarking tool
     insomnia       # rest client with graphql support
     k9s            # k8s pods manager

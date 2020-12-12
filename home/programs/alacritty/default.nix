@@ -1,4 +1,4 @@
-{ fontSize ? 10, pkgs, ... }:
+{ fontSize, pkgs, ... }:
 
 {
   programs.alacritty = {
