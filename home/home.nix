@@ -78,13 +78,13 @@ let
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
-    brittany      # code formatter
-    cabal2nix     # convert cabal projects to nix
-    cabal-install # package manager
-    ghc           # compiler
-    ghcide        # haskell IDE
-    hoogle        # documentation
-    nix-tree      # visualize nix dependencies
+    brittany                # code formatter
+    cabal2nix               # convert cabal projects to nix
+    cabal-install           # package manager
+    ghc                     # compiler
+    haskell-language-server # haskell IDE (ships with ghcide)
+    hoogle                  # documentation
+    nix-tree                # visualize nix dependencies
   ];
 
   polybarPkgs = with pkgs; [
