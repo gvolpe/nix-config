@@ -377,7 +377,7 @@ nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
 office   = ClassApp "libreoffice-draw"     "libreoffice-draw"
 pavuctrl = ClassApp "Pavucontrol"          "pavucontrol"
 scr      = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
-spotify  = ClassApp "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
+spotify  = ClassApp "Spotify"              "spotify" -- -force-device-scale-factor=2.0 %U"
 vlc      = ClassApp "Vlc"                  "vlc"
 zenity   = ClassApp "Zenity"               "zenity --text-info --font=terminus"
 
