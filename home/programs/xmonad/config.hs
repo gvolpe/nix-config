@@ -369,7 +369,7 @@ data App
   | NameApp AppName AppCommand
   deriving Show
 
-btm      = TitleApp "btm"                  "alacritty -t btm -e btm"
+btm      = TitleApp "btm"                  "alacritty -t btm -e btm --color gruvbox --default_widget_type mem --disable_click"
 calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
 eog      = NameApp  "eog"                  "eog"
 gimp     = ClassApp "Gimp"                 "gimp"
