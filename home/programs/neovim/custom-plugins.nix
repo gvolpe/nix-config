@@ -22,9 +22,9 @@
   fzf-hoogle = buildVimPlugin {
     name = "fzf-hoogle-vim";
     src = builtins.fetchTarball {
-      name   = "fzf-hoogle-vim-v2.2.1-patched";
-      url    = "https://github.com/monkoose/fzf-hoogle.vim/archive/0054042.tar.gz";
-      sha256 = "0a9ml4mw8cgpig50bwfqywglzakhnrnlkl3n1acs1f5yjxvnl0n4";
+      name   = "fzf-hoogle-vim-v2.3.0";
+      url    = "https://github.com/monkoose/fzf-hoogle.vim/archive/v2.3.0.tar.gz";
+      sha256 = "00ay9250wdl8ym70dpv4zbs49g40dla6i48bk1zl95lp62kld4hr";
     };
   };
 
