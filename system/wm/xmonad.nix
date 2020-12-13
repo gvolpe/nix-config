@@ -7,13 +7,11 @@
 
     dbus = {
       enable = true;
-      socketActivated = true;
       packages = [ pkgs.gnome3.dconf ];
     };
 
     xserver = {
       enable = true;
-      startDbusSession = true;
 
       extraLayouts.us-custom = {
         description = "US layout with custom hyper keys";

@@ -44,7 +44,6 @@ in
       extraPackages = hp: [
         hp.dbus
         hp.monad-logger
-        hp.xmonad-contrib
       ];
       config = ./config.hs;
     };

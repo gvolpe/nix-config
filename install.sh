@@ -3,8 +3,8 @@
 # Shows the output of every command
 set +x
 
-# Pin Nixpkgs to NixOS unstable on September 11th of 2020
-export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs-channels/archive/61525137fd1.tar.gz"
+# Pin Nixpkgs to NixOS unstable on December 12th of 2020
+export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs/archive/e9158eca70a.tar.gz"
 
 # Switch to the unstable channel
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
@@ -20,6 +20,8 @@ sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 mkdir -p $HOME/.config/polybar/logs
 touch $HOME/.config/polybar/logs/bottom.log
 touch $HOME/.config/polybar/logs/top.log
+mkdir -p $HOME/.cache/fzf-hoogle
+touch $HOME/.cache/fzf-hoogle/cache.json
 
 # Home manager
 mkdir -p $HOME/.config/nixpkgs/

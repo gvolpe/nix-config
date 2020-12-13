@@ -7,10 +7,7 @@ let
 
   plugins = pkgs.vimPlugins // custom-plugins;
 
-  overriddenPlugins = with pkgs; [
-    nerdtree            # tree explorer
-    nerdtree-git-plugin # shows files git status on the NerdTree
-  ];
+  overriddenPlugins = with pkgs; [];
 
   myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
@@ -27,6 +24,8 @@ let
     multiple-cursors        # Multiple cursors selection, etc
     neomake                 # run programs asynchronously and highlight errors
     nerdcommenter           # code commenter
+    nerdtree                # tree explorer
+    nerdtree-git-plugin     # shows files git status on the NerdTree
     quickfix-reflector-vim  # make modifications right in the quickfix window
     rainbow_parentheses-vim # for nested parentheses
     tender-vim              # a clean dark theme

@@ -6,13 +6,15 @@
     };
 
     "haskell" = {
-      "command" = "ghcide";
+      "command" = "haskell-language-server-wrapper";
       "args" = [ "--lsp" ];
       "rootPatterns" = [
-        ".stack.yaml"
+        "stack.yaml"
+        "hie.yaml"
         ".hie-bios"
         "BUILD.bazel"
-        "cabal.config"
+        ".cabal"
+        "cabal.project"
         "package.yaml"
       ];
       "filetypes" = [ "hs" "lhs" "haskell" ];
