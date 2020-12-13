@@ -220,7 +220,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     [ key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
     , key "Screen recorder" (modm .|. controlMask,  xK_r    ) $ runScratchpadApp scr
     , key "Spotify"         (modm .|. controlMask,  xK_s    ) $ runScratchpadApp spotify
-    , key "ytop"            (modm .|. controlMask,  xK_y    ) $ runScratchpadApp ytop
+    , key "bottom"          (modm .|. controlMask,  xK_y    ) $ runScratchpadApp btm
     ] ^++^
   keySet "Screens" switchScreen ^++^
   keySet "System"
@@ -369,6 +369,7 @@ data App
   | NameApp AppName AppCommand
   deriving Show
 
+btm      = TitleApp "btm"                  "alacritty -t btm -e btm"
 calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
 eog      = NameApp  "eog"                  "eog"
 gimp     = ClassApp "Gimp"                 "gimp"
@@ -378,7 +379,6 @@ pavuctrl = ClassApp "Pavucontrol"          "pavucontrol"
 scr      = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
 spotify  = ClassApp "Spotify"              "spotify -force-device-scale-factor=2.0 %U"
 vlc      = ClassApp "Vlc"                  "vlc"
-ytop     = TitleApp "ytop"                 "alacritty -t ytop -e ytop"
 zenity   = ClassApp "Zenity"               "zenity --text-info --font=terminus"
 
 myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
@@ -400,7 +400,7 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
         isInstance pavuctrl <||> isInstance scr
       )                                               -?> doCenterFloat
     , (
-        isInstance vlc <||> isInstance ytop <||>
+        isInstance vlc <||> isInstance btm <||>
         isInstance zenity
       )                                               -?> doFullFloat
     , resource  =? "desktop_window"                   -?> doIgnore
@@ -429,7 +429,7 @@ scratchpadApp app = NS (getAppName app) (getAppCommand app) (isInstance app) def
 
 runScratchpadApp = namedScratchpadAction scratchpads . getAppName
 
-scratchpads = scratchpadApp <$> [ nautilus, scr, spotify, ytop ]
+scratchpads = scratchpadApp <$> [ btm, nautilus, scr, spotify ]
 
 ------------------------------------------------------------------------
 -- Workspaces

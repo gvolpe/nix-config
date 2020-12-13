@@ -12,6 +12,7 @@ let
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
     betterlockscreen     # fast lockscreen based on i3lock
+    bottom               # alternative to htop & ytop
     brave                # private web browser based on chromium
     cachix               # nix caching
     calibre              # e-book reader
