@@ -464,7 +464,7 @@ projects =
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "telegram-desktop"
+            , projectStartHook = Just $ spawn "telegram-desktop" >> spawn "element-desktop"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
