@@ -28,20 +28,25 @@
     videoDrivers = [ "amdgpu" ];
 
     xrandrHeads = [
-      { output = "HDMI-1";
-        primary = true;
-        monitorConfig = ''
-          Option "PreferredMode" "3840x2160"
-          Option "Position" "0 0"
-        '';
-      }
       { output = "eDP";
+        primary = true;
         monitorConfig = ''
           Option "PreferredMode" "1920x1980"
           Option "Position" "0 0"
         '';
       }
+      { output = "HDMI-1";
+        monitorConfig = ''
+          Option "PreferredMode" "3840x2160"
+        '';
+      }
+      { output = "HDMI-A-0";
+        monitorConfig = ''
+          Option "PreferredMode" "2560x1440"
+        '';
+      }
     ];
+
     resolutions = [
       { x = 2048; y = 1152; }
       { x = 1920; y = 1080; }
