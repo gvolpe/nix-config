@@ -20,6 +20,8 @@ sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 mkdir -p $HOME/.config/polybar/logs
 touch $HOME/.config/polybar/logs/bottom.log
 touch $HOME/.config/polybar/logs/top.log
+mkdir -p $HOME/.cache/fzf-hoogle
+touch $HOME/.cache/fzf-hoogle/cache.json
 
 # Home manager
 mkdir -p $HOME/.config/nixpkgs/
