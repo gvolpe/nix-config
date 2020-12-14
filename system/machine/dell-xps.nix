@@ -18,14 +18,12 @@
     interfaces.wlp2s0.useDHCP = true;
   };
 
-  fileSystems."/data" = { 
+  fileSystems."/data" = {
     device = "/dev/nvme0n1p3";
     fsType = "ext4";
   };
 
   services.xserver = {
-    videoDrivers = [ "amdgpu" ];
-
     xrandrHeads = [
       { output = "HDMI-1";
         primary = true;
@@ -36,7 +34,7 @@
       }
       { output = "eDP-1";
         monitorConfig = ''
-          Option "PreferredMode" "1920x1980"
+          Option "PreferredMode" "3840x2160"
           Option "Position" "0 0"
         '';
       }
