@@ -7,7 +7,7 @@ let
   hdmiBar = pkgs.callPackage ../services/polybar/bar.nix {};
 
   myspotify = import ../programs/spotify/default.nix {
-    opts = "-force-device-scale-factor=2.0 %U";
+    opts = "-force-device-scale-factor=1.4 %U";
     inherit pkgs;
   };
 
