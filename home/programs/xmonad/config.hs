@@ -1,3 +1,4 @@
+import           Control.Monad                         ( replicateM_ )
 import           Data.Foldable                         ( traverse_ )
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
@@ -150,7 +151,7 @@ dbusOutput dbus str =
   let opath  = D.objectPath_ "/org/xmonad/Log"
       iname  = D.interfaceName_ "org.xmonad.Log"
       mname  = D.memberName_ "Update"
-      signal = (D.signal opath iname mname)
+      signal = D.signal opath iname mname
       body   = [D.toVariant $ UTF8.decodeString str]
   in  D.emit dbus $ signal { D.signalBody = body }
 
@@ -211,7 +212,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Fullscreen"    (modm              , xK_f         ) $ sendMessage (Toggle NBFULL)
     ] ^++^
   keySet "Polybar"
-    [ key "Toggle"        (modm              , xK_equal     ) $ togglePolybar
+    [ key "Toggle"        (modm              , xK_equal     ) togglePolybar
     ] ^++^
   keySet "Projects"
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
@@ -224,7 +225,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     ] ^++^
   keySet "Screens" switchScreen ^++^
   keySet "System"
-    [ key "Toggle status bar gap" (modm              , xK_b ) $ toggleStruts
+    [ key "Toggle status bar gap" (modm              , xK_b ) toggleStruts
     , key "Logout (quit XMonad)"  (modm .|. shiftMask, xK_q ) $ io exitSuccess
     , key "Restart XMonad"        (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
     , key "Capture entire screen" (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
@@ -372,6 +373,7 @@ data App
 btm      = TitleApp "btm"                  "alacritty -t btm -e btm --color gruvbox --default_widget_type mem --disable_click"
 calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
 eog      = NameApp  "eog"                  "eog"
+evince   = ClassApp "Evince"               "evince"
 gimp     = ClassApp "Gimp"                 "gimp"
 nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
 office   = ClassApp "libreoffice-draw"     "libreoffice-draw"
@@ -391,26 +393,25 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   tileBelow           = insertPosition Below Newer
   doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 8) (1 / 8))
   manageScratchpads = namedScratchpadManageHook scratchpads
+  anyOf :: [Query Bool] -> Query Bool
+  anyOf = foldl (<||>) (pure False)
+  match :: [App] -> Query Bool
+  match = anyOf . fmap isInstance
   manageApps = composeOne
-    [ isInstance calendar                             -?> doCalendarFloat
-    , isInstance gimp <||> isInstance office          -?> doFloat
-    , isInstance spotify                              -?> doFullFloat
-    , (
-        isInstance eog <||> isInstance nautilus <||>
-        isInstance pavuctrl <||> isInstance scr
-      )                                               -?> doCenterFloat
-    , (
-        isInstance vlc <||> isInstance btm <||>
-        isInstance zenity
-      )                                               -?> doFullFloat
-    , resource  =? "desktop_window"                   -?> doIgnore
-    , resource  =? "kdesktop"                         -?> doIgnore
-    , (
-        isBrowserDialog <||> isFileChooserDialog <||>
-        isDialog <||> isPopup <||> isSplash
-      )                                               -?> doCenterFloat
-    , isFullscreen                                    -?> doFullFloat
-    , pure True                                       -?> tileBelow
+    [ isInstance calendar                         -?> doCalendarFloat
+    , match [ gimp, office ]                      -?> doFloat
+    , match [ eog, nautilus, pavuctrl, scr ]      -?> doCenterFloat
+    , match [ btm, evince, spotify, vlc, zenity ] -?> doFullFloat
+    , resource =? "desktop_window"                -?> doIgnore
+    , resource =? "kdesktop"                      -?> doIgnore
+    , anyOf [ isBrowserDialog
+            , isFileChooserDialog
+            , isDialog
+            , isPopup
+            , isSplash
+            ]                                     -?> doCenterFloat
+    , isFullscreen                                -?> doFullFloat
+    , pure True                                   -?> tileBelow
     ]
 
 isInstance (ClassApp c _) = className =? c
@@ -455,12 +456,12 @@ projects =
             }
   , Project { projectName      = ossWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ do sequence_ (replicate 2 $ spawn myTerminal)
+            , projectStartHook = Just $ do replicateM_ 2 (spawn myTerminal)
                                            spawn $ myTerminal <> " -e home-manager edit"
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/workspace/cr/app"
-            , projectStartHook = Just . sequence_ . replicate 3 $ spawn myTerminal
+            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
