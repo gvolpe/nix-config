@@ -2,7 +2,14 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
+  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
+
   hdmiBar = pkgs.callPackage ../services/polybar/bar.nix {};
+
+  myspotify = import ../programs/spotify/default.nix {
+    opts = "-force-device-scale-factor=2.0 %U";
+    inherit pkgs;
+  };
 
   statusBar = import ../services/polybar/default.nix {
     inherit config pkgs;
@@ -18,4 +25,6 @@ in
     statusBar
     terminal
   ];
+
+  home.packages = base.home.packages ++ [ myspotify ];
 }
