@@ -149,6 +149,12 @@ in
     };
   };
 
+  manual = {
+    json.enable = false;
+    html.enable = false;
+    manpages.enable = false;
+  };
+
   # notifications about home-manager news
   news.display = "silent";
 
