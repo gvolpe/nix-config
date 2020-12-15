@@ -50,3 +50,7 @@ Example:
 ```shell
 sudo cp /nix/store/6xj9zl5pa8308jc5i7fzf97789acchbl-nixos-20.09pre242769.61525137fd1-x86_64-linux.isonixos.iso/iso/nixos-20.09pre242769.61525137fd1-x86_64-linux.isonixos.iso /dev/sda
 ```
+
+## AMD GPU
+
+https://nixos.wiki/wiki/AMD_GPU

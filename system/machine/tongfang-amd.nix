@@ -31,8 +31,8 @@
       { output = "HDMI-A-0";
         primary = true;
         monitorConfig = ''
-          Modeline "3840x2160_30.00"  338.75  3840 4080 4488 5136  2160 2163 2168 2200 -hsync +vsync
-          Option "PreferredMode" "3840x2160_30.00"
+          Modeline "3840x2160_30.02"  339.00  3840 4080 4488 5136  2160 2163 2168 2200 -hsync +vsync
+          Option "PreferredMode" "3840x2160_30.02"
           Option "Position" "0 0"
         '';
       }
