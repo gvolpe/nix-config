@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_8;
+    kernelPackages = pkgs.linuxPackages_5_9;
 
     # Use the systemd-boot EFI boot loader.
     loader.systemd-boot.enable = true;
@@ -31,8 +31,8 @@
       { output = "HDMI-A-0";
         primary = true;
         monitorConfig = ''
-          Option "PreferredMode" "3840x2160"
-          Option "TargetRefresh" "30"
+          Modeline "3840x2160_30.00"  338.75  3840 4080 4488 5136  2160 2163 2168 2200 -hsync +vsync
+          Option "PreferredMode" "3840x2160_30.00"
           Option "Position" "0 0"
         '';
       }
