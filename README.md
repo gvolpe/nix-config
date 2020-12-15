@@ -5,6 +5,8 @@ My current - and always evolving - NixOS configuration files, home-manager, neov
 
 ![desktop](imgs/desktop-1.jpg)
 
+![amd](imgs/amd.jpg)
+
 ## Programs
 
 The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
