@@ -3,6 +3,7 @@ let
     setterm -blank 0 -powersave off -powerdown 0
     xset s off
     xcape -e "Hyper_L=Tab;Hyper_R=backslash"
+    xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
 
   polybarOpts = ''
