@@ -1,25 +1,27 @@
+{ pkgs, ...}:
+
 let
   extra = ''
-    setterm -blank 0 -powersave off -powerdown 0
-    xset s off
-    xcape -e "Hyper_L=Tab;Hyper_R=backslash"
-    xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+    ${pkgs.util-linux}/bin/setterm -blank 0 -powersave off -powerdown 0
+    ${pkgs.xorg.xset}/bin/xset s off
+    ${pkgs.xcape}/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
+    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
 
   polybarOpts = ''
-    nitrogen --restore &
-    pasystray &
-    blueman-applet &
-    nm-applet --sm-disable --indicator &
+    ${pkgs.nitrogen}/bin/nitrogen --restore &
+    ${pkgs.pasystray}/bin/pasystray &
+    ${pkgs.blueman}/bin/blueman-applet &
+    ${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
   '';
 
   taffybarOpts = ''
-    status-notifier-watcher &
-    nitrogen --restore &
-    taffybar &
-    pasystray &
-    blueman-applet &
-    nm-applet --sm-disable --indicator &
+    ${pkgs.haskellPackages.status-notifier-item}/bin/status-notifier-watcher &
+    ${pkgs.nitrogen}/bin/nitrogen --restore &
+    ${pkgs.taffybar}/bin/taffybar &
+    ${pkgs.pasystray}/bin/pasystray &
+    ${pkgs.blueman}/bin/blueman-applet &
+    ${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
   '';
 in
 {
