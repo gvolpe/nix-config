@@ -18,5 +18,6 @@ in
   xdg.configFile."${extDir}${x.google-meet-grid}.json".text  = ext;
   xdg.configFile."${extDir}${x.google-translate}.json".text  = ext;
   xdg.configFile."${extDir}${x.lastpass}.json".text          = ext;
+  xdg.configFile."${extDir}${x.nyancat-youtube}.json".text   = ext;
   xdg.configFile."${extDir}${x.vimium}.json".text            = ext;
 }
