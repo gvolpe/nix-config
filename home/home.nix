@@ -33,6 +33,7 @@ let
     libnotify            # notify-send command
     ncdu                 # disk space info (a better du)
     neofetch             # command-line system information
+    ngrok-2              # secure tunneling to localhost
     nix-doc              # nix documentation search tool
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
