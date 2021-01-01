@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_9;
+    kernelPackages = pkgs.linuxPackages_5_10;
 
     # Use the systemd-boot EFI boot loader.
     loader.systemd-boot.enable = true;
@@ -12,7 +12,7 @@
   };
 
   networking = {
-    hostName = "tongfang-amd-ryzen-7";
+    hostName = "tongfang-amd";
     interfaces = {
       eno1.useDHCP = true;
       wlp1s0.useDHCP = true;
