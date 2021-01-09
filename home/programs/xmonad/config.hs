@@ -461,11 +461,13 @@ projects =
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/workspace/cr/app"
-            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
+            , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "telegram-desktop" >> spawn "element-desktop"
+            , projectStartHook = Just $ do spawn "telegram-desktop"
+                                           spawn "element-desktop"
+                                           spawn "signal-desktop"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
