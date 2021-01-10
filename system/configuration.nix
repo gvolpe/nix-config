@@ -71,12 +71,18 @@ in
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Docker support.
+  # Enable Docker & VirtualBox support.
   virtualisation = {
     docker = {
       enable = true;
     };
+   virtualbox.host = {
+     enable = true;
+   #  enableExtensionPack = true;
+   };
   };
+
+  users.extraGroups.vboxusers.members = [ "gvolpe" ];
 
   # Enable sound.
   sound = {
@@ -110,8 +116,16 @@ in
     shell        = pkgs.fish;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: rec {
+        virtualbox = pkgs.virtualbox.overrideAttrs (attrs: {
+          patches = attrs.patches ++ [ /etc/nixos/virtualbox/kernel_5_10_x.patch ];
+        });
+      };
+    };
+  };
 
   # Nix daemon config
   nix = {
