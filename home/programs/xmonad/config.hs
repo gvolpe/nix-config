@@ -317,7 +317,9 @@ myLayout =
   avoidStruts
     . smartBorders
     . fullScreenToggle
-    . comLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
+    . comLayout
+    . devLayout
+    . webLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
@@ -338,7 +340,9 @@ myLayout =
      gapSpaced g = spacing g . myGaps g
 
      -- Per workspace layout
-     comLayout = onWorkspace comWs full
+     comLayout = onWorkspace comWs (full ||| tiled)
+     devLayout = onWorkspace devWs (Mirror tiled ||| full)
+     webLayout = onWorkspace webWs (tiled ||| full)
 
      -- Fullscreen
      fullScreenToggle = mkToggle (single NBFULL)
