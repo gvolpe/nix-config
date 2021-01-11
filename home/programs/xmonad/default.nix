@@ -14,15 +14,6 @@ let
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
   '';
-
-  taffybarOpts = ''
-    ${pkgs.haskellPackages.status-notifier-item}/bin/status-notifier-watcher &
-    ${pkgs.nitrogen}/bin/nitrogen --restore &
-    ${pkgs.taffybar}/bin/taffybar &
-    ${pkgs.pasystray}/bin/pasystray &
-    ${pkgs.blueman}/bin/blueman-applet &
-    ${pkgs.gnome3.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
-  '';
 in
 {
   xresources.properties = {
