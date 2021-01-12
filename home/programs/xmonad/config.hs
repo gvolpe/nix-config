@@ -218,10 +218,11 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     [ key "Switch prompt" (modm              , xK_o         ) $ switchProjectPrompt projectsTheme
     ] ^++^
   keySet "Scratchpads"
-    [ key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
+    [ key "Audacious"       (modm .|. controlMask,  xK_a    ) $ runScratchpadApp audacious
+    , key "bottom"          (modm .|. controlMask,  xK_y    ) $ runScratchpadApp btm
+    , key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
     , key "Screen recorder" (modm .|. controlMask,  xK_r    ) $ runScratchpadApp scr
     , key "Spotify"         (modm .|. controlMask,  xK_s    ) $ runScratchpadApp spotify
-    , key "bottom"          (modm .|. controlMask,  xK_y    ) $ runScratchpadApp btm
     ] ^++^
   keySet "Screens" switchScreen ^++^
   keySet "System"
@@ -374,18 +375,19 @@ data App
   | NameApp AppName AppCommand
   deriving Show
 
-btm      = TitleApp "btm"                  "alacritty -t btm -e btm --color gruvbox --default_widget_type proc"
-calendar = ClassApp "Gnome-calendar"       "gnome-calendar"
-eog      = NameApp  "eog"                  "eog"
-evince   = ClassApp "Evince"               "evince"
-gimp     = ClassApp "Gimp"                 "gimp"
-nautilus = ClassApp "Org.gnome.Nautilus"   "nautilus"
-office   = ClassApp "libreoffice-draw"     "libreoffice-draw"
-pavuctrl = ClassApp "Pavucontrol"          "pavucontrol"
-scr      = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
-spotify  = ClassApp "Spotify"              "myspotify"
-vlc      = ClassApp "Vlc"                  "vlc"
-zenity   = ClassApp "Zenity"               "zenity --text-info --font=terminus"
+audacious = ClassApp "Audacious"            "audacious"
+btm       = TitleApp "btm"                  "alacritty -t btm -e btm --color gruvbox --default_widget_type proc"
+calendar  = ClassApp "Gnome-calendar"       "gnome-calendar"
+eog       = NameApp  "eog"                  "eog"
+evince    = ClassApp "Evince"               "evince"
+gimp      = ClassApp "Gimp"                 "gimp"
+nautilus  = ClassApp "Org.gnome.Nautilus"   "nautilus"
+office    = ClassApp "libreoffice-draw"     "libreoffice-draw"
+pavuctrl  = ClassApp "Pavucontrol"          "pavucontrol"
+scr       = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
+spotify   = ClassApp "Spotify"              "myspotify"
+vlc       = ClassApp "Vlc"                  "vlc"
+zenity    = ClassApp "Zenity"               "zenity --text-info --font=terminus"
 
 myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
  where
@@ -404,7 +406,12 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   manageApps = composeOne
     [ isInstance calendar                         -?> doCalendarFloat
     , match [ gimp, office ]                      -?> doFloat
-    , match [ eog, nautilus, pavuctrl, scr ]      -?> doCenterFloat
+    , match [ audacious
+            , eog
+            , nautilus
+            , pavuctrl
+            , scr
+            ]                                     -?> doCenterFloat
     , match [ btm, evince, spotify, vlc, zenity ] -?> doFullFloat
     , resource =? "desktop_window"                -?> doIgnore
     , resource =? "kdesktop"                      -?> doIgnore
@@ -434,7 +441,7 @@ scratchpadApp app = NS (getAppName app) (getAppCommand app) (isInstance app) def
 
 runScratchpadApp = namedScratchpadAction scratchpads . getAppName
 
-scratchpads = scratchpadApp <$> [ btm, nautilus, scr, spotify ]
+scratchpads = scratchpadApp <$> [ audacious, btm, nautilus, scr, spotify ]
 
 ------------------------------------------------------------------------
 -- Workspaces

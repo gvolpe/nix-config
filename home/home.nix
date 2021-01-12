@@ -11,6 +11,7 @@ let
     act                  # run github actions locally
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
+    audacious            # simple music player
     betterlockscreen     # fast lockscreen based on i3lock
     bottom               # alternative to htop & ytop
     brave                # private web browser based on chromium
