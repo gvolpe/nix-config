@@ -20,7 +20,7 @@ The `home.nix` file contains details about all the software I use but here's a s
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
 
-I've also tried using `taffybar` for a while, configuration files still live in this repo. Here's a [screenshot](imgs/taffybar.png).
+If you're interested in using `taffybar` or `xmobar`, browse the commit history and you will find the configuration files I used. Here's a [screenshot](imgs/taffybar.png) showcasing the former.
 
 ## Structure
 
