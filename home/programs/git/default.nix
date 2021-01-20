@@ -35,10 +35,10 @@ in
       "*.metals.sbt"
       "*metals.sbt"
       "*.direnv"
-      "*.envrc" # there is lorri, nix-direnv & simple direnv; let people decide
-      "*hie.yaml" # ghcide files
+      "*.envrc"        # there is lorri, nix-direnv & simple direnv; let people decide
+      "*hie.yaml"      # ghcide files
       "*.mill-version" # used by metals
-      "*.jvm-opts" # should be local to every project
+      "*.jvmopts"      # should be local to every project
     ];
     signing = {
       key = "121D4302A64B2261";
