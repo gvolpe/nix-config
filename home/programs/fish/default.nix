@@ -15,7 +15,12 @@ let
     set -g theme_color_scheme solarized
   '';
 
-  fishPlugins = pkgs.callPackage ./plugins.nix {};
+  customPlugins = pkgs.callPackage ./plugins.nix {};
+
+  fenv = {
+    name = "foreign-env";
+    src = pkgs.fishPlugins.foreign-env.src;
+  };
 
   fishConfig = ''
     bind \t accept-autosuggestion
@@ -25,7 +30,7 @@ in
 {
   programs.fish = {
     enable = true;
-    plugins = [ fishPlugins.theme ];
+    plugins = [ customPlugins.theme fenv ];
     promptInit = ''
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
@@ -45,5 +50,5 @@ in
     shellInit = fishConfig;
   };
 
-  xdg.configFile."fish/functions/fish_prompt.fish".text = fishPlugins.prompt;
+  xdg.configFile."fish/functions/fish_prompt.fish".text = customPlugins.prompt;
 }

@@ -118,6 +118,14 @@ in
 {
   programs.home-manager.enable = true;
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    # temporary hack until there's a fix upstream
+    packageOverrides = p: {
+      fish-foreign-env = pkgs.fishPlugins.foreign-env;
+    };
+  };
+
   nixpkgs.overlays = [
     (import ./overlays/act.nix)
   ];
