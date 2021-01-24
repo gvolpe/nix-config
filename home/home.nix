@@ -126,9 +126,7 @@ in
     };
   };
 
-  nixpkgs.overlays = [
-    (import ./overlays/act.nix)
-  ];
+  nixpkgs.overlays = [];
 
   imports = [
     ./programs/browsers/brave.nix
