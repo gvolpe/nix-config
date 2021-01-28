@@ -120,10 +120,9 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-    # temporary hack until there's a fix upstream
     packageOverrides = p: {
+      # temporary hack for fish until there's a fix upstream
       fish-foreign-env = pkgs.fishPlugins.foreign-env;
-      # NUR packages from Jan 28th of 2021-
       nur = import (import pkgs/nur.nix) { inherit pkgs; };
     };
   };
