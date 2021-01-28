@@ -1,7 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  unstable  = import (import ./unstable.nix) {};
+  unstable = import (import pkgs/unstable.nix) {};
 
   hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
 
@@ -123,6 +123,8 @@ in
     # temporary hack until there's a fix upstream
     packageOverrides = p: {
       fish-foreign-env = pkgs.fishPlugins.foreign-env;
+      # NUR packages from Jan 28th of 2021-
+      nur = import (import pkgs/nur.nix) { inherit pkgs; };
     };
   };
 
@@ -130,7 +132,9 @@ in
 
   imports = [
     ./programs/browsers/brave.nix
+    ./programs/browsers/firefox.nix
     ./programs/git/default.nix
+    ./programs/fish/default.nix
     ./programs/fish/default.nix
     ./programs/neovim/default.nix
     ./programs/rofi/default.nix

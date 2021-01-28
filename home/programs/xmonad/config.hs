@@ -320,7 +320,8 @@ myLayout =
     . fullScreenToggle
     . comLayout
     . devLayout
-    . webLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
+    . webLayout
+    . wrkLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
@@ -344,6 +345,7 @@ myLayout =
      comLayout = onWorkspace comWs (full ||| tiled)
      devLayout = onWorkspace devWs (Mirror tiled ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
+     wrkLayout = onWorkspace wrkWs (tiled ||| full)
 
      -- Fullscreen
      fullScreenToggle = mkToggle (single NBFULL)
@@ -450,11 +452,12 @@ webWs = "web"
 ossWs = "oss"
 devWs = "dev"
 comWs = "com"
+wrkWs = "wrk"
 sysWs = "sys"
 etcWs = "etc"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, sysWs, etcWs]
+myWS = [webWs, ossWs, devWs, comWs, wrkWs, sysWs, etcWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -463,7 +466,7 @@ projects :: [Project]
 projects =
   [ Project { projectName      = webWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "brave"
+            , projectStartHook = Just $ spawn "firefox -P 'default' -no-remote"
             }
   , Project { projectName      = ossWs
             , projectDirectory = "~/"
@@ -479,6 +482,10 @@ projects =
             , projectStartHook = Just $ do spawn "telegram-desktop"
                                            spawn "element-desktop"
                                            spawn "signal-desktop"
+            }
+  , Project { projectName      = wrkWs
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ spawn "firefox -P 'chatroulette' -no-remote"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
