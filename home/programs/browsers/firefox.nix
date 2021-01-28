@@ -32,8 +32,9 @@ let
     "dom.forms.autocomplete.formautofill" = false;
 
     "general.autoScroll" = true;
-    "general.useragent.locale" = "en-GB";
+    "general.useragent.locale" = "en-US";
 
+    "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
     "extensions.extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
     "extensions.update.enabled" = false;
     "extensions.webcompat.enable_picture_in_picture_overrides" = true;
