@@ -1,11 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  unstable = import (import pkgs/unstable.nix) {};
-
   hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
-
-  unstablePkgs = [ ];
 
   defaultPkgs = with pkgs; [
     act                  # run github actions locally
@@ -95,13 +91,6 @@ let
     material-design-icons # fonts with glyphs
   ];
 
-  taffybarPkgs = with unstable; [
-    pkgs.hicolor-icon-theme              # theme needed for taffybar systray
-    taffybar                             # status bar written in Haskell
-    haskellPackages.gtk-sni-tray         # gtk-sni-tray-standalone
-    haskellPackages.status-notifier-item # status-notifier-watcher for taffybar
-  ];
-
   xmonadPkgs = with pkgs; [
     haskellPackages.libmpd # music player daemon
     haskellPackages.xmobar # status bar
@@ -129,22 +118,7 @@ in
 
   nixpkgs.overlays = [];
 
-  imports = [
-    ./programs/browsers/brave.nix
-    ./programs/browsers/firefox.nix
-    ./programs/git/default.nix
-    ./programs/fish/default.nix
-    ./programs/fish/default.nix
-    ./programs/neovim/default.nix
-    ./programs/rofi/default.nix
-    ./programs/xmonad/default.nix
-    ./services/dunst/default.nix
-    ./services/gpg-agent/default.nix
-    ./services/networkmanager/default.nix
-    ./services/picom/default.nix
-    ./services/screenlocker/default.nix
-    ./services/udiskie/default.nix
-  ];
+  imports = (import ./programs) ++ (import ./services);
 
   xdg.enable = true;
 
@@ -153,7 +127,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs ++ unstablePkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs;
 
     sessionVariables = {
       DISPLAY = ":0";
