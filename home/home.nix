@@ -10,7 +10,6 @@ let
     audacious            # simple music player
     betterlockscreen     # fast lockscreen based on i3lock
     bottom               # alternative to htop & ytop
-    brave                # private web browser based on chromium
     cachix               # nix caching
     calibre              # e-book reader
     dconf2nix            # dconf (gnome) files to nix converter
@@ -24,6 +23,7 @@ let
     hms                  # custom home-manager switcher
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
+    jitsi-meet-electron  # open source video calls and chat
     k9s                  # k8s pods manager
     killall              # kill processes by name
     libreoffice          # office suite
