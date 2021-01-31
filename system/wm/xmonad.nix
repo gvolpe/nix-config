@@ -23,9 +23,9 @@
 
       libinput = {
         enable = true;
-        disableWhileTyping = true;
+        touchpad.disableWhileTyping = true;
       };
-      
+
       serverLayoutSection = ''
         Option "StandbyTime" "0"
         Option "SuspendTime" "0"
@@ -42,6 +42,7 @@
       };
 
       xkbOptions = "caps:ctrl_modifier";
+
     };
   };
 
