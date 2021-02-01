@@ -31,6 +31,7 @@ in
     extraConfig = gitConfig;
     ignores = [
       "*.bloop"
+      "*.bsp"
       "*.metals"
       "*.metals.sbt"
       "*metals.sbt"
