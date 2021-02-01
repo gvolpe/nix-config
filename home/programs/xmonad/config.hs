@@ -466,7 +466,7 @@ projects :: [Project]
 projects =
   [ Project { projectName      = webWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "firefox -P 'default' -no-remote"
+            , projectStartHook = Just $ spawn "firefox -P 'default'"
             }
   , Project { projectName      = ossWs
             , projectDirectory = "~/"
