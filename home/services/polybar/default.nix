@@ -10,7 +10,7 @@ let
     }
   );
 
-  openGithub   = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
+  openGithub = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
