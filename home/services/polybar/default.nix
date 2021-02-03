@@ -1,11 +1,13 @@
 { mainBar, openCalendar, config, pkgs, ... }:
 
 let
+  browser = "${pkgs.firefox-beta-bin}/bin/firefox";
+
   xdgUtils = pkgs.xdg_utils.overrideAttrs (
     old: {
       nativeBuildInputs = old.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
       postInstall = old.postInstall + "\n" + ''
-        wrapProgram $out/bin/xdg-open --suffix PATH : /run/current-system/sw/bin
+        wrapProgram $out/bin/xdg-open --suffix PATH : /run/current-system/sw/bin --suffix BROWSER : ${browser}
       '';
     }
   );
@@ -89,8 +91,8 @@ in
       export ETH_INTERFACE=$(${networkScript}/bin/check-network eth)
       export WIFI_INTERFACE=$(${networkScript}/bin/check-network wifi)
       echo "Network interfaces $ETH_INTERFACE & $WIFI_INTERFACE"
-      polybar top 2>${config.xdg.configHome}/polybar/logs/top.log &
-      polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log &
+      polybar top 2>${config.xdg.configHome}/polybar/logs/top.log & disown
+      polybar bottom 2>${config.xdg.configHome}/polybar/logs/bottom.log & disown
     '';
   };
 }
