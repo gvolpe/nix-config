@@ -53,6 +53,7 @@ let
     tree                 # display files in a tree view
     vlc                  # media player
     xclip                # clipboard support (also for neovim)
+    yad                  # yet another dialog - fork of zenity
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
@@ -70,7 +71,6 @@ let
     evince         # pdf reader
     gnome-calendar # calendar
     nautilus       # file manager
-    zenity         # display dialogs
     # themes
     adwaita-icon-theme
     pkgs.material-design-icons

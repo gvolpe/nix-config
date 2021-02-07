@@ -186,7 +186,7 @@ playerctl c  = "playerctl --player=spotify,%any " <> c
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings x = addName "Show Keybindings" . io $
-  E.bracket (spawnPipe $ getAppCommand zenity) hClose (\h -> hPutStr h (unlines $ showKm x))
+  E.bracket (spawnPipe $ getAppCommand yad) hClose (\h -> hPutStr h (unlines $ showKm x))
 
 myKeys conf@XConfig {XMonad.modMask = modm} =
   keySet "Applications"
@@ -389,7 +389,7 @@ pavuctrl  = ClassApp "Pavucontrol"          "pavucontrol"
 scr       = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
 spotify   = ClassApp "Spotify"              "myspotify"
 vlc       = ClassApp "Vlc"                  "vlc"
-zenity    = ClassApp "Zenity"               "zenity --text-info --font=terminus"
+yad       = ClassApp "Yad"                  "yad --text-info --text 'XMonad'"
 
 myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
  where
@@ -406,25 +406,25 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   match :: [App] -> Query Bool
   match = anyOf . fmap isInstance
   manageApps = composeOne
-    [ isInstance calendar                         -?> doCalendarFloat
-    , match [ gimp, office ]                      -?> doFloat
+    [ isInstance calendar                      -?> doCalendarFloat
+    , match [ gimp, office ]                   -?> doFloat
     , match [ audacious
             , eog
             , nautilus
             , pavuctrl
             , scr
-            ]                                     -?> doCenterFloat
-    , match [ btm, evince, spotify, vlc, zenity ] -?> doFullFloat
-    , resource =? "desktop_window"                -?> doIgnore
-    , resource =? "kdesktop"                      -?> doIgnore
+            ]                                  -?> doCenterFloat
+    , match [ btm, evince, spotify, vlc, yad ] -?> doFullFloat
+    , resource =? "desktop_window"             -?> doIgnore
+    , resource =? "kdesktop"                   -?> doIgnore
     , anyOf [ isBrowserDialog
             , isFileChooserDialog
             , isDialog
             , isPopup
             , isSplash
-            ]                                     -?> doCenterFloat
-    , isFullscreen                                -?> doFullFloat
-    , pure True                                   -?> tileBelow
+            ]                                  -?> doCenterFloat
+    , isFullscreen                             -?> doFullFloat
+    , pure True                                -?> tileBelow
     ]
 
 isInstance (ClassApp c _) = className =? c
