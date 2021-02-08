@@ -94,7 +94,12 @@ in
   # Enable the X11 windowing system.
   services = {
     # Enable the OpenSSH daemon.
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      allowSFTP = true;
+    };
+
+    sshd.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
