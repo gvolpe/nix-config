@@ -60,7 +60,7 @@ in
       lastpass-password-manager
       link-cleaner
       privacy-badger
-      #to-deepl
+      to-deepl
       ublock-origin
       unpaywall
       vimium
