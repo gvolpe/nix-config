@@ -21,11 +21,8 @@
 
   fileSystems."/data" = { 
     device = "/dev/nvme0n1p3";
-    fsType = "ext4";
+    fsType = "ext4"; 
   };
-
-  # enable vulkan
-  hardware.opengl.driSupport = true;
 
   services.xserver = {
     videoDrivers = [ "amdgpu" ];
@@ -55,4 +52,24 @@
       { x = 3840; y = 2160; }
     ];
   };
+
+  nixpkgs.config.packageOverrides = p: rec {
+    mesa = p.mesa.overrideAttrs (attrs: {
+      version = "21.1.0-devel-2021-02-13";
+
+      src = p.fetchFromGitLab {
+        domain = "gitlab.freedesktop.org";
+        owner  = "mesa";
+        repo   = "mesa";
+        rev    = "628ce5472ca45f6e92856a0314905fc578300f4f"; 
+        sha256 = "0njmarq3yzqznpqg12r6iwbm3fldi3jkqsmlwp89mg2vchfl2i9g";
+      };
+
+      mesonFlags = attrs.mesonFlags ++ [ 
+        "-Dosmesa=true" 
+        "-Dmicrosoft-clc=disabled" 
+      ];
+    });
+  };
+
 }
