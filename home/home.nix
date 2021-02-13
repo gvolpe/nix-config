@@ -112,7 +112,7 @@ in
     packageOverrides = p: {
       # temporary hack for fish until there's a fix upstream
       fish-foreign-env = pkgs.fishPlugins.foreign-env;
-      nur = import (import pkgs/nur.nix) { inherit pkgs; };
+      nur = import (import pinned/nur.nix) { inherit pkgs; };
     };
   };
 

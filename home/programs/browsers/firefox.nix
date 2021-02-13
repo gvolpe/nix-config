@@ -59,6 +59,8 @@ in
       languagetool
       lastpass-password-manager
       link-cleaner
+      privacy-badger
+      #to-deepl
       ublock-origin
       unpaywall
       vimium
