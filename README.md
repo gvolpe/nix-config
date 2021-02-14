@@ -31,8 +31,10 @@ Here is an overview of the folders' structure:
 │   ├── display
 │   ├── home.nix
 │   ├── overlays
+│   ├── pinned
 │   ├── programs
 │   └── secrets
+│   └── scripts
 │   └── services
 ├── imgs
 ├── install.sh

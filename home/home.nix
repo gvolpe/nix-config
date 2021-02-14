@@ -1,8 +1,6 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
-
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
@@ -19,7 +17,6 @@ let
     exa                  # a better `ls`
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
-    hms                  # custom home-manager switcher (see switcher.nix)
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
     jitsi-meet-electron  # open source video calls and chat
@@ -31,6 +28,7 @@ let
     neofetch             # command-line system information
     ngrok-2              # secure tunneling to localhost
     nix-doc              # nix documentation search tool
+    nix-index            # files database for nixpkgs
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
     pavucontrol          # pulseaudio volume control
@@ -89,6 +87,8 @@ let
     material-design-icons # fonts with glyphs
   ];
 
+  scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };
+
   xmonadPkgs = with pkgs; [
     networkmanager_dmenu   # networkmanager on dmenu
     networkmanagerapplet   # networkmanager applet
@@ -121,7 +121,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ xmonadPkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs;
 
     sessionVariables = {
       DISPLAY = ":0";
