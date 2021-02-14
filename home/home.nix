@@ -4,7 +4,6 @@ let
   hms = pkgs.callPackage ./switcher.nix { inherit config pkgs; };
 
   defaultPkgs = with pkgs; [
-    act                  # run github actions locally
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
     audacious            # simple music player
@@ -20,7 +19,7 @@ let
     exa                  # a better `ls`
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
-    hms                  # custom home-manager switcher
+    hms                  # custom home-manager switcher (see switcher.nix)
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
     jitsi-meet-electron  # open source video calls and chat
@@ -34,7 +33,6 @@ let
     nix-doc              # nix documentation search tool
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
-    mupdf                # pdf viewer with vim-like keybindings
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
@@ -92,8 +90,6 @@ let
   ];
 
   xmonadPkgs = with pkgs; [
-    haskellPackages.libmpd # music player daemon
-    haskellPackages.xmobar # status bar
     networkmanager_dmenu   # networkmanager on dmenu
     networkmanagerapplet   # networkmanager applet
     nitrogen               # wallpaper manager
@@ -110,8 +106,6 @@ in
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = p: {
-      # temporary hack for fish until there's a fix upstream
-      fish-foreign-env = pkgs.fishPlugins.foreign-env;
       nur = import (import pinned/nur.nix) { inherit pkgs; };
     };
   };
@@ -133,12 +127,6 @@ in
       DISPLAY = ":0";
       EDITOR = "nvim";
     };
-  };
-
-  manual = {
-    json.enable = false;
-    html.enable = false;
-    manpages.enable = false;
   };
 
   # notifications about home-manager news
