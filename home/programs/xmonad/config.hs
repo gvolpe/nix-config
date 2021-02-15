@@ -23,6 +23,7 @@ import           XMonad.Actions.RotSlaves              ( rotSlavesUp )
 import           XMonad.Actions.SpawnOn                ( manageSpawn
                                                        , spawnOn
                                                        )
+import           XMonad.Actions.WithAll                ( killAll )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh
                                                        , ewmhDesktopsEventHook
                                                        , fullscreenEventHook
@@ -232,27 +233,28 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Capture entire screen" (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
     ] ^++^
   keySet "Windows"
-    [ key "Close focused"  (modm              , xK_BackSpace) kill
-    , key "Refresh size"   (modm              , xK_n        ) refresh
-    , key "Focus next"     (modm              , xK_j        ) $ windows W.focusDown
-    , key "Focus previous" (modm              , xK_k        ) $ windows W.focusUp
-    , key "Focus master"   (modm              , xK_m        ) $ windows W.focusMaster
-    , key "Swap master"    (modm              , xK_Return   ) $ windows W.swapMaster
-    , key "Swap next"      (modm .|. shiftMask, xK_j        ) $ windows W.swapDown
-    , key "Swap previous"  (modm .|. shiftMask, xK_k        ) $ windows W.swapUp
-    , key "Shrink master"  (modm              , xK_h        ) $ sendMessage Shrink
-    , key "Expand master"  (modm              , xK_l        ) $ sendMessage Expand
-    , key "Switch to tile" (modm              , xK_t        ) $ withFocused (windows . W.sink)
-    , key "Rotate slaves"  (modm .|. shiftMask, xK_Tab      ) rotSlavesUp
-    , key "Decrease size"  (modm              , xK_d        ) $ withFocused (keysResizeWindow (-10,-10) (1,1))
-    , key "Increase size"  (modm              , xK_s        ) $ withFocused (keysResizeWindow (10,10) (1,1))
-    , key "Decr  abs size" (modm .|. shiftMask, xK_d        ) $ withFocused (keysAbsResizeWindow (-10,-10) (1024,752))
-    , key "Incr  abs size" (modm .|. shiftMask, xK_s        ) $ withFocused (keysAbsResizeWindow (10,10) (1024,752))
+    [ key "Close focused"   (modm              , xK_BackSpace) kill
+    , key "Close all in ws" (modm .|. shiftMask, xK_BackSpace) killAll
+    , key "Refresh size"    (modm              , xK_n        ) refresh
+    , key "Focus next"      (modm              , xK_j        ) $ windows W.focusDown
+    , key "Focus previous"  (modm              , xK_k        ) $ windows W.focusUp
+    , key "Focus master"    (modm              , xK_m        ) $ windows W.focusMaster
+    , key "Swap master"     (modm              , xK_Return   ) $ windows W.swapMaster
+    , key "Swap next"       (modm .|. shiftMask, xK_j        ) $ windows W.swapDown
+    , key "Swap previous"   (modm .|. shiftMask, xK_k        ) $ windows W.swapUp
+    , key "Shrink master"   (modm              , xK_h        ) $ sendMessage Shrink
+    , key "Expand master"   (modm              , xK_l        ) $ sendMessage Expand
+    , key "Switch to tile"  (modm              , xK_t        ) $ withFocused (windows . W.sink)
+    , key "Rotate slaves"   (modm .|. shiftMask, xK_Tab      ) rotSlavesUp
+    , key "Decrease size"   (modm              , xK_d        ) $ withFocused (keysResizeWindow (-10,-10) (1,1))
+    , key "Increase size"   (modm              , xK_s        ) $ withFocused (keysResizeWindow (10,10) (1,1))
+    , key "Decr  abs size"  (modm .|. shiftMask, xK_d        ) $ withFocused (keysAbsResizeWindow (-10,-10) (1024,752))
+    , key "Incr  abs size"  (modm .|. shiftMask, xK_s        ) $ withFocused (keysAbsResizeWindow (10,10) (1024,752))
     ] ^++^
   keySet "Workspaces"
     [ key "Next"          (modm              , xK_period    ) nextWS'
     , key "Previous"      (modm              , xK_comma     ) prevWS'
-    , key "Remove"        (modm .|. shiftMask, xK_BackSpace ) removeWorkspace
+    , key "Remove"        (modm .|. shiftMask, xK_F4        ) removeWorkspace
     ] ++ switchWsById
  where
   togglePolybar = spawn "polybar-msg cmd toggle &"
