@@ -1,6 +1,8 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
+  pinned = import (import pinned/unstable.nix) { inherit pkgs;};
+
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
@@ -41,7 +43,7 @@ let
     rnix-lsp             # nix lsp server
     signal-desktop       # signal messaging client
     simplescreenrecorder # self-explanatory
-    slack                # messaging client
+    pinned.slack         # messaging client (from previous unstable because latest is buggy)
     spotify              # music source
     tdesktop             # telegram messaging client
     terminator           # great terminal multiplexer
