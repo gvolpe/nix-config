@@ -121,6 +121,11 @@ in
     shell        = pkgs.fish;
   };
 
+  security.sudo.configFile = ''
+    Defaults lecture=always
+    Defaults lecture_file=/etc/nixos/misc/groot.txt
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   # Nix daemon config
