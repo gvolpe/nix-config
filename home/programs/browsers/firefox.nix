@@ -55,6 +55,7 @@ in
     enable = true;
 
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      bitwarden
       darkreader
       languagetool
       lastpass-password-manager
