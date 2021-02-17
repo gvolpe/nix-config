@@ -8,6 +8,7 @@ let
     asciinema            # record the terminal
     audacious            # simple music player
     betterlockscreen     # fast lockscreen based on i3lock
+    bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
     cachix               # nix caching
     calibre              # e-book reader
