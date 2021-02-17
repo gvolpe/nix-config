@@ -58,7 +58,6 @@ in
       bitwarden
       darkreader
       languagetool
-      lastpass-password-manager
       link-cleaner
       privacy-badger
       to-deepl
