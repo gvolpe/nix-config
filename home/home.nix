@@ -1,8 +1,6 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
-  pinned = import (import pinned/unstable.nix) { inherit pkgs;};
-
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
@@ -45,7 +43,7 @@ let
     rnix-lsp             # nix lsp server
     signal-desktop       # signal messaging client
     simplescreenrecorder # self-explanatory
-    pinned.slack         # messaging client (from previous unstable because latest is buggy)
+    slack                # messaging client
     spotify              # music source
     tdesktop             # telegram messaging client
     terminator           # great terminal multiplexer
@@ -71,9 +69,6 @@ let
     evince         # pdf reader
     gnome-calendar # calendar
     nautilus       # file manager
-    # themes
-    adwaita-icon-theme
-    pkgs.material-design-icons
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -116,7 +111,7 @@ in
 
   nixpkgs.overlays = [];
 
-  imports = (import ./programs) ++ (import ./services);
+  imports = (import ./programs) ++ (import ./services) ++ [(import ./themes)];
 
   xdg.enable = true;
 
@@ -135,18 +130,6 @@ in
 
   # notifications about home-manager news
   news.display = "silent";
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome3.adwaita-icon-theme;
-    };
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome3.adwaita-icon-theme;
-    };
-  };
 
   programs = {
     bat.enable = true;
