@@ -76,10 +76,11 @@ in
     docker = {
       enable = true;
     };
-   virtualbox.host = {
-     enable = true;
+   # disable for now, broken with Linux Kernel 5.11.x
+   #virtualbox.host = {
+   #  enable = true;
    #  enableExtensionPack = true;
-   };
+   # };
   };
 
   users.extraGroups.vboxusers.members = [ "gvolpe" ];
