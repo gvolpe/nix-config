@@ -3,13 +3,6 @@
 stdenv.mkDerivation rec {
   pname = "juno";
   version = "0.0.1";
-  #version = "4f7b6a9";
-
-  #src = builtins.fetchTarball {
-    #name   = "Juno";
-    #url    = "https://github.com/EliverLara/Juno/archive/${version}.tar.gz";
-    #sha256 = "198bxyqh43h4nly7ml7mxmx2swmfb0lcwfrrqx28zw8azpfcdj7j";
-  #};
 
   srcs = [
     (fetchurl {

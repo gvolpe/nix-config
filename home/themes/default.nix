@@ -1,14 +1,15 @@
 { pkgs, ... }:
 
 let
-  juno = pkgs.callPackage ./juno {};
+  beauty-line = pkgs.callPackage ./beauty-line {};
+  juno        = pkgs.callPackage ./juno {};
 in
 {
   gtk = {
     enable = true;
     iconTheme = {
-      name = "elementary-xfce";
-      package = pkgs.elementary-xfce-icon-theme;
+      name = "BeautyLine";
+      package = beauty-line;
     };
     theme = {
       name = "Juno-ocean";
