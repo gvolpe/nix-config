@@ -118,7 +118,7 @@ in
   home = {
     username      = "gvolpe";
     homeDirectory = "/home/gvolpe";
-    stateVersion  = "20.09";
+    stateVersion  = "21.03";
 
     packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs;
 
