@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/share/icons/${pname}
     cp -r * $out/share/icons/${pname}/
-    gtk-update-icon-cache $out/share/icons/${pname}
+    gtk-update-icon-cache $out/share/icons/${pname} || true
   '';
 
   meta = with lib; {
