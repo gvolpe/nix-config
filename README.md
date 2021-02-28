@@ -7,6 +7,8 @@ My current - and always evolving - NixOS configuration files, home-manager, neov
 
 ![amd](imgs/amd.jpg)
 
+![themes](imgs/theme.jpg)
+
 ## Programs
 
 The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
@@ -22,6 +24,13 @@ The `home.nix` file contains details about all the software I use but here's a s
 
 If you're interested in using `taffybar` or `xmobar`, browse the commit history and you will find the configuration files I used. Here's a [screenshot](imgs/taffybar.png) showcasing the former.
 
+## Themes
+
+| Type           | Name      |
+| :------------- | :----------: |
+| GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
+| GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
+
 ## Structure
 
 Here is an overview of the folders' structure:
@@ -36,6 +45,7 @@ Here is an overview of the folders' structure:
 │   └── secrets
 │   └── scripts
 │   └── services
+│   └── themes
 ├── imgs
 ├── install.sh
 ├── notes
@@ -63,7 +73,3 @@ nix-shell --run \
   -p wget s-tar
 chmod +x install.sh && ./install.sh
 ```
-
-## Gnome3 (previous config)
-
-I've been using Gnome3 for a while before switching to XMonad. Have a look at [Gnome3](./GNOME.md) for more.
