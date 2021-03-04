@@ -1,29 +1,35 @@
-{ lib, stdenv, gtk3, gnome-icon-theme, hicolor-icon-theme }:
+{ lib, stdenv, fetchzip, breeze-icons, gtk3, gnome-icon-theme, hicolor-icon-theme, mint-x-icons, pantheon }:
 
 stdenv.mkDerivation rec {
   pname   = "BeautyLine";
   version = "0.0.1";
 
-  src = builtins.fetchTarball {
-    name   = "Customized-${pname}-${version}";
+  src = fetchzip {
+    name   = "Custom-${pname}-${version}";
     url    = "https://github.com/gvolpe/BeautyLine/releases/download/${version}/CustomBeautyLine.tar.gz";
-    sha256 = "0hkshs09j11n5ycfv6i91zhnfzy1l84wr2yyg9md1m46d8h1pbzp";
+    sha256 = "15iyr3imixxqa0irlnh2jm54bvfby6la6d5ix03y8bj1yk1j3ypk";
   };
 
   nativeBuildInputs = [ gtk3 ];
 
-  propagatedBuildInputs = [ gnome-icon-theme hicolor-icon-theme ];
+  propagatedBuildInputs = [
+    breeze-icons
+    gnome-icon-theme
+    hicolor-icon-theme
+    mint-x-icons
+    pantheon.elementary-icon-theme
+  ];
 
   dontDropIconThemeCache = true;
 
   installPhase = ''
     mkdir -p $out/share/icons/${pname}
-    cp -r CustomBeautyLine/* $out/share/icons/${pname}/
-    gtk-update-icon-cache $out/share/icons/${pname} || true
+    cp -r * $out/share/icons/${pname}/
+    gtk-update-icon-cache $out/share/icons/${pname}
   '';
 
   meta = with lib; {
-    description = "Customized BeautyLine icon theme with status icons";
+    description = "BeautyLine icon theme (with customized status icons)";
     homepage    = "https://www.gnome-look.org/p/1425426/";
     platforms   = platforms.linux;
     maintainers = with maintainers; [ gvolpe ];
