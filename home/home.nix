@@ -109,7 +109,9 @@ in
     };
   };
 
-  nixpkgs.overlays = [];
+  nixpkgs.overlays = [
+    (import ./overlays/beauty-line)
+  ];
 
   imports = (import ./programs) ++ (import ./services) ++ [(import ./themes)];
 
