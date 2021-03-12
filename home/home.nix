@@ -5,7 +5,6 @@ let
     any-nix-shell        # fish support for nix shell
     asciinema            # record the terminal
     audacious            # simple music player
-    betterlockscreen     # fast lockscreen based on i3lock
     bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
     cachix               # nix caching
@@ -26,6 +25,7 @@ let
     killall              # kill processes by name
     libreoffice          # office suite
     libnotify            # notify-send command
+    multilockscreen      # fast lockscreen based on i3lock
     ncdu                 # disk space info (a better du)
     neofetch             # command-line system information
     ngrok-2              # secure tunneling to localhost
