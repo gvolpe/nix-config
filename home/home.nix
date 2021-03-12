@@ -3,6 +3,7 @@
 let
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
+    arandr               # simple GUI for xrandr
     asciinema            # record the terminal
     audacious            # simple music player
     bitwarden-cli        # command-line client for the password manager
