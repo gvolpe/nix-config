@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 let
+  # disable the annoying floating icon with camera and mic when on a call
+  disableWebRtcIndicator = ''
+    #webrtcIndicator {
+     display: none;
+    }
+  '';
+
   # ~/.mozilla/firefox/HASH_ID.default/prefs.js
   shared-settings = {
     "app.normandy.first_run" = false;
@@ -48,6 +55,8 @@ let
     "print.print_headerright" = "";
 
     "privacy.donottrackheader.enabled" = true;
+
+    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
 in
 {
@@ -72,11 +81,13 @@ in
       default = {
         id = 0;
         settings = shared-settings;
+        userChrome = disableWebRtcIndicator;
       };
 
       chatroulette = {
         id = 1;
         settings = shared-settings;
+        userChrome = disableWebRtcIndicator;
       };
     };
   };
