@@ -4,11 +4,11 @@ let
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
     #webrtcIndicator {
-     display: none;
+      display: none;
     }
   '';
 
-  # ~/.mozilla/firefox/HASH_ID.default/prefs.js
+  # ~/.mozilla/firefox/PROFILE_NAME/prefs.js
   shared-settings = {
     "app.normandy.first_run" = false;
     "app.shield.optoutstudies.enabled" = false;
