@@ -38,7 +38,7 @@
       }
       { output = "eDP";
         monitorConfig = ''
-          Option "PreferredMode" "1920x1980"
+          Option "PreferredMode" "1920x1080"
           Option "Position" "0 0"
         '';
       }
