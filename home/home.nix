@@ -14,6 +14,7 @@ let
     dmenu                # application launcher
     docker-compose       # docker manager
     dive                 # explore docker layers
+    duf                  # disk usage/free utility
     element-desktop      # a feature-rich client for Matrix.org
     exa                  # a better `ls`
     fd                   # "find" for files
