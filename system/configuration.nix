@@ -75,12 +75,16 @@ in
   virtualisation = {
     docker = {
       enable = true;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
     };
-   # disable for now, broken with Linux Kernel 5.11.x
-   #virtualbox.host = {
-   #  enable = true;
-   #  enableExtensionPack = true;
-   # };
+
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
   };
 
   users.extraGroups.vboxusers.members = [ "gvolpe" ];
