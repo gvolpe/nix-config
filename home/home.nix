@@ -1,6 +1,9 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
+  # workaround to open a URL in a new tab in the specific firefox profile
+  work-browser = pkgs.callPackage ./programs/browsers/work.nix {};
+
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     arandr               # simple GUI for xrandr
@@ -55,6 +58,9 @@ let
     vlc                  # media player
     xclip                # clipboard support (also for neovim)
     yad                  # yet another dialog - fork of zenity
+
+    # work stuff
+    work-browser
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped

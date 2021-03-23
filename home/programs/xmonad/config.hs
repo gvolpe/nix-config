@@ -487,7 +487,7 @@ projects =
             }
   , Project { projectName      = wrkWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "firefox -P 'chatroulette' -no-remote"
+            , projectStartHook = Just $ spawn "firefox -P 'chatroulette'" -- -no-remote"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
