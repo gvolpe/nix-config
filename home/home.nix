@@ -36,6 +36,7 @@ let
     ngrok-2              # secure tunneling to localhost
     nix-doc              # nix documentation search tool
     nix-index            # files database for nixpkgs
+    nixos-generators     # nix tool to generate isos
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
     pavucontrol          # pulseaudio volume control
