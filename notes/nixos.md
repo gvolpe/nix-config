@@ -39,7 +39,7 @@ nvme0n1     259:0    0 465.8G  0 disk
 └─nvme0n1p3 259:3    0 101.1G  0 part /data
 ```
 
-Note: the USB key must be unmounted. Now proceed to write the ISO into the right device (use the whole `/dev/sda`, not a partition like `/dev/sda1`).
+Note: the USB key must be unmounted (`umount /dev/sda1`). Now proceed to write the ISO into the right device (use the whole `/dev/sda`, not a partition like `/dev/sda1`).
 
 ```shell
 sudo cp /nix/store/path_to_generated_iso /dev/sda
