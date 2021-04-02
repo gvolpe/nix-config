@@ -50,6 +50,7 @@ let
     [module/clickable-github]
     inherit = module/github
     token = ''${file:${config.xdg.configHome}/polybar/github-notifications-token}
+    user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
 
