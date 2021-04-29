@@ -171,7 +171,7 @@ polybarHook dbus =
           , ppUrgent          = wrapper orange
           , ppHidden          = wrapper gray
           , ppHiddenNoWindows = wrapper red
-          , ppTitle           = wrapper purple . shorten 100
+          , ppTitle           = wrapper purple . shorten 90
           }
 
 myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
