@@ -7,7 +7,7 @@ in
 {
   dconf.settings = {
     "org/gnome/nautilus/icon-view" = {
-      default-zoom-level = "small";
+      default-zoom-level = "standard";
     };
 
     "org/gnome/nautilus/preferences" = {
