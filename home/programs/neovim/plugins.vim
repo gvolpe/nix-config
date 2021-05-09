@@ -82,3 +82,6 @@ let g:lightline = { 'colorscheme': 'material_vim' }
 " FZF Hoogle
 let g:hoogle_fzf_cache_file = '~/.cache/fzf-hoogle/cache.json'
 nnoremap <leader>h :Hoogle <CR>
+
+" vim-which-key
+nnoremap <silent> <leader> :WhichKey ','<CR>

@@ -2,14 +2,14 @@
 
 pkgs.neovim-unwrapped.overrideAttrs (
   old: {
-    name    = "neovim-nightly-2021-01-11";
-    version = "v0.5.0-dev+1016-g0af5a56e4";
+    name    = "neovim-nightly-2021-05-08";
+    version = "v0.5.0-dev+1309-g516551319";
 
     src = pkgs.fetchFromGitHub {
       owner  = "neovim";
       repo   = "neovim";
-      rev    = "0af5a56e47b543c8497eaa71ca8ff6900059d062";
-      sha256 = "019dl8w0l2b0bk26irfgnl6dal1pisdwn1qy4b36hvij2y5mad3s";
+      rev    = "5165513198dbbe7415f1b8c51225ae8f822628ec";
+      sha256 = "0qi9fn2g28g92p6y3gw8mryb41cmxz1sr5m54hl2zb7mq8na4vpg";
     };
 
     buildInputs = old.buildInputs ++ [ pkgs.tree-sitter ];

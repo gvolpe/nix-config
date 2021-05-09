@@ -44,6 +44,7 @@ let
     vim-scala               # scala plugin
     vim-surround            # quickly edit surroundings (brackets, html tags, etc)
     vim-tmux                # syntax highlighting for tmux conf file and more
+    vim-which-key           # display possible keybindings of the command you type.
   ] ++ overriddenPlugins;
 
   baseConfig    = builtins.readFile ./config.vim;
@@ -56,13 +57,10 @@ let
   neovim-5     = pkgs.callPackage ./dev/nightly.nix {};
   nvim5-config = builtins.readFile ./dev/metals.vim;
   new-plugins  = pkgs.callPackage ./dev/plugins.nix {
-    inherit (pkgs.vimUtils) buildVimPlugin;
+    inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
     inherit (pkgs) fetchFromGitHub;
   };
   nvim5-plugins = with new-plugins; [
-    completion-nvim
-    diagnostic-nvim
-    nvim-lsp
     nvim-metals
   ];
 in
