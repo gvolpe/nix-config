@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  programs.dconf.enable = true;
+
   services = {
     gnome.gnome-keyring.enable = true;
     upower.enable = true;
