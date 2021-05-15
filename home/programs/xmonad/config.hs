@@ -401,7 +401,7 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   isSplash            = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_SPLASH"
   isRole              = stringProperty "WM_WINDOW_ROLE"
   tileBelow           = insertPosition Below Newer
-  doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 8) (1 / 8))
+  doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 4) (1 / 4))
   manageScratchpads = namedScratchpadManageHook scratchpads
   anyOf :: [Query Bool] -> Query Bool
   anyOf = foldl (<||>) (pure False)
