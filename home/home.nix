@@ -146,6 +146,11 @@ in
   news.display = "silent";
 
   programs = {
+    autojump = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
     bat.enable = true;
 
     broot = {
