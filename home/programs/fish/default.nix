@@ -8,7 +8,6 @@ let
 
   themeConfig = ''
     set -g theme_display_date no
-    set -g theme_nerd_fonts yes
     set -g theme_display_git_master_branch no
     set -g theme_nerd_fonts yes
     set -g theme_newline_cursor yes
@@ -40,10 +39,10 @@ in
       dc   = "docker-compose";
       dps  = "docker-compose ps";
       dcd  = "docker-compose down --remove-orphans";
+      drm  = "docker images -a -q | xargs docker rmi -f";
       du   = "ncdu --color dark -rr -x";
       ls   = "exa";
       ll   = "ls -a";
-      mfix = "mill mono.__.fix --rules OrganizeImports && mill mono._.reformat";
       ".." = "cd ..";
       ping = "prettyping";
     };
