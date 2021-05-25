@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 let
+  fish   = "${pkgs.fish}/bin/fish";
   xrandr = "${pkgs.xorg.xrandr}/bin/xrandr";
 in
   pkgs.writeShellScriptBin "hms" ''
@@ -15,5 +16,9 @@ in
     else
       echo "Could not detect monitor: $monitors"
       exit 1
+    fi
+
+    if [[ $1 == "fish" ]]; then
+      ${fish} -c fish_update_completions
     fi
   ''
