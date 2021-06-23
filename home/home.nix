@@ -143,6 +143,9 @@ in
     };
   };
 
+  # restart services on change
+  systemd.user.startServices = "sd-switch";
+
   # notifications about home-manager news
   news.display = "silent";
 
