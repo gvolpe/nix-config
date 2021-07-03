@@ -165,7 +165,7 @@ in
     direnv = {
       enable = true;
       enableFishIntegration = true;
-      enableNixDirenvIntegration = true;
+      nix-direnv.enable = true;
     };
 
     fzf = {
@@ -177,8 +177,10 @@ in
 
     htop = {
       enable = true;
-      sortDescending = true;
-      sortKey = "PERCENT_CPU";
+      settings = {
+        sort_direction = true;
+        sort_key = "PERCENT_CPU";
+      };
     };
 
     jq.enable = true;
