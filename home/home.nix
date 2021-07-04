@@ -184,6 +184,12 @@ in
     };
 
     jq.enable = true;
+
+    obs-studio = {
+      enable = true;
+      plugins = [];
+    };
+
     ssh.enable = true;
   };
 
