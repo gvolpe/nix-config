@@ -10,6 +10,7 @@ nixos-rebuild switch
 
 ```shell
 nix-env -u
+nix-channel --update home-manager
 home-manager switch
 ```
 
