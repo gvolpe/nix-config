@@ -43,6 +43,7 @@ let
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
+    pgcli                # modern postgres client
     playerctl            # music player controller
     prettyping           # a nicer ping
     pulsemixer           # pulseaudio mixer
