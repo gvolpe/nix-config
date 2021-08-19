@@ -2,12 +2,15 @@
 
 stdenv.mkDerivation rec {
   pname   = "BeautyLine";
-  version = "0.0.2";
+  version = "0.0.3";
+
+  # to test locally
+  #src = /home/gvolpe/workspace/BeautyLine/BeautyLine-V2;
 
   src = fetchzip {
     name   = "${pname}-V1-${version}";
-    url    = "https://github.com/gvolpe/BeautyLine/releases/download/${version}/BeautyLine-V1.tar.gz";
-    sha256 = "1c47788dqjm3km36vzmzbzxbjq00rw2rljpqgz2v1alvhcdnhqa5";
+    url    = "https://github.com/gvolpe/BeautyLine/releases/download/${version}/BeautyLine-V2.tar.xz";
+    sha256 = "037w51wgi8is2hm86an4vjjn4mwmfxv9n3xpr394j0x8gcij64lg";
   };
 
   nativeBuildInputs = [ gtk3 ];
