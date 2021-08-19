@@ -1,9 +1,8 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 { lib, ... }:
 
-let
-  mkTuple = lib.hm.gvariant.mkTuple;
-in
+with lib.hm.gvariant;
+
 {
   dconf.settings = {
     "org/gnome/nautilus/icon-view" = {
@@ -16,6 +15,5 @@ in
       search-filter-time-type = "last_modified";
       search-view = "list-view";
     };
-
   };
 }
