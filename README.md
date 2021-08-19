@@ -30,6 +30,7 @@ If you're interested in using `taffybar` or `xmobar`, browse the commit history 
 | :------------- | :----------: |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
+| Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
 
 ## Structure
 
