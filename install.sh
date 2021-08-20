@@ -31,8 +31,8 @@ build_home() {
   nix-shell '<home-manager>' -A install
 
   # Run Home Manager
-  echo "Running Home Manager switch..."
-  home-manager switch
+  echo "Running Home Manager build..."
+  home-manager build
 }
 
 build_home_extra() {
@@ -57,6 +57,7 @@ build_all() {
   echo "No custom build option given. Building system and home."
   build_system
   build_home
+  home-manager switch
   build_home_extra
 }
 
