@@ -30,11 +30,13 @@ jobs:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      - run: nix --version
-
       - name: "Install Home Manager 🏠"
         run: |
           nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
           nix-channel --update
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
+          home-manager --version
+
+      - name: "Apply user configuration ⚙️"
+        run: ./build.sh
