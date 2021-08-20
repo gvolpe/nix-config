@@ -7,7 +7,6 @@ on:
       - main
     paths-ignore:
       - 'GNOME.md'
-      - 'PINNED_NIXPKGS'
       - 'README.md'
       - 'notes/**'
       - '.git-crypt/**'
