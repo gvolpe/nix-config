@@ -1,0 +1,42 @@
+name: NixOS
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'GNOME.md'
+      - 'README.md'
+      - 'notes/**'
+      - '.git-crypt/**'
+      - '.gitattributes'
+      - '.gitignore'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: "Get pinned nixpkgs ❄️"
+        id: pinned_nixpkgs
+        run: echo "::set-output name=url::$(cat PINNED_NIXPKGS)"
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v13
+        with:
+          nix_path: "nixpkgs=${{ steps.pinned_nixpkgs.outputs.url }}"
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v10
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
+
+      - name: "Build Home Manager 🏠 config"
+        run: ./install.sh home
