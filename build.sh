@@ -10,11 +10,11 @@ touch $HOME/.config/polybar/logs/top.log
 mkdir -p $HOME/.cache/fzf-hoogle
 touch $HOME/.cache/fzf-hoogle/cache.json
 
-# Home manager build
+# Home manager dirs
 mkdir -p $HOME/.config/nixpkgs/
 cp -r home/* $HOME/.config/nixpkgs/
+mkdir -p $HOME/.config/Pictures/
 cp home/nixos.png $HOME/Pictures/
-home-manager build
 
 # Set user's profile picture for Gnome3
 #sudo cp home/gvolpe.png /var/lib/AccountsService/icons/gvolpe
