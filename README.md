@@ -1,6 +1,8 @@
 nix-config
 ==========
 
+[![CI Status](https://github.com/gvolpe/nix-config/workflows/NixOS/badge.svg)](https://github.com/gvolpe/nix-config/actions)
+
 My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
 
 ![desktop](imgs/desktop-1.jpg)
