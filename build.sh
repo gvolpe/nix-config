@@ -13,7 +13,7 @@ touch $HOME/.cache/fzf-hoogle/cache.json
 # Home manager dirs
 mkdir -p $HOME/.config/nixpkgs/
 cp -r home/* $HOME/.config/nixpkgs/
-mkdir -p $HOME/.config/Pictures/
+mkdir -p $HOME/Pictures/
 cp home/nixos.png $HOME/Pictures/
 
 # Set user's profile picture for Gnome3
