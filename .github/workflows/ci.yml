@@ -30,16 +30,9 @@ jobs:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
+      # Needed because cachix is also installed by Home Manager
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
 
-      - name: "Prepare user configuration ⚙️"
-        run: ./build.sh
-
-      - name: "Install & Run Home Manager 🏠"
-        run: |
-          nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-          nix-channel --update
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-          nix-shell '<home-manager>' -A install
-          home-manager build
+      - name: "Run Home Manager build 🏠"
+        run: ./install.sh home
