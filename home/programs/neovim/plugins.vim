@@ -85,3 +85,6 @@ nnoremap <leader>h :Hoogle <CR>
 
 " vim-which-key
 nnoremap <silent> <leader> :WhichKey ','<CR>
+
+" vim-mergetool
+nmap <leader>mt <plug>(MergetoolToggle)

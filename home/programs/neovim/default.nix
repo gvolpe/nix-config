@@ -38,6 +38,7 @@ let
     vim-fish                # fish shell highlighting
     vim-fugitive            # git plugin
     vim-gtfo                # go to terminal or file manager
+    vim-mergetool           # git mergetool for nvim
     vim-nix                 # nix support (highlighting, etc)
     vim-repeat              # repeat plugin commands with (.)
     vim-ripgrep             # blazing fast search using ripgrep

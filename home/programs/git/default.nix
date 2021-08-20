@@ -7,12 +7,21 @@ let
       pager  = "diff-so-fancy | less --tabs=4 -RFX";
     };
     init.defaultBranch = "main";
-    merge.tool = "vimdiff";
-    mergetool = {
-      cmd    = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+    merge = {
+      conflictStyle = "diff3";
+      tool          = "vim_mergetool";
+    };
+    mergetool."vim_mergetool" = {
+      cmd    = "nvim -f -c \"MergetoolStart!\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
       prompt = false;
     };
     pull.rebase = false;
+    url = {
+      "https://github.com/".insteadOf = "gh:";
+      "ssh://git@github.com".pushInsteadOf = "gh:";
+      "https://gitlab.com/".insteadOf = "gl:";
+      "ssh://git@gitlab.com".pushInsteadOf = "gl:";
+    };
   };
 in
 {
