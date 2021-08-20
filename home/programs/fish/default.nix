@@ -45,6 +45,7 @@ in
       ll   = "ls -a";
       ".." = "cd ..";
       ping = "prettyping";
+      tree = "exa -T";
     };
     shellInit = fishConfig;
   };
