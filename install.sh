@@ -45,16 +45,12 @@ build_home_extra() {
 }
 
 build_system() {
-  # Pin Nixpkgs to NixOS unstable on Aug 1st of 2021
-  export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs/archive/8ecc61c91a5.tar.gz"
   sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-
-  # Nix configuration
   sudo cp system/configuration.nix /etc/nixos/
   sudo cp -r system/fonts/ /etc/nixos/
   sudo cp -r system/machine/ /etc/nixos/
   sudo cp -r system/wm/ /etc/nixos/
-  sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
+  sudo nixos-rebuild -I nixpkgs=$(cat PINNED_NIXPKGS) switch --upgrade
 }
 
 build_all() {
