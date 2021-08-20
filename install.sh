@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash
+#! /usr/bin/env bash
 
 # Shows the output of every command
 set +x
@@ -60,9 +59,9 @@ build_system() {
 
 build_all() {
   echo "No custom build option given. Building system and home."
-  build_system()
-  build_home()
-  build_home_extra()
+  build_system
+  build_home
+  build_home_extra
 }
 
 case $1 in
@@ -73,5 +72,5 @@ case $1 in
   "system")
     build_system;;
   *)
-    build_all();;
+    build_all;;
 esac
