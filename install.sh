@@ -56,6 +56,7 @@ build_system() {
 build_all() {
   echo "No custom build option given. Building system and home."
   build_system
+  nix-shell -p cachix --run "cachix use gvolpe-nixos"
   build_home
   home-manager switch
   build_home_extra
