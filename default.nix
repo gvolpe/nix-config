@@ -1,11 +1,11 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  hm_url = builtins.readFile ./pinned/home-manager;
+  hm_url = builtins.toString ./pinned/home-manager;
 
   home-manager = builtins.fetchTarball {
     name   = "home-manager-2021-08-21";
-    url    = "https://github.com/nix-community/home-manager/archive/f6d1cad.tar.gz";
+    url    = "${hm_url}";
     sha256 = "0s8nlgrf16bz2bhnk0xrzvivagq55cifxf2p545c7n4zj9ryfkkp";
   };
 
