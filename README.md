@@ -39,6 +39,7 @@ If you're interested in using `taffybar` or `xmobar`, browse the commit history 
 Here is an overview of the folders' structure:
 
 ```
+├── build.sh
 ├── home
 │   ├── display
 │   ├── home.nix
@@ -50,7 +51,6 @@ Here is an overview of the folders' structure:
 │   └── services
 │   └── themes
 ├── imgs
-├── install.sh
 ├── notes
 └── system
     ├── configuration.nix
