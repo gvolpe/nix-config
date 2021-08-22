@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  hm_url = pkgs.lib.strings.removeSuffix "\n" (toString (builtins.readFile ./pinned/home-manager));
+  hm_url = pkgs.lib.strings.removeSuffix "\n" (builtins.readFile ./pinned/home-manager);
 
   home-manager = builtins.fetchTarball {
     name   = "home-manager-2021-08-21";
