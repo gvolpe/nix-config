@@ -5,7 +5,7 @@ let
 
   home-manager = builtins.fetchTarball {
     name   = "home-manager-2021-08-21";
-    url    = "${hm_url}";
+    url    = "${toString hm_url}";
     sha256 = "0s8nlgrf16bz2bhnk0xrzvivagq55cifxf2p545c7n4zj9ryfkkp";
   };
 
