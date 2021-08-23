@@ -14,7 +14,7 @@ on:
       - '.gitignore'
 
 jobs:
-  build:
+  home-build:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2.3.2
@@ -40,3 +40,26 @@ jobs:
 
       - name: "Build Home Manager config 🏠"
         run: ./build.sh ci
+
+  system-build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: "Get pinned nixpkgs ❄️"
+        id: pinned_nixpkgs
+        run: echo "::set-output name=url::$(cat ./pinned/nixpkgs)"
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v13
+        with:
+          nix_path: "nixpkgs=${{ steps.pinned_nixpkgs.outputs.url }}"
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v10
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: "Build NixOS config ❄️"
+        run: nix-build sysdef.nix
