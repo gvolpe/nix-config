@@ -41,9 +41,7 @@ build_ci_system() {
   cmd="
     nix-build-uncached '<nixpkgs/nixos>' \
       -I nixos-config=system/configuration.nix \
-      -A system \
-      --keep-going \
-      --no-out-link
+      -A system
   "
   nix-shell -p nix-build-uncached --run "$cmd"
 }
