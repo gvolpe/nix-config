@@ -50,6 +50,10 @@ jobs:
         id: pinned_nixpkgs
         run: echo "::set-output name=url::$(cat ./pinned/nixpkgs)"
 
+      - name: "Get NixOS configuration file ❄️"
+        id: nixos_configuration
+        run: echo "::set-output name=filename::$(pwd)/system/configuration.nix"
+
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v13
         with:
@@ -62,4 +66,4 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: "Build NixOS config ❄️"
-        run: nix-build sysdef.nix
+        run: nix-build '<nixpkgs/nixos>' -I nixos-config=${{ steps.nixos_configuration.outputs.filename }} -A system

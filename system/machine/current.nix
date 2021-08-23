@@ -1,0 +1,1 @@
+tongfang-amd.nix
