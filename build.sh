@@ -32,9 +32,18 @@ install_hm() {
   nix-shell '<home-manager>' -A install
 }
 
-build_ci() {
+build_ci_home() {
   prepare_home
   nix-shell -p nix-build-uncached --run nix-build-uncached
+}
+
+build_ci_system() {
+  cmd="
+    nix-build-uncached '<nixpkgs/nixos>' \
+      -I nixos-config=system/configuration.nix \
+      -A system
+  "
+  nix-shell -p nix-build-uncached --run "$cmd"
 }
 
 build_home() {
@@ -70,8 +79,10 @@ build_all() {
 }
 
 case $1 in
-  "ci")
-    build_ci;;
+  "ci-home")
+    build_ci_home;;
+  "ci-system")
+    build_ci_system;;
   "home")
     build_home;;
   "system")

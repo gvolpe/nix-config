@@ -1,4 +1,4 @@
-name: NixOS
+name: Home Manager
 
 on:
   pull_request:
@@ -12,6 +12,7 @@ on:
       - '.git-crypt/**'
       - '.gitattributes'
       - '.gitignore'
+      - 'system/**'
 
 jobs:
   build:
@@ -39,4 +40,4 @@ jobs:
         run: nix-env --set-flag priority 0 cachix
 
       - name: "Build Home Manager config 🏠"
-        run: ./build.sh ci
+        run: ./build.sh ci-home
