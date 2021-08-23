@@ -73,9 +73,8 @@ build_system() {
 
 build_all() {
   echo "No custom build option given. Building system and home."
-  build_system
-  nix-shell -p cachix --run "cachix use gvolpe-nixos"
-  build_home
+  cmd="cachix use gvolpe-nixos && build_system && build_home"
+  nix-shell -p cachix --run "$cmd"
 }
 
 case $1 in
