@@ -12,7 +12,7 @@ let
       tool          = "vim_mergetool";
     };
     mergetool."vim_mergetool" = {
-      cmd    = "nvim -f -c \"MergetoolStart!\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
+      cmd    = "nvim -f -c \"MergetoolStart\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
       prompt = false;
     };
     pull.rebase = false;
