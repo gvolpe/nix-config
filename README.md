@@ -41,6 +41,7 @@ Here is an overview of the folders' structure:
 
 ```
 ├── build.sh
+├── default.nix
 ├── home
 │   ├── default.nix
 │   ├── display
@@ -63,6 +64,7 @@ Here is an overview of the folders' structure:
 ```
 
 - `build.sh`: the build and installation script.
+- `default.nix`: derivation for home and system, used in CI.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
