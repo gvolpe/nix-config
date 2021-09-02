@@ -38,8 +38,7 @@ build_ci_home() {
 }
 
 build_ci_system() {
-  cmd = "NIXPKGS_ALLOW_UNFREE=1 nix-build-uncached -A system"
-  nix-shell -p nix-build-uncached --run "$cmd"
+  nix-shell -p nix-build-uncached --run "nix-build-uncached -A system"
 }
 
 build_home() {
