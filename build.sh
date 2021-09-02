@@ -34,16 +34,11 @@ install_hm() {
 
 build_ci_home() {
   prepare_home
-  nix-shell -p nix-build-uncached --run nix-build-uncached
+  nix-shell -p nix-build-uncached --run "nix-build-uncached -A home"
 }
 
 build_ci_system() {
-  cmd="
-    nix-build-uncached '<nixpkgs/nixos>' \
-      -I nixos-config=system/configuration.nix \
-      -A system
-  "
-  nix-shell -p nix-build-uncached --run "$cmd"
+  nix-shell -p nix-build-uncached --run "nix-build-uncached -A system"
 }
 
 build_home() {

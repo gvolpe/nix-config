@@ -42,6 +42,7 @@ Here is an overview of the folders' structure:
 ```
 ├── build.sh
 ├── home
+│   ├── default.nix
 │   ├── display
 │   ├── home.nix
 │   ├── overlays
@@ -55,6 +56,7 @@ Here is an overview of the folders' structure:
 ├── notes
 └── system
     ├── configuration.nix
+    ├── default.nix
     └── fonts
     └── machine
     └── wm
