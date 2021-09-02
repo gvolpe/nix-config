@@ -51,6 +51,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    firejail
     vim
     wget
   ];
@@ -94,7 +95,12 @@ in
     enable = true;
     mediaKeys.enable = true;
   };
-  hardware.pulseaudio.enable = true;
+
+  hardware.pulseaudio = {
+    enable = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
 
   # Enable the X11 windowing system.
   services = {
