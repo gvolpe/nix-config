@@ -69,7 +69,7 @@ in
   programs.neovim = {
     enable       = true;
     extraConfig  = vimConfig;
-    package      = neovim-5;
+    #package      = neovim-5;
     plugins      = myVimPlugins;
     viAlias      = true;
     vimAlias     = true;
