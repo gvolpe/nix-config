@@ -11,7 +11,8 @@ let
 
   myVimPlugins = with plugins; [
     asyncrun-vim            # run async commands, show result in quickfix window
-    coc-nvim                # LSP client + autocompletion plugin
+    #coc-nvim                # LSP client + autocompletion plugin
+    pkgs.coc-nvim-fixed     # LSP client + autocompletion plugin
     coc-metals              # Scala LSP client for CoC
     coc-yank                # yank plugin for CoC
     ctrlsf-vim              # edit file in place after searching with ripgrep

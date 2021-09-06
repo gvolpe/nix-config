@@ -123,6 +123,7 @@ in
 
   nixpkgs.overlays = [
     (import ./overlays/beauty-line)
+    (import ./overlays/coc-nvim)
     (import ./overlays/discord)
     (import ./overlays/tex2nix)
   ];
