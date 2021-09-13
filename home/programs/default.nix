@@ -5,5 +5,4 @@
   ./fish
   ./neovim
   ./rofi
-  ./xmonad
 ]

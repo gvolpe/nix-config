@@ -21,12 +21,18 @@ let
   };
 
   terminal = import ../programs/alacritty/default.nix { fontSize = 8; inherit pkgs; };
+
+  wm = import ../programs/xmonad/default.nix {
+    inherit config pkgs lib;
+    hdmiOn = false;
+  };
 in
 {
   imports = [
     ../home.nix
     statusBar
     terminal
+    wm
   ];
 
   home.packages = base.home.packages ++ [ myspotify ];
