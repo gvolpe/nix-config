@@ -476,7 +476,7 @@ projects =
                                            spawn $ myTerminal <> " -e home-manager edit"
             }
   , Project { projectName      = devWs
-            , projectDirectory = "~/workspace/cr/app"
+            , projectDirectory = "~/workspace"
             , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   , Project { projectName      = comWs
@@ -486,7 +486,7 @@ projects =
             }
   , Project { projectName      = wrkWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "firefox -P 'chatroulette'" -- -no-remote"
+            , projectStartHook = Just $ spawn "firefox -P 'demo'" -- -no-remote"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"

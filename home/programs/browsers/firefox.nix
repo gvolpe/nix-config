@@ -91,6 +91,12 @@ in
         settings = shared-settings;
         userChrome = disableWebRtcIndicator;
       };
+
+      demo = {
+        id = 2;
+        settings = shared-settings;
+        userChrome = disableWebRtcIndicator;
+      };
     };
   };
 }
