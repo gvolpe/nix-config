@@ -321,7 +321,7 @@ myLayout =
     . smartBorders
     . fullScreenToggle
     . comLayout
-    . devLayout
+    -- . devLayout
     . webLayout
     . wrkLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
@@ -345,7 +345,7 @@ myLayout =
 
      -- Per workspace layout
      comLayout = onWorkspace comWs (full ||| tiled)
-     devLayout = onWorkspace devWs (Mirror tiled ||| full)
+     --devLayout = onWorkspace devWs (Mirror tiled ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
      wrkLayout = onWorkspace wrkWs (tiled ||| full)
 
