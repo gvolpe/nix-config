@@ -4,11 +4,17 @@
 let
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
+  browser = pkgs.callPackage ../programs/browsers/firefox.nix {
+    inherit config pkgs;
+    inherit (pkgs) nur;
+    hdmiOn = true;
+  };
+
   hdmiBar = pkgs.callPackage ../services/polybar/bar.nix {};
 
   myspotify = import ../programs/spotify/default.nix {
-    opts = "-force-device-scale-factor=1.4 %U";
     inherit pkgs;
+    opts = "-force-device-scale-factor=1.4 %U";
   };
 
   statusBar = import ../services/polybar/default.nix {
@@ -17,7 +23,7 @@ let
     openCalendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
   };
 
-  terminal  = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
+  terminal = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
 
   wm = import ../programs/xmonad/default.nix {
     inherit config pkgs lib;
@@ -31,6 +37,8 @@ in
     terminal
     wm
   ];
+
+  programs.firefox = browser.programs.firefox;
 
   home.packages = base.home.packages ++ [ myspotify ];
 }

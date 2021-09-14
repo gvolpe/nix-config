@@ -1,6 +1,5 @@
 [
   ./autorandr
-  ./browsers/firefox.nix
   ./dconf
   ./git
   ./fish

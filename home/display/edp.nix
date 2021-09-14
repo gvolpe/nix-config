@@ -4,6 +4,12 @@
 let
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
+  browser = pkgs.callPackage ../programs/browsers/firefox.nix {
+    inherit config pkgs;
+    inherit (pkgs) nur;
+    hdmiOn = false;
+  };
+
   laptopBar = pkgs.callPackage ../services/polybar/bar.nix {
     font0 = 10;
     font1 = 12;
@@ -12,7 +18,7 @@ let
     font4 = 5;
   };
 
-  myspotify = import ../programs/spotify/default.nix { opts = ""; inherit pkgs; };
+  myspotify = import ../programs/spotify/default.nix { inherit pkgs; opts = ""; };
 
   statusBar = import ../services/polybar/default.nix {
     inherit config pkgs;
@@ -34,6 +40,8 @@ in
     terminal
     wm
   ];
+
+  programs.firefox = browser.programs.firefox;
 
   home.packages = base.home.packages ++ [ myspotify ];
 }

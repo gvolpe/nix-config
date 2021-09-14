@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nur, hdmiOn, ... }:
 
 let
   # disable the annoying floating icon with camera and mic when on a call
@@ -8,8 +8,8 @@ let
     }
   '';
 
-  # ~/.mozilla/firefox/PROFILE_NAME/prefs.js
-  shared-settings = {
+  # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
+  sharedSettings = {
     "app.normandy.first_run" = false;
     "app.shield.optoutstudies.enabled" = false;
 
@@ -49,6 +49,9 @@ let
     "extensions.webcompat.perform_injections" = true;
     "extensions.webcompat.perform_ua_overrides" = true;
 
+    # DPI settings
+    "layout.css.devPixelsPerPx" = if hdmiOn then "-1.0" else "1.25";
+
     "print.print_footerleft" = "";
     "print.print_footerright" = "";
     "print.print_headerleft" = "";
@@ -63,7 +66,7 @@ in
   programs.firefox = {
     enable = true;
 
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    extensions = with nur.repos.rycee.firefox-addons; [
       bitwarden
       darkreader
       # auto-accepts cookies, use only with privacy-badger & ublock-origin
@@ -82,19 +85,19 @@ in
     profiles = {
       default = {
         id = 0;
-        settings = shared-settings;
+        settings = sharedSettings;
         userChrome = disableWebRtcIndicator;
       };
 
       chatroulette = {
         id = 1;
-        settings = shared-settings;
+        settings = sharedSettings;
         userChrome = disableWebRtcIndicator;
       };
 
       demo = {
         id = 2;
-        settings = shared-settings;
+        settings = sharedSettings;
         userChrome = disableWebRtcIndicator;
       };
     };
