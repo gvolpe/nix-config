@@ -84,7 +84,7 @@ in
 
     virtualbox.host = {
       enable = true;
-      enableExtensionPack = true;
+      # enableExtensionPack = true;
     };
   };
 
@@ -102,7 +102,6 @@ in
     package = pkgs.pulseaudioFull;
   };
 
-  # Enable the X11 windowing system.
   services = {
     # Enable the OpenSSH daemon.
     openssh = {
@@ -110,6 +109,11 @@ in
       allowSFTP = true;
     };
 
+    # Yubikey smart card mode (CCID) and OTP mode (udev)
+    pcscd.enable = true;
+    udev.packages = [ pkgs.yubikey-personalization ];
+
+    # SSH daemon.
     sshd.enable = true;
 
     # Enable CUPS to print documents.
@@ -132,10 +136,20 @@ in
     shell        = pkgs.fish;
   };
 
-  security.sudo.configFile = ''
-    Defaults lecture=always
-    Defaults lecture_file=/etc/nixos/misc/groot.txt
-  '';
+  security = {
+    # Yubikey login & sudo
+    pam.yubico = {
+      enable = true;
+      debug = false;
+      mode = "challenge-response";
+    };
+
+    # Sudo custom prompt message
+    sudo.configFile = ''
+      Defaults lecture=always
+      Defaults lecture_file=/etc/nixos/misc/groot.txt
+    '';
+  };
 
   nixpkgs.config.allowUnfree = true;
 
