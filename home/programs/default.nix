@@ -5,4 +5,5 @@
   ./fish
   ./neovim
   ./rofi
+  ./yubikey
 ]
