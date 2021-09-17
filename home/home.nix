@@ -100,6 +100,11 @@ let
 
   scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };
 
+  yubiPkgs = with pkgs; [
+    yubikey-manager  # yubikey manager cli
+    yubioath-desktop # yubikey OTP manager (gui)
+  ];
+
   xmonadPkgs = with pkgs; [
     networkmanager_dmenu   # networkmanager on dmenu
     networkmanagerapplet   # networkmanager applet
@@ -137,7 +142,7 @@ in
     homeDirectory = "/home/gvolpe";
     stateVersion  = "21.03";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs ++ yubiPkgs;
 
     sessionVariables = {
       DISPLAY = ":0";
