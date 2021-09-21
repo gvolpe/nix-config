@@ -60,7 +60,7 @@ let
     "privacy.donottrackheader.enabled" = true;
 
     # Yubikey
-    "security.webauth.u2f" =true;
+    "security.webauth.u2f" = true;
     "security.webauth.webauthn" = true;
     "security.webauth.webauthn_enable_softtoken" = true;
     "security.webauth.webauthn_enable_usbtoken" = true;
