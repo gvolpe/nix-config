@@ -78,6 +78,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Run a commands such as `metals.doctor-run`
+nnoremap <silent> <space>c  :<C-u>CocCommand<CR>
 
 nnoremap <silent> <M-B> :call CocRequest('metals', 'workspace/executeCommand', { 'command': 'build-import' })<CR>
 "nnoremap <silent> <M-Z> :ccl<CR>
