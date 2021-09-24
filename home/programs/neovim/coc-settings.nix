@@ -5,6 +5,12 @@
       "filetypes" = [ "dhall" ];
     };
 
+    "elm" = {
+      "command" = "elm-language-server";
+      "filetypes" = [ "elm" ];
+      "rootPatterns" = [ "elm.json" ];
+    };
+
     "haskell" = {
       "command" = "haskell-language-server-wrapper";
       "args" = [ "--lsp" ];
