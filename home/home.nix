@@ -40,6 +40,7 @@ let
     nixos-generators     # nix tool to generate isos
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
+    md-toc               # generate ToC in markdown files
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
@@ -130,6 +131,7 @@ in
     (import ./overlays/beauty-line)
     (import ./overlays/coc-nvim)
     (import ./overlays/discord)
+    (import ./overlays/md-toc)
     (import ./overlays/tex2nix)
   ];
 
