@@ -321,7 +321,7 @@ myLayout =
     . smartBorders
     . fullScreenToggle
     . comLayout
-    -- . devLayout
+    . devLayout
     . webLayout
     . wrkLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
@@ -345,7 +345,7 @@ myLayout =
 
      -- Per workspace layout
      comLayout = onWorkspace comWs (full ||| tiled)
-     --devLayout = onWorkspace devWs (Mirror tiled ||| full)
+     devLayout = onWorkspace devWs (column3 ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
      wrkLayout = onWorkspace wrkWs (tiled ||| full)
 
@@ -476,8 +476,8 @@ projects =
                                            spawn $ myTerminal <> " -e home-manager edit"
             }
   , Project { projectName      = devWs
-            , projectDirectory = "~/workspace"
-            , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
+            , projectDirectory = "~/workspace/trading"
+            , projectStartHook = Just . replicateM_ 8 $ spawn myTerminal
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
@@ -493,8 +493,8 @@ projects =
             , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
             }
   , Project { projectName      = etcWs
-            , projectDirectory = "~/"
-            , projectStartHook = Nothing
+            , projectDirectory = "~/workspace"
+            , projectStartHook = Just . spawn $ myTerminal
             }
   ]
 
