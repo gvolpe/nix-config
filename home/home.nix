@@ -51,7 +51,8 @@ let
     ripgrep              # fast grep
     rnix-lsp             # nix lsp server
     signal-desktop       # signal messaging client
-    simplescreenrecorder # self-explanatory
+    simple-scan          # scanner gui
+    simplescreenrecorder # screen recorder gui
     slack                # messaging client
     spotify              # music source
     tdesktop             # telegram messaging client
