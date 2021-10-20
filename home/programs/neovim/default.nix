@@ -32,7 +32,7 @@ let
     tender-vim              # a clean dark theme
     vim-airline             # bottom status bar
     vim-airline-themes
-    vim-css-color           # preview css colors
+    #vim-css-color           # preview css colors
     vim-devicons            # dev icons shown in the tree explorer
     vim-easy-align          # alignment plugin
     vim-easymotion          # highlights keys to move quickly
