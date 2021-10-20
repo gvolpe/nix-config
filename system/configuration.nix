@@ -102,6 +102,12 @@ in
     package = pkgs.pulseaudioFull;
   };
 
+  # Scanner backend
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.epkowa pkgs.sane-airscan ];
+  };
+
   services = {
     # Enable the OpenSSH daemon.
     openssh = {
@@ -117,7 +123,10 @@ in
     sshd.enable = true;
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [ pkgs.epson-escpr ];
+    };
   };
 
   # Making fonts accessible to applications.
@@ -132,7 +141,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+    extraGroups  = [ "docker" "networkmanager" "wheel" "scanner" "lp" ]; # wheel for ‘sudo’.
     shell        = pkgs.fish;
   };
 
