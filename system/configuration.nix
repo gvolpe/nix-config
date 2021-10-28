@@ -23,6 +23,8 @@ in
       ./machine/current.nix
       # Window manager 
       ./wm/xmonad.nix
+      # Binary cache
+      ./cachix.nix
     ];
 
   networking = {
