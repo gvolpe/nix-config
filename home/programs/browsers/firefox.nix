@@ -30,6 +30,7 @@ let
     "browser.startup.homepage" = "https://nixos.org";
     "browser.tabs.loadInBackground" = true;
     "browser.urlbar.placeholderName" = "DuckDuckGo";
+    "browser.urlbar.showSearchSuggestionsFirst" = false;
 
     "distribution.searchplugins.defaultLocale" = "en-US";
 
