@@ -1,10 +1,5 @@
 { pkgs ? import <nixpkgs> {
-    config = {
-      allowUnfree = true;
-      nix.extraOptions = ''
-        experimental-features = nix-command
-      '';
-    };
+    config = { allowUnfree = true; };
   }
 }:
 

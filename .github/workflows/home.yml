@@ -28,6 +28,7 @@ jobs:
         uses: cachix/install-nix-action@v13
         with:
           nix_path: "nixpkgs=${{ steps.pinned_nixpkgs.outputs.url }}"
+          extra_nix_config: "experimental-features = nix-command"
 
       - name: "Install Cachix ❄️"
         uses: cachix/cachix-action@v10
