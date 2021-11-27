@@ -4,7 +4,7 @@ nix-config
 [![CI Home](https://github.com/gvolpe/nix-config/workflows/Home/badge.svg)](https://github.com/gvolpe/nix-config/actions)
 [![CI System](https://github.com/gvolpe/nix-config/workflows/NixOS/badge.svg)](https://github.com/gvolpe/nix-config/actions)
 
-My current - and always evolving - NixOS configuration files, home-manager, neovim, etc.
+My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
 ![scala-dev-env](imgs/dev.png)
 
@@ -16,7 +16,7 @@ My current - and always evolving - NixOS configuration files, home-manager, neov
 
 ## Programs
 
-The `home.nix` file contains details about all the software I use but here's a shout-out to the ones I use the most and that are customized to my needs.
+The `home.nix` file contains details about all the software I use, but here's a shout-out to the ones I use the most and that are customized to my needs.
 
 | Type           | Program      |
 | :------------- | :----------: |
@@ -42,27 +42,35 @@ If you're interested in using `taffybar` or `xmobar`, browse the commit history 
 Here is an overview of the folders' structure:
 
 ```
+.
 ├── build.sh
 ├── default.nix
 ├── home
-│   ├── default.nix
-│   ├── display
-│   ├── home.nix
-│   ├── overlays
-│   ├── pinned
-│   ├── programs
-│   └── secrets
-│   └── scripts
-│   └── services
-│   └── themes
+│  ├── config.nix
+│  ├── default.nix
+│  ├── display
+│  ├── home.nix
+│  ├── overlays
+│  ├── pinned
+│  ├── programs
+│  ├── scripts
+│  ├── secrets
+│  ├── services
+│  └── themes
 ├── imgs
 ├── notes
+├── pinned
+│  ├── home-manager
+│  └── nixpkgs
 └── system
-    ├── configuration.nix
-    ├── default.nix
-    └── fonts
-    └── machine
-    └── wm
+   ├── cachix
+   ├── cachix.nix
+   ├── configuration.nix
+   ├── default.nix
+   ├── fonts
+   ├── machine
+   ├── misc
+   └── wm
 ```
 
 - `build.sh`: the build and installation script.
