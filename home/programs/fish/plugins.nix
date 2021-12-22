@@ -6,8 +6,8 @@ let
     src  = pkgs.fetchFromGitHub {
       owner  = "gvolpe";
       repo   = "theme-bobthefish";
-      rev    = "d3df6f516e351e12fbb455bcf310640695cb2662";
-      sha256 = "1nvazfyz7vk37nska7yw94kknv8jbsqwzz3ybwbnhsnf98xlir0r";
+      rev    = "e4418e8a7de9fbd6b5053a9b9009aa84a48398cd";
+      sha256 = "16m3yrkc9lz73jsgahf8h9jm2nkm1kg7mixl1qpdz5qnzkjqrszn";
     };
   };
 
