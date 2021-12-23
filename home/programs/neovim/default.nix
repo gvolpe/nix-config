@@ -29,7 +29,6 @@ let
     nerdtree-git-plugin     # shows files git status on the NerdTree
     quickfix-reflector-vim  # make modifications right in the quickfix window
     rainbow_parentheses-vim # for nested parentheses
-    tender-vim              # a clean dark theme
     vim-airline             # bottom status bar
     vim-airline-themes
     #vim-css-color           # preview css colors
@@ -43,7 +42,7 @@ let
     vim-nix                 # nix support (highlighting, etc)
     vim-repeat              # repeat plugin commands with (.)
     vim-ripgrep             # blazing fast search using ripgrep
-    vim-scala               # scala plugin
+    vim-scala3              # scala3 syntax
     vim-surround            # quickly edit surroundings (brackets, html tags, etc)
     vim-tmux                # syntax highlighting for tmux conf file and more
     vim-which-key           # display possible keybindings of the command you type.

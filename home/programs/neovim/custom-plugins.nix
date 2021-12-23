@@ -54,4 +54,13 @@
       sha256 = "1by56rflr0bmnjvcvaa9r228zyrmxwfkzkclxvdfscm7l7n7jnmh";
     };
   };
+
+  vim-scala3 = buildVimPlugin {
+    name = "vim-scala3";
+    src = builtins.fetchTarball {
+      name   = "vim-scala3";
+      url    = "https://github.com/gvolpe/vim-scala/archive/81224e9.tar.gz";
+      sha256 = "0nn21sqk77jjj26d3xc2a5a2w88j91w4gahgicgzc0li2lr8p17h";
+    };
+  };
 }
