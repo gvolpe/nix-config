@@ -6,7 +6,7 @@ nix-config
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
-![scala-dev-env](imgs/dev.png)
+![scala-dev-env](imgs/scala-dev.png)
 
 ![desktop](imgs/desktop-1.jpg)
 
