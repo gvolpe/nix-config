@@ -4,6 +4,8 @@ let
   # workaround to open a URL in a new tab in the specific firefox profile
   work-browser = pkgs.callPackage ./programs/browsers/work.nix {};
 
+  unstable = import (import pinned/unstable.nix) {};
+
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     arandr               # simple GUI for xrandr
@@ -35,6 +37,7 @@ let
     ncdu                 # disk space info (a better du)
     neofetch             # command-line system information
     ngrok-2              # secure tunneling to localhost
+    unstable.nheko       # matrix messaging client
     nix-doc              # nix documentation search tool
     nix-index            # files database for nixpkgs
     nixos-generators     # nix tool to generate isos
