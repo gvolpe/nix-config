@@ -85,8 +85,8 @@ in
     };
 
     virtualbox.host = {
-      enable = true;
-      # enableExtensionPack = true;
+      enable = false;
+      enableExtensionPack = false;
     };
   };
 
@@ -178,8 +178,9 @@ in
 
     # Avoid unwanted garbage collection when using nix-direnv
     extraOptions = ''
-      keep-outputs     = true
-      keep-derivations = true
+      experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
     '';
 
     # Required by Cachix to be used as non-root user
