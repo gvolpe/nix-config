@@ -5,7 +5,7 @@
     enable = true;
     inactiveInterval = 30;
     lockCmd = "${pkgs.multilockscreen}/bin/multilockscreen -l dim";
-    xautolockExtraOptions = [
+    xautolock.extraOptions = [
       "Xautolock.killer: systemctl suspend"
     ];
   };
