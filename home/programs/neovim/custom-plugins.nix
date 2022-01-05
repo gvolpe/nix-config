@@ -50,8 +50,8 @@
     name = "vim-ripgrep";
     src = builtins.fetchTarball {
       name   = "RipGrep-v1.0.2";
-      url    = "https://github.com/jremmen/vim-ripgrep/archive/v1.0.2.tar.gz";
-      sha256 = "1by56rflr0bmnjvcvaa9r228zyrmxwfkzkclxvdfscm7l7n7jnmh";
+      url    = "https://github.com/jremmen/vim-ripgrep/archive/v1.0.3.tar.gz";
+      sha256 = "0vzdi1q6xh440mvlgsi08d6py8n7ac2yhgixpcs74f4p9160zx1s";
     };
   };
 
@@ -59,8 +59,8 @@
     name = "vim-scala3";
     src = builtins.fetchTarball {
       name   = "vim-scala3";
-      url    = "https://github.com/gvolpe/vim-scala/archive/81224e9.tar.gz";
-      sha256 = "0nn21sqk77jjj26d3xc2a5a2w88j91w4gahgicgzc0li2lr8p17h";
+      url    = "https://github.com/gvolpe/vim-scala/archive/7379894.tar.gz";
+      sha256 = "1y9sjmcyv1ihkb0a3hxz85d0h2k9digczj7ppfrga2mj67lgwj4m";
     };
   };
 }
