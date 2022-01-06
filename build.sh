@@ -26,12 +26,12 @@ prepare_home() {
 
 build_ci_home() {
   prepare_home
-  nix build ./home#homeConfigurations.gvolpe-edp.activationPackage
+  nix build .#homeConfigurations.gvolpe-edp.activationPackage
 }
 
 build_ci_system() {
-  nix build ./system#nixosConfigurations.dell-xps.config.system.build.toplevel
-  nix build ./system#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  nix build .#nixosConfigurations.dell-xps.config.system.build.toplevel
+  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
 }
 
 build_home() {
@@ -39,7 +39,7 @@ build_home() {
 
   # Switch to HM's latest build
   echo "Running Home Manager switch..."
-  nix build ./home#homeConfigurations.gvolpe-edp.activationPackage
+  nix build .#homeConfigurations.gvolpe-edp.activationPackage
   result/activate
 
   # Set user's profile picture for Gnome3

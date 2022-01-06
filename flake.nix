@@ -51,12 +51,12 @@
             configuration = conf;
           });
 
-        edpConf = import ./display/edp.nix {
+        edpConf = import ./home/display/edp.nix {
           inherit nur pkgs;
           inherit (pkgs) config lib stdenv;
         };
 
-        hdmiConf = import ./display/hdmi.nix {
+        hdmiConf = import ./home/display/hdmi.nix {
           inherit nur pkgs;
           inherit (pkgs) config lib stdenv;
         };
@@ -65,5 +65,26 @@
         gvolpe-edp = mkHome edpConf;
         gvolpe-hdmi = mkHome hdmiConf;
       };
+
+    nixosConfigurations = {
+      dell-xps = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./system/machine/dell-xps.nix
+          ./system/configuration.nix
+        ];
+      };
+
+      tongfang-amd = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./system/machine/tongfang-amd.nix
+          ./system/configuration.nix
+        ];
+      };
+    };
+
   };
 }
