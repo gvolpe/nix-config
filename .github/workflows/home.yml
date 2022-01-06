@@ -38,4 +38,4 @@ jobs:
         run: nix-env --set-flag priority 0 cachix
 
       - name: "Build Home Manager config 🏠"
-        run: ./build.sh ci-home
+        run: ./build ci-home

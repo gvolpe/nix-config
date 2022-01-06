@@ -19,10 +19,6 @@
   };
 
   outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, tex2nix, ... }: {
-    overlays = [
-      nurpkgs.overlay
-    ];
-
     homeConfigurations =
       let
         system = "x86_64-linux";
@@ -33,6 +29,8 @@
 
           # FIXME: should not be set here (see home.nix xdg.enable = true;)
           config.xdg.configHome = "/home/gvolpe/.config";
+
+          overlays = [ nurpkgs.overlay ];
         };
 
         nur = import nurpkgs {

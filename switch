@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+# Shows the output of every command
+set +x
+
+rebuild_home() {
+  nix build .#homeConfigurations.gvolpe-hdmi.config.system.build.toplevel
+  result/activate
+}
+
+rebuild_system() {
+  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  sudo result/activate
+}
+
+case $1 in
+  "home")
+    hms;; # hms selects edp or hdmi automagically
+  "system")
+    rebuild_system;;
+  *)
+    echo "expected 'home' or 'system'";;
+esac

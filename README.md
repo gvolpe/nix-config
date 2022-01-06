@@ -43,7 +43,7 @@ Here is an overview of the folders' structure:
 
 ```
 .
-├── build.sh
+├── build
 ├── flake.nix
 ├── flake.lock
 ├── home
@@ -68,7 +68,7 @@ Here is an overview of the folders' structure:
    └── wm
 ```
 
-- `build.sh`: the build and installation script.
+- `build`: the build and installation script.
 - `flake.nix`: home and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
@@ -84,5 +84,5 @@ mkdir DELETE_ME && cd DELETE_ME
 nix-shell --run \
   "wget -c https://github.com/gvolpe/nix-config/archive/master.tar.gz && tar --strip-components=1 -xvf master.tar.gz" \
   -p wget s-tar
-chmod +x build.sh && ./build.sh
+chmod +x build && ./build
 ```
