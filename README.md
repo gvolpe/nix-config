@@ -44,14 +44,13 @@ Here is an overview of the folders' structure:
 ```
 .
 ├── build.sh
-├── default.nix
 ├── home
 │  ├── config.nix
-│  ├── default.nix
+│  ├── flake.nix
+   ├── flake.lock
 │  ├── display
 │  ├── home.nix
 │  ├── overlays
-│  ├── pinned
 │  ├── programs
 │  ├── scripts
 │  ├── secrets
@@ -59,9 +58,6 @@ Here is an overview of the folders' structure:
 │  └── themes
 ├── imgs
 ├── notes
-├── pinned
-│  ├── home-manager
-│  └── nixpkgs
 └── system
    ├── cachix
    ├── cachix.nix
@@ -75,8 +71,7 @@ Here is an overview of the folders' structure:
 ```
 
 - `build.sh`: the build and installation script.
-- `default.nix`: derivation for home, used in CI.
-- `flake.nix`: flake for system (home not migrated yet).
+- `flake.nix`: home-manager and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
