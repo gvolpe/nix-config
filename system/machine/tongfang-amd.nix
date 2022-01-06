@@ -7,7 +7,7 @@
     # Use the systemd-boot EFI boot loader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-   
+
     initrd.kernelModules = [ "amdgpu" ];
   };
 
@@ -17,11 +17,11 @@
       eno1.useDHCP = true;
       wlp1s0.useDHCP = true;
     };
-  };  
+  };
 
-  fileSystems."/data" = { 
+  fileSystems."/data" = {
     device = "/dev/nvme0n1p3";
-    fsType = "ext4"; 
+    fsType = "ext4";
   };
 
   services.xserver = {
@@ -37,6 +37,7 @@
         '';
       }
       { output = "eDP";
+        primary = false;
         monitorConfig = ''
           Option "PreferredMode" "1920x1080"
           Option "Position" "0 0"
