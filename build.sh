@@ -38,8 +38,8 @@ build_ci_home() {
 }
 
 build_ci_system() {
-  nix build .#nixosConfigurations.dell-xps.config.system.build.toplevel
-  nix build .#nixosConfigurations.tongfang-md.config.system.build.toplevel
+  nix build ./system#nixosConfigurations.dell-xps.config.system.build.toplevel
+  nix build ./system#nixosConfigurations.tongfang-md.config.system.build.toplevel
 }
 
 build_home() {
