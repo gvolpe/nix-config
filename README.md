@@ -44,10 +44,10 @@ Here is an overview of the folders' structure:
 ```
 .
 ├── build.sh
+├── flake.nix
+├── flake.lock
 ├── home
 │  ├── config.nix
-│  ├── flake.nix
-   ├── flake.lock
 │  ├── display
 │  ├── home.nix
 │  ├── overlays
@@ -62,8 +62,6 @@ Here is an overview of the folders' structure:
    ├── cachix
    ├── cachix.nix
    ├── configuration.nix
-   ├── flake.nix
-   ├── flake.lock
    ├── fonts
    ├── machine
    ├── misc
@@ -71,7 +69,7 @@ Here is an overview of the folders' structure:
 ```
 
 - `build.sh`: the build and installation script.
-- `flake.nix`: home-manager and system configurations.
+- `flake.nix`: home and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
