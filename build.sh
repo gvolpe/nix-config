@@ -24,17 +24,9 @@ prepare_home() {
   cp home/nixos.png $HOME/Pictures/
 }
 
-install_hm() {
-  echo "Installing Home Manager..."
-  nix-channel --add $(cat ./pinned/home-manager) home-manager
-  nix-channel --update
-  export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-  nix-shell '<home-manager>' -A install
-}
-
 build_ci_home() {
   prepare_home
-  nix-shell -p nix-build-uncached --run "nix-build-uncached -A home"
+  nix build ./home#homeConfigurations.gvolpe-edp.activationPackage
 }
 
 build_ci_system() {
@@ -44,11 +36,11 @@ build_ci_system() {
 
 build_home() {
   prepare_home
-  install_hm
 
   # Switch to HM's latest build
   echo "Running Home Manager switch..."
-  home-manager switch
+  nix build ./home#homeConfigurations.gvolpe-edp.activationPackage
+  result/activate
 
   # Set user's profile picture for Gnome3
   sudo cp home/gvolpe.png /var/lib/AccountsService/icons/gvolpe

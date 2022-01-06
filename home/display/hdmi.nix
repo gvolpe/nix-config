@@ -1,12 +1,11 @@
 # Configuration for the HDMI-1 display monitor
-{ config, lib, pkgs, stdenv, ... }:
+{ config, lib, pkgs, stdenv, nur, ... }:
 
 let
-  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
+  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv nur; };
 
   browser = pkgs.callPackage ../programs/browsers/firefox.nix {
-    inherit config pkgs;
-    inherit (pkgs) nur;
+    inherit config pkgs nur;
     hdmiOn = true;
   };
 
