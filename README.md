@@ -66,7 +66,8 @@ Here is an overview of the folders' structure:
    ├── cachix
    ├── cachix.nix
    ├── configuration.nix
-   ├── default.nix
+   ├── flake.nix
+   ├── flake.lock
    ├── fonts
    ├── machine
    ├── misc
@@ -74,7 +75,8 @@ Here is an overview of the folders' structure:
 ```
 
 - `build.sh`: the build and installation script.
-- `default.nix`: derivation for home and system, used in CI.
+- `default.nix`: derivation for home, used in CI.
+- `flake.nix`: flake for system (home not migrated yet).
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
