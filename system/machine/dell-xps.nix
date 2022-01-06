@@ -3,7 +3,7 @@
 {
   # Use the GRUB 2 boot loader.
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_8;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       grub = {
         enable  = true;

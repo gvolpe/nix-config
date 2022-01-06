@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   customFonts = pkgs.nerdfonts.override {
@@ -19,8 +19,6 @@ in
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Machine-specific configuration
-      ./machine/current.nix
       # Window manager 
       ./wm/xmonad.nix
       # Binary cache
@@ -175,6 +173,10 @@ in
       dates     = "weekly";
       options   = "--delete-older-than 7d";
     };
+
+    # Flakes settings
+    package = pkgs.nixFlakes;
+    registry.nixpkgs.flake = inputs.nixpkgs;
 
     # Avoid unwanted garbage collection when using nix-direnv
     extraOptions = ''

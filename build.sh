@@ -38,7 +38,8 @@ build_ci_home() {
 }
 
 build_ci_system() {
-  nix-shell -p nix-build-uncached --run "nix-build-uncached -A system"
+  nix build ./system#nixosConfigurations.dell-xps.config.system.build.toplevel
+  nix build ./system#nixosConfigurations.tongfang-amd.config.system.build.toplevel
 }
 
 build_home() {
@@ -58,12 +59,12 @@ build_home() {
 }
 
 build_system() {
-  sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+  sudo cp system/flake.* /etc/nixos/
   sudo cp system/configuration.nix /etc/nixos/
   sudo cp -r system/fonts/ /etc/nixos/
   sudo cp -r system/machine/ /etc/nixos/
   sudo cp -r system/wm/ /etc/nixos/
-  sudo nixos-rebuild -I nixpkgs=$(cat ./pinned/nixpkgs) switch --upgrade
+  sudo nixos-rebuild switch --flake '.#tongfang-amd'
 }
 
 build_all() {
