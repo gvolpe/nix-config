@@ -1,6 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 let
+  home   = "${config.xdg.configHome}/nixpkgs/home";
   fish   = "${pkgs.fish}/bin/fish";
   rg     = "${pkgs.ripgrep}/bin/rg";
   xrandr = "${pkgs.xorg.xrandr}/bin/xrandr";
@@ -10,10 +11,16 @@ in
 
     if [[ $monitors == *"HDMI"* ]]; then
       echo "Switching to HM config for HDMI display"
-      home-manager -f ${config.xdg.configHome}/nixpkgs/display/hdmi.nix switch
+      cd ${home}
+      nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
+      result/activate
+      cd -
     elif [[ $monitors == *"eDP"* ]]; then
       echo "Switching to HM config for eDP laptop display"
-      home-manager -f ${config.xdg.configHome}/nixpkgs/display/edp.nix switch
+      cd ${home}
+      nix build .#homeConfigurations.gvolpe-edp.activationPackage
+      result/activate
+      cd -
     else
       echo "Could not detect monitor: $monitors"
       exit 1

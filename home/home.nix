@@ -14,7 +14,7 @@ let
     cachix               # nix caching
     calibre              # e-book reader
     dconf2nix            # dconf (gnome) files to nix converter
-    discord              # chat client for dev stuff
+    #discord              # chat client for dev stuff
     dmenu                # application launcher
     docker-compose       # docker manager
     dive                 # explore docker layers
@@ -41,7 +41,7 @@ let
     nixos-generators     # nix tool to generate isos
     nyancat              # the famous rainbow cat!
     manix                # documentation searcher for nix
-    md-toc               # generate ToC in markdown files
+    #md-toc               # generate ToC in markdown files
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
@@ -58,7 +58,7 @@ let
     spotify              # music source
     tdesktop             # telegram messaging client
     terminator           # great terminal multiplexer
-    tex2nix              # texlive expressions for documents
+    #tex2nix              # texlive expressions for documents
     tldr                 # summary of a man page
     tree                 # display files in a tree view
     vlc                  # media player
@@ -124,9 +124,6 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = p: {
-      nur = import (import pinned/nur.nix) { inherit pkgs; };
-    };
   };
 
   nixpkgs.overlays = [
@@ -134,7 +131,7 @@ in
     (import ./overlays/coc-nvim)
     (import ./overlays/discord)
     (import ./overlays/md-toc)
-    (import ./overlays/tex2nix)
+    #(import ./overlays/tex2nix)
   ];
 
   imports = (import ./programs) ++ (import ./services) ++ [(import ./themes)];
