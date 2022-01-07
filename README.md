@@ -85,8 +85,7 @@ On a fresh NixOS installation, run the following commands:
 
 ```shell
 mkdir DELETE_ME && cd DELETE_ME
-nix-shell --run \
-  "wget -c https://github.com/gvolpe/nix-config/archive/master.tar.gz && tar --strip-components=1 -xvf master.tar.gz" \
-  -p wget s-tar
+nix develop github:gvolpe/nix-config -c \
+  "wget -c https://github.com/gvolpe/nix-config/archive/master.tar.gz && tar --strip-components=1 -xvf master.tar.gz"
 chmod +x build && ./build
 ```

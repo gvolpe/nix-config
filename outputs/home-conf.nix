@@ -1,12 +1,15 @@
 { system, nixpkgs, nurpkgs, home-manager, tex2nix, ... }:
 
 let
+  username = "gvolpe";
+  homeDirectory = "/home/${username}";
+  configHome = "${homeDirectory}/.config";
+
   pkgs = import nixpkgs {
     inherit system;
-    config.allowUnfree = true;
 
-    # FIXME: should not be set here (see home.nix xdg.enable = true;)
-    config.xdg.configHome = "/home/gvolpe/.config";
+    config.allowUnfree = true;
+    config.xdg.configHome = configHome;
 
     overlays = [
       nurpkgs.overlay
@@ -22,10 +25,7 @@ let
 
   mkHome = conf: (
     home-manager.lib.homeManagerConfiguration rec {
-      inherit pkgs system;
-
-      username = "gvolpe";
-      homeDirectory = "/home/${username}";
+      inherit pkgs system username homeDirectory;
 
       stateVersion = "21.03";
       configuration = conf;

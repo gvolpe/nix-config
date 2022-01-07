@@ -4,11 +4,13 @@
 set +x
 
 rebuild_home() {
-  nix build .#homeConfigurations.gvolpe-hdmi.config.system.build.toplevel
+  nix build --impure .#homeConfigurations.gvolpe-hdmi.activationPackage
   result/activate
 }
 
 rebuild_system() {
+  # this command is equivalent to building the toplevel derivation and then activate it
+  # sudo nixos-rebuild switch --flake .#tongfang-amd
   nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
   sudo result/activate
 }
