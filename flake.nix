@@ -34,6 +34,7 @@
           overlays = [
             nurpkgs.overlay
             (f: p: { tex2nix = inputs.tex2nix.defaultPackage.${system}; })
+            (import ./home/overlays/md-toc)
           ];
         };
 
