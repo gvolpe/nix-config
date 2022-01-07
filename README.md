@@ -58,6 +58,9 @@ Here is an overview of the folders' structure:
 │  └── themes
 ├── imgs
 ├── notes
+├── outputs
+│  ├── home-conf.nix
+│  └── nixos-conf.nix
 └── system
    ├── cachix
    ├── cachix.nix
@@ -73,6 +76,7 @@ Here is an overview of the folders' structure:
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
+- `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Install

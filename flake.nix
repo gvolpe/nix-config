@@ -18,76 +18,20 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, ... }: {
-    homeConfigurations =
-      let
-        system = "x86_64-linux";
+  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, tex2nix, ... }:
+    let system = "x86_64-linux"; in
+    {
+      homeConfigurations = (
+        import ./outputs/home-conf.nix {
+          inherit system nixpkgs nurpkgs home-manager tex2nix;
+        }
+      );
 
-        pkgs = import nixpkgs {
-          inherit system;
-
-          config.allowUnfree = true;
-
-          # FIXME: should not be set here (see home.nix xdg.enable = true;)
-          config.xdg.configHome = "/home/gvolpe/.config";
-
-          overlays = [
-            nurpkgs.overlay
-            (f: p: { tex2nix = inputs.tex2nix.defaultPackage.${system}; })
-            (import ./home/overlays/md-toc)
-          ];
-        };
-
-        nur = import nurpkgs {
-          inherit pkgs;
-          nurpkgs = pkgs;
-        };
-
-        mkHome = conf: (
-          inputs.home-manager.lib.homeManagerConfiguration rec {
-            inherit pkgs system;
-
-            username = "gvolpe";
-            homeDirectory = "/home/${username}";
-
-            stateVersion = "21.03";
-            configuration = conf;
-          });
-
-        edpConf = import ./home/display/edp.nix {
-          inherit nur pkgs;
-          inherit (pkgs) config lib stdenv;
-        };
-
-        hdmiConf = import ./home/display/hdmi.nix {
-          inherit nur pkgs;
-          inherit (pkgs) config lib stdenv;
-        };
-      in
-      {
-        gvolpe-edp = mkHome edpConf;
-        gvolpe-hdmi = mkHome hdmiConf;
-      };
-
-    nixosConfigurations = {
-      dell-xps = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system/machine/dell-xps.nix
-          ./system/configuration.nix
-        ];
-      };
-
-      tongfang-amd = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system/machine/tongfang-amd.nix
-          ./system/configuration.nix
-        ];
-      };
+      nixosConfigurations = (
+        import ./outputs/nixos-conf.nix {
+          inherit (nixpkgs) lib;
+          inherit inputs system;
+        }
+      );
     };
-
-  };
 }
