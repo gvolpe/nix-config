@@ -60,6 +60,7 @@ Here is an overview of the folders' structure:
 ├── notes
 ├── outputs
 │  ├── home-conf.nix
+│  ├── installation.nix
 │  └── nixos-conf.nix
 └── system
    ├── cachix
@@ -76,12 +77,46 @@ Here is an overview of the folders' structure:
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
-- `outputs`: the Home Manager and NixOS flake outputs.
+- `outputs`: the Home Manager, installation shell and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Install
 
-On a fresh NixOS installation, run the following commands:
+You can have a look at the available flake outputs before getting started.
+
+```console
+$ nix flake show github:gvolpe/nix-config
+github:gvolpe/nix-config/60b91aea6461cfb8fb1efdc9fb88f8c5ba815810
+├───devShell
+│   └───x86_64-linux: development environment 'installation-shell'
+├───homeConfigurations: unknown
+└───nixosConfigurations
+    ├───dell-xps: NixOS configuration
+    └───tongfang-amd: NixOS configuration
+```
+
+### NixOS
+
+The full home configuration is not yet fully automated but the NixOS configuration can be installed by running the following command.
+
+```console
+$ nixos-rebuild build --flake github:gvolpe/nix-config#tongfang-amd
+```
+
+Beware that the `hardware-configuration.nix` file is a dummy file, you'd probably want to use the one detected by NixOS, which should be placed under `/etc/nixos`.
+
+### Home Manager
+
+A fresh install requires the creation of certain directories so this has not been automated yet (see `build` script file). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
+
+```console
+$ nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-hdmi.activationPackage
+$ result/activate
+```
+
+### Full configuration via script
+
+On a fresh NixOS installation, run the following commands.
 
 ```shell
 mkdir DELETE_ME && cd DELETE_ME
