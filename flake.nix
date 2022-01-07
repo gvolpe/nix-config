@@ -18,19 +18,23 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, tex2nix, ... }: {
+  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, ... }: {
     homeConfigurations =
       let
         system = "x86_64-linux";
 
         pkgs = import nixpkgs {
           inherit system;
+
           config.allowUnfree = true;
 
           # FIXME: should not be set here (see home.nix xdg.enable = true;)
           config.xdg.configHome = "/home/gvolpe/.config";
 
-          overlays = [ nurpkgs.overlay ];
+          overlays = [
+            nurpkgs.overlay
+            (f: p: { tex2nix = inputs.tex2nix.defaultPackage.${system}; })
+          ];
         };
 
         nur = import nurpkgs {
@@ -40,7 +44,7 @@
 
         mkHome = conf: (
           inputs.home-manager.lib.homeManagerConfiguration rec {
-            inherit system;
+            inherit pkgs system;
 
             username = "gvolpe";
             homeDirectory = "/home/${username}";

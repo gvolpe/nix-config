@@ -2,7 +2,7 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
-  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv nur; };
+  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
   browser = pkgs.callPackage ../programs/browsers/firefox.nix {
     inherit config pkgs nur;

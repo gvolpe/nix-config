@@ -58,7 +58,7 @@ let
     spotify              # music source
     tdesktop             # telegram messaging client
     terminator           # great terminal multiplexer
-    #tex2nix              # texlive expressions for documents
+    tex2nix              # texlive expressions for documents
     tldr                 # summary of a man page
     tree                 # display files in a tree view
     vlc                  # media player
