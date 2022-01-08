@@ -14,16 +14,14 @@ on:
       - '.gitignore'
       - 'home/**'
       - 'outputs/home-conf.nix'
+      - 'build'
+      - 'switch'
 
 jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2.3.2
-
-      - name: "Get pinned nixpkgs ❄️"
-        id: pinned_nixpkgs
-        run: echo "::set-output name=url::$(cat ./pinned/nixpkgs)"
 
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v15
