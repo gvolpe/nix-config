@@ -9,10 +9,10 @@ rebuild_home() {
 }
 
 rebuild_system() {
-  # this command is equivalent to building the toplevel derivation and then activate it
-  # sudo nixos-rebuild switch --flake .#tongfang-amd
-  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
-  sudo result/activate
+  #nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  #sudo result/bin/switch-to-configuration
+  # this command is equivalent to the two commands above
+  sudo nixos-rebuild switch --flake .#tongfang-amd
 }
 
 case $1 in
