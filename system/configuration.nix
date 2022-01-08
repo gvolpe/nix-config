@@ -17,9 +17,7 @@ in
 {
   imports =
     [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # Window manager 
+      # Window manager
       ./wm/xmonad.nix
       # Binary cache
       ./cachix.nix

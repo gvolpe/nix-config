@@ -10,7 +10,7 @@ rebuild_home() {
 
 rebuild_system() {
   #nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
-  #sudo result/bin/switch-to-configuration
+  #sudo result/bin/switch-to-configuration switch
   # this command is equivalent to the two commands above
   sudo nixos-rebuild switch --flake .#tongfang-amd
 }

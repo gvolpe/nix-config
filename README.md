@@ -100,10 +100,10 @@ github:gvolpe/nix-config/60b91aea6461cfb8fb1efdc9fb88f8c5ba815810
 The full home configuration is not yet fully automated but the NixOS configuration can be installed by running the following command.
 
 ```console
-$ nixos-rebuild build --flake github:gvolpe/nix-config#tongfang-amd
+$ nixos-rebuild switch --flake github:gvolpe/nix-config#tongfang-amd
 ```
 
-Beware that the `hardware-configuration.nix` file is a dummy file, you'd probably want to use the one detected by NixOS, which should be placed under `/etc/nixos`.
+Beware that the `hardware-configuration.nix` file is the result of the hardware scan of the specific machine and might not be suitable for yours.
 
 ### Home Manager
 
@@ -123,4 +123,17 @@ mkdir DELETE_ME && cd DELETE_ME
 nix develop github:gvolpe/nix-config -c \
   "wget -c https://github.com/gvolpe/nix-config/archive/master.tar.gz && tar --strip-components=1 -xvf master.tar.gz"
 chmod +x build && ./build
+```
+
+Or check out the project and adapt to your needs before running anything.
+
+```shell
+$ git clone git@github.com:gvolpe/nix-config.git
+```
+
+Once you feel comfortable with it, you can build any of the flakes locally before applying them to your system.
+
+```console
+$ nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+sudo result/bin/switch-to-configuration switch
 ```
