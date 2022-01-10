@@ -6,5 +6,5 @@ let
 in
 [
   gen-ssh-key # generate ssh key and add it to the system
-  hms         # custom home-manager switcher that considers the current DISPLAY
+  #hms         # custom home-manager switcher that considers the current DISPLAY
 ]

@@ -3,23 +3,37 @@
 # Shows the output of every command
 set +x
 
-rebuild_home() {
+rebuild_home_edp() {
+  nix build --impure .#homeConfigurations.gvolpe-edp.activationPackage
+  result/activate
+}
+
+rebuild_home_hdmi() {
   nix build --impure .#homeConfigurations.gvolpe-hdmi.activationPackage
   result/activate
 }
 
 rebuild_system() {
-  #nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
-  #sudo result/bin/switch-to-configuration switch
-  # this command is equivalent to the two commands above
-  sudo nixos-rebuild switch --flake .#tongfang-amd
+  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  sudo result/bin/switch-to-configuration switch
+}
+
+restart_X() {
+  echo "⚠️ Restarting X11 (requires authentication) ⚠️"
+  systemctl restart display-manager
 }
 
 case $1 in
-  "home")
-    hms;; # hms selects edp or hdmi automagically
+  "edp")
+    rebuild_home_edp;;
+  "hdmi")
+    rebuild_home_hdmi;;
+  "restart-x")
+    restart_X;;
+  "update-fish")
+    fish -c fish_update_completions;;
   "system")
     rebuild_system;;
   *)
-    echo "expected 'home' or 'system'";;
+    echo "expected 'edp', 'hdmi', 'restart-x', 'update-fish' or 'system'";;
 esac
