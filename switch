@@ -4,12 +4,12 @@
 set +x
 
 rebuild_home_edp() {
-  nix build --impure .#homeConfigurations.gvolpe-edp.activationPackage
+  nix build .#homeConfigurations.gvolpe-edp.activationPackage
   result/activate
 }
 
 rebuild_home_hdmi() {
-  nix build --impure .#homeConfigurations.gvolpe-hdmi.activationPackage
+  nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
   result/activate
 }
 
