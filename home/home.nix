@@ -23,6 +23,7 @@ let
     exa                  # a better `ls`
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
+    glow                 # terminal markdown viewer
     gnomecast            # chromecast local files
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
@@ -49,6 +50,7 @@ let
     playerctl            # music player controller
     prettyping           # a nicer ping
     pulsemixer           # pulseaudio mixer
+    ranger               # terminal file explorer
     ripgrep              # fast grep
     rnix-lsp             # nix lsp server
     signal-desktop       # signal messaging client
