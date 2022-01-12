@@ -28,6 +28,7 @@ let
   mods2  = builtins.readFile ./user_modules.ini;
 
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
+  klsScript       = pkgs.callPackage ../../scripts/keyboard-layout-switch.nix { inherit pkgs; };
   monitorScript   = pkgs.callPackage ./scripts/monitor.nix {};
   mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
   networkScript   = pkgs.callPackage ./scripts/network.nix {};
@@ -54,6 +55,12 @@ let
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
 
+  keyboard = ''
+    [module/clickable-keyboard]
+    inherit = module/keyboard
+    label-layout = %{A1:${klsScript}/bin/kls:}  %layout%%{A}
+  '';
+
   mpris = ''
     [module/mpris]
     type = custom/script
@@ -76,7 +83,7 @@ let
     tail = true
   '';
 
-  customMods = mainBar + bctl + cal + github + mpris + xmonad;
+  customMods = mainBar + bctl + cal + github + keyboard + mpris + xmonad;
 in
 {
   xdg.configFile."polybar/github-notifications-token".source = ../../secrets/github-notifications-token;

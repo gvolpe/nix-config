@@ -51,7 +51,7 @@ let
 
     tray-position = center
     modules-left = right-end-top nixos xmonad left-end-bottom right-end-top left-end-top
-    modules-right = left-end-top keyboard clickable-github temperature clickable-date battery
+    modules-right = left-end-top clickable-keyboard clickable-github temperature clickable-date battery
     enable-ipc = true
   '';
 

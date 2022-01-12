@@ -227,10 +227,11 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     ] ^++^
   keySet "Screens" switchScreen ^++^
   keySet "System"
-    [ key "Toggle status bar gap" (modm              , xK_b ) toggleStruts
-    , key "Logout (quit XMonad)"  (modm .|. shiftMask, xK_q ) $ io exitSuccess
-    , key "Restart XMonad"        (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
-    , key "Capture entire screen" (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
+    [ key "Toggle status bar gap"  (modm              , xK_b ) toggleStruts
+    , key "Logout (quit XMonad)"   (modm .|. shiftMask, xK_q ) $ io exitSuccess
+    , key "Restart XMonad"         (modm              , xK_q ) $ spawn "xmonad --recompile; xmonad --restart"
+    , key "Capture entire screen"  (modm          , xK_Print ) $ spawn "flameshot full -p ~/Pictures/flameshot/"
+    , key "Switch keyboard layout" (modm             , xK_F8 ) $ spawn "kls"
     ] ^++^
   keySet "Windows"
     [ key "Close focused"   (modm              , xK_BackSpace) kill
