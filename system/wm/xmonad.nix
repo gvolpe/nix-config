@@ -43,7 +43,8 @@
         enableContribAndExtras = true;
       };
 
-      xkbOptions = "caps:ctrl_modifier";
+      # does not work, setting it manually on start up
+      xkbOptions = "ctrl:nocaps";
 
     };
   };

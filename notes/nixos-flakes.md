@@ -4,13 +4,26 @@ https://nixos.wiki/wiki/Flakes
 
 ## Upgrade nixpkgs
 
-```shell
-nix flake update
-nix build .#flake-name
+```console
+$ nix flake update
+$ nix build .#flake-name
 ```
 
 Or in a single command.
 
-```shell
-nix build .#flake-name --recreate-lock-file
+```console
+$ nix build .#flake-name --recreate-lock-file
+```
+
+## List generations
+
+```console
+$ sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+  86   2021-10-28 10:26:33
+  87   2022-01-05 17:39:10
+  88   2022-01-05 17:57:11
+  89   2022-01-06 11:44:20
+  90   2022-01-12 14:27:06
+  91   2022-01-12 14:42:09
+  92   2022-01-12 14:42:30   (current)
 ```

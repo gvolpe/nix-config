@@ -472,9 +472,8 @@ projects =
             , projectStartHook = Just $ spawn "firefox -P 'default'"
             }
   , Project { projectName      = ossWs
-            , projectDirectory = "~/"
-            , projectStartHook = Just $ do replicateM_ 2 (spawn myTerminal)
-                                           spawn $ myTerminal <> " -e home-manager edit"
+            , projectDirectory = "~/workspace/nix-config"
+            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/workspace/trading"
