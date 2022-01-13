@@ -18,8 +18,8 @@ let
     dmenu                # application launcher
     docker-compose       # docker manager
     dive                 # explore docker layers
+    drawio               # diagram design
     duf                  # disk usage/free utility
-    element-desktop      # a feature-rich client for Matrix.org
     exa                  # a better `ls`
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
