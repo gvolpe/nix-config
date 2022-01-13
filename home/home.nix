@@ -28,7 +28,6 @@ let
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
     jitsi-meet-electron  # open source video calls and chat
-    k9s                  # k8s pods manager
     killall              # kill processes by name
     libreoffice          # office suite
     libnotify            # notify-send command
@@ -37,11 +36,7 @@ let
     neofetch             # command-line system information
     ngrok-2              # secure tunneling to localhost
     nheko                # matrix messaging client
-    nix-doc              # nix documentation search tool
-    nix-index            # files database for nixpkgs
-    nixos-generators     # nix tool to generate isos
     nyancat              # the famous rainbow cat!
-    manix                # documentation searcher for nix
     md-toc               # generate ToC in markdown files
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
@@ -59,7 +54,6 @@ let
     slack                # messaging client
     spotify              # music source
     tdesktop             # telegram messaging client
-    terminator           # great terminal multiplexer
     tex2nix              # texlive expressions for documents
     tldr                 # summary of a man page
     tree                 # display files in a tree view
