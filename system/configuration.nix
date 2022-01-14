@@ -131,6 +131,7 @@ in
   fonts.fonts = with pkgs; [
     customFonts
     font-awesome-ttf
+    myfonts.flags-world-color
     myfonts.icomoon-feather
   ];
 

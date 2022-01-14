@@ -1,4 +1,4 @@
-{ font0 ? 16, font1 ? 18, font2 ? 40, font3 ? 28, font4 ? 7 }:
+{ font0 ? 16, font1 ? 18, font2 ? 40, font3 ? 28, font4 ? 7, font5 ? 16 }:
 
 let
   bar = ''
@@ -40,9 +40,11 @@ let
     font-3 = Iosevka Nerd Font:style=Medium:size=${toString font3};3
     ; Smaller font size for shorter spaces
     font-4 = Iosevka Nerd Font:style=Medium:size=${toString font4};3
-
-    ;font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=18;0"
-    ;font-5 = "MaterialIcons:size=18;0"
+    ; Keyboard layout icons
+    font-5 = FlagsWorldColor:size=${toString font5}:antialias=false;3
+    ;font-5 = "MaterialIcons:size=40;0"
+    ;font-6 = Font Awesome 5 Free:style=Solid:pixelsize=20;3
+    ;font-5 = Unifont:size=64:antialias=false;1
   '';
 
   top = ''

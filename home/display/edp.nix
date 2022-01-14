@@ -15,6 +15,7 @@ let
     font2 = 24;
     font3 = 18;
     font4 = 5;
+    font5 = 10;
   };
 
   myspotify = import ../programs/spotify/default.nix { inherit pkgs; opts = ""; };
