@@ -2,15 +2,14 @@
 
 stdenv.mkDerivation rec {
   pname   = "BeautyLine";
-  version = "0.0.3";
+  version = "0.0.4";
 
-  # to test locally
-  #src = /home/gvolpe/workspace/BeautyLine/BeautyLine-V2;
+  localVersion = "V3";
 
   src = fetchzip {
-    name   = "${pname}-V1-${version}";
-    url    = "https://github.com/gvolpe/BeautyLine/releases/download/${version}/BeautyLine-V2.tar.xz";
-    sha256 = "037w51wgi8is2hm86an4vjjn4mwmfxv9n3xpr394j0x8gcij64lg";
+    name   = "${pname}-${localVersion}-${version}";
+    url    = "https://github.com/gvolpe/BeautyLine/archive/refs/tags/${version}.tar.gz";
+    sha256 = "sha256-L9I2DKxbn7T/L20eDwDiaClXGZP23NFAigc6c9rC3/Q=";
   };
 
   nativeBuildInputs = [ gtk3 ];
@@ -29,12 +28,12 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/icons/${pname}
-    cp -r * $out/share/icons/${pname}/
+    cp -r ${pname}-${localVersion}/* $out/share/icons/${pname}/
     gtk-update-icon-cache $out/share/icons/${pname}
   '';
 
   meta = with lib; {
-    description = "BeautyLine icon theme (V1 redesigned)";
+    description = "BeautyLine icon theme (v1.3 - Nov 2021)";
     homepage    = "https://www.gnome-look.org/p/1425426/";
     platforms   = platforms.linux;
     license     = licenses.gpl3Only;
