@@ -118,22 +118,24 @@ $ result/activate
 
 On a fresh NixOS installation, run the following commands.
 
-```shell
-mkdir DELETE_ME && cd DELETE_ME
-nix develop github:gvolpe/nix-config -c \
-  "wget -c https://github.com/gvolpe/nix-config/archive/master.tar.gz && tar --strip-components=1 -xvf master.tar.gz"
-chmod +x build && ./build
+```console
+$ nix flake clone github:gvolpe/nix-config --dest /choose/a/path
+$ nix run nixpkgs#git-crypt unlock
+$ ./build fresh-install # requires sudo
 ```
 
-Or check out the project and adapt to your needs before running anything.
+> Note that `git-crypt unlock` requires your GPG Keys to be correctly set up.
 
-```shell
-$ git clone git@github.com:gvolpe/nix-config.git
-```
-
-Once you feel comfortable with it, you can build any of the flakes locally before applying them to your system.
+The `build` script is only suitable for a fresh install customized to my personal use but you can build the flakes directly. E.g.
 
 ```console
 $ nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
 sudo result/bin/switch-to-configuration switch
+```
+
+Or for Home Manager.
+
+```console
+$ nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
+$ result/activate
 ```
