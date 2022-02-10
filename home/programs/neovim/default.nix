@@ -29,6 +29,7 @@ let
     nerdtree-git-plugin     # shows files git status on the NerdTree
     quickfix-reflector-vim  # make modifications right in the quickfix window
     rainbow_parentheses-vim # for nested parentheses
+    registers-nvim          # display registers content
     vim-airline             # bottom status bar
     vim-airline-themes
     vim-css-color           # preview css colors
