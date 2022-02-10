@@ -57,7 +57,7 @@ let
     tldr                 # summary of a man page
     tree                 # display files in a tree view
     vlc                  # media player
-    xclip                # clipboard support (also for neovim)
+    xsel                 # clipboard support (also for neovim)
     yad                  # yet another dialog - fork of zenity
 
     # work stuff
