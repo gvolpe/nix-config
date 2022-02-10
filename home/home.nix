@@ -14,7 +14,6 @@ let
     cachix               # nix caching
     calibre              # e-book reader
     dconf2nix            # dconf (gnome) files to nix converter
-    discord              # chat client for dev stuff
     dmenu                # application launcher
     docker-compose       # docker manager
     dive                 # explore docker layers
