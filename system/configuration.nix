@@ -163,9 +163,6 @@ in
 
   # Nix daemon config
   nix = {
-    # Automate `nix-store --optimise`
-    autoOptimiseStore = true;
-
     # Automate garbage collection
     gc = {
       automatic = true;
@@ -184,8 +181,13 @@ in
       keep-derivations      = true
     '';
 
-    # Required by Cachix to be used as non-root user
-    trustedUsers = [ "root" "gvolpe" ];
+    settings = {
+      # Automate `nix store --optimise`
+      auto-optimise-store = true;
+
+      # Required by Cachix to be used as non-root user
+      trusted-users = [ "root" "gvolpe" ];
+    };
   };
 
   # This value determines the NixOS release from which the default

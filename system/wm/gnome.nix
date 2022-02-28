@@ -6,7 +6,7 @@
   # Enable the X11 windowing system.
   services = {
     # Gnome3 config
-    dbus.packages = [ pkgs.gnome3.dconf ];
+    dbus.packages = [ pkgs.dconf ];
     udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
 
     # GUI interface
@@ -23,4 +23,4 @@
       desktopManager.gnome3.enable = true;
     };
   };
-} 
+}
