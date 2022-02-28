@@ -4,7 +4,6 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      background_opacity = 0.8;
       bell = {
         animation = "EaseOutExpo";
         duration = 5;
@@ -27,6 +26,7 @@
       shell.program = "${pkgs.fish}/bin/fish";
       window = {
         decorations = "full";
+        opacity = 0.8;
         padding = {
           x = 5;
           y = 5;
