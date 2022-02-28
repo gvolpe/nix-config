@@ -23,7 +23,7 @@
   hardware.pulseaudio.enable = true;
 
   services = {
-    dbus.packages = [ pkgs.gnome3.dconf ];
+    dbus.packages = [ pkgs.dconf ];
     udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
     openssh.enable = true;
 
