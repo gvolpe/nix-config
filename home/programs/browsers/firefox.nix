@@ -13,9 +13,8 @@ let
     "app.normandy.first_run" = false;
     "app.shield.optoutstudies.enabled" = false;
 
-    # disable update notifications
-    "app.update.download.promptMaxAttempts" = 0;
-    "app.update.elevation.promptMaxAttempts" = 0;
+    # disable updates (pretty pointless with nix)
+    "app.update.url.details" = "https://gvolpe.com";
 
     "browser.contentblocking.category" = "standard"; # "strict"
     "browser.ctrlTab.recentlyUsedOrder" = false;
