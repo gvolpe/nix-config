@@ -35,6 +35,7 @@ let
     neofetch             # command-line system information
     ngrok-2              # secure tunneling to localhost
     nheko                # matrix messaging client
+    nix-index            # locate packages containing certain nixpkgs
     nyancat              # the famous rainbow cat!
     md-toc               # generate ToC in markdown files
     pavucontrol          # pulseaudio volume control
