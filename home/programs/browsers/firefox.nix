@@ -14,7 +14,7 @@ let
     "app.shield.optoutstudies.enabled" = false;
 
     # disable updates (pretty pointless with nix)
-    "app.update.url.details" = "https://gvolpe.com";
+    "app.update.channel" = "default";
 
     "browser.contentblocking.category" = "standard"; # "strict"
     "browser.ctrlTab.recentlyUsedOrder" = false;
