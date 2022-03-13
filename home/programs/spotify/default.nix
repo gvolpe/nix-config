@@ -1,6 +1,14 @@
-{ opts, pkgs, ...}:
+{ pkgs, hdmiOn, ... }:
 
-let
-  spotify = "${pkgs.spotify}/bin/spotify";
-in
-  pkgs.writeShellScriptBin "myspotify" ''${spotify} ${opts}''
+if hdmiOn then
+  pkgs.symlinkJoin
+  {
+    name = "spotify";
+    paths = [ pkgs.spotify ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/spotify --add-flags "-force-device-scale-factor=1.4"
+    '';
+  }
+else
+  pkgs.spotify

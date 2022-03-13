@@ -2,18 +2,22 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
+  hdmiOn = true;
+
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
   browser = pkgs.callPackage ../programs/browsers/firefox.nix {
-    inherit config pkgs nur;
-    hdmiOn = true;
+    inherit config pkgs nur hdmiOn;
   };
 
-  hdmiBar = pkgs.callPackage ../services/polybar/bar.nix {};
+  hdmiBar = pkgs.callPackage ../services/polybar/bar.nix { };
 
-  myspotify = import ../programs/spotify/default.nix {
-    inherit pkgs;
-    opts = "-force-device-scale-factor=1.4 %U";
+  megasync = import ../programs/megasync/default.nix {
+    inherit pkgs hdmiOn;
+  };
+
+  spotify = import ../programs/spotify/default.nix {
+    inherit pkgs hdmiOn;
   };
 
   statusBar = import ../services/polybar/default.nix {
@@ -25,8 +29,7 @@ let
   terminal = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
 
   wm = import ../programs/xmonad/default.nix {
-    inherit config pkgs lib;
-    hdmiOn = true;
+    inherit config pkgs lib hdmiOn;
   };
 in
 {
@@ -39,5 +42,5 @@ in
 
   programs.firefox = browser.programs.firefox;
 
-  home.packages = base.home.packages ++ [ myspotify ];
+  home.packages = base.home.packages ++ [ megasync spotify ];
 }

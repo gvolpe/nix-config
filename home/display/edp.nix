@@ -2,11 +2,12 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
+  hdmiOn = false;
+
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
   browser = pkgs.callPackage ../programs/browsers/firefox.nix {
-    inherit config pkgs nur;
-    hdmiOn = false;
+    inherit config pkgs nur hdmiOn;
   };
 
   laptopBar = pkgs.callPackage ../services/polybar/bar.nix {
@@ -18,7 +19,13 @@ let
     font5 = 10;
   };
 
-  myspotify = import ../programs/spotify/default.nix { inherit pkgs; opts = ""; };
+  megasync = import ../programs/megasync/default.nix {
+    inherit pkgs hdmiOn;
+  };
+
+  spotify = import ../programs/spotify/default.nix {
+    inherit pkgs hdmiOn;
+  };
 
   statusBar = import ../services/polybar/default.nix {
     inherit config pkgs;
@@ -29,8 +36,7 @@ let
   terminal = import ../programs/alacritty/default.nix { fontSize = 8; inherit pkgs; };
 
   wm = import ../programs/xmonad/default.nix {
-    inherit config pkgs lib;
-    hdmiOn = false;
+    inherit config pkgs lib hdmiOn;
   };
 in
 {
@@ -43,5 +49,5 @@ in
 
   programs.firefox = browser.programs.firefox;
 
-  home.packages = base.home.packages ++ [ myspotify ];
+  home.packages = base.home.packages ++ [ megasync spotify ];
 }
