@@ -92,7 +92,7 @@ let
   ];
 
   polybarPkgs = with pkgs; [
-    font-awesome-ttf      # awesome fonts
+    font-awesome          # awesome fonts
     material-design-icons # fonts with glyphs
   ];
 
