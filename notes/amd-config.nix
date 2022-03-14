@@ -9,7 +9,7 @@
   networking = {
     networkmanager = {
       enable   = true;
-      packages = [ pkgs.networkmanager_openvpn ];
+      packages = [ pkgs.networkmanager-openvpn ];
     };
     useDHCP = false;
     wireless.enable = false;

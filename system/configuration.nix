@@ -27,7 +27,7 @@ in
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
       enable   = true;
-      packages = [ pkgs.networkmanager_openvpn ];
+      packages = [ pkgs.networkmanager-openvpn ];
     };
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -130,7 +130,7 @@ in
   # Making fonts accessible to applications.
   fonts.fonts = with pkgs; [
     customFonts
-    font-awesome-ttf
+    font-awesome
     myfonts.flags-world-color
     myfonts.icomoon-feather
   ];
