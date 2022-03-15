@@ -6,7 +6,6 @@ let
     ${pkgs.xorg.xset}/bin/xset s off
     ${pkgs.xcape}/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
-    megasync
   '';
 
   hdmiExtra = ''
