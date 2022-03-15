@@ -29,7 +29,7 @@ let
   terminal = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
 
   wm = import ../programs/xmonad/default.nix {
-    inherit config pkgs lib hdmiOn;
+    inherit config pkgs lib hdmiOn megasync;
   };
 in
 {

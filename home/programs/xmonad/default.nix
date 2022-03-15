@@ -1,14 +1,15 @@
-{ pkgs, lib, hdmiOn, ... }:
+{ pkgs, lib, hdmiOn, megasync, ... }:
 
 let
   extra = ''
+    set +x
     ${pkgs.util-linux}/bin/setterm -blank 0 -powersave off -powerdown 0
     ${pkgs.xorg.xset}/bin/xset s off
     ${pkgs.xcape}/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
   '';
 
-  hdmiExtra = ''
+  hdmiExtra = lib.optionalString hdmiOn ''
     ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
 
@@ -17,6 +18,7 @@ let
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
+    ${megasync}/bin/megasync &
   '';
 in
 {
@@ -34,7 +36,7 @@ in
   xsession = {
     enable = true;
 
-    initExtra = extra + polybarOpts + lib.optionalString hdmiOn hdmiExtra;
+    initExtra = extra + polybarOpts + hdmiExtra;
 
     windowManager.xmonad = {
       enable = true;
