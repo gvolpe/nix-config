@@ -28,6 +28,7 @@ let
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
     jitsi-meet-electron  # open source video calls and chat
+    jmtpfs               # mount mtp devices
     killall              # kill processes by name
     libreoffice          # office suite
     libnotify            # notify-send command

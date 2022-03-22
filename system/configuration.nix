@@ -107,6 +107,9 @@ in
   };
 
   services = {
+    # Mount MTP devices
+    gvfs.enable = true;
+
     # Enable the OpenSSH daemon.
     openssh = {
       enable = true;
