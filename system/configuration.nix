@@ -27,7 +27,7 @@ in
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
       enable   = true;
-      packages = [ pkgs.networkmanager-openvpn ];
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -96,7 +96,6 @@ in
 
   hardware.pulseaudio = {
     enable = true;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
     package = pkgs.pulseaudioFull;
   };
 
