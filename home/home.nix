@@ -53,6 +53,7 @@ let
     signal-desktop       # signal messaging client
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
+    skypeforlinux        # messaging client
     slack                # messaging client
     tdesktop             # telegram messaging client
     tex2nix              # texlive expressions for documents
