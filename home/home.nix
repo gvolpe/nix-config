@@ -80,7 +80,6 @@ let
   gnomePkgs = with pkgs.gnome3; [
     eog            # image viewer
     evince         # pdf reader
-    gnome-calendar # calendar
     nautilus       # file manager
   ];
 
@@ -97,6 +96,7 @@ let
   polybarPkgs = with pkgs; [
     font-awesome          # awesome fonts
     material-design-icons # fonts with glyphs
+    xfce.orage            # lightweight calendar
   ];
 
   scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };

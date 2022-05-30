@@ -4,6 +4,7 @@
   ./git
   ./fish
   ./neovim
+  ./orage
   ./rofi
   ./yubikey
 ]

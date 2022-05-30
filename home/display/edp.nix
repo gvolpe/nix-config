@@ -30,7 +30,8 @@ let
   statusBar = import ../services/polybar/default.nix {
     inherit config pkgs;
     mainBar = laptopBar;
-    openCalendar = "";
+    openCalendar = "${pkgs.xfce.orage}/bin/orage";
+    #openCalendar = "";
   };
 
   terminal = import ../programs/alacritty/default.nix { fontSize = 8; inherit pkgs; };
