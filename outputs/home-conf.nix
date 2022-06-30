@@ -27,10 +27,16 @@ let
 
   mkHome = conf: (
     home-manager.lib.homeManagerConfiguration rec {
-      inherit pkgs system username homeDirectory;
-
-      stateVersion = "21.03";
-      configuration = conf;
+      inherit pkgs;
+      modules = [
+        conf
+        {
+          home = {
+            inherit username homeDirectory;
+            stateVersion = "21.03";
+          };
+        }
+      ];
     });
 
   edpConf = import ../home/display/edp.nix {
