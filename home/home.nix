@@ -35,7 +35,7 @@ let
     multilockscreen      # fast lockscreen based on i3lock
     ncdu                 # disk space info (a better du)
     neofetch             # command-line system information
-    ngrok-2              # secure tunneling to localhost
+    ngrok                # secure tunneling to localhost
     nheko                # matrix messaging client
     nix-index            # locate packages containing certain nixpkgs
     nyancat              # the famous rainbow cat!
