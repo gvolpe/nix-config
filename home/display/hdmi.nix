@@ -2,10 +2,6 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
-  hdmiOn = true;
-
-  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
-
   hdmiBar = pkgs.callPackage ../services/polybar/bar.nix { };
 
   statusBar = import ../services/polybar/default.nix {
@@ -16,9 +12,11 @@ let
 
   terminal = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
 
-  wm = import ../programs/xmonad/default.nix {
-    inherit config pkgs lib hdmiOn;
-  };
+  hdmiExtra = ''
+    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+  '';
+
+  wm = import ../programs/xmonad/default.nix { inherit config pkgs lib; };
 in
 {
   imports = [
@@ -27,6 +25,8 @@ in
     terminal
     wm
   ];
+
+  xsession.initExtra = wm.xsession.initExtra + hdmiExtra;
 
   programs = {
     firefoxie = {

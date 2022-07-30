@@ -1,4 +1,4 @@
-{ pkgs, lib, hdmiOn, ... }:
+{ pkgs, lib, ... }:
 
 let
   extra = ''
@@ -7,10 +7,6 @@ let
     ${pkgs.xorg.xset}/bin/xset s off
     ${pkgs.xcape}/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
-  '';
-
-  hdmiExtra = lib.optionalString hdmiOn ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
 
   polybarOpts = ''
@@ -36,7 +32,7 @@ in
   xsession = {
     enable = true;
 
-    initExtra = extra + polybarOpts + hdmiExtra;
+    initExtra = extra + polybarOpts;
 
     windowManager.xmonad = {
       enable = true;

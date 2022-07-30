@@ -2,10 +2,6 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
-  hdmiOn = false;
-
-  base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
-
   laptopBar = pkgs.callPackage ../services/polybar/bar.nix {
     font0 = 10;
     font1 = 12;
@@ -23,9 +19,7 @@ let
 
   terminal = import ../programs/alacritty/default.nix { fontSize = 8; inherit pkgs; };
 
-  wm = import ../programs/xmonad/default.nix {
-    inherit config pkgs lib hdmiOn;
-  };
+  wm = import ../programs/xmonad/default.nix { inherit config pkgs lib; };
 in
 {
   imports = [
