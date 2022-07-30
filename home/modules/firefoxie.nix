@@ -1,12 +1,21 @@
-{ pkgs, nur, hdmiOn, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 let
+  cfg = config.programs.firefoxie;
+
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
     #webrtcIndicator {
       display: none;
     }
   '';
+
+  # DPI settings
+  dpiSettings = {
+    "layout.css.devPixelsPerPx" = if cfg.hidpi then "-1.0" else "1.25";
+  };
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
   sharedSettings = {
@@ -54,9 +63,6 @@ let
     "extensions.webcompat.perform_injections" = true;
     "extensions.webcompat.perform_ua_overrides" = true;
 
-    # DPI settings
-    "layout.css.devPixelsPerPx" = if hdmiOn then "-1.0" else "1.25";
-
     "print.print_footerleft" = "";
     "print.print_footerright" = "";
     "print.print_headerleft" = "";
@@ -71,45 +77,66 @@ let
     "security.webauth.webauthn_enable_usbtoken" = true;
 
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-  };
+  } // dpiSettings;
+
 in
 {
-  programs.firefox = {
-    enable = true;
+  meta.maintainers = [ hm.maintainers.gvolpe ];
 
-    extensions = with nur.repos.rycee.firefox-addons; [
-      bitwarden
-      darkreader
-      # auto-accepts cookies, use only with privacy-badger & ublock-origin
-      i-dont-care-about-cookies
-      languagetool
-      link-cleaner
-      privacy-badger
-      to-deepl
-      ublock-origin
-      unpaywall
-      vimium
-    ];
+  options.programs.firefoxie = {
+    enable = mkEnableOption "Firefox browser with HiDPI settings.";
 
-    package = pkgs.firefox-beta-bin;
+    addons = mkOption {
+      type = types.attrsOf types.package;
+      example = "nur.repos.rycee.firefox-addons;";
+      description = "NUR packages addons.";
+    };
 
-    profiles = {
-      default = {
-        id = 0;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
-      };
+    hidpi = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Set proper HiDPI resolution.";
+    };
+  };
 
-      chatroulette = {
-        id = 1;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
-      };
+  config = mkIf cfg.enable {
+    programs.firefox = {
+      enable = true;
 
-      demo = {
-        id = 2;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
+      extensions = with cfg.addons; [
+        bitwarden
+        darkreader
+        # auto-accepts cookies, use only with privacy-badger & ublock-origin
+        i-dont-care-about-cookies
+        languagetool
+        link-cleaner
+        privacy-badger
+        to-deepl
+        ublock-origin
+        unpaywall
+        vimium
+      ];
+
+      package = pkgs.firefox-beta-bin;
+
+      profiles = {
+        default = {
+          id = 0;
+          settings = sharedSettings;
+          userChrome = disableWebRtcIndicator;
+        };
+
+        chatroulette = {
+          id = 1;
+          settings = sharedSettings;
+          userChrome = disableWebRtcIndicator;
+        };
+
+        demo = {
+          id = 2;
+          settings = sharedSettings;
+          userChrome = disableWebRtcIndicator;
+        };
       };
     };
   };

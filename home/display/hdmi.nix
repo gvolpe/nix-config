@@ -6,10 +6,6 @@ let
 
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
-  browser = pkgs.callPackage ../programs/browsers/firefox.nix {
-    inherit config pkgs nur hdmiOn;
-  };
-
   hdmiBar = pkgs.callPackage ../services/polybar/bar.nix { };
 
   statusBar = import ../services/polybar/default.nix {
@@ -33,7 +29,11 @@ in
   ];
 
   programs = {
-    firefox = browser.programs.firefox;
+    firefoxie = {
+      enable = true;
+      addons = nur.repos.rycee.firefox-addons;
+      hidpi = true;
+    };
 
     megasync = {
       enable = true;

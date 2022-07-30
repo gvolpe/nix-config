@@ -6,10 +6,6 @@ let
 
   base = pkgs.callPackage ../home.nix { inherit config lib pkgs stdenv; };
 
-  browser = pkgs.callPackage ../programs/browsers/firefox.nix {
-    inherit config pkgs nur hdmiOn;
-  };
-
   laptopBar = pkgs.callPackage ../services/polybar/bar.nix {
     font0 = 10;
     font1 = 12;
@@ -41,7 +37,10 @@ in
 
   programs =
     {
-      firefox = browser.programs.firefox;
+      firefoxie = {
+        enable = true;
+        addons = nur.repos.rycee.firefox-addons;
+      };
       megasync.enable = true;
       spotify.enable = true;
     };

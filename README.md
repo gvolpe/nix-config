@@ -50,6 +50,7 @@ Here is an overview of the folders' structure:
 │  ├── config.nix
 │  ├── display
 │  ├── home.nix
+│  ├── modules
 │  ├── overlays
 │  ├── programs
 │  ├── scripts
