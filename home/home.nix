@@ -126,7 +126,7 @@ in
     (import ./overlays/coc-nvim)
   ];
 
-  imports = (import ./programs) ++ (import ./services) ++ [(import ./themes)];
+  imports = (import ./modules) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];
 
   xdg.enable = true;
 

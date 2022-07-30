@@ -1,0 +1,4 @@
+[
+  ./megasync.nix
+  ./spotify.nix
+]

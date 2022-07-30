@@ -1,4 +1,4 @@
-{ pkgs, lib, hdmiOn, megasync, ... }:
+{ pkgs, lib, hdmiOn, ... }:
 
 let
   extra = ''
@@ -18,7 +18,7 @@ let
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
-    ${megasync}/bin/megasync &
+    megasync &
   '';
 in
 {
