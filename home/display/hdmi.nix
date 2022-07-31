@@ -3,19 +3,9 @@
 
 let
   hidpi = true;
-  hdmiExtra = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
-  '';
-
-  wm = import ../programs/xmonad/default.nix { inherit config pkgs lib; };
 in
 {
-  imports = [
-    ../home.nix
-    wm
-  ];
-
-  xsession.initExtra = wm.xsession.initExtra + hdmiExtra;
+  imports = [ ../home.nix ];
 
   programs = {
     firefoxie = {
@@ -40,6 +30,11 @@ in
     };
 
     termie = {
+      enable = true;
+      inherit hidpi;
+    };
+
+    xmonad = {
       enable = true;
       inherit hidpi;
     };

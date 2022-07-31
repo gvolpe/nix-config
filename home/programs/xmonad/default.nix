@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ hdmiExtra, pkgs, lib, ... }:
 
 let
   extra = ''
@@ -32,7 +32,7 @@ in
   xsession = {
     enable = true;
 
-    initExtra = extra + polybarOpts;
+    initExtra = extra + polybarOpts + hdmiExtra;
 
     windowManager.xmonad = {
       enable = true;

@@ -4,4 +4,5 @@
   ./polybar.nix
   ./spotify.nix
   ./termie.nix
+  ./xmonad.nix
 ]

@@ -19,6 +19,9 @@ in
   };
 
   config = mkIf cfg.enable (
-    import ../programs/alacritty/default.nix { fontSize = (if cfg.hidpi then 10 else 8); inherit pkgs; }
+    import ../programs/alacritty/default.nix {
+      inherit pkgs;
+      fontSize = (if cfg.hidpi then 10 else 8);
+    }
   );
 }
