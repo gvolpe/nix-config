@@ -17,15 +17,12 @@ let
     openCalendar = "${pkgs.xfce.orage}/bin/orage";
   };
 
-  terminal = import ../programs/alacritty/default.nix { fontSize = 8; inherit pkgs; };
-
   wm = import ../programs/xmonad/default.nix { inherit config pkgs lib; };
 in
 {
   imports = [
     ../home.nix
     statusBar
-    terminal
     wm
   ];
 
@@ -37,5 +34,6 @@ in
       };
       megasync.enable = true;
       spotify.enable = true;
+      termie.enable = true;
     };
 }

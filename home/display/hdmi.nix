@@ -10,8 +10,6 @@ let
     openCalendar = "${pkgs.xfce.orage}/bin/orage";
   };
 
-  terminal = import ../programs/alacritty/default.nix { fontSize = 10; inherit pkgs; };
-
   hdmiExtra = ''
     ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
@@ -22,7 +20,6 @@ in
   imports = [
     ../home.nix
     statusBar
-    terminal
     wm
   ];
 
@@ -41,6 +38,11 @@ in
     };
 
     spotify = {
+      enable = true;
+      hidpi = true;
+    };
+
+    termie = {
       enable = true;
       hidpi = true;
     };
