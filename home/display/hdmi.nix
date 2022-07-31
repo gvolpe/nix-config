@@ -2,14 +2,7 @@
 { config, lib, pkgs, stdenv, nur, ... }:
 
 let
-  hdmiBar = pkgs.callPackage ../services/polybar/bar.nix { };
-
-  statusBar = import ../services/polybar/default.nix {
-    inherit config pkgs;
-    mainBar = hdmiBar;
-    openCalendar = "${pkgs.xfce.orage}/bin/orage";
-  };
-
+  hidpi = true;
   hdmiExtra = ''
     ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
@@ -19,7 +12,6 @@ in
 {
   imports = [
     ../home.nix
-    statusBar
     wm
   ];
 
@@ -29,22 +21,27 @@ in
     firefoxie = {
       enable = true;
       addons = nur.repos.rycee.firefox-addons;
-      hidpi = true;
+      inherit hidpi;
     };
 
     megasync = {
       enable = true;
-      hidpi = true;
+      inherit hidpi;
+    };
+
+    polybar = {
+      enable = true;
+      inherit hidpi;
     };
 
     spotify = {
       enable = true;
-      hidpi = true;
+      inherit hidpi;
     };
 
     termie = {
       enable = true;
-      hidpi = true;
+      inherit hidpi;
     };
   };
 }
