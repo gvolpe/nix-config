@@ -48,7 +48,6 @@ Here is an overview of the folders' structure:
 ├── flake.lock
 ├── home
 │  ├── config.nix
-│  ├── display
 │  ├── home.nix
 │  ├── modules
 │  ├── overlays

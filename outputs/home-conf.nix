@@ -26,11 +26,46 @@ let
     nurpkgs = pkgs;
   };
 
-  mkHome = conf: (
+  mkHome = { hidpi ? false }: (
     home-manager.lib.homeManagerConfiguration rec {
       inherit pkgs;
       modules = [
-        conf
+        {
+          imports = [ ../home/home.nix ];
+
+          programs = {
+            firefoxie = {
+              enable = true;
+              addons = nur.repos.rycee.firefox-addons;
+              inherit hidpi;
+            };
+
+            megasync = {
+              enable = true;
+              inherit hidpi;
+            };
+
+            polybar = {
+              enable = true;
+              inherit hidpi;
+            };
+
+            spotify = {
+              enable = true;
+              inherit hidpi;
+            };
+
+            termie = {
+              enable = true;
+              inherit hidpi;
+            };
+
+            xmonad = {
+              enable = true;
+              inherit hidpi;
+            };
+          };
+        }
         {
           home = {
             inherit username homeDirectory;
@@ -39,18 +74,8 @@ let
         }
       ];
     });
-
-  edpConf = import ../home/display/edp.nix {
-    inherit nur pkgs;
-    inherit (pkgs) config lib stdenv;
-  };
-
-  hdmiConf = import ../home/display/hdmi.nix {
-    inherit nur pkgs;
-    inherit (pkgs) config lib stdenv;
-  };
 in
 {
-  gvolpe-edp = mkHome edpConf;
-  gvolpe-hdmi = mkHome hdmiConf;
+  gvolpe-edp = mkHome { hidpi = false; };
+  gvolpe-hdmi = mkHome { hidpi = true; };
 }
