@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
@@ -10,18 +10,12 @@ in
 
   options.programs.termie = {
     enable = mkEnableOption "Alacritty terminal with HiDPI settings.";
-
-    hidpi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set proper HiDPI resolution.";
-    };
   };
 
   config = mkIf cfg.enable (
     import ../programs/alacritty/default.nix {
       inherit pkgs;
-      fontSize = (if cfg.hidpi then 10 else 8);
+      fontSize = (if specialArgs.hidpi then 10 else 8);
     }
   );
 }

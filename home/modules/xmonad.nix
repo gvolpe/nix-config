@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
@@ -14,18 +14,12 @@ in
 
   options.programs.xmonad = {
     enable = mkEnableOption "XMonad with HiDPI settings.";
-
-    hidpi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set proper HiDPI resolution.";
-    };
   };
 
   config = mkIf cfg.enable (
     import ../programs/xmonad/default.nix {
       inherit config pkgs lib;
-      hdmiExtra = if cfg.hidpi then hdmiOps else "";
+      hdmiExtra = if specialArgs.hidpi then hdmiOps else "";
     }
   );
 }

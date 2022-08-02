@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
@@ -16,17 +16,13 @@ in
       example = "nur.repos.rycee.firefox-addons;";
       description = "NUR packages addons.";
     };
-
-    hidpi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set proper HiDPI resolution.";
-    };
   };
 
   config = mkIf cfg.enable (
     import ../programs/browsers/firefox.nix {
-      inherit (cfg) addons hidpi; inherit pkgs;
+      inherit (cfg) addons;
+      inherit (specialArgs) hidpi;
+      inherit pkgs;
     }
   );
 }

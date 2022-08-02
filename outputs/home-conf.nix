@@ -29,41 +29,25 @@ let
   mkHome = { hidpi ? false }: (
     home-manager.lib.homeManagerConfiguration rec {
       inherit pkgs;
+
+      extraSpecialArgs = { inherit hidpi; };
+
       modules = [
         {
           imports = [ ../home/home.nix ];
 
+          # programs with custom modules
           programs = {
             firefoxie = {
               enable = true;
               addons = nur.repos.rycee.firefox-addons;
-              inherit hidpi;
             };
 
-            megasync = {
-              enable = true;
-              inherit hidpi;
-            };
-
-            polybar = {
-              enable = true;
-              inherit hidpi;
-            };
-
-            spotify = {
-              enable = true;
-              inherit hidpi;
-            };
-
-            termie = {
-              enable = true;
-              inherit hidpi;
-            };
-
-            xmonad = {
-              enable = true;
-              inherit hidpi;
-            };
+            megasync.enable = true;
+            polybar.enable = true;
+            spotify.enable = true;
+            termie.enable = true;
+            xmonad.enable = true;
           };
         }
         {

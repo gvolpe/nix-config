@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
@@ -22,17 +22,11 @@ in
 
   options.programs.megasync = {
     enable = mkEnableOption "Syncing tool for Mega.nz";
-
-    hidpi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set proper HiDPI resolution.";
-    };
   };
 
   config = mkIf cfg.enable {
     home.packages = [
-      (if cfg.hidpi then hidpiPackage else package)
+      (if specialArgs.hidpi then hidpiPackage else package)
     ];
   };
 }

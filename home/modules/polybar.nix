@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
@@ -21,18 +21,12 @@ in
 
   options.programs.polybar = {
     enable = mkEnableOption "Polybar with HiDPI settings.";
-
-    hidpi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Set proper HiDPI resolution.";
-    };
   };
 
   config = mkIf cfg.enable (
     import ../services/polybar/default.nix {
       inherit config pkgs;
-      mainBar = if cfg.hidpi then hdmiBar else laptopBar;
+      mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
       openCalendar = "${pkgs.xfce.orage}/bin/orage";
     }
   );
