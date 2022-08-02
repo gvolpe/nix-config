@@ -1,7 +1,22 @@
-{ mainBar, openCalendar, config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 let
   browser = "${pkgs.firefox-beta-bin}/bin/firefox";
+
+  openCalendar = "${pkgs.xfce.orage}/bin/orage";
+
+  hdmiBar = pkgs.callPackage ./bar.nix { };
+
+  laptopBar = pkgs.callPackage ./bar.nix {
+    font0 = 10;
+    font1 = 12;
+    font2 = 24;
+    font3 = 18;
+    font4 = 5;
+    font5 = 10;
+  };
+
+  mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
 
   xdgUtils = pkgs.xdg_utils.overrideAttrs (
     old: {

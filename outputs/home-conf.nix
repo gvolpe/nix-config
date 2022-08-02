@@ -30,27 +30,14 @@ let
     home-manager.lib.homeManagerConfiguration rec {
       inherit pkgs;
 
-      extraSpecialArgs = { inherit hidpi; };
+      extraSpecialArgs = {
+        inherit hidpi;
+        addons = nur.repos.rycee.firefox-addons;
+      };
 
       modules = [
         {
           imports = [ ../home/home.nix ];
-
-          # programs with custom modules
-          programs = {
-            firefoxie = {
-              enable = true;
-              addons = nur.repos.rycee.firefox-addons;
-            };
-
-            megasync.enable = true;
-            polybar.enable = true;
-            spotify.enable = true;
-            termie.enable = true;
-            xmonad.enable = true;
-          };
-        }
-        {
           home = {
             inherit username homeDirectory;
             stateVersion = "21.03";

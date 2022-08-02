@@ -1,4 +1,4 @@
-{ hdmiExtra, pkgs, lib, ... }:
+{ pkgs, lib, specialArgs, ... }:
 
 let
   extra = ''
@@ -8,6 +8,12 @@ let
     ${pkgs.xcape}/bin/xcape -e "Hyper_L=Tab;Hyper_R=backslash"
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
   '';
+
+  xrandrOps = ''
+    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+  '';
+
+  hdmiExtra = if specialArgs.hidpi then xrandrOps else "";
 
   polybarOpts = ''
     ${pkgs.nitrogen}/bin/nitrogen --restore &

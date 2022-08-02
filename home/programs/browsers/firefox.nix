@@ -1,6 +1,8 @@
-{ addons, hidpi, pkgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 let
+  inherit (specialArgs) addons hidpi;
+
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
     #webrtcIndicator {

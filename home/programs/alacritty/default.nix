@@ -1,5 +1,8 @@
-{ fontSize, pkgs, ... }:
+{ pkgs, specialArgs, ... }:
 
+let
+  fontSize = if specialArgs.hidpi then 10 else 8;
+in
 {
   programs.alacritty = {
     enable = true;

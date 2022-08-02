@@ -190,6 +190,10 @@ in
       enableFishIntegration = true;
       options = [];
     };
+
+    # programs with custom modules
+    megasync.enable = true;
+    spotify.enable = true;
   };
 
   services = {
