@@ -27,3 +27,11 @@ $ sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
   91   2022-01-12 14:42:09
   92   2022-01-12 14:42:30   (current)
 ```
+
+## Fresh install
+
+Perhaps we also need to add the `--impure` flag.
+
+```console
+$ nixos-install --root /mnt --flake github:gvolpe/nix-config#tongfang-amd
+```
