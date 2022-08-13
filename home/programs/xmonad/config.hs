@@ -9,6 +9,7 @@ import           System.IO                             ( hPutStr
 import           XMonad
 import           XMonad.Actions.CycleWS                ( Direction1D(..)
                                                        , WSType(..)
+                                                       , anyWS
                                                        , findWorkspace
                                                        )
 import           XMonad.Actions.DynamicProjects        ( Project(..)
@@ -25,8 +26,7 @@ import           XMonad.Actions.SpawnOn                ( manageSpawn
                                                        )
 import           XMonad.Actions.WithAll                ( killAll )
 import           XMonad.Hooks.EwmhDesktops             ( ewmh
-                                                       , ewmhDesktopsEventHook
-                                                       , fullscreenEventHook
+                                                       , ewmhFullscreen
                                                        )
 import           XMonad.Hooks.FadeInactive             ( fadeInactiveLogHook )
 import           XMonad.Hooks.InsertPosition           ( Focus(Newer)
@@ -37,7 +37,6 @@ import           XMonad.Hooks.ManageDocks              ( Direction2D(..)
                                                        , ToggleStruts(..)
                                                        , avoidStruts
                                                        , docks
-                                                       , docksEventHook
                                                        )
 import           XMonad.Hooks.ManageHelpers            ( (-?>)
                                                        , composeOne
@@ -99,7 +98,7 @@ main :: IO ()
 main = mkDbusClient >>= main'
 
 main' :: D.Client -> IO ()
-main' dbus = xmonad . docks . ewmh . dynProjects . keybindings . urgencyHook $ def
+main' dbus = xmonad . docks . ewmh . ewmhFullscreen . dynProjects . keybindings . urgencyHook $ def
   { terminal           = myTerminal
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
@@ -111,7 +110,6 @@ main' dbus = xmonad . docks . ewmh . dynProjects . keybindings . urgencyHook $ d
   , mouseBindings      = myMouseBindings
   , layoutHook         = myLayout
   , manageHook         = myManageHook
-  , handleEventHook    = myEventHook
   , logHook            = myPolybarLogHook dbus
   , startupHook        = myStartupHook
   }
@@ -282,7 +280,7 @@ nextWS' = switchWS Next
 prevWS' = switchWS Prev
 
 switchWS dir =
-  findWorkspace filterOutNSP dir AnyWS 1 >>= windows . W.view
+  findWorkspace filterOutNSP dir anyWS 1 >>= windows . W.view
 
 filterOutNSP =
   let g f xs = filter (\(W.Workspace t _ _) -> t /= "NSP") (f xs)
@@ -516,7 +514,9 @@ projectsTheme = amberXPConfig
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = docksEventHook <+> ewmhDesktopsEventHook <+> fullscreenEventHook
+-- NOTE: the (docks . ewmh . ewmhFullscreen) defined in main already overrides handleEventHook
+--
+-- myEventHook = docksEventHook <+> ewmhDesktopsEventHook <+> fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
