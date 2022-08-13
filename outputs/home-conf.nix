@@ -15,7 +15,6 @@ let
       nurpkgs.overlay
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       (import ../home/overlays/md-toc)
-      (import ../home/overlays/nheko)
       (import ../home/overlays/protonvpn-gui)
       (import ../home/overlays/ranger)
     ];
