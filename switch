@@ -19,6 +19,10 @@ rebuild_system() {
   sudo nixos-rebuild switch --flake .#tongfang-amd
 }
 
+rebuild_vm() {
+  sudo nixos-rebuild build-vm --flake .#tongfang-amd
+}
+
 restart_X() {
   echo "⚠️ Restarting X11 (requires authentication) ⚠️"
   systemctl restart display-manager
@@ -35,6 +39,8 @@ case $1 in
     fish -c fish_update_completions;;
   "system")
     rebuild_system;;
+  "vm")
+    rebuild_vm;;
   *)
-    echo "expected 'edp', 'hdmi', 'restart-x', 'update-fish' or 'system'";;
+    echo "expected 'edp', 'hdmi', 'restart-x', 'update-fish', 'system' or 'vm'";;
 esac
