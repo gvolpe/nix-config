@@ -12,7 +12,7 @@ let
 
   # DPI settings
   dpiSettings = {
-    "layout.css.devPixelsPerPx" = if hidpi then "-1.0" else "1.25";
+    "layout.css.devPixelsPerPx" = if hidpi then "-1.0" else "0.7";
   };
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
