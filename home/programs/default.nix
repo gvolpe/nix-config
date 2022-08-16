@@ -6,6 +6,7 @@
   ./git
   ./fish
   ./neovim
+  ./nheko
   ./orage
   ./rofi
   ./xmonad
