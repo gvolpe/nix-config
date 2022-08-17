@@ -16,6 +16,7 @@ let
       prompt = false;
     };
     pull.rebase = false;
+    push.autoSetupRemote = true;
     url = {
       "https://github.com/".insteadOf = "gh:";
       "ssh://git@github.com".pushInsteadOf = "gh:";
