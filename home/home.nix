@@ -36,7 +36,6 @@ let
     ncdu                 # disk space info (a better du)
     neofetch             # command-line system information
     ngrok                # secure tunneling to localhost
-    nheko                # matrix messaging client
     nix-index            # locate packages containing certain nixpkgs
     nyancat              # the famous rainbow cat!
     md-toc               # generate ToC in markdown files
@@ -51,7 +50,6 @@ let
     ranger               # terminal file explorer
     ripgrep              # fast grep
     rnix-lsp             # nix lsp server
-    signal-desktop       # signal messaging client
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
     skypeforlinux        # messaging client

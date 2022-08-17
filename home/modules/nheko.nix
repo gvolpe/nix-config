@@ -5,8 +5,6 @@ with lib;
 let
   cfg = config.programs.nheko;
 
-  package = pkgs.nheko;
-
   iniType = with types;
     let
       primitiveType = either str (either bool (either int float));
@@ -30,6 +28,13 @@ in
 
   options.programs.nheko = {
     enable = mkEnableOption "Qt desktop client for Matrix";
+
+    package = mkOption {
+      type = types.package;
+      default = pkgs.nheko;
+      example = literalExpression "pkgs.nheko";
+      description = "The nheko package to use";
+    };
 
     config = mkOption {
       type = types.either types.lines iniType;
@@ -57,7 +62,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ package ];
+    home.packages = [ cfg.package ];
 
     xdg.configFile."nheko/nheko.conf" = mkIf (cfg.config != { }) {
       text = ''

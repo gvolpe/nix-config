@@ -9,6 +9,7 @@
   ./nheko
   ./orage
   ./rofi
+  ./signal
   ./xmonad
   ./yubikey
 ]
