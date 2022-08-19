@@ -1,4 +1,4 @@
-{ system, nixpkgs, nurpkgs, home-manager, tex2nix, ... }:
+{ system, nixpkgs, nurpkgs, home-manager, neovim-flake, tex2nix, ... }:
 
 let
   username = "gvolpe";
@@ -13,6 +13,7 @@ let
 
     overlays = [
       nurpkgs.overlay
+      neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       (import ../home/overlays/md-toc)
       (import ../home/overlays/protonvpn-gui)
@@ -36,14 +37,18 @@ let
 
       modules = [
         {
-          imports = [ ../home/home.nix ];
+          imports = [
+            neovim-flake.nixosModules.hm
+            ../home/home.nix
+          ];
           home = {
             inherit username homeDirectory;
             stateVersion = "21.03";
           };
         }
       ];
-    });
+    }
+  );
 in
 {
   gvolpe-edp = mkHome { hidpi = false; };
