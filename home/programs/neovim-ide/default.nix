@@ -6,6 +6,11 @@
     settings = {
       vim.viAlias = false;
       vim.vimAlias = true;
+      vim.customPlugins = with pkgs.vimPlugins; [
+        multiple-cursors
+        vim-repeat
+        vim-surround
+      ];
       vim.lsp = {
         enable = true;
         formatOnSave = true;
@@ -50,6 +55,7 @@
         enable = true;
         name = "onedark";
         style = "darker";
+        transparency = true;
       };
       vim.autopairs.enable = true;
       vim.autocomplete = {

@@ -15,6 +15,12 @@ Or in a single command.
 $ nix build .#flake-name --recreate-lock-file
 ```
 
+## Update specific input flake 
+
+```console 
+$ nix flake lock --update-input neovim-flake
+```
+
 ## List generations
 
 ```console
