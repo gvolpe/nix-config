@@ -61,7 +61,11 @@
         enable = true;
         type = "nvim-cmp";
       };
-      vim.filetree.nvimTreeLua.enable = true;
+      vim.filetree.nvimTreeLua = {
+        enable = true;
+        hideDotFiles = false;
+        hideFiles = [ "node_modules" ".cache" ];
+      };
       vim.tabline.nvimBufferline.enable = true;
       vim.treesitter = {
         enable = true;
