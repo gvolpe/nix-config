@@ -396,15 +396,16 @@
         "tokyonight": "tokyonight",
         "tree-sitter-hare": "tree-sitter-hare",
         "trouble": "trouble",
+        "vim-scala": "vim-scala",
         "vim-vsnip": "vim-vsnip",
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1660922237,
-        "narHash": "sha256-guM1A4h9cPBcQ3PUzVwW1igXSBXLVLkA3aIEzh5qNgg=",
+        "lastModified": 1661171089,
+        "narHash": "sha256-FTzZ4rSem6pybnZkEW1lHKLnVautIquC0Z+Tj+AqDVA=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "dd4d225a2de09f99896a257e5519ac898271933e",
+        "rev": "67543b2654bb8b001d48acc6e6721253b3f54bc2",
         "type": "github"
       },
       "original": {
@@ -952,6 +953,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-scala": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1641291049,
+        "narHash": "sha256-lUj+6DGyCvWyu/fIz15saQoIWkG/w6HAmjCG7VmVOvk=",
+        "owner": "gvolpe",
+        "repo": "vim-scala",
+        "rev": "7379894b48df6b677788a75b8f04632e717102a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "vim-scala",
         "type": "github"
       }
     },

@@ -69,6 +69,9 @@
         autotagHtml = true;
         context.enable = true;
       };
+      vim.scala = {
+        highlightMode = "treesitter";
+      };
       vim.keys = {
         enable = true;
         whichKey.enable = true;
