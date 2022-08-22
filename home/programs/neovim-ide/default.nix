@@ -30,7 +30,6 @@
         clang = false;
         ts = false;
         go = false;
-        hare = false;
       };
       vim.visuals = {
         enable = true;
