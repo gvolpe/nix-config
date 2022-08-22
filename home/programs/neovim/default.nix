@@ -54,23 +54,11 @@ let
   cocSettings   = builtins.toJSON (import ./coc-settings.nix);
   pluginsConfig = builtins.readFile ./plugins.vim;
   vimConfig     = baseConfig + pluginsConfig + cocConfig;
-
-  # neovim-5 nightly stuff
-  neovim-5     = pkgs.callPackage ./dev/nightly.nix {};
-  nvim5-config = builtins.readFile ./dev/metals.vim;
-  new-plugins  = pkgs.callPackage ./dev/plugins.nix {
-    inherit (pkgs.vimUtils) buildVimPluginFrom2Nix;
-    inherit (pkgs) fetchFromGitHub;
-  };
-  nvim5-plugins = with new-plugins; [
-    nvim-metals
-  ];
 in
 {
   programs.neovim = {
     enable       = true;
     extraConfig  = vimConfig;
-    #package      = neovim-5;
     plugins      = myVimPlugins;
     viAlias      = true;
     vimAlias     = true;
