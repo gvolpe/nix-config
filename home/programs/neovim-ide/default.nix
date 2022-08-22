@@ -54,7 +54,7 @@
       vim.theme = {
         enable = true;
         name = "onedark";
-        style = "darker";
+        style = "deep";
         transparency = true;
       };
       vim.autopairs.enable = true;
@@ -78,6 +78,7 @@
       };
       vim.comments = {
         enable = true;
+        type = "nerdcommenter";
       };
       vim.shortcuts = {
         enable = true;

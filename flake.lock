@@ -401,11 +401,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1661171089,
-        "narHash": "sha256-FTzZ4rSem6pybnZkEW1lHKLnVautIquC0Z+Tj+AqDVA=",
+        "lastModified": 1661185212,
+        "narHash": "sha256-azFYpabtnQw5TgJo4u0P7mMtCvMWqqUmbikfdJsBrp8=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "67543b2654bb8b001d48acc6e6721253b3f54bc2",
+        "rev": "03e795db0ccd5b52a8b9c8d45d7ad85c0529bdfe",
         "type": "github"
       },
       "original": {
