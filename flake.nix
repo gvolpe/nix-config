@@ -61,7 +61,6 @@
 
       nixosConfigurations = (
         import ./outputs/nixos-conf.nix {
-          inherit (nixpkgs) lib;
           inherit inputs system;
         }
       );

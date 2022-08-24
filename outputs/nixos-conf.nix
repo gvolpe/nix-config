@@ -1,7 +1,10 @@
-{ lib, inputs, system, ... }:
+{ inputs, system, ... }:
 
+let
+  nixosSystem = inputs.nixpkgs.lib.nixosSystem;
+in
 {
-  dell-xps = lib.nixosSystem {
+  dell-xps = nixosSystem {
     inherit system;
     specialArgs = { inherit inputs; };
     modules = [
@@ -10,7 +13,7 @@
     ];
   };
 
-  tongfang-amd = lib.nixosSystem {
+  tongfang-amd = nixosSystem {
     inherit system;
     specialArgs = { inherit inputs; };
     modules = [
