@@ -1,4 +1,6 @@
-{ system, nixpkgs, nurpkgs, home-manager, neovim-flake, tex2nix, ... }:
+{ inputs, system, ... }:
+
+with inputs;
 
 let
   username = "gvolpe";
@@ -15,7 +17,7 @@ let
       nurpkgs.overlay
       neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
-      (import ../home/overlays/md-toc)
+      ((import ../home/overlays/md-toc) { inherit (inputs) gh-md-toc; })
       (import ../home/overlays/protonvpn-gui)
       (import ../home/overlays/ranger)
     ];

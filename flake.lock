@@ -139,6 +139,22 @@
         "type": "github"
       }
     },
+    "gh-md-toc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657987708,
+        "narHash": "sha256-ZINIb9hNza6XOJeKAc5hvti8d+0f6GK7PZH3cGmGO9Y=",
+        "owner": "ekalinin",
+        "repo": "github-markdown-toc",
+        "rev": "435768259cb60e5842f7cde0679d495b3c31dfbd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ekalinin",
+        "repo": "github-markdown-toc",
+        "type": "github"
+      }
+    },
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
@@ -688,6 +704,7 @@
     },
     "root": {
       "inputs": {
+        "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",

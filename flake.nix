@@ -1,5 +1,5 @@
 {
-  description = "Home Manager (dotfiles) and NixOS configurations";
+  description = "gvolpe's Home Manager & NixOS configurations";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -20,20 +20,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    gh-md-toc = {
+      url = github:ekalinin/github-markdown-toc;
+      flake = false;
+    };
+
     tex2nix = {
       url = github:Mic92/tex2nix/4b17bc0;
       inputs.utils.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, home-manager, neovim-flake, tex2nix }:
+  outputs = inputs @ { self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
     in
     {
       homeConfigurations = (
         import ./outputs/home-conf.nix {
-          inherit system nixpkgs nurpkgs home-manager neovim-flake tex2nix;
+          inherit inputs system;
         }
       );
 
@@ -41,12 +46,6 @@
         import ./outputs/nixos-conf.nix {
           inherit (nixpkgs) lib;
           inherit inputs system;
-        }
-      );
-
-      devShell.${system} = (
-        import ./outputs/installation.nix {
-          inherit system nixpkgs;
         }
       );
     };
