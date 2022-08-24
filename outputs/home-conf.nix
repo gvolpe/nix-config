@@ -4,7 +4,7 @@ with inputs;
 
 let
   fishOverlay = f: p: {
-    inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
+    inherit fish-bobthefish-theme fish-keytool-completions;
   };
 
   pkgs = import nixpkgs {

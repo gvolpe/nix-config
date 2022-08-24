@@ -45,7 +45,6 @@
       url = github:Mic92/tex2nix/4b17bc0;
       inputs.utils.follows = "nixpkgs";
     };
-
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:
