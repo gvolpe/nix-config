@@ -121,7 +121,6 @@ in
 
   nixpkgs.overlays = [
     (import ./overlays/beauty-line)
-    (import ./overlays/coc-nvim)
   ];
 
   imports = (import ./modules) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];

@@ -7,6 +7,10 @@ let
   homeDirectory = "/home/${username}";
   configHome = "${homeDirectory}/.config";
 
+  fishOverlay = f: p: {
+    inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
+  };
+
   pkgs = import nixpkgs {
     inherit system;
 
@@ -14,6 +18,7 @@ let
     config.xdg.configHome = configHome;
 
     overlays = [
+      fishOverlay
       nurpkgs.overlay
       neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })

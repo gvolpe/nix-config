@@ -112,6 +112,38 @@
         "type": "github"
       }
     },
+    "fish-bobthefish-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640180970,
+        "narHash": "sha256-9uuM5fwWl98uDrTHet4MdVpRZYLIQfW0HOfTxGb2o5o=",
+        "owner": "gvolpe",
+        "repo": "theme-bobthefish",
+        "rev": "e4418e8a7de9fbd6b5053a9b9009aa84a48398cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "theme-bobthefish",
+        "type": "github"
+      }
+    },
+    "fish-keytool-completions": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638013450,
+        "narHash": "sha256-eX9Pg9VcCnx8ofjJcItyf2AFBU90MUgqdpKb+Kv5ARU=",
+        "owner": "ckipp01",
+        "repo": "keytool-fish-completions",
+        "rev": "dcb24bae7b8437e1e1210b00b7172841a26d6573",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ckipp01",
+        "repo": "keytool-fish-completions",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 0,
@@ -704,6 +736,8 @@
     },
     "root": {
       "inputs": {
+        "fish-bobthefish-theme": "fish-bobthefish-theme",
+        "fish-keytool-completions": "fish-keytool-completions",
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
