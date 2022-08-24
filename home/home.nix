@@ -1,6 +1,10 @@
 { config, lib, pkgs, stdenv, ... }:
 
 let
+  username = "gvolpe";
+  homeDirectory = "/home/${username}";
+  configHome = "${homeDirectory}/.config";
+
   # workaround to open a URL in a new tab in the specific firefox profile
   work-browser = pkgs.callPackage ./programs/browsers/work.nix {};
 
@@ -115,19 +119,21 @@ let
     xorg.xrandr            # display manager (X Resize and Rotate protocol)
   ];
 
-in
+in 
 {
   programs.home-manager.enable = true;
 
-  nixpkgs.overlays = [
-    (import ./overlays/beauty-line)
-  ];
-
   imports = (import ./modules) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];
 
-  xdg.enable = true;
+  xdg = {
+    inherit configHome;
+    enable = true;
+  };
 
   home = {
+    inherit username homeDirectory;
+    stateVersion = "21.03";
+
     packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs ++ yubiPkgs;
 
     sessionVariables = {

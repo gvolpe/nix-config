@@ -3,10 +3,6 @@
 with inputs;
 
 let
-  username = "gvolpe";
-  homeDirectory = "/home/${username}";
-  configHome = "${homeDirectory}/.config";
-
   fishOverlay = f: p: {
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
   };
@@ -15,7 +11,6 @@ let
     inherit system;
 
     config.allowUnfree = true;
-    config.xdg.configHome = configHome;
 
     overlays = [
       fishOverlay
@@ -33,6 +28,11 @@ let
     nurpkgs = pkgs;
   };
 
+  imports = [
+    neovim-flake.nixosModules.hm
+    ../home/home.nix
+  ];
+
   mkHome = { hidpi ? false }: (
     home-manager.lib.homeManagerConfiguration rec {
       inherit pkgs;
@@ -42,18 +42,7 @@ let
         addons = nur.repos.rycee.firefox-addons;
       };
 
-      modules = [
-        {
-          imports = [
-            neovim-flake.nixosModules.hm
-            ../home/home.nix
-          ];
-          home = {
-            inherit username homeDirectory;
-            stateVersion = "21.03";
-          };
-        }
-      ];
+      modules = [{ inherit imports; }];
     }
   );
 in
