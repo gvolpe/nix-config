@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  juno = pkgs.callPackage ./juno {};
-in
 {
   gtk = {
     enable = true;
@@ -12,7 +9,7 @@ in
     };
     theme = {
       name = "Juno-ocean";
-      package = juno;
+      package = pkgs.juno-theme;
     };
   };
 }
