@@ -60,7 +60,6 @@ Here is an overview of the folders' structure:
 ├── notes
 ├── outputs
 │  ├── home-conf.nix
-│  ├── installation.nix
 │  └── nixos-conf.nix
 └── system
    ├── cachix
@@ -77,7 +76,7 @@ Here is an overview of the folders' structure:
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `notes`: cheat-sheets, docs, etc.
-- `outputs`: the Home Manager, installation shell and NixOS flake outputs.
+- `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Install
@@ -86,13 +85,17 @@ You can have a look at the available flake outputs before getting started.
 
 ```console
 $ nix flake show github:gvolpe/nix-config
-github:gvolpe/nix-config/60b91aea6461cfb8fb1efdc9fb88f8c5ba815810
-├───devShell
-│   └───x86_64-linux: development environment 'installation-shell'
+github:gvolpe/nix-config/0161ea3bd15e0cd06696f27bd60c588991305b20
 ├───homeConfigurations: unknown
 └───nixosConfigurations
     ├───dell-xps: NixOS configuration
     └───tongfang-amd: NixOS configuration
+```
+
+As well as all the declared flake inputs.
+
+```console
+$ nix flake metadata github:gvolpe/nix-config
 ```
 
 ### NixOS

@@ -5,12 +5,12 @@ set +x
 
 rebuild_home_edp() {
   nix build .#homeConfigurations.gvolpe-edp.activationPackage
-  result/activate -b
+  result/activate -b ~/hm-backup
 }
 
 rebuild_home_hdmi() {
   nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
-  result/activate -b
+  result/activate -b ~/hm-backup
 }
 
 rebuild_system() {
