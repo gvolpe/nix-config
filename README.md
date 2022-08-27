@@ -14,6 +14,8 @@ My current — and always evolving — NixOS configuration files, home-manager, 
 
 ![themes](imgs/theme.jpg)
 
+NOTE: My new NeoVim configuration is now a separate flake: https://github.com/gvolpe/neovim-flake
+
 ## Programs
 
 The `home.nix` file contains details about all the software I use, but here's a shout-out to the ones I use the most and that are customized to my needs.
