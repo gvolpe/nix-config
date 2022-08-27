@@ -240,6 +240,22 @@
         "type": "github"
       }
     },
+    "hop": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659230065,
+        "narHash": "sha256-rHoHSv5K/4Zb8friFtQGo562Avan2wmExm+SEztDF7k=",
+        "owner": "phaazon",
+        "repo": "hop.nvim",
+        "rev": "2a1b686aad85a3c241f8cd8fd42eb09c7de5ed79",
+        "type": "github"
+      },
+      "original": {
+        "owner": "phaazon",
+        "repo": "hop.nvim",
+        "type": "github"
+      }
+    },
     "indent-blankline": {
       "flake": false,
       "locked": {
@@ -348,12 +364,14 @@
         "flake-utils": "flake-utils",
         "gitsigns-nvim": "gitsigns-nvim",
         "glow-nvim": "glow-nvim",
+        "hop": "hop",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
         "lsp-signature": "lsp-signature",
         "lspkind": "lspkind",
         "lspsaga": "lspsaga",
         "lualine": "lualine",
+        "nightfox": "nightfox",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -386,16 +404,32 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1661426944,
-        "narHash": "sha256-f90abicEKv2K2uxAZSX+FtqwbvWcReGOh/tRC/OnR7Q=",
+        "lastModified": 1661612206,
+        "narHash": "sha256-FOw3mIi2rtxedkdS01ABRDDhKONBwy8vKEs9eS6Ezco=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "fcbfc36f9dc0e3f038c71a4040a1033c26fefe28",
+        "rev": "a441d02d03d0ce605447b9ac9edb352648a6b0f6",
         "type": "github"
       },
       "original": {
         "owner": "gvolpe",
         "repo": "neovim-flake",
+        "type": "github"
+      }
+    },
+    "nightfox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660067083,
+        "narHash": "sha256-ShKC8fa12ArmAjaHIbRsFdDX+e4aXAQgGjizNWo+ooI=",
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "rev": "e2f961859cbfb2ba38147dc59fdd2314992c8b62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
         "type": "github"
       }
     },

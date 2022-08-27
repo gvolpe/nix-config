@@ -66,6 +66,7 @@
         hideDotFiles = false;
         hideFiles = [ "node_modules" ".cache" ];
       };
+      vim.hop.enable = true;
       vim.tabline.nvimBufferline.enable = true;
       vim.treesitter = {
         enable = true;
