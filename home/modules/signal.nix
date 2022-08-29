@@ -1,9 +1,23 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 with lib;
 
 let
   cfg = config.programs.signal;
+
+  scaleFactor = if specialArgs.hidpi then "2" else "1.5";
+
+  finalPackage = pkgs.symlinkJoin
+    {
+      name = "signal-desktop";
+      paths = [ cfg.package ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/signal-desktop \
+          --add-flags "--use-tray-icon" \
+          --add-flags "--force-device-scale-factor=${scaleFactor}"
+      '';
+    };
 
   jsonType = types.attrsOf types.anything;
 in
@@ -43,7 +57,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ cfg.package ];
+    home.packages = [ finalPackage ];
 
     xdg.configFile."Signal/ephemeral.json" = mkIf (cfg.settings != { }) {
       text = generators.toJSON { } cfg.settings;
