@@ -3,14 +3,19 @@
 # Shows the output of every command
 set +x
 
+activateHM() {
+  rm ~/.config/orage/oragerc.bak
+  HOME_MANAGER_BACKUP_EXT=bak result/activate
+}
+
 rebuild_home_edp() {
   nix build .#homeConfigurations.gvolpe-edp.activationPackage
-  HOME_MANAGER_BACKUP_EXT=bak result/activate
+  activateHM
 }
 
 rebuild_home_hdmi() {
   nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
-  HOME_MANAGER_BACKUP_EXT=bak result/activate
+  activateHM
 }
 
 rebuild_system() {
