@@ -404,11 +404,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1661857447,
-        "narHash": "sha256-EtVE2fUsbj1bQ5J85lO2gcO74KzWFbxxzxNd0hItkp8=",
+        "lastModified": 1661857881,
+        "narHash": "sha256-E+sTcUHBSvWFY64+AOtDNd0HJwfK3Is2emvud+Fxv2Q=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "7e900f736bfe00e099ca8fa34163a6d08cf1498f",
+        "rev": "fbcb427c9081d5dec1a26628fd105b1094c70b63",
         "type": "github"
       },
       "original": {
