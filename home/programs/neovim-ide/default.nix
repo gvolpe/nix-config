@@ -1,5 +1,11 @@
 { config, lib, pkgs, ... }:
 
+let
+  metals = pkgs.metalsBuilder {
+    version = "0.11.8";
+    outputHash = "sha256-j7je+ZBTIkRfOPpUWbwz4JR06KprMn8sZXONrtI/n8s=";
+  };
+in
 {
   programs.neovim-ide = {
     enable = true;
@@ -19,12 +25,15 @@
         nvimCodeActionMenu.enable = true;
         trouble.enable = true;
         lspSignature.enable = true;
+        scala = {
+          #inherit metals;
+          enable = true;
+        };
         rust.enable = false;
         nix = true;
         dhall = true;
         elm = true;
         haskell = true;
-        scala = true;
         sql = true;
         python = false;
         clang = false;
