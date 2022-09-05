@@ -28,6 +28,7 @@ in
         scala = {
           inherit metals;
           enable = true;
+          type = "nvim-metals";
         };
         rust.enable = false;
         nix = true;
