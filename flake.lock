@@ -464,21 +464,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1614934292,
-        "narHash": "sha256-TyKuSbTiUZcfrCx3G7ipLb2GzTGc/bf5qYPu8gGdkwI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1d73b07d8746ed62cce744d8ed6a99a7398ec276",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "null-ls": {
       "flake": false,
       "locked": {
@@ -847,19 +832,20 @@
     "tex2nix": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1614938171,
-        "narHash": "sha256-TEc2t6hYdI8yofbt/+PYnyxBYOI/yRbsaCusvS3+QpY=",
+        "lastModified": 1646670117,
+        "narHash": "sha256-fU6gLOP2xm6lTRKfMKeXAm7rEhYAVR4RcRFK1zh/QTM=",
         "owner": "Mic92",
         "repo": "tex2nix",
-        "rev": "4b17bc0cf8f3413f25ab1740a3b39be7156e0f3d",
+        "rev": "74159694f0c27ffa3f9172c6d691635568fbece4",
         "type": "github"
       },
       "original": {
         "owner": "Mic92",
-        "ref": "4b17bc0",
         "repo": "tex2nix",
         "type": "github"
       }
