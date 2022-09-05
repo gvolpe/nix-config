@@ -2,8 +2,8 @@
 
 let
   metals = pkgs.metalsBuilder {
-    version = "0.11.8";
-    outputHash = "sha256-j7je+ZBTIkRfOPpUWbwz4JR06KprMn8sZXONrtI/n8s=";
+    version = "0.11.8+78-f674cb97-SNAPSHOT";
+    outputHash = "sha256-aYRUgS6BSxi6yGGmOIf4cOu+1VWNEPmzB8rQu4rT92o=";
   };
 in
 {
@@ -26,7 +26,7 @@ in
         trouble.enable = true;
         lspSignature.enable = true;
         scala = {
-          #inherit metals;
+          inherit metals;
           enable = true;
         };
         rust.enable = false;
