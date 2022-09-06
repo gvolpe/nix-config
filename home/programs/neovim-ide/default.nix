@@ -2,8 +2,8 @@
 
 let
   metals = pkgs.metalsBuilder {
-    version = "0.11.8+78-f674cb97-SNAPSHOT";
-    outputHash = "sha256-aYRUgS6BSxi6yGGmOIf4cOu+1VWNEPmzB8rQu4rT92o=";
+    version = "0.11.8+79-e6494d3f-SNAPSHOT";
+    outputHash = "sha256-DiahdygCQEHpIbujba7XN0u3kvOYXDiun2KOcfkW6u8=";
   };
 in
 {
