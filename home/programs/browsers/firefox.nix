@@ -42,6 +42,12 @@ let
     "browser.urlbar.placeholderName" = "DuckDuckGo";
     "browser.urlbar.showSearchSuggestionsFirst" = false;
 
+    # disable all the annoying quick actions
+    "browser.urlbar.quickactions.enabled" = false;
+    "browser.urlbar.quickactions.showPrefs" = false;
+    "browser.urlbar.shortcuts.quickactions" = false;
+    "browser.urlbar.suggest.quickactions" = false;
+
     "distribution.searchplugins.defaultLocale" = "en-US";
 
     "doh-rollout.balrog-migration-done" = true;
