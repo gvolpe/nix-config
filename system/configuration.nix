@@ -176,19 +176,18 @@ in
     package = pkgs.nixFlakes;
     registry.nixpkgs.flake = inputs.nixpkgs;
 
-    # Avoid unwanted garbage collection when using nix-direnv
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs          = true
-      keep-derivations      = true
-    '';
-
     settings = {
       # Automate `nix store --optimise`
       auto-optimise-store = true;
 
       # Required by Cachix to be used as non-root user
       trusted-users = [ "root" "gvolpe" ];
+      
+      experimental-features = ["nix-command" "flakes"];
+      
+      # Avoid unwanted garbage collection when using nix-direnv
+      keep-outputs          = true;
+      keep-derivations      = true;
     };
   };
 
