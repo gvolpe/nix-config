@@ -242,6 +242,26 @@
         "type": "github"
       }
     },
+    "homeage": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1662769985,
+        "narHash": "sha256-zGk10O4osXxf1n9RafSMpPBsEibAGzx4OL4MLmlodB4=",
+        "owner": "jordanisaacs",
+        "repo": "homeage",
+        "rev": "dd98c460175a0781ad0b51f4392de97c5454a5c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jordanisaacs",
+        "repo": "homeage",
+        "type": "github"
+      }
+    },
     "hop": {
       "flake": false,
       "locked": {
@@ -792,6 +812,7 @@
         "fish-keytool-completions": "fish-keytool-completions",
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
+        "homeage": "homeage",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs_2",
         "nurpkgs": "nurpkgs",

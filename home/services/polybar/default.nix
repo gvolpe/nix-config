@@ -65,7 +65,7 @@ let
   github = ''
     [module/clickable-github]
     inherit = module/github
-    token = ''${file:${config.xdg.configHome}/polybar/github-notifications-token}
+    token = ''${file:${config.xdg.configHome}/secrets/github}
     user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
@@ -101,8 +101,6 @@ let
   customMods = mainBar + bctl + cal + github + keyboard + mpris + xmonad;
 in
 {
-  xdg.configFile."polybar/github-notifications-token".source = ../../secrets/github-notifications-token;
-
   services.polybar = {
     enable = true;
     package = mypolybar;
