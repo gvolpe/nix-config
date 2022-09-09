@@ -11,7 +11,7 @@ in
   programs.nheko = {
     enable = true;
 
-    config = {
+    settings = {
       general = {
         disableCertificateValidation = false;
       };
