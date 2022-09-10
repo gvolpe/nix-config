@@ -28,6 +28,7 @@ let
   };
 
   imports = [
+    homeage.homeManagerModules.homeage
     neovim-flake.nixosModules.hm
     ../home/home.nix
   ];

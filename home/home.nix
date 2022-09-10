@@ -51,6 +51,7 @@ let
     prettyping           # a nicer ping
     protonvpn-gui        # official proton vpn client
     pulsemixer           # pulseaudio mixer
+    rage                 # encryption tool for secrets management
     ranger               # terminal file explorer
     ripgrep              # fast grep
     rnix-lsp             # nix lsp server
@@ -123,7 +124,7 @@ in
 {
   programs.home-manager.enable = true;
 
-  imports = (import ./modules) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];
+  imports = (import ./modules) ++ (import ./age) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];
 
   xdg = {
     inherit configHome;
