@@ -7,10 +7,17 @@ let
 
   scaleFactor = if specialArgs.hidpi then "2" else "1.5";
 
+  signal = pkgs.signal-desktop.overrideAttrs (old: {
+    preFixup = old.preFixup + ''
+      substituteInPlace $out/share/applications/signal-desktop.desktop \
+        --replace "--no-sandbox" "--use-tray-icon --force-device-scale-factor=${scaleFactor}"
+    '';
+  });
+
   finalPackage = pkgs.symlinkJoin
     {
       name = "signal-desktop";
-      paths = [ cfg.package ];
+      paths = [ signal ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/signal-desktop \
@@ -26,13 +33,6 @@ in
 
   options.programs.signal = {
     enable = mkEnableOption "Privacy-focused messaging client";
-
-    package = mkOption {
-      type = types.package;
-      default = pkgs.signal-desktop;
-      example = literalExpression "pkgs.signal-desktop";
-      description = "The signal-desktop package to use";
-    };
 
     settings = mkOption {
       type = jsonType;
