@@ -10,103 +10,107 @@ in
   programs.neovim-ide = {
     enable = true;
     settings = {
-      vim.viAlias = false;
-      vim.vimAlias = true;
-      vim.customPlugins = with pkgs.vimPlugins; [
-        multiple-cursors
-        vim-repeat
-        vim-surround
-      ];
-      vim.lsp = {
-        enable = true;
-        formatOnSave = true;
-        lightbulb.enable = true;
-        lspsaga.enable = false;
-        nvimCodeActionMenu.enable = true;
-        trouble.enable = true;
-        lspSignature.enable = true;
+      vim = {
+        viAlias = false;
+        vimAlias = true;
+        customPlugins = with pkgs.vimPlugins; [
+          multiple-cursors
+          vim-repeat
+          vim-surround
+        ];
+        lsp = {
+          enable = true;
+          folds = true;
+          formatOnSave = false;
+          lightbulb.enable = true;
+          lspsaga.enable = false;
+          nvimCodeActionMenu.enable = true;
+          trouble.enable = true;
+          lspSignature.enable = true;
+          scala = {
+            inherit metals;
+            enable = true;
+            type = "nvim-metals";
+          };
+          rust.enable = false;
+          nix = true;
+          dhall = true;
+          elm = true;
+          haskell = true;
+          sql = true;
+          python = false;
+          clang = false;
+          ts = false;
+          go = false;
+        };
+        visuals = {
+          enable = true;
+          nvimWebDevicons.enable = true;
+          lspkind.enable = true;
+          indentBlankline = {
+            enable = true;
+            fillChar = "";
+            eolChar = "";
+            showCurrContext = true;
+          };
+          cursorWordline = {
+            enable = true;
+            lineTimeout = 0;
+          };
+        };
+        statusline.lualine = {
+          enable = true;
+          theme = "onedark";
+        };
+        theme = {
+          enable = true;
+          name = "onedark";
+          style = "deep";
+          transparency = true;
+        };
+        autopairs.enable = true;
+        autocomplete = {
+          enable = true;
+          type = "nvim-cmp";
+        };
+        filetree.nvimTreeLua = {
+          enable = true;
+          hideDotFiles = false;
+          hideFiles = [ "node_modules" ".cache" ];
+        };
+        hop.enable = true;
+        todo.enable = true;
+        tabline.nvimBufferline.enable = true;
+        treesitter = {
+          enable = true;
+          autotagHtml = true;
+          context.enable = true;
+        };
         scala = {
-          inherit metals;
-          enable = true;
-          type = "nvim-metals";
+          highlightMode = "treesitter";
         };
-        rust.enable = false;
-        nix = true;
-        dhall = true;
-        elm = true;
-        haskell = true;
-        sql = true;
-        python = false;
-        clang = false;
-        ts = false;
-        go = false;
-      };
-      vim.visuals = {
-        enable = true;
-        nvimWebDevicons.enable = true;
-        lspkind.enable = true;
-        indentBlankline = {
+        keys = {
           enable = true;
-          fillChar = "";
-          eolChar = "";
-          showCurrContext = true;
+          whichKey.enable = true;
         };
-        cursorWordline = {
+        comments = {
           enable = true;
-          lineTimeout = 0;
+          type = "nerdcommenter";
         };
-      };
-      vim.statusline.lualine = {
-        enable = true;
-        theme = "onedark";
-      };
-      vim.theme = {
-        enable = true;
-        name = "onedark";
-        style = "deep";
-        transparency = true;
-      };
-      vim.autopairs.enable = true;
-      vim.autocomplete = {
-        enable = true;
-        type = "nvim-cmp";
-      };
-      vim.filetree.nvimTreeLua = {
-        enable = true;
-        hideDotFiles = false;
-        hideFiles = [ "node_modules" ".cache" ];
-      };
-      vim.hop.enable = true;
-      vim.tabline.nvimBufferline.enable = true;
-      vim.treesitter = {
-        enable = true;
-        autotagHtml = true;
-        context.enable = true;
-      };
-      vim.scala = {
-        highlightMode = "treesitter";
-      };
-      vim.keys = {
-        enable = true;
-        whichKey.enable = true;
-      };
-      vim.comments = {
-        enable = true;
-        type = "nerdcommenter";
-      };
-      vim.shortcuts = {
-        enable = true;
-      };
-      vim.telescope = {
-        enable = true;
-      };
-      vim.markdown = {
-        enable = true;
-        glow.enable = true;
-      };
-      vim.git = {
-        enable = true;
-        gitsigns.enable = true;
+        shortcuts = {
+          enable = true;
+        };
+        telescope = {
+          enable = true;
+        };
+        markdown = {
+          enable = true;
+          glow.enable = true;
+        };
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+        };
       };
     };
   };

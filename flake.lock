@@ -410,9 +410,11 @@
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-ts-autotag": "nvim-ts-autotag",
+        "nvim-ufo": "nvim-ufo",
         "nvim-web-devicons": "nvim-web-devicons",
         "onedark": "onedark",
         "plenary-nvim": "plenary-nvim",
+        "promise-async": "promise-async",
         "registers": "registers",
         "rust-tools": "rust-tools",
         "sqls-nvim": "sqls-nvim",
@@ -425,11 +427,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1662449955,
-        "narHash": "sha256-atWOE1Ms47ASfMVukR6oKeNhT0LGi4dsneFU4/X9qsk=",
+        "lastModified": 1662913415,
+        "narHash": "sha256-u3p/Xlw7G91yWbRYXEh1lP8c9XDi7eEd7thzzFwW4jA=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "e8d12f3292960d8990cf18a03ab4d82bf24cc6e3",
+        "rev": "a20106909337b664c846eb6417490a860d86fd1d",
         "type": "github"
       },
       "original": {
@@ -742,6 +744,22 @@
         "type": "github"
       }
     },
+    "nvim-ufo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662817659,
+        "narHash": "sha256-HMBqeN11hAAZs1hsSOcNGzyaq9cJc3zNrJRU/OtGzZY=",
+        "owner": "kevinhwang91",
+        "repo": "nvim-ufo",
+        "rev": "3f649eedec68dfa62d49a6fe80c19e1cad6d7afc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "nvim-ufo",
+        "type": "github"
+      }
+    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -787,6 +805,22 @@
       "original": {
         "owner": "nvim-lua",
         "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
+    "promise-async": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1658997334,
+        "narHash": "sha256-sYkEYXFabA4jcRJiTYBiU83kO/4ZYyyVjz2Fknx0314=",
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
+        "rev": "005df1ae44ac801047f98052c923b38618b4ebb6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
         "type": "github"
       }
     },

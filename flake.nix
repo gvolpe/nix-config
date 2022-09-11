@@ -51,10 +51,8 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-    in
+  outputs = inputs:
+    let system = "x86_64-linux"; in
     {
       homeConfigurations = (
         import ./outputs/home-conf.nix {
