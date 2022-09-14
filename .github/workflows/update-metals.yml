@@ -22,10 +22,24 @@ jobs:
           nix build .#homeConfigurations.metals-updater
           ./result
 
-      - uses: EndBug/add-and-commit@v9.1.0
+      #- uses: EndBug/add-and-commit@v9.1.0
+        #with:
+          #add: home/programs/neovim-ide/
+          #message: update metals to latest version
+          #new_branch: update/metals-latest-snapshot
+          #push: origin update/metals-latest-snapshot --set-upstream --force
+          #default_author: github_actions
+
+      - name: "Create Pull Request"
+        uses: peter-evans/create-pull-request@v4.1.1
         with:
-          add: home/programs/neovim-ide/
-          message: update metals to latest version
-          new_branch: update/metals-latest-snapshot
-          push: origin update/metals-latest-snapshot --set-upstream --force
-          default_author: github_actions
+          commit-message: Update metals to latest version
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: update/metals-latest-snapshot
+          delete-branch: true
+          title: '[Metals] Update to latest snapshot'
+          body: |
+            Update Metals to latest version
+          labels: |
+            metals-update
