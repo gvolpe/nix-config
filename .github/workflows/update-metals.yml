@@ -11,7 +11,7 @@ jobs:
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v15
         with:
-          nixpkgs=channel:nixos-unstable
+          nixpath: nixpkgs=channel:nixos-unstable
 
       - name: "Install Cachix ❄️"
         uses: cachix/cachix-action@v10
