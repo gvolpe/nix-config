@@ -1,0 +1,40 @@
+name: "Update Metals"
+
+on:
+  schedule:
+  - cron: "0 9 * * *"
+
+jobs:
+  fetcher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v15
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v10
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: "Fetch latest Metals"
+        run: |
+          nix build .#homeConfigurations.metals-updater
+          ./result
+
+      - name: "Create PR"
+        uses: peter-evans/create-pull-request@v4.1.1
+        with:
+          commit-message: Update metals to latest version
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          base: master
+          branch: update/metals-latest-snapshot
+          delete-branch: true
+          title: 'Update Metals to latest snapshot'
+          body: |
+            Update Metals to latest version. See https://scalameta.org/metals/latests.json
+          labels: |
+            metals-update
