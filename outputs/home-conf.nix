@@ -49,4 +49,5 @@ in
 {
   gvolpe-edp = mkHome { hidpi = false; };
   gvolpe-hdmi = mkHome { hidpi = true; };
+  metals-updater = pkgs.callPackage ../home/programs/neovim-ide/update-metals.nix { };
 }
