@@ -3,7 +3,7 @@ pull_request_rules:
     conditions:
       - author=github-actions[bot]
       - title=Update Metals to latest snapshot
-      - status-success=Home
+      - "status-success=Home / build"
     actions:
       merge:
         method: merge
