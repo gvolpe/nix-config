@@ -17,6 +17,7 @@ on:
       - 'outputs/installation.nix'
       - 'build'
       - 'switch'
+      - '.mergify.yml'
 
 jobs:
   build:

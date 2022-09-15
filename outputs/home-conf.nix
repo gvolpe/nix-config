@@ -15,6 +15,7 @@ let
     overlays = [
       fishOverlay
       nurpkgs.overlay
+      neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       ((import ../home/overlays/md-toc) { inherit (inputs) gh-md-toc; })
       (import ../home/overlays/protonvpn-gui)
@@ -49,5 +50,10 @@ in
 {
   gvolpe-edp = mkHome { hidpi = false; };
   gvolpe-hdmi = mkHome { hidpi = true; };
-  metals-updater = pkgs.callPackage ../home/programs/neovim-ide/update-metals.nix { };
+
+  # Continuos Integration automation
+  ci = {
+    metals = pkgs.callPackage ../home/programs/neovim-ide/metals.nix { };
+    metals-updater = pkgs.callPackage ../home/programs/neovim-ide/update-metals.nix { };
+  };
 }
