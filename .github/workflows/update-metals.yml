@@ -30,6 +30,7 @@ jobs:
           commit-message: Update metals to latest version
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          token: ${{ secrets.REPO_GITHUB_TOKEN }}
           base: master
           branch: update/metals-latest-snapshot
           delete-branch: true
