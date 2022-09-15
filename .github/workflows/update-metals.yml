@@ -21,7 +21,7 @@ jobs:
 
       - name: "Fetch latest Metals"
         run: |
-          nix build .#homeConfigurations.metals-updater
+          nix build .#homeConfigurations.ci.metals-updater
           ./result
 
       - name: "Create PR"
