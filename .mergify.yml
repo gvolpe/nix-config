@@ -3,7 +3,7 @@ pull_request_rules:
     conditions:
       - author=gvolpe
       - title=Update Metals to latest snapshot
-      - check-success=Home
+      - check-success~=build
     actions:
       merge:
         method: merge

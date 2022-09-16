@@ -2,6 +2,8 @@ name: NixOS
 
 on:
   pull_request:
+    paths-ignore:
+      - 'home/**'
   push:
     branches:
       - master
