@@ -17,6 +17,7 @@ on:
       - 'outputs/nixos-conf.nix'
       - 'build'
       - 'switch'
+      - '.mergify.yml'
 
 jobs:
   build:

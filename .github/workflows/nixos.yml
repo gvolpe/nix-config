@@ -2,6 +2,8 @@ name: NixOS
 
 on:
   pull_request:
+    paths-ignore:
+      - 'home/**'
   push:
     branches:
       - master
@@ -17,6 +19,7 @@ on:
       - 'outputs/installation.nix'
       - 'build'
       - 'switch'
+      - '.mergify.yml'
 
 jobs:
   build:
