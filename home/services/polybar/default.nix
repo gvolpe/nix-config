@@ -18,7 +18,7 @@ let
 
   mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
 
-  xdgUtils = pkgs.xdg_utils.overrideAttrs (
+  xdgUtils = pkgs.xdg-utils.overrideAttrs (
     old: {
       nativeBuildInputs = old.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
       postInstall = old.postInstall + "\n" + ''
