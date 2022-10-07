@@ -927,15 +927,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1646670117,
-        "narHash": "sha256-fU6gLOP2xm6lTRKfMKeXAm7rEhYAVR4RcRFK1zh/QTM=",
-        "owner": "Mic92",
+        "lastModified": 1665143942,
+        "narHash": "sha256-1bYPFczX0GgKPQ+bLsF8Q7TNqm5oLl2RTacUO40Q6mM=",
+        "owner": "gvolpe",
         "repo": "tex2nix",
-        "rev": "74159694f0c27ffa3f9172c6d691635568fbece4",
+        "rev": "e7f849917a6d2807c54ad1f78d0e44b98a678434",
         "type": "github"
       },
       "original": {
-        "owner": "Mic92",
+        "owner": "gvolpe",
         "repo": "tex2nix",
         "type": "github"
       }
