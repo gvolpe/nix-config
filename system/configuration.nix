@@ -173,7 +173,7 @@ in
     };
 
     # Flakes settings
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
 
     settings = {

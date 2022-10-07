@@ -81,7 +81,7 @@ let
     tig           # diff and commit view
   ];
 
-  gnomePkgs = with pkgs.gnome3; [
+  gnomePkgs = with pkgs.gnome; [
     eog            # image viewer
     evince         # pdf reader
     nautilus       # file manager
