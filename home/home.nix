@@ -46,7 +46,7 @@ let
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
-    #pgcli               # modern postgres client (FIXME: broken on nixpkgs)
+    pgcli               # modern postgres client
     playerctl            # music player controller
     prettyping           # a nicer ping
     protonvpn-gui        # official proton vpn client
@@ -183,7 +183,7 @@ in
     jq.enable = true;
 
     obs-studio = {
-      enable = true;
+      enable = false;
       plugins = [];
     };
 
