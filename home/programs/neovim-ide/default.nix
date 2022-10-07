@@ -10,6 +10,7 @@ in
       vim = {
         viAlias = false;
         vimAlias = true;
+        preventJunkFiles = true;
         customPlugins = with pkgs.vimPlugins; [
           multiple-cursors
           vim-repeat
