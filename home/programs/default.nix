@@ -5,6 +5,7 @@
   ./dconf
   ./git
   ./fish
+  ./neofetch
   ./neovim-ide
   ./nheko
   ./orage

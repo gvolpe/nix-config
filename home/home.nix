@@ -38,7 +38,6 @@ let
     libnotify            # notify-send command
     multilockscreen      # fast lockscreen based on i3lock
     ncdu                 # disk space info (a better du)
-    neofetch             # command-line system information
     ngrok                # secure tunneling to localhost
     nix-index            # locate packages containing certain nixpkgs
     nyancat              # the famous rainbow cat!
