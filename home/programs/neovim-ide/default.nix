@@ -109,6 +109,14 @@ in
           enable = true;
           gitsigns.enable = true;
         };
+        mind = {
+          enable = true;
+          # Documents dir is synced to the cloud
+          persistence = {
+            dataDir = "~/Documents/mind.nvim/data";
+            statePath = "~/Documents/mind.nvim/mind.json";
+          };
+        };
       };
     };
   };

@@ -391,6 +391,22 @@
         "type": "github"
       }
     },
+    "mind-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665313334,
+        "narHash": "sha256-M2H8ChUWTdFAUC5omA4KNzRQCgh4bb1PHcOn63U7wMo=",
+        "owner": "gvolpe",
+        "repo": "mind.nvim",
+        "rev": "2e40883c9e75ac4e5e178dd3a38f1280c2469b7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "mind.nvim",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "bufdelete-nvim": "bufdelete-nvim",
@@ -411,6 +427,7 @@
         "lspkind": "lspkind",
         "lspsaga": "lspsaga",
         "lualine": "lualine",
+        "mind-nvim": "mind-nvim",
         "nightfox": "nightfox",
         "nixpkgs": "nixpkgs",
         "null-ls": "null-ls",
@@ -445,11 +462,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1665138326,
-        "narHash": "sha256-tiCrlle4jvqBL6Tqxzqb1S5FavZMbH1YmxUN3XasV3w=",
+        "lastModified": 1665326692,
+        "narHash": "sha256-FRI1NowvR3Bmz86U89aRSJdzZg8lnhxP11EC/LqYI60=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "affe488bad271ab593594b5e707d161da9721e5c",
+        "rev": "ce91a9965486bf7faee699d175f61fe1bd1033be",
         "type": "github"
       },
       "original": {
