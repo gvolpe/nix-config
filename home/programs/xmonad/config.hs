@@ -1,10 +1,14 @@
-import           Control.Monad                         ( replicateM_ )
+import           Control.Monad                         ( replicateM_
+                                                       , unless
+                                                       )
 import           Data.Foldable                         ( traverse_ )
 import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
 import           System.Exit
+import           System.Directory                      ( doesFileExist )
 import           System.IO                             ( hPutStr
                                                        , hClose
+                                                       , writeFile
                                                        )
 import           XMonad
 import           XMonad.Actions.CycleWS                ( Direction1D(..)
@@ -184,8 +188,15 @@ screenLocker = "multilockscreen -l dim"
 playerctl c  = "playerctl --player=spotify,%any " <> c
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
-showKeybindings x = addName "Show Keybindings" . io $
-  E.bracket (spawnPipe $ getAppCommand yad) hClose (\h -> hPutStr h (unlines $ showKm x))
+showKeybindings xs =
+  let
+    filename = "/home/gvolpe/.xmonad/keybindings"
+    command f = "alacritty -e dialog --title 'XMonad Key Bindings' --colors --hline \"$(date)\" --textbox " ++ f ++ " 50 100"
+  in addName "Show Keybindings" $ do
+    b <- liftIO $ doesFileExist filename
+    unless b $ liftIO (writeFile filename (unlines $ showKm xs))
+    spawnOn webWs $ command filename -- show dialog on webWs
+    windows $ W.greedyView webWs     -- switch to webWs
 
 myKeys conf@XConfig {XMonad.modMask = modm} =
   keySet "Applications"
@@ -391,7 +402,6 @@ pavuctrl  = ClassApp "Pavucontrol"          "pavucontrol"
 scr       = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
 spotify   = ClassApp "Spotify"              "spotify"
 vlc       = ClassApp "Vlc"                  "vlc"
-yad       = ClassApp "Yad"                  "yad --text-info --text 'XMonad'"
 
 myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
  where
@@ -408,25 +418,25 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   match :: [App] -> Query Bool
   match = anyOf . fmap isInstance
   manageApps = composeOne
-    [ isInstance calendar                      -?> doCalendarFloat
-    , match [ gimp, office ]                   -?> doFloat
+    [ isInstance calendar                 -?> doCalendarFloat
+    , match [ gimp, office ]              -?> doFloat
     , match [ audacious
             , eog
             , nautilus
             , pavuctrl
             , scr
-            ]                                  -?> doCenterFloat
-    , match [ btm, evince, spotify, vlc, yad ] -?> doFullFloat
-    , resource =? "desktop_window"             -?> doIgnore
-    , resource =? "kdesktop"                   -?> doIgnore
+            ]                             -?> doCenterFloat
+    , match [ btm, evince, spotify, vlc ] -?> doFullFloat
+    , resource =? "desktop_window"        -?> doIgnore
+    , resource =? "kdesktop"              -?> doIgnore
     , anyOf [ isBrowserDialog
             , isFileChooserDialog
             , isDialog
             , isPopup
             , isSplash
-            ]                                  -?> doCenterFloat
-    , isFullscreen                             -?> doFullFloat
-    , pure True                                -?> tileBelow
+            ]                             -?> doCenterFloat
+    , isFullscreen                        -?> doFullFloat
+    , pure True                           -?> tileBelow
     ]
 
 isInstance (ClassApp c _) = className =? c
