@@ -64,20 +64,12 @@ let
     tree                 # display files in a tree view
     vlc                  # media player
     xsel                 # clipboard support (also for neovim)
-    yad                  # yet another dialog - fork of zenity
 
     # work stuff
     work-browser
 
     # fixes the `ar` error required by cabal
     binutils-unwrapped
-  ];
-
-  gitPkgs = with pkgs.gitAndTools; [
-    diff-so-fancy # git diff with colors
-    git-crypt     # git files encryption
-    hub           # github command-line client
-    tig           # diff and commit view
   ];
 
   gnomePkgs = with pkgs.gnome; [
@@ -96,29 +88,7 @@ let
     nix-tree                # visualize nix dependencies
   ];
 
-  polybarPkgs = with pkgs; [
-    font-awesome          # awesome fonts
-    material-design-icons # fonts with glyphs
-    xfce.orage            # lightweight calendar
-  ];
-
   scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };
-
-  yubiPkgs = with pkgs; [
-    yubikey-manager  # yubikey manager cli
-    yubioath-desktop # yubikey OTP manager (gui)
-  ];
-
-  xmonadPkgs = with pkgs; [
-    networkmanager_dmenu   # networkmanager on dmenu
-    networkmanagerapplet   # networkmanager applet
-    nitrogen               # wallpaper manager
-    xcape                  # keymaps modifier
-    xorg.xkbcomp           # keymaps modifier
-    xorg.xmodmap           # keymaps modifier
-    xorg.xrandr            # display manager (X Resize and Rotate protocol)
-  ];
-
 in 
 {
   programs.home-manager.enable = true;
@@ -134,7 +104,7 @@ in
     inherit username homeDirectory;
     stateVersion = "21.03";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ polybarPkgs ++ scripts ++ xmonadPkgs ++ yubiPkgs;
+    packages = defaultPkgs ++ gnomePkgs ++ haskellPkgs ++ scripts;
 
     sessionVariables = {
       DISPLAY = ":0";

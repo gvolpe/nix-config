@@ -101,6 +101,12 @@ let
   customMods = mainBar + bctl + cal + github + keyboard + mpris + xmonad;
 in
 {
+  home.packages = with pkgs; [
+    font-awesome          # awesome fonts
+    material-design-icons # fonts with glyphs
+    xfce.orage            # lightweight calendar
+  ];
+
   services.polybar = {
     enable = true;
     package = mypolybar;
