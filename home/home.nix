@@ -36,6 +36,7 @@ let
     killall              # kill processes by name
     libreoffice          # office suite
     libnotify            # notify-send command
+    lnav                 # log file navigator on the terminal
     multilockscreen      # fast lockscreen based on i3lock
     ncdu                 # disk space info (a better du)
     ngrok                # secure tunneling to localhost
