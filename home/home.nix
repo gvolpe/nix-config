@@ -66,6 +66,9 @@ let
     vlc                  # media player
     xsel                 # clipboard support (also for neovim)
 
+    # haskell packages
+    haskellPackages.nix-tree # visualize nix dependencies
+
     # work stuff
     work-browser
 
@@ -78,18 +81,6 @@ let
     evince   # pdf reader
     nautilus # file manager
   ];
-
-  haskellPkgs = with pkgs.haskellPackages; [
-    brittany                # code formatter
-    cabal2nix               # convert cabal projects to nix
-    cabal-install           # package manager
-    ghc                     # compiler
-    haskell-language-server # haskell IDE (ships with ghcide)
-    hoogle                  # documentation
-    nix-tree                # visualize nix dependencies
-  ];
-
-  scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };
 in
 {
   programs.home-manager.enable = true;
@@ -98,6 +89,7 @@ in
     ./modules
     ./age
     ./programs
+    ./scripts
     ./services
     ./themes
   ];
@@ -111,7 +103,7 @@ in
     inherit username homeDirectory;
     stateVersion = "21.03";
 
-    packages = defaultPkgs ++ gnomePkgs ++ haskellPkgs ++ scripts;
+    packages = defaultPkgs ++ gnomePkgs;
 
     sessionVariables = {
       DISPLAY = ":0";
@@ -124,60 +116,4 @@ in
 
   # notifications about home-manager news
   news.display = "silent";
-
-  programs = {
-    bat.enable = true;
-
-    broot = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    fzf = {
-      enable = true;
-      enableFishIntegration = true;
-      defaultCommand = "fd --type file --follow"; # FZF_DEFAULT_COMMAND
-      defaultOptions = [ "--height 20%" ]; # FZF_DEFAULT_OPTS
-      fileWidgetCommand = "fd --type file --follow"; # FZF_CTRL_T_COMMAND
-    };
-
-    gpg.enable = true;
-
-    htop = {
-      enable = true;
-      settings = {
-        sort_direction = true;
-        sort_key = "PERCENT_CPU";
-      };
-    };
-
-    jq.enable = true;
-
-    obs-studio = {
-      enable = false;
-      plugins = [];
-    };
-
-    ssh.enable = true;
-
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-      options = [];
-    };
-
-    # programs with custom modules
-    megasync.enable = true;
-    spotify.enable = true;
-  };
-
-  services = {
-    flameshot.enable = true;
-  };
-
 }

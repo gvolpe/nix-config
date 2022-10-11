@@ -1,3 +1,10 @@
+let
+  more = {
+    services = {
+      flameshot.enable = true;
+    };
+  };
+in
 [
   ./dunst
   ./gpg-agent
@@ -6,4 +13,5 @@
   ./polybar
   ./screenlocker
   ./udiskie
+  more
 ]
