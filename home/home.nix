@@ -74,9 +74,9 @@ let
   ];
 
   gnomePkgs = with pkgs.gnome; [
-    eog            # image viewer
-    evince         # pdf reader
-    nautilus       # file manager
+    eog      # image viewer
+    evince   # pdf reader
+    nautilus # file manager
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -90,11 +90,17 @@ let
   ];
 
   scripts = pkgs.callPackage ./scripts/default.nix { inherit config pkgs; };
-in 
+in
 {
   programs.home-manager.enable = true;
 
-  imports = (import ./modules) ++ (import ./age) ++ (import ./programs) ++ (import ./services) ++ [(import ./themes)];
+  imports = builtins.concatMap import [
+    ./modules
+    ./age
+    ./programs
+    ./services
+    ./themes
+  ];
 
   xdg = {
     inherit configHome;
