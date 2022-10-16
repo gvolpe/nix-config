@@ -17,9 +17,9 @@ let
     bottom               # alternative to htop & ytop
     cachix               # nix caching
     calibre              # e-book reader
-    cobang               # qr-code scanner
+    #cobang               # qr-code scanner # FIXME: BROKEN
     dconf2nix            # dconf (gnome) files to nix converter
-    dmenu                # application launcher
+    dig                  # dns command-line tool
     docker-compose       # docker manager
     dive                 # explore docker layers
     drawio               # diagram design
@@ -46,7 +46,7 @@ let
     pavucontrol          # pulseaudio volume control
     paprefs              # pulseaudio preferences
     pasystray            # pulseaudio systray
-    pgcli               # modern postgres client
+    pgcli                # modern postgres client
     playerctl            # music player controller
     prettyping           # a nicer ping
     protonvpn-gui        # official proton vpn client
@@ -54,7 +54,6 @@ let
     rage                 # encryption tool for secrets management
     ranger               # terminal file explorer
     ripgrep              # fast grep
-    rnix-lsp             # nix lsp server
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
     skypeforlinux        # messaging client
