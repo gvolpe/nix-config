@@ -59,6 +59,7 @@ in
   ./dconf
   ./git
   ./fish
+  ./md-toc
   ./neofetch
   ./neovim-ide
   ./nheko

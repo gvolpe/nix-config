@@ -17,8 +17,6 @@ let
       nurpkgs.overlay
       neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
-      ((import ../home/overlays/md-toc) { inherit (inputs) gh-md-toc; })
-      (import ../home/overlays/protonvpn-gui)
       (import ../home/overlays/ranger)
     ];
   };
@@ -41,6 +39,7 @@ let
       extraSpecialArgs = {
         inherit hidpi;
         addons = nur.repos.rycee.firefox-addons;
+        gh-md-toc = inputs.gh-md-toc;
       };
 
       modules = [{ inherit imports; }];
