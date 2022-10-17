@@ -1,5 +1,5 @@
 let
-  more = {
+  more = { pkgs, ... }: {
     programs = {
       bat.enable = true;
 
@@ -32,6 +32,11 @@ let
       };
 
       jq.enable = true;
+
+      mpv = {
+        enable = true;
+        scripts = [ pkgs.mpvScripts.mpris ];
+      };
 
       obs-studio = {
         enable = false;
