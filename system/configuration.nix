@@ -26,7 +26,7 @@ in
   networking = {
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
-      enable   = true;
+      enable = true;
       plugins = [ pkgs.networkmanager-openvpn ];
     };
 
@@ -58,7 +58,7 @@ in
   # started in user sessions.
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
-    enable           = true;
+    enable = true;
     enableSSHSupport = true;
   };
 
@@ -142,8 +142,8 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups  = [ "docker" "networkmanager" "wheel" "scanner" "lp" ]; # wheel for ‘sudo’.
-    shell        = pkgs.fish;
+    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" ]; # wheel for ‘sudo’.
+    shell = pkgs.fish;
   };
 
   security = {
@@ -168,8 +168,8 @@ in
     # Automate garbage collection
     gc = {
       automatic = true;
-      dates     = "weekly";
-      options   = "--delete-older-than 7d";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
 
     # Flakes settings
@@ -182,12 +182,12 @@ in
 
       # Required by Cachix to be used as non-root user
       trusted-users = [ "root" "gvolpe" ];
-      
-      experimental-features = ["nix-command" "flakes"];
-      
+
+      experimental-features = [ "nix-command" "flakes" ];
+
       # Avoid unwanted garbage collection when using nix-direnv
-      keep-outputs          = true;
-      keep-derivations      = true;
+      keep-outputs = true;
+      keep-derivations = true;
     };
   };
 
