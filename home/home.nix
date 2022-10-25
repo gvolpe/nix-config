@@ -77,7 +77,11 @@ let
   gnomePkgs = with pkgs.gnome; [
     eog      # image viewer
     evince   # pdf reader
-    nautilus # file manager
+    #nautilus # file manager
+
+    # file manager overlay
+    pkgs.nautilus-gtk3
+    #pkgs.nautilus-patched
   ];
 in
 {

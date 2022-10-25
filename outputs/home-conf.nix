@@ -7,6 +7,10 @@ let
     inherit fish-bobthefish-theme fish-keytool-completions;
   };
 
+  nautilusOverlay = f: p: {
+    nautilus-gtk3 = nixpkgs-nautilus-gtk3.legacyPackages.${system}.gnome.nautilus;
+  };
+
   pkgs = import nixpkgs {
     inherit system;
 
@@ -14,9 +18,11 @@ let
 
     overlays = [
       fishOverlay
+      nautilusOverlay
       nurpkgs.overlay
       neovim-flake.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
+      #(import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
     ];
   };
