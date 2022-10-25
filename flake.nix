@@ -46,8 +46,7 @@
     # LaTeX stuff
 
     tex2nix = {
-      #url = github:Mic92/tex2nix;
-      url = github:gvolpe/tex2nix; # fork with nixFlakes fix
+      url = github:Mic92/tex2nix;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
