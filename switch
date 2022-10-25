@@ -7,6 +7,7 @@ activateHM() {
   rm ~/.config/orage/oragerc.bak
   rm -rf ~/.config/secrets
   HOME_MANAGER_BACKUP_EXT=bak result/activate
+  hm-changes-report
 }
 
 rebuild_home_edp() {
