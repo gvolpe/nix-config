@@ -31,6 +31,8 @@
     fsType = "ext4";
   };
 
+  services.sysprof.enable = true; 
+
   services.xserver = {
     videoDrivers = [ "amdgpu" ];
 
