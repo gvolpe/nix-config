@@ -81,6 +81,7 @@ let
 
     # file manager overlay
     pkgs.nautilus-gtk3
+    #pkgs.nautilus-bin
     #pkgs.nautilus-patched
   ];
 in

@@ -1,6 +1,14 @@
 self: super:
 
 {
+  nautilus-master = super.gnome.nautilus.overrideAttrs (old: {
+    src = super.fetchgit {
+      url = "https://gitlab.gnome.org/GNOME/nautilus.git";
+      rev = "17d913595e1089ea6fa91c3b636194daaf5af311";
+      sha256 = "sha256-qXd49NV06O4lth7/j/8T1o3j80evYX0277iLcJFaLC0=";
+    };
+  });
+
   nautilus-patched = super.gnome.nautilus.overrideAttrs (old: {
     patches = [
       # Switch to GTK 4 settings schema to avoid crash when GTK 3 did not manage to contaminate environment.
@@ -15,4 +23,9 @@ self: super:
       })
     ] ++ old.patches;
   });
+
+  nautilus-bin = super.writeShellScriptBin "nautilus-master" ''
+    echo 'Running nautilus-master'
+    ${self.nautilus-master}/bin/nautilus
+  '';
 }
