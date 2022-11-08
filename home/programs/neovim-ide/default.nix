@@ -35,7 +35,7 @@ in
           dhall = true;
           elm = true;
           haskell = true;
-          sql = true;
+          sql = false;
           python = false;
           clang = false;
           ts = false;
