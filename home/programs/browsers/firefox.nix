@@ -122,6 +122,12 @@ in
         settings = sharedSettings;
         userChrome = disableWebRtcIndicator;
       };
+
+      sxm = {
+        id = 3;
+        settings = sharedSettings;
+        userChrome = disableWebRtcIndicator;
+      };
     };
   };
 }

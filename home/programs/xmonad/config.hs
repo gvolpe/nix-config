@@ -495,7 +495,7 @@ projects =
             }
   , Project { projectName      = wrkWs
             , projectDirectory = "~/"
-            , projectStartHook = Just . spawn $ myTerminal
+            , projectStartHook = Just $ spawn "firefox -P 'sxm'"
             }
   , Project { projectName      = sysWs
             , projectDirectory = "/etc/nixos/"
