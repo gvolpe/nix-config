@@ -24,6 +24,7 @@ let
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
+      (import ../home/overlays/xdg-open)
     ];
   };
 
