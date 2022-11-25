@@ -1,8 +1,6 @@
 { config, pkgs, specialArgs, ... }:
 
 let
-  browser = "${pkgs.firefox-beta-bin}/bin/firefox";
-
   openCalendar = "${pkgs.xfce.orage}/bin/orage";
 
   hdmiBar = pkgs.callPackage ./bar.nix { };
@@ -18,16 +16,7 @@ let
 
   mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
 
-  xdgUtils = pkgs.xdg-utils.overrideAttrs (
-    old: {
-      nativeBuildInputs = old.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
-      postInstall = old.postInstall + "\n" + ''
-        wrapProgram $out/bin/xdg-open --suffix PATH : /run/current-system/sw/bin --suffix BROWSER : ${browser}
-      '';
-    }
-  );
-
-  openGithub = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
+  openGithub = "${pkgs.firefox-beta-bin}/bin/firefox -new-tab https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
@@ -112,6 +101,7 @@ in
     package = mypolybar;
     config = ./config.ini;
     extraConfig = bars + colors + mods1 + mods2 + customMods;
+    # polybar top -l trace (or info) for debugging purposes
     script = ''
       export MONITOR=$(${monitorScript}/bin/monitor)
       echo "Running polybar on $MONITOR"
