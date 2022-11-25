@@ -465,11 +465,11 @@ ossWs = "oss"
 devWs = "dev"
 comWs = "com"
 wrkWs = "wrk"
-sysWs = "sys"
-etcWs = "etc"
+sxmWs = "sxm"
+fbkWs = "fbk"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, wrkWs, sysWs, etcWs]
+myWS = [webWs, ossWs, devWs, comWs, wrkWs, sxmWs, fbkWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -497,13 +497,13 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ spawn "firefox -P 'sxm'"
             }
-  , Project { projectName      = sysWs
-            , projectDirectory = "/etc/nixos/"
-            , projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
+  , Project { projectName      = sxmWs
+            , projectDirectory = "~/workspace/sxm"
+            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
             }
-  , Project { projectName      = etcWs
-            , projectDirectory = "~/workspace"
-            , projectStartHook = Just . spawn $ myTerminal
+  , Project { projectName      = fbkWs
+            , projectDirectory = "~/workspace/feda"
+            , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   ]
 
