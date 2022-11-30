@@ -30,6 +30,7 @@ in
             enable = true;
             type = "nvim-metals";
           };
+          ts = true;
           rust.enable = false;
           nix = true;
           dhall = true;
@@ -38,7 +39,6 @@ in
           sql = false;
           python = false;
           clang = false;
-          ts = false;
           go = false;
         };
         visuals = {
