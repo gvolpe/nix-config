@@ -16,6 +16,7 @@ in
           vim-repeat
           vim-surround
         ];
+        smithy.enable = true;
         lsp = {
           enable = true;
           folds = true;
