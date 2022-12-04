@@ -25,6 +25,9 @@ in
         };
         size = fontSize;
       };
+      key_bindings = [
+        { key = 53; mods = "Shift"; mode = "Vi"; action = "SearchBackward"; }
+      ];
       selection.save_to_clipboard = true;
       shell.program = "${pkgs.fish}/bin/fish";
       window = {
