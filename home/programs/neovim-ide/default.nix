@@ -16,7 +16,6 @@ in
           vim-repeat
           vim-surround
         ];
-        smithy.enable = true;
         lsp = {
           enable = true;
           folds = true;
@@ -32,6 +31,7 @@ in
             type = "nvim-metals";
           };
           ts = true;
+          smithy = true;
           rust.enable = false;
           nix = true;
           dhall = true;

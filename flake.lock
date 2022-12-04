@@ -432,7 +432,7 @@
         "nixpkgs": "nixpkgs",
         "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
-        "nvim-bufferline-lua": "nvim-bufferline-lua",
+        "nvim-bufferline": "nvim-bufferline",
         "nvim-cmp": "nvim-cmp",
         "nvim-code-action-menu": "nvim-code-action-menu",
         "nvim-compe": "nvim-compe",
@@ -458,16 +458,15 @@
         "tokyonight": "tokyonight",
         "trouble": "trouble",
         "vim-scala": "vim-scala",
-        "vim-smithy": "vim-smithy",
         "vim-vsnip": "vim-vsnip",
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1669986717,
-        "narHash": "sha256-Yy1Iiw4Bgb4k+qrpx3zeFO35PoYhH6PlO9Wz6k3q3RY=",
+        "lastModified": 1670150536,
+        "narHash": "sha256-TeuiNDBerQ2i5qLLZFO7ri/Avf9NDinV23/YC3HCBD4=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "a846258deed96916bc5845296dbc437f52f49114",
+        "rev": "68324298c42e4540dd59d7fbb314619f1c52af31",
         "type": "github"
       },
       "original": {
@@ -494,11 +493,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1662934689,
-        "narHash": "sha256-mXi8hmhiunOVTeHiuouWXb0vTqjzp9v9kshMmI561Us=",
+        "lastModified": 1670058159,
+        "narHash": "sha256-ERiP2JWanLuGV1PDyHTbcigFCfIi9oco5LFdMJHjREE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a0b7e70db7a55088d3de0cc370a59f9fbcc906c3",
+        "rev": "49b8ad618e64d9fe9ab686817bfebe047860dcae",
         "type": "github"
       },
       "original": {
@@ -586,20 +585,19 @@
         "type": "github"
       }
     },
-    "nvim-bufferline-lua": {
+    "nvim-bufferline": {
       "flake": false,
       "locked": {
-        "lastModified": 1650105928,
-        "narHash": "sha256-RhAaRFGDoHZAr8SLgbtLtuQ2J9z5hbvMH14FDhHOLXU=",
+        "lastModified": 1668632062,
+        "narHash": "sha256-qGl1jwBaMFWsrth7F20KrfJpyVENF8GEOJsVBBcSTVA=",
         "owner": "akinsho",
-        "repo": "nvim-bufferline.lua",
-        "rev": "0a83c615a8ab49718d9b4cdc60127003307829b2",
+        "repo": "bufferline.nvim",
+        "rev": "4ecfa81e470a589e74adcde3d5bb1727dd407363",
         "type": "github"
       },
       "original": {
         "owner": "akinsho",
-        "ref": "v1.2.0",
-        "repo": "nvim-bufferline.lua",
+        "repo": "bufferline.nvim",
         "type": "github"
       }
     },
@@ -1051,22 +1049,6 @@
       "original": {
         "owner": "gvolpe",
         "repo": "vim-scala",
-        "type": "github"
-      }
-    },
-    "vim-smithy": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1594233509,
-        "narHash": "sha256-fm6J2hSg8Tgw/iTXET4MCylCF4ALxNRYqAKnBsew/k4=",
-        "owner": "jasdel",
-        "repo": "vim-smithy",
-        "rev": "eee0652aaf1deff05d562b064a2e51dd04359aaf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jasdel",
-        "repo": "vim-smithy",
         "type": "github"
       }
     },
