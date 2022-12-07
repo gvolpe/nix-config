@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
 pkgs.metalsBuilder {
-  version = "0.11.9+183-4b89e5e1-SNAPSHOT";
-  outputHash = "sha256-zAXr1C+RF8o574CWtE6wFVcdjRi6HyYzn/nFeglkM2g=";
+  version = "0.11.9+187-46d7a428-SNAPSHOT";
+  outputHash = "sha256-v/Wob/31kPqIvdzZKcMYm4yGnOEMxEWvt/864VwKEKs=";
 }
