@@ -458,16 +458,17 @@
         "todo-comments": "todo-comments",
         "tokyonight": "tokyonight",
         "trouble": "trouble",
+        "vim-plantuml": "vim-plantuml",
         "vim-scala": "vim-scala",
         "vim-vsnip": "vim-vsnip",
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1670237901,
-        "narHash": "sha256-Lf2tlupD0tGw5Ys5VkdCZHOHqHm1dntUYBrY53HYMLU=",
+        "lastModified": 1670578718,
+        "narHash": "sha256-2ZVWT3VvsAsylcj9gElyvQKZXk4kl/++aHUS6HlLm5Q=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "2c9b5e898dd9fbe472ed8352a77db1fd8393b4ea",
+        "rev": "90f5a2210890677a27b1d423ccaf89da0d422541",
         "type": "github"
       },
       "original": {
@@ -1034,6 +1035,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-plantuml": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1661550240,
+        "narHash": "sha256-LowGc66T47vOL4oAihrArNqGUZ+CCbyVXEROO83OTjQ=",
+        "owner": "aklt",
+        "repo": "plantuml-syntax",
+        "rev": "845abb56dcd3f12afa6eb47684ef5ba3055802b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aklt",
+        "repo": "plantuml-syntax",
         "type": "github"
       }
     },

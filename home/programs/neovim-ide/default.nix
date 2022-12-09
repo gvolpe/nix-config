@@ -42,6 +42,7 @@ in
           clang = false;
           go = false;
         };
+        plantuml.enable = true;
         visuals = {
           enable = true;
           nvimWebDevicons.enable = true;
