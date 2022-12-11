@@ -25,6 +25,10 @@ in
           nvimCodeActionMenu.enable = true;
           trouble.enable = true;
           lspSignature.enable = true;
+          nix = {
+            enable = true;
+            type = "nil";
+          };
           scala = {
             inherit metals;
             enable = true;
@@ -33,7 +37,6 @@ in
           ts = true;
           smithy = true;
           rust.enable = false;
-          nix = true;
           dhall = true;
           elm = true;
           haskell = true;

@@ -40,7 +40,7 @@ let
   ];
 
   mkHome = { hidpi ? false }: (
-    home-manager.lib.homeManagerConfiguration rec {
+    home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       extraSpecialArgs = {

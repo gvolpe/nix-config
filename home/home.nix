@@ -17,7 +17,7 @@ let
     bottom               # alternative to htop & ytop
     cachix               # nix caching
     calibre              # e-book reader
-    #cobang               # qr-code scanner # FIXME: BROKEN
+    cobang               # qr-code scanner
     dconf2nix            # dconf (gnome) files to nix converter
     dig                  # dns command-line tool
     docker-compose       # docker manager
