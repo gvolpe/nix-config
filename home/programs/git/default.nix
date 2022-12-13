@@ -12,6 +12,8 @@ let
       tool          = "vim_mergetool";
     };
     mergetool."vim_mergetool" = {
+      #cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"";
+      # this command requires the vim-mergetool plugin
       cmd    = "nvim -f -c \"MergetoolStart\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
       prompt = false;
     };

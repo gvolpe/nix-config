@@ -13,6 +13,7 @@ in
         preventJunkFiles = true;
         customPlugins = with pkgs.vimPlugins; [
           multiple-cursors
+          vim-mergetool
           vim-repeat
           vim-surround
         ];
