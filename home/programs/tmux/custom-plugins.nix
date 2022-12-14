@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  buildTmuxPlugin = pkgs.tmuxPlugins.mkDerivation;
+  buildTmuxPlugin = pkgs.tmuxPlugins.mkTmuxPlugin;
 in
 {
   nord = buildTmuxPlugin {
