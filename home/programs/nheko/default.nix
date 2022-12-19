@@ -18,7 +18,7 @@ in
 
       auth = {
         accessToken = token;
-        deviceId = "CFGDLUSSMK";
+        deviceId = "DWLAOURPHA";
         homeServer = "https://matrix-client.matrix.org:443";
         userId = "@@gvolpe:matrix.org";
       };
