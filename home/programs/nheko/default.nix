@@ -4,7 +4,7 @@ let
   removeNewline = lib.replaceStrings [ "\n" ] [ "" ];
   tokenFile = ../../secrets/nheko-access-token;
   fileHash = builtins.hashFile "sha256" tokenFile;
-  encryptedHash = "856276f8af9309f3e8c70d986fa77250d9b95602dc1d44f32d2807bb5bc634b6";
+  encryptedHash = "e62518ff814adf565b79717a1ce970dc61962b26dd582cfa8e9679c493cdc95f";
   token = removeNewline (if fileHash == encryptedHash then "SECRET" else (builtins.readFile tokenFile));
 in
 {
