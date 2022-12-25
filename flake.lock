@@ -446,6 +446,7 @@
         "mind-nvim": "mind-nvim",
         "nightfox": "nightfox",
         "nixpkgs": "nixpkgs",
+        "nmd": "nmd",
         "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-bufferline": "nvim-bufferline",
@@ -481,11 +482,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1671871720,
-        "narHash": "sha256-eBtIDqQBuZAAV+sRKUKrgewcafVOF8xxmqOFbuoLYNg=",
+        "lastModified": 1671962612,
+        "narHash": "sha256-tZsZNlV/cCRMGojBjXG56lDBAPKSoMwvqqhowGRBtCQ=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "43c8c0ac550d0ffca82b66093465e5087368acc5",
+        "rev": "54756887549f7bc82b552436b9de7b153db8480d",
         "type": "github"
       },
       "original": {
@@ -568,6 +569,22 @@
         "id": "nixpkgs",
         "ref": "nixos-unstable",
         "type": "indirect"
+      }
+    },
+    "nmd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666190571,
+        "narHash": "sha256-Z1hc7M9X6L+H83o9vOprijpzhTfOBjd0KmUTnpHAVjA=",
+        "owner": "rycee",
+        "repo": "nmd",
+        "rev": "b75d312b4f33bd3294cd8ae5c2ca8c6da2afc169",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "rycee",
+        "repo": "nmd",
+        "type": "gitlab"
       }
     },
     "null-ls": {
