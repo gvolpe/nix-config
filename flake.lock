@@ -468,6 +468,7 @@
         "plenary-nvim": "plenary-nvim",
         "promise-async": "promise-async",
         "registers": "registers",
+        "rosepine": "rosepine",
         "rust-tools": "rust-tools",
         "sqls-nvim": "sqls-nvim",
         "telescope": "telescope",
@@ -482,11 +483,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1671962612,
-        "narHash": "sha256-tZsZNlV/cCRMGojBjXG56lDBAPKSoMwvqqhowGRBtCQ=",
+        "lastModified": 1672854090,
+        "narHash": "sha256-cbpAy8mMk8VMhz9HIf2bT7RYDoHjS1ORQFZ+wt+4RQ4=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "54756887549f7bc82b552436b9de7b153db8480d",
+        "rev": "7973a36a99e09503ce96080a62069ec0f295681c",
         "type": "github"
       },
       "original": {
@@ -572,19 +573,18 @@
       }
     },
     "nmd": {
-      "flake": false,
       "locked": {
-        "lastModified": 1666190571,
-        "narHash": "sha256-Z1hc7M9X6L+H83o9vOprijpzhTfOBjd0KmUTnpHAVjA=",
-        "owner": "rycee",
+        "lastModified": 1672240039,
+        "narHash": "sha256-lmct89fYDOr9YdWVvdJgklv/7WttRSiDAkoi2cvvAW4=",
+        "owner": "gvolpe",
         "repo": "nmd",
-        "rev": "b75d312b4f33bd3294cd8ae5c2ca8c6da2afc169",
-        "type": "gitlab"
+        "rev": "a59e840c2e8d54415485f349760e1350cb80d911",
+        "type": "github"
       },
       "original": {
-        "owner": "rycee",
+        "owner": "gvolpe",
         "repo": "nmd",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "null-ls": {
@@ -952,6 +952,22 @@
         "tex2nix": "tex2nix"
       }
     },
+    "rosepine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670083800,
+        "narHash": "sha256-STNiJqQvyKtnxaYwXkedUIVoFgpr88sckNZG2pn3oIA=",
+        "owner": "rose-pine",
+        "repo": "neovim",
+        "rev": "7610f245821e98232e7ee8dcbf3364725807187d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
     "rust-tools": {
       "flake": false,
       "locked": {
@@ -1056,16 +1072,15 @@
     "tree-sitter-scala": {
       "flake": false,
       "locked": {
-        "lastModified": 1671554505,
-        "narHash": "sha256-Id25vMHJyV/zHM1le5pvCmWUuK5C2LIZD5ptJXvQZdY=",
-        "owner": "eed3si9n",
+        "lastModified": 1672824146,
+        "narHash": "sha256-agi8ufWJfE34RoJYKr4vs9EDfz9ND3EKoMxZQa2KuJ8=",
+        "owner": "tree-sitter",
         "repo": "tree-sitter-scala",
-        "rev": "4f066d6db7f3d4206c0b2335a1e7e0ffbf7cd2c9",
+        "rev": "678ada0c51dfdd1d2c63a9908309034d1b1e4555",
         "type": "github"
       },
       "original": {
-        "owner": "eed3si9n",
-        "ref": "fork-integration",
+        "owner": "tree-sitter",
         "repo": "tree-sitter-scala",
         "type": "github"
       }
