@@ -134,11 +134,11 @@ in
       defaultWindowManager = "xmonad";
       openFirewall = true;
       #package = pkgs.xrdp.overrideAttrs (old: {
-        #postInstall = old.postInstall + ''
-          #echo ">>>>>>>>> INI file"
-          #cat $out/etc/xrdp/xrdp.ini
-          #echo "<<<<<<<<< INI file"
-        #'';
+      #postInstall = old.postInstall + ''
+      #echo ">>>>>>>>> INI file"
+      #cat $out/etc/xrdp/xrdp.ini
+      #echo "<<<<<<<<< INI file"
+      #'';
       #});
     };
   };
@@ -175,7 +175,12 @@ in
     '';
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "xrdp-0.9.9"
+    ];
+  };
 
   # Nix daemon config
   nix = {
