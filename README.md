@@ -14,6 +14,8 @@ My current — and always evolving — NixOS configuration files, home-manager, 
 
 ![themes](imgs/theme.jpg)
 
+![demo](imgs/demo.png)
+
 NOTE: My new neovim configuration is now a separate flake: https://github.com/gvolpe/neovim-flake
 
 ## Programs

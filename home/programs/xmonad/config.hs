@@ -342,6 +342,7 @@ myLayout =
      tiled   = gapSpaced 10 $ Tall nmaster delta ratio
      full    = gapSpaced 5 Full
      column3 = gapSpaced 10 $ ThreeColMid 1 (3/100) (1/2)
+     grid'   = gapSpaced 10 $ Grid
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -361,7 +362,7 @@ myLayout =
      devLayout = onWorkspace devWs (column3 ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
      wrkLayout = onWorkspace wrkWs (tiled ||| full)
-     demoLayout = onWorkspace demoWs (Grid ||| full)
+     demoLayout = onWorkspace demoWs (grid' ||| full)
 
      -- Fullscreen
      fullScreenToggle = mkToggle (single NBFULL)
