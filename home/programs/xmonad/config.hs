@@ -54,6 +54,7 @@ import           XMonad.Hooks.UrgencyHook              ( UrgencyHook(..)
                                                        , withUrgencyHook
                                                        )
 import           XMonad.Layout.Gaps                    ( gaps )
+import           XMonad.Layout.Grid                    ( Grid(..) )
 import           XMonad.Layout.MultiToggle             ( Toggle(..)
                                                        , mkToggle
                                                        , single
@@ -334,6 +335,7 @@ myLayout =
     . comLayout
     . devLayout
     . webLayout
+    . demoLayout
     . wrkLayout $ (tiled ||| Mirror tiled ||| column3 ||| full)
    where
      -- default tiling algorithm partitions the screen into two panes
@@ -359,6 +361,7 @@ myLayout =
      devLayout = onWorkspace devWs (column3 ||| full)
      webLayout = onWorkspace webWs (tiled ||| full)
      wrkLayout = onWorkspace wrkWs (tiled ||| full)
+     demoLayout = onWorkspace demoWs (Grid ||| full)
 
      -- Fullscreen
      fullScreenToggle = mkToggle (single NBFULL)
@@ -467,9 +470,10 @@ comWs = "com"
 wrkWs = "wrk"
 sxmWs = "sxm"
 fbkWs = "fbk"
+demoWs = "demo"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, wrkWs, sxmWs, fbkWs]
+myWS = [webWs, ossWs, devWs, comWs, wrkWs, sxmWs, fbkWs, demoWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -482,7 +486,9 @@ projects =
             }
   , Project { projectName      = ossWs
             , projectDirectory = "~/workspace/nix-config"
-            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
+            , projectStartHook = Just $ do spawn (terminalWithCommand "neofetch")
+                                           spawn (terminalWithCommand "duf")
+                                           spawn myTerminal
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/workspace/trading"
@@ -505,7 +511,20 @@ projects =
             , projectDirectory = "~/workspace/feda"
             , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
+  , Project { projectName      = demoWs
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do spawn (terminalWithCommand "htop")
+                                           spawn (terminalWithCommand "neofetch")
+                                           spawn (terminalWithCommand "btm")
+                                           spawn (terminalWithCommand "duf")
+                                           spawn (terminalWithCommand "nyancat")
+                                           spawn (terminalWithCommand "ranger --selectfile ~/workspace/nix-config/imgs/amd.jpg")
+            }
   ]
+
+terminalWithCommand :: String -> String
+terminalWithCommand cmd = "alacritty -o shell.program=fish -o shell.args=['-C " <> cmd <> "']"
+
 
 projectsTheme :: XPConfig
 projectsTheme = amberXPConfig
