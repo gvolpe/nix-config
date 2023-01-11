@@ -51,6 +51,13 @@
       url = github:Mic92/tex2nix;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Miscelaneous
+
+    cowsay = {
+      url = github:snowfallorg/cowsay;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:

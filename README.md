@@ -6,6 +6,8 @@ nix-config
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
+![cowsay](imgs/cowsay.png)
+
 ![scala-dev-env](imgs/scala-dev.png)
 
 ![desktop](imgs/desktop-1.jpg)

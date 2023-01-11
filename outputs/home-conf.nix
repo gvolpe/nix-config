@@ -3,6 +3,10 @@
 with inputs;
 
 let
+  cowsayOverlay = f: p: {
+    cowsay = inputs.cowsay.packages.${system}.cowsay;
+  };
+
   fishOverlay = f: p: {
     inherit fish-bobthefish-theme fish-keytool-completions;
   };
@@ -17,6 +21,7 @@ let
     config.allowUnfree = true;
 
     overlays = [
+      cowsayOverlay
       fishOverlay
       nautilusOverlay
       nurpkgs.overlay

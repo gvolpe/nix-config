@@ -18,6 +18,7 @@ let
     cachix               # nix caching
     calibre              # e-book reader
     cobang               # qr-code scanner
+    cowsay               # cowsay fortune teller with random images
     dconf2nix            # dconf (gnome) files to nix converter
     dig                  # dns command-line tool
     docker-compose       # docker manager
