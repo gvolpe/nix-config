@@ -185,6 +185,8 @@ myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 
 myTerminal   = "alacritty"
 appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
+calcLauncher = "rofi -show calc -modi calc -no-show-match -no-sort"
+emojiPicker  = "rofi -modi emoji -show emoji -emoji-mode copy"
 screenLocker = "multilockscreen -l dim"
 playerctl c  = "playerctl --player=spotify,%any " <> c
 
@@ -215,6 +217,8 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
   keySet "Launchers"
     [ key "Terminal"      (modm .|. shiftMask  , xK_Return  ) $ spawn (XMonad.terminal conf)
     , key "Apps (Rofi)"   (modm                , xK_p       ) $ spawn appLauncher
+    , key "Calc (Rofi)"   (modm .|. shiftMask  , xK_c       ) $ spawn calcLauncher
+    , key "Emojis (Rofi)" (modm .|. shiftMask  , xK_m       ) $ spawn emojiPicker
     , key "Lock screen"   (modm .|. controlMask, xK_l       ) $ spawn screenLocker
     ] ^++^
   keySet "Layouts"
