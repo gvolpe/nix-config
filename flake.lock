@@ -621,11 +621,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1673352291,
-        "narHash": "sha256-6T6Js5OTT3YBv3tK2iebMwxNt7LK1LIxLojGuhviwzg=",
+        "lastModified": 1673596389,
+        "narHash": "sha256-0WM729GausnD1C1X2YgB3ZmWex0e3lF1Lxk26vOmUwc=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "d9b1c07ec96de0f32862be4451436f52c3646ca7",
+        "rev": "d5fd2caa252a7a0a378245cf505c994fc6950d85",
         "type": "github"
       },
       "original": {
@@ -935,11 +935,11 @@
     "nvim-treesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1662976955,
-        "narHash": "sha256-Iy5GdU+c/NECf7O+B8gnfcp48in1AnINWqqbgW+F6u8=",
+        "lastModified": 1673513815,
+        "narHash": "sha256-GWceTvXArCSksk/9bmDWJd3iPG2N8aArB4/EFRkx2l4=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "c836f946a9f41b7ebbad2f4d2253db3de89bf449",
+        "rev": "9a257d989a526c413a28c252c4ec9113a7d35a28",
         "type": "github"
       },
       "original": {
@@ -1258,11 +1258,11 @@
     "tree-sitter-scala": {
       "flake": false,
       "locked": {
-        "lastModified": 1673346307,
-        "narHash": "sha256-JwmH1KpwFSi4q75de8tzeURtuvS45/VInpjmdhVmJ4w=",
+        "lastModified": 1673524985,
+        "narHash": "sha256-FMomMPLbGydMgglXKRuE73AR6UcCEqaeXZkLL2frnb0=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-scala",
-        "rev": "7d7fd07e4119fe3cab9c992e220e874687e27344",
+        "rev": "47767fca8f422d7f22819f5dd2511ecaa290e7be",
         "type": "github"
       },
       "original": {
