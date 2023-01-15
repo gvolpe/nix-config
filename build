@@ -32,12 +32,12 @@ post_home() {
 }
 
 build_ci_home() {
-  nix build .#homeConfigurations.gvolpe-edp.activationPackage
+  nix build .#homeConfigurations.gvolpe-edp.activationPackage -L
 }
 
 build_ci_system() {
-  nix build .#nixosConfigurations.dell-xps.config.system.build.toplevel
-  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
+  nix build .#nixosConfigurations.dell-xps.config.system.build.toplevel -L
+  nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel -L
 }
 
 fresh_install() {
