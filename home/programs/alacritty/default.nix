@@ -32,7 +32,7 @@ in
       shell.program = "${pkgs.fish}/bin/fish";
       window = {
         decorations = "full";
-        opacity = 0.8;
+        opacity = 0.85;
         padding = {
           x = 5;
           y = 5;
