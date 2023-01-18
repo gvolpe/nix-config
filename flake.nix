@@ -6,6 +6,11 @@
 
     nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
 
+    rycee-nurpkgs = {
+      url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nurpkgs.url = github:nix-community/NUR;
 
     home-manager = {

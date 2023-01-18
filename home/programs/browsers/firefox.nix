@@ -1,7 +1,12 @@
-{ pkgs, specialArgs, ... }:
+{ pkgs, lib, stdenv, specialArgs, ... }:
 
 let
   inherit (specialArgs) addons hidpi;
+
+  customAddons = pkgs.callPackage ./firefox-addons.nix {
+    inherit lib;
+    inherit (specialArgs) buildFirefoxXpiAddon;
+  };
 
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
@@ -100,7 +105,9 @@ in
       ublock-origin
       unpaywall
       vimium
-    ];
+    ] ++ (with customAddons; [
+      chatgpt
+    ]);
 
     package = pkgs.firefox-beta-bin;
 

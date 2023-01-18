@@ -361,6 +361,21 @@
     },
     "flake-utils_6": {
       "locked": {
+        "lastModified": 1629284811,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c5d161cc0af116a2e17f54316f0bf43f0819785c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_7": {
+      "locked": {
         "lastModified": 1659877975,
         "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
         "owner": "numtide",
@@ -817,11 +832,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1673775971,
-        "narHash": "sha256-McSKY6kDbUbLfAQD+bDhBUx5qH6aZSWs0ZKCLkEu8ec=",
+        "lastModified": 1674049571,
+        "narHash": "sha256-ng1Fwe/3OLOFXVzXCgdocw1BxAJ7G/w5jBTbTok6gho=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "6d83652c7277244cd36db35b07a79bd773e79a88",
+        "rev": "9f12cc7c2886ccf3770739eaaf2fae5b8618ab76",
         "type": "github"
       },
       "original": {
@@ -1162,6 +1177,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
+        "rycee-nurpkgs": "rycee-nurpkgs",
         "tex2nix": "tex2nix"
       }
     },
@@ -1195,6 +1211,29 @@
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
         "type": "github"
+      }
+    },
+    "rycee-nurpkgs": {
+      "inputs": {
+        "flake-utils": "flake-utils_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1674045749,
+        "narHash": "sha256-TqvFAM6XZ7pJQQLUQVRzj5sGH/qXl9SR3/+EQg3CRU0=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "d5fae9fcaf3287fc25bfac71eb4a243efd24577d",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
       }
     },
     "snowfall-lib": {
@@ -1278,7 +1317,7 @@
     },
     "tex2nix": {
       "inputs": {
-        "flake-utils": "flake-utils_6",
+        "flake-utils": "flake-utils_7",
         "nixpkgs": [
           "nixpkgs"
         ]

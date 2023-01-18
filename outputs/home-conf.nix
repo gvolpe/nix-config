@@ -50,6 +50,7 @@ let
 
       extraSpecialArgs = {
         inherit hidpi;
+        inherit (rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = nur.repos.rycee.firefox-addons;
         gh-md-toc = inputs.gh-md-toc;
       };
