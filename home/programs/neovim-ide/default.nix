@@ -40,7 +40,7 @@ in
           rust.enable = false;
           dhall = true;
           elm = true;
-          haskell = true;
+          haskell = false;
           sql = false;
           python = false;
           clang = false;
