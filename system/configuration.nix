@@ -13,6 +13,11 @@ let
   };
 
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
+
+  hostsFile = secrets/hosts.nix;
+  fileHash = builtins.hashFile "sha256" hostsFile;
+  encryptedHash = "759f9af50241bf39d81257dd9d82c700234f003f6bce0cff506111bdf13c3866";
+  hosts = if fileHash == encryptedHash then { extra = ""; } else (import hostsFile);
 in
 {
   imports =
@@ -24,10 +29,17 @@ in
     ];
 
   networking = {
+    extraHosts = ''
+      ${hosts.extra}
+    '';
+
     # Enables wireless support and openvpn via network manager.
     networkmanager = {
       enable = true;
-      plugins = [ pkgs.networkmanager-openvpn ];
+      plugins = with pkgs; [
+        networkmanager-openvpn
+        networkmanager-openconnect
+      ];
     };
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
