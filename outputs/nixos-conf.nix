@@ -3,10 +3,10 @@
 let
   nixosSystem = inputs.nixpkgs.lib.nixosSystem;
 
-  sharedLib = import ../shared/lib.nix { lib = inputs.nixpkgs.lib; };
+  libx = import ../lib { lib = inputs.nixpkgs.lib; };
 
   lib = inputs.nixpkgs.lib.extend (_: _: {
-    inherit (sharedLib) secretManager;
+    inherit (libx) secretManager;
   });
 
   pkgs = import inputs.nixpkgs {

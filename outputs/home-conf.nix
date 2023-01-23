@@ -16,9 +16,9 @@ let
   };
 
   libOverlay = f: p: rec {
-    sharedLib = import ../shared/lib.nix { lib = p.lib; };
+    libx = import ../lib { lib = p.lib; };
     lib = p.lib.extend (_: _: {
-      inherit (sharedLib) removeNewline secretManager;
+      inherit (libx) removeNewline secretManager;
     });
   };
 
