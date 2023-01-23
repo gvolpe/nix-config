@@ -15,6 +15,13 @@ let
     nautilus-gtk3 = nixpkgs-nautilus-gtk3.legacyPackages.${system}.gnome.nautilus;
   };
 
+  libOverlay = f: p: rec {
+    sharedLib = import ../shared/lib.nix { lib = p.lib; };
+    lib = p.lib.extend (_: _: {
+      inherit (sharedLib) removeNewline secretManager;
+    });
+  };
+
   pkgs = import nixpkgs {
     inherit system;
 
@@ -23,6 +30,7 @@ let
     overlays = [
       cowsayOverlay
       fishOverlay
+      libOverlay
       nautilusOverlay
       nurpkgs.overlay
       neovim-flake.overlays.${system}.default

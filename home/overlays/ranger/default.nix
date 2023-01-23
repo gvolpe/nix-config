@@ -2,7 +2,7 @@ self: super:
 
 {
   ranger = super.ranger.overrideAttrs (
-    old: rec {
+    old: {
       # set ueberzug as the default method for previewing images on the terminal
       preConfigure = old.preConfigure + ''
         substituteInPlace ranger/ext/img_display.py \

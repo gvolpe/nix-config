@@ -21,7 +21,7 @@
         symbolsFile = ./us-custom.xkb;
       };
 
-      layout = "us-custom";
+      layout = "us";
 
       libinput = {
         enable = true;

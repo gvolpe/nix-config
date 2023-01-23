@@ -14,10 +14,12 @@ let
 
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
 
-  hostsFile = secrets/hosts.nix;
-  fileHash = builtins.hashFile "sha256" hostsFile;
-  encryptedHash = "759f9af50241bf39d81257dd9d82c700234f003f6bce0cff506111bdf13c3866";
-  hosts = if fileHash == encryptedHash then { extra = ""; } else (import hostsFile);
+  hosts = lib.secretManager {
+    filepath = ./secrets/hosts.nix;
+    fileAction = import;
+    encryptedSha256 = "759f9af50241bf39d81257dd9d82c700234f003f6bce0cff506111bdf13c3866";
+    emptyValue = { extra = ""; };
+  };
 in
 {
   imports =
@@ -185,13 +187,6 @@ in
       Defaults lecture=always
       Defaults lecture_file=${misc/groot.txt}
     '';
-  };
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "xrdp-0.9.9"
-    ];
   };
 
   # Nix daemon config

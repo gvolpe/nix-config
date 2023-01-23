@@ -5,9 +5,6 @@ let
   homeDirectory = "/home/${username}";
   configHome = "${homeDirectory}/.config";
 
-  # workaround to open a URL in a new tab in the specific firefox profile
-  work-browser = pkgs.callPackage ./programs/browsers/work.nix {};
-
   defaultPkgs = with pkgs; [
     any-nix-shell        # fish support for nix shell
     arandr               # simple GUI for xrandr
@@ -69,12 +66,6 @@ let
 
     # haskell packages
     haskellPackages.nix-tree # visualize nix dependencies
-
-    # work stuff
-    work-browser
-
-    # fixes the `ar` error required by cabal
-    binutils-unwrapped
   ];
 
   gnomePkgs = with pkgs.gnome; [

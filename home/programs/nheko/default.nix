@@ -1,11 +1,12 @@
 { pkgs, lib, specialArgs, ... }:
 
 let
-  removeNewline = lib.replaceStrings [ "\n" ] [ "" ];
-  tokenFile = ../../secrets/nheko-access-token;
-  fileHash = builtins.hashFile "sha256" tokenFile;
-  encryptedHash = "e62518ff814adf565b79717a1ce970dc61962b26dd582cfa8e9679c493cdc95f";
-  token = removeNewline (if fileHash == encryptedHash then "SECRET" else (builtins.readFile tokenFile));
+  token = lib.secretManager {
+    filepath = ../../secrets/nheko-access-token;
+    fileAction = file: lib.removeNewline (builtins.readFile file);
+    encryptedSha256 = "e62518ff814adf565b79717a1ce970dc61962b26dd582cfa8e9679c493cdc95f";
+    emptyValue = "SECRET";
+  };
 in
 {
   programs.nheko = {
