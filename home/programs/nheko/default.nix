@@ -4,7 +4,7 @@ let
   token = lib.secretManager {
     filepath = ../../secrets/nheko-access-token;
     fileAction = file: lib.removeNewline (builtins.readFile file);
-    encryptedSha256 = "e62518ff814adf565b79717a1ce970dc61962b26dd582cfa8e9679c493cdc95f";
+    encryptedSha256 = "37c4e7f9867f1005ce6247a38fa142a5a3682d755d3c57de531e9e23a0d05be7";
     emptyValue = "SECRET";
   };
 in
@@ -19,7 +19,7 @@ in
 
       auth = {
         accessToken = token;
-        deviceId = "DWLAOURPHA";
+        deviceId = "CGDVEGHPLX";
         homeServer = "https://matrix-client.matrix.org:443";
         userId = "@@gvolpe:matrix.org";
       };

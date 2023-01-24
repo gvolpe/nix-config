@@ -18,7 +18,7 @@
        };
 
      Type:
-       secretManager :: String -> (String -> a) -> String -> a
+       secretManager :: String -> (String -> a) -> String -> a -> a
   */
   secretManager =
     { filepath
