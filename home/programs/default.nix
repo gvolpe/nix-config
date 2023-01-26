@@ -65,6 +65,7 @@ in
   ./git
   ./fish
   ./md-toc
+  ./mimeo
   ./neofetch
   ./neovim-ide
   ./nheko
