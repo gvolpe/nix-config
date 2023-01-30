@@ -15,7 +15,6 @@ in
           multiple-cursors
           vim-mergetool
           vim-repeat
-          vim-surround
         ];
         neovim.package = pkgs.neovim-nightly;
         lsp = {
@@ -103,6 +102,9 @@ in
           type = "nerdcommenter";
         };
         shortcuts = {
+          enable = true;
+        };
+        surround = {
           enable = true;
         };
         telescope = {
