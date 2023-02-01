@@ -1,20 +1,20 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   gitConfig = {
     core = {
       editor = "nvim";
-      pager  = "diff-so-fancy | less --tabs=4 -RFX";
+      pager = "diff-so-fancy | less --tabs=4 -RFX";
     };
     init.defaultBranch = "main";
     merge = {
       conflictStyle = "diff3";
-      tool          = "vim_mergetool";
+      tool = "vim_mergetool";
     };
     mergetool."vim_mergetool" = {
       #cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"";
       # this command requires the vim-mergetool plugin
-      cmd    = "nvim -f -c \"MergetoolStart\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
+      cmd = "nvim -f -c \"MergetoolStart\" \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"";
       prompt = false;
     };
     pull.rebase = false;
@@ -27,14 +27,21 @@ let
     };
   };
 
+  sxmConfig = lib.secretManager {
+    filepath = ../../secrets/sxm-git.nix;
+    fileAction = import;
+    encryptedSha256 = "627992cad32c260c2422e2aaa1884db6629d13e924a3b6f66964d9005996e43a";
+    emptyValue = { };
+  };
+
   rg = "${pkgs.ripgrep}/bin/rg";
 in
 {
   home.packages = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
-    git-crypt     # git files encryption
-    hub           # github command-line client
-    tig           # diff and commit view
+    git-crypt # git files encryption
+    hub # github command-line client
+    tig # diff and commit view
   ];
 
   programs.git = {
@@ -42,7 +49,7 @@ in
     aliases = {
       amend = "commit --amend -m";
       fixup = "!f(){ git reset --soft HEAD~\${1} && git commit --amend -C HEAD; };f";
-      loc   = "!f(){ git ls-files | ${rg} \"\\.\${1}\" | xargs wc -l; };f"; # lines of code
+      loc = "!f(){ git ls-files | ${rg} \"\\.\${1}\" | xargs wc -l; };f"; # lines of code
       br = "branch";
       co = "checkout";
       st = "status";
@@ -60,10 +67,10 @@ in
       "*.metals.sbt"
       "*metals.sbt"
       "*.direnv"
-      "*.envrc"        # there is lorri, nix-direnv & simple direnv; let people decide
-      "*hie.yaml"      # ghcide files
+      "*.envrc" # there is lorri, nix-direnv & simple direnv; let people decide
+      "*hie.yaml" # ghcide files
       "*.mill-version" # used by metals
-      "*.jvmopts"      # should be local to every project
+      "*.jvmopts" # should be local to every project
     ];
     signing = {
       key = "121D4302A64B2261";
@@ -71,5 +78,5 @@ in
     };
     userEmail = "volpegabriel@gmail.com";
     userName = "Gabriel Volpe";
-  };
+  } // sxmConfig;
 }
