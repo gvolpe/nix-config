@@ -4,7 +4,7 @@ with inputs;
 
 let
   cowsayOverlay = f: p: {
-    cowsay = inputs.cowsay.packages.${system}.cowsay;
+    inherit (inputs.cowsay.packages.${system}) cowsay;
   };
 
   fishOverlay = f: p: {
@@ -16,7 +16,7 @@ let
   };
 
   libOverlay = f: p: rec {
-    libx = import ../lib { lib = p.lib; };
+    libx = import ../lib { inherit (p) lib; };
     lib = p.lib.extend (_: _: {
       inherit (libx) removeNewline secretManager;
     });
@@ -34,6 +34,7 @@ let
       nautilusOverlay
       nurpkgs.overlay
       neovim-flake.overlays.${system}.default
+      statix.overlays.default
       (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
@@ -58,9 +59,9 @@ let
 
       extraSpecialArgs = {
         inherit hidpi;
+        inherit (inputs) gh-md-toc;
         inherit (rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = nur.repos.rycee.firefox-addons;
-        gh-md-toc = inputs.gh-md-toc;
       };
 
       modules = [{ inherit imports; }];

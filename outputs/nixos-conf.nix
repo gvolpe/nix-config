@@ -1,9 +1,9 @@
 { inputs, system, ... }:
 
 let
-  nixosSystem = inputs.nixpkgs.lib.nixosSystem;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
 
-  libx = import ../lib { lib = inputs.nixpkgs.lib; };
+  libx = import ../lib { inherit (inputs.nixpkgs) lib; };
 
   lib = inputs.nixpkgs.lib.extend (_: _: {
     inherit (libx) secretManager;

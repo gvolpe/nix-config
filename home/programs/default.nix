@@ -72,6 +72,7 @@ in
   ./orage
   ./rofi
   ./signal
+  ./statix
   ./xmonad
   ./yubikey
   more

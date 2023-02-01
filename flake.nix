@@ -57,6 +57,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix linter
+
+    statix = {
+      url = github:nerdypepper/statix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Miscelaneous
 
     cowsay = {
@@ -68,16 +75,10 @@
   outputs = inputs:
     let system = "x86_64-linux"; in
     {
-      homeConfigurations = (
-        import ./outputs/home-conf.nix {
-          inherit inputs system;
-        }
-      );
+      homeConfigurations =
+        import ./outputs/home-conf.nix { inherit inputs system; };
 
-      nixosConfigurations = (
-        import ./outputs/nixos-conf.nix {
-          inherit inputs system;
-        }
-      );
+      nixosConfigurations =
+        import ./outputs/nixos-conf.nix { inherit inputs system; };
     };
 }

@@ -17,8 +17,8 @@ let
   custom = pkgs.callPackage ./plugins.nix {};
 
   fenv = {
+    inherit (pkgs.fishPlugins.foreign-env) src;
     name = "foreign-env";
-    src = pkgs.fishPlugins.foreign-env.src;
   };
 
   fishConfig = ''
