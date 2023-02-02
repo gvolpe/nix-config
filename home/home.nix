@@ -39,6 +39,7 @@ let
     ncdu                 # disk space info (a better du)
     ngrok                # secure tunneling to localhost
     nix-index            # locate packages containing certain nixpkgs
+    nix-output-monitor   # nom: monitor nix commands
     nyancat              # the famous rainbow cat!
     ouch                 # painless compression and decompression for your terminal
     pavucontrol          # pulseaudio volume control
