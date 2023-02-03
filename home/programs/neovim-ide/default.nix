@@ -82,6 +82,7 @@ in
           hideDotFiles = false;
           hideFiles = [ "node_modules" ".cache" ];
         };
+        neoclip.enable = true;
         hop.enable = true;
         todo.enable = true;
         tabline.nvimBufferline.enable = true;
