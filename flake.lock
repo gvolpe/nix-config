@@ -488,11 +488,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1673737886,
-        "narHash": "sha256-hNTqD0uIgpbtTI2Nuj/Q1lEFOOdZqqXpxoc8rMno2F0=",
+        "lastModified": 1675462931,
+        "narHash": "sha256-JiOUSERBtA1lN/s9YTKGZoZ3XUicHDwr+C8swaPSh3M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2827b5306462d91edec16a3d069b2d6e54c3079f",
+        "rev": "e2c1756e3ae001ca8696912016dd31cb1503ccf3",
         "type": "github"
       },
       "original": {
@@ -705,6 +705,7 @@
         "todo-comments": "todo-comments",
         "tokyonight": "tokyonight",
         "tree-sitter-scala": "tree-sitter-scala",
+        "tree-sitter-typescript": "tree-sitter-typescript",
         "trouble": "trouble",
         "ts-build": "ts-build",
         "vim-plantuml": "vim-plantuml",
@@ -712,11 +713,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1675421123,
-        "narHash": "sha256-RNJVhPDfxD6zicXMpzy4rBRxhiMVlKEapmUik/oEX88=",
+        "lastModified": 1675513962,
+        "narHash": "sha256-8kT8G//VJtJPTNJCMdIgX6RST5fzv57rv+7lHTaFaNw=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "540e0fe79fa20fa427a3a1910799819e9ec00273",
+        "rev": "ca8f6f654e78140aa2c132a98568926dc6cf2631",
         "type": "github"
       },
       "original": {
@@ -828,11 +829,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1673631141,
-        "narHash": "sha256-AprpYQ5JvLS4wQG/ghm2UriZ9QZXvAwh1HlgA/6ZEVQ=",
+        "lastModified": 1675362331,
+        "narHash": "sha256-VmcnKPj5gJLxWK7Bxlhg2LoQvhKRss7Ax+uoFjd3qKY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "befc83905c965adfd33e5cae49acb0351f6e0404",
+        "rev": "a100acd7bbf105915b0004427802286c37738fef",
         "type": "github"
       },
       "original": {
@@ -874,11 +875,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1674049571,
-        "narHash": "sha256-ng1Fwe/3OLOFXVzXCgdocw1BxAJ7G/w5jBTbTok6gho=",
+        "lastModified": 1675493104,
+        "narHash": "sha256-Sd9bXL8q9uaQHVIC2rWoctB6E5fETo1BydzSyNR6RiI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "9f12cc7c2886ccf3770739eaaf2fae5b8618ab76",
+        "rev": "854a244d72792711cd05ecbe35bccfd93bf33ab3",
         "type": "github"
       },
       "original": {
@@ -1282,11 +1283,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1674045749,
-        "narHash": "sha256-TqvFAM6XZ7pJQQLUQVRzj5sGH/qXl9SR3/+EQg3CRU0=",
+        "lastModified": 1675483370,
+        "narHash": "sha256-hfPSnO6cyq2TOpMa5Bvpvgm50iSKKrfqvMxcTDf9Dgo=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "d5fae9fcaf3287fc25bfac71eb4a243efd24577d",
+        "rev": "9fb02d959978bfa1136bb217e66de8d29a3c2ed8",
         "type": "gitlab"
       },
       "original": {
@@ -1405,11 +1406,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1671620613,
-        "narHash": "sha256-QJaDy+y77/XiSMGxcV029gnDRgjakUfr+PrZNJDtQC8=",
+        "lastModified": 1675179530,
+        "narHash": "sha256-37reo2TBSJ9JaICXevlN4P78yp1Rv6zGjbwQX1ZY3Xk=",
         "owner": "Mic92",
         "repo": "tex2nix",
-        "rev": "9ec1c0cd8eecf938f4954c53755c4564679486d9",
+        "rev": "f095f78bd5684e6501fde9cb377c524ffec9d7f2",
         "type": "github"
       },
       "original": {
@@ -1463,6 +1464,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-scala",
+        "type": "github"
+      }
+    },
+    "tree-sitter-typescript": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674574592,
+        "narHash": "sha256-cpOAtfvlffS57BrXaoa2xa9NUYw0AsHxVI8PrcpgZCQ=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-typescript",
+        "rev": "5d20856f34315b068c41edaee2ac8a100081d259",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-typescript",
         "type": "github"
       }
     },
