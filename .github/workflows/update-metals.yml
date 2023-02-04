@@ -25,16 +25,15 @@ jobs:
         run: nix run .#metals-updater
 
       - name: "Create pull request"
-        uses: peter-evans/create-pull-request@v4.1.1
+        uses: peter-evans/create-pull-request@v4.2.3
         with:
-          commit-message: |
-            Update Metals to ${{ steps.fetcher.outputs.metals_version }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           token: ${{ secrets.REPO_GITHUB_TOKEN }}
           base: master
           branch: update/metals-latest-snapshot
           delete-branch: true
+          commit-message: 'Update Metals to "${{ steps.fetcher.outputs.metals_version }}"'
           title: 'Update Metals to ${{ steps.fetcher.outputs.metals_version }}'
           body: |
             Update Metals to version `${{ steps.fetcher.outputs.metals_version }}`. See https://scalameta.org/metals/latests.json
