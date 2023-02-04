@@ -1,7 +1,6 @@
 name: "Update Metals"
 
 on:
-  pull_request:
   schedule:
   - cron: "0 8 * * *"
 
