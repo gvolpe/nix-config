@@ -22,7 +22,7 @@ jobs:
 
       - name: "Fetch latest Metals"
         id: fetcher
-        run: echo "metals_version=$(nix run .#metals-updater)"
+        run: echo "metals_version=$(nix run .#metals-updater)" >> $GITHUB_OUTPUT
 
       - name: "Create pull request"
         uses: peter-evans/create-pull-request@v4.1.1
