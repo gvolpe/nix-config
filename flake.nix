@@ -73,12 +73,22 @@
   };
 
   outputs = inputs:
-    let system = "x86_64-linux"; in
+    let
+      system = "x86_64-linux";
+      ci = import ./outputs/ci.nix { inherit inputs system; };
+    in
     {
       homeConfigurations =
         import ./outputs/home-conf.nix { inherit inputs system; };
 
       nixosConfigurations =
         import ./outputs/nixos-conf.nix { inherit inputs system; };
+
+      apps.${system}.metals-updater = {
+        type = "app";
+        program = "${ci.metals-updater}";
+      };
+
+      packages.${system}.metals = ci.metals;
     };
 }
