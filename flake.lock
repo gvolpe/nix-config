@@ -396,21 +396,6 @@
         "type": "github"
       }
     },
-    "flake-utils_7": {
-      "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "gh-md-toc": {
       "flake": false,
       "locked": {
@@ -1221,8 +1206,7 @@
         "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
         "rycee-nurpkgs": "rycee-nurpkgs",
-        "statix": "statix",
-        "tex2nix": "tex2nix"
+        "statix": "statix"
       }
     },
     "rosepine": {
@@ -1395,27 +1379,6 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
-        "type": "github"
-      }
-    },
-    "tex2nix": {
-      "inputs": {
-        "flake-utils": "flake-utils_7",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1675179530,
-        "narHash": "sha256-37reo2TBSJ9JaICXevlN4P78yp1Rv6zGjbwQX1ZY3Xk=",
-        "owner": "Mic92",
-        "repo": "tex2nix",
-        "rev": "f095f78bd5684e6501fde9cb377c524ffec9d7f2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Mic92",
-        "repo": "tex2nix",
         "type": "github"
       }
     },

@@ -58,7 +58,6 @@ let
     skypeforlinux        # messaging client
     slack                # messaging client
     tdesktop             # telegram messaging client
-    tex2nix              # texlive expressions for documents
     tldr                 # summary of a man page
     tree                 # display files in a tree view
     vlc                  # media player

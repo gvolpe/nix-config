@@ -50,13 +50,6 @@
       flake = false;
     };
 
-    # LaTeX stuff
-
-    tex2nix = {
-      url = github:Mic92/tex2nix?ref=9ec1c0c;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Nix linter
 
     statix = {
