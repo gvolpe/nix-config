@@ -24,6 +24,10 @@ jobs:
         id: fetcher
         run: nix run .#metals-updater
 
+      - name: "Set Metals Version for commit-message 🤷"
+        shell: bash
+        run: echo 'METALS_VERSION=${{ steps.fetcher.outputs.metals_version }}' >> $GITHUB_ENV
+
       - name: "Create pull request"
         uses: peter-evans/create-pull-request@v4.2.3
         with:
@@ -33,7 +37,7 @@ jobs:
           base: master
           branch: update/metals-latest-snapshot
           delete-branch: true
-          commit-message: 'Update Metals to "${{ steps.fetcher.outputs.metals_version }}"'
+          commit-message: 'Update Metals to $METALS_VERSION'
           title: 'Update Metals to ${{ steps.fetcher.outputs.metals_version }}'
           body: |
             Update Metals to version `${{ steps.fetcher.outputs.metals_version }}`. See https://scalameta.org/metals/latests.json
