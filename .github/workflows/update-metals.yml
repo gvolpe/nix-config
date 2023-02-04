@@ -1,6 +1,7 @@
 name: "Update Metals"
 
 on:
+  pull_request:
   schedule:
   - cron: "0 8 * * *"
 
@@ -20,22 +21,21 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: "Fetch latest Metals"
-        run: |
-          nix build .#homeConfigurations.ci.metals-updater
-          ./result
+        id: fetcher
+        run: echo "metals_version=$(nix run .#metals-updater)"
 
-      - name: "Create PR"
+      - name: "Create pull request"
         uses: peter-evans/create-pull-request@v4.1.1
         with:
-          commit-message: Update metals to latest version
+          commit-message: Update metals to ${{ steps.fetcher.outputs.metals_version }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           token: ${{ secrets.REPO_GITHUB_TOKEN }}
           base: master
           branch: update/metals-latest-snapshot
           delete-branch: true
-          title: 'Update Metals to latest snapshot'
+          title: 'Update Metals to ${{ steps.fetcher.outputs.metals_version }}'
           body: |
-            Update Metals to latest version. See https://scalameta.org/metals/latests.json
+            Update Metals to version `${{ steps.fetcher.outputs.metals_version }}`. See https://scalameta.org/metals/latests.json
           labels: |
             metals-update

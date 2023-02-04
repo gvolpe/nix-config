@@ -71,10 +71,4 @@ in
 {
   gvolpe-edp = mkHome { hidpi = false; };
   gvolpe-hdmi = mkHome { hidpi = true; };
-
-  # Continuos Integration automation
-  ci = {
-    metals = pkgs.callPackage ../home/programs/neovim-ide/metals.nix { };
-    metals-updater = pkgs.callPackage ../home/programs/neovim-ide/update-metals.nix { };
-  };
 }
