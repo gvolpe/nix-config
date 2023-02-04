@@ -39,4 +39,7 @@ jobs:
         run: nix-env --set-flag priority 0 cachix
 
       - name: "Build Home Manager config 🏠"
-        run: ./build ci-home
+        run: nix build .#homeConfigurations.gvolpe-hdmi.activationPackage -L
+
+      - name: "Build CI packages ⚙️"
+        run: nix build .#metals-updater -L

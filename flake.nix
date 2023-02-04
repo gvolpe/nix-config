@@ -84,11 +84,8 @@
       nixosConfigurations =
         import ./outputs/nixos-conf.nix { inherit inputs system; };
 
-      apps.${system}.metals-updater = {
-        type = "app";
-        program = "${ci.metals-updater}";
+      packages.${system} = {
+        inherit (ci) metals metals-updater;
       };
-
-      packages.${system}.metals = ci.metals;
     };
 }
