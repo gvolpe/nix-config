@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: "Install Nix ❄️"
-        uses: cachix/install-nix-action@v15
+        uses: cachix/install-nix-action@v18
 
       - name: "Install Cachix ❄️"
-        uses: cachix/cachix-action@v10
+        uses: cachix/cachix-action@v12
         with:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -27,7 +27,7 @@ jobs:
       - name: "Create pull request"
         uses: peter-evans/create-pull-request@v4.1.1
         with:
-          commit-message: Update metals to ${{ steps.fetcher.outputs.metals_version }}
+          commit-message: 'Update Metals to ${{ steps.fetcher.outputs.metals_version }}'
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           token: ${{ secrets.REPO_GITHUB_TOKEN }}
