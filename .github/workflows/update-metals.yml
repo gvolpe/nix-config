@@ -31,7 +31,7 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           token: ${{ secrets.REPO_GITHUB_TOKEN }}
           base: master
-          branch: update/metals-latest-snapshot
+          branch: update/metals-${{ steps.fetcher.outputs.metals_version }}
           delete-branch: true
           commit-message: "Update Metals to ${{ steps.fetcher.outputs.metals_version }}"
           title: 'Update Metals to ${{ steps.fetcher.outputs.metals_version }}'
