@@ -28,7 +28,7 @@ writeShellScript "update-metals" ''
 
     sed -i "s|$OLD_HASH|$NEW_HASH|g" ${file}
 
-    echo $NEW
+    echo "metals_version=$NEW" >> $GITHUB_OUTPUT
   else
     echo "Versions are identical, aborting."
   fi
