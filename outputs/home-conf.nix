@@ -35,10 +35,8 @@ let
       nurpkgs.overlay
       neovim-flake.overlays.${system}.default
       statix.overlays.default
-      (f: p: { tex2nix = tex2nix.defaultPackage.${system}; })
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
-      (import ../home/overlays/xdg-open)
     ];
   };
 
