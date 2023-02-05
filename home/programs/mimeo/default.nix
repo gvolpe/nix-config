@@ -9,5 +9,6 @@ let
   };
 in
 {
+  home.packages = [ pkgs.mimeo ];
   xdg.configFile."mimeo/associations.txt".text = associations;
 }

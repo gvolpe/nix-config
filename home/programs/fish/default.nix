@@ -14,7 +14,7 @@ let
     set -g theme_color_scheme solarized
   '';
 
-  custom = pkgs.callPackage ./plugins.nix {};
+  custom = pkgs.callPackage ./plugins.nix { };
 
   fenv = {
     inherit (pkgs.fishPlugins.foreign-env) src;
@@ -25,6 +25,8 @@ let
     bind \t accept-autosuggestion
     set fish_greeting
   '' + fzfConfig + themeConfig;
+
+  dc = "${pkgs.docker-compose}/bin/docker-compose";
 in
 {
   programs.fish = {
@@ -35,17 +37,18 @@ in
       any-nix-shell fish --info-right | source
     '';
     shellAliases = {
-      cat  = "bat";
-      dc   = "docker-compose";
-      dps  = "docker-compose ps";
-      dcd  = "docker-compose down --remove-orphans";
-      drm  = "docker images -a -q | xargs docker rmi -f";
-      du   = "ncdu --color dark -rr -x";
-      ls   = "exa";
-      ll   = "ls -a";
+      inherit dc;
+      cat = "bat";
+      dps = "${dc} ps";
+      dcd = "${dc} down --remove-orphans";
+      drm = "docker images -a -q | xargs docker rmi -f";
+      du = "${pkgs.ncdu}/bin/ncdu --color dark -rr -x";
+      ls = "${pkgs.exa}/bin/exa";
+      ll = "ls -a";
       ".." = "cd ..";
-      ping = "prettyping";
-      tree = "exa -T";
+      ping = "${pkgs.prettyping}/bin/prettyping";
+      tree = "${pkgs.exa}/bin/exa -T";
+      xdg-open = "${pkgs.mimeo}/bin/mimeo";
     };
     shellInit = fishConfig;
   };
