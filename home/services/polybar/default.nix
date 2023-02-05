@@ -54,7 +54,7 @@ let
   github = ''
     [module/clickable-github]
     inherit = module/github
-    token = ''${file:${config.xdg.configHome}/secrets/github}
+    token = ''${file:${../../secrets/github-token}}
     user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';

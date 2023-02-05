@@ -85,7 +85,6 @@ in
 
   imports = builtins.concatMap import [
     ./modules
-    ./age
     ./programs
     ./scripts
     ./services
