@@ -18,11 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    homeage = {
-      url = github:jordanisaacs/homeage?ref=323037e;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
