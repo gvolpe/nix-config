@@ -13,9 +13,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: nixbuild/nix-quick-install-action@v19
       - uses: nixbuild/nixbuild-action@v15
-        secrets:
-          nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
         with:
+          nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
+
           # All settings are optional, the CI Workflow has usable defaults
           # The available settings are documented in ./ci-workflow.yml
 
