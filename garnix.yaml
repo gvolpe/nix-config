@@ -4,5 +4,3 @@ builds:
  - '*.x86_64-linux.*'
  - 'nixosConfigurations.dell-xps'
  - 'nixosConfigurations.tongfang-amd'
- - 'homeConfigurations.gvolpe-edp.*'
- - 'homeConfigurations.gvolpe-hdmi.*'

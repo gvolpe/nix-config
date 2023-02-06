@@ -65,7 +65,7 @@
       system = "x86_64-linux";
       ci = import ./outputs/ci.nix { inherit inputs system; };
     in
-    {
+    rec {
       homeConfigurations =
         import ./outputs/home-conf.nix { inherit inputs system; };
 
@@ -74,6 +74,9 @@
 
       packages.${system} = {
         inherit (ci) metals metals-updater;
+        # for garnix: https://github.com/garnix-io/issues/issues/24
+        home-edp = homeConfigurations.gvolpe-edp.activationPackage;
+        home-hdmi = homeConfigurations.gvolpe-hdmi.activationPackage;
       };
     };
 }
