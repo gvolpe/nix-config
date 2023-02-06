@@ -2,7 +2,7 @@ pull_request_rules:
   - name: merge automated metals update PRs on CI success
     conditions:
       - author=gvolpe
-      - title=Update Metals to latest snapshot
+      - title~=(?i)Update Metals to
       - check-success~=build
     actions:
       merge:
