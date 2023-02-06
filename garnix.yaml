@@ -1,0 +1,7 @@
+builds:
+ exclude: []
+ include:
+ - '*.x86_64-linux.*'
+ - nixosConfigurations.dell-xps
+ - nixosConfigurations.tongfang-amd
+ - homeConfigurations.*'

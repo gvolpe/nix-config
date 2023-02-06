@@ -37,6 +37,7 @@ let
       statix.overlays.default
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
+      (import ../home/overlays/xdg-open)
     ];
   };
 

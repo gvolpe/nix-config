@@ -1,45 +1,45 @@
-name: Home
+#name: Home
 
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - 'GNOME.md'
-      - 'README.md'
-      - 'notes/**'
-      - '.git-crypt/**'
-      - '.gitattributes'
-      - '.gitignore'
-      - 'system/**'
-      - 'outputs/installation.nix'
-      - 'outputs/nixos-conf.nix'
-      - 'build'
-      - 'switch'
-      - '.mergify.yml'
+#on:
+  #pull_request:
+  #push:
+    #branches:
+      #- master
+    #paths-ignore:
+      #- 'GNOME.md'
+      #- 'README.md'
+      #- 'notes/**'
+      #- '.git-crypt/**'
+      #- '.gitattributes'
+      #- '.gitignore'
+      #- 'system/**'
+      #- 'outputs/installation.nix'
+      #- 'outputs/nixos-conf.nix'
+      #- 'build'
+      #- 'switch'
+      #- '.mergify.yml'
 
-jobs:
-  build:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2.3.2
+#jobs:
+  #build:
+    #runs-on: ubuntu-18.04
+    #steps:
+      #- uses: actions/checkout@v2.3.2
 
-      - name: "Install Nix ❄️"
-        uses: cachix/install-nix-action@v15
+      #- name: "Install Nix ❄️"
+        #uses: cachix/install-nix-action@v15
 
-      - name: "Install Cachix ❄️"
-        uses: cachix/cachix-action@v10
-        with:
-          name: gvolpe-nixos
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      #- name: "Install Cachix ❄️"
+        #uses: cachix/cachix-action@v10
+        #with:
+          #name: gvolpe-nixos
+          #authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      # Needed because cachix is also installed by Home Manager
-      - name: "Set priority flag for Cachix 🚩"
-        run: nix-env --set-flag priority 0 cachix
+      ## Needed because cachix is also installed by Home Manager
+      #- name: "Set priority flag for Cachix 🚩"
+        #run: nix-env --set-flag priority 0 cachix
 
-      - name: "Build Home Manager config 🏠"
-        run: nix build .#homeConfigurations.gvolpe-hdmi.activationPackage -L
+      #- name: "Build Home Manager config 🏠"
+        #run: nix build .#homeConfigurations.gvolpe-hdmi.activationPackage -L
 
-      - name: "Build CI packages ⚙️"
-        run: nix build .#metals-updater -L
+      #- name: "Build CI packages ⚙️"
+        #run: nix build .#metals-updater -L
