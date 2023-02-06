@@ -1,9 +1,6 @@
 nix-config
 ==========
 
-[![CI Home](https://github.com/gvolpe/nix-config/workflows/Home/badge.svg)](https://github.com/gvolpe/nix-config/actions)
-[![CI System](https://github.com/gvolpe/nix-config/workflows/NixOS/badge.svg)](https://github.com/gvolpe/nix-config/actions)
-
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
 ![cowsay](imgs/cowsay.png)
