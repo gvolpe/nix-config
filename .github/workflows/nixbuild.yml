@@ -1,0 +1,35 @@
+name: Nixbuild demo
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  checks:
+    uses: nixbuild/nixbuild-action@v15
+    secrets:
+      nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
+    with:
+      # All settings are optional, the CI Workflow has usable defaults
+      # The available settings are documented in ./ci-workflow.yml
+
+      # By default the CI Workflow uses flake.nix from the repository root, but
+      # we want it to use our example flake here
+      #flake_directory: examples/using-the-ci-workflow
+
+      # Tweak the label shown for each job. This is done with a jq expression
+      # that produces a string based on the build's fields
+      label_builds: '"\(.attr).\(.system)"'
+
+      # We can filter which attributes to build by configuring a jq expression
+      # producing a boolean based on the build's fields. We use the same
+      # expression that the CI Workflow uses by default here (build everything
+      # in the flake's `checks` attribute).
+      filter_builds: '.top_attr == "packages"'
+
+      # If ignore_build_failures is set to true, the workflow will not be stopped
+      # on build errors, giving us the chance to process the build results in
+      # a dependant job. Defaults to false.
+      ignore_build_failures: true
