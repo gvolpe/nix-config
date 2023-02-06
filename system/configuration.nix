@@ -210,6 +210,7 @@ in
       trusted-users = [ "root" "gvolpe" ];
 
       experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
 
       # Avoid unwanted garbage collection when using nix-direnv
       keep-outputs = true;
