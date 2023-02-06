@@ -15,5 +15,5 @@ jobs:
       - uses: nixbuild/nixbuild-action@v15
         with:
           nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
-          generate-summary-for: 'checks'
+          generate_summary_for: 'checks'
       - run: nix build .#metals
