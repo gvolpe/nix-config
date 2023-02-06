@@ -1,6 +1,7 @@
 {
   nix.settings = {
     substituters = [
+      "https://cache.cachix.io"
       "https://gvolpe-nixos.cachix.org"
     ];
     trusted-public-keys = [
