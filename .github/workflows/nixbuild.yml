@@ -12,6 +12,7 @@ jobs:
     secrets:
       nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
     with:
+      nix_conf: '--allow-import-from-derivation'
       filter_builds: '.top_attr == "packages"'
 #jobs:
   #demo:
