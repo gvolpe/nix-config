@@ -7,22 +7,10 @@ on:
       - master
 
 jobs:
-  demo:
+  build:
     uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@master
     secrets:
       nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
     with:
       nix_conf: 'allow-import-from-derivation = true'
       filter_builds: '.top_attr == "packages"'
-#jobs:
-  #demo:
-    #runs-on: ubuntu-latest
-    #steps:
-      #- uses: actions/checkout@v3
-      #- name: "Install Nix ❄️"
-        #uses: cachix/install-nix-action@v18
-      ##- uses: nixbuild/nixbuild-action@v15
-      ##  with:
-          ##generate_summary_for: 'demo'
-      ##- run: nix build .#home-hdmi
-      #- uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v15
