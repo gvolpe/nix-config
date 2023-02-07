@@ -68,6 +68,7 @@ in
   ./mimeo
   ./neofetch
   ./neovim-ide
+  ./ngrok
   ./nheko
   ./orage
   ./rofi
