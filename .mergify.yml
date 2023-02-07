@@ -3,7 +3,7 @@ pull_request_rules:
     conditions:
       - author=gvolpe
       - title~=(?i)Update Metals to
-      - check-success~=build
+      - "check-success~=package metals [x86_64-linux]"
     actions:
       merge:
         method: merge
