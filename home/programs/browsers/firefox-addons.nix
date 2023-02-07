@@ -1,17 +1,17 @@
 { buildFirefoxXpiAddon, lib }:
 
 {
-  chatgpt = buildFirefoxXpiAddon {
-    pname = "chatgpt_for_google";
-    version = "1.15.1";
-    addonId = "{4b726fbc-aba9-4fa7-97fd-a42c2511ddf7}";
-    url = "https://addons.mozilla.org/firefox/downloads/file/4057649/chatgpt_for_google-1.15.1.xpi";
-    sha256 = "sha256-GT2X3wIxMjqPGCx9OtU0SYHMXI3vhQ1SC+KAdEHI3Q8=";
+  chatgpt = buildFirefoxXpiAddon rec {
+    pname = "chatgpt_for_search_engines";
+    version = "1.5.4";
+    addonId = "{28c31a34-6fa8-4962-91eb-2f4777de6e68}";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4055458/${pname}-${version}.xpi";
+    sha256 = "sha256-CDfYJN7le+F4cXWi2mK3RhhGYGzUzFX5vsHiz6Y5m+g=";
     meta = with lib;
       {
-        homepage = "https://github.com/wong2/chat-gpt-google-extension";
-        description = "A browser extension to display ChatGPT response alongside search engine results";
-        license = licenses.gpl3;
+        homepage = "https://chatonai.org/";
+        description = "ChatGPT for search engines";
+        license = licenses.mpl20;
         platforms = platforms.all;
       };
   };
