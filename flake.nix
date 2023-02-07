@@ -64,19 +64,27 @@
     let
       system = "x86_64-linux";
       ci = import ./outputs/ci.nix { inherit inputs system; };
-      home = import ./outputs/home-conf.nix { inherit inputs system; };
     in
-    {
-      homeConfigurations = home;
+    rec {
+      homeConfigurations =
+        import ./outputs/home-conf.nix { inherit inputs system; };
 
       nixosConfigurations =
         import ./outputs/nixos-conf.nix { inherit inputs system; };
 
       packages.${system} = {
         inherit (ci) metals metals-updater;
-        # for garnix: https://github.com/garnix-io/issues/issues/24
-        home-edp = home.gvolpe-edp.activationPackage;
-        home-hdmi = home.gvolpe-hdmi.activationPackage;
       };
+
+      checks.${system} =
+        let
+          os = inputs.nixpkgs.lib.mapAttrs
+            (_: c: c.config.system.build.toplevel)
+            nixosConfigurations;
+          hm = inputs.nixpkgs.lib.mapAttrs
+            (_: c: c.activationPackage)
+            homeConfigurations;
+        in
+        os // hm;
     };
 }
