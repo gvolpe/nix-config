@@ -8,12 +8,11 @@ on:
 
 jobs:
   demo:
-    uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@v15
+    uses: nixbuild/nixbuild-action/.github/workflows/ci-workflow.yml@master
     secrets:
       nixbuild_ssh_key: ${{ secrets.NIXBUILD_SSH_KEY }}
     with:
       nix_conf: 'allow-import-from-derivation = true'
-      nix_version: '2.12.0'
       filter_builds: '.top_attr == "packages"'
 #jobs:
   #demo:
