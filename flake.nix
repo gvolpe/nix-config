@@ -64,6 +64,7 @@
     let
       system = "x86_64-linux";
       ci = import ./outputs/ci.nix { inherit inputs system; };
+      inherit (inputs.nixpkgs.lib) mapAttrs;
     in
     rec {
       homeConfigurations =
@@ -78,12 +79,8 @@
 
       checks.${system} =
         let
-          os = inputs.nixpkgs.lib.mapAttrs
-            (_: c: c.config.system.build.toplevel)
-            nixosConfigurations;
-          hm = inputs.nixpkgs.lib.mapAttrs
-            (_: c: c.activationPackage)
-            homeConfigurations;
+          os = mapAttrs (_: c: c.config.system.build.toplevel) nixosConfigurations;
+          hm = mapAttrs (_: c: c.activationPackage) homeConfigurations;
         in
         os // hm;
     };
