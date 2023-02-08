@@ -28,6 +28,8 @@ in
       ./wm/xmonad.nix
       # Binary cache
       ./cachix.nix
+      # Distributed remote builds
+      ./remote-builds.nix
     ];
 
   networking = {
