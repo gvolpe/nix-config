@@ -52,6 +52,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-filter.url = github:numtide/nix-filter;
+
     # Miscelaneous
 
     cowsay = {
@@ -60,10 +62,42 @@
     };
   };
 
-  outputs = inputs:
+  outputs = inputs @ { self, nix-filter, ... }:
     let
       system = "x86_64-linux";
+
+      src = nix-filter.lib.filter {
+        root = ./.;
+
+        include = [
+          "home"
+          "lib"
+          "outputs"
+          "system"
+          ./flake.lock
+        ];
+
+        exclude = [
+          ".git"
+          ".git-crypt"
+          ".github"
+          "imgs"
+          "notes"
+          ./.gitattributes
+          ./.gitignore
+          ./.mergify.yml
+          ./garnix.yaml
+          ./flake.nix
+          ./build
+          ./switch
+          ./GNOME.md
+          ./LICENSE
+          ./README.md
+        ];
+      };
+
       ci = import ./outputs/ci.nix { inherit inputs system; };
+
       inherit (inputs.nixpkgs.lib) mapAttrs;
     in
     rec {
@@ -74,7 +108,8 @@
         import ./outputs/nixos-conf.nix { inherit inputs system; };
 
       packages.${system} = {
-        inherit (ci) metals metals-updater;
+        metals = ci.metals.overrideAttrs (_: { inherit src; });
+        metals-updater = ci.metals-updater.src.overrideAttrs (_: { inherit src; });
       };
 
       checks.${system} =
@@ -82,6 +117,6 @@
           os = mapAttrs (_: c: c.config.system.build.toplevel) nixosConfigurations;
           hm = mapAttrs (_: c: c.activationPackage) homeConfigurations;
         in
-        os // hm;
+        mapAttrs (_: c: c.overrideAttrs (_: { inherit src; })) (os // hm);
     };
 }

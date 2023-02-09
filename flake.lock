@@ -730,6 +730,21 @@
         "type": "github"
       }
     },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1675361037,
+        "narHash": "sha256-CTbDuDxFD3U3g/dWUB+r+B/snIe+qqP1R+1myuFGe2I=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "e1b2f96c2a31415f362268bc48c3fccf47dff6eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1673606088,
@@ -1180,6 +1195,7 @@
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
+        "nix-filter": "nix-filter",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
