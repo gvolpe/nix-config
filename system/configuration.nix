@@ -102,15 +102,13 @@ in
 
   users.extraGroups.vboxusers.members = [ "gvolpe" ];
 
-  # Enable sound.
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
+  security.rtkit.enable = true;
 
-  hardware.pulseaudio = {
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
   # Scanner backend
