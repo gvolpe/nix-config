@@ -97,26 +97,27 @@
       };
 
       ci = import ./outputs/ci.nix { inherit inputs system; };
+      hm = import ./outputs/home-conf.nix { inherit inputs system; };
+      os = import ./outputs/nixos-conf.nix { inherit inputs system; };
 
       inherit (inputs.nixpkgs.lib) mapAttrs;
-    in
-    rec {
-      homeConfigurations =
-        import ./outputs/home-conf.nix { inherit inputs system; };
 
-      nixosConfigurations =
-        import ./outputs/nixos-conf.nix { inherit inputs system; };
+      filteredPkgs =
+        let
+          os1 = mapAttrs (_: c: c.config.system.build.toplevel) os;
+          hm1 = mapAttrs (_: c: c.activationPackage) hm;
+        in
+        mapAttrs (_: c: c.overrideAttrs (_: { inherit src; })) (os1 // hm1);
+    in
+    {
+      homeConfigurations = hm;
+
+      nixosConfigurations = os;
 
       packages.${system} = {
-        metals = ci.metals.overrideAttrs (_: { inherit src; });
-        metals-updater = ci.metals-updater.src.overrideAttrs (_: { inherit src; });
-      };
+        inherit (ci) metals metals-updater;
+      } // filteredPkgs;
 
-      checks.${system} =
-        let
-          os = mapAttrs (_: c: c.config.system.build.toplevel) nixosConfigurations;
-          hm = mapAttrs (_: c: c.activationPackage) homeConfigurations;
-        in
-        mapAttrs (_: c: c.overrideAttrs (_: { inherit src; })) (os // hm);
+      checks.${system} = filteredPkgs;
     };
 }
