@@ -8,6 +8,20 @@ let
     inherit (specialArgs) buildFirefoxXpiAddon;
   };
 
+  extensions = with addons; [
+    bitwarden
+    darkreader
+    # auto-accepts cookies, use only with privacy-badger & ublock-origin
+    i-dont-care-about-cookies
+    languagetool
+    link-cleaner
+    privacy-badger
+    to-deepl
+    ublock-origin
+    unpaywall
+    vimium
+  ] ++ (with customAddons; [ chatgpt ]);
+
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
     #webrtcIndicator {
@@ -15,13 +29,15 @@ let
     }
   '';
 
+  userChrome = disableWebRtcIndicator;
+
   # DPI settings
   dpiSettings = {
     "layout.css.devPixelsPerPx" = if hidpi then "-1.0" else "0.7";
   };
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
-  sharedSettings = {
+  settings = {
     "app.normandy.first_run" = false;
     "app.shield.optoutstudies.enabled" = false;
 
@@ -93,47 +109,27 @@ in
   programs.firefox = {
     enable = true;
 
-    extensions = with addons; [
-      bitwarden
-      darkreader
-      # auto-accepts cookies, use only with privacy-badger & ublock-origin
-      i-dont-care-about-cookies
-      languagetool
-      link-cleaner
-      privacy-badger
-      to-deepl
-      ublock-origin
-      unpaywall
-      vimium
-    ] ++ (with customAddons; [
-      chatgpt
-    ]);
-
     package = pkgs.firefox-beta-bin;
 
     profiles = {
       default = {
         id = 0;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
+        inherit extensions settings userChrome;
       };
 
       chatroulette = {
         id = 1;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
+        inherit extensions settings userChrome;
       };
 
       demo = {
         id = 2;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
+        inherit extensions settings userChrome;
       };
 
       sxm = {
         id = 3;
-        settings = sharedSettings;
-        userChrome = disableWebRtcIndicator;
+        inherit extensions settings userChrome;
       };
     };
   };
