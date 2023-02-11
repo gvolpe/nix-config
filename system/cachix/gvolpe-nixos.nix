@@ -1,7 +1,6 @@
 {
   nix.settings = {
     substituters = [
-      "https://cache.cachix.io"
       "https://gvolpe-nixos.cachix.org"
       "https://cache.garnix.io"
     ];
