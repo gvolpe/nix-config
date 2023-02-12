@@ -18,6 +18,10 @@ pre_home() {
   # Desktop pic
   mkdir -p $HOME/Pictures/
   cp imgs/nixos.png $HOME/Pictures/
+
+  # Nix daemon config for normal user
+  mkdir -p $HOME/.config/nix
+  cp home/daemon.conf $HOME/.config/nix/nix.conf
 }
 
 post_home() {
