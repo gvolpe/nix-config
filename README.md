@@ -1,7 +1,7 @@
 nix-config
 ==========
 
-![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=Garnix&color=blue&style=flat-square&logo=nixos&link=https://garnix.io)
+![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=Garnix&color=blue&style=flat&logo=nixos&link=https://garnix.io&labelColor=111212)
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
