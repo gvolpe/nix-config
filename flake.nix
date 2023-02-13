@@ -2,7 +2,9 @@
   description = "gvolpe's Home Manager & NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    # use master to have this change: https://github.com/NixOS/nixpkgs/pull/216154
+    nixpkgs.url = github:nixos/nixpkgs;
 
     nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
 
@@ -21,9 +23,7 @@
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
-      # neovim-flake pushes its binaries to the cache using its own nixpkgs version
-      # if we instead use ours, we'd be rebuilding all plugins from scratch
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Fish shell
