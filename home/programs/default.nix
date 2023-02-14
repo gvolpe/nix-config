@@ -53,7 +53,7 @@ let
 
       # programs with custom modules
       megasync.enable = true;
-      spotify.enable = true;
+      #spotify.enable = true;
     };
   };
 in
