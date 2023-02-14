@@ -76,5 +76,6 @@ in
   ./statix
   ./xmonad
   ./yubikey
+  ./zathura
   more
 ]
