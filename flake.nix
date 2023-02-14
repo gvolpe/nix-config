@@ -2,9 +2,7 @@
   description = "gvolpe's Home Manager & NixOS configurations";
 
   inputs = {
-    #nixpkgs.url = "nixpkgs/nixos-unstable";
-    # use master to have this change: https://github.com/NixOS/nixpkgs/pull/216154
-    nixpkgs.url = github:nixos/nixpkgs;
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
 
