@@ -7,15 +7,7 @@ let
 
   package = pkgs.spotify;
 
-  hidpiPackage = pkgs.symlinkJoin
-    {
-      name = "spotify";
-      paths = [ pkgs.spotify ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/spotify --add-flags "-force-device-scale-factor=1.4"
-      '';
-    };
+  hidpiPackage = pkgs.spotify.override { deviceScaleFactor = 1.4; };
 in
 {
   meta.maintainers = [ hm.maintainers.gvolpe ];
