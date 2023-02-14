@@ -2,7 +2,9 @@
   description = "gvolpe's Home Manager & NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    # master contains spotify ffmpeg fix: https://github.com/NixOS/nixpkgs/pull/216332
+    nixpkgs.url = "github:NixOS/nixpkgs";
 
     nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
 
