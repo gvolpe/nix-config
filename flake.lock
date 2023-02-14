@@ -678,11 +678,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1676298628,
-        "narHash": "sha256-AOguCG3PdKm6bHhulG6cLmiHJi7EHcUwovJyBCklmWk=",
+        "lastModified": 1676388206,
+        "narHash": "sha256-rD7itHlGhoOzfuaVLWoz7B06ZHPcPZJ9ARScsthba5I=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "7cf248c5ebadb2ebe74ee531288dcf8646c97dcd",
+        "rev": "3860c315b5f1fa5c2cf4b17ad7ad2d6b6ae5018a",
         "type": "github"
       },
       "original": {
@@ -757,17 +757,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1676298832,
-        "narHash": "sha256-2YdiuoiEPxSB923FoC30TyRzy7AxmiuExC6xfEjrptI=",
-        "owner": "nixos",
+        "lastModified": 1676300157,
+        "narHash": "sha256-1HjRzfp6LOLfcj/HJHdVKWAkX9QRAouoh6AjzJiIerU=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b36e858306e2be286b4f4273e8585228ccfe3edd",
+        "rev": "545c7a31e5dedea4a6d372712a18e00ce097d462",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs-nautilus-gtk3": {
