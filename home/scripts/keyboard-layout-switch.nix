@@ -7,11 +7,11 @@ in
   pkgs.writeShellScriptBin "kls" ''
     layout=$(${xkbmap} -query | ${rg} layout)
 
-    if [[ $layout == *"us-custom"* ]]; then
+    if [[ $layout == *"us"* ]]; then
       ${xkbmap} -layout es
     elif [[ $layout == *"es"* ]]; then
       ${xkbmap} -layout pl
     else
-      ${xkbmap} -layout us-custom
+      ${xkbmap} -layout us
     fi
   ''
