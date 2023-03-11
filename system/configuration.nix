@@ -92,6 +92,9 @@ in
         enable = true;
         dates = "weekly";
       };
+      daemon.settings = {
+        bip = "169.254.0.1/16";
+      };
     };
 
     virtualbox.host = {
