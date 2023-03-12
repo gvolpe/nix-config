@@ -81,6 +81,7 @@ in
           enable = true;
           hideDotFiles = false;
           hideFiles = [ "node_modules" ".cache" ];
+          openOnSetup = false;
         };
         neoclip.enable = true;
         hop.enable = true;
