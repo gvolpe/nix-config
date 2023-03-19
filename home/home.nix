@@ -12,7 +12,6 @@ let
     audacious            # simple music player
     bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
-    cachix               # nix caching
     calibre              # e-book reader
     cobang               # qr-code scanner
     cowsay               # cowsay fortune teller with random images
