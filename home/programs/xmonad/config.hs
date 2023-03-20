@@ -493,7 +493,7 @@ projects =
             , projectDirectory = "~/workspace/nix-config"
             , projectStartHook = Just $ do spawn (terminalWithCommand "neofetch")
                                            spawn (terminalWithCommand "duf")
-                                           spawn myTerminal
+                                           spawn (terminalWithCommand "nitch")
             }
   , Project { projectName      = devWs
             , projectDirectory = "~/workspace/trading"

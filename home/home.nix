@@ -36,6 +36,7 @@ let
     lnav                 # log file navigator on the terminal
     multilockscreen      # fast lockscreen based on i3lock
     ncdu                 # disk space info (a better du)
+    nitch                # minimal system information fetch
     nix-index            # locate packages containing certain nixpkgs
     nix-output-monitor   # nom: monitor nix commands
     nyancat              # the famous rainbow cat!
