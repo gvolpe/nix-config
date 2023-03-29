@@ -59,7 +59,6 @@ let
 in
 [
   ./alacritty
-  ./autorandr
   ./browsers/firefox.nix
   ./dconf
   ./git
