@@ -52,6 +52,7 @@ let
     rage                 # encryption tool for secrets management
     ranger               # terminal file explorer
     ripgrep              # fast grep
+    screenkey            # shows keypresses on screen
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
     skypeforlinux        # messaging client
