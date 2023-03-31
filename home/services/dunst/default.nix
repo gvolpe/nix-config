@@ -1,11 +1,24 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   colors = import ../../themes/colors.nix;
+
+  # Version 1.9.1 has a serious issue: https://github.com/dunst-project/dunst/issues/1102
+  dunst190 = pkgs.dunst.overrideAttrs (old: rec {
+    version = "1.9.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "dunst-project";
+      repo = "dunst";
+      rev = "v${version}";
+      sha256 = "sha256-fRPhu+kpwLPvdzIpXSjXFzQTfv4xewOMv/1ZqLJw3dk=";
+    };
+  });
 in
 {
   services.dunst = {
     enable = true;
+    package = dunst190;
     iconTheme = {
       name = "BeautyLine";
       package = pkgs.beauty-line-icon-theme;
