@@ -13,6 +13,11 @@ let
       rev = "v${version}";
       sha256 = "sha256-fRPhu+kpwLPvdzIpXSjXFzQTfv4xewOMv/1ZqLJw3dk=";
     };
+
+    postInstall = ''
+      wrapProgram $out/bin/dunst \
+        --set GDK_PIXBUF_MODULE_FILE "$GDK_PIXBUF_MODULE_FILE"
+    '';
   });
 in
 {
