@@ -5,7 +5,10 @@ with lib;
 let
   cfg = config.programs.megasync;
 
-  package = pkgs.megasync;
+  # See https://github.com/NixOS/nixpkgs/pull/224183
+  package = pkgs.megasync.override {
+    ffmpeg = pkgs.ffmpeg_4;
+  };
 
   hidpiPackage = pkgs.symlinkJoin
     {
