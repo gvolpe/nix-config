@@ -5,12 +5,15 @@ with lib;
 let
   cfg = config.programs.megasync;
 
-  package = pkgs.megasync;
+  # See https://github.com/NixOS/nixpkgs/pull/224183
+  package = pkgs.megasync.override {
+    ffmpeg = pkgs.ffmpeg_4;
+  };
 
   hidpiPackage = pkgs.symlinkJoin
     {
       name = "megasync";
-      paths = [ pkgs.megasync ];
+      paths = [ package ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/megasync --prefix QT_SCALE_FACTOR : 1
