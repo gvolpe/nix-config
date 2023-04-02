@@ -35,7 +35,7 @@ in
             enable = true;
           };
           ts = true;
-          smithy = true;
+          smithy.enable = true;
           rust.enable = false;
           dhall = true;
           elm = true;
@@ -92,9 +92,6 @@ in
           enable = true;
           autotagHtml = true;
           context.enable = true;
-        };
-        scala = {
-          highlightMode = "treesitter";
         };
         keys = {
           enable = true;
