@@ -513,7 +513,7 @@ projects =
             , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
             }
   , Project { projectName      = fbkWs
-            , projectDirectory = "~/workspace/feda"
+            , projectDirectory = "~/workspace/neovim-flake"
             , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   , Project { projectName      = demoWs
