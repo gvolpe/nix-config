@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 let
   customFonts = pkgs.nerdfonts.override {
@@ -121,6 +121,12 @@ in
   };
 
   services = {
+    # Network scanners
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
+
     # Mount MTP devices
     gvfs.enable = true;
 
