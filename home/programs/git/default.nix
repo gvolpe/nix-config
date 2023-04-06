@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   gitConfig = {
@@ -25,13 +25,6 @@ let
       "https://gitlab.com/".insteadOf = "gl:";
       "ssh://git@gitlab.com".pushInsteadOf = "gl:";
     };
-  };
-
-  sxmConfig = lib.secretManager {
-    filepath = ../../secrets/sxm-git.nix;
-    fileAction = import;
-    encryptedSha256 = "627992cad32c260c2422e2aaa1884db6629d13e924a3b6f66964d9005996e43a";
-    emptyValue = { };
   };
 
   rg = "${pkgs.ripgrep}/bin/rg";
@@ -78,5 +71,5 @@ in
     };
     userEmail = "volpegabriel@gmail.com";
     userName = "Gabriel Volpe";
-  } // sxmConfig;
+  };
 }

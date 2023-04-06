@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   customFonts = pkgs.nerdfonts.override {
@@ -13,13 +13,6 @@ let
   };
 
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
-
-  hosts = lib.secretManager {
-    filepath = ./secrets/hosts.nix;
-    fileAction = import;
-    encryptedSha256 = "759f9af50241bf39d81257dd9d82c700234f003f6bce0cff506111bdf13c3866";
-    emptyValue = { extra = ""; };
-  };
 in
 {
   imports =
@@ -32,7 +25,6 @@ in
 
   networking = {
     extraHosts = ''
-      ${hosts.extra}
     '';
 
     # Enables wireless support and openvpn via network manager.
