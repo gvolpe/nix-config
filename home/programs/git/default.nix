@@ -71,5 +71,5 @@ in
     };
     userEmail = "volpegabriel@gmail.com";
     userName = "Gabriel Volpe";
-  };
+  } // (pkgs.sxm.git or { });
 }

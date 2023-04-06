@@ -22,6 +22,11 @@ let
     });
   };
 
+  sxmOverlay =
+    if (builtins.hasAttr "sxm-flake" inputs)
+    then sxm-flake.overlays.default
+    else (f: p: { });
+
   pkgs = import nixpkgs {
     inherit system;
 
@@ -35,6 +40,7 @@ let
       nurpkgs.overlay
       neovim-flake.overlays.${system}.default
       statix.overlays.default
+      sxmOverlay
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
     ];

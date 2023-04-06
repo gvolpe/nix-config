@@ -18,6 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    #sxm-flake = {
+      #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
+    #};
+
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;

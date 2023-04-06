@@ -12,7 +12,7 @@ let
         gen-ssh-key # generate ssh key and add it to the system
         kls # switch keyboard layout
         szp # show zombie parents
-      ];
+      ] ++ (pkgs.sxm.scripts or [ ]);
     };
 in
 [ scripts ]
