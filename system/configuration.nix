@@ -24,8 +24,7 @@ in
     ];
 
   networking = {
-    extraHosts = ''
-    '';
+    extraHosts = pkgs.sxm.hosts.extra or "";
 
     # Enables wireless support and openvpn via network manager.
     networkmanager = {

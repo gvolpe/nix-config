@@ -9,6 +9,11 @@ let
     inherit (libx) secretManager;
   });
 
+  sxmOverlay =
+    if (builtins.hasAttr "sxm-flake" inputs)
+    then inputs.sxm-flake.overlays.default
+    else (f: p: { });
+
   pkgs = import inputs.nixpkgs {
     inherit system;
     config = {
@@ -17,6 +22,7 @@ let
         "xrdp-0.9.9"
       ];
     };
+    overlays = [ sxmOverlay ];
   };
 in
 {
