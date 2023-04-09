@@ -1177,7 +1177,8 @@
         "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
         "rycee-nurpkgs": "rycee-nurpkgs",
-        "statix": "statix"
+        "statix": "statix",
+        "sxm-flake": "sxm-flake"
       }
     },
     "rosepine": {
@@ -1333,6 +1334,21 @@
       "original": {
         "owner": "nerdypepper",
         "repo": "statix",
+        "type": "github"
+      }
+    },
+    "sxm-flake": {
+      "locked": {
+        "lastModified": 1680798745,
+        "narHash": "sha256-6UXO8Qvd66AU+QdIZ6r0hwi/pr0+tP4pRTGxSWKvgio=",
+        "owner": "gvolpe",
+        "repo": "sxm-flake",
+        "rev": "059929ecf68568842c680e5dc7768285a5a0be48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "sxm-flake",
         "type": "github"
       }
     },
