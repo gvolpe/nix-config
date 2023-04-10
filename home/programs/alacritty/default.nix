@@ -27,6 +27,8 @@ in
       };
       key_bindings = [
         { key = 53; mods = "Shift"; mode = "Vi"; action = "SearchBackward"; }
+        { key = "Return"; mods = "Shift"; chars = "\\x1b[13;2u"; }
+        { key = "Return"; mods = "Control"; chars = "\\x1b[13;5u"; }
       ];
       hints.enabled = [
         {

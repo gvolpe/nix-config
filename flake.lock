@@ -642,6 +642,7 @@
         "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-bufferline": "nvim-bufferline",
+        "nvim-chatgpt": "nvim-chatgpt",
         "nvim-cmp": "nvim-cmp",
         "nvim-code-action-menu": "nvim-code-action-menu",
         "nvim-compe": "nvim-compe",
@@ -650,6 +651,7 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-metals": "nvim-metals",
         "nvim-neoclip": "nvim-neoclip",
+        "nvim-nui": "nvim-nui",
         "nvim-surround": "nvim-surround",
         "nvim-tree-lua": "nvim-tree-lua",
         "nvim-treesitter": "nvim-treesitter",
@@ -675,11 +677,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1680864920,
-        "narHash": "sha256-LF3UQS6WfSFynOWSq3BGdDPeLkYXnr0YX5RGK3EMmUQ=",
+        "lastModified": 1681139999,
+        "narHash": "sha256-d/rrUafXqlts+9E9tEmK9Q1/+d6gKNUR9tyRnG3KS68=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "d7075d932fe36cd698d81dc88608eb41e61b7fb8",
+        "rev": "e8c39ee3e407c7a9cbc0ab13099a1df21be8bd83",
         "type": "github"
       },
       "original": {
@@ -861,6 +863,22 @@
         "type": "github"
       }
     },
+    "nvim-chatgpt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681139851,
+        "narHash": "sha256-twfnoII1drsxvmUTf3JfeKGf8rvlzMeKwBrPhMy0/go=",
+        "owner": "gvolpe",
+        "repo": "ChatGPT.nvim",
+        "rev": "9b353930a879e0b19698048c7c94c90a958c61c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "ChatGPT.nvim",
+        "type": "github"
+      }
+    },
     "nvim-cmp": {
       "flake": false,
       "locked": {
@@ -986,6 +1004,22 @@
       "original": {
         "owner": "AckslD",
         "repo": "nvim-neoclip.lua",
+        "type": "github"
+      }
+    },
+    "nvim-nui": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680456408,
+        "narHash": "sha256-Uv/AcgDtq/eMYwZvp+ypa3pN9W9uCYOrGn8j9Bq+ew8=",
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
+        "rev": "1f43b13d133eb4b4f53a4485379d9afa58808389",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
         "type": "github"
       }
     },
