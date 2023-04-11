@@ -651,7 +651,9 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-metals": "nvim-metals",
         "nvim-neoclip": "nvim-neoclip",
+        "nvim-notify": "nvim-notify",
         "nvim-nui": "nvim-nui",
+        "nvim-spider": "nvim-spider",
         "nvim-surround": "nvim-surround",
         "nvim-tree-lua": "nvim-tree-lua",
         "nvim-treesitter": "nvim-treesitter",
@@ -677,11 +679,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1681139999,
-        "narHash": "sha256-d/rrUafXqlts+9E9tEmK9Q1/+d6gKNUR9tyRnG3KS68=",
+        "lastModified": 1681230444,
+        "narHash": "sha256-6hBvnNN/DBFIDQA3oPI9L787LC935rDg/fG/ECZVOQA=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "e8c39ee3e407c7a9cbc0ab13099a1df21be8bd83",
+        "rev": "0db825f5684fc910c2bbb69d972c4c452c6507e2",
         "type": "github"
       },
       "original": {
@@ -866,11 +868,11 @@
     "nvim-chatgpt": {
       "flake": false,
       "locked": {
-        "lastModified": 1681139851,
-        "narHash": "sha256-twfnoII1drsxvmUTf3JfeKGf8rvlzMeKwBrPhMy0/go=",
+        "lastModified": 1681191932,
+        "narHash": "sha256-aY9EMhx3QAF5hKyiEXKMNP0cDSrQiJYU9UWBO6K8J7I=",
         "owner": "gvolpe",
         "repo": "ChatGPT.nvim",
-        "rev": "9b353930a879e0b19698048c7c94c90a958c61c9",
+        "rev": "4e68f755ffc9b8657525a912f6e4ebf5a8af7cc6",
         "type": "github"
       },
       "original": {
@@ -1007,6 +1009,22 @@
         "type": "github"
       }
     },
+    "nvim-notify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679522899,
+        "narHash": "sha256-xkDr0tASezDmnxyLb7JvzCjE/HPv4ckqiJsBmaSR+Fs=",
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "rev": "50d037041ada0895aeba4c0215cde6d11b7729c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "type": "github"
+      }
+    },
     "nvim-nui": {
       "flake": false,
       "locked": {
@@ -1020,6 +1038,22 @@
       "original": {
         "owner": "MunifTanjim",
         "repo": "nui.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-spider": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681060671,
+        "narHash": "sha256-Q1q32udPW1OFBxbdwLErdPRgAYlYMuICMG76IQgwu2o=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
+        "rev": "fcae87f8c73cc8624eacf6c5fd5de4d5e16ee0c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
         "type": "github"
       }
     },

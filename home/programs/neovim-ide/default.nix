@@ -93,6 +93,7 @@ in
         neoclip.enable = true;
         dial.enable = true;
         hop.enable = true;
+        notifications.enable = true;
         todo.enable = true;
         tabline.nvimBufferline.enable = true;
         treesitter = {
@@ -128,6 +129,10 @@ in
         git = {
           enable = true;
           gitsigns.enable = true;
+        };
+        spider = {
+          enable = true;
+          skipInsignificantPunctuation = true;
         };
         mind = {
           enable = true;
