@@ -131,7 +131,7 @@ in
           gitsigns.enable = true;
         };
         spider = {
-          enable = true;
+          enable = false;
           skipInsignificantPunctuation = true;
         };
         mind = {
