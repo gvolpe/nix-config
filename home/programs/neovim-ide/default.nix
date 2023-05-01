@@ -32,7 +32,7 @@ in
           lspsaga.enable = false;
           nvimCodeActionMenu.enable = true;
           trouble.enable = true;
-          lspSignature.enable = true;
+          lspSignature.enable = false;
           nix = {
             enable = true;
             type = "nil";
