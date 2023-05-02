@@ -7,7 +7,11 @@ let
 
   package = pkgs.spotify;
 
-  hidpiPackage = pkgs.spotify.override { deviceScaleFactor = 1.4; };
+  #hidpiPackage = pkgs.spotify.override { deviceScaleFactor = 1.4; };
+  # See: https://github.com/NixOS/nixpkgs/issues/227449
+  hidpiPackage = pkgs.spotify.override {
+    callPackage = p: attrs: pkgs.callPackage p (attrs // { deviceScaleFactor = 1.4; });
+  };
 in
 {
   meta.maintainers = [ hm.maintainers.gvolpe ];
