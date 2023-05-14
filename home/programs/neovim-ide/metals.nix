@@ -1,6 +1,6 @@
 { metalsBuilder }:
 
 metalsBuilder {
-  version = "0.11.12+32-09988e82-SNAPSHOT";
-  outputHash = "sha256-388dgzVRi+jwce8swYC7ncozhwJcv3Qr1XzFwBF12Es=";
+  version = "0.11.12+39-3d317418-SNAPSHOT";
+  outputHash = "sha256-oVtuSW6q7YJH2W4FWIjxXXxZImf7KKbMFdj3yvPHKZQ=";
 }
