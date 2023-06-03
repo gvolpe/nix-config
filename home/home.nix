@@ -25,7 +25,7 @@ let
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
     glow                 # terminal markdown viewer
-    gnomecast            # chromecast local files
+    #gnomecast            # chromecast local files
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
     jitsi-meet-electron  # open source video calls and chat
