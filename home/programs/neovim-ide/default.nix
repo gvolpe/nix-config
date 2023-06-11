@@ -80,10 +80,7 @@ in
           transparency = true;
         };
         autopairs.enable = true;
-        autocomplete = {
-          enable = true;
-          type = "nvim-cmp";
-        };
+        autocomplete.enable = true;
         filetree.nvimTreeLua = {
           enable = true;
           hideDotFiles = false;
