@@ -155,11 +155,11 @@
         "vhs": "vhs"
       },
       "locked": {
-        "lastModified": 1676275717,
-        "narHash": "sha256-a12WLBN44xDLdEzCnlCdBZFhGIqqlEKICatNyYY1mXM=",
+        "lastModified": 1687578803,
+        "narHash": "sha256-YeIBrMBsJRbrGpuUwI2Oxfv62FxrYbIe+NlznLrnaKI=",
         "owner": "snowfallorg",
         "repo": "cowsay",
-        "rev": "00bcc91fecba0743c1eae453ee83b8292cdae145",
+        "rev": "25d477e8de1703b91dee4651a16c0d3504d7246b",
         "type": "github"
       },
       "original": {
@@ -651,11 +651,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685721552,
-        "narHash": "sha256-ifvq/zlO7lck8q+YkC5uom/h8/MVdMcQEldOL3cDQW0=",
+        "lastModified": 1688220547,
+        "narHash": "sha256-cNKKLPaEOxd6t22Mt3tHGubyylbKGdoi2A3QkMTKes0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "29519461834c08395b35f840811faf8c23e3b61c",
+        "rev": "89d10f8adce369a80e046c2fd56d1e7b7507bb5b",
         "type": "github"
       },
       "original": {
@@ -1032,11 +1032,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1685655444,
-        "narHash": "sha256-6EujQNAeaUkWvpEZZcVF8qSfQrNVWFNNGbUJxv/A5a8=",
+        "lastModified": 1688049487,
+        "narHash": "sha256-100g4iaKC9MalDjUW9iN6Jl/OocTDtXdeAj7pEGIRh4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e635192892f5abbc2289eaac3a73cdb249abaefd",
+        "rev": "4bc72cae107788bf3f24f30db2e2f685c9298dc9",
         "type": "github"
       },
       "original": {
@@ -1078,11 +1078,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1685776777,
-        "narHash": "sha256-ehEJa7N0+P242dNFSdbtglT1lS4IpW42O6AwYFhBZ/g=",
+        "lastModified": 1688223583,
+        "narHash": "sha256-TfImJE/RFV61ofn2EN/IZ6CwlSjpynF+zljlmI0SwYA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "62c4d702f4c0b01095fdffb07090d9979a72a9fd",
+        "rev": "43d6f9f792635c5cdfdfbbd5e0aa96b0b6975cd1",
         "type": "github"
       },
       "original": {
@@ -1576,11 +1576,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1685764940,
-        "narHash": "sha256-3U8eSEwFj08bjU6gOuBtxARRvWQGICT9bgnkVtLkhAY=",
+        "lastModified": 1688223123,
+        "narHash": "sha256-aO/49BrUEjMMnsqwHKPVHl9EO8yn0I1nApVsIuVhHP0=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "f0cb95c4fad4c5258e47e5527db9203cd9388cac",
+        "rev": "4f5e4273d04bb5bacb35872403a02205f0ef922a",
         "type": "gitlab"
       },
       "original": {
@@ -1803,11 +1803,11 @@
     },
     "unstable": {
       "locked": {
-        "lastModified": 1670929434,
-        "narHash": "sha256-n5UBO6XBV4h3TB7FYu2yAuNQMEYOrQyKeODUwKe06ow=",
+        "lastModified": 1687502512,
+        "narHash": "sha256-dBL/01TayOSZYxtY4cMXuNCBk8UMLoqRZA+94xiFpJA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1710ed1f6f8ceb75cf7d1cf55ee0cc21760e1c7a",
+        "rev": "3ae20aa58a6c0d1ca95c9b11f59a2d12eebc511f",
         "type": "github"
       },
       "original": {
@@ -1826,11 +1826,11 @@
         "snowfall-lib": "snowfall-lib_2"
       },
       "locked": {
-        "lastModified": 1671070955,
-        "narHash": "sha256-Zj1l0cqT+XJfiaZTaOa2AbyCoqlCPXQZOIzMShVyUks=",
+        "lastModified": 1676276003,
+        "narHash": "sha256-NanCLBZ2kHmC6WtY3uFVPsLzRMz4J53TUUaxSW5/5Mc=",
         "owner": "snowfallorg",
         "repo": "vhs",
-        "rev": "f8370799a1513e0e29f6b03ad936983f25622530",
+        "rev": "35db149a6118bd305619c5bdb065179b57265e64",
         "type": "github"
       },
       "original": {
