@@ -9,14 +9,29 @@ activateHM() {
   hm-changes-report
 }
 
+nix_build() {
+  case $2 in
+    "offline")
+      echo "📵 offline build 📵"
+      nix build $1 --option substitute false;;
+    *)
+      echo "🛜 online build 🛜"
+      nix build $1;;
+  esac
+}
+
 rebuild_home_edp() {
-  nix build .#homeConfigurations.gvolpe-edp.activationPackage
+  nix_build ".#homeConfigurations.gvolpe-edp.activationPackage" $1
   activateHM
+  xrandr --output eDP --primary --auto --output HDMI-A-0 --off
+  systemctl --user restart polybar.service
 }
 
 rebuild_home_hdmi() {
-  nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
+  nix_build ".#homeConfigurations.gvolpe-hdmi.activationPackage" $1
   activateHM
+  xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+  systemctl --user restart polybar.service
 }
 
 rebuild_system() {
@@ -36,9 +51,9 @@ restart_X() {
 
 case $1 in
   "edp")
-    rebuild_home_edp;;
+    rebuild_home_edp $2;;
   "hdmi")
-    rebuild_home_hdmi;;
+    rebuild_home_hdmi $2;;
   "restart-x")
     restart_X;;
   "update-fish")

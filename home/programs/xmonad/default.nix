@@ -1,4 +1,4 @@
-{ pkgs, lib, specialArgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 let
   extra = ''
@@ -9,13 +9,15 @@ let
     ${pkgs.xorg.setxkbmap}/bin/setxkbmap -option ctrl:nocaps
   '';
 
+  xrandr = "${pkgs.xorg.xrandr}/bin/xrandr";
+
   # my HDMI monitor flashes like crazy and setting the rate to 60 and then back to 30 is the only fix I found
-  xrandrOps = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 60.00
-    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
+  hdmiXrandrOps = ''
+    ${xrandr} --output HDMI-A-0 --mode 3840x2160 --rate 60.00
+    ${xrandr} --output HDMI-A-0 --mode 3840x2160 --rate 30.00
   '';
 
-  hdmiExtra = if specialArgs.hidpi then xrandrOps else "";
+  hdmiExtra = if specialArgs.hidpi then hdmiXrandrOps else "";
 
   polybarOpts = ''
     ${pkgs.nitrogen}/bin/nitrogen --restore &
