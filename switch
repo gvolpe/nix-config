@@ -3,7 +3,7 @@
 # Shows the output of every command
 set +x
 
-activateHM() {
+activate_hm() {
   rm ~/.config/orage/oragerc.bak
   HOME_MANAGER_BACKUP_EXT=bak result/activate
   hm-changes-report
@@ -20,18 +20,22 @@ nix_build() {
   esac
 }
 
+restart_polybar() {
+  systemctl --user restart polybar.service
+}
+
 rebuild_home_edp() {
   nix_build ".#homeConfigurations.gvolpe-edp.activationPackage" $1
-  activateHM
+  activate_hm
   xrandr --output eDP --primary --auto --output HDMI-A-0 --off
-  systemctl --user restart polybar.service
+  restart_polybar
 }
 
 rebuild_home_hdmi() {
   nix_build ".#homeConfigurations.gvolpe-hdmi.activationPackage" $1
-  activateHM
+  activate_hm
   xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
-  systemctl --user restart polybar.service
+  restart_polybar
 }
 
 rebuild_system() {
