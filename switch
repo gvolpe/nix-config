@@ -20,22 +20,19 @@ nix_build() {
   esac
 }
 
-restart_polybar() {
+switch_display() {
+  autorandr --change
   systemctl --user restart polybar.service
 }
 
 rebuild_home_edp() {
   nix_build ".#homeConfigurations.gvolpe-edp.activationPackage" $1
   activate_hm
-  xrandr --output eDP --primary --auto --output HDMI-A-0 --off
-  restart_polybar
 }
 
 rebuild_home_hdmi() {
   nix_build ".#homeConfigurations.gvolpe-hdmi.activationPackage" $1
   activate_hm
-  xrandr --output HDMI-A-0 --mode 3840x2160 --rate 30.00
-  restart_polybar
 }
 
 rebuild_system() {
@@ -58,6 +55,8 @@ case $1 in
     rebuild_home_edp $2;;
   "hdmi")
     rebuild_home_hdmi $2;;
+  "display")
+    switch_display;;
   "restart-x")
     restart_X;;
   "update-fish")

@@ -12,9 +12,9 @@ in
     enable = true;
 
     hooks = {
-      predetect = {};
+      predetect = { };
 
-      preswitch = {};
+      preswitch = { };
 
       postswitch = {
         "notify-xmonad" = ''
@@ -24,10 +24,10 @@ in
         "change-dpi" = ''
           case "$AUTORANDR_CURRENT_PROFILE" in
             away)
-              DPI=120
+              DPI=96
               ;;
             home)
-              DPI=96
+              DPI=178
               ;;
             *)
               ${notify} -i display "Unknown profle: $AUTORANDR_CURRENT_PROFILE"
@@ -68,7 +68,6 @@ in
           HDMI-A-0 = {
             enable = true;
             crtc = 0;
-            primary = true;
             position = "0x0";
             mode = "3840x2160";
             rate = "30.00";
@@ -76,6 +75,7 @@ in
           eDP = {
             enable = true;
             crtc = 1;
+            primary = true;
             position = "0x0";
             mode = "1920x1080";
             rate = "60.04";

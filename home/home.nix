@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stdenv, ... }:
+{ pkgs, ... }:
 
 let
   username = "gvolpe";
