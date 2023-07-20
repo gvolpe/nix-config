@@ -1,4 +1,4 @@
-{ stdenv, system, curl, jq, ripgrep, writeShellScript }:
+{ stdenv, curl, jq, ripgrep, writeShellScript }:
 
 let
   cl = "${curl}/bin/curl";
