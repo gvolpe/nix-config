@@ -66,9 +66,8 @@
     let
       system = "x86_64-linux";
       ci = import ./outputs/ci.nix { inherit inputs system; };
-      inherit (inputs.nixpkgs.lib) mapAttrs;
     in
-    rec {
+    {
       homeConfigurations =
         import ./outputs/home-conf.nix { inherit inputs system; };
 
@@ -78,12 +77,5 @@
       packages.${system} = {
         inherit (ci) metals metals-updater;
       };
-
-      checks.${system} =
-        let
-          os = mapAttrs (_: c: c.config.system.build.toplevel) nixosConfigurations;
-          hm = mapAttrs (_: c: c.activationPackage) homeConfigurations;
-        in
-        os // hm;
     };
 }
