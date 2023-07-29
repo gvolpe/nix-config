@@ -478,7 +478,7 @@ fbkWs = "fbk"
 demoWs = "demo"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, wrkWs, sxmWs, fbkWs, demoWs]
+myWS = [webWs, ossWs, sxmWs, comWs, wrkWs, fbkWs, devWs, demoWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -495,9 +495,9 @@ projects =
                                            spawn (terminalWithCommand "duf")
                                            spawn (terminalWithCommand "nitch")
             }
-  , Project { projectName      = devWs
-            , projectDirectory = "~/workspace/trading"
-            , projectStartHook = Just . replicateM_ 8 $ spawn myTerminal
+  , Project { projectName      = sxmWs
+            , projectDirectory = "~/workspace/sxm"
+            , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
@@ -508,13 +508,13 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ spawn "firefox -P 'sxm'"
             }
-  , Project { projectName      = sxmWs
-            , projectDirectory = "~/workspace/sxm"
-            , projectStartHook = Just . replicateM_ 3 $ spawn myTerminal
-            }
   , Project { projectName      = fbkWs
             , projectDirectory = "~/workspace/neovim-flake"
             , projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
+            }
+  , Project { projectName      = devWs
+            , projectDirectory = "~/workspace/trading"
+            , projectStartHook = Just . replicateM_ 8 $ spawn myTerminal
             }
   , Project { projectName      = demoWs
             , projectDirectory = "~/"
