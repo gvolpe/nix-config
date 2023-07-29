@@ -156,7 +156,7 @@ in
   };
 
   # Making fonts accessible to applications.
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     customFonts
     font-awesome
     myfonts.flags-world-color
