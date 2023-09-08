@@ -54,6 +54,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    globalprotect-openconnect
     firejail
     vim
     wget
@@ -139,6 +140,8 @@ in
       enable = true;
       drivers = [ pkgs.epson-escpr ];
     };
+
+    globalprotect.enable = true;
 
     # Remote desktop protocol
     xrdp = {
