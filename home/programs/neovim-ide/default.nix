@@ -44,7 +44,7 @@ in
           ts = true;
           smithy.enable = true;
           rust.enable = false;
-          dhall = true;
+          dhall = false;
           elm = true;
           haskell = false;
           sql = false;
