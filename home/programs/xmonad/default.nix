@@ -15,6 +15,7 @@ let
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
+    ${pkgs.bat-lvl}/bin/battery-level-check &
     megasync &
   '';
 in

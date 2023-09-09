@@ -41,6 +41,7 @@ let
       neovim-flake.overlays.${system}.default
       statix.overlays.default
       sxmOverlay
+      (import ../home/overlays/bat-lvl)
       (import ../home/overlays/nautilus)
       (import ../home/overlays/ranger)
     ];
