@@ -42,7 +42,7 @@ rebuild_system() {
 }
 
 rebuild_vm() {
-  sudo nixos-rebuild build-vm --flake .#tongfang-amd
+  nixos-rebuild build-vm --flake .#tongfang-amd
 }
 
 restart_X() {

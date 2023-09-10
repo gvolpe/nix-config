@@ -145,9 +145,9 @@ in
 
     # Remote desktop protocol
     xrdp = {
-      enable = true;
+      enable = false;
       defaultWindowManager = "xmonad";
-      openFirewall = true;
+      openFirewall = false;
       #package = pkgs.xrdp.overrideAttrs (old: {
       #postInstall = old.postInstall + ''
       #echo ">>>>>>>>> INI file"
