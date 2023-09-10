@@ -71,6 +71,7 @@ let
   gnomePkgs = with pkgs.gnome; [
     eog      # image viewer
     evince   # pdf reader
+    gnome-disk-utility
     #nautilus # file manager
 
     # file manager overlay
