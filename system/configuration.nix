@@ -90,8 +90,8 @@ in
     };
 
     virtualbox.host = {
-      enable = false;
-      enableExtensionPack = false;
+      enable = true;
+      enableExtensionPack = true;
     };
   };
 
