@@ -501,8 +501,7 @@ projects =
             }
   , Project { projectName      = comWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ do spawn "telegram-desktop"
-                                           spawn "signal-desktop"
+            , projectStartHook = Just $ spawn "telegram-desktop"
             }
   , Project { projectName      = wrkWs
             , projectDirectory = "~/"

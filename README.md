@@ -33,8 +33,6 @@ The `home.nix` file contains details about all the software I use, but here's a 
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
 
-If you're interested in using `taffybar` or `xmobar`, browse the commit history and you will find the configuration files I used. Here's a [screenshot](imgs/taffybar.png) showcasing the former.
-
 ## Themes
 
 | Type           | Name      |
@@ -45,15 +43,16 @@ If you're interested in using `taffybar` or `xmobar`, browse the commit history 
 
 ## Structure
 
-Here is an overview of the folders' structure:
+Here is an overview of the directories' structure:
 
 ```
 .
 ├── build
 ├── flake.nix
 ├── flake.lock
+├── switch
 ├── home
-│  ├── config.nix
+│  ├── daemon.conf
 │  ├── home.nix
 │  ├── modules
 │  ├── overlays
@@ -63,13 +62,13 @@ Here is an overview of the folders' structure:
 │  ├── services
 │  └── themes
 ├── imgs
+├── lib
 ├── notes
 ├── outputs
+│  ├── ci.nix
 │  ├── home-conf.nix
 │  └── nixos-conf.nix
 └── system
-   ├── cachix
-   ├── cachix.nix
    ├── configuration.nix
    ├── fonts
    ├── machine
@@ -79,8 +78,10 @@ Here is an overview of the folders' structure:
 
 - `build`: the build and installation script.
 - `flake.nix`: home and system configurations.
+- `switch`: helper script to switch home and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
+- `lib`: custom nix library functions.
 - `notes`: cheat-sheets, docs, etc.
 - `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
