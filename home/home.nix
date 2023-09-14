@@ -68,11 +68,6 @@ let
     haskellPackages.nix-tree # visualize nix dependencies
   ];
 
-  vboxPkgs = with pkgs.linuxPackages; [
-    virtualbox
-    virtualboxGuestAdditions
-  ];
-
   gnomePkgs = with pkgs.gnome; [
     eog      # image viewer
     evince   # pdf reader
@@ -105,7 +100,7 @@ in
     inherit username homeDirectory;
     stateVersion = "21.03";
 
-    packages = defaultPkgs ++ gnomePkgs ++ vboxPkgs;
+    packages = defaultPkgs ++ gnomePkgs;
 
     sessionVariables = {
       DISPLAY = ":0";

@@ -74,7 +74,7 @@ in
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Enable Docker & VirtualBox support.
+  # Enable Docker support
   virtualisation = {
     docker = {
       enable = true;
@@ -85,11 +85,6 @@ in
       daemon.settings = {
         bip = "169.254.0.1/16";
       };
-    };
-
-    virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
     };
   };
 
