@@ -51,6 +51,8 @@ in
       cm = "commit -m";
       ca = "commit -am";
       dc = "diff --cached";
+      rmain = "rebase main";
+      rc = "rebase --continue";
     };
     extraConfig = gitConfig;
     ignores = [
