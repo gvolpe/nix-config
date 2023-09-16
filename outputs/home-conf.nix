@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, ... }:
+{ inputs, system, pkgs, extraArgs, ... }:
 
 with inputs;
 
@@ -11,13 +11,7 @@ let
   mkHome = { hidpi ? false }: (
     home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-
-      extraSpecialArgs = {
-        inherit gh-md-toc hidpi;
-        inherit (rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
-        addons = pkgs.nur.repos.rycee.firefox-addons;
-      };
-
+      extraSpecialArgs = extraArgs { inherit hidpi; };
       modules = [{ inherit imports; }];
     }
   );

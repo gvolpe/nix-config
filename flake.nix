@@ -73,13 +73,20 @@
       };
 
       ci = import ./outputs/ci.nix { inherit pkgs; };
+
+      extraArgs = { hidpi ? false }: {
+        inherit hidpi;
+        inherit (inputs) gh-md-toc;
+        inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
+        addons = pkgs.nur.repos.rycee.firefox-addons;
+      };
     in
     {
       homeConfigurations =
-        import ./outputs/home-conf.nix { inherit inputs system pkgs; };
+        import ./outputs/home-conf.nix { inherit inputs system pkgs extraArgs; };
 
       nixosConfigurations =
-        import ./outputs/nixos-conf.nix { inherit inputs system pkgs; };
+        import ./outputs/nixos-conf.nix { inherit inputs system pkgs extraArgs; };
 
       packages.${system} = {
         inherit (ci) metals metals-updater;
