@@ -19,7 +19,7 @@
     };
 
     #sxm-flake = {
-      #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
+    #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
     #};
 
     neovim-flake = {
@@ -65,14 +65,21 @@
   outputs = inputs:
     let
       system = "x86_64-linux";
-      ci = import ./outputs/ci.nix { inherit inputs system; };
+
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = import ./lib/overlays.nix { inherit inputs system; };
+      };
+
+      ci = import ./outputs/ci.nix { inherit pkgs; };
     in
     {
       homeConfigurations =
-        import ./outputs/home-conf.nix { inherit inputs system; };
+        import ./outputs/home-conf.nix { inherit inputs system pkgs; };
 
       nixosConfigurations =
-        import ./outputs/nixos-conf.nix { inherit inputs system; };
+        import ./outputs/nixos-conf.nix { inherit inputs system pkgs; };
 
       packages.${system} = {
         inherit (ci) metals metals-updater;
