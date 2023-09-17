@@ -63,10 +63,13 @@ Here is an overview of the directories' structure:
 │  └── themes
 ├── imgs
 ├── lib
+│  ├── default.nix
+│  ├── overlays.nix
 ├── notes
 ├── outputs
 │  ├── ci.nix
 │  ├── home-conf.nix
+│  ├── home-module.nix
 │  └── nixos-conf.nix
 └── system
    ├── configuration.nix
@@ -81,9 +84,9 @@ Here is an overview of the directories' structure:
 - `switch`: helper script to switch home and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
-- `lib`: custom nix library functions.
+- `lib`: custom nix library functions and overlays used to instantiate pkgs.
 - `notes`: cheat-sheets, docs, etc.
-- `outputs`: the Home Manager and NixOS flake outputs.
+- `outputs`: the CI, Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Install
@@ -94,9 +97,14 @@ You can have a look at the available flake outputs before getting started.
 $ nix flake show github:gvolpe/nix-config
 github:gvolpe/nix-config/0161ea3bd15e0cd06696f27bd60c588991305b20
 ├───homeConfigurations: unknown
-└───nixosConfigurations
-    ├───dell-xps: NixOS configuration
-    └───tongfang-amd: NixOS configuration
+├───nixosConfigurations
+│   ├───dell-xps: NixOS configuration
+│   ├───edp-tongfang-amd: NixOS configuration
+│   └───tongfang-amd: NixOS configuration
+└───packages
+    └───x86_64-linux
+        ├───metals: package 'metals-1.0.0'
+        └───metals-updater: package 'metals-updater-script'
 ```
 
 As well as all the declared flake inputs.
@@ -105,9 +113,26 @@ As well as all the declared flake inputs.
 $ nix flake metadata github:gvolpe/nix-config
 ```
 
+The `edp-tongfang-amd` configuration also contains my Home Manager configuration using the NixOS module, so it can easily be tested with a single command.
+
+```console
+$ nixos-rebuild switch --flake github:gvolpe/nix-config#edp-tongfang-amd
+```
+
+Or you can test it directly on a QEMU virtual machine, though it has its limitations in terms of graphics.
+
+```console
+$ nixos-rebuild build-vm --flake github:gvolpe/nix-config#edp-tongfang-amd
+./result/bin/run-tongfang-amd-vm
+```
+
+Having both NixOS and Home Manager configurations combined makes it easier to quickly install it on a new machine, but my preference is to have both separate, as my Home Manager configuration changes more often than that of the NixOS one, resulting in multiple generations at boot time.
+
+Managing the different Home Manager generations in isolation makes this way easier for me.
+
 ### NixOS
 
-The full home configuration is not yet fully automated but the NixOS configuration can be installed by running the following command.
+The NixOS configuration can be installed by running the following command.
 
 ```console
 $ nixos-rebuild switch --flake github:gvolpe/nix-config#tongfang-amd
@@ -117,10 +142,10 @@ Beware that the `hardware-configuration.nix` file is the result of the hardware 
 
 ### Home Manager
 
-A fresh install requires the creation of certain directories so this has not been automated yet (see `build` script file). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
+A fresh install requires the creation of certain directories (see what the `build` script does). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
 
 ```console
-$ nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-hdmi.activationPackage
+$ nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-edp.activationPackage
 $ result/activate
 ```
 
@@ -130,11 +155,16 @@ On a fresh NixOS installation, run the following commands.
 
 ```console
 $ nix flake clone github:gvolpe/nix-config --dest /choose/a/path
-$ nix run nixpkgs#git-crypt unlock
 $ ./build fresh-install # requires sudo
 ```
 
-> Note that `git-crypt unlock` requires your GPG Keys to be correctly set up.
+There's an additional step required if you want to have secrets working.
+
+```console
+$ nix run nixpkgs#git-crypt unlock
+```
+
+> NOTE: it requires your GPG Keys to be correctly set up.
 
 The `build` script is only suitable for a fresh install customized to my personal use but you can build the flakes directly. E.g.
 
