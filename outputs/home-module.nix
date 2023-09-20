@@ -9,6 +9,6 @@
       inputs.neovim-flake.nixosModules.${system}.hm
     ];
 
-    users.gvolpe = import ../home/home.nix;
+    users.ali = import ../home/home.nix;
   };
 }

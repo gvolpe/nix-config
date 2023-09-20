@@ -11,6 +11,11 @@ let
     ../system/configuration.nix
   ];
 
+  alidesktopModules = [
+    ../system/machine/ali-desktop
+    ../system/configuration.nix
+  ];
+
   edpHomeModules =
     let
       extraSpecialArgs = extraArgs { hidpi = false; };
@@ -21,10 +26,16 @@ let
     ];
 
   vmUser = {
-    users.users.gvolpe.initialPassword = "test";
+    users.users.ali.initialPassword = "test";
   };
 in
 {
+  ali-desktop = nixosSystem {
+    inherit lib pkgs system;
+    specialArgs = { inherit inputs; };
+    modules = alidesktopModules;
+  };
+
   dell-xps = nixosSystem {
     inherit lib pkgs system;
     specialArgs = { inherit inputs; };
