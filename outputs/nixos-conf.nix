@@ -11,14 +11,13 @@ let
     ../system/configuration.nix
   ];
 
-  edpHomeModules =
-    let
+  edpHomeModules = [
+    home-manager.nixosModules.home-manager
+    (import ./home-module.nix {
+      inherit inputs system;
       extraSpecialArgs = extraArgs { hidpi = false; };
-    in
-    [
-      home-manager.nixosModules.home-manager
-      (import ./home-module.nix { inherit inputs system extraSpecialArgs; })
-    ];
+    })
+  ];
 
   vmUser = {
     users.users.gvolpe.initialPassword = "test";
