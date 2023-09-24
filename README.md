@@ -67,7 +67,6 @@ Here is an overview of the directories' structure:
 │  ├── overlays.nix
 ├── notes
 ├── outputs
-│  ├── ci.nix
 │  ├── home-conf.nix
 │  ├── home-module.nix
 │  └── nixos-conf.nix
@@ -86,7 +85,7 @@ Here is an overview of the directories' structure:
 - `imgs`: screenshots and other images.
 - `lib`: custom nix library functions and overlays used to instantiate pkgs.
 - `notes`: cheat-sheets, docs, etc.
-- `outputs`: the CI, Home Manager and NixOS flake outputs.
+- `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
 ## Install
@@ -95,7 +94,7 @@ You can have a look at the available flake outputs before getting started.
 
 ```console
 $ nix flake show github:gvolpe/nix-config
-github:gvolpe/nix-config/0161ea3bd15e0cd06696f27bd60c588991305b20
+github:gvolpe/nix-config/7cddf7540c3e1eff34ee52eddd5416e972902d6b
 ├───homeConfigurations: unknown
 ├───nixosConfigurations
 │   ├───dell-xps: NixOS configuration

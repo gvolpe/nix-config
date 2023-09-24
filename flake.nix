@@ -72,8 +72,6 @@
         overlays = import ./lib/overlays.nix { inherit inputs system; };
       };
 
-      ci = import ./outputs/ci.nix { inherit pkgs; };
-
       extraArgs = { hidpi ? false }: {
         inherit hidpi;
         inherit (inputs) gh-md-toc;
@@ -89,7 +87,7 @@
         import ./outputs/nixos-conf.nix { inherit inputs system pkgs extraArgs; };
 
       packages.${system} = {
-        inherit (ci) metals metals-updater;
+        inherit (pkgs) metals metals-updater;
       };
     };
 }

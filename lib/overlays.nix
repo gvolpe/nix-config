@@ -11,6 +11,11 @@ let
     inherit fish-bobthefish-theme fish-keytool-completions;
   };
 
+  metalsOverlay = f: p: {
+    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
+    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
+  };
+
   nautilusOverlay = f: p: {
     nautilus-gtk3 = nixpkgs-nautilus-gtk3.legacyPackages.${system}.gnome.nautilus;
   };
@@ -31,6 +36,7 @@ in
   cowsayOverlay
   fishOverlay
   libOverlay
+  metalsOverlay
   nautilusOverlay
   nurpkgs.overlay
   neovim-flake.overlays.${system}.default
