@@ -72,7 +72,7 @@
         overlays = import ./lib/overlays.nix { inherit inputs system; };
       };
 
-      extraArgs = { hidpi ? false }: {
+      extraArgs = { hidpi }: {
         inherit hidpi;
         inherit (inputs) gh-md-toc;
         inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
