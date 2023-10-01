@@ -23,7 +23,8 @@ in
           vim-mergetool
           vim-repeat
         ];
-        neovim.package = pkgs.neovim-nightly;
+        # nightly is quite broken with a lot of plugins, treesitter included
+        #neovim.package = pkgs.neovim-nightly;
         lsp = {
           enable = true;
           folds = true;
