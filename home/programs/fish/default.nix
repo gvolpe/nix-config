@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   fzfConfig = ''
@@ -43,11 +43,11 @@ in
       dcd = "${dc} down --remove-orphans";
       drm = "docker images -a -q | xargs docker rmi -f";
       du = "${pkgs.ncdu}/bin/ncdu --color dark -rr -x";
-      ls = "${pkgs.exa}/bin/exa";
+      ls = "${pkgs.eza}/bin/eza";
       ll = "ls -a";
       ".." = "cd ..";
       ping = "${pkgs.prettyping}/bin/prettyping";
-      tree = "${pkgs.exa}/bin/exa -T";
+      tree = "${pkgs.eza}/bin/eza -T";
       xdg-open = "${pkgs.mimeo}/bin/mimeo";
     };
     shellInit = fishConfig;

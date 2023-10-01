@@ -8,7 +8,7 @@ let
     ../home/home.nix
   ];
 
-  mkHome = { hidpi ? false }: (
+  mkHome = { hidpi }: (
     home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = extraArgs { inherit hidpi; };
