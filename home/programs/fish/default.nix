@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   fzfConfig = ''
@@ -46,6 +46,7 @@ in
       ls = "${pkgs.eza}/bin/eza";
       ll = "ls -a";
       ".." = "cd ..";
+      firefox = "${lib.getExe pkgs.firefox-beta-bin}";
       ping = "${pkgs.prettyping}/bin/prettyping";
       tree = "${pkgs.eza}/bin/eza -T";
       xdg-open = "${pkgs.mimeo}/bin/mimeo";

@@ -487,7 +487,7 @@ projects :: [Project]
 projects =
   [ Project { projectName      = webWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "firefox -P 'default'"
+            , projectStartHook = Just $ spawn "$BROWSER -P 'default'"
             }
   , Project { projectName      = ossWs
             , projectDirectory = "~/workspace/nix-config"
@@ -505,7 +505,7 @@ projects =
             }
   , Project { projectName      = wrkWs
             , projectDirectory = "~/"
-            , projectStartHook = Just $ spawn "firefox -P 'sxm'"
+            , projectStartHook = Just $ spawn "$BROWSER -P 'sxm'"
             }
   , Project { projectName      = fbkWs
             , projectDirectory = "~/workspace/neovim-flake"

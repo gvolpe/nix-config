@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   username = "gvolpe";
@@ -103,6 +103,7 @@ in
     packages = defaultPkgs ++ gnomePkgs;
 
     sessionVariables = {
+      BROWSER = "${lib.getExe pkgs.firefox-beta-bin}";
       DISPLAY = ":0";
       EDITOR = "nvim";
     };

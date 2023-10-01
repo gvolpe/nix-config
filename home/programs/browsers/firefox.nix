@@ -1,4 +1,4 @@
-{ pkgs, lib, stdenv, specialArgs, ... }:
+{ pkgs, lib, specialArgs, ... }:
 
 let
   inherit (specialArgs) addons hidpi;
