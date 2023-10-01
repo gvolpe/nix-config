@@ -7,7 +7,7 @@ let
   name = "metals-updater-script";
 
   src = writeShellScript name ''
-    NEW=$(${cl} https://scalameta.org/metals/latests.json | ${jq}/bin/jq ".snapshot" | awk -F '"' '{print $2}')
+    NEW=$(${cl} https://scalameta.org/metals/latests.json | ${jq}/bin/jq ".release" | awk -F '"' '{print $2}')
     OLD=$(${rg} "version =" ${file} | awk -F '"' '{print $2}')
 
     echo "Old version: $OLD"
