@@ -43,6 +43,7 @@ in
   statix.overlays.default
   sxmOverlay
   (import ../home/overlays/bat-lvl)
+  (import ../home/overlays/bazecor)
   (import ../home/overlays/nautilus)
   (import ../home/overlays/ranger)
 ]

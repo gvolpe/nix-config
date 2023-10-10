@@ -10,6 +10,7 @@ let
     arandr               # simple GUI for xrandr
     asciinema            # record the terminal
     audacious            # simple music player
+    bazecor              # configuration software for the dygma defy keyboard
     bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
     calibre              # e-book reader

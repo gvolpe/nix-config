@@ -121,9 +121,13 @@ in
       allowSFTP = true;
     };
 
-    # Yubikey smart card mode (CCID) and OTP mode (udev)
+    # Yubikey smart card mode (CCID)
     pcscd.enable = true;
-    udev.packages = [ pkgs.yubikey-personalization ];
+
+    udev.packages = with pkgs; [
+      bazecor # Dygma Defy keyboard udev rules for non-root modifications
+      yubikey-personalization # Yubikey OTP mode (udev)
+    ];
 
     # SSH daemon.
     sshd.enable = true;
@@ -164,7 +168,8 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" ]; # wheel for ‘sudo’.
+    # wheel for 'sudo', uucp for bazecor to access ttyAMC0 (keyboard firmware updates)
+    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" "uucp" ];
     shell = pkgs.fish;
   };
 
