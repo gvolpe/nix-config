@@ -234,6 +234,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     ] ^++^
   keySet "Scratchpads"
     [ key "Audacious"       (modm .|. controlMask,  xK_a    ) $ runScratchpadApp audacious
+    , key "Bazecor"         (modm .|. controlMask,  xK_b    ) $ runScratchpadApp bazecor
     , key "bottom"          (modm .|. controlMask,  xK_y    ) $ runScratchpadApp btm
     , key "Files"           (modm .|. controlMask,  xK_f    ) $ runScratchpadApp nautilus
     , key "Screen recorder" (modm .|. controlMask,  xK_r    ) $ runScratchpadApp scr
@@ -400,6 +401,7 @@ data App
 
 audacious = ClassApp "Audacious"            "audacious"
 btm       = TitleApp "btm"                  "alacritty -t btm -e btm --color gruvbox --default_widget_type proc"
+bazecor   = ClassApp "Bazecor"              "bazecor"
 calendar  = ClassApp "Orage"                "orage"
 eog       = NameApp  "eog"                  "eog"
 evince    = ClassApp "Evince"               "evince"
@@ -429,6 +431,7 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
     [ isInstance calendar                 -?> doCalendarFloat
     , match [ gimp, office ]              -?> doFloat
     , match [ audacious
+            , bazecor
             , eog
             , nautilus
             , pavuctrl
@@ -463,7 +466,7 @@ scratchpadApp app = NS (getAppName app) (getAppCommand app) (isInstance app) def
 
 runScratchpadApp = namedScratchpadAction scratchpads . getAppName
 
-scratchpads = scratchpadApp <$> [ audacious, btm, nautilus, scr, spotify ]
+scratchpads = scratchpadApp <$> [ audacious, bazecor, btm, nautilus, scr, spotify ]
 
 ------------------------------------------------------------------------
 -- Workspaces
