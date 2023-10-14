@@ -215,11 +215,11 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Next"          (0, xF86XK_AudioNext              ) $ spawn $ playerctl "next"
     ] ^++^
   keySet "Launchers"
-    [ key "Terminal"      (modm .|. shiftMask  , xK_Return  ) $ spawn (XMonad.terminal conf)
-    , key "Apps (Rofi)"   (modm                , xK_p       ) $ spawn appLauncher
-    , key "Calc (Rofi)"   (modm .|. shiftMask  , xK_c       ) $ spawn calcLauncher
-    , key "Emojis (Rofi)" (modm .|. shiftMask  , xK_m       ) $ spawn emojiPicker
-    , key "Lock screen"   (modm .|. controlMask, xK_l       ) $ spawn screenLocker
+    [ key "Terminal"      (modm .|. shiftMask, xK_Return  ) $ spawn (XMonad.terminal conf)
+    , key "Apps (Rofi)"   (modm              , xK_p       ) $ spawn appLauncher
+    , key "Calc (Rofi)"   (modm .|. shiftMask, xK_c       ) $ spawn calcLauncher
+    , key "Emojis (Rofi)" (modm .|. shiftMask, xK_m       ) $ spawn emojiPicker
+    , key "Lock screen"   (modm .|. shiftMask, xK_l       ) $ spawn screenLocker
     ] ^++^
   keySet "Layouts"
     [ key "Next"          (modm              , xK_space     ) $ sendMessage NextLayout
@@ -269,9 +269,9 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
     , key "Incr  abs size"  (modm .|. shiftMask, xK_s        ) $ withFocused (keysAbsResizeWindow (10,10) (1024,752))
     ] ^++^
   keySet "Workspaces"
-    [ key "Next"          (modm              , xK_period    ) nextWS'
-    , key "Previous"      (modm              , xK_comma     ) prevWS'
-    , key "Remove"        (modm .|. shiftMask, xK_F4        ) removeWorkspace
+    [ key "Next"          (modm .|. controlMask , xK_l ) nextWS'
+    , key "Previous"      (modm .|. controlMask , xK_h ) prevWS'
+    , key "Remove"        (modm .|. shiftMask   , xK_F4) removeWorkspace
     ] ++ switchWsById
  where
   togglePolybar = spawn "polybar-msg cmd toggle &"
