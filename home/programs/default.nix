@@ -69,7 +69,6 @@ in
   ./neofetch
   ./neovim-ide
   ./ngrok
-  ./nheko
   ./orage
   ./rofi
   ./signal

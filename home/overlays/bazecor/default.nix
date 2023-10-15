@@ -31,7 +31,7 @@ let
       '';
     in
 
-    appimageTools.wrapAppImage rec {
+    appimageTools.wrapAppImage {
       inherit pname src version;
 
       extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [
