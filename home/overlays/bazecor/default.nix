@@ -6,20 +6,33 @@ let
     { lib
     , appimageTools
     , fetchurl
+    , runCommand
     }:
 
-    appimageTools.wrapAppImage rec {
+    let
       pname = "bazecor";
       version = "1.3.4-hot-fix";
 
-      src = appimageTools.extract {
-        inherit pname version;
-        src = fetchurl {
-          url = "https://github.com/gvolpe/bazecor-1.3.4-bug-fix/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
-          hash = "sha256-mi9/RiVEPEtrqEimw1Bg1QSRBM/JeqUkcB/8OkaURZk=";
-          #url = "https://github.com/Dygmalab/Bazecor/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
-        };
+      appimageSrc = fetchurl {
+        url = "https://github.com/gvolpe/bazecor-1.3.4-bug-fix/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
+        hash = "sha256-mi9/RiVEPEtrqEimw1Bg1QSRBM/JeqUkcB/8OkaURZk=";
+        #url = "https://github.com/Dygmalab/Bazecor/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
       };
+
+      src = runCommand "${pname}-extracted"
+        {
+          buildInputs = [ appimageTools.appimage-exec ];
+        } ''
+        appimage-exec.sh -x $out ${appimageSrc}
+
+        # Disable udev rules check to fix this annoying issue: https://github.com/Dygmalab/Bazecor/issues/370
+        substituteInPlace $out/usr/lib/bazecor/resources/app/.webpack/main/index.js \
+          --replace "checkUdev=()=>{try{if(c.default.existsSync(f))return c.default.readFileSync(f,\"utf-8\").trim()===l.trim()}catch(e){console.error(e)}return!1}" "checkUdev=()=>{return 1}"
+      '';
+    in
+
+    appimageTools.wrapAppImage rec {
+      inherit pname src version;
 
       extraPkgs = p: (appimageTools.defaultFhsEnvArgs.multiPkgs p) ++ [
         p.glib
