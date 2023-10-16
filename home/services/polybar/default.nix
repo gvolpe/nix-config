@@ -1,4 +1,4 @@
-{ config, pkgs, specialArgs, ... }:
+{ config, lib, pkgs, specialArgs, ... }:
 
 let
   openCalendar = "${pkgs.xfce.orage}/bin/orage";
@@ -16,7 +16,7 @@ let
 
   mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
 
-  openGithub = "${pkgs.firefox-beta-bin}/bin/firefox -new-tab https\\://github.com/notifications";
+  openGithub = "${lib.getExe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
