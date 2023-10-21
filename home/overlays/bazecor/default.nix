@@ -12,6 +12,8 @@ let
       version = "1.3.4-hot-fix";
 
       src = appimageTools.extract {
+        inherit pname version;
+
         src = fetchurl {
           url = "https://github.com/gvolpe/bazecor-1.3.4-bug-fix/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
           hash = "sha256-mi9/RiVEPEtrqEimw1Bg1QSRBM/JeqUkcB/8OkaURZk=";
