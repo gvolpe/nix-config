@@ -87,7 +87,7 @@
         import ./outputs/nixos-conf.nix { inherit inputs system pkgs extraArgs; };
 
       packages.${system} = {
-        inherit (pkgs) metals metals-updater;
+        inherit (pkgs) bazecor metals metals-updater;
       };
     };
 }
