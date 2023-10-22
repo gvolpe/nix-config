@@ -11,6 +11,7 @@ let
   extensions = with addons; [
     bitwarden
     darkreader
+    ff2mpv
     # auto-accepts cookies, use only with privacy-badger & ublock-origin
     i-dont-care-about-cookies
     languagetool

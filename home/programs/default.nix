@@ -15,7 +15,7 @@ let
 
       fzf = {
         enable = true;
-        enableFishIntegration = true;
+        enableFishIntegration = false; # broken
         defaultCommand = "fd --type file --follow"; # FZF_DEFAULT_COMMAND
         defaultOptions = [ "--height 20%" ]; # FZF_DEFAULT_OPTS
         fileWidgetCommand = "fd --type file --follow"; # FZF_CTRL_T_COMMAND
@@ -32,11 +32,6 @@ let
       };
 
       jq.enable = true;
-
-      mpv = {
-        enable = true;
-        scripts = [ pkgs.mpvScripts.mpris ];
-      };
 
       obs-studio = {
         enable = false;
@@ -66,6 +61,7 @@ in
   ./fish
   ./md-toc
   ./mimeo
+  ./mpv
   ./neofetch
   ./neovim-ide
   ./ngrok
