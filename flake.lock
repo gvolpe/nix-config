@@ -1419,6 +1419,22 @@
         "type": "github"
       }
     },
+    "penguin-fox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697943513,
+        "narHash": "sha256-ViTAut+35sNcKZSYiSPITF3fLSgH9zGt6CtAJ76nfFU=",
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "rev": "e44de3de0bda4311662dea3e5d5eafcf86b21470",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "type": "github"
+      }
+    },
     "plenary-nvim": {
       "flake": false,
       "locked": {
@@ -1462,6 +1478,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
+        "penguin-fox": "penguin-fox",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "statix": "statix"
       }

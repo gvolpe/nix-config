@@ -60,6 +60,12 @@
       url = github:snowfallorg/cowsay;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Firefox style
+    penguin-fox = {
+      url = github:p3nguin-kun/penguinFox;
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -74,7 +80,7 @@
 
       extraArgs = { hidpi }: {
         inherit hidpi;
-        inherit (inputs) gh-md-toc;
+        inherit (inputs) gh-md-toc penguin-fox;
         inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = pkgs.nur.repos.rycee.firefox-addons;
       };
