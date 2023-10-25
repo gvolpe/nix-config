@@ -1,4 +1,4 @@
-{ pkgs }:
+{ lib, pkgs }:
 
 let
   bobthefish = {
@@ -13,9 +13,9 @@ let
 in
 {
   completions = {
-    keytool = builtins.readFile "${keytool-completions.src}/completions/keytool.fish";
+    keytool = lib.readFile "${keytool-completions.src}/completions/keytool.fish";
   };
 
   theme = bobthefish;
-  prompt = builtins.readFile "${bobthefish.src}/fish_prompt.fish";
+  prompt = lib.readFile "${bobthefish.src}/fish_prompt.fish";
 }

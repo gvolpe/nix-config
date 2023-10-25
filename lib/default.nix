@@ -12,7 +12,7 @@
      Example:
        token = lib.secretManager {
          filepath = ./secrets/access-token;
-         fileAction = file: lib.removeNewline (builtins.readFile file);
+         fileAction = file: lib.removeNewline (lib.readFile file);
          encryptedSha256 = lib.fakeSha256;
          emptyValue = "SECRET";
        };

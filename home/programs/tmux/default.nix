@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
-  plugins  = pkgs.tmuxPlugins // pkgs.callPackage ./custom-plugins.nix {};
-  tmuxConf = builtins.readFile ./default.conf;
+  plugins = pkgs.tmuxPlugins // pkgs.callPackage ./custom-plugins.nix { };
+  tmuxConf = lib.readFile ./default.conf;
 in
 {
   programs.tmux = {

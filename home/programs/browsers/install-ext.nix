@@ -1,11 +1,11 @@
-{ baseDir }:
+{ lib, baseDir }:
 
 let
   extDir = "${baseDir}/External Extensions/";
 
   x = import ./extensions.nix;
 
-  ext = builtins.toJSON {
+  ext = lib.generators.toJSON { } {
     external_update_url = "https://clients2.google.com/service/update2/crx";
   };
 in

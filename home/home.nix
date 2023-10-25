@@ -84,7 +84,7 @@ in
 {
   programs.home-manager.enable = true;
 
-  imports = builtins.concatMap import [
+  imports = lib.concatMap import [
     ./modules
     ./programs
     ./scripts

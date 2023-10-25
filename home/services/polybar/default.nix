@@ -26,10 +26,10 @@ let
   };
 
   # theme adapted from: https://github.com/adi1090x/polybar-themes#-polybar-5
-  bars   = builtins.readFile ./bars.ini;
-  colors = builtins.readFile ./colors.ini;
-  mods1  = builtins.readFile ./modules.ini;
-  mods2  = builtins.readFile ./user_modules.ini;
+  bars   = lib.readFile ./bars.ini;
+  colors = lib.readFile ./colors.ini;
+  mods1  = lib.readFile ./modules.ini;
+  mods2  = lib.readFile ./user_modules.ini;
 
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
   klsScript       = pkgs.callPackage ../../scripts/keyboard-layout-switch.nix { inherit pkgs; };

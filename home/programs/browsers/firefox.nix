@@ -195,8 +195,8 @@ in
         id = 2;
         inherit extensions;
         settings = demoSettings;
-        userChrome = builtins.readFile "${penguin-fox}/chrome/userChrome.css";
-        userContent = builtins.readFile "${penguin-fox}/chrome/userContent.css";
+        userChrome = lib.readFile "${penguin-fox}/chrome/userChrome.css";
+        userContent = lib.readFile "${penguin-fox}/chrome/userContent.css";
       };
 
       sxm = {
