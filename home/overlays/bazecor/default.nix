@@ -9,15 +9,14 @@ let
     }:
     appimageTools.wrapAppImage rec {
       pname = "bazecor";
-      version = "1.3.4-hot-fix";
+      version = "1.3.6";
 
       src = appimageTools.extract {
         inherit pname version;
 
         src = fetchurl {
-          url = "https://github.com/gvolpe/bazecor-1.3.4-bug-fix/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
-          hash = "sha256-mi9/RiVEPEtrqEimw1Bg1QSRBM/JeqUkcB/8OkaURZk=";
-          #url = "https://github.com/Dygmalab/Bazecor/releases/download/v${version}/Bazecor-${version}-x64.AppImage";
+          url = "https://github.com/Dygmalab/Bazecor/releases/download/v.${version}/Bazecor-${version}-x64.AppImage";
+          hash ="sha256-Mz7T/AAlyfMzdfy/ZV4AEP3ClTolwr2pPzkSCPL66/w=";
         };
 
         postExtract = ''
@@ -35,7 +34,7 @@ let
       #   services.udev.packages = [ pkgs.bazecor ];
       # to allow non-root modifications to the keyboards.
       extraInstallCommands = ''
-        mv $out/bin/bazecor-* $out/bin/bazecor
+        ln -s $out/bin/bazecor-${version} $out/bin/bazecor
 
         mkdir -p $out/lib/udev/rules.d
         ln -s --target-directory=$out/lib/udev/rules.d ${./60-dygma.rules}
