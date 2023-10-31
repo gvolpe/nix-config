@@ -34,7 +34,7 @@ let
       #   services.udev.packages = [ pkgs.bazecor ];
       # to allow non-root modifications to the keyboards.
       extraInstallCommands = ''
-        ln -s $out/bin/bazecor-${version} $out/bin/bazecor
+        mv $out/bin/bazecor-${version} $out/bin/bazecor
 
         mkdir -p $out/lib/udev/rules.d
         ln -s --target-directory=$out/lib/udev/rules.d ${./60-dygma.rules}
