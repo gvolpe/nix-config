@@ -16,7 +16,7 @@ let
 
         src = fetchurl {
           url = "https://github.com/Dygmalab/Bazecor/releases/download/v.${version}/Bazecor-${version}-x64.AppImage";
-          hash ="sha256-Mz7T/AAlyfMzdfy/ZV4AEP3ClTolwr2pPzkSCPL66/w=";
+          hash = "sha256-Mz7T/AAlyfMzdfy/ZV4AEP3ClTolwr2pPzkSCPL66/w=";
         };
 
         postExtract = ''
@@ -48,6 +48,7 @@ let
         license = lib.licenses.gpl3Only;
         maintainers = with lib.maintainers; [ gvolpe ];
         platforms = [ "x86_64-linux" ];
+        mainProgram = "bazecor";
       };
     };
 in
