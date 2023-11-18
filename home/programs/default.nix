@@ -59,6 +59,7 @@ in
   ./dconf
   ./git
   ./fish
+  ./khal
   ./md-toc
   ./mimeo
   ./mpv
