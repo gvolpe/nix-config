@@ -4,7 +4,7 @@ let
   associations = lib.secretManager {
     filepath = ../../secrets/mimeo-associations.txt;
     fileAction = lib.readFile;
-    encryptedSha256 = "389a8a4c55c629a0efc8d6d242ba621fb44783e8c0acc1547824fd95e0f5225b";
+    encryptedSha256 = "255dcce51ca73d2370bbdf1bf7e5c3f894da2b85049a2cec91e4afecb66e2087";
     emptyValue = "";
   };
 
