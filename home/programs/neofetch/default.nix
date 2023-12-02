@@ -3,5 +3,5 @@
 # command-line system information
 {
   home.packages = [ pkgs.neofetch ];
-  xdg.configFile."neofetch/config.conf".source = ./neofetch.conf;
+  xdg.configFile."neofetch/config.conf".source = ./electric.conf;
 }
