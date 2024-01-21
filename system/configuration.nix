@@ -109,7 +109,7 @@ in
     # Network scanners
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
     };
 
     # Mount MTP devices
