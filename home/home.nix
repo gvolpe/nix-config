@@ -14,7 +14,7 @@ let
     bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
     calibre              # e-book reader
-    cobang               # qr-code scanner
+    #cobang               # qr-code scanner
     cowsay               # cowsay fortune teller with random images
     dconf2nix            # dconf (gnome) files to nix converter
     dig                  # dns command-line tool
