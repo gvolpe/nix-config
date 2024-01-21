@@ -6,13 +6,13 @@ nix-config
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
+![neofetch](imgs/neofetch.png)
+
 ![cowsay](imgs/cowsay.png)
 
 ![scala-dev-env](imgs/scala-dev.png)
 
 ![desktop](imgs/desktop-1.jpg)
-
-![amd](imgs/amd.jpg)
 
 ![themes](imgs/theme.jpg)
 
@@ -52,30 +52,11 @@ Here is an overview of the directories' structure:
 ├── flake.lock
 ├── switch
 ├── home
-│  ├── daemon.conf
-│  ├── home.nix
-│  ├── modules
-│  ├── overlays
-│  ├── programs
-│  ├── scripts
-│  ├── secrets
-│  ├── services
-│  └── themes
 ├── imgs
 ├── lib
-│  ├── default.nix
-│  ├── overlays.nix
 ├── notes
 ├── outputs
-│  ├── home-conf.nix
-│  ├── home-module.nix
-│  └── nixos-conf.nix
 └── system
-   ├── configuration.nix
-   ├── fonts
-   ├── machine
-   ├── misc
-   └── wm
 ```
 
 - `build`: the build and installation script.
@@ -94,7 +75,7 @@ You can have a look at the available flake outputs before getting started.
 
 ```console
 $ nix flake show github:gvolpe/nix-config
-github:gvolpe/nix-config/7cddf7540c3e1eff34ee52eddd5416e972902d6b
+github:gvolpe/nix-config/b7fb45d60b761fe39ee1ce78d2b1fd0f0c8db50e
 ├───homeConfigurations: unknown
 ├───nixosConfigurations
 │   ├───dell-xps: NixOS configuration
@@ -102,7 +83,8 @@ github:gvolpe/nix-config/7cddf7540c3e1eff34ee52eddd5416e972902d6b
 │   └───tongfang-amd: NixOS configuration
 └───packages
     └───x86_64-linux
-        ├───metals: package 'metals-1.0.0'
+        ├───bazecor: package 'bazecor-1.3.9-patched'
+        ├───metals: package 'metals-1.2.0'
         └───metals-updater: package 'metals-updater-script'
 ```
 
