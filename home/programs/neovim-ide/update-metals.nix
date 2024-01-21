@@ -13,7 +13,8 @@ let
     echo "Old version: $OLD"
     echo "New version: $NEW"
 
-    if [ $NEW != $OLD ]; then
+    # See: https://github.com/scalameta/metals/issues/5952
+    if [ $NEW != $OLD && $NEW != *"SNAPSHOT"* ]; then
       echo "Updating metals"
       sed -i "s/$OLD/$NEW/g" ${file}
 
@@ -31,7 +32,7 @@ let
 
       echo "metals_version=$NEW" >> $GITHUB_OUTPUT
     else
-      echo "Versions are identical, aborting."
+      echo "Versions are identical (or an unwanted snapshot), aborting."
     fi
   '';
 in
