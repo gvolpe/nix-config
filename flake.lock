@@ -154,11 +154,11 @@
         "vhs": "vhs"
       },
       "locked": {
-        "lastModified": 1699577347,
-        "narHash": "sha256-TtP0nZMaiRXqnALMcK7a085yvnh2deTs4RV29yRmS24=",
+        "lastModified": 1702232134,
+        "narHash": "sha256-H2E3I7XnufzWxtqBxzbaizr+9JaKw3BLN3ZCmKr801c=",
         "owner": "snowfallorg",
         "repo": "cowsay",
-        "rev": "5c711e906d2d0015329483986e19998def407b67",
+        "rev": "77461aa6579ecbaf9ce848cf917b88bafe63374b",
         "type": "github"
       },
       "original": {
@@ -613,11 +613,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701433070,
-        "narHash": "sha256-Gf9JStfENaUQ7YWFz3V7x/srIwr4nlnVteqaAxtwpgM=",
+        "lastModified": 1705823474,
+        "narHash": "sha256-2C4uRe9/U3QwSPC4dYKM1/njgCQk0Mltezy4VcjAqa4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4a8545f5e737a6338814a4676dc8e18c7f43fc57",
+        "rev": "928f2528f9ee952ba0a47bbb1ece8d93ed66e784",
         "type": "github"
       },
       "original": {
@@ -1007,11 +1007,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1701253981,
-        "narHash": "sha256-ztaDIyZ7HrTAfEEUt9AtTDNoCYxUdSd6NrRHaYOIxtk=",
+        "lastModified": 1705677747,
+        "narHash": "sha256-eyM3okYtMgYDgmYukoUzrmuoY4xl4FUujnsv/P6I/zI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
+        "rev": "bbe7d8f876fbbe7c959c90ba2ae2852220573261",
         "type": "github"
       },
       "original": {
@@ -1053,11 +1053,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1701511348,
-        "narHash": "sha256-P02o+A/HwIfEriXSctDjZW0qJrBULKj9ZPav0Cx7Ok0=",
+        "lastModified": 1705830249,
+        "narHash": "sha256-Cg8BoXpv2yH/WB1oybR6xeWPCaBXfJo8o7XNLYGnp/k=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5761cc492e2462b8bb848a7784e4b0c40dde081d",
+        "rev": "bfd7ae8fd550bbae107547934fdb9d3dd04bb592",
         "type": "github"
       },
       "original": {
@@ -1421,11 +1421,11 @@
     "penguin-fox": {
       "flake": false,
       "locked": {
-        "lastModified": 1700057294,
-        "narHash": "sha256-F1XwT7RlKc1uKi89RQ/56VBRwKLB95kABwas4PnFBdU=",
+        "lastModified": 1702224534,
+        "narHash": "sha256-K+jeIrLK/a1UqcbcJqB+g0v5K+Oil9skQqJBk1/joZ0=",
         "owner": "p3nguin-kun",
         "repo": "penguinFox",
-        "rev": "e6d01e3e876c262180f30f458da842387abe291d",
+        "rev": "00d4a66dd2f44f3b63c696293ece76639fdbb963",
         "type": "github"
       },
       "original": {
@@ -1540,11 +1540,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1701510986,
-        "narHash": "sha256-TmMW39JLeSuOx3nNpFUpoBxoULpNCwxOocZjUes25Is=",
+        "lastModified": 1705823806,
+        "narHash": "sha256-wL85SR9gTZ0XRG3F3yRQ86XaGm6zNRy48l35mhbXsPM=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "7c3c6c2fed714ebdaa2ca3820a5ac0345e30baa8",
+        "rev": "a0444d45e497dc49def712f8d82f3e0a79634e70",
         "type": "gitlab"
       },
       "original": {
