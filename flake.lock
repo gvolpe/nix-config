@@ -768,11 +768,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1705852525,
-        "narHash": "sha256-xErDwKOzB7ONqK/M2Fwfzv5Ntb34UlFDESmX63X6stY=",
+        "lastModified": 1706177692,
+        "narHash": "sha256-ixKI+BPcvD2wnFY/H3rJj9aNABH9d11zT/g28CeIYXY=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "68f9b15759810cba541d3cc3efdb08ea8fac2bae",
+        "rev": "400285c785453c38bcbf994c4e10737ff93011dc",
         "type": "github"
       },
       "original": {
@@ -1206,13 +1206,13 @@
       "locked": {
         "lastModified": 1705818283,
         "narHash": "sha256-EKAzWIT2Qs65Il1pwgpkFsCogFViapUiSHcZgVy+QsY=",
-        "owner": "kyazdani42",
+        "owner": "nvim-tree",
         "repo": "nvim-tree.lua",
         "rev": "7bdb220d0fe604a77361e92cdbc7af1b8a412126",
         "type": "github"
       },
       "original": {
-        "owner": "kyazdani42",
+        "owner": "nvim-tree",
         "repo": "nvim-tree.lua",
         "type": "github"
       }
