@@ -115,6 +115,7 @@ in
         };
         telescope = {
           enable = true;
+          tabs.enable = true;
         };
         markdown = {
           enable = true;

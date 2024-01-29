@@ -759,6 +759,7 @@
         "sqls-nvim": "sqls-nvim",
         "telescope": "telescope",
         "telescope-media-files": "telescope-media-files",
+        "telescope-tabs": "telescope-tabs",
         "todo-comments": "todo-comments",
         "tokyonight": "tokyonight",
         "tree-sitter-scala": "tree-sitter-scala",
@@ -768,11 +769,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1706177692,
-        "narHash": "sha256-ixKI+BPcvD2wnFY/H3rJj9aNABH9d11zT/g28CeIYXY=",
+        "lastModified": 1706560224,
+        "narHash": "sha256-xhx1r4hn7G3AWWtMeQ4e5ovH6Be4v8lCYuuzdf/744s=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "400285c785453c38bcbf994c4e10737ff93011dc",
+        "rev": "aaa459b374dcd424b275cb63a99945b372b1756b",
         "type": "github"
       },
       "original": {
@@ -1609,6 +1610,22 @@
       "original": {
         "owner": "gvolpe",
         "repo": "telescope-media-files.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-tabs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703422660,
+        "narHash": "sha256-lEa7RMzqzGWOFC5mzT7J+HMYmYw12Xym+QhP7HXd2wY=",
+        "owner": "FabianWirth",
+        "repo": "search.nvim",
+        "rev": "860f7673744e139d00d416d11552533835bfdd2d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FabianWirth",
+        "repo": "search.nvim",
         "type": "github"
       }
     },
