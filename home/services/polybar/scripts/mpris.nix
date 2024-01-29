@@ -5,7 +5,7 @@ let
   zsc = "${pkgs.zscroll}/bin/zscroll";
 
   format = ''
-    {{ artist }} - {{ title }} (from ‟{{ album }}”) - Duration: {{ duration(mpris:length) }}
+    {{ artist }} - {{ title }} [from ‟{{ album }}”] - Duration: {{ duration(mpris:length) }}
   '';
 
   metadata = pkgs.writeShellScriptBin "spotify_metadata" ''
