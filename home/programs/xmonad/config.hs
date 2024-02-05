@@ -408,7 +408,7 @@ eog       = NameApp  "eog"                  "eog"
 evince    = ClassApp "Evince"               "evince"
 gimp      = ClassApp "Gimp"                 "gimp"
 mpv       = ClassApp "mpv"                  "mpv"
-nautilus  = ClassApp "Org.gnome.Nautilus"   "nautilus"
+nautilus  = ClassApp "org.gnome.Nautilus"   "nautilus"
 office    = ClassApp "libreoffice-draw"     "libreoffice-draw"
 pavuctrl  = ClassApp "Pavucontrol"          "pavucontrol"
 scr       = ClassApp "SimpleScreenRecorder" "simplescreenrecorder"
@@ -421,6 +421,8 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   isFileChooserDialog = isRole =? "GtkFileChooserDialog"
   isPopup             = isRole =? "pop-up"
   isSplash            = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_SPLASH"
+  isGtk4Dialog        = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_DIALOG"
+  isGtk4Modal         = isInProperty "_NET_WM_STATE" "_NET_WM_STATE_MODAL"
   isRole              = stringProperty "WM_WINDOW_ROLE"
   tileBelow           = insertPosition Below Newer
   doCalendarFloat   = customFloating (W.RationalRect (11 / 15) (1 / 48) (1 / 4) (1 / 8))
@@ -445,6 +447,8 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
     , resource =? "kdesktop"              -?> doIgnore
     , anyOf [ isBrowserDialog
             , isFileChooserDialog
+            , isGtk4Dialog
+            , isGtk4Modal
             , isDialog
             , isPopup
             , isSplash

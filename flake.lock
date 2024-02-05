@@ -901,22 +901,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-nautilus-gtk3": {
-      "locked": {
-        "lastModified": 1664989420,
-        "narHash": "sha256-Q8IxomUjjmewsoJgO3htkXLfCckQ7HkDJ/ZhdYVf/fA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "37bd39839acf99c5b738319f42478296f827f274",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "37bd398",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1705677747,
@@ -1387,7 +1371,6 @@
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-nautilus-gtk3": "nixpkgs-nautilus-gtk3",
         "nurpkgs": "nurpkgs",
         "penguin-fox": "penguin-fox",
         "rycee-nurpkgs": "rycee-nurpkgs",

@@ -16,10 +16,6 @@ let
     metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
   };
 
-  nautilusOverlay = f: p: {
-    nautilus-gtk3 = nixpkgs-nautilus-gtk3.legacyPackages.${system}.gnome.nautilus;
-  };
-
   libOverlay = f: p: rec {
     libx = import ./. { inherit (p) lib; };
     lib = p.lib.extend (_: _: {
@@ -37,13 +33,12 @@ in
   fishOverlay
   libOverlay
   metalsOverlay
-  nautilusOverlay
   nurpkgs.overlay
   neovim-flake.overlays.${system}.default
   statix.overlays.default
   sxmOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
-  (import ../home/overlays/nautilus)
+  (import ../home/overlays/juno-theme)
   (import ../home/overlays/ranger)
 ]
