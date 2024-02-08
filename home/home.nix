@@ -74,10 +74,6 @@ let
     evince   # pdf reader
     gnome-disk-utility
     nautilus # file manager
-
-    # file manager overlay
-    #pkgs.nautilus-bin
-    #pkgs.nautilus-patched
   ];
 in
 {

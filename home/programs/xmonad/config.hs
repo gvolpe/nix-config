@@ -537,7 +537,7 @@ projects =
   ]
 
 terminalWithCommand :: String -> String
-terminalWithCommand cmd = "alacritty -o shell.program=fish -o shell.args=['-C " <> cmd <> "']"
+terminalWithCommand cmd = "alacritty -e 'fish' '-C " <> cmd <> "'"
 
 
 projectsTheme :: XPConfig
