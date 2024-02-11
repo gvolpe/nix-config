@@ -1,6 +1,10 @@
 {
   description = "gvolpe's Home Manager & NixOS configurations";
 
+  nixConfig = {
+    access-tokens = "github.com=\${{ secrets.REPO_GITHUB_TOKEN }}";
+  };
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -16,9 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #sxm-flake = {
-    #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
-    #};
+    sxm-flake = {
+      url = github:gvolpe/sxm-flake;
+      #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
+    };
 
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;

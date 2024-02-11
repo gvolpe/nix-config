@@ -198,7 +198,7 @@ in
     };
 
     # Flakes settings
-    package = pkgs.nixVersions.stable;
+    package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
 
     settings = {
