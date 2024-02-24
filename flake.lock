@@ -1374,7 +1374,8 @@
         "nurpkgs": "nurpkgs",
         "penguin-fox": "penguin-fox",
         "rycee-nurpkgs": "rycee-nurpkgs",
-        "statix": "statix"
+        "statix": "statix",
+        "sxm-flake": "sxm-flake"
       }
     },
     "rosepine": {
@@ -1531,6 +1532,21 @@
       "original": {
         "owner": "nerdypepper",
         "repo": "statix",
+        "type": "github"
+      }
+    },
+    "sxm-flake": {
+      "locked": {
+        "lastModified": 1707584292,
+        "narHash": "sha256-vJj9OBo19G0Zme7dGSo+cXcNMBLeqsFxdSi0YZjoqZQ=",
+        "owner": "gvolpe",
+        "repo": "sxm-flake",
+        "rev": "4e5f548f94af7b098254b4ae038479b48c7f3529",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "sxm-flake",
         "type": "github"
       }
     },

@@ -1,3 +1,4 @@
+enableGithubOrgAccessTokens: true
 builds:
  exclude: []
  include:
