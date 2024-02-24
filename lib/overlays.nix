@@ -4,7 +4,7 @@ with inputs;
 
 let
   cowsayOverlay = f: p: {
-    inherit (inputs.cowsay.packages.${system}) cowsay;
+    inherit (cowsay.packages.${system}) cowsay;
   };
 
   fishOverlay = f: p: {
@@ -22,11 +22,6 @@ let
       inherit (libx) removeNewline secretManager;
     });
   };
-
-  sxmOverlay =
-    if (builtins.hasAttr "sxm-flake" inputs)
-    then sxm-flake.overlays.default
-    else (f: p: { });
 in
 [
   cowsayOverlay
@@ -36,7 +31,6 @@ in
   nurpkgs.overlay
   neovim-flake.overlays.${system}.default
   statix.overlays.default
-  sxmOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/juno-theme)

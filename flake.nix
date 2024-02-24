@@ -16,10 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #sxm-flake = {
-    #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
-    #};
-
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
@@ -82,13 +78,18 @@
         inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = pkgs.nur.repos.rycee.firefox-addons;
       };
+
+      mkHomeConfigurations = p:
+        import ./outputs/home-conf.nix { inherit inputs system extraArgs; pkgs = p; };
+
+      mkNixosConfigurations = p:
+        import ./outputs/nixos-conf.nix { inherit inputs system extraArgs; pkgs = p; };
     in
     {
-      homeConfigurations =
-        import ./outputs/home-conf.nix { inherit inputs system pkgs extraArgs; };
+      inherit mkHomeConfigurations mkNixosConfigurations pkgs;
 
-      nixosConfigurations =
-        import ./outputs/nixos-conf.nix { inherit inputs system pkgs extraArgs; };
+      homeConfigurations = mkHomeConfigurations pkgs;
+      nixosConfigurations = mkNixosConfigurations pkgs;
 
       packages.${system} = {
         inherit (pkgs) bazecor metals metals-updater;
