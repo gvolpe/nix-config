@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, extraArgs, ... }:
+{ inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -15,7 +15,7 @@ let
     home-manager.nixosModules.home-manager
     (import ./home-module.nix {
       inherit inputs system;
-      extraSpecialArgs = extraArgs { hidpi = false; };
+      extraSpecialArgs = pkgs.xargs { hidpi = false; };
     })
   ];
 

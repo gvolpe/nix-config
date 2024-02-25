@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, extraArgs, ... }:
+{ inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -11,7 +11,7 @@ let
   mkHome = { hidpi }: (
     home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = extraArgs { inherit hidpi; };
+      extraSpecialArgs = pkgs.xargs { inherit hidpi; };
       modules = [{ inherit imports; }];
     }
   );

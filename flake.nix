@@ -66,30 +66,18 @@
     let
       system = "x86_64-linux";
 
+      overlays = import ./lib/overlays.nix { inherit inputs system; };
+
       pkgs = import inputs.nixpkgs {
-        inherit system;
+        inherit overlays system;
         config.allowUnfree = true;
-        overlays = import ./lib/overlays.nix { inherit inputs system; };
       };
-
-      extraArgs = { hidpi }: {
-        inherit hidpi;
-        inherit (inputs) gh-md-toc penguin-fox;
-        inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
-        addons = pkgs.nur.repos.rycee.firefox-addons;
-      };
-
-      mkHomeConfigurations = p:
-        import ./outputs/home-conf.nix { inherit inputs system extraArgs; pkgs = p; };
-
-      mkNixosConfigurations = p:
-        import ./outputs/nixos-conf.nix { inherit inputs system extraArgs; pkgs = p; };
     in
     {
-      inherit mkHomeConfigurations mkNixosConfigurations pkgs;
+      inherit pkgs overlays;
 
-      homeConfigurations = mkHomeConfigurations pkgs;
-      nixosConfigurations = mkNixosConfigurations pkgs;
+      homeConfigurations = pkgs.mkHomeConfigurations;
+      nixosConfigurations = pkgs.mkNixosConfigurations;
 
       packages.${system} = {
         inherit (pkgs) bazecor metals metals-updater;
