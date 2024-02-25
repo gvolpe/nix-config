@@ -51,10 +51,11 @@ let
     label = %{A1:${openCalendar}:}%time%%{A}
   '';
 
+  #token = ''${file:${../../secrets/github-token}}
   github = ''
     [module/clickable-github]
     inherit = module/github
-    token = ''${file:${../../secrets/github-token}}
+    token = ${pkgs.secrets.githubToken}
     user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';

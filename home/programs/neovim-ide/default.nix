@@ -1,14 +1,7 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   metals = pkgs.callPackage ./metals.nix { };
-
-  openaiApiKey = lib.secretManager {
-    filepath = ../../secrets/openai-api-key;
-    fileAction = file: lib.removeNewline (lib.readFile file);
-    encryptedSha256 = "80c866e45d4344f12fa4d98d29cadd27d31d68fd402c97fe05eced6b470ebae8";
-    emptyValue = "SECRET";
-  };
 in
 {
   programs.neovim-ide = {
@@ -123,7 +116,7 @@ in
         };
         chatgpt = {
           enable = true;
-          inherit openaiApiKey;
+          inherit (pkgs.secrets) openaiApiKey;
         };
         git = {
           enable = true;

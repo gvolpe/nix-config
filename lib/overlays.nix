@@ -31,6 +31,10 @@ let
       import ../outputs/nixos-conf.nix { inherit inputs system; pkgs = f; };
   };
 
+  secretsOverlay = f: p: {
+    secrets = p.callPackage ./secrets.nix { };
+  };
+
   xargsOverlay = f: p: {
     xargs = { hidpi }: {
       inherit hidpi;
@@ -45,6 +49,7 @@ in
   fishOverlay
   libOverlay
   metalsOverlay
+  secretsOverlay
   nurpkgs.overlay
   neovim-flake.overlays.${system}.default
   statix.overlays.default
