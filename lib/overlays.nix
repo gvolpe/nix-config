@@ -24,11 +24,11 @@ let
   };
 
   buildersOverlay = f: p: {
-    mkHomeConfigurations =
-      import ../outputs/home-conf.nix { inherit inputs system; pkgs = f; };
+    mkHomeConfigurations = { pkgs ? f }:
+      import ../outputs/home-conf.nix { inherit inputs pkgs system; };
 
-    mkNixosConfigurations =
-      import ../outputs/nixos-conf.nix { inherit inputs system; pkgs = f; };
+    mkNixosConfigurations = { pkgs ? f }:
+      import ../outputs/nixos-conf.nix { inherit inputs pkgs system; };
   };
 
   secretsOverlay = f: p: {

@@ -76,8 +76,8 @@
     {
       inherit pkgs overlays;
 
-      homeConfigurations = pkgs.mkHomeConfigurations;
-      nixosConfigurations = pkgs.mkNixosConfigurations;
+      homeConfigurations = pkgs.mkHomeConfigurations { };
+      nixosConfigurations = pkgs.mkNixosConfigurations { };
 
       packages.${system} = {
         inherit (pkgs) bazecor metals metals-updater;
