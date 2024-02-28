@@ -11,7 +11,7 @@
         glob = "*";
         priority = 10;
         readOnly = false;
-        type = "discover";
+        type = "calendar";
       };
       # see https://github.com/nix-community/home-manager/issues/4675#issuecomment-1967853432
       local = { }; # workaround 1
