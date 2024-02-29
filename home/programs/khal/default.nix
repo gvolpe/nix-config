@@ -14,8 +14,11 @@
         type = "calendar";
       };
       # see https://github.com/nix-community/home-manager/issues/4675#issuecomment-1967853432
-      local = { }; # workaround 1
-      primaryCollection = "gvolpe"; # workaround 2
+      local = {
+        type = "filesystem";
+        fileExt = ".ics";
+      };
+      primaryCollection = "gvolpe"; # workaround
     };
   };
 
@@ -25,7 +28,7 @@
       # Format strings are for Python strftime, similarly to strftime(3).
       dateformat = "%x";
       datetimeformat = "%c";
-      #default_timezone = "UTC+1";
+      default_timezone = "CET";
       # Monday is 0, Sunday is 6
       firstweekday = 0;
       longdateformat = "%x";
