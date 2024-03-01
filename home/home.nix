@@ -63,7 +63,6 @@ let
     tree                 # display files in a tree view
     vlc                  # media player
     xsel                 # clipboard support (also for neovim)
-    zoom-us              # message client
 
     # haskell packages
     haskellPackages.nix-tree # visualize nix dependencies

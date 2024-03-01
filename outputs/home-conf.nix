@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, ... }:
+{ extraPkgs, inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -6,6 +6,7 @@ let
   imports = [
     neovim-flake.nixosModules.${system}.hm
     ../home/home.nix
+    ({ home.packages = extraPkgs; })
   ];
 
   mkHome = { hidpi }: (
