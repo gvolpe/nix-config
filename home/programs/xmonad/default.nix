@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   extra = ''
@@ -10,13 +10,15 @@ let
     ${pkgs.autorandr}/bin/autorandr --change
   '';
 
+  mega = config.programs.megasync;
+
   polybarOpts = ''
     ${pkgs.nitrogen}/bin/nitrogen --restore &
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
     ${pkgs.bat-lvl}/bin/battery-level-check &
-    megasync &
+    ${if mega.enable then "${mega.package}/bin/megasync &" else ""}
   '';
 in
 {
