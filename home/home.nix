@@ -16,7 +16,6 @@ let
     calibre              # e-book reader
     #cobang               # qr-code scanner
     cowsay               # cowsay fortune teller with random images
-    dconf2nix            # dconf (gnome) files to nix converter
     dig                  # dns command-line tool
     docker-compose       # docker manager
     dive                 # explore docker layers
@@ -25,11 +24,9 @@ let
     eza                  # a better `ls`
     fd                   # "find" for files
     gimp                 # gnu image manipulation program
-    glow                 # terminal markdown viewer
     #gnomecast            # chromecast local files
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
-    jitsi-meet-electron  # open source video calls and chat
     jmtpfs               # mount mtp devices
     killall              # kill processes by name
     libreoffice          # office suite
@@ -56,8 +53,6 @@ let
     screenkey            # shows keypresses on screen
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
-    skypeforlinux        # messaging client
-    slack                # messaging client
     tdesktop             # telegram messaging client
     tldr                 # summary of a man page
     tree                 # display files in a tree view
@@ -101,6 +96,8 @@ in
       BROWSER = "${lib.getExe pkgs.firefox-beta-bin}";
       DISPLAY = ":0";
       EDITOR = "nvim";
+      # https://github.com/NixOS/nixpkgs/issues/24311#issuecomment-980477051
+      GIT_ASKPASS = "";
     };
   };
 
