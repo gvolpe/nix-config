@@ -5,7 +5,7 @@ let
   xdg-mimeo = pkgs.xdg-utils.overrideAttrs (old: {
     postInstall = ''
       cp ${pkgs.mimeo}/bin/mimeo $out/bin/xdg-open
-    '' + old.postInstall;
+    '';
   });
 in
 {
