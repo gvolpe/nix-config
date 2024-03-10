@@ -6,14 +6,14 @@ let
   cfg = config.programs.megasync;
 
   # See https://github.com/NixOS/nixpkgs/pull/224183
-  package = pkgs.megasync.override {
+  defaultPackage = pkgs.megasync.override {
     ffmpeg = pkgs.ffmpeg_4;
   };
 
   hidpiPackage = pkgs.symlinkJoin
     {
       name = "megasync";
-      paths = [ package ];
+      paths = [ defaultPackage ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/megasync --prefix QT_SCALE_FACTOR : 1
@@ -25,11 +25,14 @@ in
 
   options.programs.megasync = {
     enable = mkEnableOption "Syncing tool for Mega.nz";
+
+    package = mkOption {
+      type = types.package;
+      default = if specialArgs.hidpi then hidpiPackage else defaultPackage;
+    };
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      (if specialArgs.hidpi then hidpiPackage else package)
-    ];
+    home.packages = [ cfg.package ];
   };
 }
