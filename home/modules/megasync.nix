@@ -5,10 +5,14 @@ with lib;
 let
   cfg = config.programs.megasync;
 
-  defaultPackage = pkgs.megasync.overrideAttrs (old: {
-    buildInputs = lib.lists.remove "freeimage" old.buildInputs;
-    configureFlags = (lib.lists.remove "--with-freeimage" old.configureFlags) ++ [ "--without-freeimage" ];
-  });
+  defaultPackage =
+    let
+      mega = pkgs.megasync.override { freeimage = pkgs.hello; };
+    in
+    mega.overrideAttrs (old: {
+      buildInputs = lib.lists.remove "freeimage" old.buildInputs;
+      configureFlags = (lib.lists.remove "--with-freeimage" old.configureFlags) ++ [ "--without-freeimage" ];
+    });
 
   hidpiPackage = pkgs.symlinkJoin
     {
