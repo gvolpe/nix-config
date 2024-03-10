@@ -71,6 +71,10 @@
       pkgs = import inputs.nixpkgs {
         inherit overlays system;
         config.allowUnfree = true;
+        # workaround for: https://github.com/NixOS/nixpkgs/issues/290949
+        config.permittedInsecurePackages = [
+          "freeimage-unstable-2021-11-01"
+        ];
       };
     in
     {

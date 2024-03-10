@@ -5,19 +5,10 @@ with lib;
 let
   cfg = config.programs.megasync;
 
-  defaultPackage =
-    let
-      mega = pkgs.megasync.override { freeimage = pkgs.hello; };
-    in
-    mega.overrideAttrs (old: {
-      buildInputs = lib.lists.remove "freeimage" old.buildInputs;
-      configureFlags = (lib.lists.remove "--with-freeimage" old.configureFlags) ++ [ "--without-freeimage" ];
-    });
-
   hidpiPackage = pkgs.symlinkJoin
     {
       name = "megasync";
-      paths = [ defaultPackage ];
+      paths = [ pkgs.megasync ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/megasync --prefix QT_SCALE_FACTOR : 1
@@ -32,7 +23,7 @@ in
 
     package = mkOption {
       type = types.package;
-      default = if specialArgs.hidpi then hidpiPackage else defaultPackage;
+      default = if specialArgs.hidpi then hidpiPackage else pkgs.megasync;
     };
   };
 
