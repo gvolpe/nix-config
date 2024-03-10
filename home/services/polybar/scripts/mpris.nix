@@ -9,11 +9,21 @@ let
   '';
 
   metadata = pkgs.writeShellScriptBin "spotify_metadata" ''
-    ${pctl} --player=spotify,%any metadata --format '${format}'
+    meta=$(echo -n $(${pctl} --player=spotify metadata --format '${format}' 2>/dev/null))
+    if [[ $meta == "" ]]; then
+      echo "Click to open Spotify"
+    else
+      echo $meta
+    fi
   '';
 
   status = pkgs.writeShellScriptBin "spotify_status" ''
-    ${pctl} --player=spotify status
+    state=$(echo -n $(${pctl} --player=spotify status 2>/dev/null))
+    if [[ $state == "" ]]; then
+      echo "Click to open Spotify"
+    else
+      echo $state
+    fi
   '';
 in
 # Credits to https://github.com/PrayagS/polybar-spotify for the scrolling idea

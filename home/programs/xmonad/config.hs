@@ -188,7 +188,7 @@ appLauncher  = "rofi -modi drun,ssh,window -show drun -show-icons"
 calcLauncher = "rofi -show calc -modi calc -no-show-match -no-sort"
 emojiPicker  = "rofi -modi emoji -show emoji -emoji-mode copy"
 screenLocker = "multilockscreen -l dim"
-playerctl c  = "playerctl --player=spotify,%any " <> c
+playerctl c  = "playerctl --player=spotify " <> c
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings xs =
