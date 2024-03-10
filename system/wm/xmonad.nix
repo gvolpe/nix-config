@@ -15,14 +15,6 @@
     xserver = {
       enable = true;
 
-      extraLayouts.us-custom = {
-        description = "US layout with custom hyper keys";
-        languages   = [ "eng" ];
-        symbolsFile = ./us-custom.xkb;
-      };
-
-      layout = "us";
-
       libinput = {
         enable = true;
         touchpad.disableWhileTyping = true;
@@ -43,9 +35,16 @@
         enableContribAndExtras = true;
       };
 
-      # does not work, setting it manually on start up
-      xkbOptions = "ctrl:nocaps";
+      xkb = {
+        extraLayouts.us-custom = {
+          description = "US layout with custom hyper keys";
+          languages = [ "eng" ];
+          symbolsFile = ./us-custom.xkb;
+        };
 
+        layout = "us";
+        options = "ctrl:nocaps";
+      };
     };
   };
 
@@ -55,7 +54,7 @@
       General = {
         Enable = "Source,Sink,Media,Socket";
       };
-   };
+    };
   };
 
   services.blueman.enable = true;
