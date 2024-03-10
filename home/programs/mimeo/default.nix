@@ -2,8 +2,10 @@
 
 let
   # xdg-utils as a runtime dependency: https://github.com/NixOS/nixpkgs/pull/181171
+  # postInstall broken after these changes: https://github.com/NixOS/nixpkgs/pull/285233
+  # use postFixup instead
   xdg-mimeo = pkgs.xdg-utils.overrideAttrs (old: {
-    postInstall = ''
+    postFixup = ''
       cp ${pkgs.mimeo}/bin/mimeo $out/bin/xdg-open
     '';
   });
