@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =  [
+  imports = [
     # Hardware scan
     ./hardware-configuration.nix
   ];
@@ -11,7 +11,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       grub = {
-        enable  = true;
+        enable = true;
         device = "/dev/nvme0n1"; # or "nodev" for efi only
         version = 2;
       };
@@ -30,14 +30,16 @@
 
   services.xserver = {
     xrandrHeads = [
-      { output = "HDMI-1";
+      {
+        output = "HDMI-1";
         primary = true;
         monitorConfig = ''
           Option "PreferredMode" "3840x2160"
           Option "Position" "0 0"
         '';
       }
-      { output = "eDP-1";
+      {
+        output = "eDP-1";
         monitorConfig = ''
           Option "PreferredMode" "3840x2160"
           Option "Position" "0 0"

@@ -19,9 +19,15 @@ let
     })
   ];
 
-  vmUser = {
+  isoModules = [
+    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+    # disable networking.wireless from the iso minimal conf as we use networkmanager
+    { networking.wireless.enable = false; }
+  ];
+
+  vmUser = [{
     users.users.gvolpe.initialPassword = "test";
-  };
+  }];
 in
 {
   dell-xps = nixosSystem {
@@ -29,6 +35,15 @@ in
     specialArgs = { inherit inputs; };
     modules = [
       ../system/machine/dell-xps
+      ../system/configuration.nix
+    ];
+  };
+
+  thinkpad = nixosSystem {
+    inherit lib pkgs system;
+    specialArgs = { inherit inputs; };
+    modules = [
+      ../system/machine/thinkpad-x1
       ../system/configuration.nix
     ];
   };
@@ -42,6 +57,6 @@ in
   edp-tongfang-amd = nixosSystem {
     inherit lib pkgs system;
     specialArgs = { inherit inputs; };
-    modules = tongfangModules ++ edpHomeModules ++ [ vmUser ];
+    modules = tongfangModules ++ edpHomeModules ++ isoModules ++ vmUser;
   };
 }
