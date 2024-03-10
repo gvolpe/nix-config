@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   extra = ''
@@ -18,7 +18,7 @@ let
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
     ${pkgs.bat-lvl}/bin/battery-level-check &
-    ${if mega.enable then "${lib.getExe mega.package} &" else ""}
+    ${if mega.enable then "${mega.package}/bin/megasync &" else ""}
   '';
 in
 {
