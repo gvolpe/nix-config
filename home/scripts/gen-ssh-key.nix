@@ -8,5 +8,5 @@ in
   pkgs.writeShellScriptBin "gen-ssh-key" ''
     ${keygen} -t ed25519 -C $1
     eval $(${agent} -s)
-    ${add} $HOME/.ssh/id_rsa
+    ${add} $HOME/.ssh/id_ed25519
   ''

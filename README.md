@@ -80,30 +80,32 @@ github:gvolpe/nix-config/b7fb45d60b761fe39ee1ce78d2b1fd0f0c8db50e
 ├───nixosConfigurations
 │   ├───dell-xps: NixOS configuration
 │   ├───edp-tongfang-amd: NixOS configuration
+│   ├───thinkpad: NixOS configuration
 │   └───tongfang-amd: NixOS configuration
+├───out: unknown
 └───packages
     └───x86_64-linux
         ├───bazecor: package 'bazecor-1.3.9-patched'
-        ├───metals: package 'metals-1.2.0'
+        ├───metals: package 'metals-1.2.2'
         └───metals-updater: package 'metals-updater-script'
 ```
 
 As well as all the declared flake inputs.
 
 ```console
-$ nix flake metadata github:gvolpe/nix-config
+nix flake metadata github:gvolpe/nix-config
 ```
 
 The `edp-tongfang-amd` configuration also contains my Home Manager configuration using the NixOS module, so it can easily be tested with a single command.
 
 ```console
-$ nixos-rebuild switch --flake github:gvolpe/nix-config#edp-tongfang-amd
+nixos-rebuild switch --flake github:gvolpe/nix-config#edp-tongfang-amd
 ```
 
 Or you can test it directly on a QEMU virtual machine, though it has its limitations in terms of graphics.
 
 ```console
-$ nixos-rebuild build-vm --flake github:gvolpe/nix-config#edp-tongfang-amd
+nixos-rebuild build-vm --flake github:gvolpe/nix-config#edp-tongfang-amd
 ./result/bin/run-tongfang-amd-vm
 ```
 
@@ -116,7 +118,7 @@ Managing the different Home Manager generations in isolation makes this way easi
 The NixOS configuration can be installed by running the following command.
 
 ```console
-$ nixos-rebuild switch --flake github:gvolpe/nix-config#tongfang-amd
+nixos-rebuild switch --flake github:gvolpe/nix-config#tongfang-amd
 ```
 
 Beware that the `hardware-configuration.nix` file is the result of the hardware scan of the specific machine and might not be suitable for yours.
@@ -126,37 +128,10 @@ Beware that the `hardware-configuration.nix` file is the result of the hardware 
 A fresh install requires the creation of certain directories (see what the `build` script does). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
 
 ```console
-$ nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-edp.activationPackage
-$ result/activate
+nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-edp.activationPackage
+result/activate
 ```
 
-### Full configuration via script
+### Fresh install
 
-On a fresh NixOS installation, run the following commands.
-
-```console
-$ nix flake clone github:gvolpe/nix-config --dest /choose/a/path
-$ ./build fresh-install # requires sudo
-```
-
-There's an additional step required if you want to have secrets working.
-
-```console
-$ nix run nixpkgs#git-crypt unlock
-```
-
-> NOTE: it requires your GPG Keys to be correctly set up.
-
-The `build` script is only suitable for a fresh install customized to my personal use but you can build the flakes directly. E.g.
-
-```console
-$ nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
-sudo result/bin/switch-to-configuration switch
-```
-
-Or for Home Manager.
-
-```console
-$ nix build .#homeConfigurations.gvolpe-hdmi.activationPackage
-$ result/activate
-```
+To set up a new machine from scratch, have a look at [this document](./notes/new-machine.md).

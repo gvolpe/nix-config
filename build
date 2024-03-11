@@ -63,5 +63,5 @@ case $1 in
   "post-home")
     post_home;;
   *)
-    echo "Invalid option. Expected 'ci-home', 'ci-system', 'pre_home', 'post_home' or 'fresh-install'";;
+    echo "Invalid option. Expected 'ci-home', 'ci-system', 'pre-home', 'post-home' or 'fresh-install'";;
 esac
