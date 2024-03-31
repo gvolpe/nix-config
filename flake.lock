@@ -764,16 +764,17 @@
         "tokyonight": "tokyonight",
         "tree-sitter-scala": "tree-sitter-scala",
         "trouble": "trouble",
+        "vim-fugitive": "vim-fugitive",
         "vim-plantuml": "vim-plantuml",
         "vim-vsnip": "vim-vsnip",
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1706638864,
-        "narHash": "sha256-fJ3wEaaHnJWvMnKv4RZXvbhby7WL9cVNZs4paWalJk4=",
+        "lastModified": 1711823118,
+        "narHash": "sha256-U5ryrzCoTmIgcKB+BOv12DUjD7yEXOob/+4bu8PczvI=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "046e158c642ddcb1644dd4ad1bfd31c9900a3c21",
+        "rev": "eb528d27555ef593d6a63dbfd4b4256b00fbb915",
         "type": "github"
       },
       "original": {
@@ -1696,6 +1697,22 @@
         "owner": "snowfallorg",
         "ref": "v1.0.0",
         "repo": "vhs",
+        "type": "github"
+      }
+    },
+    "vim-fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711658626,
+        "narHash": "sha256-/aB2VBIqqAb6nWtEd/XloZelCT0iPXujZQVB9JuNNog=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "a83135b55b018a891e0803199c3d418010a404d8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
         "type": "github"
       }
     },
