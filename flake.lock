@@ -499,11 +499,11 @@
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1705767798,
-        "narHash": "sha256-dFI2F7/eDCUTk+mAzBJa3rvOQDyYCvSgWePJ5gaOl78=",
+        "lastModified": 1711702445,
+        "narHash": "sha256-aC51sAF+xCIE+k2SkkbbnbTKFWYhL2aPqrRwhX+CMno=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "c5ff7628e19a47ec14d3657294cc074ecae27b99",
+        "rev": "70584ff9aae8078b64430c574079d79620b8f06d",
         "type": "github"
       },
       "original": {
@@ -729,6 +729,8 @@
           "nixpkgs"
         ],
         "nmd": "nmd",
+        "noice": "noice",
+        "nui-nvim": "nui-nvim",
         "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-bufferline": "nvim-bufferline",
@@ -770,11 +772,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1711823118,
-        "narHash": "sha256-U5ryrzCoTmIgcKB+BOv12DUjD7yEXOob/+4bu8PczvI=",
+        "lastModified": 1711899099,
+        "narHash": "sha256-it16mfOHtCMmxKpanEAJ375ojURiMOKJp3VCtZRt+74=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "eb528d27555ef593d6a63dbfd4b4256b00fbb915",
+        "rev": "b87a2e5507219bf8de4683223717e1373b3880fd",
         "type": "github"
       },
       "original": {
@@ -929,6 +931,38 @@
       "original": {
         "owner": "gvolpe",
         "repo": "nmd",
+        "type": "github"
+      }
+    },
+    "noice": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711471279,
+        "narHash": "sha256-y6gHNkWVsIuwBf7MblCTKTZSqjGDxqeFeQZWexzwk94=",
+        "owner": "folke",
+        "repo": "noice.nvim",
+        "rev": "0cbe3f88d038320bdbda3c4c5c95f43a13c3aa12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "noice.nvim",
+        "type": "github"
+      }
+    },
+    "nui-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710740032,
+        "narHash": "sha256-Zr5CNx6BIM6naCXW8YBc/Oj1qOtWV/3tuMoaaZjoSZA=",
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
+        "rev": "cbd2668414331c10039278f558630ed19b93e69b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MunifTanjim",
+        "repo": "nui.nvim",
         "type": "github"
       }
     },

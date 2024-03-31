@@ -50,6 +50,7 @@ in
         fx.automaton.enable = true;
         visuals = {
           enable = true;
+          noice.enable = true;
           nvimWebDevicons.enable = true;
           lspkind.enable = true;
           indentBlankline = {
