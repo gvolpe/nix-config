@@ -31,6 +31,32 @@ let
       import ../outputs/nixos-conf.nix { inherit inputs pkgs system; };
   };
 
+  treesitterGrammarsOverlay = f: p: {
+    treesitterGrammars = _.withPlugins (p: [
+      p.tree-sitter-scala
+      p.tree-sitter-c
+      p.tree-sitter-nix
+      p.tree-sitter-elm
+      p.tree-sitter-haskell
+      p.tree-sitter-python
+      p.tree-sitter-rust
+      p.tree-sitter-markdown
+      p.tree-sitter-markdown-inline
+      p.tree-sitter-comment
+      p.tree-sitter-toml
+      p.tree-sitter-make
+      # FIXME: typescript is broken at the minute
+      #p.tree-sitter-tsx
+      #p.tree-sitter-typescript
+      #p.tree-sitter-html
+      #p.tree-sitter-javascript
+      #p.tree-sitter-css
+      p.tree-sitter-graphql
+      p.tree-sitter-json
+      p.tree-sitter-smithy
+    ]);
+  };
+
   secretsOverlay = f: p: {
     secrets = p.callPackage ./secrets.nix { };
   };
@@ -59,4 +85,5 @@ in
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/ranger)
   buildersOverlay
+  treesitterGrammarsOverlay
 ]

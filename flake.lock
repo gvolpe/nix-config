@@ -789,11 +789,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1711971034,
-        "narHash": "sha256-a/HiXw/mSWPT/mKHnzHB/GKNfVocLBd8xPhXwy3/wIU=",
+        "lastModified": 1711993379,
+        "narHash": "sha256-XvUEybdlChOJ3w+C0qAUcTLsrUoUToc5SZj7gPKaBvw=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "c104bbcfe258a98bf80b1f70eb98ce80632bcf29",
+        "rev": "84ad5787d736946ad96c6519338fe214694e56f9",
         "type": "github"
       },
       "original": {
