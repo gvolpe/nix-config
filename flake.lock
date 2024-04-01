@@ -199,6 +199,22 @@
         "type": "github"
       }
     },
+    "diffview": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700506468,
+        "narHash": "sha256-3EdnBUka9Rh5Brl6TWpN6GlD9z32mmY3Ip+wyiKob/8=",
+        "owner": "sindrets",
+        "repo": "diffview.nvim",
+        "rev": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sindrets",
+        "repo": "diffview.nvim",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -727,6 +743,7 @@
         "cmp-vsnip": "cmp-vsnip",
         "crates-nvim": "crates-nvim",
         "dial-nvim": "dial-nvim",
+        "diffview": "diffview",
         "flake-utils": "flake-utils_3",
         "gitsigns-nvim": "gitsigns-nvim",
         "glow-nvim": "glow-nvim",
@@ -789,11 +806,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1711993379,
-        "narHash": "sha256-XvUEybdlChOJ3w+C0qAUcTLsrUoUToc5SZj7gPKaBvw=",
+        "lastModified": 1711998288,
+        "narHash": "sha256-/S2L4SpoPn4XxJCfpq1zpOWc9mLUVmS1ZzFrQrAAnDA=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "84ad5787d736946ad96c6519338fe214694e56f9",
+        "rev": "b5630e0cd5a5ceadae56ea043426c6020ad358f3",
         "type": "github"
       },
       "original": {
