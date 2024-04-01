@@ -121,6 +121,7 @@ in
         git = {
           enable = true;
           gitsigns.enable = true;
+          neogit.enable = false;
         };
         spider = {
           enable = false;
