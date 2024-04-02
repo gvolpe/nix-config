@@ -806,11 +806,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1711998288,
-        "narHash": "sha256-/S2L4SpoPn4XxJCfpq1zpOWc9mLUVmS1ZzFrQrAAnDA=",
+        "lastModified": 1712089858,
+        "narHash": "sha256-p8giN4h+PmRiFdaMrBMvE0G52v79UC2LkY+2Ue0ms+4=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "b5630e0cd5a5ceadae56ea043426c6020ad358f3",
+        "rev": "810b858713f1641f895bde00937fc10bfe6f2694",
         "type": "github"
       },
       "original": {
