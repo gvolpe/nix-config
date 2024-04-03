@@ -544,6 +544,23 @@
         "type": "github"
       }
     },
+    "harpoon": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707652817,
+        "narHash": "sha256-9/7aP12+MIKOU8mDgWmMDel/3VvBRJFQ4RIyOSofSRo=",
+        "owner": "kimabrandt-flx",
+        "repo": "harpoon",
+        "rev": "e0bdf91cafce78136547e982db59a262492fa8eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kimabrandt-flx",
+        "ref": "fix_marks_index",
+        "repo": "harpoon",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -747,6 +764,7 @@
         "flake-utils": "flake-utils_3",
         "gitsigns-nvim": "gitsigns-nvim",
         "glow-nvim": "glow-nvim",
+        "harpoon": "harpoon",
         "hop": "hop",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
@@ -806,11 +824,11 @@
         "which-key": "which-key"
       },
       "locked": {
-        "lastModified": 1712089858,
-        "narHash": "sha256-p8giN4h+PmRiFdaMrBMvE0G52v79UC2LkY+2Ue0ms+4=",
+        "lastModified": 1712166913,
+        "narHash": "sha256-ERliw0JVRTUUwwy/Xiu/ft+TjWMnL9rKU+i6oEFsGDw=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "810b858713f1641f895bde00937fc10bfe6f2694",
+        "rev": "489e6af663411d767967d7835913370d20bd8dc3",
         "type": "github"
       },
       "original": {
