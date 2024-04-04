@@ -88,6 +88,7 @@ in
         notifications.enable = true;
         todo.enable = true;
         tabline.nvimBufferline.enable = true;
+        zen.enable = true;
         treesitter = {
           enable = true;
           autotagHtml = true;

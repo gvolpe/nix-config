@@ -818,17 +818,19 @@
         "tokyonight": "tokyonight",
         "tree-sitter-scala": "tree-sitter-scala",
         "trouble": "trouble",
+        "twilight": "twilight",
         "vim-fugitive": "vim-fugitive",
         "vim-plantuml": "vim-plantuml",
         "vim-vsnip": "vim-vsnip",
-        "which-key": "which-key"
+        "which-key": "which-key",
+        "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1712166913,
-        "narHash": "sha256-ERliw0JVRTUUwwy/Xiu/ft+TjWMnL9rKU+i6oEFsGDw=",
+        "lastModified": 1712226667,
+        "narHash": "sha256-EOh9rWg0mNr29/DDCFi6Q0bFQv2XWsZUDur1P8mvbXY=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "489e6af663411d767967d7835913370d20bd8dc3",
+        "rev": "e3861d6bd0e627fbb8629f732e17e52ecc36da5d",
         "type": "github"
       },
       "original": {
@@ -1763,6 +1765,22 @@
         "type": "github"
       }
     },
+    "twilight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695631985,
+        "narHash": "sha256-WFE8FZU8E8i6mX9bFl80YkIypGXOOhKvGbLrBoPce0g=",
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "rev": "8b7b50c0cb2dc781b2f4262a5ddd57571556d1e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "type": "github"
+      }
+    },
     "vhs": {
       "inputs": {
         "nixpkgs": [
@@ -1847,6 +1865,22 @@
       "original": {
         "owner": "folke",
         "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
+    "zen-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705847384,
+        "narHash": "sha256-G5/AskXEA0vl9GGUR8NG8PmL/HFcItZJWB+LyKd3R2k=",
+        "owner": "folke",
+        "repo": "zen-mode.nvim",
+        "rev": "78557d972b4bfbb7488e17b5703d25164ae64e6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "zen-mode.nvim",
         "type": "github"
       }
     }
