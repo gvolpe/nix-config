@@ -86,6 +86,7 @@ in
         harpoon.enable = true;
         hop.enable = true;
         notifications.enable = true;
+        snippets.vsnip.enable = true;
         todo.enable = true;
         tabline.nvimBufferline.enable = true;
         zen.enable = true;
