@@ -49,11 +49,11 @@ in
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     globalprotect-openconnect
     firejail
+    nix-schema
     vim
     wget
   ];

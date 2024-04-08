@@ -13,7 +13,6 @@
       grub = {
         enable = true;
         device = "/dev/nvme0n1"; # or "nodev" for efi only
-        version = 2;
       };
     };
   };

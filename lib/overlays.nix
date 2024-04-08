@@ -69,6 +69,16 @@ let
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
+
+  schemaOverlay = f: p: {
+    nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {
+      doCheck = false;
+      doInstallCheck = false;
+      postInstall = old.postInstall + ''
+        mv $out/bin/nix $out/bin/nix-schema
+      '';
+    });
+  };
 in
 [
   cowsayOverlay
@@ -86,4 +96,5 @@ in
   (import ../home/overlays/ranger)
   buildersOverlay
   treesitterGrammarsOverlay
+  schemaOverlay
 ]
