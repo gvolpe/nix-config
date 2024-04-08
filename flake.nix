@@ -107,7 +107,7 @@
 
       apps.${system}."nix" = {
         type = "app";
-        program = "${pkgs.nix-schema}/bin/nix";
+        program = "${pkgs.nix-schema}/bin/nix-schema";
       };
 
       packages.${system} = {
