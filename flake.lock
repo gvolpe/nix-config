@@ -1030,6 +1030,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-mega": {
+      "locked": {
+        "lastModified": 1712537012,
+        "narHash": "sha256-wxE202jTy7K7TzU+6x2oVPn09nxBjQLzKL0IHBs2r0E=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c3160517fc6381f86776795e95c97b8ef7b5d2e4",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "c3160517fc6381f86776795e95c97b8ef7b5d2e4",
+        "type": "indirect"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -1566,6 +1581,7 @@
         "neovim-flake": "neovim-flake",
         "nix-schema": "nix-schema",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-mega": "nixpkgs-mega",
         "nurpkgs": "nurpkgs",
         "penguin-fox": "penguin-fox",
         "rycee-nurpkgs": "rycee-nurpkgs",

@@ -61,6 +61,13 @@ let
     secrets = p.callPackage ./secrets.nix { };
   };
 
+  megasyncOverlay = f: p: {
+    inherit (import inputs.nixpkgs-mega {
+      inherit system;
+      config.allowUnfree = true;
+    }) megasync;
+  };
+
   xargsOverlay = f: p: {
     xargs = { hidpi }: {
       inherit hidpi;
@@ -86,6 +93,7 @@ in
   libOverlay
   metalsOverlay
   secretsOverlay
+  megasyncOverlay
   nurpkgs.overlay
   neovim-flake.overlays.${system}.default
   statix.overlays.default

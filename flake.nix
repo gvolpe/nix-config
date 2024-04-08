@@ -15,6 +15,9 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-schemas.url = "github:gvolpe/flake-schemas";
+ 
+    # https://github.com/NixOS/nixpkgs/commit/c3160517fc6381f86776795e95c97b8ef7b5d2e4
+    nixpkgs-mega.url = "nixpkgs/c3160517fc6381f86776795e95c97b8ef7b5d2e4";
 
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
@@ -89,10 +92,6 @@
       pkgs = import inputs.nixpkgs {
         inherit overlays system;
         config.allowUnfree = true;
-        # workaround for: https://github.com/NixOS/nixpkgs/issues/290949
-        config.permittedInsecurePackages = [
-          "freeimage-unstable-2021-11-01"
-        ];
       };
     in
     {
