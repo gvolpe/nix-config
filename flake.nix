@@ -85,7 +85,7 @@
 
   outputs = inputs:
     let
-      system = "x86_64-linux";
+      system = "aarch64-darwin";
 
       overlays = import ./lib/overlays.nix { inherit inputs system; };
 
