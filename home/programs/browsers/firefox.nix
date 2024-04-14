@@ -13,7 +13,7 @@ let
     darkreader
     ff2mpv
     # auto-accepts cookies, use only with privacy-badger & ublock-origin
-    i-dont-care-about-cookies
+    istilldontcareaboutcookies
     languagetool
     link-cleaner
     privacy-badger
