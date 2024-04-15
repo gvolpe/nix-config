@@ -4,7 +4,7 @@ with inputs;
 
 let
   imports = [
-    neovim-flake.nixosModules.${system}.hm
+    neovim-flake.homeManagerModules.${system}.default
     ../home/home.nix
     ({ home.packages = extraPkgs; })
   ];
