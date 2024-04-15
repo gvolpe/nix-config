@@ -41,6 +41,7 @@
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-schemas.follows = "flake-schemas";
     };
 
     # Fish shell
