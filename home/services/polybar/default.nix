@@ -16,7 +16,7 @@ let
 
   mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
 
-  openGithub = "${lib.getExe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
+  openGithub = "${lib.exe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
@@ -71,7 +71,7 @@ let
 
     exec = ${mprisScript}/bin/mpris
     tail = true
-    click-left = ${lib.getExe config.programs.spotify.package}
+    click-left = ${lib.exe config.programs.spotify.package}
 
     label-maxlen = 60
 

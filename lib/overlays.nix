@@ -19,7 +19,7 @@ let
   libOverlay = f: p: rec {
     libx = import ./. { inherit (p) lib; };
     lib = p.lib.extend (_: _: {
-      inherit (libx) removeNewline secretManager;
+      inherit (libx) exe removeNewline secretManager;
     });
   };
 
