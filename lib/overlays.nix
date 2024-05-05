@@ -25,10 +25,10 @@ let
 
   buildersOverlay = f: p: {
     mkHomeConfigurations = { pkgs ? f, extraPkgs ? [ ] }:
-      import ../outputs/home-conf.nix { inherit extraPkgs inputs pkgs system; };
+      import ../outputs/hn.nix { inherit extraPkgs inputs pkgs system; };
 
     mkNixosConfigurations = { pkgs ? f, extraSystemConfig ? { } }:
-      import ../outputs/nixos-conf.nix { inherit extraSystemConfig inputs pkgs system; };
+      import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
   };
 
   treesitterGrammarsOverlay = f: p: {

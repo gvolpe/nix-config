@@ -37,6 +37,7 @@ in
     modules = [
       ../system/machine/dell-xps
       ../system/configuration.nix
+      extraSystemConfig
     ];
   };
 
@@ -46,6 +47,7 @@ in
     modules = [
       ../system/machine/thinkpad-x1
       ../system/configuration.nix
+      extraSystemConfig
     ];
   };
 

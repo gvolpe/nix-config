@@ -12,23 +12,21 @@
       packages = [ pkgs.dconf ];
     };
 
+    libinput = {
+      enable = true;
+      touchpad.disableWhileTyping = true;
+    };
+
+    displayManager.defaultSession = "none+xmonad";
+
     xserver = {
       enable = true;
-
-      libinput = {
-        enable = true;
-        touchpad.disableWhileTyping = true;
-      };
 
       serverLayoutSection = ''
         Option "StandbyTime" "0"
         Option "SuspendTime" "0"
         Option "OffTime"     "0"
       '';
-
-      displayManager = {
-        defaultSession = "none+xmonad";
-      };
 
       windowManager.xmonad = {
         enable = true;
