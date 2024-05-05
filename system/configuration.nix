@@ -51,7 +51,6 @@ in
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    globalprotect-openconnect
     firejail
     nix-schema
     vim
@@ -136,22 +135,6 @@ in
     printing = {
       enable = true;
       drivers = [ pkgs.epson-escpr ];
-    };
-
-    globalprotect.enable = true;
-
-    # Remote desktop protocol
-    xrdp = {
-      enable = false;
-      defaultWindowManager = "xmonad";
-      openFirewall = false;
-      #package = pkgs.xrdp.overrideAttrs (old: {
-      #postInstall = old.postInstall + ''
-      #echo ">>>>>>>>> INI file"
-      #cat $out/etc/xrdp/xrdp.ini
-      #echo "<<<<<<<<< INI file"
-      #'';
-      #});
     };
   };
 

@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, ... }:
+{ extraSystemConfig, inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -9,6 +9,7 @@ let
   tongfangModules = [
     ../system/machine/tongfang-amd
     ../system/configuration.nix
+    extraSystemConfig
   ];
 
   edpHomeModules = [

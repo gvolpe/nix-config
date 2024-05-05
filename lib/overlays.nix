@@ -27,8 +27,8 @@ let
     mkHomeConfigurations = { pkgs ? f, extraPkgs ? [ ] }:
       import ../outputs/home-conf.nix { inherit extraPkgs inputs pkgs system; };
 
-    mkNixosConfigurations = { pkgs ? f }:
-      import ../outputs/nixos-conf.nix { inherit inputs pkgs system; };
+    mkNixosConfigurations = { pkgs ? f, extraSystemConfig ? { } }:
+      import ../outputs/nixos-conf.nix { inherit extraSystemConfig inputs pkgs system; };
   };
 
   treesitterGrammarsOverlay = f: p: {
