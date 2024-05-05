@@ -15,12 +15,6 @@ let
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
 in
 {
-  imports =
-    [
-      # Window manager
-      ./wm/xmonad.nix
-    ];
-
   networking = {
     extraHosts = pkgs.sxm.hosts.extra or "";
 

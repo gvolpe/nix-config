@@ -4,6 +4,7 @@
   imports = [
     # Hardware scan
     ./hardware-configuration.nix
+    ../../wm/xmonad.nix
   ];
 
   boot = {

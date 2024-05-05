@@ -4,6 +4,7 @@
   imports = [
     # Hardware scan
     ./hardware-configuration.nix
+    ../../wm/gnome.nix
   ];
 
   # Use the GRUB 2 boot loader.

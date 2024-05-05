@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.gnupg.agent.pinentryFlavor = "gnome3";
@@ -18,8 +18,8 @@
       libinput.enable = true;
 
       # Enable the Gnome3 desktop manager
-      displayManager.gdm.enable    = true;
-      displayManager.gdm.wayland   = false; # screen-sharing is broken
+      displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = false; # screen-sharing is broken
       desktopManager.gnome3.enable = true;
     };
   };
