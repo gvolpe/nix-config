@@ -6,23 +6,42 @@ nix-config
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
+NOTE: My neovim configuration lives here: https://github.com/gvolpe/neovim-flake
+
+## Hyprland
+
+This is my current Window Manager --- the new Wayland kid on the block!
+
+![hyprlock](imgs/hyprlock.png)
+
+<details>
+
+| Type           | Program      |
+| :------------- | :----------: |
+| Editor         | [NeoVim](https://neovim.io/) |
+| Launcher       | [Wofi](https://sr.ht/~scoopta/wofi) |
+| Shell          | [Fish](https://fishshell.com/) |
+| Status Bar     | [Waybar](https://github.com/Alexays/Waybar) |
+| Terminal       | [Foot](https://codeberg.org/dnkl/foot) |
+| Window Manager | [Hyprland](https://hyprland.org/) |
+
+## Themes
+
+| Type           | Name      |
+| :------------- | :----------: |
+| GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
+| GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
+| Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
+
+</details>
+
+## XMonad
+
+XMonad will be forever in my heart --- the best X window manager!
+
 ![neofetch](imgs/neofetch.png)
 
-![cowsay](imgs/cowsay.png)
-
-![scala-dev-env](imgs/scala-dev.png)
-
-![desktop](imgs/desktop-1.jpg)
-
-![themes](imgs/theme.jpg)
-
-![demo](imgs/demo.png)
-
-NOTE: My new neovim configuration is now a separate flake: https://github.com/gvolpe/neovim-flake
-
-## Programs
-
-The `home.nix` file contains details about all the software I use, but here's a shout-out to the ones I use the most and that are customized to my needs.
+<details>
 
 | Type           | Program      |
 | :------------- | :----------: |
@@ -40,6 +59,23 @@ The `home.nix` file contains details about all the software I use, but here's a 
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
+
+</details>
+
+<details>
+<summary>Expand to see screenshots</summary>
+
+![cowsay](imgs/cowsay.png)
+
+![scala-dev-env](imgs/scala-dev.png)
+
+![desktop](imgs/desktop-1.jpg)
+
+![themes](imgs/theme.jpg)
+
+![demo](imgs/demo.png)
+
+</details>
 
 ## Structure
 
@@ -130,10 +166,10 @@ Beware that the `hardware-configuration.nix` file is the result of the hardware 
 
 ### Home Manager
 
-A fresh install requires the creation of certain directories (see what the `build` script does). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
+A fresh install requires the creation of certain directories (see what the `switch` script does). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
 
 ```console
-nix build github:gvolpe/nix-config#homeConfigurations.gvolpe-edp.activationPackage
+nix build github:gvolpe/nix-config#homeConfigurations.xmonad-edp.activationPackage
 result/activate
 ```
 
