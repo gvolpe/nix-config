@@ -23,6 +23,7 @@ This is my current Window Manager — the new Wayland kid on the block!
 | Status Bar     | [Waybar](https://github.com/Alexays/Waybar) |
 | Terminal       | [Foot](https://codeberg.org/dnkl/foot) |
 | Window Manager | [Hyprland](https://hyprland.org/) |
+| File Manager   | [Nemo](https://github.com/linuxmint/nemo) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -46,6 +47,7 @@ XMonad will be forever in my heart — the best X window manager!
 | Status Bar     | [Polybar](https://polybar.github.io/) |
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
+| File Manager   | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
