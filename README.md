@@ -47,7 +47,6 @@ Here is an overview of the directories' structure:
 
 ```
 .
-├── build
 ├── flake.nix
 ├── flake.lock
 ├── switch
@@ -59,9 +58,8 @@ Here is an overview of the directories' structure:
 └── system
 ```
 
-- `build`: the build and installation script.
 - `flake.nix`: home and system configurations.
-- `switch`: helper script to switch home and system configurations.
+- `switch`: helper script to build and switch home and system configurations.
 - `home`: all the user programs, services and dotfiles.
 - `imgs`: screenshots and other images.
 - `lib`: custom nix library functions and overlays used to instantiate pkgs.
@@ -75,19 +73,26 @@ You can have a look at the available flake outputs before getting started.
 
 ```console
 $ nix flake show github:gvolpe/nix-config
-github:gvolpe/nix-config/b7fb45d60b761fe39ee1ce78d2b1fd0f0c8db50e
-├───homeConfigurations: unknown
+├───apps
+│   └───x86_64-linux
+│       └───nix: app
+├───homeConfigurations
+│   ├───hyprland-edp: home-manager configuration [home-manager-generation]
+│   ├───hyprland-hdmi: home-manager configuration [home-manager-generation]
+│   ├───xmonad-edp: home-manager configuration [home-manager-generation]
+│   └───xmonad-hdmi: home-manager configuration [home-manager-generation]
 ├───nixosConfigurations
-│   ├───dell-xps: NixOS configuration
-│   ├───edp-tongfang-amd: NixOS configuration
-│   ├───thinkpad: NixOS configuration
-│   └───tongfang-amd: NixOS configuration
-├───out: unknown
+│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.05pre-git]
+│   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.05pre-git]
+│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-24.05pre-git]
+├───out
+│   ├───overlays: custom instance to be used by consumers of this flake
+│   └───pkgs: custom instance to be used by consumers of this flake
 └───packages
     └───x86_64-linux
-        ├───bazecor: package 'bazecor-1.3.9-patched'
-        ├───metals: package 'metals-1.2.2'
-        └───metals-updater: package 'metals-updater-script'
+        ├───bazecor: package [bazecor-1.3.11-patched]
+        ├───metals: package [metals-1.2.2]
+        └───metals-updater: package [metals-updater-script]
 ```
 
 As well as all the declared flake inputs.
