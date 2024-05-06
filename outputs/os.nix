@@ -11,24 +11,6 @@ let
     ../system/configuration.nix
     extraSystemConfig
   ];
-
-  edpHomeModules = [
-    home-manager.nixosModules.home-manager
-    (import ./mod.nix {
-      inherit inputs system;
-      extraSpecialArgs = pkgs.xargs { hidpi = false; };
-    })
-  ];
-
-  isoModules = [
-    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-    # disable networking.wireless from the iso minimal conf as we use networkmanager
-    { networking.wireless.enable = false; }
-  ];
-
-  vmUser = [{
-    users.users.gvolpe.initialPassword = "test";
-  }];
 in
 {
   dell-xps = nixosSystem {
@@ -57,9 +39,23 @@ in
     modules = tongfangModules;
   };
 
-  edp-tongfang-amd = nixosSystem {
-    inherit lib pkgs system;
-    specialArgs = { inherit inputs; };
-    modules = tongfangModules ++ edpHomeModules ++ isoModules ++ vmUser;
-  };
+  # FIXME: zfs-kernel-2.2.3-6.8.9 is marked as broken
+  #edp-tongfang-amd = nixosSystem {
+  #inherit lib pkgs system;
+  #specialArgs = { inherit inputs; };
+  #modules = tongfangModules ++ [
+  ## edp modules
+  #home-manager.nixosModules.home-manager
+  #(import ./mod.nix {
+  #inherit inputs system;
+  #extraSpecialArgs = pkgs.xargs { hidpi = false; };
+  #})
+  ## iso image modules
+  #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+  ## disable networking.wireless from the iso minimal conf as we use networkmanager
+  #{ networking.wireless.enable = false; }
+  ## vm user and password
+  #{ users.users.gvolpe.initialPassword = "test"; }
+  #];
+  #};
 }
