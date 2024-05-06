@@ -66,8 +66,14 @@
       };
     };
 
-    # Prerequisite for screensharing
-    pipewire.wireplumber.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # Prerequisite for screensharing
+      wireplumber.enable = true;
+    };
 
     # Allows Hyprland to run without root privileges
     seatd.enable = true;

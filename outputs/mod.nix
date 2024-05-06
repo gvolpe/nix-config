@@ -6,7 +6,7 @@
     useGlobalPkgs = true;
 
     sharedModules = [
-      inputs.neovim-flake.nixosModules.${system}.hm
+      inputs.neovim-flake.homeManagerModules.${system}.default
     ];
 
     users.gvolpe = import ../home/wm/xmonad/home.nix;
