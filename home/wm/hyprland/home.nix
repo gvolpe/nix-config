@@ -26,7 +26,6 @@ let
     grim # screenshots
     grimblast # screenshot program from hyprland
     libnotify # notifications
-    swaybg # background image
     wlsunset # day/night gamma adjustments
     wl-clipboard # clipboard support
     wofi # app launcher
@@ -34,14 +33,15 @@ let
   ] ++ fontPkgs ++ audioPkgs;
 
   wsNixScript = pkgs.writeShellScriptBin "ws-nix" ''
-    footclient -D ~/workspace/nixos-hyprland -E fish -C 'neofetch' &
-    footclient -D ~/workspace/nixos-hyprland -E fish -C 'nitch' &
+    footclient -D ~/workspace/nix-config -E fish -C 'neofetch' &
+    footclient -D ~/workspace/nix-config -E fish -C 'nitch' &
   '';
 in
 {
   imports = [
     ../../shared
     ../../programs/foot
+    ../../programs/hyprpaper
     ../../programs/pyprland
     ../../programs/waybar
   ];
@@ -90,7 +90,8 @@ in
 
       workspace=2,persistent:true,on-created-empty:${lib.exe wsNixScript},monitor:HDMI-A-1
 
-      exec-once=${lib.exe pkgs.swaybg} -i ${./hyprland.png}
+      # commands
+      exec-once=${lib.exe pkgs.hyprpaper}
       exec-once=${lib.exe pkgs.wlsunset} -l 54.5 -L 18.5
       exec-once=${pkgs.pyprland}/bin/pypr
       exec-once=${pkgs.blueman}/bin/blueman-applet &

@@ -11,6 +11,7 @@
         font = "JetBrainsMono Nerdfont:size=8:line-height:16px";
         pad = "12x12";
         dpi-aware = "yes";
+        selection-target = "both";
       };
     };
   };
