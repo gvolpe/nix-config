@@ -14,7 +14,7 @@ let
 
   edpHomeModules = [
     home-manager.nixosModules.home-manager
-    (import ./home-module.nix {
+    (import ./mod.nix {
       inherit inputs system;
       extraSpecialArgs = pkgs.xargs { hidpi = false; };
     })

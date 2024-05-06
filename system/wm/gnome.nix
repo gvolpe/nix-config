@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
 {
-  programs.gnupg.agent.pinentryFlavor = "gnome3";
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
 
   # Enable the X11 windowing system.
   services = {
-    # Gnome3 config
+    # Gnome config
     dbus.packages = [ pkgs.dconf ];
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+    udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
 
     # GUI interface
     xserver = {
@@ -20,7 +20,7 @@
       # Enable the Gnome3 desktop manager
       displayManager.gdm.enable = true;
       displayManager.gdm.wayland = false; # screen-sharing is broken
-      desktopManager.gnome3.enable = true;
+      desktopManager.gnome.enable = true;
     };
   };
 }
