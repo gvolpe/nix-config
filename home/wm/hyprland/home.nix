@@ -96,9 +96,9 @@ in
       exec-once=${lib.exe pkgs.hyprpaper}
       exec-once=${lib.exe pkgs.wlsunset} -l 54.5 -L 18.5
       exec-once=${pkgs.pyprland}/bin/pypr
-      exec-once=${pkgs.blueman}/bin/blueman-applet &
-      exec-once=${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
-      exec-once=${lib.exe pkgs.pasystray} &
+      exec-once=${pkgs.blueman}/bin/blueman-applet
+      exec-once=${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator
+      exec-once=${lib.exe pkgs.pasystray}
     '';
     plugins = [ ];
     systemd = {
