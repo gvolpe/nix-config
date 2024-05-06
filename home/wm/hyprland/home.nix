@@ -41,9 +41,11 @@ in
   imports = [
     ../../shared
     ../../programs/foot
+    ../../programs/hyprlock
     ../../programs/hyprpaper
     ../../programs/pyprland
     ../../programs/waybar
+    ../../services/hypridle
   ];
 
   home = {
@@ -87,10 +89,10 @@ in
       bind=SUPER,P,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
       bind=SUPER,A,exec,${lib.exe pkgs.grimblast} save area
       bind=SUPER,S,exec,${lib.exe pkgs.grimblast} save screen
+      bind=SUPERCTRL,L,exec,${lib.exe pkgs.hyprlock}
 
-      workspace=2,persistent:true,on-created-empty:${lib.exe wsNixScript},monitor:HDMI-A-1
+      workspace=2,persistent:true,on-created-empty:${lib.exe wsNixScript}
 
-      # commands
       exec-once=${lib.exe pkgs.hyprpaper}
       exec-once=${lib.exe pkgs.wlsunset} -l 54.5 -L 18.5
       exec-once=${pkgs.pyprland}/bin/pypr
