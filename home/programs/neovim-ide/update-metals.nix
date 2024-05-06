@@ -14,7 +14,7 @@ let
     echo "New version: $NEW"
 
     # See: https://github.com/scalameta/metals/issues/5952
-    if [ $NEW != $OLD && $NEW != *"SNAPSHOT"* ]; then
+    if [[ $NEW != $OLD && $NEW != *"SNAPSHOT"* ]]; then
       echo "Updating metals"
       sed -i "s/$OLD/$NEW/g" ${file}
 
