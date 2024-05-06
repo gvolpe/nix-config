@@ -26,6 +26,8 @@
 
     label {
         monitor =
+        # take a screenshot of the screen lock
+        # text = cmd[update:2000] grimblast save screen > /dev/null && echo "Enter your password, gvolpe"
         text = Enter your password, $USER
         text_align = center # center/right or any value for default left. multi-line text alignment inside label container
         color = rgba(200, 200, 200, 1.0)
