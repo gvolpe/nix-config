@@ -6,15 +6,14 @@ nix-config
 
 My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
 
-NOTE: My neovim configuration lives here: https://github.com/gvolpe/neovim-flake
-
 ## Hyprland
 
-This is my current Window Manager --- the new Wayland kid on the block!
+This is my current Window Manager — the new Wayland kid on the block!
 
 ![hyprlock](imgs/hyprlock.png)
 
 <details>
+<summary>Environment details</summary>
 
 | Type           | Program      |
 | :------------- | :----------: |
@@ -24,11 +23,6 @@ This is my current Window Manager --- the new Wayland kid on the block!
 | Status Bar     | [Waybar](https://github.com/Alexays/Waybar) |
 | Terminal       | [Foot](https://codeberg.org/dnkl/foot) |
 | Window Manager | [Hyprland](https://hyprland.org/) |
-
-## Themes
-
-| Type           | Name      |
-| :------------- | :----------: |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -37,11 +31,12 @@ This is my current Window Manager --- the new Wayland kid on the block!
 
 ## XMonad
 
-XMonad will be forever in my heart --- the best X window manager!
+XMonad will be forever in my heart — the best X window manager!
 
 ![neofetch](imgs/neofetch.png)
 
 <details>
+<summary>Environment details</summary>
 
 | Type           | Program      |
 | :------------- | :----------: |
@@ -51,11 +46,6 @@ XMonad will be forever in my heart --- the best X window manager!
 | Status Bar     | [Polybar](https://polybar.github.io/) |
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
-
-## Themes
-
-| Type           | Name      |
-| :------------- | :----------: |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -63,7 +53,7 @@ XMonad will be forever in my heart --- the best X window manager!
 </details>
 
 <details>
-<summary>Expand to see screenshots</summary>
+<summary>Expand to see more screenshots</summary>
 
 ![cowsay](imgs/cowsay.png)
 
@@ -76,6 +66,10 @@ XMonad will be forever in my heart --- the best X window manager!
 ![demo](imgs/demo.png)
 
 </details>
+
+## NeoVim
+
+My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ## Structure
 
