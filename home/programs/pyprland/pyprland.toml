@@ -1,0 +1,22 @@
+[pyprland]
+plugins = [
+  "scratchpads"
+]
+
+[scratchpads.filemanager]
+animation = ""
+command = "nemo"
+class = "nemo"
+lazy = false
+size = "60% 60%"
+margin = 0
+skip_windowrules = ["aspect", "workspace"]
+
+[scratchpads.musicplayer]
+animation = ""
+command = "spotify"
+class = "Spotify"
+lazy = true
+unfocus = "hide"
+size = "75% 85%"
+margin = 0

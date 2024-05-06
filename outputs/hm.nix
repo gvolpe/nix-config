@@ -3,21 +3,38 @@
 with inputs;
 
 let
-  imports = [
+  sharedImports = [
     neovim-flake.homeManagerModules.${system}.default
-    ../home/home.nix
     ({ home.packages = extraPkgs; })
   ];
 
-  mkHome = { hidpi }: (
-    home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = pkgs.xargs { inherit hidpi; };
-      modules = [{ inherit imports; }];
-    }
-  );
+  mkXmonadHome = { hidpi }:
+    let
+      imports = sharedImports ++ [ ../home/wm/xmonad/home.nix ];
+    in
+    (
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
+        modules = [{ inherit imports; }];
+      }
+    );
+
+  mkHyprlandHome = { hidpi }:
+    let
+      imports = sharedImports ++ [ ../home/wm/hyprland/home.nix ];
+    in
+    (
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
+        modules = [{ inherit imports; }];
+      }
+    );
 in
 {
-  gvolpe-edp = mkHome { hidpi = false; };
-  gvolpe-hdmi = mkHome { hidpi = true; };
+  hyprland-edp = mkHyprlandHome { hidpi = false; };
+  hyprland-hdmi = mkHyprlandHome { hidpi = true; };
+  xmonad-edp = mkXmonadHome { hidpi = false; };
+  xmonad-hdmi = mkXmonadHome { hidpi = true; };
 }

@@ -15,7 +15,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-schemas.url = "github:gvolpe/flake-schemas";
- 
+
     # https://github.com/NixOS/nixpkgs/commit/c3160517fc6381f86776795e95c97b8ef7b5d2e4
     nixpkgs-mega.url = "nixpkgs/c3160517fc6381f86776795e95c97b8ef7b5d2e4";
 
