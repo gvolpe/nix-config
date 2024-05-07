@@ -75,7 +75,8 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ## Structure
 
-Here is an overview of the directories' structure:
+<details>
+<summary>Overview of the project structure</summary>
 
 ```
 .
@@ -92,14 +93,16 @@ Here is an overview of the directories' structure:
 
 - `flake.nix`: home and system configurations.
 - `switch`: helper script to build and switch home and system configurations.
-- `home`: all the user programs, services and dotfiles.
+- `home`: all the user programs, services and dotfiles for different window managers.
 - `imgs`: screenshots and other images.
 - `lib`: custom nix library functions and overlays used to instantiate pkgs.
 - `notes`: cheat-sheets, docs, etc.
 - `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
-## Install
+</details>
+
+## Flake outputs
 
 You can have a look at the available flake outputs before getting started.
 
@@ -132,6 +135,8 @@ As well as all the declared flake inputs.
 ```console
 nix flake metadata github:gvolpe/nix-config
 ```
+
+### Install
 
 The `edp-tongfang-amd` configuration also contains my Home Manager configuration using the NixOS module, so it can easily be tested with a single command.
 
