@@ -21,6 +21,7 @@ let
   ];
 
   packages = with pkgs; [
+    brightnessctl # control laptop display brightness
     cinnamon.nemo # file manager
     loupe # image viewer
     grim # screenshots
@@ -31,6 +32,9 @@ let
     wofi # app launcher
     xwaylandvideobridge # screensharing bridge
   ] ++ fontPkgs ++ audioPkgs;
+
+  gblast = lib.exe pkgs.grimblast;
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
   wsNixScript = pkgs.writeShellScriptBin "ws-nix" ''
     footclient -D ~/workspace/nix-config -E fish -C 'neofetch' &
@@ -87,9 +91,13 @@ in
     enable = true;
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
       bind=SUPER,P,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
-      bind=SUPER,A,exec,${lib.exe pkgs.grimblast} save area
-      bind=SUPER,S,exec,${lib.exe pkgs.grimblast} save screen
+      bind=SUPER,A,exec,${gblast} save area
+      bind=SUPER,S,exec,${gblast} save screen
       bind=SUPERCTRL,L,exec,${lib.exe pkgs.hyprlock}
+      # audio volume bindings
+      bindel=,XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bindel=,XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindl=,XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
 
       workspace=2,persistent:true,on-created-empty:${lib.exe wsNixScript}
 
