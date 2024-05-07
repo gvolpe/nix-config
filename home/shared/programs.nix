@@ -52,9 +52,9 @@ let
   };
 in
 [
-  ../programs/browsers/firefox.nix
   ../programs/dconf
   ../programs/git
+  ../programs/firefox
   ../programs/fish
   ../programs/khal
   ../programs/md-toc

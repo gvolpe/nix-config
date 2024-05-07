@@ -1,9 +1,9 @@
-{ pkgs, lib, specialArgs, ... }:
+{ pkgs, config, lib, specialArgs, ... }:
 
 let
-  inherit (specialArgs) addons hidpi penguin-fox;
+  inherit (specialArgs) addons penguin-fox;
 
-  customAddons = pkgs.callPackage ./firefox-addons.nix {
+  customAddons = pkgs.callPackage ./addons.nix {
     inherit lib;
     inherit (specialArgs) buildFirefoxXpiAddon;
   };
@@ -35,7 +35,8 @@ let
 
   # DPI settings
   dpiSettings = {
-    "layout.css.devPixelsPerPx" = if hidpi then "-1.0" else "0.7";
+    # see home/modules/browser.nix
+    "layout.css.devPixelsPerPx" = config.programs.browser.settings.dpi;
   };
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js

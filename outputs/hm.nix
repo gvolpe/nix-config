@@ -8,9 +8,20 @@ let
     ({ home.packages = extraPkgs; })
   ];
 
+  hyprlandDpiSettings = { hidpi }: {
+    programs.browser.settings.dpi = if hidpi then "0" else "1.7";
+  };
+
+  xmonadDpiSettings = { hidpi }: {
+    programs.browser.settings.dpi = if hidpi then "-1.0" else "0.7";
+  };
+
   mkXmonadHome = { hidpi }:
     let
-      imports = sharedImports ++ [ ../home/wm/xmonad/home.nix ];
+      imports = sharedImports ++ [
+        ../home/wm/xmonad/home.nix
+        (xmonadDpiSettings { inherit hidpi; })
+      ];
     in
     (
       home-manager.lib.homeManagerConfiguration {
@@ -22,7 +33,10 @@ let
 
   mkHyprlandHome = { hidpi }:
     let
-      imports = sharedImports ++ [ ../home/wm/hyprland/home.nix ];
+      imports = sharedImports ++ [
+        ../home/wm/hyprland/home.nix
+        (hyprlandDpiSettings { inherit hidpi; })
+      ];
     in
     (
       home-manager.lib.homeManagerConfiguration {
