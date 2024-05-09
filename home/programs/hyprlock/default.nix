@@ -8,6 +8,19 @@
     pam_module=hyprlock
     text_trim=true
 
+    background {
+        monitor =
+        path = screenshot
+
+        blur_passes = 1
+        blur_size = 7
+        noise = 0.0117
+        contrast = 0.8916
+        brightness = 0.8172
+        vibrancy = 0.1696
+        vibrancy_darkness = 0.0
+    }
+
     image {
         monitor =
         path = ${../hyprpaper/hyprland.png}
@@ -22,6 +35,8 @@
         position = 0, 0
         halign = center
         valign = center
+
+        shadow_size = 10
     }
 
     label {

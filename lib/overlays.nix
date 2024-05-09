@@ -101,6 +101,7 @@ in
   xargsOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
+  (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
