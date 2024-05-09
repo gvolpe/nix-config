@@ -2,7 +2,7 @@
 
 let
   inherit (specialArgs) hidpi;
-  fontSize = if hidpi then "12" else "8";
+  fontSize = if hidpi then "14" else "10";
 in
 {
   # lightweight wayland terminal emulator
@@ -12,7 +12,7 @@ in
     settings = {
       main = {
         shell = "${pkgs.fish}/bin/fish";
-        font = "JetBrainsMono Nerdfont:size=${fontSize}:line-height:16px";
+        font = "JetBrainsMono Nerdfont:size=${fontSize}";
         pad = "12x12";
         dpi-aware = "yes";
         selection-target = "both";
