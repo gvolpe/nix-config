@@ -16,11 +16,14 @@ let
     metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
   };
 
+  # nixos-version needs this to work with flakes
+  libVersionOverlay = import "${inputs.nixpkgs}/lib/flake-version-info.nix" inputs.nixpkgs;
+
   libOverlay = f: p: rec {
     libx = import ./. { inherit (p) lib; };
-    lib = p.lib.extend (_: _: {
+    lib = (p.lib.extend (_: _: {
       inherit (libx) exe removeNewline secretManager;
-    });
+    })).extend libVersionOverlay;
   };
 
   buildersOverlay = f: p: {
