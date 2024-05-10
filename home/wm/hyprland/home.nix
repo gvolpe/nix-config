@@ -35,24 +35,7 @@ let
   gblast = lib.exe pkgs.grimblast;
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
-  wsNixScript = pkgs.writeShellScriptBin "ws-nix" ''
-    footclient -D ~/workspace/nix-config -E fish -C 'neofetch' &
-    footclient -D ~/workspace/nix-config -E fish -C 'nitch' &
-  '';
-
-  monitorAddedScript = pkgs.writeShellScriptBin "monitor-added" ''
-    hyprctl dispatch moveworkspacetomonitor 1 HDMI-A-1
-    hyprctl dispatch moveworkspacetomonitor 2 HDMI-A-1
-    hyprctl dispatch moveworkspacetomonitor 3 HDMI-A-1
-    hyprctl dispatch moveworkspacetomonitor 4 HDMI-A-1
-    hyprctl dispatch moveworkspacetomonitor 5 HDMI-A-1
-    echo "monitor=HDMI-A-1,3840x2160@59.99700,0x0,2" > ~/.config/hypr/monitors.conf
-    echo "monitor=eDP-1,2880x1800@90,1920x0,2,mirror,HDMI-A-1" >> ~/.config/hypr/monitors.conf
-  '';
-
-  monitorRemovedScript = pkgs.writeShellScriptBin "monitor-removed" ''
-    echo "monitor=eDP-1,2880x1800@90,0x0,2" > ~/.config/hypr/monitors.conf
-  '';
+  scripts = pkgs.callPackage ./scripts.nix { };
 in
 {
   imports = [
@@ -112,9 +95,10 @@ in
       bindel=,XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindl=,XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
 
-      workspace=2,persistent:true,on-created-empty:${lib.exe wsNixScript}
+      workspace=2,persistent:true,on-created-empty:${lib.exe scripts.wsNix}
 
-      exec-once=${lib.exe pkgs.hypr-monitor-attached} ${lib.exe monitorAddedScript} ${lib.exe monitorRemovedScript}
+      exec-once=${lib.exe scripts.monitorInit}
+      exec-once=${lib.exe pkgs.hypr-monitor-attached} ${lib.exe scripts.monitorAdded} ${lib.exe scripts.monitorRemoved}
       exec-once=${lib.exe pkgs.hyprpaper}
       exec-once=${pkgs.pyprland}/bin/pypr
       exec-once=${pkgs.blueman}/bin/blueman-applet
