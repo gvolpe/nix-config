@@ -10,8 +10,7 @@
 
   # Bootloader.
   boot = {
-    # ipu6 (webcam support) does not yet work with newer kernel versions
-    kernelPackages = pkgs.linuxPackages_6_6;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       systemd-boot.enable = true;
@@ -22,9 +21,10 @@
   # Enable networking
   networking.hostName = "thinkpad-x1";
 
-  # intel webcam workaround
+  # intel webcam workaround (a bit buggy, does not work with latest linux kernels)
+  # needs: kernelPackages = pkgs.linuxPackages_6_6;
   hardware.ipu6 = {
-    enable = true;
+    enable = false;
     platform = "ipu6ep";
   };
 

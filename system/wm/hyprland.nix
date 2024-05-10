@@ -58,10 +58,15 @@
           command = "${lib.exe pkgs.cage} -s -- ${lib.exe pkgs.greetd.regreet}";
           user = "greeter";
         };
-        tuigreet_session = {
-          command = "${lib.exe pkgs.greetd.tuigreet} --time --remember --cmd ${pkgs.hyprland}/bin/Hyprland";
-          user = "greeter";
-        };
+        tuigreet_session =
+          let
+            session = "${pkgs.hyprland}/bin/Hyprland";
+            tuigreet = "${lib.exe pkgs.greetd.tuigreet}";
+          in
+          {
+            command = "${tuigreet} --time --remember --cmd ${session}";
+            user = "greeter";
+          };
         default_session = tuigreet_session;
       };
     };
