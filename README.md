@@ -8,9 +8,16 @@ My current — and always evolving — NixOS configuration files, home-manager, 
 
 ## Hyprland
 
-This is my current Window Manager — the new Wayland kid on the block!
+This is my current Window Manager — the hype Wayland kid on the block!
+
+![hyprland](imgs/hyprland.png)
+
+<details>
+<summary>Expand to see more screenshots</summary>
 
 ![hyprlock](imgs/hyprlock.png)
+
+</details>
 
 <details>
 <summary>Environment details</summary>

@@ -17,6 +17,5 @@ animation = ""
 command = "spotify"
 class = "Spotify"
 lazy = true
-unfocus = "hide"
-size = "75% 85%"
+size = "70% 70%"
 margin = 0
