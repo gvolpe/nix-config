@@ -9,11 +9,13 @@ let
     hyprctl dispatch moveworkspacetomonitor 3 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 4 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 5 HDMI-A-1
+    hyprctl dispatch dpms off eDP-1
     echo "monitor=HDMI-A-1,3840x2160@59.99700,0x0,2" > ${monitorsConf}
-    echo "monitor=eDP-1,2880x1800@90,1920x0,2,mirror,HDMI-A-1" >> ${monitorsConf}
+    echo "monitor=eDP-1,disable" >> ${monitorsConf}
   '';
 
   monitorRemoved = writeShellScriptBin "monitor-removed" ''
+    hyprctl dispatch dpms on eDP-1
     echo "monitor=eDP-1,2880x1800@90,0x0,2" > ${monitorsConf}
   '';
 in

@@ -2,13 +2,12 @@
 
 let
   dpmsSettings =
-    if specialArgs.hidpi then
-      {
-        timeout = 1200;
-        on-timeout = "hyprctl dispatch dpms off";
-        on-resume = "hyprctl dispatch dpms on";
-      }
-    else { };
+    if specialArgs.hidpi then { } else
+    {
+      timeout = 1200;
+      on-timeout = "hyprctl dispatch dpms off";
+      on-resume = "hyprctl dispatch dpms on";
+    };
 in
 {
   services.hypridle = {
