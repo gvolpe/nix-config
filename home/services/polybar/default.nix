@@ -71,7 +71,7 @@ let
 
     exec = ${mprisScript}/bin/mpris
     tail = true
-    click-left = ${lib.exe config.programs.spotify.package}
+    click-left = ${lib.exe pkgs.spotify}
 
     label-maxlen = 60
 
