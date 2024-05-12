@@ -1,8 +1,7 @@
 self: super:
 
 let
-  #version = "2.2.16";
-  version = "3d58a8d5edff6ee2734618466a8ad4c3a95ec3f9";
+  version = "2.2.20";
 in
 {
   pyprland = super.pyprland.overrideAttrs (old: {
@@ -12,8 +11,7 @@ in
       owner = "hyprland-community";
       repo = "pyprland";
       rev = version;
-      #hash = "sha256-zT+ixOM+by13iM78CHkQqTS9LCLFspHNyEjd7P2psUE=";
-      hash = "sha256-MEdZaRLh71HDRl+jZHjbHsTcocBamjJhsXkgfplIzYA=";
+      hash = "sha256-/eJ3emWI2l9jYgD7RX6tGUy6wHHQ25qS6Xd1x1uWZ1w=";
     };
 
     # workaround for this issue: https://github.com/hyprland-community/pyprland/issues/96
