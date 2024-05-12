@@ -29,6 +29,7 @@ let
     ranger # terminal file explorer
     ripgrep # fast grep
     screenkey # shows keypresses on screen
+    spotify # music player
     tdesktop # telegram messaging client
     tree # display files in a tree view
     vlc # media player

@@ -45,9 +45,6 @@ let
         enableFishIntegration = true;
         options = [ ];
       };
-
-      # programs with custom modules
-      spotify.enable = true;
     };
   };
 in
