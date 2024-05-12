@@ -22,7 +22,7 @@ let
     ublock-origin
     unpaywall
     vimium
-  ] ++ (with customAddons; [ chatgpt ]);
+  ] ++ (with customAddons; [ old-github-feed ]);
 
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
