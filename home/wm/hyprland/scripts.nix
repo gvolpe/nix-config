@@ -14,7 +14,7 @@ let
 
   monitorConnected = writeShellScriptBin "monitor-connected" ''
     hyprctl dispatch dpms off eDP-1
-    echo "monitor=HDMI-A-1,3840x2160@59.99700,0x0,2" > ${monitorsConf}
+    echo "monitor=HDMI-A-1,2560x1440@59.95,0x0,1" > ${monitorsConf}
     echo "monitor=eDP-1,disable" >> ${monitorsConf}
   '';
 
