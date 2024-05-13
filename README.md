@@ -17,6 +17,8 @@ This is my current Window Manager — the hype Wayland kid on the block!
 
 ![hyprlock](imgs/hyprlock.png)
 
+![nemo](imgs/nemo.png)
+
 </details>
 
 <details>
