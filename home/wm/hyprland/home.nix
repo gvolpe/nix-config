@@ -36,6 +36,14 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
   scripts = pkgs.callPackage ./scripts.nix { };
+
+  workspaceConf = { monitor }: ''
+    workspace=1,persistent:true,monitor:${monitor}
+    workspace=2,persistent:true,on-created-empty:${lib.exe scripts.wsNix},monitor:${monitor}
+    workspace=3,persistent:true,monitor:${monitor}
+    workspace=4,persistent:true,monitor:${monitor}
+    workspace=5,persistent:true,on-created-empty:firefox-beta -p 'sxm',monitor:${monitor}
+  '';
 in
 {
   imports = [
@@ -95,7 +103,7 @@ in
       bindel=,XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindl=,XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
 
-      workspace=2,persistent:true,on-created-empty:${lib.exe scripts.wsNix}
+      ${workspaceConf { monitor = "HDMI-A-1"; }}
 
       exec-once=${lib.exe scripts.monitorInit}
       exec-once=${lib.exe pkgs.hypr-monitor-attached} ${lib.exe scripts.monitorAdded} ${lib.exe scripts.monitorRemoved}

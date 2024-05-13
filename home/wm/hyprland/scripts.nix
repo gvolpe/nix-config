@@ -9,6 +9,10 @@ let
     hyprctl dispatch moveworkspacetomonitor 3 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 4 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 5 HDMI-A-1
+    ${lib.exe monitorConnected}
+  '';
+
+  monitorConnected = writeShellScriptBin "monitor-connected" ''
     hyprctl dispatch dpms off eDP-1
     echo "monitor=HDMI-A-1,3840x2160@59.99700,0x0,2" > ${monitorsConf}
     echo "monitor=eDP-1,disable" >> ${monitorsConf}
@@ -30,7 +34,7 @@ in
   monitorInit = writeShellScriptBin "monitor-init" ''
     monitors=$(hyprctl monitors)
     if [[ $monitors == *"HDMI-A-1"* ]]; then
-      ${lib.exe monitorAdded}
+      ${lib.exe monitorConnected}
     else
       ${lib.exe monitorRemoved}
     fi
