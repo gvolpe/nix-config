@@ -19,6 +19,8 @@ This is my current Window Manager — the hype Wayland kid on the block!
 
 ![nemo](imgs/nemo.png)
 
+![nemo](imgs/btm.png)
+
 </details>
 
 <details>

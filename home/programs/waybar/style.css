@@ -18,6 +18,10 @@ window#waybar {
 	background: #1a1a1a;
 }
 
+#custom-mpris {
+	background: #1a1a1a;
+}
+
 #workspaces,
 #clock.1,
 #clock.2,
@@ -73,5 +77,25 @@ window#waybar {
 #cpu,
 #battery,
 #disk {
+	padding: 0 10px;
+}
+
+#custom-quit {
+	background: #1a1a1a;
+}
+
+#custom-lock {
+	background: #1a1a1a;
+}
+
+#custom-reboot {
+	background: #1a1a1a;
+}
+
+#custom-power {
+	background: #1a1a1a;
+}
+
+#not-power {
 	padding: 0 10px;
 }

@@ -1,39 +1,5 @@
 {
 	"layer": "top",
-	"position": "top",
-	"modules-left": [
-		"hyprland/workspaces",
-		"custom/right-arrow-dark"
-	],
-	"modules-center": [
-		"custom/left-arrow-dark",
-		"clock#2",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"tray",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-		"clock#3",
-		"custom/right-arrow-dark"
-	],
-	"modules-right": [
-		"custom/left-arrow-dark",
-		"pulseaudio",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"memory",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"cpu",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"battery",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"disk",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark"
-	],
 	"custom/left-arrow-dark": {
 		"format": "",
 		"tooltip": false
@@ -124,5 +90,50 @@
 	"tray": {
 		"icon-size": 20,
     "show-passive-items": true
-	}
+	},
+  "custom/mpris": {
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+        "Playing": "󰓇 ",
+        "Paused": " ",
+    },
+    "max-length":70,
+    "exec": "playerctl --player=spotify metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause"
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": true
+    },
+    "modules": [
+        "custom/power",
+        "custom/quit",
+        "custom/lock",
+        "custom/reboot"
+    ]
+  },
+  "custom/quit": {
+      "format": "󰗼 ",
+      "tooltip": false,
+      "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+      "format": "󰍁 ",
+      "tooltip": false,
+      "on-click": "hyprlock"
+  },
+  "custom/reboot": {
+      "format": "󰜉 ",
+      "tooltip": false,
+      "on-click": "reboot"
+  },
+  "custom/power": {
+      "format": "   ",
+      "tooltip": false,
+      "on-click": "poweroff"
+  }
 }
