@@ -43,6 +43,7 @@ let
     workspace=3,persistent:true,monitor:${monitor}
     workspace=4,persistent:true,monitor:${monitor}
     workspace=5,persistent:true,on-created-empty:firefox-beta -p 'sxm',monitor:${monitor}
+    workspace=6,persistent:true,on-created-empty:footclient -e btm,monitor:${monitor}
   '';
 in
 {

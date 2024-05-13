@@ -9,6 +9,7 @@ let
     hyprctl dispatch moveworkspacetomonitor 3 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 4 HDMI-A-1
     hyprctl dispatch moveworkspacetomonitor 5 HDMI-A-1
+    hyprctl dispatch moveworkspacetomonitor 6 HDMI-A-1
     ${lib.exe monitorConnected}
   '';
 
