@@ -18,8 +18,18 @@ window#waybar {
 	background: #1a1a1a;
 }
 
+/* just the logo */
+#custom-spotify {
+	background: #1a1a1a;
+  color: #04982c;
+	padding: 5px 5px;
+}
+
+/* the info displayed by playerctl */
 #custom-mpris {
 	background: #1a1a1a;
+	color: #2aa198;
+	padding: 5px 5px;
 }
 
 #workspaces,
@@ -27,6 +37,7 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
+#network,
 #memory,
 #cpu,
 #battery,
@@ -81,21 +92,46 @@ window#waybar {
 }
 
 #custom-quit {
+  color: #f59809;
 	background: #1a1a1a;
 }
 
 #custom-lock {
+  color: #6f05e5;
 	background: #1a1a1a;
 }
 
 #custom-reboot {
+  color: #00aba3;
 	background: #1a1a1a;
 }
 
 #custom-power {
+  color: #ff1818;
 	background: #1a1a1a;
 }
 
 #not-power {
 	padding: 0 10px;
+}
+
+#network {
+	background: #1a1a1a;
+	padding: 5px 15px;
+}
+
+#network.disabled {
+  color: #aba8a8;
+}
+
+#network.disconnected {
+  color: #aba8a8;
+}
+
+#network.ethernet {
+	color: #2aa198;
+}
+
+#network.wifi {
+	color: #268bd2;
 }

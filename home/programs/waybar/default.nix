@@ -46,10 +46,16 @@
         position = "bottom";
         include = [ "${./shared.json}" ];
         modules-left = [
+          "custom/right-arrow-dark"
+          "custom/right-arrow-light"
+          "custom/spotify"
           "custom/mpris"
           "custom/right-arrow-dark"
         ];
         modules-right = [
+          "custom/left-arrow-dark"
+          "network"
+          "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "group/group-power"
           "custom/left-arrow-light"

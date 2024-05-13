@@ -91,15 +91,15 @@
 		"icon-size": 20,
     "show-passive-items": true
 	},
+  "custom/spotify": {
+    "format": "{icon}",
+    "format-icons": [ "󰓇 " ]
+  },
   "custom/mpris": {
-    "format": "{icon}{}",
+    "format": "{}",
     "return-type": "json",
-    "format-icons": {
-        "Playing": "󰓇 ",
-        "Paused": " ",
-    },
     "max-length":70,
-    "exec": "playerctl --player=spotify metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl --player=spotify metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{status}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click": "playerctl play-pause"
   },
   "group/group-power": {
@@ -135,5 +135,16 @@
       "format": "   ",
       "tooltip": false,
       "on-click": "poweroff"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   }
 }
