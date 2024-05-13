@@ -32,7 +32,7 @@ let
   mods2  = lib.readFile ./user_modules.ini;
 
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
-  klsScript       = pkgs.callPackage ../../scripts/keyboard-layout-switch.nix { inherit pkgs; };
+  klsScript       = pkgs.callPackage ../../scripts/keyboard-layout-switch.nix {};
   monitorScript   = pkgs.callPackage ./scripts/monitor.nix {};
   mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
   networkScript   = pkgs.callPackage ./scripts/network.nix {};

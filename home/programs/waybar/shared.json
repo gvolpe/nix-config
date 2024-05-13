@@ -146,5 +146,18 @@
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
+  },
+  "hyprland/language": {
+    "format": "󰌌 {}",
+    "keyboard-name": "dygma-defy-keyboard"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "  $1",
+        "~/(.*)": "   [$1]",
+        "vim (.*)": "   [$1]"
+    },
+    "separate-outputs": true
   }
 }

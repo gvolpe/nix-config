@@ -37,7 +37,9 @@ window#waybar {
 #clock.2,
 #clock.3,
 #pulseaudio,
+#language,
 #network,
+#window,
 #memory,
 #cpu,
 #battery,
@@ -112,12 +114,13 @@ window#waybar {
 }
 
 #not-power {
-	padding: 0 10px;
+	padding: 0 0px;
+	padding-left: 10px;
 }
 
 #network {
 	background: #1a1a1a;
-	padding: 5px 15px;
+	padding: 0px 15px;
 }
 
 #network.disabled {
@@ -134,4 +137,16 @@ window#waybar {
 
 #network.wifi {
 	color: #268bd2;
+}
+
+#language {
+	color: #b58900;
+	background: #1a1a1a;
+  border-radius: 0px;
+	padding: 0px 5px;
+}
+
+#window {
+	background: #1a1a1a;
+	padding: 0px 0px;
 }
