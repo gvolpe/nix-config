@@ -149,7 +149,8 @@
   },
   "hyprland/language": {
     "format": "󰌌 {}",
-    "keyboard-name": "dygma-defy-keyboard"
+    "keyboard-name": "dygma-defy-keyboard",
+    "on-click": "hyprctl switchxkblayout dygma-defy-keyboard next"
   },
   "hyprland/window": {
     "format": "{}",
