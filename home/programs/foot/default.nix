@@ -18,7 +18,7 @@ in
         selection-target = "both";
       };
       colors = {
-        alpha = 0.3;
+        alpha = 0.5;
       };
     };
   };
