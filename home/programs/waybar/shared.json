@@ -154,10 +154,13 @@
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
-        "(.*) — Mozilla Firefox": "  $1",
+        "(.*) — Mozilla Firefox": "   $1",
         "~/(.*)": "   [$1]",
-        "vim (.*)": "   [$1]"
+        "vim (.*)": "   [$1]",
+        "(.*) Slack Grid Workspaces - Slack": "   [$1]",
+        "class:Spotify": " 󰓇 [$1]"
     },
+    "max-length": 70,
     "separate-outputs": true
   }
 }
