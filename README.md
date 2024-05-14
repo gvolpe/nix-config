@@ -13,17 +13,6 @@ This is my current Window Manager — the hype Wayland kid on the block!
 ![hyprland](imgs/hyprland.png)
 
 <details>
-<summary>Expand to see more screenshots</summary>
-
-![hyprlock](imgs/hyprlock.png)
-
-![nemo](imgs/nemo.png)
-
-![nemo](imgs/btm.png)
-
-</details>
-
-<details>
 <summary>Environment details</summary>
 
 | Type           | Program      |
@@ -38,6 +27,19 @@ This is my current Window Manager — the hype Wayland kid on the block!
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
+
+</details>
+
+<details>
+<summary>Expand to see more screenshots</summary>
+
+![hyprlock](imgs/hyprlock.png)
+
+![floating](imgs/floating.png)
+
+![btm](imgs/btm.png)
+
+![nemo](imgs/nemo.png)
 
 </details>
 
