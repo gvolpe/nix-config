@@ -4,9 +4,9 @@
   home.packages = [ pkgs.hyprlock ];
 
   xdg.configFile."hypr/hyprlock.conf".text = ''
-    hide_cursor=true
-    pam_module=hyprlock
-    text_trim=true
+    general {
+        hide_cursor=true
+    }
 
     background {
         monitor =
@@ -44,7 +44,6 @@
         # take a screenshot of the screen lock
         # text = cmd[update:2000] grimblast save screen > /dev/null && echo "Enter your password, gvolpe"
         text = Enter your password, $USER
-        text_align = center # center/right or any value for default left. multi-line text alignment inside label container
         color = rgba(200, 200, 200, 1.0)
         font_size = 25
         font_family = Noto Sans
