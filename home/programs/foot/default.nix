@@ -17,6 +17,9 @@ in
         dpi-aware = "yes";
         selection-target = "both";
       };
+      colors = {
+        alpha = 0.3;
+      };
     };
   };
 }
