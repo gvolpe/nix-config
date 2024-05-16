@@ -104,7 +104,7 @@ in
       bindel=,XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindl=,XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
 
-      ${workspaceConf { monitor = "HDMI-A-1"; }}
+      ${workspaceConf { monitor = "${scripts.extMonitor}"; }}
 
       exec-once=${lib.exe scripts.monitorInit}
       exec-once=${lib.exe pkgs.hypr-monitor-attached} ${lib.exe scripts.monitorAdded} ${lib.exe scripts.monitorRemoved}
