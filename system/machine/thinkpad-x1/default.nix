@@ -9,8 +9,10 @@
     ];
 
   # Bootloader.
-  boot = {
+  boot = rec {
     kernelPackages = pkgs.linuxPackages_latest;
+    extraModulePackages = [ kernelPackages.v4l2loopback ];
+    kernelModules = [ "v4l2loopback" ];
 
     loader = {
       systemd-boot.enable = true;

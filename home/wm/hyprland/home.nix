@@ -92,6 +92,24 @@ in
     xdgOpenUsePortal = true;
   };
 
+  systemd.user = {
+    services.zoom-screen-share-daemon = {
+      Unit = {
+        Description = "Script Daemon for Zoom screen share";
+        Conflicts = "testcard.service";
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${lib.exe pkgs.wl-screenrec} --ffmpeg-muxer v4l2 -f /dev/video0 -o DP-3";
+        Restart = "on-failure";
+        StandardOutput = "null";
+      };
+
+      Install = { WantedBy = [ "default.target" ]; };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
