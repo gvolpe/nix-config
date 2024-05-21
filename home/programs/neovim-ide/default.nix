@@ -16,7 +16,7 @@ in
           vim-mergetool
           vim-repeat
         ];
-        neovim.package = pkgs.neovim-nightly;
+        #neovim.package = pkgs.neovim-nightly;
         lsp = {
           enable = true;
           folds = true;
