@@ -7,12 +7,13 @@ let
   monitorsConf = "$XDG_CONFIG_HOME/hypr/monitors.conf";
 
   monitorAdded = writeShellScriptBin "monitor-added" ''
-    hyprctl dispatch moveworkspacetomonitor 1 ${extMonitor}
-    hyprctl dispatch moveworkspacetomonitor 2 ${extMonitor}
-    hyprctl dispatch moveworkspacetomonitor 3 ${extMonitor}
-    hyprctl dispatch moveworkspacetomonitor 4 ${extMonitor}
-    hyprctl dispatch moveworkspacetomonitor 5 ${extMonitor}
-    hyprctl dispatch moveworkspacetomonitor 6 ${extMonitor}
+    hyprctl --batch "\
+      dispatch moveworkspacetomonitor 1 ${extMonitor};\
+      dispatch moveworkspacetomonitor 2 ${extMonitor};\
+      dispatch moveworkspacetomonitor 3 ${extMonitor};\
+      dispatch moveworkspacetomonitor 4 ${extMonitor};\
+      dispatch moveworkspacetomonitor 5 ${extMonitor};\
+      dispatch moveworkspacetomonitor 6 ${extMonitor}"
     ${lib.exe monitorConnected}
   '';
 
