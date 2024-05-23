@@ -75,6 +75,12 @@ in
 
   fonts.fontconfig.enable = true;
 
+  # e.g. for slack, signal, etc
+  xdg.configFile."electron-flags.conf".text = ''
+    --enable-features=UseOzonePlatform
+    --ozone-platform=wayland
+  '';
+
   xdg.portal = {
     enable = true;
     config = {
