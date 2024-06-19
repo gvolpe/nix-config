@@ -1,7 +1,16 @@
 [pyprland]
 plugins = [
+  "layout_center",
   "scratchpads"
 ]
+
+[layout_center]
+margin = 50
+offset = [0, 0]
+next = "movefocus r"
+prev = "movefocus l"
+next2 = "movefocus d"
+prev2 = "movefocus u"
 
 [scratchpads.filemanager]
 animation = ""
