@@ -1,7 +1,7 @@
 self: super:
 
 let
-  version = "2.2.20";
+  version = "2.3.8";
 in
 {
   pyprland = super.pyprland.overrideAttrs (old: {
@@ -11,13 +11,7 @@ in
       owner = "hyprland-community";
       repo = "pyprland";
       rev = version;
-      hash = "sha256-/eJ3emWI2l9jYgD7RX6tGUy6wHHQ25qS6Xd1x1uWZ1w=";
+      hash = "sha256-0YUI2/gJmBoummiHGpq2p2sT25SwCdnsRwfGK2pcm4s=";
     };
-
-    # workaround for this issue: https://github.com/hyprland-community/pyprland/issues/96
-    prePatch = (old.prePatch or "") + ''
-      substituteInPlace pyprland/plugins/pyprland.py \
-        --replace "await self.notify_error(\"Error: 'hyprctl version': incorrect JSON data\")" ""
-    '';
   });
 }
