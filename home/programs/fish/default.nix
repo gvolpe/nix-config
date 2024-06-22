@@ -27,6 +27,13 @@ let
   '' + fzfConfig + themeConfig;
 
   dc = "${pkgs.docker-compose}/bin/docker-compose";
+
+  # set foot's terminal background color with no transparency
+  # see: https://codeberg.org/dnkl/foot/src/commit/aea16ba5d2896ef22bf0bea45e5e8142c0ff1c2a/doc/foot-ctlseqs.7.scd#L669
+  foot-opaque = ''printf "\033]11;[100]#000000"'';
+  # reset color to default value
+  # see: https://codeberg.org/dnkl/foot/src/commit/c45231ef89faeee0674e405e94ef6a92eb6726a0/doc/foot.ini.5.scd#L604
+  foot-reset = ''printf "\033]11;[50]#242424"'';
 in
 {
   programs.fish = {
@@ -37,7 +44,7 @@ in
       any-nix-shell fish --info-right | source
     '';
     shellAliases = {
-      inherit dc;
+      inherit dc foot-opaque foot-reset;
       cat = "bat";
       dps = "${dc} ps";
       dcd = "${dc} down --remove-orphans";
