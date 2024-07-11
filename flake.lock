@@ -666,6 +666,22 @@
         "type": "github"
       }
     },
+    "hurl-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680833993,
+        "narHash": "sha256-giJVQ86pHmU2Ymn9/lj7DghLuPvh2nd9JMY8LPSrI6M=",
+        "owner": "samueljoli",
+        "repo": "hurl.nvim",
+        "rev": "a8cb4643246523f419f449a9366e003ddb855138",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samueljoli",
+        "repo": "hurl.nvim",
+        "type": "github"
+      }
+    },
     "indent-blankline": {
       "flake": false,
       "locked": {
@@ -831,6 +847,7 @@
         "glow-nvim": "glow-nvim",
         "harpoon": "harpoon",
         "hop": "hop",
+        "hurl-nvim": "hurl-nvim",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
         "lsp-signature": "lsp-signature",
@@ -891,11 +908,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1719153637,
-        "narHash": "sha256-gYIn6pYWk63XdTRfflTk4FS+3eqODs26BREy9seCTA0=",
+        "lastModified": 1720685994,
+        "narHash": "sha256-vSgmYMBR0XD2iBBeqGEGrvy31sUL+e6hfOn5VswUL4A=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "78b4eafa40c39b7778395a69b926cfbebe6f1a6f",
+        "rev": "12a5ae945156cebaf7373f8c2650ed611007c8ef",
         "type": "github"
       },
       "original": {

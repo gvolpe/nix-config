@@ -45,6 +45,7 @@ in
           clang = false;
           go = false;
         };
+        hurl.enable = true;
         plantuml.enable = true;
         fx.automaton.enable = true;
         visuals = {
