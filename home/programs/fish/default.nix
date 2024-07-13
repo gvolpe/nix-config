@@ -52,6 +52,7 @@ in
       du = "${pkgs.ncdu}/bin/ncdu --color dark -rr -x";
       ls = "${pkgs.eza}/bin/eza";
       ll = "ls -a";
+      ns = "nix-search";
       ".." = "cd ..";
       firefox = "${lib.exe pkgs.firefox-beta-bin}";
       ping = "${pkgs.prettyping}/bin/prettyping";

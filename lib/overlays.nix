@@ -11,6 +11,10 @@ let
     inherit fish-bobthefish-theme fish-keytool-completions;
   };
 
+  nixSearchOverlay = f: p: {
+    nix-search = nix-search.packages.${system}.default;
+  };
+
   metalsOverlay = f: p: {
     metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
     metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
@@ -95,6 +99,7 @@ in
   cowsayOverlay
   fishOverlay
   libOverlay
+  nixSearchOverlay
   metalsOverlay
   secretsOverlay
   megasyncOverlay

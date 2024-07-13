@@ -27,6 +27,7 @@ let
     grim # screenshots
     grimblast # screenshot program from hyprland
     libnotify # notifications
+    nix-search # faster nix search client
     wl-clipboard # clipboard support
     wofi # app launcher
     xwaylandvideobridge # screensharing bridge

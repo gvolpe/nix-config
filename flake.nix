@@ -63,6 +63,12 @@
       flake = false;
     };
 
+    # Fast nix search client
+    nix-search = {
+      url = github:diamondburned/nix-search;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix linter
 
     statix = {
