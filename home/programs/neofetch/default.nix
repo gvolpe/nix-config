@@ -2,6 +2,6 @@
 
 # command-line system information
 {
-  home.packages = [ pkgs.neofetch ];
+  home.packages = with pkgs; [ hyfetch neofetch ];
   xdg.configFile."neofetch/config.conf".source = ./electric.conf;
 }
