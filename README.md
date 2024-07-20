@@ -125,21 +125,21 @@ $ nix flake show github:gvolpe/nix-config
 │   └───x86_64-linux
 │       └───nix: app
 ├───homeConfigurations
-│   ├───hyprland-edp: home-manager configuration [home-manager-generation]
-│   ├───hyprland-hdmi: home-manager configuration [home-manager-generation]
-│   ├───xmonad-edp: home-manager configuration [home-manager-generation]
-│   └───xmonad-hdmi: home-manager configuration [home-manager-generation]
+│   ├───hyprland-edp: Home Manager configuration [home-manager-generation]
+│   ├───hyprland-hdmi: Home Manager configuration [home-manager-generation]
+│   ├───xmonad-edp: Home Manager configuration [home-manager-generation]
+│   └───xmonad-hdmi: Home Manager configuration [home-manager-generation]
 ├───nixosConfigurations
-│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.05pre-git]
-│   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.05pre-git]
-│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-24.05pre-git]
+│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
+│   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
+│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-24.11.20240620.d603719]
 ├───out
 │   ├───overlays: custom instance to be used by consumers of this flake
 │   └───pkgs: custom instance to be used by consumers of this flake
 └───packages
     └───x86_64-linux
         ├───bazecor: package [bazecor-1.3.11-patched]
-        ├───metals: package [metals-1.2.2]
+        ├───metals: package [metals-1.3.3]
         └───metals-updater: package [metals-updater-script]
 ```
 
