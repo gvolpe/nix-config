@@ -113,6 +113,7 @@ in
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
+  (import ../home/overlays/zoom)
   buildersOverlay
   treesitterGrammarsOverlay
   schemaOverlay
