@@ -94,6 +94,11 @@ let
       '';
     });
   };
+
+  # pipewire overlay for broken zoom-us
+  pipewireOverlay = f: p: {
+    pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
+  };
 in
 [
   cowsayOverlay
@@ -107,6 +112,7 @@ in
   neovim-flake.overlays.${system}.default
   statix.overlays.default
   xargsOverlay
+  pipewireOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)

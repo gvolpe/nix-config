@@ -6,7 +6,8 @@ let
   version = "6.0.2.4680";
 in
 {
-  zoom-us = super.zoom-us.overrideAttrs (old: {
+  # pipewire-zoom = pipewire v1.0.7
+  zoom-us = (super.zoom-us.override { pipewire = super.pipewire-zoom; }).overrideAttrs (old: {
     inherit version;
 
     src = super.fetchurl {
@@ -15,4 +16,3 @@ in
     };
   });
 }
-

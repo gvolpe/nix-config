@@ -18,6 +18,8 @@
 
     # https://github.com/NixOS/nixpkgs/commit/c3160517fc6381f86776795e95c97b8ef7b5d2e4
     nixpkgs-mega.url = "nixpkgs/c3160517fc6381f86776795e95c97b8ef7b5d2e4";
+    # https://github.com/NixOS/nixpkgs/issues/322970
+    nixpkgs-zoom.url = "nixpkgs/24.05";
 
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
