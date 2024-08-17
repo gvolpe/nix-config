@@ -14,7 +14,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    flake-schemas.url = "github:DeterminateSystems/flake-schemas";
+    flake-schemas.url = github:DeterminateSystems/flake-schemas;
 
     # https://github.com/NixOS/nixpkgs/commit/c3160517fc6381f86776795e95c97b8ef7b5d2e4
     nixpkgs-mega.url = "nixpkgs/c3160517fc6381f86776795e95c97b8ef7b5d2e4";
@@ -23,8 +23,8 @@
 
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
+      url = github:DeterminateSystems/nix-src/flake-schemas;
       inputs.flake-schemas.follows = "flake-schemas";
-      url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
 
     rycee-nurpkgs = {
