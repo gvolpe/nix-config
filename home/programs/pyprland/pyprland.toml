@@ -12,7 +12,7 @@ prev = "movefocus l"
 next2 = "movefocus d"
 prev2 = "movefocus u"
 style = ["opacity 1", "bordercolor rgb(FFFF00)"]
-captive_focus = true
+captive_focus = false
 
 [scratchpads.filemanager]
 animation = ""
