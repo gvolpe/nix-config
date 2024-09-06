@@ -22,11 +22,11 @@ let
 
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
-    cinnamon.nemo # file manager
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland
     libnotify # notifications
+    nemo # file manager
     nix-search # faster nix search client
     wl-clipboard # clipboard support
     wofi # app launcher
