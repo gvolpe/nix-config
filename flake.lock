@@ -447,11 +447,11 @@
     },
     "flake-schemas": {
       "locked": {
-        "lastModified": 1721078157,
-        "narHash": "sha256-c2AZH9cOnSpPXV8Lwy19/I8EgW7G+E+Zh6YQBZZwzxI=",
+        "lastModified": 1721999734,
+        "narHash": "sha256-G5CxYeJVm4lcEtaO87LKzOsVnWeTcHGKbKxNamNWgOw=",
         "owner": "DeterminateSystems",
         "repo": "flake-schemas",
-        "rev": "29e53dd33b1a38f235ef073e768c62821cb6146e",
+        "rev": "0a5c42297d870156d9c57d8f99e476b738dcd982",
         "type": "github"
       },
       "original": {
@@ -613,11 +613,11 @@
     "gh-md-toc": {
       "flake": false,
       "locked": {
-        "lastModified": 1709996863,
-        "narHash": "sha256-NYZ2LKyVqg/tUDJle5babzPTdghadFVILMOPM05YwdQ=",
+        "lastModified": 1722785109,
+        "narHash": "sha256-jV1TjlvZs6GRyt7eKySfp2/jk4u8Xazz58pip2OV1Hc=",
         "owner": "ekalinin",
         "repo": "github-markdown-toc",
-        "rev": "0ccf70d0f49b61895f64bca86793ff8cdb88ad51",
+        "rev": "1c6184d3239790d5dde6633cda7978a6000e9ae6",
         "type": "github"
       },
       "original": {
@@ -705,11 +705,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721135958,
-        "narHash": "sha256-H548rpPMsn25LDKn1PCFmPxmWlClJJGnvdzImHkqjuY=",
+        "lastModified": 1725180166,
+        "narHash": "sha256-fzssXuGR/mCeGbzM1ExaTqDz7QDGta3WA4jJsZyRruo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "afd2021bedff2de92dfce0e257a3d03ae65c603d",
+        "rev": "471e3eb0a114265bcd62d11d58ba8d3421ee68eb",
         "type": "github"
       },
       "original": {
@@ -1092,11 +1092,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721032535,
-        "narHash": "sha256-fsOEYRFeZjvLwedmUtkm9LbeTUox4cQc540oiikpJTc=",
+        "lastModified": 1724483848,
+        "narHash": "sha256-h9yYOjL9i/m0r5NbqMcLMFNnwSKsIgfUr5qk+47pOtc=",
         "owner": "diamondburned",
         "repo": "nix-search",
-        "rev": "ab75c61cd01e3afe1f5dd4fc9e9e25f459aeb976",
+        "rev": "e616ac1c82a616fa6e6d8c94839c5052eb8c808d",
         "type": "github"
       },
       "original": {
@@ -1239,11 +1239,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1721379653,
-        "narHash": "sha256-8MUgifkJ7lkZs3u99UDZMB4kbOxvMEXQZ31FO3SopZ0=",
+        "lastModified": 1725432240,
+        "narHash": "sha256-+yj+xgsfZaErbfYM3T+QvEE2hU7UuE+Jf0fJCJ8uPS0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1d9c2c9b3e71b9ee663d11c5d298727dace8d374",
+        "rev": "ad416d066ca1222956472ab7d0555a6946746a80",
         "type": "github"
       },
       "original": {
@@ -1317,11 +1317,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1721486692,
-        "narHash": "sha256-fmZoTQpuq01eCtQKnRKx/KDtHzaN4WHVCMUs3pVmkzE=",
+        "lastModified": 1725602023,
+        "narHash": "sha256-qnfZ8Ei3STWFoOWN4UJTDmyoqa0oprlklv3h9N34oj8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d3bcf854a30dabaeaa31c888eb4e0e90410ab4b1",
+        "rev": "56ac09608ecc70b3dd28ecef76cbc167849dd5e2",
         "type": "github"
       },
       "original": {
@@ -1685,11 +1685,11 @@
     "penguin-fox": {
       "flake": false,
       "locked": {
-        "lastModified": 1712319001,
-        "narHash": "sha256-7+eA34alQJpKNsGKdHkjFLbRg1yX6J9yORLAytV2jO0=",
+        "lastModified": 1721742466,
+        "narHash": "sha256-IWGCIyTQskRv63U6itAgzm6Iunk/yeArSJb4EPGlHGA=",
         "owner": "p3nguin-kun",
         "repo": "penguinFox",
-        "rev": "748d17932ab20ef59db90b7241b5efa70031beb7",
+        "rev": "e41733389afb04b8962eaed7f2cd05824da64c83",
         "type": "github"
       },
       "original": {
@@ -1840,11 +1840,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1721463311,
-        "narHash": "sha256-zmvqafJogm5DJ8+2v/kE9Oj8AGzK7IBOdMSIPZyKuNk=",
+        "lastModified": 1725595401,
+        "narHash": "sha256-1oX4M57VDMYfrY1YdKg+QH1n1qJuMVa+cfQ2hiFk7pA=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "863eb5594f8c375d1ddaa2cea84a819c5197dd76",
+        "rev": "4b1b073837d8ba654680ded26200bbc9aaafeaaa",
         "type": "gitlab"
       },
       "original": {
