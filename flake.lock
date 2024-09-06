@@ -976,11 +976,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1720685994,
-        "narHash": "sha256-vSgmYMBR0XD2iBBeqGEGrvy31sUL+e6hfOn5VswUL4A=",
+        "lastModified": 1725623970,
+        "narHash": "sha256-ImBLsQQ/kL05wjtKioseslwL7WWpKuy7zfeqj5uwNmk=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "12a5ae945156cebaf7373f8c2650ed611007c8ef",
+        "rev": "1058973d5e968769202df9ffb9615291ebf27d4f",
         "type": "github"
       },
       "original": {
@@ -1557,15 +1557,16 @@
     "nvim-tree-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1715591647,
-        "narHash": "sha256-eGi/yU5ve5193lMIMA2RlxFtGjv2cjZybuuSXY6YZcs=",
-        "owner": "nvim-tree",
+        "lastModified": 1725356311,
+        "narHash": "sha256-w8WJfKjrva83b8Yixaljca8WbvTit22gSri/5SiMaIQ=",
+        "owner": "ghostbuster91",
         "repo": "nvim-tree.lua",
-        "rev": "edd4e25fd4f8923f9e2816e27b5d1b1b5fff7a85",
+        "rev": "b506e05cd7394c6f4711df03067befd008d579bf",
         "type": "github"
       },
       "original": {
-        "owner": "nvim-tree",
+        "owner": "ghostbuster91",
+        "ref": "expand_until",
         "repo": "nvim-tree.lua",
         "type": "github"
       }
