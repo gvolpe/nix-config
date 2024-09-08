@@ -33,7 +33,6 @@ let
     xwaylandvideobridge # screensharing bridge
   ] ++ fontPkgs ++ audioPkgs;
 
-  gblast = lib.exe pkgs.grimblast;
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
   scripts = pkgs.callPackage ./scripts.nix { };
@@ -103,8 +102,7 @@ in
     enable = true;
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
       bind=SUPER,P,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
-      bind=SUPER,A,exec,${gblast} save area
-      bind=SUPER,S,exec,${gblast} save screen
+      bind=SUPERSHIFT,A,exec,${lib.exe scripts.satty}
       bind=SUPERCTRL,L,exec,${lib.exe pkgs.hyprlock}
       # audio volume bindings
       bindel=,XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
