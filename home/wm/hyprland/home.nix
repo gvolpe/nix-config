@@ -114,7 +114,7 @@ in
       ${workspaceConf { monitor = "${scripts.extMonitor}"; }}
 
       exec-once=${lib.exe scripts.monitorInit}
-      exec-once=${lib.exe pkgs.hypr-monitor-attached} ${lib.exe scripts.monitorAdded} ${lib.exe scripts.monitorRemoved}
+      exec-once=${lib.exe pkgs.hyprland-monitor-attached} ${lib.exe scripts.monitorAdded} ${lib.exe scripts.monitorRemoved}
       exec-once=${lib.exe pkgs.hyprpaper}
       exec-once=${pkgs.pyprland}/bin/pypr
       exec-once=${pkgs.blueman}/bin/blueman-applet
