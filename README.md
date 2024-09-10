@@ -41,6 +41,8 @@ This is my current Window Manager — the hype Wayland kid on the block!
 
 ![nemo](imgs/nemo.png)
 
+![binds](imgs/hypr-binds.png)
+
 </details>
 
 ## XMonad
