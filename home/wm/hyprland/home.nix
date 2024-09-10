@@ -35,6 +35,7 @@ let
 
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
+  keybinds = pkgs.callPackage ./keybinds.nix { };
   scripts = pkgs.callPackage ./scripts.nix { };
 
   workspaceConf = { monitor }: ''
@@ -101,13 +102,14 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
-      bind=SUPER,P,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
-      bind=SUPERSHIFT,A,exec,${lib.exe scripts.satty}
-      bind=SUPERCTRL,L,exec,${lib.exe pkgs.hyprlock}
+      bindd=,F1,Show keybindings,exec,${lib.exe keybinds}
+      bindd=SUPER,P,App launcher,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
+      bindd=SUPERSHIFT,A,Take screenshot,exec,${lib.exe scripts.satty}
+      bindd=SUPERCTRL,L,Lock system,exec,${lib.exe pkgs.hyprlock}
       # audio volume bindings
-      bindel=,XF86AudioRaiseVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
-      bindel=,XF86AudioLowerVolume,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
-      bindl=,XF86AudioMute,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
+      binddel=,XF86AudioRaiseVolume,Raise volume 󰝝 ,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      binddel=,XF86AudioLowerVolume,Lower volume 󰝞 ,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      binddl=,XF86AudioMute,Toggle mute 󰝟 ,exec,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
 
       ${workspaceConf { monitor = "${scripts.extMonitor}"; }}
 
