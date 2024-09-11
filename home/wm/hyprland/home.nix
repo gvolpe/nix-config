@@ -35,7 +35,6 @@ let
 
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
-  keybinds = pkgs.callPackage ./keybinds.nix { };
   scripts = pkgs.callPackage ./scripts.nix { };
 
   workspaceConf = { monitor }: ''
@@ -76,6 +75,11 @@ in
 
   fonts.fontconfig.enable = true;
 
+  programs.hypr-binds = {
+    enable = true;
+    settings.dispatch = true;
+  };
+
   # e.g. for slack, signal, etc
   xdg.configFile."electron-flags.conf".text = ''
     --enable-features=UseOzonePlatform
@@ -102,7 +106,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
-      bindd=,F1,Show keybindings,exec,${lib.exe keybinds}
+      bindd=,F1,Show keybindings,exec,hypr-binds
       bindd=SUPER,P,App launcher,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
       bindd=SUPERSHIFT,A,Take screenshot,exec,${lib.exe scripts.satty}
       bindd=SUPERCTRL,L,Lock system,exec,${lib.exe pkgs.hyprlock}

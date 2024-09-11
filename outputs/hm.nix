@@ -34,6 +34,7 @@ let
   mkHyprlandHome = { hidpi }:
     let
       imports = sharedImports ++ [
+        inputs.hypr-binds-flake.homeManagerModules.${system}.default
         ../home/wm/hyprland/home.nix
         (hyprlandDpiSettings { inherit hidpi; })
       ];

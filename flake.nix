@@ -46,6 +46,13 @@
       inputs.flake-schemas.follows = "flake-schemas";
     };
 
+    # Hyprland
+
+    hypr-binds-flake = {
+      url = github:gvolpe/hypr-binds;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {
