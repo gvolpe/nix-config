@@ -75,10 +75,7 @@ in
 
   fonts.fontconfig.enable = true;
 
-  programs.hypr-binds = {
-    enable = true;
-    settings.dispatch = true;
-  };
+  programs.hypr-binds.enable = true;
 
   # e.g. for slack, signal, etc
   xdg.configFile."electron-flags.conf".text = ''
