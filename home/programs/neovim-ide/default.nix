@@ -117,6 +117,7 @@ in
         markdown = {
           enable = true;
           glow.enable = true;
+          render.enable = true;
         };
         chatgpt = {
           enable = true;
