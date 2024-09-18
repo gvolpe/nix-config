@@ -18,6 +18,7 @@ let
     pavucontrol # pulseaudio volume control
     playerctl # music player controller
     pulsemixer # pulseaudio mixer
+    reaper # digital audio workstation (daw)
   ];
 
   packages = with pkgs; [
