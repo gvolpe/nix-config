@@ -778,13 +778,13 @@
       "locked": {
         "lastModified": 1726130347,
         "narHash": "sha256-tLOzJrxKDMYNT+1+TPyObuG2K6XBHgFF6TBh9cTYK3w=",
-        "owner": "gvolpe",
+        "owner": "hyprland-community",
         "repo": "hypr-binds",
         "rev": "c47f4f95f9c93af53ca00a44539526e1ff7d8d20",
         "type": "github"
       },
       "original": {
-        "owner": "gvolpe",
+        "owner": "hyprland-community",
         "repo": "hypr-binds",
         "type": "github"
       }
