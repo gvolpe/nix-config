@@ -6,6 +6,7 @@ let
   sharedImports = [
     neovim-flake.homeManagerModules.${system}.default
     ({ home.packages = extraPkgs; })
+    ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
   ];
 
   hyprlandDpiSettings = { hidpi }: {
