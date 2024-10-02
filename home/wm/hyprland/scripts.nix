@@ -1,12 +1,13 @@
 { lib, grim, satty, slurp, writeShellScriptBin }:
 
 let
-  intMonitor = "eDP-1";
+  intMonitor = "FALLBACK"; # "eDP-1" doesn't work ¯\_(ツ)_/¯
   extMonitor = "DP-3";
 
   monitorsConf = "$XDG_CONFIG_HOME/hypr/monitors.conf";
 
   monitorAdded = writeShellScriptBin "monitor-added" ''
+    echo "Monitor added: $1"
     hyprctl --batch "\
       dispatch moveworkspacetomonitor 1 ${extMonitor};\
       dispatch moveworkspacetomonitor 2 ${extMonitor};\
@@ -24,6 +25,7 @@ let
   '';
 
   monitorRemoved = writeShellScriptBin "monitor-removed" ''
+    echo "Monitor removed: $1"
     hyprctl dispatch dpms on ${intMonitor}
     echo "monitor=${intMonitor},2880x1800@90,0x0,2" > ${monitorsConf}
   '';
