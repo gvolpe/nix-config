@@ -15,6 +15,9 @@ let
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
 in
 {
+  # CVE: https://discourse.nixos.org/t/newly-announced-vulnerabilities-in-cups/52771
+  systemd.services.cups-browsed.enable = false;
+
   networking = {
     extraHosts = pkgs.sxm.hosts.extra or "";
 
