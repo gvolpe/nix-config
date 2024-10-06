@@ -1,4 +1,4 @@
-# Renew expired key 
+# Renew expired key
 
 List the available keys.
 
@@ -45,3 +45,11 @@ gpg> save
 ```
 
 Source: https://unix.stackexchange.com/questions/552707/how-to-renew-an-expired-encryption-subkey-with-gpg
+
+---
+
+NOTE: On Github, the GPG key needs to be deleted and uploaded once again for the updated key to take effect: https://github.com/settings/keys
+
+```console
+$ gpg --armor --export 2DE4E864E51516D79121CF11121D4302A64B2261
+```
