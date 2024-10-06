@@ -27,6 +27,7 @@ in
     inherit lib pkgs system;
     specialArgs = { inherit inputs; };
     modules = [
+      ../system/modules/globalprotectvpn.nix
       ../system/machine/thinkpad-x1
       ../system/configuration.nix
       extraSystemConfig

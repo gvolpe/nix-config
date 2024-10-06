@@ -99,6 +99,11 @@ let
   pipewireOverlay = f: p: {
     pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
   };
+
+  # globalprotect vpn overlay for no-longer supported package
+  gloabalProtectOverlay = f: p: {
+    inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
+  };
 in
 [
   cowsayOverlay
@@ -113,6 +118,7 @@ in
   statix.overlays.default
   xargsOverlay
   pipewireOverlay
+  gloabalProtectOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)

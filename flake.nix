@@ -127,7 +127,9 @@
       };
 
       packages.${system} = {
-        inherit (pkgs) bazecor metals metals-updater zoom-us;
+        inherit (pkgs) bazecor metals metals-updater;
+        # crappy software I need for $work
+        inherit (pkgs) globalprotect-openconnect slack zoom-us;
       };
     };
 }
