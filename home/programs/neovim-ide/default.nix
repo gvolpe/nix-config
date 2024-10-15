@@ -88,6 +88,10 @@ in
         hop.enable = true;
         notifications.enable = true;
         snippets.vsnip.enable = true;
+        tide = {
+          enable = true;
+          keys.splits.vertical = "~";
+        };
         todo.enable = true;
         tabline.nvimBufferline.enable = true;
         zen.enable = true;

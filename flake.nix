@@ -110,16 +110,20 @@
         inherit overlays system;
         config.allowUnfree = true;
       };
-    in
-    {
-      schemas =
-        inputs.flake-schemas.schemas //
-        import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
 
       homeConfigurations = pkgs.mkHomeConfigurations { };
       nixosConfigurations = pkgs.mkNixosConfigurations { };
 
+      neovim = homeConfigurations.hyprland-hdmi.config.programs.neovim-ide.finalPackage;
+    in
+    {
+      inherit homeConfigurations nixosConfigurations;
+
       out = { inherit pkgs overlays; };
+
+      schemas =
+        inputs.flake-schemas.schemas //
+        import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
 
       apps.${system}."nix" = {
         type = "app";
@@ -127,6 +131,7 @@
       };
 
       packages.${system} = {
+        inherit neovim;
         inherit (pkgs) bazecor metals metals-updater;
         # crappy software I need for $work
         inherit (pkgs) globalprotect-openconnect slack zoom-us;
