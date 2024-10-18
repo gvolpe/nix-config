@@ -67,6 +67,7 @@ in
       "*hie.yaml" # ghcide files
       "*.mill-version" # used by metals
       "*.jvmopts" # should be local to every project
+      "build/" # smithy lsp
     ];
     signing = {
       key = "121D4302A64B2261";
