@@ -25,7 +25,8 @@ let
     arandr # simple GUI for xrandr
     asciinema # record the terminal
     bitwarden-cli # command-line client for the password manager
-    calibre # e-book reader
+    # FIXME: calibre is broken
+    #calibre # e-book reader
     #cobang               # qr-code scanner
     cowsay # cowsay fortune teller with random images
     dive # explore docker layers
@@ -62,7 +63,7 @@ let
     xorg.xrandr # display manager (X Resize and Rotate protocol)
   ];
 
-  gnomePkgs = with pkgs.gnome; [
+  gnomePkgs = with pkgs; [
     eog # image viewer
     evince # pdf reader
     gnome-disk-utility
@@ -79,7 +80,8 @@ in
     ../../programs/autorandr
     ../../programs/orage
     ../../programs/rofi
-    ../../programs/statix
+    # FIXME: https://github.com/oppiliappan/statix/issues/89
+    #../../programs/statix
     ../../services/networkmanager
     ../../services/picom
     ../../services/polybar
