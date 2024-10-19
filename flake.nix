@@ -13,8 +13,8 @@
   };
 
   inputs = {
-    #nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = github:gvolpe/nixpkgs/zoom-us/min-version-check;
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
     flake-schemas.url = github:DeterminateSystems/flake-schemas;
 
     # https://github.com/NixOS/nixpkgs/commit/c3160517fc6381f86776795e95c97b8ef7b5d2e4
