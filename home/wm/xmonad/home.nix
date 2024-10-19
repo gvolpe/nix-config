@@ -62,7 +62,7 @@ let
     xorg.xrandr # display manager (X Resize and Rotate protocol)
   ];
 
-  gnomePkgs = with pkgs.gnome; [
+  gnomePkgs = with pkgs; [
     eog # image viewer
     evince # pdf reader
     gnome-disk-utility

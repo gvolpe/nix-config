@@ -631,11 +631,11 @@
     "gh-md-toc": {
       "flake": false,
       "locked": {
-        "lastModified": 1722785109,
-        "narHash": "sha256-jV1TjlvZs6GRyt7eKySfp2/jk4u8Xazz58pip2OV1Hc=",
+        "lastModified": 1728761459,
+        "narHash": "sha256-M9CzR3tmKAFDk6M1hX7l2P7+Eulkvcqv4TfYTJvFkVo=",
         "owner": "ekalinin",
         "repo": "github-markdown-toc",
-        "rev": "1c6184d3239790d5dde6633cda7978a6000e9ae6",
+        "rev": "c386c7b41956158867d7b8b5c6620a2ce6fbe939",
         "type": "github"
       },
       "original": {
@@ -723,11 +723,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728041527,
-        "narHash": "sha256-03liqiJtk9UP7YQHW4r8MduKCK242FQzud8iWvvlK+o=",
+        "lastModified": 1729321331,
+        "narHash": "sha256-KVyQq+ez/oB30/WbdNgVD8g/bda34z8NiU187QKQb74=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "509dbf8d45606b618e9ec3bbe4e936b7c5bc6c1e",
+        "rev": "122f70545b29ccb922e655b08acfe05bfb44ec68",
         "type": "github"
       },
       "original": {
@@ -1358,11 +1358,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1728060885,
-        "narHash": "sha256-A7hTpGXe3uX3zxAIGZ0Mq4GSzh37rBWT0Mh8aTXlhFM=",
+        "lastModified": 1729349190,
+        "narHash": "sha256-0g6Xxr/jLkZzGQOC5XmXwyUIm7QLWUbxEDmE05Npryw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "6d40a1f2e2fe9e912497232558012e72ff862897",
+        "rev": "7c378582bce83be48ce847c5bfd9190a3840349b",
         "type": "github"
       },
       "original": {
@@ -1899,11 +1899,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1728049238,
-        "narHash": "sha256-wYRRSUZF+Xq7Fz2cx/WPDgqiYOfCBOkH+9LWCJZR3Ns=",
+        "lastModified": 1729321532,
+        "narHash": "sha256-3/d/mbLQhrkE1qK2Ut/mrMElE6fP9t6ITJoRQ6F+D7o=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "1617deefd64c5ac494a8155b5856e6e90efd8eab",
+        "rev": "70087c8c6e491dcc0bbff459073b480b1a72ac1c",
         "type": "gitlab"
       },
       "original": {
