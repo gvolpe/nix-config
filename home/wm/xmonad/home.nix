@@ -25,7 +25,8 @@ let
     arandr # simple GUI for xrandr
     asciinema # record the terminal
     bitwarden-cli # command-line client for the password manager
-    calibre # e-book reader
+    # FIXME: calibre is broken
+    #calibre # e-book reader
     #cobang               # qr-code scanner
     cowsay # cowsay fortune teller with random images
     dive # explore docker layers
