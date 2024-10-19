@@ -79,7 +79,8 @@ in
     ../../programs/autorandr
     ../../programs/orage
     ../../programs/rofi
-    ../../programs/statix
+    # FIXME: https://github.com/oppiliappan/statix/issues/89
+    #../../programs/statix
     ../../services/networkmanager
     ../../services/picom
     ../../services/polybar
