@@ -7,6 +7,7 @@ let
   inherit (pkgs) lib;
 
   tongfangModules = [
+      ../system/modules/globalprotectvpn.nix
     ../system/machine/tongfang-amd
     ../system/configuration.nix
     extraSystemConfig
@@ -17,6 +18,7 @@ in
     inherit lib pkgs system;
     specialArgs = { inherit inputs; };
     modules = [
+      ../system/modules/globalprotectvpn.nix
       ../system/machine/dell-xps
       ../system/configuration.nix
       extraSystemConfig
