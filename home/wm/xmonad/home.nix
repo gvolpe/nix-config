@@ -80,8 +80,7 @@ in
     ../../programs/autorandr
     ../../programs/orage
     ../../programs/rofi
-    # FIXME: https://github.com/oppiliappan/statix/issues/89
-    #../../programs/statix
+    ../../programs/statix
     ../../services/networkmanager
     ../../services/picom
     ../../services/polybar
