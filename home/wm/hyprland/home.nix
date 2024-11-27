@@ -29,6 +29,7 @@ let
     libnotify # notifications
     nemo # file manager
     nix-search # faster nix search client
+    unzip # compressed files
     wl-clipboard # clipboard support
     wofi # app launcher
     xwaylandvideobridge # screensharing bridge
