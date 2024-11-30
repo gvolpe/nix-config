@@ -4,7 +4,11 @@
 set +x
 
 activate_hm() {
-  rm ~/.config/orage/oragerc.bak
+  BAKFILE=~/.config/orage/oragerc.bak
+  if [ -f "$BAKFILE" ]; then
+    rm $BAKFILE
+  fi
+
   HOME_MANAGER_BACKUP_EXT=bak result/activate
   hm-changes-report
 }
