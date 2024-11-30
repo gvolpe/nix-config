@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  metals = pkgs.callPackage ./metals.nix { };
-in
 {
   programs.neovim-ide = {
     enable = true;
@@ -31,8 +28,19 @@ in
             type = "nil";
           };
           scala = {
-            inherit metals;
             enable = true;
+            metals = {
+              package = pkgs.callPackage ./metals.nix { };
+              # best effort compilation + vs code default settings: https://github.com/scalameta/metals-vscode/blob/1e10e1a71cf81569ea65329ec2aa0aa1cb6ad682/packages/metals-vscode/package.json#L232
+              serverProperties = [
+                "-Dmetals.enable-best-effort=true"
+                "-Xmx2G"
+                "-XX:+UseZGC"
+                "-XX:ZUncommitDelay=30"
+                "-XX:ZCollectionInterval=5"
+                "-XX:+IgnoreUnrecognizedVMOptions"
+              ];
+            };
           };
           ts = true;
           smithy.enable = true;
