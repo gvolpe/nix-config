@@ -56,6 +56,7 @@
         hurl.enable = true;
         plantuml.enable = true;
         fx.automaton.enable = true;
+        snacks.enable = true;
         visuals = {
           enable = true;
           noice.enable = true;

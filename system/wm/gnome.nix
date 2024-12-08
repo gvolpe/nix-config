@@ -7,7 +7,7 @@
   services = {
     # Gnome config
     dbus.packages = [ pkgs.dconf ];
-    udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+    udev.packages = [ pkgs.gnome-settings-daemon ];
 
     # Enable touchpad support.
     libinput.enable = true;

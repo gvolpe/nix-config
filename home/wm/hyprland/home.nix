@@ -1,16 +1,15 @@
 { pkgs, lib, ... }:
 
 let
+  nerdFonts = with (pkgs.nerd-fonts); [
+    jetbrains-mono
+    iosevka
+  ];
+
   fontPkgs = with pkgs; [
     font-awesome # awesome fonts
     material-design-icons # fonts with glyphs
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Iosevka"
-      ];
-    })
-  ];
+  ] ++ nerdFonts;
 
   audioPkgs = with pkgs; [
     paprefs # pulseaudio preferences

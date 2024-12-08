@@ -5,12 +5,10 @@
 { pkgs, inputs, ... }:
 
 let
-  customFonts = pkgs.nerdfonts.override {
-    fonts = [
-      "JetBrainsMono"
-      "Iosevka"
-    ];
-  };
+  customFonts = with (pkgs.nerd-fonts); [
+    jetbrains-mono
+    iosevka
+  ];
 
   myfonts = pkgs.callPackage fonts/default.nix { inherit pkgs; };
 in
@@ -133,11 +131,10 @@ in
 
   # Making fonts accessible to applications.
   fonts.packages = with pkgs; [
-    customFonts
     font-awesome
     myfonts.flags-world-color
     myfonts.icomoon-feather
-  ];
+  ] ++ customFonts;
 
   programs.fish.enable = true;
 
