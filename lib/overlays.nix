@@ -113,7 +113,7 @@ in
   metalsOverlay
   secretsOverlay
   megasyncOverlay
-  nurpkgs.overlay
+  nurpkgs.overlay.default
   neovim-flake.overlays.${system}.default
   statix.overlays.default
   xargsOverlay
