@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   boot = {
@@ -24,7 +24,7 @@
 
   services = {
     dbus.packages = [ pkgs.dconf ];
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+    udev.packages = [ pkgs.gnome-settings-daemon ];
     openssh.enable = true;
 
     xserver = {
