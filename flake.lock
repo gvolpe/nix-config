@@ -990,11 +990,11 @@
     "neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1715585974,
-        "narHash": "sha256-xncUButV2/FSOPNolbrZuPPSC1FOtgrlZBwzHHPKCTo=",
+        "lastModified": 1733742683,
+        "narHash": "sha256-WHxkuWKLaKcGs1CEhE5UYYkgtWoGMfLM6K5GrxM8YqQ=",
         "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "bc0c609e3568a171e0549b449aa1b2b4b5b20e8c",
+        "rev": "40038473707c54a846bd11ecaf5933dd45858972",
         "type": "github"
       },
       "original": {
@@ -1088,11 +1088,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1733677627,
-        "narHash": "sha256-/ByPTtkCnekVQupOM1NdqzlaP21HpHUgqht5jFmTDrc=",
+        "lastModified": 1733766213,
+        "narHash": "sha256-5RfJTllG069FvXs5WeVitWju21em0nuthXghzpYOr+o=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "9fa9de63132de237a400721cfd0f33918af664a3",
+        "rev": "027b65b64d24c1124a2ede1f3504cac7e6a0d0ea",
         "type": "github"
       },
       "original": {
@@ -2165,15 +2165,15 @@
     "telescope-media-files": {
       "flake": false,
       "locked": {
-        "lastModified": 1681572273,
-        "narHash": "sha256-DA4veoacCIKg9ZXjq1nKEyGKG62n/Rkm4n9TNkkYEYA=",
-        "owner": "gvolpe",
+        "lastModified": 1676798033,
+        "narHash": "sha256-+mIQVIoreE+goSBtMucgiEPldI01JDRdCKWH/6mzey8=",
+        "owner": "nvim-telescope",
         "repo": "telescope-media-files.nvim",
-        "rev": "f0b0220db686c54fadb07cbb93e1ecbf764628ba",
+        "rev": "0826c7a730bc4d36068f7c85cf4c5b3fd9fb570a",
         "type": "github"
       },
       "original": {
-        "owner": "gvolpe",
+        "owner": "nvim-telescope",
         "repo": "telescope-media-files.nvim",
         "type": "github"
       }
