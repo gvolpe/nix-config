@@ -55,6 +55,8 @@ in
   home = {
     inherit username homeDirectory packages;
 
+    changes-report.enable = true;
+
     sessionVariables = {
       BROWSER = "${lib.exe pkgs.firefox-beta-bin}";
       DISPLAY = ":0";
