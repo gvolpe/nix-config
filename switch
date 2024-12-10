@@ -10,7 +10,6 @@ activate_hm() {
   fi
 
   HOME_MANAGER_BACKUP_EXT=bak result/activate
-  hm-changes-report
 }
 
 switch_display() {
