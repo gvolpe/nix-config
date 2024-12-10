@@ -125,6 +125,7 @@
         };
         telescope = {
           enable = true;
+          mediaFiles.enable = true;
           tabs.enable = true;
         };
         markdown = {
