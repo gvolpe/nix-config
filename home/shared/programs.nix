@@ -33,6 +33,14 @@ let
 
       jq.enable = true;
 
+      # generate index with: nix-index --filter-prefix '/bin/'
+      nix-index = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      # command-not-found only works with channels
+      command-not-found.enable = false;
+
       obs-studio = {
         enable = false;
         plugins = [ ];

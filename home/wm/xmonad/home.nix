@@ -34,7 +34,6 @@ let
     #gnomecast            # chromecast local files
     libnotify # notify-send command
     multilockscreen # fast lockscreen based on i3lock
-    nix-index # locate packages containing certain nixpkgs
     ouch # painless compression and decompression for your terminal
     pavucontrol # pulseaudio volume control
     paprefs # pulseaudio preferences
