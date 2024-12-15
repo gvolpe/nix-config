@@ -76,8 +76,8 @@ let
   };
 
   xargsOverlay = f: p: {
-    xargs = { hidpi }: {
-      inherit hidpi;
+    xargs = { hidpi, mutableDotFiles ? false }: {
+      inherit hidpi mutableDotFiles;
       inherit (inputs) gh-md-toc penguin-fox;
       inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
       addons = f.nur.repos.rycee.firefox-addons;

@@ -32,7 +32,7 @@ let
       }
     );
 
-  mkHyprlandHome = { hidpi }:
+  mkHyprlandHome = { hidpi, mutableDotFiles ? false }:
     let
       imports = sharedImports ++ [
         inputs.hypr-binds-flake.homeManagerModules.${system}.default
@@ -43,7 +43,7 @@ let
     (
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
+        extraSpecialArgs = pkgs.xargs { inherit hidpi mutableDotFiles; };
         modules = [{ inherit imports; }];
       }
     );
@@ -51,6 +51,7 @@ in
 {
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };
+  hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mutableDotFiles = true; };
   xmonad-edp = mkXmonadHome { hidpi = false; };
   xmonad-hdmi = mkXmonadHome { hidpi = true; };
 }
