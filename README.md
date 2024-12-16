@@ -10,7 +10,7 @@ My current — and always evolving — NixOS configuration files, home-manager, 
 
 This is my current Window Manager — the hype Wayland kid on the block!
 
-![hyprland](imgs/hyprland.png)
+![hyprland](imgs/hyprland-2024.png)
 
 <details>
 <summary>Environment details</summary>
@@ -129,6 +129,7 @@ $ nix flake show github:gvolpe/nix-config
 ├───homeConfigurations
 │   ├───hyprland-edp: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-hdmi: Home Manager configuration [home-manager-generation]
+│   ├───hyprland-hdmi-mutable: Home Manager configuration [home-manager-generation]
 │   ├───xmonad-edp: Home Manager configuration [home-manager-generation]
 │   └───xmonad-hdmi: Home Manager configuration [home-manager-generation]
 ├───nixosConfigurations
@@ -140,9 +141,12 @@ $ nix flake show github:gvolpe/nix-config
 │   └───pkgs: custom instance to be used by consumers of this flake
 └───packages
     └───x86_64-linux
-        ├───bazecor: package [bazecor-1.3.11-patched]
-        ├───metals: package [metals-1.3.3]
-        └───metals-updater: package [metals-updater-script]
+        ├───bazecor: package [bazecor-1.5.4-patched]
+        ├───metals: package [metals-1.4.1]
+        ├───metals-updater: package [metals-updater-script]
+        ├───neovim: package [neovim-0.10.2]
+        ├───slack: package [slack-4.41.97]
+        └───zoom-us: package [zoom-6.0.2.4680]
 ```
 
 As well as all the declared flake inputs.

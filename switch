@@ -37,6 +37,11 @@ rebuild_hyprland_hdmi() {
   activate_hm
 }
 
+rebuild_hyprland_hdmi_mutable() {
+  nix build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
+  activate_hm
+}
+
 rebuild_thinkpad() {
   sudo nixos-rebuild switch --flake .#thinkpad
 }
@@ -99,6 +104,8 @@ case $1 in
     rebuild_hyprland_edp;;
   "hphdmi")
     rebuild_hyprland_hdmi;;
+  "hphdmi-mutable")
+    rebuild_hyprland_hdmi_mutable;;
   "display")
     switch_display;;
   "restart-x")

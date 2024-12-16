@@ -1,14 +1,27 @@
-{ pkgs, config, specialArgs, ... }:
+{ pkgs, lib, config, specialArgs, ... }:
+
+with specialArgs;
 
 let
-  path = "/home/gvolpe/workspace/nix-config/home/programs/neofetch/electric.conf";
+  filePath = "${dotFilesPath}/programs/neofetch/electric.conf";
   configSrc =
-    if specialArgs.mutableDotFiles
-    then config.lib.file.mkOutOfStoreSymlink path
-    else ./electric.conf;
+    if !mutableDotFiles then ./electric.conf
+    else config.lib.file.mkOutOfStoreSymlink filePath;
+
+  neofetchPath = lib.makeBinPath (with pkgs; [ chafa imagemagick ]);
+
+  neofetchSixelsSupport = pkgs.neofetch.overrideAttrs (old: {
+    # --add-flags "--source=./nixos.png" doesn't work ¯\_(ツ)_/¯
+    postInstall = lib.optionalString (!mutableDotFiles) ''
+      substituteInPlace $out/bin/neofetch \
+        --replace "image_source=\"auto\"" "image_source=\"${./nixos.png}\""
+    '' + ''
+      wrapProgram $out/bin/neofetch --prefix PATH : ${neofetchPath}
+    '';
+  });
 in
 {
-  home.packages = with pkgs; [ hyfetch neofetch ];
+  home.packages = [ pkgs.hyfetch neofetchSixelsSupport ];
   xdg.configFile."hyfetch.json".source = ./hyfetch.json;
   xdg.configFile."neofetch/config.conf".source = configSrc;
 }
