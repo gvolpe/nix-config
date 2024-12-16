@@ -38,12 +38,13 @@ let
         inputs.hypr-binds-flake.homeManagerModules.${system}.default
         ../home/wm/hyprland/home.nix
         (hyprlandDpiSettings { inherit hidpi; })
+        ({ dotfiles.mutable = mutableDotFiles; })
       ];
     in
     (
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = pkgs.xargs { inherit hidpi mutableDotFiles; };
+        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
         modules = [{ inherit imports; }];
       }
     );

@@ -76,12 +76,11 @@ let
   };
 
   xargsOverlay = f: p: {
-    xargs = { hidpi, mutableDotFiles ? false }: {
-      inherit hidpi mutableDotFiles;
+    xargs = { hidpi }: {
+      inherit hidpi;
       inherit (inputs) gh-md-toc penguin-fox;
       inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
       addons = f.nur.repos.rycee.firefox-addons;
-      dotFilesPath = "/home/gvolpe/workspace/nix-config/home";
     };
   };
 

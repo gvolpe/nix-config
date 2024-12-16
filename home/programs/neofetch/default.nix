@@ -1,18 +1,16 @@
-{ pkgs, lib, config, specialArgs, ... }:
-
-with specialArgs;
+{ pkgs, lib, config, ... }:
 
 let
-  filePath = "${dotFilesPath}/programs/neofetch/electric.conf";
+  filePath = "${config.dotfiles.path}/programs/neofetch/electric.conf";
   configSrc =
-    if !mutableDotFiles then ./electric.conf
+    if !config.dotfiles.mutable then ./electric.conf
     else config.lib.file.mkOutOfStoreSymlink filePath;
 
   neofetchPath = lib.makeBinPath (with pkgs; [ chafa imagemagick ]);
 
   neofetchSixelsSupport = pkgs.neofetch.overrideAttrs (old: {
     # --add-flags "--source=./nixos.png" doesn't work ¯\_(ツ)_/¯
-    postInstall = lib.optionalString (!mutableDotFiles) ''
+    postInstall = lib.optionalString (!config.dotfiles.mutable) ''
       substituteInPlace $out/bin/neofetch \
         --replace "image_source=\"auto\"" "image_source=\"${./nixos.png}\""
     '' + ''
