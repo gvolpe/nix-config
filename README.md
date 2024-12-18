@@ -115,11 +115,35 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 - `outputs`: the Home Manager and NixOS flake outputs.
 - `system`: the NixOS configuration, settings for different laptops and window managers.
 
+### How to navigate it
+
+```mermaid
+---
+config:
+  theme: forest
+---
+
+flowchart LR
+    A(fa:fa-snowflake flake.nix) --> |lib| B(overlays)
+    B --> C(pkgs)
+    
+    C --> |outputs| D(hm.nix)
+    C --> |outputs| E(os.nix)
+    
+    D --> |wm| F(hyprland)
+    D --> |wm| G(xmonad)
+
+    E --> |host| H(dell-xps)
+    E --> |host| I(thinkpad-x1)
+    E --> |host| J(tongfanf-amd)
+```
+
 </details>
 
 ## Flake outputs
 
-You can have a look at the available flake outputs before getting started.
+<details>
+<summary>Expand to see available ouputs</summary>
 
 ```console
 $ nix flake show github:gvolpe/nix-config
@@ -154,6 +178,11 @@ As well as all the declared flake inputs.
 ```console
 nix flake metadata github:gvolpe/nix-config
 ```
+
+</details>
+
+<details>
+<summary>Further installation instructions</summary>
 
 ### Install
 
@@ -196,3 +225,14 @@ result/activate
 ### Fresh install
 
 To set up a new machine from scratch, have a look at [this document](./notes/new-machine.md).
+
+</details>
+
+## LICENSE
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with
+the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific
+language governing permissions and limitations under the License.
