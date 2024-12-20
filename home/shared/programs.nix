@@ -34,9 +34,10 @@ let
       jq.enable = true;
 
       # generate index with: nix-index --filter-prefix '/bin/'
-      nix-index = {
+      nix-index-fork = {
         enable = true;
         enableFishIntegration = true;
+        enableNixCommand = true;
       };
       # command-not-found only works with channels
       command-not-found.enable = false;

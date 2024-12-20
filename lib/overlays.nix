@@ -101,7 +101,7 @@ let
   };
 
   # globalprotect vpn overlay for no-longer supported package
-  gloabalProtectOverlay = f: p: {
+  globalProtectOverlay = f: p: {
     inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
   };
 in
@@ -118,7 +118,7 @@ in
   statix.overlays.default
   xargsOverlay
   pipewireOverlay
-  gloabalProtectOverlay
+  globalProtectOverlay
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)

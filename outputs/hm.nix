@@ -5,6 +5,7 @@ with inputs;
 let
   sharedImports = [
     neovim-flake.homeManagerModules.${system}.default
+    nix-index.homeManagerModules.${system}.default
     ({ home.packages = extraPkgs; })
     ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
   ];

@@ -47,6 +47,11 @@
       inputs.flake-schemas.follows = "flake-schemas";
     };
 
+    nix-index = {
+      url = github:gvolpe/nix-index;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Hyprland
 
     hypr-binds-flake = {
