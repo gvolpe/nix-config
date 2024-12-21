@@ -112,6 +112,8 @@ case $1 in
     restart_X;;
   "update-fish")
     fish -c fish_update_completions;;
+  "update-nix-index")
+    nix-index --filter-prefix '/bin/';;
   "thinkpad")
     rebuild_thinkpad;;
   "tongfang")
