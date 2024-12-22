@@ -95,6 +95,10 @@ let
     });
   };
 
+  nixIndexDatabaseOverlay = f: p: {
+    inherit (nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
+  };
+
   # pipewire overlay for broken zoom-us
   pipewireOverlay = f: p: {
     pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
@@ -109,6 +113,7 @@ in
   cowsayOverlay
   fishOverlay
   libOverlay
+  nixIndexDatabaseOverlay
   nixSearchOverlay
   metalsOverlay
   secretsOverlay

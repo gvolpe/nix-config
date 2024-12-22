@@ -47,8 +47,14 @@
       inputs.flake-schemas.follows = "flake-schemas";
     };
 
+    nix-index-database = {
+      url = github:gvolpe/nix-index-database;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index = {
       url = github:gvolpe/nix-index;
+      inputs.nix-index-database.follows = "nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

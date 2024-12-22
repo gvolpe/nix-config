@@ -38,6 +38,7 @@ let
         enable = true;
         enableFishIntegration = true;
         enableNixCommand = true;
+        database = pkgs.nix-index-small-database;
       };
       # command-not-found only works with channels
       command-not-found.enable = false;

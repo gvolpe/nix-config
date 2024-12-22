@@ -1178,21 +1178,44 @@
     "nix-index": {
       "inputs": {
         "flake-compat": "flake-compat_5",
+        "nix-index-database": [
+          "nix-index-database"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1734697770,
-        "narHash": "sha256-pPJSqSwVQ1XagigG8sfpBweqTJp6IfEAGmxhcAk4tDg=",
+        "lastModified": 1734886952,
+        "narHash": "sha256-QAZBFUbpKZxQJ9u9xTHghZNR3HPYbGZpLkO3ItDwuoQ=",
         "owner": "gvolpe",
         "repo": "nix-index",
-        "rev": "dc0329df4bfe76b326756c2b7f3a811d5e910e2f",
+        "rev": "c7f252af302789118b163dd02f84645314e06fb4",
         "type": "github"
       },
       "original": {
         "owner": "gvolpe",
         "repo": "nix-index",
+        "type": "github"
+      }
+    },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734886205,
+        "narHash": "sha256-vaODlEr6aOLEmbhPrQ8j5xWr8UHcXbZx2ulvBIDMf5w=",
+        "owner": "gvolpe",
+        "repo": "nix-index-database",
+        "rev": "07f7fcb8de6ee50a472a119a02616fb1ed67a25f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "nix-index-database",
         "type": "github"
       }
     },
@@ -1953,6 +1976,7 @@
         "hypr-binds-flake": "hypr-binds-flake",
         "neovim-flake": "neovim-flake",
         "nix-index": "nix-index",
+        "nix-index-database": "nix-index-database",
         "nix-schema": "nix-schema",
         "nix-search": "nix-search",
         "nixpkgs": "nixpkgs_3",
