@@ -1186,11 +1186,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734886952,
-        "narHash": "sha256-QAZBFUbpKZxQJ9u9xTHghZNR3HPYbGZpLkO3ItDwuoQ=",
+        "lastModified": 1734887877,
+        "narHash": "sha256-bwSVNAR0Eth2kzJccFjzjcllMP6fbllwtu0+05NdIZo=",
         "owner": "gvolpe",
         "repo": "nix-index",
-        "rev": "c7f252af302789118b163dd02f84645314e06fb4",
+        "rev": "cb3d97cf6acb8a60fbe4bb8f2ff82dfe0547ea5e",
         "type": "github"
       },
       "original": {
