@@ -113,6 +113,7 @@ in
   cowsayOverlay
   fishOverlay
   libOverlay
+  nix-index.overlays.${system}.default
   nixIndexDatabaseOverlay
   nixSearchOverlay
   metalsOverlay
