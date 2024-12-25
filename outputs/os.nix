@@ -21,9 +21,8 @@ in
       ../system/modules/globalprotectvpn.nix
       ../system/machine/dell-xps
       ../system/configuration.nix
+      ../system/virtualisation.nix
       extraSystemConfig
-      # vm user and password
-      { users.users.gvolpe.initialPassword = "test"; }
     ];
   };
 
