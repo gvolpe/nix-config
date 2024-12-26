@@ -21,12 +21,13 @@
     # virtual manager for vms
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
-  };
 
-  vmVariant = {
-    virtualisation = {
-      memorySize = 4096;
-      cores = 4;
+    # nixos-rebuild --build-vm
+    vmVariant = {
+      virtualisation = {
+        memorySize = 4096;
+        cores = 4;
+      };
     };
   };
 }
