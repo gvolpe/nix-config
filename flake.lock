@@ -1003,6 +1003,22 @@
         "type": "github"
       }
     },
+    "modes-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734414076,
+        "narHash": "sha256-ShIK8ROowT1yFHgSIVHUFnnQOEMr3YPIqw4ixzR8w8M=",
+        "owner": "mvllow",
+        "repo": "modes.nvim",
+        "rev": "c7a4b1b383606832aab150902719bd5eb5cdb2b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mvllow",
+        "repo": "modes.nvim",
+        "type": "github"
+      }
+    },
     "neogit": {
       "flake": false,
       "locked": {
@@ -1048,6 +1064,7 @@
         "lspsaga": "lspsaga",
         "lualine": "lualine",
         "mind-nvim": "mind-nvim",
+        "modes-nvim": "modes-nvim",
         "neogit": "neogit",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nightfox": "nightfox",
@@ -1104,11 +1121,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1733766213,
-        "narHash": "sha256-5RfJTllG069FvXs5WeVitWju21em0nuthXghzpYOr+o=",
+        "lastModified": 1735319425,
+        "narHash": "sha256-Sj8xd4fSkwoQpJBlaff07XvRKXAkQ7nGIVPL3Jb+XJE=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "027b65b64d24c1124a2ede1f3504cac7e6a0d0ea",
+        "rev": "27aa992f75ff8f25ad239667e7e2c5853c53b01e",
         "type": "github"
       },
       "original": {
