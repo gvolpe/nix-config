@@ -10,6 +10,7 @@ let
     ../system/modules/globalprotectvpn.nix
     ../system/machine/tongfang-amd
     ../system/configuration.nix
+    ../system/virtualisation.nix
     extraSystemConfig
   ];
 in
@@ -33,7 +34,6 @@ in
       ../system/modules/globalprotectvpn.nix
       ../system/machine/thinkpad-x1
       ../system/configuration.nix
-      ../system/virtualisation.nix
       extraSystemConfig
     ];
   };
@@ -48,7 +48,6 @@ in
     inherit lib pkgs system;
     specialArgs = { inherit inputs; };
     modules = tongfangModules ++ [
-      # edp modules
       home-manager.nixosModules.home-manager
       (import ./mod.nix {
         inherit inputs system;
@@ -56,11 +55,9 @@ in
       })
       # FIXME: zfs-kernel-2.2.3-6.8.9 is marked as broken
       # iso image modules
-      #"${in puts.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+      #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
       # disable networking.wireless from the iso minimal conf as we use networkmanager
       #{ networking.wireless.enable = false; }
-      # vm user and password
-      { users.users.gvolpe.initialPassword = "test"; }
     ];
   };
 }

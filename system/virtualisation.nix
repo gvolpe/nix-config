@@ -25,8 +25,8 @@
     # nixos-rebuild --build-vm
     vmVariant = {
       virtualisation = {
-        memorySize = 4096;
-        cores = 4;
+        memorySize = 8192;
+        cores = 6;
       };
     };
   };
