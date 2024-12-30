@@ -18,27 +18,27 @@ switch_display() {
 }
 
 rebuild_xmonad_edp() {
-  nix build .#homeConfigurations.xmonad-edp.activationPackage
+  nom build .#homeConfigurations.xmonad-edp.activationPackage
   activate_hm
 }
 
 rebuild_xmonad_hdmi() {
-  nix build .#homeConfigurations.xmonad-hdmi.activationPackage
+  nom build .#homeConfigurations.xmonad-hdmi.activationPackage
   activate_hm
 }
 
 rebuild_hyprland_edp() {
-  nix build .#homeConfigurations.hyprland-edp.activationPackage
+  nom build .#homeConfigurations.hyprland-edp.activationPackage
   activate_hm
 }
 
 rebuild_hyprland_hdmi() {
-  nix build .#homeConfigurations.hyprland-hdmi.activationPackage
+  nom build .#homeConfigurations.hyprland-hdmi.activationPackage
   activate_hm
 }
 
 rebuild_hyprland_hdmi_mutable() {
-  nix build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
+  nom build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
   activate_hm
 }
 
