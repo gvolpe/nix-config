@@ -1,4 +1,4 @@
-{ config, lib, pkgs, specialArgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -23,7 +23,7 @@ in
 
     package = mkOption {
       type = types.package;
-      default = if specialArgs.hidpi then hidpiPackage else pkgs.megasync;
+      default = if config.hidpi then hidpiPackage else pkgs.megasync;
     };
   };
 

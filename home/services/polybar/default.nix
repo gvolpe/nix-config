@@ -1,4 +1,4 @@
-{ config, lib, pkgs, specialArgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   openCalendar = "${pkgs.xfce.orage}/bin/orage";
@@ -14,7 +14,7 @@ let
     font5 = 10;
   };
 
-  mainBar = if specialArgs.hidpi then hdmiBar else laptopBar;
+  mainBar = if config.hidpi then hdmiBar else laptopBar;
 
   openGithub = "${lib.exe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
 

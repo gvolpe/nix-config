@@ -9,6 +9,11 @@ with lib;
     hidpi = lib.mkEnableOption "HiDPI displays";
 
     programs = {
+      alacritty.fontSize = mkOption {
+        type = types.int;
+        default = if config.hidpi then 10 else 8;
+      };
+
       browser.settings.dpi = mkOption {
         type = types.str;
         default = "0";
