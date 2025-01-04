@@ -10,20 +10,11 @@ let
     ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
   ];
 
-  hyprlandDpiSettings = { config, ... }: {
-    programs.browser.settings.dpi = if config.hidpi then "0" else "1.7";
-  };
-
-  xmonadDpiSettings = { config, ... }: {
-    programs.browser.settings.dpi = if config.hidpi then "-1.0" else "0.7";
-  };
-
   mkXmonadHome = { hidpi }:
     let
       imports = sharedImports ++ [
         ../home/wm/xmonad/home.nix
         ({ inherit hidpi; })
-        xmonadDpiSettings
       ];
     in
     (
@@ -40,7 +31,6 @@ let
         inputs.hypr-binds-flake.homeManagerModules.${system}.default
         ../home/wm/hyprland/home.nix
         ({ inherit hidpi; dotfiles.mutable = mutableDotFiles; })
-        hyprlandDpiSettings
       ];
     in
     (
