@@ -10,25 +10,26 @@ let
     ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
   ];
 
-  hyprlandDpiSettings = { hidpi }: {
-    programs.browser.settings.dpi = if hidpi then "0" else "1.7";
+  hyprlandDpiSettings = { config, ... }: {
+    programs.browser.settings.dpi = if config.hidpi then "0" else "1.7";
   };
 
-  xmonadDpiSettings = { hidpi }: {
-    programs.browser.settings.dpi = if hidpi then "-1.0" else "0.7";
+  xmonadDpiSettings = { config, ... }: {
+    programs.browser.settings.dpi = if config.hidpi then "-1.0" else "0.7";
   };
 
   mkXmonadHome = { hidpi }:
     let
       imports = sharedImports ++ [
         ../home/wm/xmonad/home.nix
-        (xmonadDpiSettings { inherit hidpi; })
+        ({ inherit hidpi; })
+        xmonadDpiSettings
       ];
     in
     (
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
+        extraSpecialArgs = pkgs.xargs;
         modules = [{ inherit imports; }];
       }
     );
@@ -38,14 +39,14 @@ let
       imports = sharedImports ++ [
         inputs.hypr-binds-flake.homeManagerModules.${system}.default
         ../home/wm/hyprland/home.nix
-        (hyprlandDpiSettings { inherit hidpi; })
-        ({ dotfiles.mutable = mutableDotFiles; })
+        ({ inherit hidpi; dotfiles.mutable = mutableDotFiles; })
+        hyprlandDpiSettings
       ];
     in
     (
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = pkgs.xargs { inherit hidpi; };
+        extraSpecialArgs = pkgs.xargs;
         modules = [{ inherit imports; }];
       }
     );
