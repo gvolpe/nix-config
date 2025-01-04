@@ -1,14 +1,5 @@
-{ specialArgs, ... }:
+{ config, ... }:
 
-let
-  dpmsSettings =
-    if specialArgs.hidpi then { } else
-    {
-      timeout = 1200;
-      on-timeout = "hyprctl dispatch dpms off";
-      on-resume = "hyprctl dispatch dpms on";
-    };
-in
 {
   services.hypridle = {
     enable = true;
@@ -24,7 +15,7 @@ in
           timeout = 900;
           on-timeout = "hyprlock";
         }
-        dpmsSettings
+        config.services.hypridle.dpms
       ];
     };
   };

@@ -51,7 +51,7 @@ in
       home-manager.nixosModules.home-manager
       (import ./mod.nix {
         inherit inputs system;
-        extraSpecialArgs = pkgs.xargs { hidpi = false; };
+        extraSpecialArgs = pkgs.xargs;
       })
       # FIXME: zfs-kernel-2.2.3-6.8.9 is marked as broken
       # iso image modules

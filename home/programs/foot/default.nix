@@ -1,9 +1,5 @@
-{ pkgs, specialArgs, ... }:
+{ config, pkgs, ... }:
 
-let
-  inherit (specialArgs) hidpi;
-  fontSize = if hidpi then "14" else "10";
-in
 {
   # lightweight wayland terminal emulator
   programs.foot = {
@@ -12,7 +8,7 @@ in
     settings = {
       main = {
         shell = "${pkgs.fish}/bin/fish";
-        font = "JetBrainsMono Nerdfont:size=${fontSize}";
+        font = "JetBrainsMono Nerdfont:size=${config.programs.foot.fontSize}";
         pad = "12x12";
         dpi-aware = "yes";
         selection-target = "both";

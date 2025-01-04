@@ -1,16 +1,14 @@
-{ config, lib, pkgs, specialArgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
 let
   cfg = config.programs.signal;
 
-  scaleFactor = if specialArgs.hidpi then "2" else "1.5";
-
   signal = pkgs.signal-desktop.overrideAttrs (old: {
     preFixup = old.preFixup + ''
       substituteInPlace $out/share/applications/signal-desktop.desktop \
-        --replace "--no-sandbox" "--use-tray-icon --force-device-scale-factor=${scaleFactor}"
+        --replace "--no-sandbox" "--use-tray-icon --force-device-scale-factor=${cfg.scaleFactor}"
     '';
   });
 
@@ -22,7 +20,7 @@ let
       postBuild = ''
         wrapProgram $out/bin/signal-desktop \
           --add-flags "--use-tray-icon" \
-          --add-flags "--force-device-scale-factor=${scaleFactor}"
+          --add-flags "--force-device-scale-factor=${cfg.scaleFactor}"
       '';
     };
 
