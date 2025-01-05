@@ -13,7 +13,7 @@ in
     hidpi = lib.mkEnableOption "HiDPI displays";
 
     programs = {
-      alacritty.fontSize = mkOption {
+      alacritty.fontsize = mkOption {
         type = types.int;
         default = if config.hidpi then 10 else 8;
       };
@@ -26,7 +26,7 @@ in
           else "0";
       };
 
-      foot.fontSize = mkOption {
+      foot.fontsize = mkOption {
         type = types.str;
         default = if config.hidpi then "14" else "10";
       };

@@ -20,7 +20,7 @@
           family = "JetBrainsMono Nerd Font";
           style = "Medium";
         };
-        size = config.programs.alacritty.fontSize;
+        size = config.programs.alacritty.fontsize;
       };
       keyboard.bindings = [
         { key = 53; mods = "Shift"; mode = "Vi"; action = "SearchBackward"; }
