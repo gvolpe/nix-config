@@ -4,7 +4,8 @@
 {
   programs.virt-manager.enable = true;
 
-  environment.systemPackages = with pkgs; [ quickemu ];
+  # FIXME: ceph dependency fails to build
+  #environment.systemPackages = with pkgs; [ quickemu ];
 
   users = {
     groups.nixosvmtest = { };
@@ -19,8 +20,8 @@
 
   virtualisation = {
     # virtual manager for vms
-    libvirtd.enable = false;
-    spiceUSBRedirection.enable = false;
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
 
     # nixos-rebuild --build-vm
     vmVariant = {
