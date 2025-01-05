@@ -31,8 +31,8 @@ let
   };
 
   buildersOverlay = f: p: {
-    mkHomeConfigurations = { pkgs ? f, extraPkgs ? [ ] }:
-      import ../outputs/hm.nix { inherit extraPkgs inputs pkgs system; };
+    mkHomeConfigurations = { pkgs ? f, extraPkgs ? [ ], extraImports ? { } }:
+      import ../outputs/hm.nix { inherit extraPkgs extraImports inputs pkgs system; };
 
     mkNixosConfigurations = { pkgs ? f, extraSystemConfig ? { } }:
       import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
@@ -62,10 +62,6 @@ let
       p.tree-sitter-json
       p.tree-sitter-smithy
     ]);
-  };
-
-  secretsOverlay = f: p: {
-    secrets = p.callPackage ./secrets.nix { };
   };
 
   megasyncOverlay = f: p: {
@@ -116,7 +112,6 @@ in
   nixIndexDatabaseOverlay
   nixSearchOverlay
   metalsOverlay
-  secretsOverlay
   megasyncOverlay
   nurpkgs.overlays.default
   neovim-flake.overlays.${system}.default

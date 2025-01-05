@@ -1,4 +1,4 @@
-{ extraPkgs, inputs, system, pkgs, ... }:
+{ extraPkgs, extraImports, inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -8,6 +8,7 @@ let
     nix-index.homeManagerModules.${system}.default
     ({ home.packages = extraPkgs; })
     ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
+    extraImports
   ];
 
   mkXmonadHome = { hidpi }:

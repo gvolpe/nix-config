@@ -3,5 +3,6 @@
   ./dotfiles.nix
   ./hidpi.nix
   ./megasync.nix
+  ./secrets.nix
   ./signal.nix
 ]

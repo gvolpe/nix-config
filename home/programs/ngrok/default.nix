@@ -1,9 +1,9 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   ngrokConfig = lib.generators.toYAML { } {
     version = 2;
-    authtoken = pkgs.secrets.ngrokToken;
+    authtoken = config.secrets.ngrokToken;
   };
 in
 {

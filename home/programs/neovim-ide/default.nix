@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.neovim-ide = {
@@ -135,7 +135,7 @@
         };
         chatgpt = {
           enable = true;
-          inherit (pkgs.secrets) openaiApiKey;
+          inherit (config.secrets) openaiApiKey;
         };
         git = {
           enable = true;

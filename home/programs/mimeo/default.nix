@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   # https://nixos.org/manual/nixpkgs/unstable/#sec-checkpoint-build
@@ -18,5 +18,5 @@ let
 in
 {
   home.packages = [ pkgs.mimeo xdg-mimeo ];
-  xdg.configFile."mimeo/associations.txt".text = pkgs.secrets.mimeoAssociations;
+  xdg.configFile."mimeo/associations.txt".text = config.secrets.mimeoAssociations;
 }
