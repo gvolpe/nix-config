@@ -13,7 +13,9 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    # fixes epson-escpr: https://github.com/NixOS/nixpkgs/issues/368161
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
     flake-schemas.url = github:DeterminateSystems/flake-schemas;
 
