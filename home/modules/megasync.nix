@@ -11,7 +11,7 @@ let
       paths = [ pkgs.megasync ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
-        wrapProgram $out/bin/megasync --prefix QT_SCALE_FACTOR : 1
+        wrapProgram $out/bin/megasync --prefix QT_SCALE_FACTOR : ${cfg.scaleFactor}
       '';
     };
 in
@@ -23,7 +23,7 @@ in
 
     package = mkOption {
       type = types.package;
-      default = if config.hidpi then hidpiPackage else pkgs.megasync;
+      default = if cfg.scale then hidpiPackage else pkgs.megasync;
     };
   };
 
