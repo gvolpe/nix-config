@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   # https://nixos.org/manual/nixpkgs/unstable/#sec-checkpoint-build
@@ -18,6 +18,4 @@ let
 in
 {
   home.packages = [ pkgs.mimeo xdg-mimeo ];
-} // lib.mkIf (!lib.hasAttr "sxm" pkgs) {
-  xdg.configFile."mimeo/associations.txt".text = config.secrets.mimeoAssociations;
 }

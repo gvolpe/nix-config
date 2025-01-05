@@ -9,10 +9,6 @@ with lib;
         type = types.str;
         default = "OVERRIDE_ME";
       };
-      mimeoAssociations = mkOption {
-        type = types.str;
-        default = "OVERRIDE_ME";
-      };
       ngrokToken = mkOption {
         type = types.str;
         default = "OVERRIDE_ME";
