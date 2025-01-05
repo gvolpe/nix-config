@@ -3,18 +3,7 @@
 let
   openCalendar = "${pkgs.xfce.orage}/bin/orage";
 
-  hdmiBar = pkgs.callPackage ./bar.nix { };
-
-  laptopBar = pkgs.callPackage ./bar.nix {
-    font0 = 10;
-    font1 = 12;
-    font2 = 24;
-    font3 = 18;
-    font4 = 5;
-    font5 = 10;
-  };
-
-  mainBar = if config.hidpi then hdmiBar else laptopBar;
+  mainBar = import ./bar.nix { inherit config; };
 
   openGithub = "${lib.exe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
 

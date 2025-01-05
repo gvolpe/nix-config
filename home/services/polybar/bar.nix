@@ -1,6 +1,8 @@
-{ font0 ? 16, font1 ? 18, font2 ? 40, font3 ? 28, font4 ? 7, font5 ? 16 }:
+{ config, ... }:
 
 let
+  inherit (config.services.polybar.fontsizes) font0 font1 font2 font3 font4 font5;
+
   bar = ''
     [bar/main]
     monitor = ''${env:MONITOR:eDP}

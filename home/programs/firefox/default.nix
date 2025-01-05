@@ -18,7 +18,6 @@ let
     link-cleaner
     privacy-badger
     simple-tab-groups
-    to-deepl
     ublock-origin
     unpaywall
     vimium
