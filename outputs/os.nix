@@ -10,7 +10,6 @@ let
     ../system/modules/globalprotectvpn.nix
     ../system/machine/tongfang-amd
     ../system/configuration.nix
-    ../system/virtualisation.nix
     extraSystemConfig
   ];
 in

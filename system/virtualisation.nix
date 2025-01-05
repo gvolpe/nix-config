@@ -19,8 +19,8 @@
 
   virtualisation = {
     # virtual manager for vms
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
+    libvirtd.enable = false;
+    spiceUSBRedirection.enable = false;
 
     # nixos-rebuild --build-vm
     vmVariant = {
