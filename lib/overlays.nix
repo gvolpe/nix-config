@@ -31,8 +31,8 @@ let
   };
 
   buildersOverlay = f: p: {
-    mkHomeConfigurations = { pkgs ? f, extraPkgs ? [ ], extraImports ? { } }:
-      import ../outputs/hm.nix { inherit extraPkgs extraImports inputs pkgs system; };
+    mkHomeConfigurations = { pkgs ? f, extraImports ? { } }:
+      import ../outputs/hm.nix { inherit extraImports inputs pkgs system; };
 
     mkNixosConfigurations = { pkgs ? f, extraSystemConfig ? { } }:
       import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
