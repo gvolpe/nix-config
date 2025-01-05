@@ -3,7 +3,7 @@
 let
   openCalendar = "${pkgs.xfce.orage}/bin/orage";
 
-  mainBar = pkgs.callPackage ./bar.nix { };
+  mainBar = import ./bar.nix { inherit config; };
 
   openGithub = "${lib.exe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
 
