@@ -103,6 +103,10 @@ let
   globalProtectOverlay = f: p: {
     inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
   };
+
+  quickemuOverlay = f: p: {
+    quickemu = p.quickemu.override { qemu_full = p.qemu; };
+  };
 in
 [
   cowsayOverlay
@@ -113,6 +117,7 @@ in
   nixSearchOverlay
   metalsOverlay
   megasyncOverlay
+  quickemuOverlay
   nurpkgs.overlays.default
   neovim-flake.overlays.${system}.default
   statix.overlays.default

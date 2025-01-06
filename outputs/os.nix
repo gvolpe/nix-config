@@ -34,6 +34,7 @@ in
       ../system/modules/globalprotectvpn.nix
       ../system/machine/thinkpad-x1
       ../system/configuration.nix
+      ../system/virtualisation.nix
       extraSystemConfig
     ];
   };

@@ -13,7 +13,9 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nix doesn't need the full history, this should be the default ¯\_(ツ)_/¯
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
     flake-schemas.url = github:DeterminateSystems/flake-schemas;
 
@@ -149,7 +151,7 @@
 
       packages.${system} = {
         inherit neovim;
-        inherit (pkgs) bazecor metals metals-updater;
+        inherit (pkgs) bazecor quickemu metals metals-updater;
         # crappy software I need for $work
         inherit (pkgs) globalprotect-openconnect slack zoom-us;
       };
