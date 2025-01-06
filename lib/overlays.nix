@@ -105,7 +105,11 @@ let
   };
 
   quickemuOverlay = f: p: {
-    quickemu = p.quickemu.override { qemu_full = p.qemu; };
+    quickemu = p.quickemu.override {
+      qemu_full = p.qemu.override {
+        smbdSupport = p.lib.meta.availableOn p.stdenv.hostPlatform p.samba;
+      };
+    };
   };
 in
 [
