@@ -104,23 +104,11 @@ let
     inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
   };
 
-  # fixes quickemu/qemu_full. See https://github.com/NixOS/nixpkgs/pull/370304
-  cephOverlay = f: p:
-    let
-      cephPatch = p.fetchpatch {
-        url = "https://patch-diff.githubusercontent.com/raw/nixos/nixpkgs/pull/370304.patch";
-        sha256 = "sha256-+fx2PxP1Fk4bYVzYP8wWU0bVv2I2fUJ+DL9atYkdupk=";
-      };
-    in
-    {
-      ceph = p.applyPatches {
-        src = p.ceph;
-        patches = [ cephPatch ];
-      };
-    };
+  quickemuOverlay = f: p: {
+    quickemu = p.quickemu.override { qemu_full = p.qemu; };
+  };
 in
 [
-  cephOverlay
   cowsayOverlay
   fishOverlay
   libOverlay
@@ -129,6 +117,7 @@ in
   nixSearchOverlay
   metalsOverlay
   megasyncOverlay
+  quickemuOverlay
   nurpkgs.overlays.default
   neovim-flake.overlays.${system}.default
   statix.overlays.default
