@@ -1,25 +1,6 @@
 { inputs, system }:
 
-with inputs;
-
 let
-  cowsayOverlay = f: p: {
-    inherit (cowsay.packages.${system}) cowsay;
-  };
-
-  fishOverlay = f: p: {
-    inherit fish-bobthefish-theme fish-keytool-completions;
-  };
-
-  nixSearchOverlay = f: p: {
-    nix-search = nix-search.packages.${system}.default;
-  };
-
-  metalsOverlay = f: p: {
-    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
-    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
-  };
-
   # nixos-version needs this to work with flakes
   libVersionOverlay = import "${inputs.nixpkgs}/lib/flake-version-info.nix" inputs.nixpkgs;
 
@@ -30,7 +11,17 @@ let
     })).extend libVersionOverlay;
   };
 
-  buildersOverlay = f: p: {
+  overlays = f: p: {
+    inherit (inputs.cowsay.packages.${system}) cowsay;
+    inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
+
+    inherit (inputs.nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
+
+    # globalprotect vpn overlay for no-longer supported package
+    inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
+
+    inherit (import inputs.nixpkgs-mega { inherit system; config.allowUnfree = true; }) megasync;
+
     builders = {
       mkHome = { pkgs ? f, extraHomeConfig ? { } }:
         import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };
@@ -38,10 +29,31 @@ let
       mkNixos = { pkgs ? f, extraSystemConfig ? { } }:
         import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
     };
-  };
 
-  treesitterGrammarsOverlay = f: p: {
-    treesitterGrammars = _.withPlugins (p: [
+    nix-search = inputs.nix-search.packages.${system}.default;
+
+    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
+    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
+
+    nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {
+      doCheck = false;
+      doInstallCheck = false;
+      postInstall = old.postInstall + ''
+        rm $out/bin/nix-*
+        mv $out/bin/nix $out/bin/nix-schema
+      '';
+    });
+
+    # pipewire overlay for broken zoom-us
+    pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
+
+    quickemu = p.quickemu.override {
+      qemu_full = p.qemu.override {
+        smbdSupport = p.lib.meta.availableOn p.stdenv.hostPlatform p.samba;
+      };
+    };
+
+    treesitterGrammars = ts: ts.withPlugins (p: [
       p.tree-sitter-scala
       p.tree-sitter-c
       p.tree-sitter-nix
@@ -63,72 +75,21 @@ let
       p.tree-sitter-json
       p.tree-sitter-smithy
     ]);
-  };
 
-  megasyncOverlay = f: p: {
-    inherit (import inputs.nixpkgs-mega {
-      inherit system;
-      config.allowUnfree = true;
-    }) megasync;
-  };
-
-  xargsOverlay = f: p: {
     xargs = {
       inherit (inputs) gh-md-toc penguin-fox;
       inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
-
-  schemaOverlay = f: p: {
-    nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {
-      doCheck = false;
-      doInstallCheck = false;
-      postInstall = old.postInstall + ''
-        rm $out/bin/nix-*
-        mv $out/bin/nix $out/bin/nix-schema
-      '';
-    });
-  };
-
-  nixIndexDatabaseOverlay = f: p: {
-    inherit (nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
-  };
-
-  # pipewire overlay for broken zoom-us
-  pipewireOverlay = f: p: {
-    pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
-  };
-
-  # globalprotect vpn overlay for no-longer supported package
-  globalProtectOverlay = f: p: {
-    inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
-  };
-
-  quickemuOverlay = f: p: {
-    quickemu = p.quickemu.override {
-      qemu_full = p.qemu.override {
-        smbdSupport = p.lib.meta.availableOn p.stdenv.hostPlatform p.samba;
-      };
-    };
-  };
 in
 [
-  cowsayOverlay
-  fishOverlay
   libOverlay
-  nix-index.overlays.${system}.default
-  nixIndexDatabaseOverlay
-  nixSearchOverlay
-  metalsOverlay
-  megasyncOverlay
-  quickemuOverlay
-  nurpkgs.overlays.default
-  neovim-flake.overlays.${system}.default
-  statix.overlays.default
-  xargsOverlay
-  pipewireOverlay
-  globalProtectOverlay
+  overlays
+  inputs.nix-index.overlays.${system}.default
+  inputs.nurpkgs.overlays.default
+  inputs.neovim-flake.overlays.${system}.default
+  inputs.statix.overlays.default
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)
@@ -136,7 +97,4 @@ in
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
   (import ../home/overlays/zoom)
-  buildersOverlay
-  treesitterGrammarsOverlay
-  schemaOverlay
 ]
