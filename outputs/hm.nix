@@ -1,4 +1,4 @@
-{ extraImports, inputs, system, pkgs, ... }:
+{ extraHomeConfig, inputs, system, pkgs, ... }:
 
 with inputs;
 
@@ -7,7 +7,7 @@ let
     neovim-flake.homeManagerModules.${system}.default
     nix-index.homeManagerModules.${system}.default
     ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
-    extraImports
+    extraHomeConfig
   ];
 
   mkXmonadHome = { hidpi }:

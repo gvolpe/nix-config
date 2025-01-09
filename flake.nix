@@ -119,7 +119,7 @@
     };
   };
 
-  outputs = inputs:
+  outputs = inputs @ { self, ... }:
     let
       system = "x86_64-linux";
 
@@ -130,13 +130,11 @@
         config.allowUnfree = true;
       };
 
-      homeConfigurations = pkgs.mkHomeConfigurations { };
-      nixosConfigurations = pkgs.mkNixosConfigurations { };
-
-      neovim = homeConfigurations.hyprland-hdmi.config.programs.neovim-ide.finalPackage;
+      neovim = self.homeConfigurations.hyprland-hdmi.config.programs.neovim-ide.finalPackage;
     in
     {
-      inherit homeConfigurations nixosConfigurations;
+      homeConfigurations = pkgs.builders.mkHome { };
+      nixosConfigurations = pkgs.builders.mkNixos { };
 
       out = { inherit pkgs overlays; };
 

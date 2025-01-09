@@ -31,11 +31,13 @@ let
   };
 
   buildersOverlay = f: p: {
-    mkHomeConfigurations = { pkgs ? f, extraImports ? { } }:
-      import ../outputs/hm.nix { inherit extraImports inputs pkgs system; };
+    builders = {
+      mkHome = { pkgs ? f, extraHomeConfig ? { } }:
+        import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };
 
-    mkNixosConfigurations = { pkgs ? f, extraSystemConfig ? { } }:
-      import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
+      mkNixos = { pkgs ? f, extraSystemConfig ? { } }:
+        import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
+    };
   };
 
   treesitterGrammarsOverlay = f: p: {
@@ -52,12 +54,11 @@ let
       p.tree-sitter-comment
       p.tree-sitter-toml
       p.tree-sitter-make
-      # FIXME: typescript is broken at the minute
-      #p.tree-sitter-tsx
-      #p.tree-sitter-typescript
-      #p.tree-sitter-html
-      #p.tree-sitter-javascript
-      #p.tree-sitter-css
+      p.tree-sitter-tsx
+      p.tree-sitter-typescript
+      p.tree-sitter-html
+      p.tree-sitter-javascript
+      p.tree-sitter-css
       p.tree-sitter-graphql
       p.tree-sitter-json
       p.tree-sitter-smithy
