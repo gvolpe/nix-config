@@ -125,7 +125,7 @@ in
     # Enable CUPS to print documents.
     printing = {
       enable = true;
-      drivers = [ pkgs.epson-escpr ];
+      drivers = [ pkgs.epson-escpr2 ];
     };
   };
 
