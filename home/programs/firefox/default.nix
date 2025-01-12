@@ -3,10 +3,7 @@
 let
   inherit (specialArgs) addons penguin-fox;
 
-  customAddons = pkgs.callPackage ./addons.nix {
-    inherit lib;
-    inherit (specialArgs) buildFirefoxXpiAddon;
-  };
+  customAddons = pkgs.callPackage ./addons.nix { };
 
   extensions = with addons; [
     bitwarden

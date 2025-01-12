@@ -22,6 +22,9 @@ let
 
     inherit (import inputs.nixpkgs-mega { inherit system; config.allowUnfree = true; }) megasync;
 
+    # firefox addon builder function
+    inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
+
     builders = {
       mkHome = { pkgs ? f, extraHomeConfig ? { } }:
         import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };
@@ -78,7 +81,6 @@ let
 
     xargs = {
       inherit (inputs) gh-md-toc penguin-fox;
-      inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
