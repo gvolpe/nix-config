@@ -1,9 +1,7 @@
 { extraSystemConfig, inputs, system, pkgs, ... }:
 
-with inputs;
-
 let
-  inherit (nixpkgs.lib) nixosSystem;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
   inherit (pkgs) lib;
 
   hosts = [ "dell-xps" "thinkpad-x1" "tongfang-amd" "xmod" ];
