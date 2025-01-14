@@ -90,56 +90,7 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ## Structure
 
-<details>
-<summary>Overview of the project structure</summary>
-
-```
-.
-├── flake.nix
-├── flake.lock
-├── switch
-├── home
-├── imgs
-├── lib
-├── notes
-├── outputs
-└── system
-```
-
-- `flake.nix`: home and system configurations.
-- `switch`: helper script to build and switch home and system configurations.
-- `home`: all the user programs, services and dotfiles for different window managers.
-- `imgs`: screenshots and other images.
-- `lib`: custom nix library functions and overlays used to instantiate pkgs.
-- `notes`: cheat-sheets, docs, etc.
-- `outputs`: the Home Manager and NixOS flake outputs.
-- `system`: the NixOS configuration, settings for different laptops and window managers.
-
-### How to navigate it
-
-```mermaid
----
-config:
-  theme: forest
----
-
-flowchart LR
-    A(fa:fa-snowflake flake.nix) --> |lib| B(overlays)
-    B --> C(pkgs)
-    
-    C --> |outputs| D(hm.nix)
-    C --> |outputs| E(os.nix)
-    
-    D --> |wm| F(hyprland)
-    D --> |wm| G(xmonad)
-
-    E --> |host| H(dell-xps)
-    E --> |host| I(thinkpad-x1)
-    E --> |host| J(tongfanf-amd)
-    E --> |host| K(xmod)
-```
-
-</details>
+[![diagram](imgs/how-to-read.png)](https://excalidraw.com/#json=NWVm7baTjfbULT6N5DDcP,xp6wfSOGcc1MncvtXpm4uQ)
 
 ## Flake outputs
 
