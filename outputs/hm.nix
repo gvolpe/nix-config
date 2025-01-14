@@ -1,50 +1,39 @@
 { extraHomeConfig, inputs, system, pkgs, ... }:
 
-with inputs;
-
 let
-  sharedImports = [
-    neovim-flake.homeManagerModules.${system}.default
-    nix-index.homeManagerModules.${system}.default
-    ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
+  modules' = [
+    inputs.neovim-flake.homeManagerModules.${system}.default
+    inputs.nix-index.homeManagerModules.${system}.default
+    { nix.registry.nixpkgs.flake = inputs.nixpkgs; }
     extraHomeConfig
   ];
 
-  mkXmonadHome = { hidpi }:
-    let
-      imports = sharedImports ++ [
-        ../home/wm/xmonad/home.nix
-        ({ inherit hidpi; })
+  mkHome = { hidpi, mut ? false, mods ? [ ] }:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = pkgs.xargs;
+      modules = modules' ++ mods ++ [
+        { inherit hidpi; dotfiles.mutable = mut; }
       ];
-    in
-    (
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = pkgs.xargs;
-        modules = [{ inherit imports; }];
-      }
-    );
+    };
 
-  mkHyprlandHome = { hidpi, mutableDotFiles ? false }:
-    let
-      imports = sharedImports ++ [
-        inputs.hypr-binds-flake.homeManagerModules.${system}.default
-        ../home/wm/hyprland/home.nix
-        ({ inherit hidpi; dotfiles.mutable = mutableDotFiles; })
-      ];
-    in
-    (
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = pkgs.xargs;
-        modules = [{ inherit imports; }];
-      }
-    );
+  mkXmonadHome = { hidpi }: mkHome {
+    inherit hidpi;
+    mods = [ ../home/wm/xmonad/home.nix ];
+  };
+
+  mkHyprlandHome = { hidpi, mut ? false }: mkHome {
+    inherit hidpi mut;
+    mods = [
+      inputs.hypr-binds-flake.homeManagerModules.${system}.default
+      ../home/wm/hyprland/home.nix
+    ];
+  };
 in
 {
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };
-  hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mutableDotFiles = true; };
+  hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mut = true; };
   xmonad-edp = mkXmonadHome { hidpi = false; };
   xmonad-hdmi = mkXmonadHome { hidpi = true; };
 }
