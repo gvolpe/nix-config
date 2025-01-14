@@ -136,6 +136,7 @@ flowchart LR
     E --> |host| H(dell-xps)
     E --> |host| I(thinkpad-x1)
     E --> |host| J(tongfanf-amd)
+    E --> |host| K(xmod)
 ```
 
 </details>
@@ -159,7 +160,8 @@ $ nix flake show github:gvolpe/nix-config
 ├───nixosConfigurations
 │   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
 │   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
-│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-24.11.20240620.d603719]
+│   ├───tongfang-amd: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
+│   └───xmod: NixOS configuration [nixos-system-tongfang-amd-24.11.20240620.d603719]
 ├───out
 │   ├───overlays: custom instance to be used by consumers of this flake
 │   └───pkgs: custom instance to be used by consumers of this flake
@@ -186,20 +188,20 @@ nix flake metadata github:gvolpe/nix-config
 
 ### Install
 
-The `edp-tongfang-amd` configuration also contains my Home Manager configuration using the NixOS module, so it can easily be tested with a single command.
+The `xmod` configuration also contains my Home Manager configuration using the NixOS module, so it can easily be tested with a single command.
 
 ```console
-nixos-rebuild switch --flake github:gvolpe/nix-config#edp-tongfang-amd
+nixos-rebuild switch --flake github:gvolpe/nix-config#xmod
 ```
 
 Or you can test it directly on a QEMU virtual machine, though it has its limitations in terms of graphics.
 
 ```console
-nixos-rebuild build-vm --flake github:gvolpe/nix-config#edp-tongfang-amd
-./result/bin/run-tongfang-amd-vm
+nixos-rebuild build-vm --flake github:gvolpe/nix-config#xmod
+./result/bin/run-xmod-amd-vm
 ```
 
-Having both NixOS and Home Manager configurations combined makes it easier to quickly install it on a new machine, but my preference is to have both separate, as my Home Manager configuration changes more often than that of the NixOS one, resulting in multiple generations at boot time.
+Having both NixOS and Home Manager configurations combined makes it easier to quickly install it on a new machine, but my preference is to have both separate, as my Home Manager configuration changes more often than that of the NixOS one, which can result in multiple (unwanted) generations at boot time.
 
 Managing the different Home Manager generations in isolation makes this way easier for me.
 
@@ -208,7 +210,7 @@ Managing the different Home Manager generations in isolation makes this way easi
 The NixOS configuration can be installed by running the following command.
 
 ```console
-nixos-rebuild switch --flake github:gvolpe/nix-config#tongfang-amd
+nixos-rebuild switch --flake github:gvolpe/nix-config#thinkpad-x1
 ```
 
 Beware that the `hardware-configuration.nix` file is the result of the hardware scan of the specific machine and might not be suitable for yours.

@@ -1,0 +1,31 @@
+{ pkgs, lib, specialArgs, ... }:
+
+let
+  inherit (specialArgs) inputs;
+in
+{
+  imports = [
+    ../tongfang-amd
+    inputs.home-manager.nixosModules.home-manager
+    # iso image modules
+    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+    # disable networking.wireless from the iso minimal conf as we use networkmanager
+    { networking.wireless.enable = false; }
+    { networking.hostName = lib.mkForce "xmod-amd"; }
+    # home manager settings
+    {
+      home-manager = {
+        extraSpecialArgs = pkgs.xargs;
+        useGlobalPkgs = true;
+
+        sharedModules = [
+          inputs.neovim-flake.homeManagerModules.${pkgs.system}.default
+          inputs.nix-index.homeManagerModules.${pkgs.system}.default
+          ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
+        ];
+
+        users.gvolpe = import ../../../home/wm/xmonad/home.nix;
+      };
+    }
+  ];
+}

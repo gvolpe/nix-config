@@ -43,7 +43,7 @@ rebuild_hyprland_hdmi_mutable() {
 }
 
 rebuild_thinkpad() {
-  sudo nixos-rebuild switch --flake .#thinkpad
+  sudo nixos-rebuild switch --flake .#thinkpad-x1
 }
 
 rebuild_tongfang() {

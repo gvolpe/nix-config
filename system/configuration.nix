@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 let
   customFonts = with (pkgs.nerd-fonts); [
@@ -184,7 +184,6 @@ in
 
     # Flakes settings
     package = pkgs.nixVersions.git;
-    registry.nixpkgs.flake = inputs.nixpkgs;
 
     settings = {
       # Automate `nix store --optimise`
