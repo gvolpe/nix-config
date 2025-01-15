@@ -173,6 +173,36 @@ in
     '';
   };
 
+  # nixbuild.net config
+  programs.ssh = {
+    extraConfig = ''
+      Host eu.nixbuild.net
+      PubkeyAcceptedKeyTypes ssh-ed25519
+      ServerAliveInterval 60
+      IPQoS throughput
+      IdentityFile /home/gvolpe/.ssh/id_ed25519
+    '';
+
+    knownHosts = {
+      nixbuild = {
+        hostNames = [ "eu.nixbuild.net" ];
+        publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPIQCZc54poJ8vqawd8TraNryQeJnvH1eLpIDgbiqymM";
+      };
+    };
+  };
+
+  nix = {
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        inherit (pkgs) system;
+        hostName = "eu.nixbuild.net";
+        maxJobs = 100;
+        supportedFeatures = [ "benchmark" "big-parallel" ];
+      }
+    ];
+  };
+
   # Nix daemon config
   nix = {
     # Automate garbage collection
