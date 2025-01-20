@@ -119,13 +119,13 @@
     };
   };
 
-  outputs = inputs @ { self, ... }:
+  outputs = inputs @ { self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
 
       overlays = import ./lib/overlays.nix { inherit inputs system; };
 
-      pkgs = import inputs.nixpkgs {
+      pkgs = import nixpkgs {
         inherit overlays system;
         config.allowUnfree = true;
       };
