@@ -1,0 +1,54 @@
+name: NixOS
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'home/**'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'GNOME.md'
+      - 'README.md'
+      - 'notes/**'
+      - '.git-crypt/**'
+      - '.gitattributes'
+      - '.gitignore'
+      - 'home/**'
+      - 'outputs/hm.nix'
+      - 'switch'
+      - '.mergify.yml'
+      - 'garnix.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        hostname:
+          - dell-xps
+          - thinkpad-x1
+          - tongfang-amd
+          - xmod
+
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v30
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v15
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
+
+      - name: "Build ${{ matrix.config_name }} Home Manager config 🏠"
+        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
+
