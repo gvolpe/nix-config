@@ -49,6 +49,6 @@ jobs:
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
 
-      - name: "Build ${{ matrix.config_name }} Home Manager config 🏠"
+      - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
 
