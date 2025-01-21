@@ -49,6 +49,10 @@ jobs:
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
 
+      - name: "Free Disk Space (Ubuntu)"
+        uses: jlumbroso/free-disk-space@v1.3.1
+          with:
+            tool-cache: true
+
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
-
