@@ -30,6 +30,7 @@
           scala = {
             enable = true;
             metals = {
+              # using snapshot for https://github.com/scalameta/metals/pull/7097
               package = pkgs.callPackage ./metals.nix { };
               # best effort compilation + vs code default settings: https://github.com/scalameta/metals-vscode/blob/1e10e1a71cf81569ea65329ec2aa0aa1cb6ad682/packages/metals-vscode/package.json#L232
               serverProperties = [
