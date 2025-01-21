@@ -51,8 +51,8 @@ jobs:
 
       - name: "Free Disk Space (Ubuntu)"
         uses: jlumbroso/free-disk-space@main
-          with:
-            tool-cache: true
+        with:
+          tool-cache: true
 
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
