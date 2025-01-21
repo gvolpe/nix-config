@@ -50,7 +50,7 @@ jobs:
         run: nix-env --set-flag priority 0 cachix
 
       - name: "Free Disk Space (Ubuntu)"
-        uses: jlumbroso/free-disk-space@v1.3.1
+        uses: jlumbroso/free-disk-space@main
           with:
             tool-cache: true
 
