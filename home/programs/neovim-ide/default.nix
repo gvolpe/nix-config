@@ -91,6 +91,7 @@
           hideFiles = [ "node_modules" ".cache" ];
           openOnSetup = false;
         };
+        mini.enable = true;
         neoclip.enable = true;
         dial.enable = true;
         harpoon.enable = true;
@@ -108,6 +109,7 @@
           enable = true;
           autotagHtml = true;
           context.enable = true;
+          textobjects.enable = false;
         };
         keys = {
           enable = true;
