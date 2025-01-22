@@ -1,12 +1,8 @@
 name: NixOS
 
 on:
-  pull_request:
-    paths-ignore:
-      - 'home/**'
-  push:
-    branches:
-      - master
+  check_run:
+    types: [failure]
     paths-ignore:
       - 'GNOME.md'
       - 'README.md'
@@ -19,6 +15,25 @@ on:
       - 'switch'
       - '.mergify.yml'
       - 'garnix.yaml'
+#on:
+  #pull_request:
+    #paths-ignore:
+      #- 'home/**'
+  #push:
+    #branches:
+      #- master
+    #paths-ignore:
+      #- 'GNOME.md'
+      #- 'README.md'
+      #- 'notes/**'
+      #- '.git-crypt/**'
+      #- '.gitattributes'
+      #- '.gitignore'
+      #- 'home/**'
+      #- 'outputs/hm.nix'
+      #- 'switch'
+      #- '.mergify.yml'
+      #- 'garnix.yaml'
 
 jobs:
   build:
