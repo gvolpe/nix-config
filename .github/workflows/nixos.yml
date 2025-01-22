@@ -24,6 +24,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    #if: github.action == 'Garnix CI / Evaluate flake.nix'
+    #if: >-
+      #github.event.state == 'error' ||
+      #github.event.state == 'failure'
+
     strategy:
       fail-fast: true
       matrix:
@@ -35,6 +40,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.3.2
+
+      - name: "DEBUG"
+        run: |
+          echo "Event state: ${{ github.event.state }}"
+          echo "Event desc: ${{ github.event.description }}"
 
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v30
