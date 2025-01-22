@@ -1,0 +1,83 @@
+name: NixOS
+
+on:
+  check_run:
+    types: [failure]
+    paths-ignore:
+      - 'GNOME.md'
+      - 'README.md'
+      - 'notes/**'
+      - '.git-crypt/**'
+      - '.gitattributes'
+      - '.gitignore'
+      - 'home/**'
+      - 'outputs/hm.nix'
+      - 'switch'
+      - '.mergify.yml'
+      - 'garnix.yaml'
+#on:
+  #pull_request:
+    #paths-ignore:
+      #- 'home/**'
+  #push:
+    #branches:
+      #- master
+    #paths-ignore:
+      #- 'GNOME.md'
+      #- 'README.md'
+      #- 'notes/**'
+      #- '.git-crypt/**'
+      #- '.gitattributes'
+      #- '.gitignore'
+      #- 'home/**'
+      #- 'outputs/hm.nix'
+      #- 'switch'
+      #- '.mergify.yml'
+      #- 'garnix.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    #if: github.action == 'Garnix CI / Evaluate flake.nix'
+    #if: >-
+      #github.event.state == 'error' ||
+      #github.event.state == 'failure'
+
+    strategy:
+      fail-fast: true
+      matrix:
+        hostname:
+          - dell-xps
+          - thinkpad-x1
+          - tongfang-amd
+          - xmod
+
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: "DEBUG"
+        run: |
+          echo "Event state: ${{ github.event.state }}"
+          echo "Event desc: ${{ github.event.description }}"
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v30
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v15
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
+
+      - name: "Free Disk Space (Ubuntu)"
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+
+      - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
+        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
