@@ -48,7 +48,7 @@ jobs:
 
     needs: checks
 
-    if: needs.checks.outputs.garnix != 'failure'
+    if: needs.checks.outputs.garnix != 'faaailure'
 
     strategy:
       fail-fast: true
