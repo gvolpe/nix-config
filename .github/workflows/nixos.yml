@@ -64,8 +64,7 @@ jobs:
         run: |
           echo "CHECK 1: ${{ needs.checks.outputs.garnix_check }}"
           echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
-          echo "CHECK 3: ${{ checks.steps.garnix.outputs.status }}"
-          echo "CHECK 4: ${{ checks.garnix.outputs.status }}"
+          echo "CHECK 3: ${{ needs.checks.garnix.outputs.status }}"
       #- name: "Install Nix ❄️"
         #uses: cachix/install-nix-action@v30
 
