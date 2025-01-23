@@ -33,6 +33,8 @@ jobs:
       - name: Garnix check status
         id: garnix
         uses: ./.github/actions/garnix-check
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
