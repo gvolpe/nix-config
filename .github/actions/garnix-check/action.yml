@@ -4,7 +4,7 @@ inputs:
   github_token:
     required: true
 outputs:
-  garnix:
+  status:
     description: "The status check response, which may be failure or success"
     value: ${{ steps.garnix.outputs.status }}
 runs:
