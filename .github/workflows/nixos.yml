@@ -46,7 +46,7 @@ jobs:
     needs:
       - checks
 
-    if: needs.checks.outputs.garnix_check != 'failure'
+    if: needs.checks.outputs.status != 'failure'
 
     strategy:
       fail-fast: true
@@ -62,9 +62,11 @@ jobs:
 
       - name: "DEBUG"
         run: |
+          echo "CHECK 0: ${{ needs.checks.outputs  }}"
           echo "CHECK 1: ${{ needs.checks.outputs.status }}"
           echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
           echo "CHECK 3: ${{ needs.checks.garnix.outputs.status }}"
+          echo "CHECK 4: ${{ needs.checks.garnix.outputs  }}"
       #- name: "Install Nix ❄️"
         #uses: cachix/install-nix-action@v30
 
