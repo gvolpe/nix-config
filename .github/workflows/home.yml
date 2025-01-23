@@ -19,8 +19,27 @@ on:
       - 'garnix.yaml'
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    outputs:
+      garnix: ${{ steps.garnix.outputs.status }}
+
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: Garnix check status
+        id: garnix
+        uses: ./.github/actions/garnix-check
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     runs-on: ubuntu-latest
+
+    needs: checks
+
+    if: needs.checks.outputs.garnix == 'failure'
 
     strategy:
       fail-fast: true

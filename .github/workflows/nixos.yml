@@ -1,8 +1,12 @@
 name: NixOS
 
 on:
-  check_run:
-    types: [failure]
+  pull_request:
+    paths-ignore:
+      - 'home/**'
+  push:
+    branches:
+      - master
     paths-ignore:
       - 'GNOME.md'
       - 'README.md'
@@ -15,34 +19,29 @@ on:
       - 'switch'
       - '.mergify.yml'
       - 'garnix.yaml'
-#on:
-  #pull_request:
-    #paths-ignore:
-      #- 'home/**'
-  #push:
-    #branches:
-      #- master
-    #paths-ignore:
-      #- 'GNOME.md'
-      #- 'README.md'
-      #- 'notes/**'
-      #- '.git-crypt/**'
-      #- '.gitattributes'
-      #- '.gitignore'
-      #- 'home/**'
-      #- 'outputs/hm.nix'
-      #- 'switch'
-      #- '.mergify.yml'
-      #- 'garnix.yaml'
 
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    outputs:
+      garnix: ${{ steps.garnix.outputs.status }}
+
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: Garnix check status
+        id: garnix
+        uses: ./.github/actions/garnix-check
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     runs-on: ubuntu-latest
 
-    #if: github.action == 'Garnix CI / Evaluate flake.nix'
-    #if: >-
-      #github.event.state == 'error' ||
-      #github.event.state == 'failure'
+    needs: checks
+
+    if: needs.checks.outputs.garnix == 'failure'
 
     strategy:
       fail-fast: true
@@ -55,11 +54,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.3.2
-
-      - name: "DEBUG"
-        run: |
-          echo "Event state: ${{ github.event.state }}"
-          echo "Event desc: ${{ github.event.description }}"
 
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v30
