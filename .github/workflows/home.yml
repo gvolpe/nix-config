@@ -26,6 +26,8 @@ jobs:
       garnix: ${{ steps.garnix.outputs.status }}
 
     steps:
+      - uses: actions/checkout@v2.3.2
+
       - name: Garnix check status
         id: garnix
         uses: ./.github/actions/garnix-check
