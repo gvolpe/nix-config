@@ -30,7 +30,7 @@ jobs:
       # I got the check suite ID from: https://api.github.com/repos/gvolpe/nix-config/commits/REF/check-runs
       # where REF == branch name (didn't work with the commit sha for some reason)
       - name: "Check Garnix check status"
-        id: garnix-check
+        id: garnix
         run: |
           GARNIX_CHECK=$(curl -L \
             -H "Accept: application/vnd.github+json" \
@@ -38,7 +38,7 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/gvolpe/nix-config/check-suites/33419075802/check-runs | \
             jq -r '.check_runs | .[] | select (.output.text | contains("monthly CI quota")) | select (.status == "completed") | .conclusion')
-          echo "garnix_check=$GARNIX_CHECK" | tee -a "$GITHUB_OUTPUT"
+          echo "status=$GARNIX_CHECK" | tee -a "$GITHUB_OUTPUT"
 
   build:
     runs-on: ubuntu-latest
@@ -62,7 +62,10 @@ jobs:
 
       - name: "DEBUG"
         run: |
-          echo "CHECK VALUE: ${{ needs.checks.outputs.garnix_check }}"
+          echo "CHECK 1: ${{ needs.checks.outputs.garnix_check }}"
+          echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
+          echo "CHECK 3: ${{ checks.steps.garnix.outputs.status }}"
+          echo "CHECK 4: ${{ checks.garnix.outputs.status }}"
       #- name: "Install Nix ❄️"
         #uses: cachix/install-nix-action@v30
 
