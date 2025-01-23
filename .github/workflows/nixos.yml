@@ -21,13 +21,30 @@ on:
       - 'garnix.yaml'
 
 jobs:
+  checks:
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      # I got the check suite ID from: https://api.github.com/repos/gvolpe/nix-config/commits/REF/check-runs
+      # where REF == branch name (didn't work with the commit sha for some reason)
+      - name: "Check Garnix check status"
+        id: garnix-check
+        run: |
+          GARNIX_CHECK=$(curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/gvolpe/nix-config/check-suites/33419075802/check-runs | \
+            jq -r '.check_runs | .[] | select (.output.text | contains("monthly CI quota")) | select (.status == "completed") | .conclusion')
+          echo "garnix_check=$GARNIX_CHECK" | tee -a "$GITHUB_OUTPUT"
+
   build:
     runs-on: ubuntu-latest
 
-    #if: github.action == 'Garnix CI / Evaluate flake.nix'
-    #if: >-
-      #github.event.state == 'error' ||
-      #github.event.state == 'failure'
+    needs:
+      - checks
+
+    if: needs.checks.steps.output.garnix_check != "failure"
 
     strategy:
       fail-fast: true
@@ -54,27 +71,10 @@ jobs:
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
 
-      - name: "Garnix Check Suite"
-        run: |
-          curl -L \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/gvolpe/nix-config/check-suites/33419075802/check-runs | \
-            jq -r '.check_runs | .[] | select (.output.text | contains("monthly CI quota")) | select (.status == "completed") | .conclusion'
+      - name: "Free Disk Space (Ubuntu)"
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
 
-      #- name: "DEBUG"
-        #run: |
-          #curl -L \
-            #-H "Accept: application/vnd.github+json" \
-            #-H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            #-H "X-GitHub-Api-Version: 2022-11-28" \
-            #https://api.github.com/repos/gvolpe/nix-config/commits/gha/optimization/check-runs
-
-      #- name: "Free Disk Space (Ubuntu)"
-        #uses: jlumbroso/free-disk-space@main
-        #with:
-          #tool-cache: true
-
-      #- name: "Build ${{ matrix.config_name }} NixOS config ❄️"
-        #run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
+      - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
+        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
