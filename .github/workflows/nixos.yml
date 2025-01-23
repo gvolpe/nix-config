@@ -30,25 +30,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
 
-      # I got the check suite ID from: https://api.github.com/repos/gvolpe/nix-config/commits/REF/check-runs
-      # where REF == branch name (didn't work with the commit sha for some reason)
-      - name: "Check Garnix check status"
+      - name: Garnix check status
         id: garnix
-        run: |
-          GARNIX_CHECK=$(curl -L \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/gvolpe/nix-config/check-suites/33419075802/check-runs | \
-            jq -r '.check_runs | .[] | select (.output.text | contains("monthly CI quota")) | select (.status == "completed") | .conclusion')
-          echo "status=$GARNIX_CHECK" | tee -a "$GITHUB_OUTPUT"
+        uses: ./.github/actions/garnix-check
 
   build:
     runs-on: ubuntu-latest
 
     needs: checks
 
-    if: needs.checks.outputs.garnix != 'faaailure'
+    if: needs.checks.outputs.garnix == 'failure'
 
     strategy:
       fail-fast: true
@@ -62,31 +53,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
 
-      - name: "DEBUG"
-        run: |
-          echo "CHECK 0: ${{ needs.checks.outputs  }}"
-          echo "CHECK 0: ${{ needs.checks.outputs.garnix  }}"
-          echo "CHECK 1: ${{ needs.checks.outputs.status }}"
-          echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
-          echo "CHECK 3: ${{ needs.checks.garnix.outputs.status }}"
-          echo "CHECK 4: ${{ needs.checks.garnix.outputs  }}"
-      #- name: "Install Nix ❄️"
-        #uses: cachix/install-nix-action@v30
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v30
 
-      #- name: "Install Cachix ❄️"
-        #uses: cachix/cachix-action@v15
-        #with:
-          #name: gvolpe-nixos
-          #authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v15
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      ## Needed because cachix is also installed by Home Manager
-      #- name: "Set priority flag for Cachix 🚩"
-        #run: nix-env --set-flag priority 0 cachix
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
 
-      #- name: "Free Disk Space (Ubuntu)"
-        #uses: jlumbroso/free-disk-space@main
-        #with:
-          #tool-cache: true
+      - name: "Free Disk Space (Ubuntu)"
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
 
-      #- name: "Build ${{ matrix.config_name }} NixOS config ❄️"
-        #run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
+      - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
+        run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
