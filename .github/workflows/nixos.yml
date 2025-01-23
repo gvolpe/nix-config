@@ -24,6 +24,9 @@ jobs:
   checks:
     runs-on: ubuntu-latest
 
+    outputs:
+      garnix: ${{ steps.garnix.outputs.status }}
+
     steps:
       - uses: actions/checkout@v2.3.2
 
@@ -43,10 +46,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    needs:
-      - checks
+    needs: checks
 
-    if: needs.checks.outputs.status != 'failure'
+    if: needs.checks.outputs.garnix != 'failure'
 
     strategy:
       fail-fast: true
@@ -63,6 +65,7 @@ jobs:
       - name: "DEBUG"
         run: |
           echo "CHECK 0: ${{ needs.checks.outputs  }}"
+          echo "CHECK 0: ${{ needs.checks.outputs.garnix  }}"
           echo "CHECK 1: ${{ needs.checks.outputs.status }}"
           echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
           echo "CHECK 3: ${{ needs.checks.garnix.outputs.status }}"
