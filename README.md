@@ -6,7 +6,7 @@ nix-config
 [![NixOS](https://github.com/gvolpe/nix-config/actions/workflows/nixos.yml/badge.svg)](https://github.com/gvolpe/nix-config/actions/workflows/nixos.yml)
 [![garnix](https://img.shields.io/endpoint?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fgvolpe%2Fnix-config%3Fbranch%3Dmaster)](https://garnix.io)
 
-My current — and always evolving — NixOS configuration files, home-manager, neovim, etc.
+My current — and always evolving — [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager/) configurations.
 
 ## Hyprland
 
