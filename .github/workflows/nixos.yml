@@ -62,7 +62,7 @@ jobs:
 
       - name: "DEBUG"
         run: |
-          echo "CHECK 1: ${{ needs.checks.outputs.garnix_check }}"
+          echo "CHECK 1: ${{ needs.checks.outputs.status }}"
           echo "CHECK 2: ${{ needs.checks.steps.garnix.outputs.status }}"
           echo "CHECK 3: ${{ needs.checks.garnix.outputs.status }}"
       #- name: "Install Nix ❄️"
