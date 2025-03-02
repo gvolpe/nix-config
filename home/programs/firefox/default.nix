@@ -1,7 +1,7 @@
-{ pkgs, config, lib, specialArgs, ... }:
+{ pkgs, config, specialArgs, ... }:
 
 let
-  inherit (specialArgs) addons penguin-fox;
+  inherit (specialArgs) addons;
 
   customAddons = pkgs.callPackage ./addons.nix { };
 
@@ -181,25 +181,27 @@ in
     profiles = {
       default = {
         id = 0;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
 
       chatroulette = {
         id = 1;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
 
       demo = {
         id = 2;
-        inherit extensions;
         settings = demoSettings;
-        userChrome = lib.readFile "${penguin-fox}/files/chrome/userChrome.css";
-        userContent = lib.readFile "${penguin-fox}/files/chrome/userContent.css";
+        extensions.packages = extensions;
+        inherit userChrome;
       };
 
       sxm = {
         id = 3;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
     };
   };

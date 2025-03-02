@@ -25,10 +25,7 @@
     nixpkgs-zoom.url = "nixpkgs/24.05";
 
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
-    nix-schema = {
-      url = github:DeterminateSystems/nix-src/flake-schemas;
-      inputs.flake-schemas.follows = "flake-schemas";
-    };
+    nix-schema.url = github:DeterminateSystems/nix-src/flake-schemas;
 
     rycee-nurpkgs = {
       url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
@@ -110,12 +107,6 @@
     cowsay = {
       url = github:snowfallorg/cowsay;
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Firefox style
-    penguin-fox = {
-      url = github:p3nguin-kun/penguinFox;
-      flake = false;
     };
   };
 

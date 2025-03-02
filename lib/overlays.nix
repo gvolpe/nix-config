@@ -41,7 +41,7 @@ let
     nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {
       doCheck = false;
       doInstallCheck = false;
-      postInstall = old.postInstall + ''
+      postInstall = (old.postInstall or "") + ''
         rm $out/bin/nix-*
         mv $out/bin/nix $out/bin/nix-schema
       '';
@@ -49,12 +49,6 @@ let
 
     # pipewire overlay for broken zoom-us
     pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
-
-    quickemu = p.quickemu.override {
-      qemu_full = p.qemu.override {
-        smbdSupport = p.lib.meta.availableOn p.stdenv.hostPlatform p.samba;
-      };
-    };
 
     treesitterGrammars = ts: ts.withPlugins (p: [
       p.tree-sitter-scala
