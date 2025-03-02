@@ -1,7 +1,7 @@
 { pkgs, config, lib, specialArgs, ... }:
 
 let
-  inherit (specialArgs) addons penguin-fox;
+  inherit (specialArgs) addons;
 
   customAddons = pkgs.callPackage ./addons.nix { };
 
@@ -191,10 +191,8 @@ in
 
       demo = {
         id = 2;
-        inherit extensions;
         settings = demoSettings;
-        userChrome = lib.readFile "${penguin-fox}/files/chrome/userChrome.css";
-        userContent = lib.readFile "${penguin-fox}/files/chrome/userContent.css";
+        inherit extensions userChrome;
       };
 
       sxm = {
