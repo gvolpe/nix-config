@@ -1,4 +1,4 @@
-{ pkgs, config, lib, specialArgs, ... }:
+{ pkgs, config, specialArgs, ... }:
 
 let
   inherit (specialArgs) addons;
@@ -181,23 +181,27 @@ in
     profiles = {
       default = {
         id = 0;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
 
       chatroulette = {
         id = 1;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
 
       demo = {
         id = 2;
         settings = demoSettings;
-        inherit extensions userChrome;
+        extensions.packages = extensions;
+        inherit userChrome;
       };
 
       sxm = {
         id = 3;
-        inherit extensions settings userChrome;
+        extensions.packages = extensions;
+        inherit settings userChrome;
       };
     };
   };

@@ -31,7 +31,7 @@ let
     unzip # compressed files
     wl-clipboard # clipboard support
     wofi # app launcher
-    xwaylandvideobridge # screensharing bridge
+    kdePackages.xwaylandvideobridge # screensharing bridge
   ] ++ fontPkgs ++ audioPkgs;
 
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
