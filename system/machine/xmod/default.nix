@@ -13,12 +13,11 @@ in
     # disable networking.wireless from the iso minimal conf as we use networkmanager
     { networking.wireless.enable = false; }
     { networking.hostName = lib.mkForce "xmod-amd"; }
-    { nixpkgs.config.allowUnfree = true; }
     # home manager settings
     {
       home-manager = {
         extraSpecialArgs = pkgs.xargs;
-        useGlobalPkgs = false;
+        useGlobalPkgs = true;
 
         sharedModules = [
           inputs.neovim-flake.homeManagerModules.${pkgs.system}.default
