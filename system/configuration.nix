@@ -47,7 +47,6 @@ in
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     firejail
-    nix-schema
     vim
     wget
   ];

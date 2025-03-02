@@ -38,15 +38,6 @@ let
     metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
     metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
 
-    nix-schema = inputs.nix-schema.packages.${system}.nix.overrideAttrs (old: {
-      doCheck = false;
-      doInstallCheck = false;
-      postInstall = (old.postInstall or "") + ''
-        rm $out/bin/nix-*
-        mv $out/bin/nix $out/bin/nix-schema
-      '';
-    });
-
     # pipewire overlay for broken zoom-us
     pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
 

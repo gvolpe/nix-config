@@ -24,9 +24,6 @@
     # https://github.com/NixOS/nixpkgs/issues/322970
     nixpkgs-zoom.url = "nixpkgs/24.05";
 
-    ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
-    nix-schema.url = github:DeterminateSystems/nix-src/flake-schemas;
-
     rycee-nurpkgs = {
       url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -132,11 +129,6 @@
       schemas =
         inputs.flake-schemas.schemas //
         import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
-
-      apps.${system}."nix" = {
-        type = "app";
-        program = "${pkgs.nix-schema}/bin/nix-schema";
-      };
 
       packages.${system} = {
         inherit neovim;
