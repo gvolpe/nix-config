@@ -8,7 +8,8 @@ in
     ../tongfang-amd
     inputs.home-manager.nixosModules.home-manager
     # iso image modules
-    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+    # FIXME: Package ‘zfs-kernel-2.3.0-6.13.5’ is marked as broken
+    #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
     # disable networking.wireless from the iso minimal conf as we use networkmanager
     { networking.wireless.enable = false; }
     { networking.hostName = lib.mkForce "xmod-amd"; }
@@ -16,7 +17,7 @@ in
     {
       home-manager = {
         extraSpecialArgs = pkgs.xargs;
-        useGlobalPkgs = true;
+        useGlobalPkgs = false;
 
         sharedModules = [
           inputs.neovim-flake.homeManagerModules.${pkgs.system}.default
