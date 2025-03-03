@@ -10,8 +10,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    # I got the check suite ID from: https://api.github.com/repos/gvolpe/nix-config/commits/REF/check-runs
-    # where REF == branch name (didn't work with the commit sha for some reason)
     - name: Garnix check status
       id: garnix
       shell: bash
