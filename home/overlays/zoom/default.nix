@@ -7,7 +7,7 @@ let
 in
 {
   # pipewire-zoom = pipewire v1.0.7
-  zoom-us = (super.zoom-us.override { pipewire = super.pipewire-zoom; }).overrideAttrs (old: {
+  zoom-us-old = (super.zoom-us.override { pipewire = super.pipewire-zoom; }).overrideAttrs (old: {
     inherit version;
 
     src = super.fetchurl {
