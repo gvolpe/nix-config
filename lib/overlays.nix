@@ -79,6 +79,7 @@ in
   inputs.statix.overlays.default
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
+  (import ../home/overlays/hyprland)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/pyprland)
