@@ -21,7 +21,15 @@ runs:
           https://api.github.com/repos/gvolpe/nix-config/commits/${{ github.ref  }}/check-runs | \
           jq -r '.check_runs | .[] | select (.name | contains("Evaluate flake.nix")) | .check_suite.id')
 
+        CHECK_SUITE_ID_2=$(curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ inputs.github_token }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/gvolpe/nix-config/commits/${{ github.sha  }}/check-runs | \
+          jq -r '.check_runs | .[] | select (.name | contains("Evaluate flake.nix")) | .check_suite.id')
+
         echo "Garnix Check Suite ID: $CHECK_SUITE_ID"
+        echo "Garnix Check Suite ID 2: $CHECK_SUITE_ID_2"
 
         STATUS=$(curl -L \
           -H "Accept: application/vnd.github+json" \
