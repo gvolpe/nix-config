@@ -30,6 +30,8 @@ runs:
 
         echo "REF: ${{ github.ref }}"
         echo "HEAD_REF: ${{ github.head_ref }}"
+        echo "EVENT: ${{ github.event }}"
+        echo "EVENT TYPE: ${{ github.event.type }}"
 
         echo "Garnix Check Suite ID: $CHECK_SUITE_ID"
         echo "Garnix Check Suite ID 2: $CHECK_SUITE_ID_2"
