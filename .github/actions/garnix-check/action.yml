@@ -21,6 +21,8 @@ runs:
           COMMIT=${{ github.ref }}
         fi
 
+        echo "Fetching Suite ID by ref: $COMMIT"
+
         CHECK_SUITE_ID=$(curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ inputs.github_token }}" \
