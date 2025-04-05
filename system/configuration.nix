@@ -182,7 +182,7 @@ in
     };
 
     # Flakes settings
-    package = pkgs.nixVersions.git;
+    package = pkgs.nixVersions.latest;
 
     settings = {
       # Automate `nix store --optimise`
