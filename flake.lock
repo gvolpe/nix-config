@@ -1240,6 +1240,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-hyprland": {
+      "locked": {
+        "lastModified": 1737847078,
+        "narHash": "sha256-RlIl2QOvd0ijklqS+1W9YW8xzWJPqpfSblruQSlxBI8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b582bb5b0d7af253b05d58314b85ab8ec46b8d19",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "b582bb5b0d7af253b05d58314b85ab8ec46b8d19",
+        "type": "indirect"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1733096140,
@@ -1814,6 +1829,7 @@
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-hyprland": "nixpkgs-hyprland",
         "nixpkgs-mega": "nixpkgs-mega",
         "nixpkgs-zoom": "nixpkgs-zoom",
         "nurpkgs": "nurpkgs",
