@@ -21,6 +21,7 @@ let
     inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
 
     inherit (import inputs.nixpkgs-mega { inherit system; config.allowUnfree = true; }) megasync;
+    inherit (inputs.nixpkgs-hyprland.legacyPackages.${system}) hyprland;
 
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
@@ -79,7 +80,6 @@ in
   inputs.statix.overlays.default
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
-  (import ../home/overlays/hyprland)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/pyprland)

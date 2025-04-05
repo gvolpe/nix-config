@@ -23,6 +23,8 @@
     nixpkgs-mega.url = "nixpkgs/c3160517fc6381f86776795e95c97b8ef7b5d2e4";
     # https://github.com/NixOS/nixpkgs/issues/322970
     nixpkgs-zoom.url = "nixpkgs/24.05";
+    # https://github.com/hyprwm/Hyprland/issues/9518
+    nixpkgs-hyprland.url = "nixpkgs/b582bb5b0d7af253b05d58314b85ab8ec46b8d19";
 
     rycee-nurpkgs = {
       url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
