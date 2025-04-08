@@ -17,11 +17,11 @@ in
   });
 
   zoom-latest = super.zoom-us.overrideAttrs (old: rec {
-    version = "6.3.11.7212";
+    version = "v6.4.5.1046";
 
     src = super.fetchurl {
-      url = "https://zoom.us/client/${version}/zoom_x86_64.pkg.tar.xz";
-      hash = "sha256-wSXb2v2qXoLXctmjOZpL0SiOP8+ySwpTDpJmPrfQQco=";
+      url = "https://github.com/gvolpe/zoom-test/releases/download/${version}/zoom_withlog_6.4.5.1046_x86_64.pkg.tar.xz";
+      hash = "sha256-VGsW8X6QiZR2qnmE7XcQCdO8sCfRiAwKhE8UCPWtLl0=";
     };
   });
 }
