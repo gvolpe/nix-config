@@ -25,6 +25,8 @@
     nixpkgs-zoom.url = "nixpkgs/24.05";
     # https://github.com/hyprwm/Hyprland/issues/9518
     nixpkgs-hyprland.url = "nixpkgs/b582bb5b0d7af253b05d58314b85ab8ec46b8d19";
+    # https://github.com/NixOS/nixpkgs/pull/397036
+    nixpkgs-zoom-fhs.url = github:Yarny0/nixpkgs/zoom-fhs;
 
     rycee-nurpkgs = {
       url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
@@ -136,7 +138,7 @@
         inherit neovim;
         inherit (pkgs) bazecor quickemu metals metals-updater;
         # crappy software I need for $work
-        inherit (pkgs) globalprotect-openconnect slack zoom-us-old zoom-latest;
+        inherit (pkgs) globalprotect-openconnect slack zoom-fhs;
       };
     };
 }

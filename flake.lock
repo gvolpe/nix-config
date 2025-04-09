@@ -1336,6 +1336,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-zoom-fhs": {
+      "locked": {
+        "lastModified": 1744097561,
+        "narHash": "sha256-z5zaa7BSeNPvR0Vz5dclffY95YQf5tgB1KRTBAyenbM=",
+        "owner": "Yarny0",
+        "repo": "nixpkgs",
+        "rev": "96df96caa2de01c434e6b1d5af42874dd231fa56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Yarny0",
+        "ref": "zoom-fhs",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1734435836,
@@ -1887,6 +1903,7 @@
         "nixpkgs-hyprland": "nixpkgs-hyprland",
         "nixpkgs-mega": "nixpkgs-mega",
         "nixpkgs-zoom": "nixpkgs-zoom",
+        "nixpkgs-zoom-fhs": "nixpkgs-zoom-fhs",
         "nurpkgs": "nurpkgs",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "statix": "statix"
