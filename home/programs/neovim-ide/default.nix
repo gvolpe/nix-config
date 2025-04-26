@@ -49,6 +49,7 @@
           dhall = false;
           elm = true;
           haskell = false;
+          unison = true;
           sql = false;
           python = false;
           clang = false;
