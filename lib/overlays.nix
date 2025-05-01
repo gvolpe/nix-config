@@ -26,9 +26,6 @@ let
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
 
-    # zoom built with fhs-env
-    zoom-fhs = (import inputs.nixpkgs-zoom-fhs { inherit system; config.allowUnfree = true; }).zoom-us;
-
     builders = {
       mkHome = { pkgs ? f, extraHomeConfig ? { } }:
         import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };
@@ -84,4 +81,5 @@ in
   (import ../home/overlays/juno-theme)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
+  (import ../home/overlays/zoom)
 ]
