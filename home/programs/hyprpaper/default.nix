@@ -3,8 +3,8 @@
 {
   home.packages = [ pkgs.hyprpaper ];
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload=${./hyprland.png}
-    wallpaper=,${./hyprland.png}
+    preload=${./nixos.png}
+    wallpaper=,${./nixos.png}
     ipc=off
   '';
 }
