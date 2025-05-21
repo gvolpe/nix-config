@@ -6,7 +6,7 @@ let
   cfg = config.programs.signal;
 
   signal = pkgs.signal-desktop.overrideAttrs (old: {
-    preFixup = old.preFixup + ''
+    preBuild = (old.preBuild or "") + ''
       substituteInPlace $out/share/applications/signal-desktop.desktop \
         --replace "--no-sandbox" "--use-tray-icon --force-device-scale-factor=${cfg.scaleFactor}"
     '';
