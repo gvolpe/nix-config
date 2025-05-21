@@ -68,10 +68,10 @@ jobs:
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
 
-      - name: "Free Disk Space (Ubuntu)"
-        uses: jlumbroso/free-disk-space@main
+      - name: "Free disk space for Nix"
+        uses: wimpysworld/nothing-but-nix@main
         with:
-          tool-cache: true
+          hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
 
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
