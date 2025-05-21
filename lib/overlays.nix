@@ -74,7 +74,6 @@ in
   inputs.nix-index.overlays.${system}.default
   inputs.nurpkgs.overlays.default
   inputs.neovim-flake.overlays.${system}.default
-  inputs.statix.overlays.default
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)

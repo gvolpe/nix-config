@@ -87,19 +87,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Nix linter
-
-    fenix = {
-      url = github:nix-community/fenix;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    statix = {
-      url = github:nerdypepper/statix;
-      inputs.fenix.follows = "fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Miscelaneous
 
     cowsay = {
