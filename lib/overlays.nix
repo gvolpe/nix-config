@@ -18,7 +18,7 @@ let
     inherit (inputs.nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
 
     # globalprotect vpn overlay for no-longer supported package
-    inherit (inputs.nixpkgs-zoom.legacyPackages.${system}) globalprotect-openconnect;
+    inherit (inputs.nixpkgs-gp.legacyPackages.${system}) globalprotect-openconnect;
 
     inherit (import inputs.nixpkgs-mega { inherit system; config.allowUnfree = true; }) megasync;
     inherit (inputs.nixpkgs-hyprland.legacyPackages.${system}) hyprland;
@@ -74,7 +74,6 @@ in
   inputs.nix-index.overlays.${system}.default
   inputs.nurpkgs.overlays.default
   inputs.neovim-flake.overlays.${system}.default
-  inputs.statix.overlays.default
   (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)

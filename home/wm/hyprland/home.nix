@@ -80,7 +80,7 @@ in
 
   programs.hypr-binds.enable = true;
 
-  # e.g. for slack, signal, etc
+  # e.g. for slack, etc
   xdg.configFile."electron-flags.conf".text = ''
     --enable-features=UseOzonePlatform
     --ozone-platform=wayland
