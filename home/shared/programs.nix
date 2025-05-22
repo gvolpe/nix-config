@@ -70,7 +70,6 @@ in
   ../programs/neofetch
   ../programs/neovim-ide
   ../programs/ngrok
-  ../programs/signal
   ../programs/yubikey
   ../programs/zathura
   more

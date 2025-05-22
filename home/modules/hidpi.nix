@@ -42,11 +42,6 @@ in
           default = 1;
         };
       };
-
-      signal.scaleFactor = mkOption {
-        type = types.str;
-        default = if config.hidpi then "2" else "1.5";
-      };
     };
 
     services = {
