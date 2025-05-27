@@ -122,7 +122,7 @@
         inherit neovim;
         inherit (pkgs) bazecor quickemu metals metals-updater;
         # crappy software I need for $work
-        inherit (pkgs) globalprotect-openconnect slack zoom-fhs;
+        inherit (pkgs) globalprotect-openconnect slack zoom-us;
       };
     };
 }
