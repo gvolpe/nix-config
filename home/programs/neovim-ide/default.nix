@@ -44,7 +44,7 @@
             };
           };
           ts = true;
-          smithy.enable = true;
+          smithy.enable = false;
           rust.enable = false;
           dhall = false;
           elm = true;
