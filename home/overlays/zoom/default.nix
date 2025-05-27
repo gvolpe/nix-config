@@ -1,9 +1,12 @@
 self: super:
 
 {
-  # see: https://github.com/NixOS/nixpkgs/pull/403064
-  zoom-fhs = super.callPackage ./drv.nix {
-    xdgDesktopPortalPkgs = with super; [
+  zoom-us = super.zoom-us.override {
+    hyprlandXdgDesktopPortalSupport = true;
+  };
+
+  zoom-us-custom = super.zoom-us.override {
+    targetPkgsFixed = with super; [
       xdg-desktop-portal
       xdg-desktop-portal-hyprland
     ];
