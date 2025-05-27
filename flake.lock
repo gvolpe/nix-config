@@ -1009,6 +1009,7 @@
         "nvim-cmp": "nvim-cmp",
         "nvim-code-action-menu": "nvim-code-action-menu",
         "nvim-cursorline": "nvim-cursorline",
+        "nvim-gha-open": "nvim-gha-open",
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-metals": "nvim-metals",
@@ -1048,11 +1049,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1745693654,
-        "narHash": "sha256-K1nl3uoxEHZW+4SXeV6cfcz/jG2TcnWD1hQKYLM0m+g=",
+        "lastModified": 1748329810,
+        "narHash": "sha256-mOhfJBJquHLYa4gz8/9Z/QYiJnsnC8chw1FHANFYCGA=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "2b479d4a1004fa1820db49f3e4221d41a67fb176",
+        "rev": "d4d0d1ce7bf2dafe8f1207c36c14ee5d9f6d2bfb",
         "type": "github"
       },
       "original": {
@@ -1525,6 +1526,22 @@
       "original": {
         "owner": "yamatsum",
         "repo": "nvim-cursorline",
+        "type": "github"
+      }
+    },
+    "nvim-gha-open": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723421718,
+        "narHash": "sha256-dnKqJiwuFB92pYto9dJQ9Wbs67TWMNjYRB1JjLeuOmM=",
+        "owner": "amirkarimi",
+        "repo": "open-github-action.nvim",
+        "rev": "9481dd3d8b3f246240318d9c0521655ad513ef2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amirkarimi",
+        "repo": "open-github-action.nvim",
         "type": "github"
       }
     },
