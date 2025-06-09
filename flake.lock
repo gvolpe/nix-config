@@ -690,16 +690,16 @@
     "harpoon": {
       "flake": false,
       "locked": {
-        "lastModified": 1712299680,
-        "narHash": "sha256-iqeg/E44RLMeZcJ9pj4n2Z3wtvGMC6QvCyDNWeqLdXE=",
-        "owner": "kimabrandt-flx",
+        "lastModified": 1739222527,
+        "narHash": "sha256-L7FvOV6KvD58BnY3no5IudiKTdgkGqhpS85RoSxtl7U=",
+        "owner": "ThePrimeagen",
         "repo": "harpoon",
-        "rev": "933fc6005edc6b1f3568d8b23cb38b76cb54e49e",
+        "rev": "ed1f853847ffd04b2b61c314865665e1dadf22c7",
         "type": "github"
       },
       "original": {
-        "owner": "kimabrandt-flx",
-        "ref": "fix_marks_index",
+        "owner": "ThePrimeagen",
+        "ref": "harpoon2",
         "repo": "harpoon",
         "type": "github"
       }
@@ -1049,11 +1049,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1748329810,
-        "narHash": "sha256-mOhfJBJquHLYa4gz8/9Z/QYiJnsnC8chw1FHANFYCGA=",
+        "lastModified": 1749456398,
+        "narHash": "sha256-CTUIXhF7vyHlyTAvXETosLVIRwNtFe91csO7gRI+zwk=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "d4d0d1ce7bf2dafe8f1207c36c14ee5d9f6d2bfb",
+        "rev": "131ad169b09368206b580e5302770687365810f4",
         "type": "github"
       },
       "original": {
