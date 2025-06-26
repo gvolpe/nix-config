@@ -55,7 +55,7 @@ in
       ll = "ls -a";
       ns = "nix-search";
       ".." = "cd ..";
-      firefox = "${lib.exe pkgs.firefox-beta-bin}";
+      firefox = "${lib.exe pkgs.firefox-beta}";
       ping = "${pkgs.prettyping}/bin/prettyping";
       tree = "${pkgs.eza}/bin/eza -T";
       xdg-open = "${pkgs.mimeo}/bin/mimeo";

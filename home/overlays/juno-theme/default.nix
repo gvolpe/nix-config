@@ -2,6 +2,8 @@ self: super:
 
 {
   juno-theme = super.juno-theme.overrideAttrs (old: rec {
+    __intentionallyOverridingVersion = true;
+
     version = "0.0.2";
 
     srcs = [

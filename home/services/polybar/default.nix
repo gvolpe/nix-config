@@ -5,7 +5,7 @@ let
 
   mainBar = import ./bar.nix { inherit config; };
 
-  openGithub = "${lib.exe pkgs.firefox-beta-bin} -new-tab https\\://github.com/notifications";
+  openGithub = "${lib.exe pkgs.firefox-beta} -new-tab https\\://github.com/notifications";
 
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
