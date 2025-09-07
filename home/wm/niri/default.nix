@@ -20,6 +20,8 @@ let
     reaper # digital audio workstation (daw)
   ];
 
+  scripts = pkgs.callPackage ../hyprland/scripts.nix { };
+
   packages = with pkgs; [
     alacritty # terminal
     fuzzel # app launcher
@@ -37,7 +39,7 @@ let
     unzip # uncompress files
     wl-clipboard # clipboard support
     zip # compress files
-  ] ++ fontPkgs ++ audioPkgs;
+  ] ++ fontPkgs ++ audioPkgs ++ [ scripts.satty ];
 in
 {
   programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
