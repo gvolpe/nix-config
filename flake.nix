@@ -62,6 +62,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Niri
+    niri-flake = {
+      url = github:sodiboo/niri-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {

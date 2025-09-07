@@ -7,12 +7,15 @@
     libsecret
     cage
     gamescope
-    xwayland-satellite
+    xwayland-satellite-unstable
   ];
 
   programs = {
     dconf.enable = true;
-    niri.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
   };
 
   # tty service config
@@ -55,7 +58,7 @@
         tuigreet_session =
           let
             session = "${pkgs.niri}/bin/niri-session";
-            tuigreet = "${lib.exe pkgs.greetd.tuigreet}";
+            tuigreet = "${lib.exe pkgs.tuigreet}";
           in
           {
             command = "${tuigreet} --time --remember --cmd ${session}";
