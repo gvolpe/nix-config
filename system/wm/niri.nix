@@ -1,6 +1,15 @@
 { pkgs, lib, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    wayland-utils
+    libsecret
+    cage
+    gamescope
+    xwayland-satellite
+  ];
+
   programs = {
     dconf.enable = true;
     niri.enable = true;
