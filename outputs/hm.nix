@@ -29,8 +29,14 @@ let
       ../home/wm/hyprland/home.nix
     ];
   };
+
+  mkNiriHome = { hidpi, mut ? false }: mkHome {
+    inherit hidpi mut;
+    mods = [ ../home/wm/niri ];
+  };
 in
 {
+  niri-hdmi = mkNiriHome { hidpi = true; };
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };
   hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mut = true; };

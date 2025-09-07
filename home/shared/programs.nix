@@ -48,7 +48,10 @@ let
         plugins = [ ];
       };
 
-      ssh.enable = true;
+      ssh = {
+        enable = true;
+        #enableDefaultConfig = true;
+      };
 
       zoxide = {
         enable = true;

@@ -1,15 +1,15 @@
 { ... }:
 
 {
-  # status bar for hyprland/wayland
+  # status bar for niri/wayland
   programs.waybar = {
     enable = true;
     settings = [
       {
         position = "top";
-        include = [ "${./shared.json}" ];
+        include = [ "${./niri.json}" ];
         modules-left = [
-          "hyprland/workspaces"
+          "niri/workspaces"
           "custom/right-arrow-dark"
         ];
         modules-center = [
@@ -44,7 +44,7 @@
       }
       {
         position = "bottom";
-        include = [ "${./shared.json}" ];
+        include = [ "${./niri.json}" ];
         modules-left = [
           "custom/right-arrow-dark"
           "custom/right-arrow-light"
@@ -54,12 +54,12 @@
         ];
         modules-center = [
           "custom/left-arrow-dark"
-          "hyprland/window"
+          "niri/window"
           "custom/right-arrow-dark"
         ];
         modules-right = [
           "custom/left-arrow-dark"
-          "hyprland/language"
+          "niri/language"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "network"

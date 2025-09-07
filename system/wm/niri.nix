@@ -3,7 +3,7 @@
 {
   programs = {
     dconf.enable = true;
-    hyprland.enable = true;
+    niri.enable = true;
   };
 
   # tty service config
@@ -17,22 +17,11 @@
     TTYVTDisallocate = true;
   };
 
-
   hardware.bluetooth = {
     enable = true;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-      };
-    };
-  };
-
-  # nice but buggy: https://github.com/rharish101/ReGreet/issues/45
-  programs.regreet = {
-    enable = false;
-    settings = (lib.importTOML ./regreet.toml) // {
-      background = {
-        path = ../imgs/hyprland.png;
       };
     };
   };
@@ -54,14 +43,10 @@
     greetd = {
       enable = true;
       settings = rec {
-        regreet_session = {
-          command = "${lib.exe pkgs.cage} -s -- ${lib.exe pkgs.regreet}";
-          user = "greeter";
-        };
         tuigreet_session =
           let
-            session = "${pkgs.hyprland}/bin/Hyprland";
-            tuigreet = "${lib.exe pkgs.tuigreet}";
+            session = "${pkgs.niri}/bin/niri-session";
+            tuigreet = "${lib.exe pkgs.greetd.tuigreet}";
           in
           {
             command = "${tuigreet} --time --remember --cmd ${session}";
