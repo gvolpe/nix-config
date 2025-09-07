@@ -57,7 +57,7 @@
       settings = rec {
         tuigreet_session =
           let
-            session = "${pkgs.niri}/bin/niri-session";
+            session = "${pkgs.niri-unstable}/bin/niri-session";
             tuigreet = "${lib.exe pkgs.tuigreet}";
           in
           {
