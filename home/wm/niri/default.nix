@@ -45,7 +45,6 @@ in
   programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
 
   services = {
-    mako.enable = true; # notification daemon
     swayidle.enable = true; # idle management daemon
     polkit-gnome.enable = true; # polkit
   };
@@ -54,6 +53,7 @@ in
     ../../shared
     ../../programs/kitty
     ../../programs/waybar
+    ../../services/mako
   ];
 
   home = {
