@@ -43,7 +43,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 
 My first Wayland compositor experience and the hype kid on the block!
 
-![hyprland](imgs/hyprland-2024.png)
+![hyprland](imgs/hyprland/hyprland-2024.png)
 
 <details>
 <summary>Environment details</summary>
@@ -66,15 +66,15 @@ My first Wayland compositor experience and the hype kid on the block!
 <details>
 <summary>Expand to see more screenshots</summary>
 
-![hyprlock](imgs/hyprlock.png)
+![hyprlock](imgs/hyprland/hyprlock.png)
 
-![floating](imgs/floating.png)
+![floating](imgs/hyprland/floating.png)
 
-![btm](imgs/btm.png)
+![btm](imgs/hyprland/btm.png)
 
-![nemo](imgs/nemo.png)
+![nemo](imgs/hyprland/nemo.png)
 
-![binds](imgs/hypr-binds.png)
+![binds](imgs/hyprland/hypr-binds.png)
 
 </details>
 
@@ -82,7 +82,7 @@ My first Wayland compositor experience and the hype kid on the block!
 
 XMonad will be forever in my heart — the best X window manager!
 
-![neofetch](imgs/neofetch.png)
+![neofetch](imgs/xmonad/neofetch.png)
 
 <details>
 <summary>Environment details</summary>
@@ -105,15 +105,15 @@ XMonad will be forever in my heart — the best X window manager!
 <details>
 <summary>Expand to see more screenshots</summary>
 
-![cowsay](imgs/cowsay.png)
+![cowsay](imgs/xmonad/cowsay.png)
 
-![scala-dev-env](imgs/scala-dev.png)
+![scala-dev-env](imgs/xmonad/scala-dev.png)
 
-![desktop](imgs/desktop-1.jpg)
+![desktop](imgs/xmonad/desktop-1.jpg)
 
-![themes](imgs/theme.jpg)
+![themes](imgs/xmonad/theme.jpg)
 
-![demo](imgs/demo.png)
+![demo](imgs/xmonad/demo.png)
 
 </details>
 
@@ -123,7 +123,7 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ## Structure
 
-[![diagram](imgs/how-to-read.png)](https://excalidraw.com/#json=NWVm7baTjfbULT6N5DDcP,xp6wfSOGcc1MncvtXpm4uQ)
+[![diagram](imgs/diagram.png)](https://excalidraw.com/#json=_RYMbf-odhE7ps-9rS2Uy,EkMz6Iy1SHnMakVzmLkmRw)
 
 ## Flake outputs
 
