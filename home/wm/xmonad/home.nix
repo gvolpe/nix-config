@@ -80,6 +80,7 @@ in
     ../../programs/orage
     ../../programs/rofi
     ../../programs/statix
+    ../../services/dunst
     ../../services/networkmanager
     ../../services/picom
     ../../services/polybar

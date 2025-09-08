@@ -51,7 +51,7 @@
     # User's credentials manager
     gnome.gnome-keyring.enable = true;
 
-    # Init session with hyprland
+    # Init session with niri
     greetd = {
       enable = true;
       settings = rec {
@@ -77,7 +77,7 @@
       wireplumber.enable = true;
     };
 
-    # Allows Hyprland to run without root privileges
+    # Allows niri to run without root privileges
     seatd.enable = true;
   };
 }
