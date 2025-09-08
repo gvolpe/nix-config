@@ -8,15 +8,9 @@ in
     enable = true;
 
     settings = with colors.scheme.helios; {
-      "actionable=false" = {
-        anchor = "top-left";
-      };
       actions = false;
       anchor = "top-right";
-      background-color = "#${base00}";
-      border-color = "#${base00}";
       border-radius = 0;
-      text-color = "#${base05}";
       default-timeout = 4;
       font = "JetBrainsMono Nerd Font 10";
       height = 100;
@@ -28,7 +22,10 @@ in
       width = 300;
 
       "urgency=critical" = {
+        background-color = "#${base00}";
+        text-color = "#${base05}";
         border-color = "#${base08}";
+        border-radius = 1;
         default-timeout = 10;
       };
     };
