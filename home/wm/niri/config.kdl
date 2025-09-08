@@ -3,12 +3,33 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-//workspace ""
-//workspace ""
-//workspace ""
-//workspace ""
-//workspace "󰐻"
-//workspace ""
+workspace ""
+workspace ""
+workspace ""
+workspace ""
+workspace "󰐻"
+workspace ""
+
+window-rule {
+    match at-startup=true app-id=r#"^neofetch|nitch$"#
+    open-on-workspace ""
+}
+
+window-rule {
+    match at-startup=true app-id=r#"^nemo$"#
+    open-on-workspace ""
+}
+
+window-rule {
+    match at-startup=true app-id=r#"^btm-monitor$"#
+    open-on-workspace ""
+    open-maximized true
+}
+
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
+spawn-at-startup "nemo"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
