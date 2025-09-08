@@ -19,14 +19,14 @@ let
 
   mkXmonadHome = { hidpi }: mkHome {
     inherit hidpi;
-    mods = [ ../home/wm/xmonad/home.nix ];
+    mods = [ ../home/wm/xmonad ];
   };
 
   mkHyprlandHome = { hidpi, mut ? false }: mkHome {
     inherit hidpi mut;
     mods = [
       inputs.hypr-binds-flake.homeManagerModules.${system}.default
-      ../home/wm/hyprland/home.nix
+      ../home/wm/hyprland
     ];
   };
 
