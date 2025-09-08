@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   nerdFonts = with (pkgs.nerd-fonts); [
@@ -40,8 +40,16 @@ let
     wl-clipboard # clipboard support
     zip # compress files
   ] ++ fontPkgs ++ audioPkgs ++ [ scripts.satty ];
+
+  filePath = "${config.dotfiles.path}/wm/niri/config.kdl";
+
+  configSrc =
+    if !config.dotfiles.mutable then ./config.kdl
+    else config.lib.file.mkOutOfStoreSymlink filePath;
 in
 {
+  xdg.configFile."niri/config.kdl".source = configSrc;
+
   services.polkit-gnome.enable = true;
 
   imports = [
