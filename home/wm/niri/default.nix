@@ -42,18 +42,14 @@ let
   ] ++ fontPkgs ++ audioPkgs ++ [ scripts.satty ];
 in
 {
-  programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
-
-  services = {
-    swayidle.enable = true; # idle management daemon
-    polkit-gnome.enable = true; # polkit
-  };
+  services.polkit-gnome.enable = true;
 
   imports = [
     ../../shared
     ../../programs/kitty
     ../../programs/waybar
     ../../services/mako
+    ../../services/swayidle
   ];
 
   home = {
