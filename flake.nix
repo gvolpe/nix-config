@@ -62,6 +62,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Niri
+    niri-flake = {
+      url = github:sodiboo/niri-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {
@@ -106,7 +112,7 @@
         config.allowUnfree = true;
       };
 
-      neovim = self.homeConfigurations.hyprland-hdmi.config.programs.neovim-ide.finalPackage;
+      neovim = self.homeConfigurations.niri-hdmi.config.programs.neovim-ide.finalPackage;
     in
     {
       homeConfigurations = pkgs.builders.mkHome { };

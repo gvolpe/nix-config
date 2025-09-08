@@ -1,9 +1,21 @@
 { pkgs, lib, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    wayland-utils
+    libsecret
+    cage
+    gamescope
+    xwayland-satellite #-unstable
+  ];
+
   programs = {
     dconf.enable = true;
-    hyprland.enable = true;
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
   };
 
   # tty service config
@@ -17,22 +29,11 @@
     TTYVTDisallocate = true;
   };
 
-
   hardware.bluetooth = {
     enable = true;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-      };
-    };
-  };
-
-  # nice but buggy: https://github.com/rharish101/ReGreet/issues/45
-  programs.regreet = {
-    enable = false;
-    settings = (lib.importTOML ./regreet.toml) // {
-      background = {
-        path = ../imgs/hyprland.png;
       };
     };
   };
@@ -50,17 +51,13 @@
     # User's credentials manager
     gnome.gnome-keyring.enable = true;
 
-    # Init session with hyprland
+    # Init session with niri
     greetd = {
       enable = true;
       settings = rec {
-        regreet_session = {
-          command = "${lib.exe pkgs.cage} -s -- ${lib.exe pkgs.regreet}";
-          user = "greeter";
-        };
         tuigreet_session =
           let
-            session = "${pkgs.hyprland}/bin/Hyprland";
+            session = "${pkgs.niri-unstable}/bin/niri-session";
             tuigreet = "${lib.exe pkgs.tuigreet}";
           in
           {
@@ -80,7 +77,7 @@
       wireplumber.enable = true;
     };
 
-    # Allows Hyprland to run without root privileges
+    # Allows niri to run without root privileges
     seatd.enable = true;
   };
 }

@@ -2,6 +2,10 @@ self: super:
 
 {
   zoom-us = super.zoom-us.override {
+    gnomeXdgDesktopPortalSupport = true;
+  };
+
+  zoom-us-hyprland = super.zoom-us.override {
     hyprlandXdgDesktopPortalSupport = true;
   };
 

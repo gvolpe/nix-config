@@ -37,6 +37,11 @@ rebuild_hyprland_hdmi() {
   activate_hm
 }
 
+rebuild_niri_hdmi() {
+  nom build .#homeConfigurations.niri-hdmi.activationPackage
+  activate_hm
+}
+
 rebuild_hyprland_hdmi_mutable() {
   nom build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
   activate_hm
@@ -96,6 +101,8 @@ post_home() {
 # end of fresh install section
 
 case $1 in
+  "niri")
+    rebuild_niri_hdmi;;
   "xmedp")
     rebuild_xmonad_edp;;
   "xmhdmi")

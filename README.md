@@ -8,9 +8,40 @@ nix-config
 
 My current — and always evolving — [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager/) configurations.
 
+## Niri
+
+My current window manager — a scrollable-tiling Wayland compositor.
+
+![niri](imgs/niri/overview.png)
+
+<details>
+<summary>Environment details</summary>
+
+| Type           | Program      |
+| :------------- | :----------: |
+| Editor         | [NeoVim](https://neovim.io/) |
+| Launcher       | [Fuzzel](https://codeberg.org/dnkl/fuzzel) |
+| Shell          | [Fish](https://fishshell.com/) |
+| Status Bar     | [Waybar](https://github.com/Alexays/Waybar) |
+| Terminal       | [Kitty](https://sw.kovidgoyal.net/kitty) |
+| Window Manager | [Niri](https://github.com/YaLTeR/niri) |
+| File Manager   | [Nemo](https://github.com/linuxmint/nemo) |
+| GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
+| GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
+| Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
+
+</details>
+
+<details>
+<summary>Expand to see more screenshots</summary>
+
+![workspace](imgs/niri/workspace.png)
+
+</details>
+
 ## Hyprland
 
-This is my current Window Manager — the hype Wayland kid on the block!
+My first Wayland compositor experience and the hype kid on the block!
 
 ![hyprland](imgs/hyprland-2024.png)
 

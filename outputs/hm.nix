@@ -19,18 +19,24 @@ let
 
   mkXmonadHome = { hidpi }: mkHome {
     inherit hidpi;
-    mods = [ ../home/wm/xmonad/home.nix ];
+    mods = [ ../home/wm/xmonad ];
   };
 
   mkHyprlandHome = { hidpi, mut ? false }: mkHome {
     inherit hidpi mut;
     mods = [
       inputs.hypr-binds-flake.homeManagerModules.${system}.default
-      ../home/wm/hyprland/home.nix
+      ../home/wm/hyprland
     ];
+  };
+
+  mkNiriHome = { hidpi, mut ? false }: mkHome {
+    inherit hidpi mut;
+    mods = [ ../home/wm/niri ];
   };
 in
 {
+  niri-hdmi = mkNiriHome { hidpi = true; mut = true; };
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };
   hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mut = true; };

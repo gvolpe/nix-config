@@ -57,6 +57,7 @@ in
     ../../programs/hyprpaper
     ../../programs/pyprland
     ../../programs/waybar
+    ../../services/dunst
     ../../services/hypridle
   ];
 
