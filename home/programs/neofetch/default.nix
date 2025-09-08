@@ -10,7 +10,7 @@ let
 
   neofetchSixelsSupport = pkgs.neofetch.overrideAttrs (old: {
     # --add-flags "--source=./nixos.png" doesn't work ¯\_(ツ)_/¯
-    postInstall = lib.optionalString (!config.dotfiles.mutable) ''
+    postInstall = ''
       substituteInPlace $out/bin/neofetch \
         --replace "image_source=\"auto\"" "image_source=\"${./nixos.png}\""
     '' + ''
