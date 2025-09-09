@@ -32,7 +32,7 @@ in
     ];
 
     timeouts = [
-      { timeout = 90; command = lib.exe lockcmd-bin; }
+      { timeout = 600; command = lib.exe lockcmd-bin; }
     ];
   };
 }
