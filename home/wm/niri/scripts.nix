@@ -10,24 +10,25 @@
   scratchpad = writeShellScriptBin "scratchpad-sh" ''
     SCRATCH_WIN_NAME=$1
 
-    workId=$(niri msg -j workspaces | jq '.[] | select(.is_focused == true)' | jq .idx)
-    id=$(niri msg -j windows | jq ".[] | select(.app_id == \"$SCRATCH_WIN_NAME\")" | jq .id)
+    windows=$(niri msg -j windows | jq ".[] | select(.app_id == \"$SCRATCH_WIN_NAME\")")
 
-    if [[ -z $id ]]; then
+    win_id=$(echo $windows | jq .id)
+
+    if [[ -z $win_id ]]; then
       notify-send -u critical 'Scratchpad Error' "There is no window id for: $SCRATCH_WIN_NAME" -t 5000
       exit 1
     fi
 
-    is_win_focused=$(niri msg -j windows | jq ".[] | select(.app_id == \"$SCRATCH_WIN_NAME\")" | jq .is_focused)
+    is_win_focused=$(echo $windows | jq .is_focused)
 
     if [[ $is_win_focused == "false" ]]; then
-      niri msg action move-window-to-workspace --window-id $id $workId
-      niri msg action move-window-to-floating --id $id
-      niri msg action focus-window --id $id
+      work_id=$(niri msg -j workspaces | jq '.[] | select(.is_focused == true)' | jq .idx)
+      niri msg action move-window-to-workspace --window-id $win_id $work_id
+      niri msg action move-window-to-floating --id $win_id
+      niri msg action focus-window --id $win_id
     else
-      niri msg action move-window-to-workspace --window-id $id "scratch" --focus=false
-      niri msg action move-window-to-tiling --id $id
-      niri msg action focus-workspace $workId
+      niri msg action move-window-to-workspace --window-id $win_id "scratch" --focus=false
+      niri msg action move-window-to-tiling --id $win_id
     fi
   '';
 }
