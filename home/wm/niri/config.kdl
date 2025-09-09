@@ -368,6 +368,10 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // Custom scratchpad support
+    Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "scratchpad-sh spotify"; }
+    Mod+Ctrl+F hotkey-overlay-title="Nemo Scratchpad Toggle" { spawn-sh "scratchpad-sh nemo"; }
+
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn-sh "alacritty"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
@@ -403,7 +407,6 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Backspace repeat=false { close-window; }
-    Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -519,24 +522,19 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Slash { focus-workspace "scratch"; }
+    Mod+1 { focus-workspace "web"; }
+    Mod+2 { focus-workspace "nix"; }
+    Mod+3 { focus-workspace "dev"; }
+    Mod+4 { focus-workspace "chat"; }
+    Mod+5 { focus-workspace "work"; }
+    Mod+6 { focus-workspace "mon"; }
+    Mod+Shift+1 { move-window-to-workspace "web"; }
+    Mod+Shift+2 { move-window-to-workspace "nix"; }
+    Mod+Shift+3 { move-window-to-workspace "dev"; }
+    Mod+Shift+4 { move-window-to-workspace "chat"; }
+    Mod+Shift+5 { move-window-to-workspace "work"; }
+    Mod+Shift+6 { move-window-to-workspace "mon"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -567,7 +565,7 @@ binds {
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    //Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
 
@@ -641,21 +639,22 @@ cursor {
 }
 
 // -------- workspaces and window rules ---------~
-workspace ""
-workspace ""
-workspace ""
-workspace ""
-workspace "󰐻"
-workspace ""
+workspace "web"
+workspace "nix"
+workspace "dev"
+workspace "chat"
+workspace "work"
+workspace "mon"
+workspace "scratch"
 
 window-rule {
     match at-startup=true app-id=r#"^neofetch|nitch$"#
-    open-on-workspace ""
+    open-on-workspace "nix"
 }
 
 window-rule {
     match at-startup=true app-id=r#"^btm-monitor$"#
-    open-on-workspace ""
+    open-on-workspace "mon"
     open-maximized true
 }
 
@@ -668,7 +667,13 @@ window-rule {
 
 window-rule {
     match app-id=r#"^Slack$"#
-    open-on-workspace ""
+    open-on-workspace "chat"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^org.telegram.desktop$"#
+    open-on-workspace "chat"
     open-maximized true
 }
 
@@ -678,8 +683,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^spotify$"#
-    open-maximized true
+    match app-id=r#"^spotify|nemo$"#
+    open-on-workspace "scratch"
+    open-floating true
 }
 
 // systray apps
@@ -690,6 +696,7 @@ spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/
 // essential apps
 spawn-at-startup "firefox-beta"
 spawn-at-startup "spotify"
+spawn-at-startup "nemo"
 
 // workspace apps
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"

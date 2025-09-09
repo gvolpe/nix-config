@@ -20,7 +20,9 @@ let
     reaper # digital audio workstation (daw)
   ];
 
-  scripts = pkgs.callPackage ../hyprland/scripts.nix { };
+  scripts =
+    let s = pkgs.callPackage ./scripts.nix { };
+    in [ s.satty s.scratchpad ];
 
   packages = with pkgs; [
     alacritty # terminal
@@ -39,7 +41,7 @@ let
     unzip # uncompress files
     wl-clipboard # clipboard support
     zip # compress files
-  ] ++ fontPkgs ++ audioPkgs ++ [ scripts.satty ];
+  ] ++ fontPkgs ++ audioPkgs ++ scripts;
 
   filePath = "${config.dotfiles.path}/wm/niri/config.kdl";
 
