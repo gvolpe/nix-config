@@ -68,11 +68,6 @@ in
       NIXOS_OZONE_WL = 1;
       SHELL = "${lib.exe pkgs.fish}";
       MOZ_ENABLE_WAYLAND = 1;
-      XDG_CURRENT_DESKTOP = "niri";
-      XDG_SESSION_DESKTOP = "Wayland";
-      XDG_SESSION_TYPE = "wayland";
-      GDK_BACKEND = "wayland,x11";
-      QT_QPA_PLATFORM = "wayland;xcb";
     };
   };
 
