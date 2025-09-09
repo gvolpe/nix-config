@@ -56,7 +56,7 @@ in
     ../../shared
     ../../programs/kitty
     ../../programs/waybar
-    ../../services/mako
+    ../../services/dunst
     ../../services/swayidle
   ];
 
