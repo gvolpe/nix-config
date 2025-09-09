@@ -3,34 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-workspace ""
-workspace ""
-workspace ""
-workspace ""
-workspace "󰐻"
-workspace ""
-
-window-rule {
-    match at-startup=true app-id=r#"^neofetch|nitch$"#
-    open-on-workspace ""
-}
-
-window-rule {
-    match at-startup=true app-id=r#"^nemo$"#
-    open-on-workspace ""
-}
-
-window-rule {
-    match at-startup=true app-id=r#"^btm-monitor$"#
-    open-on-workspace ""
-    open-maximized true
-}
-
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
-spawn-at-startup "nemo"
-
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
@@ -167,6 +139,8 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
+
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -313,13 +287,6 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "firefox-beta"
-spawn-at-startup "spotify"
-spawn-at-startup "blueman-applet"
-spawn-sh-at-startup "nm-applet --sm-disable --indicator"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -662,4 +629,99 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     //Mod+Shift+P { power-off-monitors; }
+}
+
+// -------- cursor theme --------------
+cursor {
+    xcursor-theme "BeautyLine"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+// -------- workspaces and window rules ---------~
+workspace ""
+workspace ""
+workspace ""
+workspace ""
+workspace "󰐻"
+workspace ""
+
+window-rule {
+    match at-startup=true app-id=r#"^neofetch|nitch$"#
+    open-on-workspace ""
+}
+
+window-rule {
+    match at-startup=true app-id=r#"^btm-monitor$"#
+    open-on-workspace ""
+    open-maximized true
+}
+
+window-rule {
+    match app-id="Zoom Workplace" title=".*menu.*"
+    open-floating true
+    min-width 250
+    open-focused true
+}
+
+window-rule {
+    match app-id=r#"^Slack$"#
+    open-on-workspace ""
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^firefox-beta$"#
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^spotify$"#
+    open-maximized true
+}
+
+// systray apps
+spawn-at-startup "blueman-applet"
+spawn-sh-at-startup "nm-applet --sm-disable --indicator"
+spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
+
+// essential apps
+spawn-at-startup "firefox-beta"
+spawn-at-startup "spotify"
+
+// workspace apps
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
+
+// --------- layer rules ---------
+
+layer-rule {
+    match namespace="waybar"
+    opacity 0.75
+    //block-out-from "screencast"
+
+    shadow {
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+    }
+
+    geometry-corner-radius 1
+    place-within-backdrop true
+    //baba-is-float true
+}
+
+layer-rule {
+    match namespace="^launcher$"
+    opacity 0.9
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop false
 }
