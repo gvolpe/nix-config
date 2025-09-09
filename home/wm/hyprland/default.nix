@@ -79,6 +79,9 @@ in
 
   fonts.fontconfig.enable = true;
 
+  # do not restart services on change, as foot server gets killed
+  systemd.user.startServices = lib.mkForce "suggest";
+
   programs.hypr-binds.enable = true;
 
   # e.g. for slack, etc

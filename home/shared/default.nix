@@ -73,8 +73,8 @@ in
     options = "--delete-older-than 7d";
   };
 
-  # do not restart services on change, as foot server gets killed
-  systemd.user.startServices = "suggest";
+  # restart the corresponding systemd services on change
+  systemd.user.startServices = "sd-switch";
 
   # notifications about home-manager news
   news.display = "silent";
