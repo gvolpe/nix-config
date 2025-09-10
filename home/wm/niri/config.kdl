@@ -688,10 +688,28 @@ window-rule {
     open-floating true
 }
 
+// block out from screencasting
+window-rule {
+    match app-id=r#"^io\.github\.seadve\.Kooha$"#
+    block-out-from "screencast"
+}
+
+window-rule {
+    match app-id=r#"^org\.stronnag\.wayfarer$"#
+    block-out-from "screencast"
+    open-floating true
+}
+
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}
+
 // systray apps
 spawn-at-startup "blueman-applet"
 spawn-sh-at-startup "nm-applet --sm-disable --indicator"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
+spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/sw-overview.jpg >/dev/null 2>&1 &"
+//spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
 
 // essential apps
 spawn-at-startup "firefox-beta"
