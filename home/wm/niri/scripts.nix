@@ -21,16 +21,26 @@
       exit 1
     fi
 
+    moveWindowToScratchpad() {
+      niri msg action move-window-to-workspace --window-id $win_id "scratch" --focus=false
+      niri msg action move-window-to-tiling --id $win_id
+    }
+
     is_win_focused=$(echo $windows | jq .is_focused)
 
     if [[ $is_win_focused == "false" ]]; then
       work_id=$(niri msg -j workspaces | jq '.[] | select(.is_focused == true)' | jq .idx)
-      niri msg action move-window-to-workspace --window-id $win_id $work_id
-      niri msg action move-window-to-floating --id $win_id
-      niri msg action focus-window --id $win_id
+      win_work_id=$(echo $windows | jq .workspace_id)
+
+      if [[ $win_work_id == $work_id ]]; then
+        moveWindowToScratchpad
+      else
+        niri msg action move-window-to-workspace --window-id $win_id $work_id
+        niri msg action move-window-to-floating --id $win_id
+        niri msg action focus-window --id $win_id
+      fi
     else
-      niri msg action move-window-to-workspace --window-id $win_id "scratch" --focus=false
-      niri msg action move-window-to-tiling --id $win_id
+      moveWindowToScratchpad
     fi
   '';
 }
