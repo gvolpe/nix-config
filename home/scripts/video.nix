@@ -4,12 +4,21 @@ let
   ffm = "${ffmpeg}/bin/ffmpeg";
   ffp = "${ffmpeg}/bin/ffprobe";
 
+  error = command: ''
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    BLUE=$(tput setaf 4)
+    NORMAL=$(tput sgr0)
+
+    echo $"$RED [ERROR]  $NORMAL - Usage: '$GREEN\$$BLUE ${command}$NORMAL'"
+    exit 1
+  '';
+
   recording = writeShellScriptBin "video-record" ''
     OUTPUT_FILE=$1
 
     if [[ -z $OUTPUT_FILE ]]; then
-      notify-send -u critical 'Error' "Missing output file, e.g. '$ video-record output.mkv'" -t 5000
-      exit 1
+      ${error "video-record <OUTPUT>"}
     fi
 
     ${wf-recorder}/bin/wf-recorder -f $OUTPUT_FILE
@@ -19,14 +28,8 @@ let
     INPUT_FILE=$1
     OUTPUT_FILE=$2
 
-    if [[ -z $INPUT_FILE ]]; then
-      notify-send -u critical 'Error' "Missing input file, e.g. '$ video-compress in.mkv out.mkv'" -t 5000
-      exit 1
-    fi
-
-    if [[ -z $OUTPUT_FILE ]]; then
-      notify-send -u critical 'Error' "Missing output file, e.g. '$ video-compress in.mkv out.mkv'" -t 5000
-      exit 1
+    if [[ -z $INPUT_FILE || -z $OUTPUT_FILE ]]; then
+      ${error "video-compress <INPUT> <OUTPUT>"}
     fi
 
     ${ffm} -i $INPUT_FILE -c:v libx264 -crf 23 $OUTPUT_FILE
@@ -38,19 +41,8 @@ let
     OUTPUT_FILE=$2
     TRIM_TIME=$3
 
-    if [[ -z $INPUT_FILE ]]; then
-      notify-send -u critical 'Error' "Missing input file, e.g. '$ video-trim-end in.mkv out.mkv 15'" -t 5000
-      exit 1
-    fi
-
-    if [[ -z $OUTPUT_FILE ]]; then
-      notify-send -u critical 'Error' "Missing output file, e.g. '$ video-trim-end in.mkv out.mkv 15'" -t 5000
-      exit 1
-    fi
-
-    if [[ -z $TRIM_TIME ]]; then
-      notify-send -u critical 'Error' "Missing trimming time, e.g. '$ video-trim-end in.mkv out.mkv 15'" -t 5000
-      exit 1
+    if [[ -z $INPUT_FILE || -z $OUTPUT_FILE || -z $TRIM_TIME ]]; then
+      ${error "video-trim-end <INPUT> <OUTPUT> <TRIM_SECONDS>"}
     fi
 
     VIDEO_LENGTH=$(${ffp} -v error -show_entries format=duration -of csv=p=0 $INPUT_FILE)
