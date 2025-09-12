@@ -322,37 +322,6 @@ animations {
     // slowdown 3.0
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-// Block out password managers from screencasts.
-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screencast"
-}
-
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -375,7 +344,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn-sh "alacritty"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel -p '  '"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock-cmd"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -632,7 +601,7 @@ binds {
 // -------- cursor theme --------------
 cursor {
     xcursor-theme "BeautyLine"
-    xcursor-size 24
+    xcursor-size 16
 
     hide-when-typing
     hide-after-inactive-ms 1000
@@ -686,6 +655,23 @@ window-rule {
     match app-id=r#"^spotify|nemo$"#
     open-on-workspace "scratch"
     open-floating true
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Block out password managers from screencasts.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
 }
 
 // block out from screencasting

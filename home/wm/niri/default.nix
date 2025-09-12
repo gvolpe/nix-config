@@ -25,11 +25,8 @@ let
     in [ s.satty s.scratchpad ];
 
   packages = with pkgs; [
-    alacritty # terminal
-    fuzzel # app launcher
     swaybg # wallpapers
     networkmanagerapplet # network manager systray app
-
     brightnessctl # control laptop display brightness
     loupe # image viewer
     grim # screenshots
@@ -56,6 +53,7 @@ in
 
   imports = [
     ../../shared
+    ../../programs/fuzzel
     ../../programs/kitty
     ../../programs/waybar
     ../../services/dunst
