@@ -1166,6 +1166,26 @@
         "type": "github"
       }
     },
+    "niri-scratchpad-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1757797163,
+        "narHash": "sha256-2uIsQScdVDRIPVmVkVcpvxtgAEoDJ83MFOypNGPvC/w=",
+        "owner": "gvolpe",
+        "repo": "niri-scratchpad",
+        "rev": "558830d29c76632529c86abcd3359f154ff4758e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "niri-scratchpad",
+        "type": "github"
+      }
+    },
     "niri-stable": {
       "flake": false,
       "locked": {
@@ -1934,6 +1954,7 @@
         "hypr-binds-flake": "hypr-binds-flake",
         "neovim-flake": "neovim-flake",
         "niri-flake": "niri-flake",
+        "niri-scratchpad-flake": "niri-scratchpad-flake",
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",

@@ -68,6 +68,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri-scratchpad-flake = {
+      #url = git+file:///home/gvolpe/workspace/niri-scratchpad;
+      url = github:gvolpe/niri-scratchpad;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {

@@ -15,6 +15,8 @@ let
     inherit (inputs.cowsay.packages.${system}) cowsay;
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
 
+    inherit (inputs.niri-scratchpad-flake.packages.${system}) niri-scratchpad;
+
     inherit (inputs.nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
 
     # globalprotect vpn overlay for no-longer supported package

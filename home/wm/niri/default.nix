@@ -22,7 +22,7 @@ let
 
   scripts =
     let s = pkgs.callPackage ./scripts.nix { };
-    in [ s.satty s.scratchpad ];
+    in [ s.satty ];
 
   packages = with pkgs; [
     swaybg # wallpapers
@@ -34,6 +34,7 @@ let
     kooha # screencast recorder
     libnotify # notifications
     nemo # file manager
+    niri-scratchpad # niri scratchpad support
     nix-search # faster nix search client
     unzip # uncompress files
     wl-clipboard # clipboard support
