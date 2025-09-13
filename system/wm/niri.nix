@@ -16,6 +16,10 @@
       enable = true;
       package = pkgs.niri-unstable;
     };
+    wshowkeys = {
+      enable = true;
+      package = pkgs.wshowkeys-mao;
+    };
   };
 
   # tty service config

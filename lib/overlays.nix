@@ -80,5 +80,6 @@ in
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
+  (import ../home/overlays/wshowkeys)
   (import ../home/overlays/zoom)
 ]

@@ -44,6 +44,7 @@ let
     protonvpn-gui # official proton vpn client
     pulsemixer # pulseaudio mixer
     rage # encryption tool for secrets management
+    screenkey # shows keypresses on screen (only for x11)
     simple-scan # scanner gui
     simplescreenrecorder # screen recorder gui
     tldr # summary of a man page
