@@ -573,7 +573,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+A { spawn-sh "satty-shot"; }
+    Mod+Shift+A hotkey-overlay-title="Satty Screenshot" { spawn-sh "satty-shot"; }
     Mod+Shift+P { screenshot; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
