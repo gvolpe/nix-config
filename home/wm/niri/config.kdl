@@ -729,7 +729,7 @@ layer-rule {
 
 layer-rule {
     match namespace="^launcher$"
-    opacity 0.9
+    //opacity 0.9
 }
 
 layer-rule {
