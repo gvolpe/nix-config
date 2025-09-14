@@ -37,11 +37,21 @@ My current window manager — a scrollable-tiling Wayland compositor.
 
 ![overview](imgs/niri/overview.png)
 
+![swaylock](imgs/niri/swaylock.png)
+
+![workspace1](imgs/niri/workspace1.png)
+
+![nemo](imgs/niri/nemo.png)
+
+![fuzzel](imgs/niri/fuzzel.png)
+
+![overview1](imgs/niri/overview1.png)
+
 </details>
 
 ## Hyprland
 
-My first Wayland compositor experience and the hype kid on the block!
+My first Wayland compositor experience.
 
 ![hyprland](imgs/hyprland/hyprland-2024.png)
 
