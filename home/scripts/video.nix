@@ -50,5 +50,18 @@ let
 
     ${ffm} -ss 00:00:00 -to $END_TIME -i $INPUT_FILE -c copy $OUTPUT_FILE
   '';
+
+  # https://www.baeldung.com/linux/ffmpeg-extract-video-frames
+  extractFrame = writeShellScriptBin "video-extract-frame" ''
+    INPUT_FILE=$1
+    OUTPUT_FILE=$2
+    AT_TIME=$3
+
+    if [[ -z $INPUT_FILE || -z $OUTPUT_FILE || -z $AT_TIME ]]; then
+      ${error "video-extract-frame <INPUT> <OUTPUT> <AT_TIME (e.g. 00:00:32)>"}
+    fi
+
+    ${ffm} -i $INPUT_FILE -ss $AT_TIME -vframes 1 $OUTPUT_FILE
+  '';
 in
-[ compression recording trimming ]
+[ compression recording trimming extractFrame ]
