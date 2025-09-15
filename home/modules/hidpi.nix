@@ -31,6 +31,11 @@ in
         default = if config.hidpi then "14" else "10";
       };
 
+      kitty.fontsize = mkOption {
+        type = types.int;
+        default = if config.hidpi then 14 else 10;
+      };
+
       megasync = {
         scale = mkOption {
           type = types.bool;
