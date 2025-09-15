@@ -628,13 +628,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Zoom Workplace" title=".*menu.*"
-    open-floating true
-    min-width 250
-    open-focused true
-}
-
-window-rule {
     match app-id=r#"^Slack$"#
     open-on-workspace "chat"
     open-maximized true
@@ -647,7 +640,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^firefox-beta$"#
+    match at-startup=true app-id=r#"^firefox-beta$"#
+    open-on-workspace "web"
     open-maximized true
 }
 
@@ -655,6 +649,21 @@ window-rule {
     match app-id=r#"^spotify|nemo$"#
     open-on-workspace "scratch"
     open-floating true
+}
+
+// work stuff
+window-rule {
+    match app-id=r#"^gpclient$"#
+    open-on-workspace "work"
+    open-floating true
+}
+
+window-rule {
+    match app-id="Zoom Workplace" title=".*menu.*"
+    open-floating true
+    min-width 250
+    open-focused true
+    open-on-workspace "work"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
