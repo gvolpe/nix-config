@@ -666,9 +666,14 @@ window-rule {
     open-on-workspace "work"
 }
 
+window-rule {
+    match app-id=r#"^Audacious$"#
+    open-floating true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"firefox-beta|firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
