@@ -22,7 +22,7 @@ let
 
   scripts =
     let s = pkgs.callPackage ./scripts.nix { };
-    in [ s.satty ];
+    in [ s.satty s.niri-scratchpad-init ];
 
   packages = with pkgs; [
     swaybg # wallpapers
@@ -69,6 +69,7 @@ in
       NIXOS_OZONE_WL = 1;
       SHELL = "${lib.exe pkgs.fish}";
       MOZ_ENABLE_WAYLAND = 1;
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
     };
   };
 

@@ -697,21 +697,24 @@ layer-rule {
     block-out-from "screencast"
 }
 
+// essential apps
+spawn-at-startup "firefox-beta"
+spawn-at-startup "spotify"
+spawn-at-startup "nemo"
+
 // systray apps
 spawn-at-startup "blueman-applet"
 spawn-sh-at-startup "nm-applet --sm-disable --indicator"
 spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/sw-overview.jpg >/dev/null 2>&1 &"
 //spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
 
-// essential apps
-spawn-at-startup "firefox-beta"
-spawn-at-startup "spotify"
-spawn-at-startup "nemo"
-
 // workspace apps
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
+
+// scratchpad windows resize and location placement
+spawn-sh-at-startup "niri-scratchpad-init"
 
 // --------- layer rules ---------
 
