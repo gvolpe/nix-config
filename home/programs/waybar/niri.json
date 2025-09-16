@@ -140,22 +140,26 @@
   },
   "custom/quit": {
       "format": "󰗼 ",
-      "tooltip": false,
-      "on-click": "hyprctl dispatch exit"
+      "tooltip": true,
+      "tooltip-format": "Exit Niri Session",
+      "on-click": "niri msg action quit"
   },
   "custom/lock": {
       "format": "󰍁 ",
-      "tooltip": false,
-      "on-click": "hyprlock"
+      "tooltip": true,
+      "tooltip-format": "Lock",
+      "on-click": "swaylock-cmd"
   },
   "custom/reboot": {
       "format": "󰜉 ",
-      "tooltip": false,
+      "tooltip": true,
+      "tooltip-format": "Reboot",
       "on-click": "reboot"
   },
   "custom/power": {
       "format": "   ",
-      "tooltip": false,
+      "tooltip": true,
+      "tooltip-format": "Power Off",
       "on-click": "poweroff"
   },
   "network": {
@@ -170,9 +174,11 @@
     "max-length": 50
   },
   "niri/language": {
-    "format": "󰌌 {}",
-    "keyboard-name": "dygma-defy-keyboard",
-    "on-click": "TODO: hyprctl switchxkblayout dygma-defy-keyboard next"
+    "format": "{}",
+    "format-en": "🇬🇧 English",
+    "format-pl": "🇵🇱 Polish",
+    "format-es": "🇦🇷 Spanish",
+    "on-click": "niri msg action switch-layout next"
   },
   "niri/window": {
     "format": "{}",
@@ -180,7 +186,9 @@
         "(.*) — Mozilla Firefox": "  $1",
         "~/(.*)": "   [~/$1]",
         "vim (.*)": "   [$1]",
-        "(.*) Slack Grid Workspaces - Slack": "   [$1]"
+        "(.*)fish": " 󰈺 [~/$1]",
+        "(.*) Slack Grid Workspaces - Slack": "   [$1]",
+        "(.*)Meeting": "   [$1]",
     },
     "max-length": 70,
     "separate-outputs": true
