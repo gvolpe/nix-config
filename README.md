@@ -133,7 +133,7 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ## Structure
 
-[![diagram](imgs/diagram.png)](https://excalidraw.com/#json=_RYMbf-odhE7ps-9rS2Uy,EkMz6Iy1SHnMakVzmLkmRw)
+[![diagram](imgs/diagram.png)](https://excalidraw.com/#json=HN_V0f2FpcX4YZPR-FKzO,MJR6ILT6va5BZ0r5Yo41Zw)
 
 ## Flake outputs
 
