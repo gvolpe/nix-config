@@ -184,11 +184,12 @@
     "format": "{}",
     "rewrite": {
         "(.*) — Mozilla Firefox": "  $1",
+        "^.*Github.*": "  Github",
         "~/(.*)": "   [~/$1]",
         "vim (.*)": "   [$1]",
         "(.*)fish": " 󰈺 [~/$1]",
         "(.*) Slack Grid Workspaces - Slack": "   [$1]",
-        "(.*)Meeting": "   [$1]",
+        "(.*)Meeting": "   Meeting $1"
     },
     "max-length": 70,
     "separate-outputs": true
