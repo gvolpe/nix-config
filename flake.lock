@@ -1196,11 +1196,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1758049248,
-        "narHash": "sha256-vlRiHo0ArPbYyy2HkxBiuOjgfjj5hALFRqtwRsaulwg=",
+        "lastModified": 1758092854,
+        "narHash": "sha256-ArEvt71FEMtRydKyMtxWHlTUkOZcEdhlVDvSEPpV8cg=",
         "owner": "gvolpe",
         "repo": "niri-scratchpad",
-        "rev": "43afab99b55a17dc61fe20bb06cc1bcb94eef913",
+        "rev": "675897fa14bdcea31f0cc5bc92b1eb2295df1eaa",
         "type": "github"
       },
       "original": {
