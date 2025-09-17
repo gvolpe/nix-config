@@ -28,11 +28,8 @@ let
     kooha # screencast recorder
     libnotify # notifications
     nemo # file manager
-    nix-search # faster nix search client
-    unzip # uncompress files
     wl-clipboard # clipboard support
     wofi # app launcher
-    zip # compress files
     kdePackages.xwaylandvideobridge # screensharing bridge
   ] ++ fontPkgs ++ audioPkgs;
 

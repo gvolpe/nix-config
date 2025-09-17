@@ -25,14 +25,17 @@ let
     ncdu # disk space info (a better du)
     nitch # minimal system information fetch
     nix-output-monitor # nom: monitor nix commands
+    nix-search # faster nix search client
     nyancat # the famous rainbow cat!
     ranger # terminal file explorer
     ripgrep # fast grep
     spotify # music player
     tdesktop # telegram messaging client
     tree # display files in a tree view
+    unzip # uncompress files
     vlc # media player
     xsel # clipboard support (also for neovim)
+    zip # compress files
   ];
 in
 {

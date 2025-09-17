@@ -25,8 +25,6 @@ let
     in [ s.satty s.niri-scratchpad-init ];
 
   packages = with pkgs; [
-    swaybg # wallpapers
-    networkmanagerapplet # network manager systray app
     brightnessctl # control laptop display brightness
     loupe # image viewer
     grim # screenshots
@@ -34,11 +32,10 @@ let
     kooha # screencast recorder
     libnotify # notifications
     nemo # file manager
+    networkmanagerapplet # network manager systray app
     niri-scratchpad # niri scratchpad support
-    nix-search # faster nix search client
-    unzip # uncompress files
+    swaybg # wallpapers
     wl-clipboard # clipboard support
-    zip # compress files
   ] ++ fontPkgs ++ audioPkgs ++ scripts;
 
   filePath = "${config.dotfiles.path}/wm/niri/config.kdl";
@@ -57,6 +54,7 @@ in
     ../../programs/fuzzel
     ../../programs/kitty
     ../../programs/waybar
+    ../../programs/yazi
     ../../services/dunst
     ../../services/swayidle
   ];
