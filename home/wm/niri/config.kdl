@@ -73,6 +73,13 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+// disable opening the overview when cursor is in the top left corner
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -668,6 +675,11 @@ window-rule {
 
 window-rule {
     match app-id=r#"^Audacious$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="kitty" title="cava"
     open-floating true
 }
 

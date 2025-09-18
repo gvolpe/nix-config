@@ -51,6 +51,7 @@ in
 
   imports = [
     ../../shared
+    ../../programs/cava
     ../../programs/fuzzel
     ../../programs/kitty
     ../../programs/waybar
