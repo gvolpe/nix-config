@@ -590,7 +590,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    Mod+Shift+E { spawn-sh "wlogout -b 2"; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
@@ -710,8 +710,8 @@ spawn-at-startup "nemo"
 // systray apps
 spawn-at-startup "blueman-applet"
 spawn-sh-at-startup "nm-applet --sm-disable --indicator"
-spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/sw-overview.jpg >/dev/null 2>&1 &"
-//spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
+spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/4k-sci-fi/941473.jpg >/dev/null 2>&1 &"
+//spawn-sh-at-startup "swaybg -i ~/Pictures/wallpapers/sw-overview.jpg >/dev/null 2>&1 &"
 
 // workspace apps
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"

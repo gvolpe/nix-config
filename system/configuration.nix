@@ -139,6 +139,10 @@ in
 
   # Diff report
   system.activationScripts.diff = ''
+    if [[ $TERM == "xterm-kitty" ]]; then
+      export TERM=xterm-256color
+    fi
+
     BLUE=$(${pkgs.ncurses}/bin/tput setaf 4)
     CLEAR=$(${pkgs.ncurses}/bin/tput sgr0)
 

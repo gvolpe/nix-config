@@ -54,6 +54,7 @@ in
     ../../programs/fuzzel
     ../../programs/kitty
     ../../programs/waybar
+    ../../programs/wlogout
     ../../programs/yazi
     ../../services/dunst
     ../../services/swayidle
