@@ -4,17 +4,7 @@
 set +x
 
 activate_hm() {
-  BAKFILE=~/.config/orage/oragerc.bak
-  if [ -f "$BAKFILE" ]; then
-    rm $BAKFILE
-  fi
-
-  HOME_MANAGER_BACKUP_EXT=bak result/activate
-}
-
-switch_display() {
-  autorandr --change
-  systemctl --user restart polybar.service
+  result/activate
 }
 
 rebuild_xmonad_edp() {
@@ -37,13 +27,13 @@ rebuild_hyprland_hdmi() {
   activate_hm
 }
 
-rebuild_niri_hdmi() {
-  nom build .#homeConfigurations.niri-hdmi.activationPackage
+rebuild_hyprland_hdmi_mutable() {
+  nom build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
   activate_hm
 }
 
-rebuild_hyprland_hdmi_mutable() {
-  nom build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
+rebuild_niri_hdmi() {
+  nom build .#homeConfigurations.niri-hdmi.activationPackage
   activate_hm
 }
 
@@ -61,45 +51,6 @@ rebuild_tongfang_vm() {
   nixos-rebuild build-vm --flake .#tongfang-amd
 }
 
-restart_X() {
-  echo "⚠️ Restarting X11 (requires authentication) ⚠️"
-  systemctl restart display-manager
-}
-
-# for fresh install only
-pre_home() {
-  echo "Creating config / cache directories..."
-
-  # Polybar logs
-  mkdir -p $HOME/.config/polybar/logs
-  touch $HOME/.config/polybar/logs/bottom.log
-  touch $HOME/.config/polybar/logs/top.log
-
-  # FZF cache
-  mkdir -p $HOME/.cache/fzf-hoogle
-  touch $HOME/.cache/fzf-hoogle/cache.json
-
-  # Desktop pic
-  mkdir -p $HOME/Pictures/
-  cp imgs/nixos.png $HOME/Pictures/
-
-  # Nix daemon config for normal user
-  mkdir -p $HOME/.config/nix
-  cp home/daemon.conf $HOME/.config/nix/nix.conf
-}
-
-post_home() {
-  # Set user's profile picture for Gnome3
-  echo "Setting profile picture for the accounts service"
-  sudo cp imgs/gvolpe.png /var/lib/AccountsService/icons/gvolpe
-  sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
-
-  # Set screenlock wallpaper
-  echo "Setting screen-lock wallpaper"
-  multilockscreen -u imgs/nixos.png
-}
-# end of fresh install section
-
 case $1 in
   "niri")
     rebuild_niri_hdmi;;
@@ -113,10 +64,6 @@ case $1 in
     rebuild_hyprland_hdmi;;
   "hphdmi-mutable")
     rebuild_hyprland_hdmi_mutable;;
-  "display")
-    switch_display;;
-  "restart-x")
-    restart_X;;
   "update-fish")
     fish -c fish_update_completions;;
   "update-nix-index")
