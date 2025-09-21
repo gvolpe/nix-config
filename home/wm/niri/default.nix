@@ -34,6 +34,7 @@ let
     nemo # file manager
     networkmanagerapplet # network manager systray app
     niri-scratchpad # niri scratchpad support
+    nsticky # niri sticky windows support
     swaybg # wallpapers
     wl-clipboard # clipboard support
   ] ++ fontPkgs ++ audioPkgs ++ scripts;

@@ -348,6 +348,9 @@ binds {
     Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "niri-scratchpad spotify"; }
     Mod+Ctrl+F hotkey-overlay-title="Nemo Scratchpad Toggle" { spawn-sh "niri-scratchpad nemo"; }
 
+    // Custom sticky windows support
+    Mod+S hotkey-overlay-title="Sticky Window Toggle" { spawn-sh "nsticky toggle-active"; }
+
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn-sh "alacritty"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
@@ -709,9 +712,10 @@ window-rule {
     open-floating true
 }
 
-layer-rule {
-    match namespace="^notifications$"
-    block-out-from "screencast"
+// rounded corners on all windows
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
 
 // essential apps
@@ -730,10 +734,18 @@ spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fis
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
 
+// sticky windows support daemon
+spawn-sh-at-startup "nsticky"
+
 // scratchpad windows resize and location placement
 spawn-sh-at-startup "niri-scratchpad-init"
 
 // --------- layer rules ---------
+
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}
 
 layer-rule {
     match namespace="waybar"

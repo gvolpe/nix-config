@@ -74,6 +74,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nsticky-flake = {
+      url = github:lonerOrz/nsticky;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {
