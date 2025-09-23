@@ -1,5 +1,8 @@
-nix-config
-==========
+<div align="center">
+
+<img alt="NixOS" src="https://raw.githubusercontent.com/NixOS/nixos-artwork/9d2cdedd73d64a068214482902adea3d02783ba8/logo/nix-snowflake-rainbow.svg" width="140px"/>
+
+# :space_invader: NixOS Config :space_invader:
 
 [![ci-badge](https://img.shields.io/static/v1?label=Built%20with&message=nix&color=blue&style=flat&logo=nixos&link=https://nixos.org&labelColor=111212)](https://gvolpe.com)
 [![Home](https://github.com/gvolpe/nix-config/actions/workflows/home.yml/badge.svg)](https://github.com/gvolpe/nix-config/actions/workflows/home.yml)
@@ -7,6 +10,7 @@ nix-config
 [![garnix](https://img.shields.io/endpoint?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2Fgvolpe%2Fnix-config%3Fbranch%3Dmaster)](https://garnix.io)
 
 My current — and always evolving — [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager/) configurations.
+</div>
 
 ## Niri
 
@@ -46,6 +50,8 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![fuzzel](imgs/niri/fuzzel.png)
 
 ![overview1](imgs/niri/overview1.png)
+
+![wlogout](imgs/niri/wlogout.png)
 
 </details>
 

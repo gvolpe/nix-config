@@ -584,7 +584,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Mod+Shift+A hotkey-overlay-title="Satty Screenshot" { spawn-sh "satty-shot"; }
-    Mod+Shift+P { screenshot; }
+    Mod+Shift+P { screenshot-screen; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
