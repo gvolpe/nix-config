@@ -39,7 +39,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 <details>
 <summary>Expand to see more screenshots</summary>
 
-![overview](imgs/niri/overview.png)
+![overview](imgs/niri/overview0.png)
 
 ![swaylock](imgs/niri/swaylock.png)
 
@@ -48,8 +48,6 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![nemo](imgs/niri/nemo.png)
 
 ![fuzzel](imgs/niri/fuzzel.png)
-
-![overview1](imgs/niri/overview1.png)
 
 ![wlogout](imgs/niri/wlogout.png)
 
