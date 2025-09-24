@@ -1,5 +1,8 @@
-{ config, ... }:
+{ config, lib, ... }:
 
+let
+  filePath = "${config.dotfiles.path}/programs/kitty/kitty.conf";
+in
 {
   programs.kitty = {
     enable = true;
@@ -9,9 +12,9 @@
       name = "JetBrainsMono Nerdfont";
       size = config.programs.kitty.fontsize;
     };
-    extraConfig = ''
-      copy_on_select yes
-      background_opacity 0.80
+    extraConfig = lib.mkIf config.dotfiles.mutable ''
+      # Mutable config included below
+      include ${filePath}
     '';
   };
 }
