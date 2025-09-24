@@ -146,6 +146,7 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
+    background-color "transparent"
 
     always-center-single-column
 
@@ -761,7 +762,6 @@ layer-rule {
     }
 
     geometry-corner-radius 1
-    place-within-backdrop true
     //baba-is-float true
 }
 
@@ -772,5 +772,5 @@ layer-rule {
 
 layer-rule {
     match namespace="^wallpaper$"
-    place-within-backdrop false
+    place-within-backdrop true
 }
