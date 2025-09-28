@@ -58,8 +58,8 @@ in
     ../../programs/waybar
     ../../programs/wlogout
     ../../programs/yazi
-    ../../services/dunst
     ../../services/swayidle
+    ../../services/swaync
   ];
 
   home = {

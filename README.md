@@ -30,6 +30,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 | Terminal       | [Kitty](https://sw.kovidgoyal.net/kitty) |
 | Window Manager | [Niri](https://github.com/YaLTeR/niri) |
 | File Manager   | [Nemo](https://github.com/linuxmint/nemo) |
+| Notifications  | [Sway Notification Center](https://github.com/ErikReider/SwayNotificationCenter) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -42,6 +43,8 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![overview](imgs/niri/overview0.png)
 
 ![swaylock](imgs/niri/swaylock.png)
+
+![swaync](imgs/niri/swaync.png)
 
 ![workspace1](imgs/niri/workspace1.png)
 
@@ -71,6 +74,7 @@ My first Wayland compositor experience.
 | Terminal       | [Foot](https://codeberg.org/dnkl/foot) |
 | Window Manager | [Hyprland](https://hyprland.org/) |
 | File Manager   | [Nemo](https://github.com/linuxmint/nemo) |
+| Notifications  | [Dunst](https://github.com/dunst-project/dunst) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -110,6 +114,7 @@ XMonad will be forever in my heart — the best X window manager!
 | Terminal       | [Alacritty](https://github.com/alacritty/alacritty) |
 | Window Manager | [XMonad](https://xmonad.org/) |
 | File Manager   | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus) |
+| Notifications  | [Dunst](https://github.com/dunst-project/dunst) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |

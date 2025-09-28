@@ -386,6 +386,8 @@ binds {
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
+    Mod+N repeat=false hotkey-overlay-title="Open Notifications Center Panel" { spawn-sh "swaync-client -t -sw"; }
+
     Mod+Backspace repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
