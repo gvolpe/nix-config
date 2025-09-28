@@ -124,6 +124,7 @@ window#waybar {
 }
 
 #custom-audio_idle_inhibitor {
+  color: #A66EDB;
 	background: #1a1a1a;
 	padding: 0px 15px;
 }
@@ -159,4 +160,10 @@ window#waybar {
 #window {
 	background: #1a1a1a;
 	padding: 0px 0px;
+}
+
+#custom-notification {
+  font-family: "JetBrainsMono Nerd Font";
+  color: #A66EDB;
+	background: #1a1a1a;
 }
