@@ -36,6 +36,7 @@
     "inhibitors",
     "dnd",
     "mpris",
+    "title",
     "notifications"
   ],
   "widget-config": {
@@ -49,8 +50,8 @@
     },
     "title": {
       "text": "Notifications",
-      "clear-all-button": false,
-      "button-text": "Clear All"
+      "clear-all-button": true,
+      "button-text": ""
     },
     "dnd": {
       "text": "Do Not Disturb"
