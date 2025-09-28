@@ -118,6 +118,16 @@ window#waybar {
 	padding-left: 10px;
 }
 
+#idle_inhibitor {
+	background: #1a1a1a;
+	padding: 0px 15px;
+}
+
+#custom-audio_idle_inhibitor {
+	background: #1a1a1a;
+	padding: 0px 15px;
+}
+
 #network {
 	background: #1a1a1a;
 	padding: 0px 15px;

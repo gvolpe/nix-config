@@ -193,5 +193,24 @@
     },
     "max-length": 70,
     "separate-outputs": true
+  },
+  "custom/audio_idle_inhibitor": {
+		"format": "{icon}",
+		"exec": "sway-audio-idle-inhibit --ignore-source-outputs cava --dry-print-both-waybar",
+		"exec-if": "which sway-audio-idle-inhibit",
+		"return-type": "json",
+		"format-icons": {
+			"output": "",
+			"input": "",
+			"output-input": "  ",
+			"none": " "
+		}
+	},
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
   }
 }

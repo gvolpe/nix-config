@@ -20,8 +20,10 @@ let
   '';
 in
 {
-  # Super+Alt+L in the default setting (screen locker)
-  home.packages = [ lockcmd-bin ];
+  home.packages = [
+    lockcmd-bin
+    pkgs.sway-audio-idle-inhibit
+  ];
 
   services.swayidle = {
     enable = true;

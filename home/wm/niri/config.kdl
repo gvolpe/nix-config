@@ -738,6 +738,9 @@ spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --ho
 // sticky windows support daemon
 spawn-sh-at-startup "nsticky"
 
+// idle inhibitor
+spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs cava"
+
 // scratchpad windows resize and location placement
 spawn-sh-at-startup "niri-scratchpad-init"
 
