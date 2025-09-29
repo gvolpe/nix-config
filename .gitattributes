@@ -1,3 +1,4 @@
+*.css linguist-language=nix
 *.key filter=git-crypt diff=git-crypt
 home/secrets/** filter=git-crypt diff=git-crypt
 system/secrets/** filter=git-crypt diff=git-crypt

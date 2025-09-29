@@ -44,7 +44,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 
 ![swaylock](imgs/niri/swaylock.png)
 
-![swaync](imgs/niri/sway-nc.png)
+![swaync](imgs/niri/swaync.png)
 
 ![workspace1](imgs/niri/workspace1.png)
 

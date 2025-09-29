@@ -754,6 +754,17 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="swaync-control-center"
+    shadow {
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+    }
+}
+
+layer-rule {
     match namespace="waybar"
     opacity 0.75
     //block-out-from "screencast"

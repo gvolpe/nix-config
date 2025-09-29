@@ -33,20 +33,16 @@
   "script-fail-notify": true,
 
   "widgets": [
-    "inhibitors",
     "dnd",
     "mpris",
+    "volume",
+    "backlight",
     "title",
     "notifications"
   ],
   "widget-config": {
     "notifications": {
       "vexpand": false
-    },
-    "inhibitors": {
-      "text": "Inhibitors",
-      "button-text": "Clear All",
-      "clear-all-button": true
     },
     "title": {
       "text": "Notifications",
@@ -56,12 +52,16 @@
     "dnd": {
       "text": "Do Not Disturb"
     },
-    "label": {
-      "max-lines": 5,
-      "text": "Label Text"
-    },
     "mpris": {
-      "autohide": true
+      "autohide": true,
+      "image-size": 80,
+      "image-radius": 10
+    },
+    "volume": {
+      "label": ""
+    },
+    "backlight": {
+      "label": "󰃞"
     }
   }
 }
