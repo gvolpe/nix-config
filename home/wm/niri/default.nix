@@ -35,7 +35,6 @@ let
     networkmanagerapplet # network manager systray app
     niri-scratchpad # niri scratchpad support
     nsticky # niri sticky windows support
-    swaybg # wallpapers
     wl-clipboard # clipboard support
   ] ++ fontPkgs ++ audioPkgs ++ scripts;
 
@@ -56,6 +55,7 @@ in
     ../../programs/fuzzel
     ../../programs/kitty
     ../../programs/waybar
+    ../../programs/waypaper
     ../../programs/wlogout
     ../../programs/yazi
     ../../services/swayidle
