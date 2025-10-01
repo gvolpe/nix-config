@@ -21,7 +21,6 @@ let
   mods2  = lib.readFile ./user_modules.ini;
 
   bluetoothScript = pkgs.callPackage ./scripts/bluetooth.nix {};
-  klsScript       = pkgs.callPackage ../../scripts/keyboard-layout-switch.nix {};
   monitorScript   = pkgs.callPackage ./scripts/monitor.nix {};
   mprisScript     = pkgs.callPackage ./scripts/mpris.nix {};
   networkScript   = pkgs.callPackage ./scripts/network.nix {};
@@ -51,7 +50,7 @@ let
   keyboard = ''
     [module/clickable-keyboard]
     inherit = module/keyboard
-    label-layout = %{A1:${klsScript}/bin/kls:}  %layout% %icon% %{A}
+    label-layout = %{A1:${pkgs.kls}/bin/kls:}  %layout% %icon% %{A}
   '';
 
   mpris = ''

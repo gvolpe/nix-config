@@ -32,6 +32,7 @@ let
     dive # explore docker layers
     drawio # diagram design
     #gnomecast            # chromecast local files
+    kls # keyboard layour switch script
     libnotify # notify-send command
     multilockscreen # fast lockscreen based on i3lock
     ouch # painless compression and decompression for your terminal

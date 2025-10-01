@@ -1,17 +1,13 @@
+{ callPackage, ... }:
+
 let
-  scripts = { config, lib, pkgs, ... }:
-    let
-      gsk = pkgs.callPackage ./gen-ssh-key.nix { };
-      kls = pkgs.callPackage ./keyboard-layout-switch.nix { };
-      szp = pkgs.callPackage ./show-zombie-parents.nix { };
-      vid = pkgs.callPackage ./video.nix { };
-    in
-    {
-      home.packages = [
-        gsk # generate ssh key and add it to the system
-        kls # switch keyboard layout
-        szp # show zombie parents
-      ] ++ vid ++ (pkgs.sxm.scripts or [ ]);
-    };
+  bat-lvl = callPackage ./battery-level.nix { };
+  gen-ssh-key = callPackage ./gen-ssh-key.nix { };
+  kls = callPackage ./keyboard-layout-switch.nix { };
+  satty-shot = callPackage ./screenshot.nix { };
+  show-zombie-parents = callPackage ./show-zombie-parents.nix { };
+  video = callPackage ./video.nix { };
 in
-[ scripts ]
+{
+  inherit bat-lvl gen-ssh-key kls satty-shot show-zombie-parents video;
+}
