@@ -348,6 +348,7 @@ binds {
     // Custom scratchpad support
     Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "niri-scratchpad spotify"; }
     Mod+Ctrl+F hotkey-overlay-title="Nemo Scratchpad Toggle" { spawn-sh "niri-scratchpad nemo"; }
+    Mod+Ctrl+Y hotkey-overlay-title="Volume Control" { spawn-sh "niri-scratchpad org.pulseaudio.pavucontrol"; }
 
     // Custom sticky windows support
     Mod+S hotkey-overlay-title="Sticky Window Toggle" { spawn-sh "nsticky toggle-active"; }
@@ -663,9 +664,27 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^spotify|nemo$"#
+    match app-id="nemo"
     open-on-workspace "scratch"
     open-floating true
+    default-column-width { fixed 1157; }
+    default-window-height { fixed 736; }
+}
+
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1596; }
+    default-window-height { fixed 1240; }
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1438; }
+    default-window-height { fixed 846; }
 }
 
 // work stuff
@@ -739,6 +758,7 @@ window-rule {
 spawn-at-startup "firefox-beta"
 spawn-at-startup "spotify"
 spawn-at-startup "nemo"
+spawn-at-startup "pavucontrol"
 
 // systray apps
 spawn-at-startup "blueman-applet"
@@ -757,9 +777,6 @@ spawn-sh-at-startup "nsticky"
 
 // idle inhibitor
 spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs cava"
-
-// scratchpad windows resize and location placement
-spawn-sh-at-startup "niri-scratchpad-init"
 
 // --------- layer rules ---------
 

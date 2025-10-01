@@ -22,7 +22,7 @@ let
 
   scripts =
     let s = pkgs.callPackage ./scripts.nix { };
-    in [ s.satty s.niri-scratchpad-init ];
+    in [ s.satty ];
 
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
