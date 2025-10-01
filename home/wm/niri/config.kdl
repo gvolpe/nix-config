@@ -388,7 +388,11 @@ binds {
 
     Mod+N repeat=false hotkey-overlay-title="Open Notifications Center Panel" { spawn-sh "swaync-client -t -sw"; }
 
-    Mod+Backspace repeat=false { close-window; }
+    Mod+Ctrl+Q hotkey-overlay-title="Kill unresponsive window" {
+      spawn-sh "kill -9 $(niri msg -j windows | jq '.[] | select(.is_focused == true)' | jq .pid)";
+    }
+
+    Mod+Backspace hotkey-overlay-title="Close window" repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
