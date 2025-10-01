@@ -20,9 +20,12 @@ let
     reaper # digital audio workstation (daw)
   ];
 
-  scripts =
-    let s = pkgs.callPackage ./scripts.nix { };
-    in [ s.satty ];
+  videoPkgs = with pkgs.video-scripts; [
+    compression # compress video
+    recording # record video
+    trimming # trim video
+    extractFrame # extract video frame as image
+  ];
 
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
@@ -35,8 +38,9 @@ let
     networkmanagerapplet # network manager systray app
     niri-scratchpad # niri scratchpad support
     nsticky # niri sticky windows support
+    satty-shot # screenshots
     wl-clipboard # clipboard support
-  ] ++ fontPkgs ++ audioPkgs ++ scripts;
+  ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
   filePath = "${config.dotfiles.path}/wm/niri/config.kdl";
 

@@ -354,7 +354,6 @@ binds {
     Mod+S hotkey-overlay-title="Sticky Window Toggle" { spawn-sh "nsticky toggle-active"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn-sh "alacritty"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel -p '  '"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock-cmd"; }

@@ -109,7 +109,7 @@ in
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
       bindd=,F1,Show keybindings,exec,hypr-binds
       bindd=SUPER,P,App launcher,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run
-      bindd=SUPERSHIFT,A,Take screenshot,exec,${lib.exe scripts.satty}
+      bindd=SUPERSHIFT,A,Take screenshot,exec,${lib.exe pkgs.satty-shot}
       bindd=SUPERCTRL,L,Lock system,exec,${lib.exe pkgs.hyprlock}
       # audio volume bindings
       binddel=,XF86AudioRaiseVolume,Raise volume 󰝝 ,exec,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+

@@ -64,4 +64,6 @@ let
     ${ffm} -i $INPUT_FILE -ss $AT_TIME -vframes 1 $OUTPUT_FILE
   '';
 in
-[ compression recording trimming extractFrame ]
+{
+  inherit compression recording trimming extractFrame;
+}

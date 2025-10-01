@@ -1,4 +1,4 @@
-{ lib, grim, satty, slurp, writeShellScriptBin }:
+{ lib, writeShellScriptBin }:
 
 let
   intMonitor = "FALLBACK"; # "eDP-1" doesn't work ¯\_(ツ)_/¯
@@ -45,10 +45,5 @@ in
     else
       ${lib.exe monitorRemoved}
     fi
-  '';
-
-  # screenshot tooling script: https://github.com/gabm/satty?tab=readme-ov-file#wlroots-based-compositors-sway-hyprland-wayfire-river-
-  satty = writeShellScriptBin "satty-shot" ''
-    ${lib.exe grim} -g "$(${lib.exe slurp} -o -r -c '#ff0000ff')" -t ppm - | ${lib.exe satty} --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
   '';
 }

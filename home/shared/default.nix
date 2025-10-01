@@ -36,14 +36,13 @@ let
     vlc # media player
     xsel # clipboard support (also for neovim)
     zip # compress files
-  ];
+  ] ++ (pkgs.sxm.scripts or [ ]);
 in
 {
   programs.home-manager.enable = true;
 
   imports = lib.concatMap import [
     ../modules
-    ../scripts
     ../themes
     ./programs.nix
     ./services.nix

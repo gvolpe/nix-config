@@ -78,12 +78,12 @@ in
   inputs.nurpkgs.overlays.default
   inputs.neovim-flake.overlays.${system}.default
   inputs.niri-flake.overlays.niri
-  (import ../home/overlays/bat-lvl)
   (import ../home/overlays/bazecor)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
   (import ../home/overlays/sway-audio-idle-inhibit)
+  (import ../home/overlays/scripts)
   (import ../home/overlays/wshowkeys)
   (import ../home/overlays/zoom)
 ]
