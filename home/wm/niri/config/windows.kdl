@@ -1,0 +1,120 @@
+// -------- window rules ---------~
+window-rule {
+    match at-startup=true app-id=r#"^neofetch|nitch$"#
+    open-on-workspace "nix"
+}
+
+window-rule {
+    match at-startup=true app-id=r#"^btm-monitor$"#
+    open-on-workspace "mon"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^Slack$"#
+    open-on-workspace "chat"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^org.telegram.desktop$"#
+    open-on-workspace "chat"
+    open-maximized true
+}
+
+window-rule {
+    match at-startup=true app-id=r#"^firefox-beta$"#
+    open-on-workspace "web"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="nemo"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1157; }
+    default-window-height { fixed 736; }
+}
+
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1596; }
+    default-window-height { fixed 1240; }
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1438; }
+    default-window-height { fixed 846; }
+}
+
+// work stuff
+window-rule {
+    match app-id=r#"^gpclient$"#
+    open-on-workspace "work"
+    open-floating true
+}
+
+window-rule {
+    match app-id="Zoom Workplace" title=".*menu.*"
+    open-floating true
+    min-width 250
+    open-focused true
+    open-on-workspace "work"
+}
+
+window-rule {
+    match app-id=r#"^Audacious$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="kitty" title="cava"
+    open-floating true
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Block out password managers from screencasts.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screencast"
+}
+
+// block out from screencasting
+window-rule {
+    match app-id=r#"^io\.github\.seadve\.Kooha$"#
+    block-out-from "screencast"
+}
+
+window-rule {
+    match app-id=r#"^org\.stronnag\.wayfarer$"#
+    block-out-from "screencast"
+    open-floating true
+}
+
+window-rule {
+    match app-id="waypaper"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.pwmt.zathura"
+    open-floating true
+}
+
+// rounded corners on all windows
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}

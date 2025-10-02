@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+
   nerdFonts = with (pkgs.nerd-fonts); [
     jetbrains-mono
     iosevka
@@ -42,18 +44,27 @@ let
     wl-clipboard # clipboard support
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
-  filePath = "${config.dotfiles.path}/wm/niri/config.kdl";
+  configPath = "${config.dotfiles.path}/wm/niri";
 
   configSrc =
     if !config.dotfiles.mutable then ./config.kdl
-    else config.lib.file.mkOutOfStoreSymlink filePath;
+    else mkOutOfStoreSymlink "${configPath}/config.kdl";
+
+  genConfigFileName = name:
+    if !config.dotfiles.mutable then ./config/${name}.kdl
+    else mkOutOfStoreSymlink "${configPath}/config/${name}.kdl";
+
+  includeConfig =
+    lib.lists.forEach
+      [ "binds" "input" "layers" "layout" "misc" "output" "windows" ]
+      (n: { xdg.configFile."niri/config/${n}.kdl".source = genConfigFileName n; });
 in
 {
   xdg.configFile."niri/config.kdl".source = configSrc;
 
   services.polkit-gnome.enable = true;
 
-  imports = [
+  imports = includeConfig ++ [
     ../../shared
     ../../programs/cava
     ../../programs/fuzzel
