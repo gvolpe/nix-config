@@ -43,4 +43,4 @@ spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --ho
 spawn-sh-at-startup "nsticky"
 
 // idle inhibitor
-spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs cava"
+spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs 'cava,PulseAudio Volume Control'"

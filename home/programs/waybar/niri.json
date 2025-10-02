@@ -197,7 +197,7 @@
   "custom/audio_idle_inhibitor": {
 		"format": "{icon}",
     "tooltip": false,
-		"exec": "sway-audio-idle-inhibit --ignore-source-outputs cava --dry-print-both-waybar",
+		"exec": "sway-audio-idle-inhibit --ignore-source-outputs 'cava,PulseAudio Volume Control' --dry-print-both-waybar",
 		"exec-if": "which sway-audio-idle-inhibit",
 		"return-type": "json",
 		"format-icons": {
