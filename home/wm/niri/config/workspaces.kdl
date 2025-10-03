@@ -1,0 +1,42 @@
+workspace "web" {
+  layout {
+    default-column-width { proportion 0.33333; }
+
+    focus-ring {
+        width 5
+        active-gradient from="#62BAF5" to="#8962F5" angle=45 relative-to="workspace-view"
+    }
+  }
+}
+
+workspace "nix" {
+  layout {
+    focus-ring {
+        width 5
+        active-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
+    }
+  }
+}
+
+workspace "dev"
+
+workspace "chat" {
+  layout {
+    focus-ring {
+        width 5
+        active-color "#6A44B2"
+    }
+  }
+}
+
+workspace "work" {
+  layout {
+    focus-ring {
+        width 5
+        active-color "#6A44B2"
+    }
+  }
+}
+
+workspace "mon"
+workspace "scratch"

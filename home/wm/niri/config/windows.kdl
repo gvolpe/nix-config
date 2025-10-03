@@ -23,8 +23,19 @@ window-rule {
 }
 
 window-rule {
-    match at-startup=true app-id=r#"^firefox-beta$"#
+    match at-startup=true app-id="firefox-beta"
     open-on-workspace "web"
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="sxm-firefox"
+    open-on-workspace "work"
     open-maximized true
 }
 
@@ -74,12 +85,6 @@ window-rule {
 
 window-rule {
     match app-id="kitty" title="cava"
-    open-floating true
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 

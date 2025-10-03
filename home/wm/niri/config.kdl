@@ -8,16 +8,7 @@ include "config/output.kdl"
 include "config/layout.kdl"
 include "config/binds.kdl"
 include "config/misc.kdl"
-
-// named workspaces
-workspace "web"
-workspace "nix"
-workspace "dev"
-workspace "chat"
-workspace "work"
-workspace "mon"
-workspace "scratch"
-
+include "config/workspaces.kdl"
 include "config/windows.kdl"
 include "config/layers.kdl"
 
