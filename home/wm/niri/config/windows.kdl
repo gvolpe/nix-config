@@ -12,11 +12,6 @@ window-rule {
 
 window-rule {
     match app-id=r#"^Slack$"#
-    open-on-workspace "chat"
-    open-maximized true
-}
-
-window-rule {
     match app-id=r#"^org.telegram.desktop$"#
     open-on-workspace "chat"
     open-maximized true
@@ -29,16 +24,12 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
     match app-id="sxm-firefox"
     open-on-workspace "work"
     open-maximized true
 }
 
+// scratchpad windows
 window-rule {
     match app-id="nemo"
     open-on-workspace "scratch"
@@ -78,17 +69,19 @@ window-rule {
     open-on-workspace "work"
 }
 
+// floating windows
 window-rule {
     match app-id=r#"^Audacious$"#
-    open-floating true
-}
-
-window-rule {
+    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
     match app-id="kitty" title="cava"
+    match app-id="org.pwmt.zathura"
+    match app-id="waypaper"
+    match app-id="xdg-desktop-portal-gtk"
     open-floating true
 }
 
-// Block out password managers from screencasts.
+
+// block out password managers from screencasts.
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -105,16 +98,6 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.stronnag\.wayfarer$"#
     block-out-from "screencast"
-    open-floating true
-}
-
-window-rule {
-    match app-id="waypaper"
-    open-floating true
-}
-
-window-rule {
-    match app-id="org.pwmt.zathura"
     open-floating true
 }
 
