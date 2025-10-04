@@ -68,6 +68,7 @@ in
     ../../shared
     ../../programs/cava
     ../../programs/fuzzel
+    ../../programs/nfsm
     ../../programs/kitty
     ../../programs/waybar
     ../../programs/waypaper

@@ -33,5 +33,8 @@ spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --ho
 // sticky windows support daemon
 spawn-sh-at-startup "nsticky"
 
+// niri fullscreen manager
+spawn-sh-at-startup "nfsm"
+
 // idle inhibitor
 spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs 'cava,PulseAudio Volume Control'"
