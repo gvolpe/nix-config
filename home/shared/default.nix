@@ -29,6 +29,7 @@ let
     nyancat # the famous rainbow cat!
     ranger # terminal file explorer
     ripgrep # fast grep
+    socat # multipurpose relay (SOcket CAT)
     spotify # music player
     tdesktop # telegram messaging client
     tree # display files in a tree view

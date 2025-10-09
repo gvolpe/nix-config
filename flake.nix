@@ -68,6 +68,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nfsm-flake = {
+      url = github:gvolpe/nfsm;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri-scratchpad-flake = {
       #url = git+file:///home/gvolpe/workspace/niri-scratchpad;
       url = github:gvolpe/niri-scratchpad;

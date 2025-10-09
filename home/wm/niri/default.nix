@@ -38,6 +38,8 @@ let
     libnotify # notifications
     nemo # file manager
     networkmanagerapplet # network manager systray app
+    nfsm # niri fullscreen manager daemon
+    nfsm-cli # niri fullscreen manager client
     niri-scratchpad # niri scratchpad support
     nsticky # niri sticky windows support
     satty-shot # screenshots
@@ -68,7 +70,6 @@ in
     ../../shared
     ../../programs/cava
     ../../programs/fuzzel
-    ../../programs/nfsm
     ../../programs/kitty
     ../../programs/waybar
     ../../programs/waypaper

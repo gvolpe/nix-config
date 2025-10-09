@@ -15,6 +15,7 @@ let
     inherit (inputs.cowsay.packages.${system}) cowsay;
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
 
+    inherit (inputs.nfsm-flake.packages.${system}) nfsm nfsm-cli;
     inherit (inputs.niri-scratchpad-flake.packages.${system}) niri-scratchpad;
     inherit (inputs.nsticky-flake.packages.${system}) nsticky;
 
