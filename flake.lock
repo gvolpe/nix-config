@@ -1138,11 +1138,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1760032703,
-        "narHash": "sha256-DaX2WUIu9CsI3Nbjg5/tTOJmqrxE8vNSe3O+ft7wy2g=",
+        "lastModified": 1760117184,
+        "narHash": "sha256-ube3a4fZImiptugbJ/KUDKnTJxb07bYClIc2FX2I/EI=",
         "owner": "gvolpe",
         "repo": "nfsm",
-        "rev": "d2659a9b7b1cc42cf5d308eae95eb19ff47f0052",
+        "rev": "399b04ebb9d69a1674a76632585f6d7556c0af68",
         "type": "github"
       },
       "original": {
