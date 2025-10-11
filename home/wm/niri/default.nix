@@ -58,11 +58,13 @@ let
 
   includeConfig =
     lib.lists.forEach
-      [ "binds" "input" "layers" "layout" "misc" "output" "windows" "workspaces" ]
+      [ "binds" "edp" "hdmi" "input" "layers" "layout" "misc" "windows" "workspaces" ]
       (n: { xdg.configFile."niri/config/${n}.kdl".source = genConfigFileName n; });
 in
 {
   xdg.configFile."niri/config.kdl".source = configSrc;
+  xdg.configFile."niri/config/output.kdl".text =
+    if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';
 
   services.polkit-gnome.enable = true;
 
@@ -116,3 +118,5 @@ in
     xdgOpenUsePortal = true;
   };
 }
+
+

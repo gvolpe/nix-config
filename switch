@@ -32,6 +32,11 @@ rebuild_hyprland_hdmi_mutable() {
   activate_hm
 }
 
+rebuild_niri_edp() {
+  nom build .#homeConfigurations.niri-edp.activationPackage
+  activate_hm
+}
+
 rebuild_niri_hdmi() {
   nom build .#homeConfigurations.niri-hdmi.activationPackage
   activate_hm
@@ -54,6 +59,8 @@ rebuild_tongfang_vm() {
 case $1 in
   "niri")
     rebuild_niri_hdmi;;
+  "niri-edp")
+    rebuild_niri_edp;;
   "xmedp")
     rebuild_xmonad_edp;;
   "xmhdmi")

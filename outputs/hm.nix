@@ -36,6 +36,7 @@ let
   };
 in
 {
+  niri-edp = mkNiriHome { hidpi = false; mut = true; };
   niri-hdmi = mkNiriHome { hidpi = true; mut = true; };
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };

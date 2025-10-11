@@ -1,0 +1,40 @@
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+output "eDP-1" {
+    //off
+
+    mode "2880x1800@90.00100"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 2
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    position x=1280 y=0
+}
+
+// laptop switch events
+switch-events {
+    lid-close { spawn "swaylock-cmd"; }
+}
+
+// scratchpad window sizes on laptop's screen
+window-rule {
+    match app-id="nemo"
+    default-column-width { fixed 853; }
+    default-window-height { fixed 506; }
+}
+
+window-rule {
+    match app-id="spotify"
+    default-column-width { fixed 1132; }
+    default-window-height { fixed 793; }
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    default-column-width { fixed 968; }
+    default-window-height { fixed 633; }
+}
