@@ -36,6 +36,14 @@ let
   foot-reset = ''printf "\033]11;[50]#242424"'';
 in
 {
+  home.shellAliases = {
+    ".." = "cd ..";
+    hm = "home-manager";
+    ll = "ls -a";
+    ns = "nix-search";
+    nsc = "nscratch";
+  };
+
   programs.fish = {
     enable = true;
     plugins = [ custom.theme fenv ];
@@ -50,12 +58,7 @@ in
       dcd = "${dc} down --remove-orphans";
       drm = "docker images -a -q | xargs docker rmi -f";
       du = "${pkgs.ncdu}/bin/ncdu --color dark -rr -x";
-      hm = "home-manager";
       ls = "${pkgs.eza}/bin/eza";
-      ll = "ls -a";
-      ns = "nix-search";
-      ".." = "cd ..";
-      firefox = "${lib.exe pkgs.firefox-beta}";
       ping = "${pkgs.prettyping}/bin/prettyping";
       tree = "${pkgs.eza}/bin/eza -T";
       xdg-open = "${pkgs.mimeo}/bin/mimeo";
