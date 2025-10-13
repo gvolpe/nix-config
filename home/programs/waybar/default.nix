@@ -1,17 +1,24 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
   filePath = "${config.dotfiles.path}/programs/waybar/style.css";
 
-  style =
-    if !config.dotfiles.mutable then ./style.css
-    else config.lib.file.mkOutOfStoreSymlink filePath;
+  styleImport =
+    if !config.dotfiles.mutable then ''@import url("${./style.css}";''
+    else ''@import url("${filePath}");'';
 in
 {
   # status bar for niri/wayland
   programs.waybar = {
-    inherit style;
     enable = true;
+    style = ''
+      * {
+        font-size: ${toString config.services.waybar.fontsize}px;
+        font-family: monospace;
+      }
+
+      ${styleImport}
+    '';
     settings = [
       {
         position = "top";
@@ -31,16 +38,18 @@ in
           "clock#3"
           "custom/right-arrow-dark"
         ];
-        modules-right = [
-          "custom/left-arrow-dark"
-          "memory"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
-          "cpu"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
-          "disk"
-          "custom/left-arrow-light"
+        modules-right = lib.optionals config.hidpi
+          ([
+            "custom/left-arrow-dark"
+            "memory"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "cpu"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "disk"
+            "custom/left-arrow-light"
+          ]) ++ [
           "custom/left-arrow-dark"
           "pulseaudio"
           "custom/left-arrow-light"
@@ -83,6 +92,21 @@ in
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
         ];
+
+        "niri/window" = {
+          "format" = "{}";
+          "rewrite" = {
+            "(.*) — Mozilla Firefox" = "  $1";
+            "^.*Github.*" = "  Github";
+            "~/(.*)" = "   [~/$1]";
+            "vim (.*)" = "   [$1]";
+            "(.*)fish" = " 󰈺 [~/$1]";
+            "(.*) Slack Grid Workspaces - Slack" = "   [$1]";
+            "(.*)Meeting" = "   Meeting $1";
+          };
+          "max-length" = config.services.waybar.window.maxlen;
+          "separate-outputs" = true;
+        };
       }
     ];
     systemd.enable = true;

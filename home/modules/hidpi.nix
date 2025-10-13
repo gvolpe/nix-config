@@ -92,6 +92,19 @@ in
           description = "FlagsWorldColor font size (keyboard layout icons)";
         };
       };
+
+      waybar = {
+        fontsize = mkOption {
+          type = types.int;
+          default = if config.hidpi then 20 else 16;
+          description = "Waybar main font size";
+        };
+        window.maxlen = mkOption {
+          type = types.int;
+          default = if config.hidpi then 70 else 35;
+          description = "Waybar window title max length";
+        };
+      };
     };
   };
 }
