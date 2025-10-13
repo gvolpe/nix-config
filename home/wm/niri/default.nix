@@ -44,6 +44,7 @@ let
     nsticky # niri sticky windows support
     satty-shot # screenshots
     wl-clipboard # clipboard support
+    wooz # zoom / magnifier utility
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
   configPath = "${config.dotfiles.path}/wm/niri";

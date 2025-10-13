@@ -84,6 +84,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wooz-flake = {
+      url = github:negrel/wooz;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Fish shell
 
     fish-bobthefish-theme = {

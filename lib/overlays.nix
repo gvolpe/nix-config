@@ -66,6 +66,8 @@ let
       p.tree-sitter-smithy
     ]);
 
+    wooz = inputs.wooz-flake.packages.${system}.default;
+
     xargs = {
       inherit (inputs) gh-md-toc penguin-fox;
       addons = f.nur.repos.rycee.firefox-addons;

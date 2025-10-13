@@ -215,7 +215,7 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { spawn "nfsm-cli"; } // fullscreen-window
+    Mod+Shift+F hotkey-overlay-title="Fullscreen window" { spawn "nfsm-cli"; } // fullscreen-window
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
