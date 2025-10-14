@@ -1156,11 +1156,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1760182084,
-        "narHash": "sha256-5Dy7Dqo5vbdqDhgF6+rfEPjGFOnLu0W5NfZzCzGCK8c=",
+        "lastModified": 1760363186,
+        "narHash": "sha256-mn/rHQPn9G6rqCQu6l/uo7elZkOblSn9s1DQfqfDbvQ=",
         "owner": "gvolpe",
         "repo": "nfsm",
-        "rev": "c227111a7ce47575061a6b1c98fab5d218f0c076",
+        "rev": "17c542ba570b9114cb4b09d3602a6ce6be3308e9",
         "type": "github"
       },
       "original": {
@@ -1237,11 +1237,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1760191836,
-        "narHash": "sha256-Z5pnf+99Fqn1oBzxulhpzssfB0pYeOVCtx5RhI5H9Hc=",
+        "lastModified": 1760466048,
+        "narHash": "sha256-ncKyAcKP+LhSLuY5NE/2P9Coo/jg/u3JvZfGAhMx5Rg=",
         "owner": "gvolpe",
         "repo": "niri-scratchpad",
-        "rev": "e8ed56688c7c8bab70ab51357e4074af1c5e97e8",
+        "rev": "9527d212180b42525543ce3b5507c729344aa51b",
         "type": "github"
       },
       "original": {
