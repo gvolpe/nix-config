@@ -8,8 +8,7 @@ binds {
     //
     // Most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
-
-    // Mod-Shift-/, which is usually the same as Mod-?,
+// Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -92,40 +91,22 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    //Mod+Shift+H     { focus-monitor-left; }
-    //Mod+Shift+J     { focus-monitor-down; }
-    //Mod+Shift+K     { focus-monitor-up; }
-    //Mod+Shift+L     { focus-monitor-right; }
+    Mod+Ctrl+Comma  { focus-monitor-left; }
+    Mod+Ctrl+Period { focus-monitor-right; }
 
-    //Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    //Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    //Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    //Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    //Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    //Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    //Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    //Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Comma  { move-window-to-monitor-left; }
+    Mod+Shift+Ctrl+Period  { move-window-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
+    // Alternatively, there are commands to move the entire column:
+    // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
 
     // And you can also move a whole workspace to another monitor:
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -133,8 +114,6 @@ binds {
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
