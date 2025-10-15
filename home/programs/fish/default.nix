@@ -60,6 +60,7 @@ in
       du = "${pkgs.ncdu}/bin/ncdu --color dark -rr -x";
       ls = "${pkgs.eza}/bin/eza";
       ping = "${pkgs.prettyping}/bin/prettyping";
+      systui = "${pkgs.systemctl-tui}/bin/systemctl-tui";
       tree = "${pkgs.eza}/bin/eza -T";
       xdg-open = "${pkgs.mimeo}/bin/mimeo";
     };
