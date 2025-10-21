@@ -31,6 +31,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 | Window Manager | [Niri](https://github.com/YaLTeR/niri) |
 | File Manager   | [Nemo](https://github.com/linuxmint/nemo) |
 | Notifications  | [Sway NC](https://github.com/ErikReider/SwayNotificationCenter) |
+| Wallpapers     | [Hyprlax](https://github.com/sandwichfarm/hyprlax) |
 | GTK Theme      | [Juno Ocean](https://github.com/EliverLara/Juno) |
 | GTK Icon Theme | [Beauty Line](https://www.gnome-look.org/p/1425426/) |
 | Terminal Font  | [JetBrainsMono](https://www.jetbrains.com/lp/mono/) |
@@ -53,6 +54,8 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![fuzzel](imgs/niri/fuzzel.png)
 
 ![wlogout](imgs/niri/wlogout.png)
+
+![hyprlax](imgs/niri/hyprlax.png)
 
 </details>
 

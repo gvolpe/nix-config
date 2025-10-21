@@ -82,6 +82,7 @@ in
   inputs.neovim-flake.overlays.${system}.default
   inputs.niri-flake.overlays.niri
   (import ../home/overlays/bazecor)
+  (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/ranger)
