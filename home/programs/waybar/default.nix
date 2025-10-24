@@ -6,6 +6,9 @@ let
   styleImport =
     if !config.dotfiles.mutable then ''@import url("${./style.css}";''
     else ''@import url("${filePath}");'';
+
+  output = if config.hidpi then [ "DP-3" ] else [ "eDP-1" ];
+  include = [ "${./niri.json}" ];
 in
 {
   # status bar for niri/wayland
@@ -21,8 +24,8 @@ in
     '';
     settings = [
       {
+        inherit output include;
         position = "top";
-        include = [ "${./niri.json}" ];
         modules-left = [
           "niri/workspaces"
           "custom/right-arrow-dark"
@@ -63,8 +66,8 @@ in
         ];
       }
       {
+        inherit output include;
         position = "bottom";
-        include = [ "${./niri.json}" ];
         modules-left = [
           "custom/right-arrow-dark"
           "custom/right-arrow-light"
