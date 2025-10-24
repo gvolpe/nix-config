@@ -57,7 +57,7 @@
 
     # Hyprland
     hyprland-src = {
-      url = github:hyprwm/hyprland?ref=0.46.2;
+      url = github:hyprwm/Hyprland?ref=v0.46.2;
       flake = false;
     };
 

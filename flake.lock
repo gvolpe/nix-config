@@ -876,6 +876,23 @@
         "type": "github"
       }
     },
+    "hyprland-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734636407,
+        "narHash": "sha256-HF5shWnOv5uJJSKJnnbLvE+lqCTCTKY2JlKs14kVKOo=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "0bd541f2fd902dbfa04c3ea2ccf679395e316887",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "ref": "v0.46.2",
+        "repo": "Hyprland",
+        "type": "github"
+      }
+    },
     "hyprlax-src": {
       "flake": false,
       "locked": {
@@ -2122,6 +2139,7 @@
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
         "hypr-monitor-attached-src": "hypr-monitor-attached-src",
+        "hyprland-src": "hyprland-src",
         "hyprlax-src": "hyprlax-src",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",
