@@ -215,7 +215,7 @@
         "type": "github"
       }
     },
-    "diskonaut-src": {
+    "diskonaut": {
       "flake": false,
       "locked": {
         "lastModified": 1754988128,
@@ -859,7 +859,7 @@
         "type": "github"
       }
     },
-    "hypr-monitor-attached-src": {
+    "hypr-monitor-attached": {
       "flake": false,
       "locked": {
         "lastModified": 1714394078,
@@ -876,7 +876,7 @@
         "type": "github"
       }
     },
-    "hyprland-src": {
+    "hyprland": {
       "flake": false,
       "locked": {
         "lastModified": 1734636407,
@@ -893,7 +893,7 @@
         "type": "github"
       }
     },
-    "hyprlax-src": {
+    "hyprlax": {
       "flake": false,
       "locked": {
         "lastModified": 1760993228,
@@ -2095,7 +2095,7 @@
         "type": "github"
       }
     },
-    "pyprland-src": {
+    "pyprland": {
       "flake": false,
       "locked": {
         "lastModified": 1718189911,
@@ -2131,16 +2131,16 @@
     "root": {
       "inputs": {
         "cowsay": "cowsay",
-        "diskonaut-src": "diskonaut-src",
+        "diskonaut": "diskonaut",
         "fish-bobthefish-theme": "fish-bobthefish-theme",
         "fish-keytool-completions": "fish-keytool-completions",
         "flake-schemas": "flake-schemas",
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
-        "hypr-monitor-attached-src": "hypr-monitor-attached-src",
-        "hyprland-src": "hyprland-src",
-        "hyprlax-src": "hyprlax-src",
+        "hypr-monitor-attached": "hypr-monitor-attached",
+        "hyprland": "hyprland",
+        "hyprlax": "hyprlax",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",
         "niri-flake": "niri-flake",
@@ -2154,10 +2154,10 @@
         "nixpkgs-mega": "nixpkgs-mega",
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",
-        "pyprland-src": "pyprland-src",
+        "pyprland": "pyprland",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "wooz-flake": "wooz-flake",
-        "wshowkeys-src": "wshowkeys-src"
+        "wshowkeys": "wshowkeys"
       }
     },
     "rosepine": {
@@ -2701,7 +2701,7 @@
         "type": "github"
       }
     },
-    "wshowkeys-src": {
+    "wshowkeys": {
       "flake": false,
       "locked": {
         "lastModified": 1757812704,

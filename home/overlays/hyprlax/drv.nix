@@ -6,14 +6,14 @@
 , wayland-scanner
 , mesa
 , libGL
-, xargs
+, sources
 }:
 
 stdenv.mkDerivation {
   name = "hyprlax";
   version = "v2.2.0";
 
-  src = xargs.hyprlax-src;
+  src = sources.hyprlax;
 
   nativeBuildInputs = [
     pkg-config

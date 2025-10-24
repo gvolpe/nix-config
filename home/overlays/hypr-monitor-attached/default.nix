@@ -1,14 +1,14 @@
 self: super:
 
 let
-  toml = fromTOML (builtins.readFile "${super.xargs.diskonaut-src}/Cargo.toml");
+  toml = fromTOML (builtins.readFile "${super.sources.hypr-monitor-attached}/Cargo.toml");
 in
 {
   hypr-monitor-attached = super.rustPlatform.buildRustPackage {
     pname = "hyprland-monitor-attached";
     version = toml.package.version;
 
-    src = super.xargs.hypr-monitor-attached-src;
+    src = super.sources.hypr-monitor-attached;
     cargoHash = "sha256-pBg5R7k3xEE1EoSdLO4jmibTnGE+ndZnkWeMO+UXN6Q=";
 
     meta = with super.lib; {

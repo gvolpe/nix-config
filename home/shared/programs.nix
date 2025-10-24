@@ -79,7 +79,6 @@ in
   ../programs/firefox
   ../programs/fish
   ../programs/khal
-  ../programs/md-toc
   ../programs/mimeo
   ../programs/mpv
   ../programs/neofetch

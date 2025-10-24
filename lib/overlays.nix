@@ -68,8 +68,11 @@ let
 
     wooz = inputs.wooz-flake.packages.${system}.default;
 
+    sources = {
+      inherit (inputs) diskonaut gh-md-toc hyprlax wshowkeys hypr-monitor-attached pyprland;
+    };
+
     xargs = {
-      inherit (inputs) gh-md-toc penguin-fox diskonaut-src hyprlax-src wshowkeys-src hypr-monitor-attached-src pyprland-src;
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
@@ -83,6 +86,7 @@ in
   inputs.niri-flake.overlays.niri
   (import ../home/overlays/bazecor)
   (import ../home/overlays/diskonaut)
+  (import ../home/overlays/gh-md-toc)
   (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pyprland)

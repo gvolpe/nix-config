@@ -56,7 +56,7 @@
     };
 
     # Hyprland
-    hyprland-src = {
+    hyprland = {
       url = github:hyprwm/Hyprland?ref=v0.46.2;
       flake = false;
     };
@@ -66,12 +66,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hypr-monitor-attached-src = {
+    hypr-monitor-attached = {
       url = github:coffebar/hyprland-monitor-attached?ref=0.1.6;
       flake = false;
     };
 
-    pyprland-src = {
+    pyprland = {
       url = github:hyprland-community/pyprland?ref=2.3.8;
       flake = false;
     };
@@ -98,7 +98,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprlax-src = {
+    hyprlax = {
       url = github:sandwichfarm/hyprlax?ref=v2.2.0;
       flake = false;
     };
@@ -108,7 +108,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wshowkeys-src = {
+    wshowkeys = {
       url = github:DreamMaoMao/wshowkeys;
       flake = false;
     };
@@ -145,7 +145,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    diskonaut-src = {
+    diskonaut = {
       url = github:kfkonrad/diskonaut?ref=0.12.0;
       flake = false;
     };

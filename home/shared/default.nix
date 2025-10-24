@@ -22,6 +22,7 @@ let
     killall # kill processes by name
     libreoffice # office suite
     lnav # log file navigator on the terminal
+    md-toc # # generate ToC in markdown files
     ncdu # disk space info (a better du)
     nitch # minimal system information fetch
     nix-output-monitor # nom: monitor nix commands

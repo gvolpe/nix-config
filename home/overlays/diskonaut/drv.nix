@@ -1,12 +1,12 @@
-{ lib, stdenv, rustPlatform, xargs }:
+{ lib, stdenv, rustPlatform, sources }:
 
 let
-  toml = fromTOML (builtins.readFile "${xargs.diskonaut-src}/Cargo.toml");
+  toml = fromTOML (builtins.readFile "${sources.diskonaut}/Cargo.toml");
 in
 rustPlatform.buildRustPackage {
   pname = "diskonaut";
   version = toml.package.version;
-  src = xargs.diskonaut-src;
+  src = sources.diskonaut;
 
   cargoHash = "sha256-XnJbcN+Rcu6v+KDVXa2VzM0oLl8BaDNMIN+/rEHQaDg=";
 
