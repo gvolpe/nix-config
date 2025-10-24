@@ -120,6 +120,16 @@
       url = github:snowfallorg/cowsay;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    diskonaut-src = {
+      url = github:kfkonrad/diskonaut?ref=0.12.0;
+      flake = false;
+    };
+
+    hyprlax-src = {
+      url = github:sandwichfarm/hyprlax?ref=v2.2.0;
+      flake = false;
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:
@@ -147,7 +157,7 @@
 
       packages.${system} = {
         inherit neovim;
-        inherit (pkgs) hyprlax bazecor quickemu metals metals-updater;
+        inherit (pkgs) bazecor quickemu metals metals-updater;
         # crappy software I need for $work
         inherit (pkgs) globalprotect-openconnect slack zoom-us;
       };

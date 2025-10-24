@@ -1,26 +1,19 @@
 { lib
 , stdenv
 , pkg-config
-, fetchFromGitHub
 , wayland
 , wayland-protocols
 , wayland-scanner
 , mesa
 , libGL
+, xargs
 }:
 
-let
-  version = "2.1.2";
-in
 stdenv.mkDerivation {
   name = "hyprlax";
+  version = "v2.2.0";
 
-  src = fetchFromGitHub {
-    owner = "sandwichfarm";
-    repo = "hyprlax";
-    tag = "v${version}";
-    hash = "sha256-j4+sS7zpoMPTRy2fmCpOISjs+7RKykvDma1wmoCkSBQ=";
-  };
+  src = xargs.hyprlax-src;
 
   nativeBuildInputs = [
     pkg-config

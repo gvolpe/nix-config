@@ -215,6 +215,23 @@
         "type": "github"
       }
     },
+    "diskonaut-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754988128,
+        "narHash": "sha256-3wVfkAYrfU2sx3yoeIyej9TL34RUDyoYyKrMXWaZtDc=",
+        "owner": "kfkonrad",
+        "repo": "diskonaut",
+        "rev": "6d325d14b183186ce63fa0ac2b6bd793beb6532e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kfkonrad",
+        "ref": "0.12.0",
+        "repo": "diskonaut",
+        "type": "github"
+      }
+    },
     "fish-bobthefish-theme": {
       "flake": false,
       "locked": {
@@ -839,6 +856,23 @@
       "original": {
         "owner": "hyprland-community",
         "repo": "hypr-binds",
+        "type": "github"
+      }
+    },
+    "hyprlax-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760993228,
+        "narHash": "sha256-RIeMsQt6MxSTI7TunIxk7wd08sYmr3EvjAQifr+M4e8=",
+        "owner": "sandwichfarm",
+        "repo": "hyprlax",
+        "rev": "0a3763e84f9a623aae3e3325ff48b9ac6e471b57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sandwichfarm",
+        "ref": "v2.2.0",
+        "repo": "hyprlax",
         "type": "github"
       }
     },
@@ -2046,12 +2080,14 @@
     "root": {
       "inputs": {
         "cowsay": "cowsay",
+        "diskonaut-src": "diskonaut-src",
         "fish-bobthefish-theme": "fish-bobthefish-theme",
         "fish-keytool-completions": "fish-keytool-completions",
         "flake-schemas": "flake-schemas",
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
+        "hyprlax-src": "hyprlax-src",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",
         "niri-flake": "niri-flake",
