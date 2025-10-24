@@ -1,21 +1,15 @@
 self: super:
 
 let
-  pname = "hyprland-monitor-attached";
-  version = "0.1.6";
+  toml = fromTOML (builtins.readFile "${super.xargs.diskonaut-src}/Cargo.toml");
 in
 {
   hypr-monitor-attached = super.rustPlatform.buildRustPackage {
-    inherit pname version;
+    pname = "hyprland-monitor-attached";
+    version = toml.package.version;
 
-    src = super.fetchFromGitHub {
-      owner = "coffebar";
-      repo = "hyprland-monitor-attached";
-      rev = version;
-      hash = "sha256-+bgOOm1B513COcWdUIJ/+GREQH5CR8/RNOcZVkjO2hI=";
-    };
-
-    cargoHash = "sha256-vQfDsP2Tc+Kj95wXIzPTlf6kRdBgdio0QkM9EJRjZjE=";
+    src = super.xargs.hypr-monitor-attached-src;
+    cargoHash = "sha256-pBg5R7k3xEE1EoSdLO4jmibTnGE+ndZnkWeMO+UXN6Q=";
 
     meta = with super.lib; {
       description = "Run the user's script when you attach the monitor on Hyprland";

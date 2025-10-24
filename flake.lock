@@ -859,6 +859,23 @@
         "type": "github"
       }
     },
+    "hypr-monitor-attached-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714394078,
+        "narHash": "sha256-+bgOOm1B513COcWdUIJ/+GREQH5CR8/RNOcZVkjO2hI=",
+        "owner": "coffebar",
+        "repo": "hyprland-monitor-attached",
+        "rev": "2470fd711f5eb5f708492284f19087662e322233",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coffebar",
+        "ref": "0.1.6",
+        "repo": "hyprland-monitor-attached",
+        "type": "github"
+      }
+    },
     "hyprlax-src": {
       "flake": false,
       "locked": {
@@ -2061,6 +2078,23 @@
         "type": "github"
       }
     },
+    "pyprland-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718189911,
+        "narHash": "sha256-0YUI2/gJmBoummiHGpq2p2sT25SwCdnsRwfGK2pcm4s=",
+        "owner": "hyprland-community",
+        "repo": "pyprland",
+        "rev": "a609ceeea7b1aeedf6e82d7224f9c96ccbac5342",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprland-community",
+        "ref": "2.3.8",
+        "repo": "pyprland",
+        "type": "github"
+      }
+    },
     "render-markdown-nvim": {
       "flake": false,
       "locked": {
@@ -2087,6 +2121,7 @@
         "gh-md-toc": "gh-md-toc",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
+        "hypr-monitor-attached-src": "hypr-monitor-attached-src",
         "hyprlax-src": "hyprlax-src",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",
@@ -2101,8 +2136,10 @@
         "nixpkgs-mega": "nixpkgs-mega",
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",
+        "pyprland-src": "pyprland-src",
         "rycee-nurpkgs": "rycee-nurpkgs",
-        "wooz-flake": "wooz-flake"
+        "wooz-flake": "wooz-flake",
+        "wshowkeys-src": "wshowkeys-src"
       }
     },
     "rosepine": {
@@ -2643,6 +2680,22 @@
       "original": {
         "owner": "negrel",
         "repo": "wooz",
+        "type": "github"
+      }
+    },
+    "wshowkeys-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757812704,
+        "narHash": "sha256-N8V6CkCmTlw0rWmDXiKI1Z4YS7T7fWCr9aPRk5OpGHs=",
+        "owner": "DreamMaoMao",
+        "repo": "wshowkeys",
+        "rev": "184f55dbc5320c34a56d02353410ad35a0f3e090",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DreamMaoMao",
+        "repo": "wshowkeys",
         "type": "github"
       }
     },

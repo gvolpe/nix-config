@@ -56,10 +56,24 @@
     };
 
     # Hyprland
+    hyprland-src = {
+      url = github:hyprwm/hyprland?ref=0.46.2;
+      flake = false;
+    };
 
     hypr-binds-flake = {
       url = github:hyprland-community/hypr-binds;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hypr-monitor-attached-src = {
+      url = github:coffebar/hyprland-monitor-attached?ref=0.1.6;
+      flake = false;
+    };
+
+    pyprland-src = {
+      url = github:hyprland-community/pyprland?ref=2.3.8;
+      flake = false;
     };
 
     # Niri
@@ -84,9 +98,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprlax-src = {
+      url = github:sandwichfarm/hyprlax?ref=v2.2.0;
+      flake = false;
+    };
+
     wooz-flake = {
       url = github:negrel/wooz;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    wshowkeys-src = {
+      url = github:DreamMaoMao/wshowkeys;
+      flake = false;
     };
 
     # Fish shell
@@ -123,11 +147,6 @@
 
     diskonaut-src = {
       url = github:kfkonrad/diskonaut?ref=0.12.0;
-      flake = false;
-    };
-
-    hyprlax-src = {
-      url = github:sandwichfarm/hyprlax?ref=v2.2.0;
       flake = false;
     };
   };
