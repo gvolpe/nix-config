@@ -69,7 +69,7 @@ let
     wooz = inputs.wooz-flake.packages.${system}.default;
 
     xargs = {
-      inherit (inputs) gh-md-toc penguin-fox hyprlax-src diskonaut-src;
+      inherit (inputs) gh-md-toc penguin-fox diskonaut-src hyprlax-src wshowkeys-src hypr-monitor-attached-src pyprland-src;
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
