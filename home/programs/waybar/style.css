@@ -63,6 +63,18 @@ window#waybar {
 	padding: 0 3px;
 }
 
+#workspaces button.empty,
+#workspaces button.empty label,
+#workspaces button#niri-workspace-scratch,
+#workspaces button#niri-workspace-scratch label {
+  background: None;
+  border: None;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
 #pulseaudio {
 	color: #268bd2;
 }

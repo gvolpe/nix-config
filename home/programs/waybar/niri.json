@@ -18,7 +18,7 @@
 	},
 	"niri/workspaces": {
 		"disable-scroll": false,
-    "all-outputs": true,
+    "all-outputs": false,
 		"format": "{icon}",
     "format-icons": {
       "web": "",
@@ -27,7 +27,6 @@
       "chat": "",
       "work": "󰐻 ",
       "mon": " ",
-      "scratch": " ",
       "urgent": "",
       "default": ""
     }
