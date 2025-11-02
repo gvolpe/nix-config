@@ -12,7 +12,7 @@
     enable = true;
 
     settings = {
-      aliases = {
+      alias = {
         amend = "commit --amend -m";
         fixup = "!f(){ git reset --soft HEAD~\${1} && git commit --amend -C HEAD; };f";
         loc = "!f(){ git ls-files | ${lib.exe pkgs.ripgrep} \"\\.\${1}\" | xargs wc -l; };f"; # lines of code
