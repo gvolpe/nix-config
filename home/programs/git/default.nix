@@ -12,8 +12,6 @@
     enable = true;
 
     settings = {
-      email = "volpegabriel@gmail.com";
-      name = "Gabriel Volpe";
       aliases = {
         amend = "commit --amend -m";
         fixup = "!f(){ git reset --soft HEAD~\${1} && git commit --amend -C HEAD; };f";
@@ -52,6 +50,10 @@
         "ssh://git@github.com".pushInsteadOf = "gh:";
         "https://gitlab.com/".insteadOf = "gl:";
         "ssh://git@gitlab.com".pushInsteadOf = "gl:";
+      };
+      user = {
+        email = "volpegabriel@gmail.com";
+        name = "Gabriel Volpe";
       };
     };
 
