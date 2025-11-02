@@ -30,7 +30,6 @@ let
     nemo # file manager
     wl-clipboard # clipboard support
     wofi # app launcher
-    kdePackages.xwaylandvideobridge # screensharing bridge
   ] ++ fontPkgs ++ audioPkgs;
 
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
