@@ -33,7 +33,7 @@ let
     socat # multipurpose relay (SOcket CAT)
     spotify # music player
     systemctl-tui # manage systemctl services and their logs
-    tdesktop # telegram messaging client
+    telegram-desktop # telegram messaging client
     tree # display files in a tree view
     unzip # uncompress files
     vlc # media player
