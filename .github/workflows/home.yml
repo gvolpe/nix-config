@@ -60,10 +60,13 @@ jobs:
           hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
 
       - name: "Install Nix ❄️"
-        uses: cachix/install-nix-action@v30
+        uses: cachix/install-nix-action@v31.8.4
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes ca-derivations
 
       - name: "Install Cachix ❄️"
-        uses: cachix/cachix-action@v15
+        uses: cachix/cachix-action@v16
         with:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
