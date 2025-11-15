@@ -54,6 +54,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
 
+      - name: "Free disk space for Nix"
+        uses: wimpysworld/nothing-but-nix@main
+        with:
+          hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
+
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v30
 
