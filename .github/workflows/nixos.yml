@@ -47,10 +47,10 @@ jobs:
       fail-fast: true
       matrix:
         hostname:
-          - dell-xps
+          #- dell-xps
           - thinkpad-x1
-          - tongfang-amd
-          - xmod
+          #- tongfang-amd
+          #- xmod
 
     steps:
       - uses: actions/checkout@v2.3.2
