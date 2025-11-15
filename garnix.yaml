@@ -1,6 +1,6 @@
 builds:
  exclude: []
- include: []
- #- '*.x86_64-linux.*'
- #- homeConfigurations.*
- #- nixosConfigurations.*
+ include:
+ - '*.x86_64-linux.*'
+ - homeConfigurations.*
+ - nixosConfigurations.*
