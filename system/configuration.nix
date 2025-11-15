@@ -195,7 +195,7 @@ in
       # Required by Cachix to be used as non-root user
       trusted-users = [ "root" "gvolpe" ];
 
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
       warn-dirty = false;
 
       # Binary caches

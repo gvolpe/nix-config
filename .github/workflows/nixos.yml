@@ -39,27 +39,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    needs: checks
+    #needs: checks
 
-    if: needs.checks.outputs.garnix == 'failure'
+    #if: needs.checks.outputs.garnix == 'failure'
 
     strategy:
       fail-fast: true
       matrix:
         hostname:
-          - dell-xps
+          #- dell-xps
           - thinkpad-x1
-          - tongfang-amd
-          - xmod
+          #- tongfang-amd
+          #- xmod
 
     steps:
       - uses: actions/checkout@v2.3.2
 
+      - name: "Free disk space for Nix"
+        uses: wimpysworld/nothing-but-nix@main
+        with:
+          hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
+
       - name: "Install Nix ❄️"
-        uses: cachix/install-nix-action@v30
+        uses: cachix/install-nix-action@v31.8.4
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes ca-derivations
 
       - name: "Install Cachix ❄️"
-        uses: cachix/cachix-action@v15
+        uses: cachix/cachix-action@v16
         with:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -67,11 +75,6 @@ jobs:
       # Needed because cachix is also installed by Home Manager
       - name: "Set priority flag for Cachix 🚩"
         run: nix-env --set-flag priority 0 cachix
-
-      - name: "Free disk space for Nix"
-        uses: wimpysworld/nothing-but-nix@main
-        with:
-          hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
 
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
