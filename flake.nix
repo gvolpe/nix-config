@@ -161,7 +161,7 @@
         inherit overlays system;
         config = {
           allowUnfree = true;
-          contentAddressedByDefault = true;
+          contentAddressedByDefault = false;
         };
       };
 
