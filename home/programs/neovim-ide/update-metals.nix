@@ -39,7 +39,6 @@ in
 stdenv.mkDerivation
 {
   inherit name src;
-  __contentAddressed = true;
 
   phases = [ "installPhase" "patchPhase" ];
 
