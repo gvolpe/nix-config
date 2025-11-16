@@ -159,7 +159,10 @@
 
       pkgs = import nixpkgs {
         inherit overlays system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          contentAddressedByDefault = false;
+        };
       };
 
       neovim = self.homeConfigurations.niri-hdmi.config.programs.neovim-ide.finalPackage;
