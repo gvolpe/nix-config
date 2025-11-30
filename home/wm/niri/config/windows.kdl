@@ -62,7 +62,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Zoom Workplace" title=".*menu.*"
+    match app-id="Zoom Workplace" title="as_toolbar"
     open-floating true
     min-width 250
     open-focused true
@@ -77,6 +77,7 @@ window-rule {
     match app-id="org.pwmt.zathura"
     match app-id="waypaper"
     match app-id="xdg-desktop-portal-gtk"
+    match app-id="org.gnome.Loupe"
     open-floating true
 }
 
