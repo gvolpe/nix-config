@@ -38,6 +38,7 @@ let
     unzip # uncompress files
     vlc # media player
     xsel # clipboard support (also for neovim)
+    yubioath-flutter # yubikey authenticator gui
     zip # compress files
   ] ++ (pkgs.sxm.scripts or [ ]);
 in
