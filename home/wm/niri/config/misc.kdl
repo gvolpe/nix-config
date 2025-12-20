@@ -37,3 +37,30 @@ cursor {
     hide-when-typing
     hide-after-inactive-ms 1000
 }
+
+// -------- recent windows (alt-tab) --------------~
+recent-windows {
+    //off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window     scope="all"; }
+        Alt+Shift+Tab   { previous-window scope="all"; }
+        Mod+grave       { next-window     scope="workspace"; }
+        Mod+Shift+grave { previous-window scope="workspace"; }
+    }
+}
