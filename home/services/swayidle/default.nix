@@ -28,10 +28,10 @@ in
   services.swayidle = {
     enable = true;
 
-    events = [
-      { event = "before-sleep"; command = lib.exe lockcmd-bin; }
-      { event = "lock"; command = "lock"; }
-    ];
+    events = {
+      "before-sleep" = lib.exe lockcmd-bin;
+      "lock" = "lock";
+    };
 
     timeouts = [
       { timeout = 600; command = lib.exe lockcmd-bin; }
