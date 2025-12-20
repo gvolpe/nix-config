@@ -54,6 +54,14 @@ window-rule {
     default-window-height { fixed 846; }
 }
 
+window-rule {
+    match app-id="com.yubico.yubioath"
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1085; }
+    default-window-height { fixed 730; }
+}
+
 // work stuff
 window-rule {
     match app-id=r#"^gpclient$"#

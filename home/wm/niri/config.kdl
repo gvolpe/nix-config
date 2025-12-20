@@ -3,13 +3,13 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+include "config/windows.kdl"
 include "config/input.kdl"
 include "config/output.kdl"
 include "config/layout.kdl"
 include "config/binds.kdl"
 include "config/misc.kdl"
 include "config/workspaces.kdl"
-include "config/windows.kdl"
 include "config/layers.kdl"
 
 // essential apps

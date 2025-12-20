@@ -15,7 +15,8 @@ binds {
     // Custom scratchpad support
     Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "nscratch -id spotify"; }
     Mod+Ctrl+F hotkey-overlay-title="Nemo Scratchpad Toggle" { spawn-sh "nscratch -id nemo"; }
-    Mod+Ctrl+Y hotkey-overlay-title="Volume Control" { spawn-sh "nscratch -id org.pulseaudio.pavucontrol"; }
+    Mod+Ctrl+T hotkey-overlay-title="Volume Control" { spawn-sh "nscratch -id org.pulseaudio.pavucontrol"; }
+    Mod+Ctrl+Y hotkey-overlay-title="Yubikey Authenticator" { spawn-sh "nscratch -id com.yubico.yubioath -s yubioath-flutter"; }
 
     // Custom sticky windows support
     Mod+S hotkey-overlay-title="Sticky Window Toggle" { spawn-sh "nsticky toggle-active"; }
