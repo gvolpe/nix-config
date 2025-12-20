@@ -28,7 +28,6 @@ let
     nix-output-monitor # nom: monitor nix commands
     nix-search # faster nix search client
     nyancat # the famous rainbow cat!
-    ranger # terminal file explorer
     ripgrep # fast grep
     socat # multipurpose relay (SOcket CAT)
     spotify # music player

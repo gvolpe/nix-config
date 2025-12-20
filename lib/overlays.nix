@@ -90,7 +90,6 @@ in
   (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pyprland)
-  (import ../home/overlays/ranger)
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
   (import ../home/overlays/wshowkeys)

@@ -532,7 +532,7 @@ projects =
                                            spawn (terminalWithCommand "btm")
                                            spawn (terminalWithCommand "duf")
                                            spawn (terminalWithCommand "nyancat")
-                                           spawn (terminalWithCommand "ranger --selectfile ~/workspace/nix-config/imgs/amd.jpg")
+                                           spawn (terminalWithCommand "yazi ~/workspace/nix-config")
             }
   ]
 
