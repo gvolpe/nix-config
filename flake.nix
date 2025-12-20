@@ -40,7 +40,7 @@
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-schemas.follows = "flake-schemas";
     };
 
