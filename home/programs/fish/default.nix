@@ -42,6 +42,7 @@ in
     ll = "ls -a";
     ns = "nix-search";
     nsc = "nscratch";
+    ssh = "kitty +kitten ssh";
   };
 
   programs.fish = {
