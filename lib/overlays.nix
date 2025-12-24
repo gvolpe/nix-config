@@ -14,6 +14,7 @@ let
   overlays = f: p: {
     inherit (inputs.cowsay.packages.${system}) cowsay;
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
+    inherit (inputs.snitch.packages.${system}) snitch;
 
     inherit (inputs.nfsm-flake.packages.${system}) nfsm nfsm-cli;
     inherit (inputs.niri-scratchpad-flake.packages.${system}) niri-scratchpad;

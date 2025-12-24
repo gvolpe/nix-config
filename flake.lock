@@ -2046,6 +2046,7 @@
         "nurpkgs": "nurpkgs",
         "pyprland": "pyprland",
         "rycee-nurpkgs": "rycee-nurpkgs",
+        "snitch": "snitch",
         "wooz-flake": "wooz-flake",
         "wshowkeys": "wshowkeys"
       }
@@ -2117,6 +2118,26 @@
       "original": {
         "owner": "folke",
         "repo": "snacks.nvim",
+        "type": "github"
+      }
+    },
+    "snitch": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766574766,
+        "narHash": "sha256-krZf6bx1CZGgwg7cu2f2dzPYFEU4rM/nZjGtkXgGQkM=",
+        "owner": "karol-broda",
+        "repo": "snitch",
+        "rev": "268226257b227263ba089feff16b864eb4209dba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "karol-broda",
+        "repo": "snitch",
         "type": "github"
       }
     },

@@ -45,6 +45,7 @@ let
     niri-scratchpad # niri scratchpad support
     nsticky # niri sticky windows support
     satty-shot # screenshots
+    snitch # inspect network connections
     wl-clipboard # clipboard support
     wooz # zoom / magnifier utility
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;

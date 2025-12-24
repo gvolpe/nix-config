@@ -149,6 +149,11 @@
       url = github:kfkonrad/diskonaut?ref=0.12.0;
       flake = false;
     };
+
+    snitch = {
+      url = github:karol-broda/snitch;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:
