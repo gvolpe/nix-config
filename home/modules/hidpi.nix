@@ -35,18 +35,6 @@ in
         type = types.int;
         default = if config.hidpi then 14 else 10;
       };
-
-      megasync = {
-        scale = mkOption {
-          type = types.bool;
-          default = config.hidpi;
-        };
-        scaleFactor = mkOption {
-          type = types.int;
-          apply = toString;
-          default = 1;
-        };
-      };
     };
 
     services = {

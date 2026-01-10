@@ -25,7 +25,6 @@ let
     # globalprotect vpn overlay for no-longer supported package
     inherit (inputs.nixpkgs-gp.legacyPackages.${system}) globalprotect-openconnect;
 
-    inherit (import inputs.nixpkgs-mega { inherit system; config.allowUnfree = true; }) megasync;
     inherit (inputs.nixpkgs-hyprland.legacyPackages.${system}) hyprland;
 
     # firefox addon builder function
