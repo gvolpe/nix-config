@@ -2,6 +2,7 @@
 
 let
   inherit (specialArgs) inputs;
+  inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
   imports = [
@@ -11,7 +12,7 @@ in
     # FIXME: Package ‘zfs-kernel-2.3.0-6.13.5’ is marked as broken
     #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
     # disable networking.wireless from the iso minimal conf as we use networkmanager
-    { networking.wireless.enable = false; }
+    { networking.wireless.enable = lib.mkForce false; }
     { networking.hostName = lib.mkForce "xmod-amd"; }
     # home manager settings
     {
@@ -20,8 +21,8 @@ in
         useGlobalPkgs = true;
 
         sharedModules = [
-          inputs.neovim-flake.homeManagerModules.${pkgs.system}.default
-          inputs.nix-index.homeManagerModules.${pkgs.system}.default
+          inputs.neovim-flake.homeManagerModules.${system}.default
+          inputs.nix-index.homeManagerModules.${system}.default
           ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
         ];
 
