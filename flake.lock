@@ -1497,6 +1497,22 @@
         "type": "github"
       }
     },
+    "nord-tmux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683146574,
+        "narHash": "sha256-mcmVYNWOUoQLiu4eM/EUudRg67Gcou13xuC6zv9aMKA=",
+        "owner": "arcticicestudio",
+        "repo": "nord-tmux",
+        "rev": "f7b6da07ab55fe32ee5f7d62da56d8e5ac691a92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arcticicestudio",
+        "repo": "nord-tmux",
+        "type": "github"
+      }
+    },
     "nsticky-flake": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -2026,6 +2042,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-gp": "nixpkgs-gp",
         "nixpkgs-hyprland": "nixpkgs-hyprland",
+        "nord-tmux": "nord-tmux",
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",
         "pyprland": "pyprland",

@@ -1,18 +1,28 @@
-{ lib, pkgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 let
-  plugins = pkgs.tmuxPlugins // pkgs.callPackage ./custom-plugins.nix { };
-  tmuxConf = lib.readFile ./default.conf;
+  nord = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "nord";
+    src = specialArgs.nord-tmux;
+    version = specialArgs.nord-tmux.rev;
+  };
 in
 {
   programs.tmux = {
     enable = true;
     aggressiveResize = true;
     baseIndex = 1;
-    extraConfig = tmuxConf;
+    extraConfig = ''
+      # automatically renumber tmux windows
+      set -g renumber-windows on
+
+      # Activity Monitoring
+      setw -g monitor-activity off
+      set -g visual-activity off
+    '';
     escapeTime = 0;
     keyMode = "vi";
-    plugins = with plugins; [
+    plugins = with pkgs.tmuxPlugins; [
       cpu
       nord # theme
       {
@@ -27,7 +37,7 @@ in
         '';
       }
     ];
-    shortcut = "a";
+    shortcut = "b";
     terminal = "screen-256color";
   };
 }

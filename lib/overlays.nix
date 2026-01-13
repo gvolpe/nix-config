@@ -73,6 +73,7 @@ let
     };
 
     xargs = {
+      inherit (inputs) nord-tmux;
       addons = f.nur.repos.rycee.firefox-addons;
     };
   };
