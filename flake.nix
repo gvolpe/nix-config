@@ -75,8 +75,14 @@
     };
 
     # Niri
+    niri-blur = {
+      url = github:niri-wm/niri/wip/branch;
+      flake = false;
+    };
+
     niri-flake = {
       url = github:sodiboo/niri-flake;
+      inputs.niri-unstable.follows = "niri-blur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -187,7 +193,7 @@
 
       packages.${system} = {
         inherit neovim;
-        inherit (pkgs) bazecor quickemu metals metals-updater;
+        inherit (pkgs) bazecor niri-unstable quickemu metals metals-updater;
         # crappy software I need for $work
         inherit (pkgs) globalprotect-openconnect slack zoom-us;
       };
