@@ -1161,10 +1161,29 @@
         "type": "github"
       }
     },
+    "niri-blur": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771749270,
+        "narHash": "sha256-ZJCM1XOHIdud6Jfpl4jYQOzbOJId9wmXT+hNJ1IPBIY=",
+        "owner": "niri-wm",
+        "repo": "niri",
+        "rev": "734d86ec061d15d1980c5b940b2f4dc9aee80cf5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "niri-wm",
+        "ref": "wip/branch",
+        "repo": "niri",
+        "type": "github"
+      }
+    },
     "niri-flake": {
       "inputs": {
         "niri-stable": "niri-stable",
-        "niri-unstable": "niri-unstable",
+        "niri-unstable": [
+          "niri-blur"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -1221,22 +1240,6 @@
       "original": {
         "owner": "YaLTeR",
         "ref": "v25.08",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
-    "niri-unstable": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767792726,
-        "narHash": "sha256-qS4tdG2iUQwSld9dTH1gk8GcIOrRi9umMgPv8MGDIA0=",
-        "owner": "YaLTeR",
-        "repo": "niri",
-        "rev": "10df9f4717cbd4efd20ae796eb6b0aa400127bdc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YaLTeR",
         "repo": "niri",
         "type": "github"
       }
@@ -2034,6 +2037,7 @@
         "hyprlax": "hyprlax",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",
+        "niri-blur": "niri-blur",
         "niri-flake": "niri-flake",
         "niri-scratchpad-flake": "niri-scratchpad-flake",
         "nix-index": "nix-index",

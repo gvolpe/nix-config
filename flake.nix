@@ -75,8 +75,14 @@
     };
 
     # Niri
+    niri-blur = {
+      url = github:niri-wm/niri/wip/branch;
+      flake = false;
+    };
+
     niri-flake = {
       url = github:sodiboo/niri-flake;
+      inputs.niri-unstable.follows = "niri-blur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

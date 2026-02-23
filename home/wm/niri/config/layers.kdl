@@ -14,6 +14,10 @@ layer-rule {
         offset x=0 y=5
         draw-behind-window true
     }
+
+    background-effect {
+        blur true
+    }
 }
 
 layer-rule {
@@ -35,7 +39,11 @@ layer-rule {
 
 layer-rule {
     match namespace="^launcher$"
-    //opacity 0.9
+    opacity 0.7
+    geometry-corner-radius 10
+    background-effect {
+        blur true
+    }
 }
 
 layer-rule {
