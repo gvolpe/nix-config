@@ -28,7 +28,7 @@ spawn-sh-at-startup "waypaper --restore"
 
 // workspace apps
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='neofetch' --hold fish -c 'neofetch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='fastfetch' --hold fish -c 'fastfetch' &"
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
 
 // sticky windows support daemon

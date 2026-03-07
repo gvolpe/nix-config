@@ -9,8 +9,8 @@
         vimAlias = true;
         preventJunkFiles = true;
         customPlugins = with pkgs.vimPlugins; [
-          multiple-cursors
           vim-mergetool
+          vim-multiple-cursors
           vim-repeat
         ];
         #neovim.package = pkgs.neovim-nightly;

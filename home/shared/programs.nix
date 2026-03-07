@@ -76,12 +76,12 @@ in
 [
   ../programs/dconf
   ../programs/git
+  ../programs/fastfetch
   ../programs/firefox
   ../programs/fish
   ../programs/khal
   ../programs/mimeo
   ../programs/mpv
-  ../programs/neofetch
   ../programs/neovim-ide
   ../programs/ngrok
   ../programs/yubikey
