@@ -16,7 +16,7 @@ let
   });
 in
 {
-  home.packages = [ fastfetch ];
+  home.packages = [ pkgs.fastfetch ];
   #xdg.configFile."hyfetch.json".source = ./hyfetch.json;
   #xdg.configFile."neofetch/config.conf".source = configSrc;
 }
