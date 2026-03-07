@@ -10,7 +10,7 @@ output "eDP-1" {
 // portable monitor
 output "DP-1" {
     mode "2560x1440@60.000"
-    scale 1.25
+    scale 1.5
     transform "normal"
     position x=0 y=0
 }

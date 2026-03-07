@@ -5,6 +5,7 @@ with lib;
 let
   inherit (config.wayland.windowManager) hyprland;
   inherit (config.xsession.windowManager) xmonad;
+  niri = config.xdg.portal;
 in
 {
   meta.maintainers = [ hm.maintainers.gvolpe ];
@@ -21,7 +22,7 @@ in
       browser.settings.dpi = mkOption {
         type = types.str;
         default =
-          if hyprland.enable then (if config.hidpi then "0" else "1.7")
+          if (hyprland.enable || niri.enable) then (if config.hidpi then "0" else "1.7")
           else if xmonad.enable then (if config.hidpi then "-1.0" else "0.7")
           else "0";
       };
