@@ -2,33 +2,18 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
     "type": "auto",
-    "source": "/nix/store/g919z8rqm7l0bqfg8jci0m93qfbfp71q-nixos.png",
-    "color": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": ""
-    },
-    "width": 40,
+    "source": "/home/gvolpe/workspace/nix-config/home/programs/fastfetch/nixos.png",
+    "width": 35,
     "height": null,
     "padding": {
-      "top": 0,
-      "left": 0,
+      "top": 1,
+      "left": 1,
       "right": 4
     },
     "printRemaining": true,
     "preserveAspectRatio": true,
     "recache": false,
-    "position": "left",
-    "chafa": {
-      "fgOnly": false,
-      "symbols": "block+border+space-wide-inverted"
-    }
+    "position": "left"
   },
   "display": {
     "stat": false,
@@ -36,12 +21,12 @@
     "showErrors": false,
     "disableLinewrap": true,
     "hideCursor": false,
-    "separator": ": ",
+    "separator": "  -> ",
     "color": {
       "keys": "",
-      "title": "",
-      "output": "",
-      "separator": ""
+      "title": "green",
+      "output": "blue",
+      "separator": "red"
     },
     "brightColor": true,
     "duration": {
@@ -102,7 +87,7 @@
     "noBuffer": false,
     "key": {
       "width": 0,
-      "type": "string",
+      "type": "icon",
       "paddingLeft": 0
     },
     "freq": {
@@ -120,93 +105,18 @@
   },
   "modules": [
     {
-      "type": "title",
-      "key": " ",
-      "keyIcon": "",
-      "fqdn": false,
-      "color": {
-        "user": "",
-        "at": "",
-        "host": ""
-      }
+      "type": "custom",
+      "format": "{#34}  {#37}Make it reproducible. {#31} {#37}Make it functional. {#33} "
     },
     {
       "type": "separator",
-      "string": "-",
-      "outputColor": "",
-      "times": 0
-    },
-    {
-      "type": "os",
-      "keyIcon": ""
+      "string": "—",
+      "outputColor": "red",
+      "times": 49
     },
     {
       "type": "host",
       "keyIcon": "󰌢"
-    },
-    {
-      "type": "kernel",
-      "keyIcon": ""
-    },
-    {
-      "type": "uptime",
-      "keyIcon": ""
-    },
-    {
-      "type": "packages",
-      "keyIcon": "󰏖",
-      "disabled": [
-        "winget"
-      ],
-      "combined": false
-    },
-    {
-      "type": "shell",
-      "keyIcon": ""
-    },
-    {
-      "type": "display",
-      "keyIcon": "󰍹",
-      "compactType": "none",
-      "preciseRefreshRate": false,
-      "order": null
-    },
-    {
-      "type": "de",
-      "keyIcon": ""
-    },
-    {
-      "type": "wm",
-      "keyIcon": "",
-      "detectPlugin": false
-    },
-    {
-      "type": "wmtheme",
-      "keyIcon": "󰓸"
-    },
-    {
-      "type": "theme",
-      "keyIcon": "󰉼"
-    },
-    {
-      "type": "icons",
-      "keyIcon": ""
-    },
-    {
-      "type": "font",
-      "keyIcon": ""
-    },
-    {
-      "type": "cursor",
-      "keyIcon": "󰆿"
-    },
-    {
-      "type": "terminal",
-      "keyIcon": ""
-    },
-    {
-      "type": "terminalfont",
-      "keyIcon": ""
     },
     {
       "type": "cpu",
@@ -256,6 +166,39 @@
       }
     },
     {
+      "type": "separator",
+      "string": "—",
+      "outputColor": "red",
+      "times": 49
+    },
+    {
+      "type": "os",
+      "keyIcon": ""
+    },
+    {
+      "type": "kernel",
+      "keyIcon": ""
+    },
+    {
+      "type": "wm",
+      "keyIcon": "",
+      "detectPlugin": false
+    },
+    {
+      "type": "shell",
+      "keyIcon": ""
+    },
+    {
+      "type": "command",
+      "keyIcon": "",
+      "text": "$EDITOR --version | head -1",
+      "key": "Editor"
+    },
+    {
+      "type": "terminal",
+      "keyIcon": ""
+    },
+    {
       "type": "localip",
       "keyIcon": "󰩟",
       "showIpv4": true,
@@ -264,12 +207,26 @@
       "showLoop": false,
       "showPrefixLen": true,
       "showMtu": false,
-      "showSpeed": false,
+      "showSpeed": true,
       "showFlags": false,
       "compact": false,
       "defaultRouteOnly": true,
       "showAllIps": false,
       "namePrefix": ""
+    },
+    {
+      "type": "uptime",
+      "keyIcon": ""
+    },
+    {
+      "type": "separator",
+      "string": "—",
+      "outputColor": "red",
+      "times": 49
+    },
+    {
+      "type": "custom",
+      "format": "{#33}󰮯  {#31}󰊠  {#32}󰊠  {#37}󰊠  {#34}󰊠  {#35}󰊠  {#36}󰊠  {#37}󰊠  {#38}󰊠  {#37}󰊠  {#36}󰊠  {#35}󰊠  {#34}󰊠  {#33}󰊠  {#32}󰊠  {#31}󰊠  {#90}󰊠 "
     }
   ]
 }
