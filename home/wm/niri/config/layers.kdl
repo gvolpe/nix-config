@@ -38,6 +38,14 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="vicinae"
+    geometry-corner-radius 10
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
     match namespace="^launcher$"
     opacity 0.7
     geometry-corner-radius 10

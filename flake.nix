@@ -107,6 +107,11 @@
       flake = false;
     };
 
+    vicinae = {
+      url = github:vicinaehq/vicinae;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     wooz-flake = {
       url = github:negrel/wooz;
       inputs.nixpkgs.follows = "nixpkgs";

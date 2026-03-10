@@ -83,6 +83,7 @@ in
     ../../programs/yazi
     ../../services/swayidle
     ../../services/swaync
+    ../../services/vicinae
   ];
 
   home = {
