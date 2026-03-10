@@ -77,13 +77,13 @@ in
     ../../programs/cava
     ../../programs/fuzzel
     ../../programs/kitty
-    ../../services/swayidle
-    ../../services/swaync
-    ../../services/vicinae
     ../../programs/waybar
     ../../programs/waypaper
     ../../programs/wlogout
     ../../programs/yazi
+    ../../services/swayidle
+    ../../services/swaync
+    ../../services/vicinae
   ];
 
   home = {

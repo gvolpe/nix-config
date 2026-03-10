@@ -66,6 +66,8 @@ let
       p.tree-sitter-smithy
     ]);
 
+    vicinae = inputs.vicinae.packages.${system}.default;
+
     wooz = inputs.wooz-flake.packages.${system}.default;
 
     sources = {

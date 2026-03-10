@@ -1,6 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = [ pkgs.vicinae ];
+
   services.vicinae = {
     enable = true;
     systemd = {
