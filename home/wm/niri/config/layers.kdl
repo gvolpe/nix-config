@@ -39,7 +39,6 @@ layer-rule {
 
 layer-rule {
     match namespace="vicinae"
-    //opacity 0.7
     geometry-corner-radius 10
     background-effect {
         blur true
