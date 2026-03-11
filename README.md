@@ -16,7 +16,7 @@ My current — and always evolving — [NixOS](https://nixos.org/) and [Home Man
 
 My current window manager — a scrollable-tiling Wayland compositor.
 
-![workspace](imgs/niri/workspace.png)
+![niri](imgs/niri/niri.png)
 
 <details>
 <summary>Environment details</summary>
@@ -24,7 +24,7 @@ My current window manager — a scrollable-tiling Wayland compositor.
 | Type           | Program      |
 | :------------- | :----------: |
 | Editor         | [NeoVim](https://neovim.io/) |
-| Launcher       | [Fuzzel](https://codeberg.org/dnkl/fuzzel) |
+| Launcher       | [Fuzzel](https://codeberg.org/dnkl/fuzzel) - [Vicinae](https://github.com/vicinaehq/vicinae) |
 | Shell          | [Fish](https://fishshell.com/) |
 | Status Bar     | [Waybar](https://github.com/Alexays/Waybar) |
 | Terminal       | [Kitty](https://sw.kovidgoyal.net/kitty) |
@@ -46,6 +46,8 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![swaylock](imgs/niri/swaylock.png)
 
 ![swaync](imgs/niri/swaync.png)
+
+![workspace](imgs/niri/workspace.png)
 
 ![workspace1](imgs/niri/workspace1.png)
 
