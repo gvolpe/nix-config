@@ -1,6 +1,5 @@
 builds:
  exclude: []
  include:
- - '*.x86_64-linux.*'
- - homeConfigurations.*
- - nixosConfigurations.*
+ - homeConfigurations.niri*
+ - nixosConfigurations.thinkpad*

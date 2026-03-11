@@ -1,0 +1,142 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "font": {
+      "normal": {
+         "family": "Inter Variable"
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "catppuccin-mocha",
+         "icon_theme": "BeautyLine"
+      }
+   },
+   "launcher_window": {
+      "opacity": 0.95
+   },
+   "providers": {
+      "applications": {
+         "preferences": {
+            "paths": [
+               "/home/gvolpe/.local/share/applications",
+               "/nix/store/wz2k0fq219vbk2qjbhjdldpabzsy7rid-vicinae-0.18.3/share/applications",
+               "/nix/store/apw386d39c4imw0ijw18s8k9m1f5nkdx-cups-2.4.14/share/applications",
+               "/home/gvolpe/.nix-profile/share/applications",
+               "/run/current-system/sw/share/applications"
+            ]
+         },
+         "entrypoints": {
+            "khal": {
+               "enabled": false
+            },
+            "vicinae": {
+               "enabled": false
+            }
+         }
+      },
+      "browser-extension": {
+         "enabled": false
+      },
+      "calculator": {
+         "enabled": false,
+         "preferences": {
+            "backend": "qalculate",
+            "refreshRatesOnStartup": false
+         },
+         "entrypoints": {
+            "refresh-rates": {
+               "enabled": false
+            }
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "about": {
+               "enabled": false
+            },
+            "documentation": {
+               "enabled": false
+            },
+            "keybind-settings": {
+               "enabled": false
+            },
+            "list-extensions": {
+               "enabled": true
+            },
+            "manage-fallback": {
+               "enabled": false
+            },
+            "oauth-token-store": {
+               "enabled": false
+            },
+            "open-config-file": {
+               "enabled": false
+            },
+            "open-default-config": {
+               "enabled": false
+            },
+            "prune-memory": {
+               "enabled": false
+            },
+            "refresh-apps": {
+               "enabled": false
+            },
+            "reload-scripts": {
+               "enabled": false
+            },
+            "report-bug": {
+               "enabled": false
+            },
+            "search-builtin-icons": {
+               "enabled": false
+            },
+            "sponsor": {
+               "enabled": false
+            },
+            "store": {
+               "enabled": true
+            }
+         }
+      },
+      "developer": {
+         "enabled": false
+      },
+      "files": {
+         "enabled": false,
+         "preferences": {
+            "autoIndexing": false,
+            "excludedPaths": "",
+            "paths": "/home/gvolpe",
+            "watcherPaths": ""
+         }
+      },
+      "font": {
+         "enabled": false
+      },
+      "manage-shortcuts": {
+         "enabled": false
+      },
+      "power": {
+         "enabled": false
+      },
+      "raycast-compat": {
+         "enabled": true
+      },
+      "shortcuts": {
+         "enabled": false
+      },
+      "wm": {
+         "enabled": false
+      }
+   }
+}

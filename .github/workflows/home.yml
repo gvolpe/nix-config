@@ -19,32 +19,34 @@ on:
       - 'garnix.yaml'
 
 jobs:
-  checks:
-    runs-on: ubuntu-latest
+  #checks:
+    #runs-on: ubuntu-latest
 
-    outputs:
-      garnix: ${{ steps.garnix.outputs.status }}
+    #outputs:
+      #garnix: ${{ steps.garnix.outputs.status }}
 
-    steps:
-      - uses: actions/checkout@v2.3.2
+    #steps:
+      #- uses: actions/checkout@v2.3.2
 
-      - name: Garnix check status
-        id: garnix
-        uses: ./.github/actions/garnix-check
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Garnix check status
+        #id: garnix
+        #uses: ./.github/actions/garnix-check
+        #with:
+          #github_token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
 
-    needs: checks
-
-    if: needs.checks.outputs.garnix == 'failure'
+    # Always build on GHA due to the quota limits on Garnix
+    #needs: checks
+    #if: needs.checks.outputs.garnix == 'failure'
 
     strategy:
       fail-fast: true
       matrix:
         config_name:
+          - niri-edp
+          - niri-hdmi
           - hyprland-edp
           - hyprland-hdmi
           - hyprland-hdmi-mutable
