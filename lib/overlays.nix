@@ -66,8 +66,6 @@ let
       p.tree-sitter-smithy
     ]);
 
-    vicinae = inputs.vicinae.packages.${system}.default;
-
     wooz = inputs.wooz-flake.packages.${system}.default;
 
     sources = {
@@ -87,6 +85,7 @@ in
   inputs.nurpkgs.overlays.default
   inputs.neovim-flake.overlays.${system}.default
   inputs.niri-flake.overlays.niri
+  inputs.vicinae.overlays.default
   (import ../home/overlays/bazecor)
   (import ../home/overlays/diskonaut)
   (import ../home/overlays/gh-md-toc)
