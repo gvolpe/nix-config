@@ -14,9 +14,9 @@ My current — and always evolving — [NixOS](https://nixos.org/) and [Home Man
 
 ## Niri
 
-My current window manager — a scrollable-tiling Wayland compositor.
+An incredible scrollable-tiling Wayland compositor.
 
-![niri](imgs/niri/niri.png)
+![niri](imgs/niri/info.png)
 
 <details>
 <summary>Environment details</summary>
@@ -54,6 +54,8 @@ My current window manager — a scrollable-tiling Wayland compositor.
 ![nemo](imgs/niri/nemo.png)
 
 ![fuzzel](imgs/niri/fuzzel.png)
+
+![vicinae](imgs/niri/vicinae.png)
 
 ![wlogout](imgs/niri/wlogout.png)
 
