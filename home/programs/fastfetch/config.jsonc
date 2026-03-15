@@ -106,7 +106,7 @@
   "modules": [
     {
       "type": "custom",
-      "format": "{#34}  {#37}Make it reproducible. {#31} {#37}Make it functional. {#33} "
+      "format": "{##6F92E3}  {##FFFFFF}Make it reproducible. {##E64747} {##FFFFFF}Make it functional. {##845DE3} "
     },
     {
       "type": "separator",
