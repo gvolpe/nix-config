@@ -19,6 +19,7 @@ in
         sharedModules = [
           inputs.neovim-flake.homeManagerModules.${system}.default
           inputs.nix-index.homeManagerModules.${system}.default
+          inputs.vicinae.homeManagerModules.default
           ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
           { hidpi = false; dotfiles.mutable = true; }
         ];
