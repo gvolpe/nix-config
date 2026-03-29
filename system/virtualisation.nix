@@ -27,6 +27,8 @@
       virtualisation = {
         memorySize = 8192;
         cores = 6;
+        # Assigns 50 GB of disk space
+        diskSize = 51200;
       };
     };
   };

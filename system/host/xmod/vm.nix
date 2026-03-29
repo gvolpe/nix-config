@@ -1,15 +1,27 @@
 { pkgs, lib, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../wm/niri-light.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  services.globalprotectvpn.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gnome-console
+    globalprotect-openconnect
+  ];
+
+  services.gnome = {
+    core-apps.enable = false;
+    core-developer-tools.enable = false;
+    games.enable = false;
+  };
 
   networking =
     {
-      hostName = "niri-vm";
+      hostName = "gnome-vm";
       wireless.enable = lib.mkForce false;
     };
 
@@ -32,7 +44,16 @@
     };
 
     virtualisation = {
+      diskSize = 51200; # 50 gbs
       graphics = true;
+
+      sharedDirectories = {
+        sxm_workspace = {
+          source = "/home/gvolpe/workspace/sxm";
+          target = "/mnt/workspace";
+        };
+      };
+
       qemu.options = [
         "-device virtio-vga-gl"
         "-display gtk,gl=on"
@@ -46,6 +67,8 @@
   # overrides for system/configuration.nix
   virtualisation.docker.enable = lib.mkForce false;
   hardware.sane.enable = lib.mkForce false;
+
+  system.activationScripts.diff = lib.mkForce "";
 
   services = {
     avahi.enable = lib.mkForce false;
