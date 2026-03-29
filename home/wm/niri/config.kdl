@@ -9,6 +9,7 @@ include "config/output.kdl"
 include "config/layout.kdl"
 include "config/binds.kdl"
 include "config/misc.kdl"
+include "config/animations.kdl"
 include "config/workspaces.kdl"
 include "config/layers.kdl"
 

@@ -62,7 +62,7 @@ let
 
   includeConfig =
     lib.lists.forEach
-      [ "binds" "edp" "hdmi" "input" "layers" "layout" "misc" "windows" "workspaces" ]
+      [ "animations" "binds" "edp" "hdmi" "input" "layers" "layout" "misc" "windows" "workspaces" ]
       (n: { xdg.configFile."niri/config/${n}.kdl".source = genConfigFileName n; });
 in
 {
