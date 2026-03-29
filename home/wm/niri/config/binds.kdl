@@ -24,7 +24,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+P repeat=false hotkey-overlay-title="Launcher: vicinae" { spawn-sh "vicinae toggle"; }
-    //Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel -p '  '"; }
+    //Mod+P hotkey-overlay-title="Launcher: fuzzel" { spawn-sh "fuzzel -p '  '"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock-cmd"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

@@ -21,7 +21,7 @@ in
           inputs.nix-index.homeManagerModules.${system}.default
           inputs.vicinae.homeManagerModules.default
           ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
-          { hidpi = false; dotfiles.mutable = true; }
+          { hidpi = false; dotfiles.mutable = false; }
         ];
 
         users.gvolpe = import ../../../home/wm/niri/vm.nix;
