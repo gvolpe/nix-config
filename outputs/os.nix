@@ -18,7 +18,7 @@ let
     ${host} = nixosSystem {
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };
-      modules = modules' ++ [ ../system/machine/${host} ];
+      modules = modules' ++ [ ../system/host/${host} ];
     };
   };
 in

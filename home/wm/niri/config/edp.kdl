@@ -7,6 +7,12 @@ output "eDP-1" {
     position x=1280 y=0
 }
 
+output "Virtual-1" {
+    mode "1920x1080@60"
+    transform "normal"
+    position x=0 y=0
+}
+
 // portable monitor
 output "DP-1" {
     mode "2560x1440@60.000"
