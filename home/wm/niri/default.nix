@@ -71,6 +71,7 @@ in
     if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';
 
   services.polkit-gnome.enable = true;
+  software.defaults.enable = true;
 
   imports = includeConfig ++ [
     ../../shared

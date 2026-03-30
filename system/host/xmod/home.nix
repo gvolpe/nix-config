@@ -37,5 +37,6 @@ in
 
   fonts.fontconfig.enable = true;
 
+  software.defaults.enable = lib.mkForce false;
   services.udiskie.enable = lib.mkForce false;
 }
