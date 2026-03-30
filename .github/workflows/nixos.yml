@@ -50,7 +50,6 @@ jobs:
           - dell-xps
           - thinkpad-x1
           - tongfang-amd
-          - xmod
 
     steps:
       - uses: actions/checkout@v2.3.2
@@ -80,3 +79,6 @@ jobs:
 
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
+
+      - name: "Build NixOS QEMU VM ❄️"
+        run: nix build .#nixosConfigurations.xmod.config.system.build.vm -L

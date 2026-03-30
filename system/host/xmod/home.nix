@@ -1,20 +1,8 @@
 { pkgs, lib, ... }:
 
 let
-  nerdFonts = with (pkgs.nerd-fonts); [
-    jetbrains-mono
-    iosevka
-  ];
-
-  fontPkgs = with pkgs; [
-    font-awesome # awesome fonts
-    material-design-icons # fonts with glyphs
-  ] ++ nerdFonts;
-
   packages = with pkgs; [
-    libnotify # notifications
     nemo # file manager
-    networkmanagerapplet # network manager systray app
     wl-clipboard # clipboard support
     dig # dns command-line tool
     duf # disk usage/free utility
@@ -28,7 +16,7 @@ let
     unzip # uncompress files
     xsel # clipboard support (also for neovim)
     zip # compress files
-  ] ++ fontPkgs ++ (pkgs.sxm.scripts or [ ]);
+  ];
 in
 {
   imports = [ ../../../home/shared ];
@@ -48,4 +36,6 @@ in
   };
 
   fonts.fontconfig.enable = true;
+
+  services.udiskie.enable = lib.mkForce false;
 }

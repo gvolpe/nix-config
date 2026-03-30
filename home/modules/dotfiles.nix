@@ -12,6 +12,8 @@
         example = "${config.home.homeDirectory}/.dotfiles";
         description = "Location of the dotfiles working copy";
       };
+
+      defaultPackages = lib.mkEnableOption "enable default list of packages";
     };
   };
 }

@@ -1,11 +1,11 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   username = "gvolpe";
   homeDirectory = "/home/${username}";
   configHome = "${homeDirectory}/.config";
 
-  packages = with pkgs; [
+  packs = with pkgs; [
     any-nix-shell # fish support for nix shell
     audacious # simple music player
     bazecor # configuration software for the dygma defy keyboard
@@ -40,6 +40,8 @@ let
     yubioath-flutter # yubikey authenticator gui
     zip # compress files
   ] ++ (pkgs.sxm.scripts or [ ]);
+
+  packages = lib.optional config.dotfiles.defaultPackages packs;
 in
 {
   programs.home-manager.enable = true;
