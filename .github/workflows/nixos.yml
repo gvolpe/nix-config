@@ -80,7 +80,7 @@ jobs:
 
       - name: "Build ${{ matrix.config_name }} NixOS config ❄️"
         run: |
-          if [[ ${{ matrix.config_name }} == "xmod" ]]; then
+          if [[ "${{ matrix.hostname }}" == "xmod" ]]; then
             nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.vm -L
           else
             nix build .#nixosConfigurations.${{ matrix.hostname }}.config.system.build.toplevel -L
