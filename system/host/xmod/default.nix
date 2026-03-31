@@ -71,7 +71,19 @@ in
       graphics = true;
 
       sharedDirectories = {
-        sxm_workspace = {
+        coursier = {
+          source = "/home/gvolpe/.cache/coursier";
+          target = "/home/gvolpe/.cache/coursier";
+        };
+        ivy = {
+          source = "/home/gvolpe/.ivy2";
+          target = "/home/gvolpe/.ivy2";
+        };
+        maven = {
+          source = "/home/gvolpe/.m2";
+          target = "/home/gvolpe/.m2";
+        };
+        workspace = {
           source = "/home/gvolpe/workspace/sxm";
           target = "/mnt/workspace";
         };
