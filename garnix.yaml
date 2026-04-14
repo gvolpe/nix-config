@@ -2,4 +2,4 @@ builds:
  exclude: []
  include:
  - homeConfigurations.niri*
- - nixosConfigurations.thinkpad*
+ - nixosConfigurations.thinkpad-x1
