@@ -1,5 +1,5 @@
 builds:
  exclude: []
  include:
- - homeConfigurations.niri*
+ - homeConfigurations.niri-hdmi
  - nixosConfigurations.thinkpad-x1
