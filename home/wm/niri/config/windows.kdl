@@ -36,6 +36,14 @@ window-rule {
     open-floating true
     default-column-width { fixed 1157; }
     default-window-height { fixed 736; }
+    popups {
+        geometry-corner-radius 6
+        opacity 0.85
+
+        background-effect {
+            blur true
+        }
+    }
 }
 
 window-rule {
@@ -44,6 +52,14 @@ window-rule {
     open-floating true
     default-column-width { fixed 1596; }
     default-window-height { fixed 1240; }
+    popups {
+        geometry-corner-radius 6
+        opacity 0.85
+
+        background-effect {
+            blur true
+        }
+    }
 }
 
 window-rule {

@@ -21,7 +21,7 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="waybar"
+    match namespace="^waybar$"
     opacity 0.75
     //block-out-from "screencast"
 
@@ -35,6 +35,15 @@ layer-rule {
 
     geometry-corner-radius 1
     //baba-is-float true
+
+    popups {
+        geometry-corner-radius 6
+        opacity 0.85
+
+        background-effect {
+            blur true
+        }
+    }
 }
 
 layer-rule {
