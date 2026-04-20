@@ -110,7 +110,6 @@
         treesitter = {
           enable = true;
           autotagHtml = true;
-          context.enable = true;
           textobjects.enable = false;
         };
         keys = {
