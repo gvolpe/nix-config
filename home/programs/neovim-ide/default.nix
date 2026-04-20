@@ -58,7 +58,7 @@
         hurl.enable = true;
         plantuml.enable = true;
         fx.automaton.enable = true;
-        snacks.enable = true;
+        snacks.enable = false;
         visuals = {
           enable = true;
           noice.enable = true;
@@ -108,7 +108,7 @@
         tabline.nvimBufferline.enable = true;
         zen.enable = true;
         treesitter = {
-          enable = true;
+          enable = false;
           autotagHtml = true;
           textobjects.enable = false;
         };
