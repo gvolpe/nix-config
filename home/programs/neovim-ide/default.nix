@@ -108,8 +108,9 @@
         tabline.nvimBufferline.enable = true;
         zen.enable = true;
         treesitter = {
-          enable = false;
+          enable = true;
           autotagHtml = true;
+          context.enable = true;
           textobjects.enable = false;
         };
         keys = {
