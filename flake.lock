@@ -680,6 +680,26 @@
         "type": "github"
       }
     },
+    "helium-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778683525,
+        "narHash": "sha256-uV+0xqrcKxNeEX5cpnVQBRzIhQQAuvYtVjJRERA0U+E=",
+        "owner": "penal-colony",
+        "repo": "helium-nix",
+        "rev": "2c178ce414c900c177e38354a36bd4ea02c8f581",
+        "type": "github"
+      },
+      "original": {
+        "owner": "penal-colony",
+        "repo": "helium-nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -2047,6 +2067,7 @@
         "fish-keytool-completions": "fish-keytool-completions",
         "flake-schemas": "flake-schemas",
         "gh-md-toc": "gh-md-toc",
+        "helium-nix": "helium-nix",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
         "hypr-monitor-attached": "hypr-monitor-attached",

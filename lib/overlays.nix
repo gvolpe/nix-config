@@ -30,6 +30,9 @@ let
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
 
+    # helium browser
+    inherit (inputs.helium-nix.packages.${system}) helium;
+
     builders = {
       mkHome = { pkgs ? f, extraHomeConfig ? { } }:
         import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };

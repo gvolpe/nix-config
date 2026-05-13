@@ -134,6 +134,12 @@
       flake = false;
     };
 
+    # Helium browser
+    helium-nix = {
+      url = github:penal-colony/helium-nix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Github Markdown ToC generator
 
     gh-md-toc = {
