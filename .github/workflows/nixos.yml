@@ -66,6 +66,7 @@ jobs:
           extra_nix_config: |
             accept-flake-config = true
             experimental-features = nix-command flakes ca-derivations
+            trusted-users = root runner
 
       - name: "Install Cachix ❄️"
         uses: cachix/cachix-action@v16
