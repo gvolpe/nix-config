@@ -720,22 +720,6 @@
         "type": "github"
       }
     },
-    "hop": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1694283445,
-        "narHash": "sha256-SnuFeD/lrMxKtpBRPgIwdG0kVF7BWe02PiV7URVDASI=",
-        "owner": "phaazon",
-        "repo": "hop.nvim",
-        "rev": "1a1eceafe54b5081eae4cb91c723abd1d450f34b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "phaazon",
-        "repo": "hop.nvim",
-        "type": "github"
-      }
-    },
     "hurl-nvim": {
       "flake": false,
       "locked": {
@@ -1004,7 +988,6 @@
         "gitsigns-nvim": "gitsigns-nvim",
         "glow-nvim": "glow-nvim",
         "harpoon": "harpoon",
-        "hop": "hop",
         "hurl-nvim": "hurl-nvim",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
@@ -1074,11 +1057,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1777394608,
-        "narHash": "sha256-GmcTKdeYOyNQ1CczUXn6hQzmtmBbiCZiTy+JZ5sNUdk=",
+        "lastModified": 1778689161,
+        "narHash": "sha256-4P+seoivpGCAKW9OQfTH81licDoMRMYQtHaLfYbDljI=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "13083de210f3974a2427d4eb8e5d2cb8e56f48dd",
+        "rev": "46cff41e6db607bdaae2d080f56cc0f59e2fd3a1",
         "type": "github"
       },
       "original": {
