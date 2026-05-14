@@ -685,15 +685,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1778752562,
-        "narHash": "sha256-sT9s9o4BbfKca8q9HOFZk184aSCnaBNqICIpXCakhOw=",
-        "owner": "gvolpe",
+        "lastModified": 1778775894,
+        "narHash": "sha256-ZPLMmyvhj7hhC4yUZFrJ/Mm48y1ScGdv2gcVwaBoVc8=",
+        "owner": "penal-colony",
         "repo": "helium-nix",
-        "rev": "87fefe80d6ed5da70181b83b5ff4a763e2ea6ce4",
+        "rev": "62fc5f5f35de7cf6eafce21ef76e23d12965521f",
         "type": "github"
       },
       "original": {
-        "owner": "gvolpe",
+        "owner": "penal-colony",
         "repo": "helium-nix",
         "type": "github"
       }
