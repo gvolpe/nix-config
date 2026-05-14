@@ -177,6 +177,7 @@ in
     enable = true;
 
     package = pkgs.firefox-beta;
+    configPath = ".mozilla/firefox";
 
     profiles = {
       default = {
