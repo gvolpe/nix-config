@@ -96,5 +96,4 @@ in
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
   (import ../home/overlays/wshowkeys)
-  (import ../home/overlays/zoom)
 ]
