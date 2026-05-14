@@ -21,10 +21,6 @@ let
     inherit (inputs.nsticky-flake.packages.${system}) nsticky;
 
     inherit (inputs.nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
-
-    # globalprotect vpn overlay for no-longer supported package
-    inherit (inputs.nixpkgs-gp.legacyPackages.${system}) globalprotect-openconnect;
-
     inherit (inputs.nixpkgs-hyprland.legacyPackages.${system}) hyprland;
 
     # firefox addon builder function
@@ -96,5 +92,4 @@ in
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
   (import ../home/overlays/wshowkeys)
-  (import ../home/overlays/zoom)
 ]

@@ -81,9 +81,9 @@ in
 
   security.rtkit.enable = true;
 
-  # Scanner backend
+  # Scanner backend (not using this for now)
   hardware.sane = {
-    enable = true;
+    enable = false;
     extraBackends = with pkgs; [
       epkowa
       sane-airscan
