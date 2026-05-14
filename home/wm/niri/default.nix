@@ -32,6 +32,7 @@ let
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
     diskonaut # disk space manager tui
+    helium # chrome-based browser
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland

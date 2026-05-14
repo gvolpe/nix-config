@@ -97,7 +97,6 @@
         neoclip.enable = true;
         dial.enable = true;
         harpoon.enable = true;
-        hop.enable = true;
         notifications.enable = true;
         snippets.vsnip.enable = true;
         tide = {
@@ -135,7 +134,7 @@
         markdown = {
           enable = true;
           glow.enable = true;
-          render.enable = true;
+          render.enable = false;
         };
         chatgpt = {
           enable = true;

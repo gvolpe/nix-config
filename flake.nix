@@ -5,10 +5,14 @@
     extra-substituters = [
       "https://cache.nixos.org"
       "https://cache.garnix.io"
+      "https://gvolpe-nixos.cachix.org"
+      "https://helium-nix.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "gvolpe-nixos.cachix.org-1:0MPlBIMwYmrNqoEaYTox15Ds2t1+3R+6Ycj0hZWMcL0="
+      "helium-nix.cachix.org-1:a8YPjt9O4GPyX0u3gjg/aWpb14teU9aRiSG/MOaSFgw="
     ];
   };
 
@@ -133,6 +137,10 @@
       url = github:ckipp01/keytool-fish-completions;
       flake = false;
     };
+
+    # Helium browser
+    #helium-nix.url = github:penal-colony/helium-nix;
+    helium-nix.url = github:gvolpe/helium-nix;
 
     # Github Markdown ToC generator
 

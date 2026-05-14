@@ -65,9 +65,9 @@ jobs:
         uses: cachix/install-nix-action@v31.8.4
         with:
           extra_nix_config: |
-            substituters = https://cache.garnix.io https://cache.nixos.org/
-            trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+            accept-flake-config = true
             experimental-features = nix-command flakes ca-derivations
+            trusted-users = root runner
 
       - name: "Install Cachix ❄️"
         uses: cachix/cachix-action@v16
@@ -80,4 +80,4 @@ jobs:
         run: nix-env --set-flag priority 0 cachix
 
       - name: "Build ${{ matrix.config_name }} Home Manager config 🏠"
-        run: nix build .#homeConfigurations.${{ matrix.config_name }}.activationPackage -L
+        run: nix build .#homeConfigurations.${{ matrix.config_name }}.activationPackage -L --accept-flake-config

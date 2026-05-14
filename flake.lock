@@ -680,6 +680,24 @@
         "type": "github"
       }
     },
+    "helium-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1778752562,
+        "narHash": "sha256-sT9s9o4BbfKca8q9HOFZk184aSCnaBNqICIpXCakhOw=",
+        "owner": "gvolpe",
+        "repo": "helium-nix",
+        "rev": "87fefe80d6ed5da70181b83b5ff4a763e2ea6ce4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "helium-nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -697,22 +715,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "hop": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1694283445,
-        "narHash": "sha256-SnuFeD/lrMxKtpBRPgIwdG0kVF7BWe02PiV7URVDASI=",
-        "owner": "phaazon",
-        "repo": "hop.nvim",
-        "rev": "1a1eceafe54b5081eae4cb91c723abd1d450f34b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "phaazon",
-        "repo": "hop.nvim",
         "type": "github"
       }
     },
@@ -984,7 +986,6 @@
         "gitsigns-nvim": "gitsigns-nvim",
         "glow-nvim": "glow-nvim",
         "harpoon": "harpoon",
-        "hop": "hop",
         "hurl-nvim": "hurl-nvim",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
@@ -1054,11 +1055,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1777394608,
-        "narHash": "sha256-GmcTKdeYOyNQ1CczUXn6hQzmtmBbiCZiTy+JZ5sNUdk=",
+        "lastModified": 1778689161,
+        "narHash": "sha256-4P+seoivpGCAKW9OQfTH81licDoMRMYQtHaLfYbDljI=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "13083de210f3974a2427d4eb8e5d2cb8e56f48dd",
+        "rev": "46cff41e6db607bdaae2d080f56cc0f59e2fd3a1",
         "type": "github"
       },
       "original": {
@@ -1146,7 +1147,7 @@
     },
     "nil": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1765326831,
@@ -1314,7 +1315,7 @@
     "nixd": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -1333,16 +1334,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1749619289,
-        "narHash": "sha256-qX6gXVjaCXXbcn6A9eSLUf8Fm07MgPGe5ir3++y2O1Q=",
+        "lastModified": 1777578337,
+        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f72be405a10668b8b00937b452f2145244103ebc",
+        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1410,6 +1411,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1749619289,
+        "narHash": "sha256-qX6gXVjaCXXbcn6A9eSLUf8Fm07MgPGe5ir3++y2O1Q=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f72be405a10668b8b00937b452f2145244103ebc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1772963539,
         "narHash": "sha256-G4+9cEu8XSqEWYUB6iRgDfrg53av6yyRwAKhSeKbUVw=",
         "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
@@ -1421,7 +1438,7 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1772736753,
         "narHash": "sha256-au/m3+EuBLoSzWUCb64a/MZq6QUtOV8oC0D9tY2scPQ=",
@@ -1437,7 +1454,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1775710090,
         "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
@@ -1454,7 +1471,7 @@
         "url": "https://github.com/NixOS/nixpkgs"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1770107345,
         "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
@@ -1470,7 +1487,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1775710090,
         "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
@@ -1590,7 +1607,7 @@
     "nurpkgs": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1776178436,
@@ -2047,6 +2064,7 @@
         "fish-keytool-completions": "fish-keytool-completions",
         "flake-schemas": "flake-schemas",
         "gh-md-toc": "gh-md-toc",
+        "helium-nix": "helium-nix",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
         "hypr-monitor-attached": "hypr-monitor-attached",
@@ -2060,7 +2078,7 @@
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "nixpkgs-gp": "nixpkgs-gp",
         "nixpkgs-hyprland": "nixpkgs-hyprland",
         "nord-tmux": "nord-tmux",
@@ -2485,7 +2503,7 @@
     },
     "treefmt-nix_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1772660329,
@@ -2535,7 +2553,7 @@
     },
     "typenix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "tree-sitter-nix": "tree-sitter-nix"
       },
       "locked": {
