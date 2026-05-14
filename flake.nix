@@ -139,7 +139,8 @@
     };
 
     # Helium browser
-    helium-nix.url = github:penal-colony/helium-nix;
+    #helium-nix.url = github:penal-colony/helium-nix;
+    helium-nix.url = github:gvolpe/helium-nix;
 
     # Github Markdown ToC generator
 
