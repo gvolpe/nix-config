@@ -26,7 +26,6 @@ in
 
   environment.systemPackages = with pkgs; [
     gnome-console
-    globalprotect-openconnect
   ];
 
   programs.dconf.enable = true;
@@ -35,8 +34,6 @@ in
     dbus.enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-
-    globalprotectvpn.enable = true;
 
     gnome = {
       core-apps.enable = false;
