@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 let
   username = "gvolpe";
@@ -26,7 +26,6 @@ in
     changes-report.enable = true;
 
     sessionVariables = {
-      BROWSER = "${lib.exe pkgs.firefox-beta}";
       DISPLAY = ":0";
       EDITOR = "nvim";
       # https://github.com/NixOS/nixpkgs/issues/24311#issuecomment-980477051

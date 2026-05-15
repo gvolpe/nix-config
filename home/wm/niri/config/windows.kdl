@@ -97,6 +97,7 @@ window-rule {
 window-rule {
     match app-id=r#"^Audacious$"#
     match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"^helium$"# title="^Picture-in-Picture$"
     match app-id="kitty" title="cava"
     match app-id="org.pwmt.zathura"
     match app-id="waypaper"

@@ -32,7 +32,6 @@ let
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
     diskonaut # disk space manager tui
-    helium # chrome-based browser
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland
@@ -78,6 +77,7 @@ in
     ../../shared
     ../../programs/cava
     ../../programs/fuzzel
+    ../../programs/helium
     ../../programs/kitty
     ../../programs/waybar
     ../../programs/waypaper
