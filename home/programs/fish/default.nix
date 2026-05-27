@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   fzfConfig = ''
@@ -24,6 +24,10 @@ let
   fishConfig = ''
     bind \t accept-autosuggestion
     set fish_greeting
+
+    function fish_user_key_bindings
+        bind \cd 'commandline -P; or true'
+    end
   '' + fzfConfig + themeConfig;
 
   dc = "${pkgs.docker-compose}/bin/docker-compose";
