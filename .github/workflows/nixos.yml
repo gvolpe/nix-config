@@ -27,6 +27,7 @@ jobs:
       fail-fast: true
       matrix:
         hostname:
+          - aorus
           - dell-xps
           - thinkpad-x1
           - tongfang-amd
