@@ -42,6 +42,10 @@ rebuild_niri_hdmi() {
   activate_hm
 }
 
+rebuild_aorus() {
+  sudo nixos-rebuild switch --flake .#aorus
+}
+
 rebuild_thinkpad() {
   sudo nixos-rebuild switch --flake .#thinkpad-x1
 }
@@ -57,20 +61,12 @@ rebuild_tongfang_vm() {
 }
 
 case $1 in
+  "aorus")
+    rebuild_aorus;;
   "niri")
     rebuild_niri_hdmi;;
   "niri-edp")
     rebuild_niri_edp;;
-  "xmedp")
-    rebuild_xmonad_edp;;
-  "xmhdmi")
-    rebuild_xmonad_hdmi;;
-  "hpedp")
-    rebuild_hyprland_edp;;
-  "hphdmi")
-    rebuild_hyprland_hdmi;;
-  "hphdmi-mutable")
-    rebuild_hyprland_hdmi_mutable;;
   "update-fish")
     fish -c fish_update_completions;;
   "update-nix-index")

@@ -5,7 +5,19 @@ On a fresh NixOS installation, run the following commands.
 ```console
 nix develop nixpkgs#git # optional if you don't have git, it's needed by the next command
 nix flake clone github:gvolpe/nix-config --dest /choose/a/path
-./build fresh-install # requires sudo
+```
+
+First install the Home Manager stuff (disable `home.changes-report.report` before doing so, otherwise it'll fail because the `nvd` package is not yet available), e.g.
+
+```console
+nix build .#homeConfigurations.niri-hdmi.activationPackage
+result/activate
+```
+
+Then install the desired NixOS host configuration and reboot.
+
+```console
+sudo nixos-rebuild switch --flake .#host
 reboot
 ```
 

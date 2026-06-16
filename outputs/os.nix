@@ -4,7 +4,7 @@ let
   inherit (inputs.nixpkgs.lib) nixosSystem;
   inherit (pkgs) lib;
 
-  hosts = [ "dell-xps" "thinkpad-x1" "tongfang-amd" "xmod" ];
+  hosts = [ "aorus" "dell-xps" "thinkpad-x1" "tongfang-amd" "xmod" ];
 
   modules' = [
     ../system/configuration.nix

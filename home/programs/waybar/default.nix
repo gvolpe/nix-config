@@ -7,7 +7,7 @@ let
     if !config.dotfiles.mutable then ''@import url("${./style.css}");''
     else ''@import url("${filePath}");'';
 
-  output = if config.hidpi then [ "DP-3" "Virtual-1" ] else [ "eDP-1" ];
+  output = if config.hidpi then [ "DP-1" "DP-3" "HDMI-1" "Virtual-1" ] else [ "eDP-1" ];
   include = [ "${./niri.json}" ];
 in
 {

@@ -19,6 +19,7 @@ window-rule {
 
 window-rule {
     match at-startup=true app-id="firefox-beta"
+    match at-startup=true app-id="helium"
     open-on-workspace "web"
     open-maximized true
 }

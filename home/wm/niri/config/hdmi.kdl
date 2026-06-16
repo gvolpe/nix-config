@@ -1,4 +1,20 @@
-// HDMI monitor
+// DP monitor
+output "DP-1" {
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    mode "3840x2160@59.997"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1.5
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    position x=0 y=0
+}
+
+// HDMI monitor via USB-C adapter
 output "DP-3" {
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
