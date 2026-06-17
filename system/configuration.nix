@@ -135,17 +135,13 @@ in
 
   # Diff report
   system.activationScripts.diff = ''
-    if [[ $TERM == "xterm-kitty" ]]; then
-      export TERM=xterm-256color
-    fi
-
-    BLUE=$(${pkgs.ncurses}/bin/tput setaf 4)
-    CLEAR=$(${pkgs.ncurses}/bin/tput sgr0)
+    BLUE="\e[34m"
+    CLEAR="\e[0m"
 
     if [[ -e /run/current-system ]]; then
-      echo "$BLUE   $CLEAR System Diff Report $BLUE   $CLEAR"
+      echo -e "$BLUE   $CLEAR System Diff Report $BLUE   $CLEAR"
       ${pkgs.nvd}/bin/nvd --nix-bin-dir=${config.nix.package}/bin diff /run/current-system "$systemConfig"
-      echo "$BLUE                $CLEAR"
+      echo -e "$BLUE                $CLEAR"
     fi
   '';
 
