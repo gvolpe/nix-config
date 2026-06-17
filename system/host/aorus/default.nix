@@ -1,12 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../wm/niri.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../wm/niri.nix
+  ];
 
   # bootloader.
   boot = {
@@ -17,6 +15,18 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  # graphics
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = false; # open source drivers? GT1030 not supported by legacy_580
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+    };
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # hostname
   networking.hostName = "aorus";
