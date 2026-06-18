@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -16,17 +16,8 @@
     };
   };
 
-  # graphics
-  hardware = {
-    graphics.enable = true;
-    nvidia = {
-      modesetting.enable = true;
-      open = false; # open source drivers? GT1030 not supported by legacy_580
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
-    };
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # graphics card (AMD Radeon RX 7800 XT)
+  hardware.graphics.enable = true;
 
   # hostname
   networking.hostName = "aorus";
