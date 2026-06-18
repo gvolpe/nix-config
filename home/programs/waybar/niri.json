@@ -87,6 +87,10 @@
 		"format": "CPU {usage:2}%",
 		"tooltip": false
 	},
+	"temperature": {
+    "format": " {temperatureC}°C",
+		"tooltip": false
+	},
 	"battery": {
 		"states": {
 			"good": 95,

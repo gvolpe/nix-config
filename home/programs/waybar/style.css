@@ -37,6 +37,7 @@ window#waybar {
 #window,
 #memory,
 #cpu,
+#temperature,
 #battery,
 #disk,
 #tray {
@@ -84,6 +85,9 @@ window#waybar {
 #cpu {
 	color: #6c71c4;
 }
+#temperature {
+	color: #f54927;
+}
 #battery {
 	color: #859900;
 }
@@ -95,6 +99,7 @@ window#waybar {
 #pulseaudio,
 #memory,
 #cpu,
+#temperature,
 #battery,
 #disk {
 	padding: 0 10px;

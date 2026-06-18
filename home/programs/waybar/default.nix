@@ -50,20 +50,21 @@ in
             "cpu"
             "custom/left-arrow-light"
             "custom/left-arrow-dark"
+            "temperature"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
             "disk"
             "custom/left-arrow-light"
           ]) ++ [
           "custom/left-arrow-dark"
-          "pulseaudio"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "custom/notification"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
+        ] ++ (lib.optionals (!config.hidpi) [
           "battery"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
-        ];
+        ]);
       }
       {
         inherit output include;
@@ -86,6 +87,9 @@ in
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "network"
+          "custom/left-arrow-light"
+          "custom/left-arrow-dark"
+          "pulseaudio"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "custom/audio_idle_inhibitor"
