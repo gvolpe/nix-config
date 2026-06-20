@@ -19,7 +19,6 @@
     # nix doesn't need the full history, this should be the default ¯\_(ツ)_/¯
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
-    nixpkgs-gp.url = "nixpkgs/24.05";
     flake-schemas.url = github:DeterminateSystems/flake-schemas;
 
     # https://github.com/hyprwm/Hyprland/issues/9518
@@ -137,7 +136,7 @@
     };
 
     # Helium browser
-    helium-nix.url = github:penal-colony/helium-nix;
+    helium-nix.url = github:penal-colony/helium-nix?rev=62fc5f5f35de7cf6eafce21ef76e23d12965521f;
 
     # Github Markdown ToC generator
     gh-md-toc = {
