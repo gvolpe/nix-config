@@ -18,11 +18,7 @@
       xkb.layout = "us";
 
       # Enable the Gnome3 desktop manager
-      displayManager.gdm = {
-        enable = true;
-        wayland = false; # screen-sharing is broken
-      };
-
+      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
   };

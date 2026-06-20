@@ -19,8 +19,6 @@ let
   };
 in
 {
-  home.packages = [ pkgs.vicinae ];
-
   services.vicinae = {
     enable = true;
     extensions = [ gifSearch jwtDecoder ];
