@@ -161,12 +161,15 @@ $ nix flake show github:gvolpe/nix-config
 │   └───x86_64-linux
 │       └───nix: app
 ├───homeConfigurations
+│   ├───niri-edp: Home Manager configuration [home-manager-generation]
+│   ├───niri-hdmi: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-edp: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-hdmi: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-hdmi-mutable: Home Manager configuration [home-manager-generation]
 │   ├───xmonad-edp: Home Manager configuration [home-manager-generation]
 │   └───xmonad-hdmi: Home Manager configuration [home-manager-generation]
 ├───nixosConfigurations
+│   ├───aorus: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
 │   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
 │   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
 │   ├───tongfang-amd: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
@@ -180,8 +183,7 @@ $ nix flake show github:gvolpe/nix-config
         ├───metals: package [metals-1.4.1]
         ├───metals-updater: package [metals-updater-script]
         ├───neovim: package [neovim-0.10.2]
-        ├───slack: package [slack-4.41.97]
-        └───zoom-us: package [zoom-6.0.2.4680]
+        └───slack: package [slack-4.41.97]
 ```
 
 As well as all the declared flake inputs.

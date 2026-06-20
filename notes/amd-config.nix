@@ -8,7 +8,7 @@
 
   networking = {
     networkmanager = {
-      enable   = true;
+      enable = true;
       packages = [ pkgs.networkmanager-openvpn ];
     };
     useDHCP = false;
@@ -16,7 +16,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    chromium wget gparted
+    chromium
+    wget
+    gparted
   ];
 
   sound.enable = true;
@@ -33,8 +35,7 @@
       libinput.enable = true;
       videoDrivers = [ "amdgpu" ];
 
-      displayManager.gdm.enable    = true;
-      displayManager.gdm.wayland   = true;
+      displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
     };
   };
@@ -42,8 +43,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
-    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
-    shell        = pkgs.fish;
+    extraGroups = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -56,5 +57,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
