@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  netdev = "enp132s0";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,8 +19,32 @@
     };
   };
 
+  environment.systemPackages = [ pkgs.wayvnc ];
+
   # graphics card (AMD Radeon RX 7800 XT)
   hardware.graphics.enable = true;
+
+  programs.steam.enable = true;
+
+  # tailscale
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "server";
+    extraSetFlags = [ "--advertise-exit-node" ];
+  };
+  # https://tailscale.com/kb/1320/performance-best-practices#linux-optimizations-for-subnet-routers-and-exit-nodes
+  systemd.services = {
+    tailscale-udp-gro-forwarding = {
+      description = "tailscale udp exit node optimization";
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStart = "${pkgs.ethtool}/bin/ethtool -K ${netdev} rx-udp-gro-forwarding on rx-gro-list off";
+      };
+      requires = [ "tailscaled.service" ];
+      after = [ "tailscaled.service" ];
+    };
+  };
 
   # hostname
   networking.hostName = "aorus";

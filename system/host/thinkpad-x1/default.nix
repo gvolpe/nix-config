@@ -21,12 +21,7 @@
   # Enable networking
   networking.hostName = "thinkpad-x1";
 
-  # intel webcam workaround (a bit buggy, does not work with latest linux kernels)
-  # needs: kernelPackages = pkgs.linuxPackages_6_6;
-  hardware.ipu6 = {
-    enable = false;
-    platform = "ipu6ep";
-  };
+  services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
