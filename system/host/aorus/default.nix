@@ -22,9 +22,18 @@ in
   environment.systemPackages = [ pkgs.wayvnc ];
 
   # graphics card (AMD Radeon RX 7800 XT)
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
-  programs.steam.enable = true;
+  # gaming
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+  };
+
+  programs.gamemode.enable = true;
 
   # tailscale
   services.tailscale = {
