@@ -21,10 +21,15 @@ in
 
   environment.systemPackages = [ pkgs.wayvnc ];
 
-  # graphics card (AMD Radeon RX 7800 XT)
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware = {
+    # graphics card (AMD Radeon RX 7800 XT)
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    # gamepad's udev rules from https://github.com/ValveSoftware/steam-devices
+    steam-hardware.enable = true;
   };
 
   # gaming
