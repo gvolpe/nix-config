@@ -68,6 +68,7 @@
       "*hie.yaml" # ghcide files
       "*.mill-version" # used by metals
       "*.jvmopts" # should be local to every project
+      ".claude/" # claude stuff
       "build/" # smithy lsp
     ];
 
