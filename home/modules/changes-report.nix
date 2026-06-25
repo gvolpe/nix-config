@@ -5,7 +5,13 @@
 
   config = lib.mkIf config.home.changes-report.enable {
     home.activation.changesReport = lib.hm.dag.entryAnywhere ''
-      ${pkgs.nvd}/bin/nvd diff $oldGenPath $newGenPath
+      if [ -n "$oldGenPath" ] && [ -n "$newGenPath" ]; then
+          ${pkgs.nvd}/bin/nvd diff $oldGenPath $newGenPath
+      else
+          echo "Unable to process diff:"
+          echo "  - oldGenPath: $oldGenPath"
+          echo "  - newGenPath: $newGenPath"
+      fi
     '';
   };
 }
