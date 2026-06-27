@@ -13,7 +13,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Custom scratchpad support
-    Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "nscratch -id spotify"; }
+    Mod+Ctrl+S hotkey-overlay-title="Spotify Scratchpad Toggle" { spawn-sh "nscratch -id Spotify"; }
     Mod+Ctrl+F hotkey-overlay-title="Nemo Scratchpad Toggle" { spawn-sh "nscratch -id nemo"; }
     Mod+Ctrl+T hotkey-overlay-title="Volume Control" { spawn-sh "nscratch -id org.pulseaudio.pavucontrol"; }
     Mod+Ctrl+Y hotkey-overlay-title="Yubikey Authenticator" { spawn-sh "nscratch -id com.yubico.yubioath -s yubioath-flutter"; }
@@ -39,10 +39,10 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    xF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl --player=spotify 'play-pause'"; }
-    xF86AudioStop        allow-when-locked=true { spawn-sh "playerctl --player=spotify 'stop'"; }
-    xF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl --player=spotify 'previous'"; }
-    xF86AudioNext        allow-when-locked=true { spawn-sh "playerctl --player=spotify 'next'"; }
+    xF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl 'play-pause'"; }
+    xF86AudioStop        allow-when-locked=true { spawn-sh "playerctl 'stop'"; }
+    xF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl 'previous'"; }
+    xF86AudioNext        allow-when-locked=true { spawn-sh "playerctl 'next'"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),

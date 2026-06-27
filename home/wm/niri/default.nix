@@ -20,6 +20,7 @@ let
     playerctl # music player controller
     pulsemixer # pulseaudio mixer
     reaper # digital audio workstation (daw)
+    youtube-music # yt music with mpris support
   ];
 
   videoPkgs = with pkgs.video-scripts; [
