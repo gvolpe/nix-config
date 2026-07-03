@@ -1,4 +1,4 @@
-// DP monitor
+// Microstep MAG321CURV DA2A019280040
 output "DP-1" {
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
@@ -14,12 +14,9 @@ output "DP-1" {
     position x=0 y=0
 }
 
-// HDMI monitor via USB-C adapter
-output "DP-3" {
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440@59.95100"
-    //mode "2560x1440@60.000"
+// PNP(GWD) ARZOPA 2022110200001
+output "DP-2" {
+    mode "2560x1440@60.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
