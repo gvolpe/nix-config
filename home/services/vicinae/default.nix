@@ -19,7 +19,7 @@ let
   };
 in
 {
-  services.vicinae = {
+  programs.vicinae = {
     enable = true;
     extensions = [ gifSearch jwtDecoder ];
     systemd = {
