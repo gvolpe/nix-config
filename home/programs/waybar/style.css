@@ -27,6 +27,13 @@ window#waybar {
 	padding: 5px 5px;
 }
 
+/* gpu usage */
+#custom-gpu-usage {
+  background: #1a1a1a;
+  color: #8BAEF0;
+  padding: 0 10px;
+}
+
 #workspaces,
 #clock.1,
 #clock.2,

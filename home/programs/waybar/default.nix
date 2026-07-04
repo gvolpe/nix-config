@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 let
   filePath = "${config.dotfiles.path}/programs/waybar/style.css";
@@ -11,6 +11,11 @@ let
   include = [ "${./niri.json}" ];
 in
 {
+  home.packages = with pkgs; [
+    gpu-usage-waybar # gpu usage plugin
+    nvtopPackages.amd # gpu status cli
+  ];
+
   # status bar for niri/wayland
   programs.waybar = {
     enable = true;
@@ -48,6 +53,9 @@ in
             "custom/left-arrow-light"
             "custom/left-arrow-dark"
             "cpu"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "custom/gpu-usage"
             "custom/left-arrow-light"
             "custom/left-arrow-dark"
             "temperature"

@@ -221,5 +221,12 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "custom/gpu-usage": {
+    "format": "{} {icon}",
+    "exec": "gpu-usage-waybar",
+    "return-type": "json",
+    "format-icons": "󰾲",
+    "on-click": "kitty -d ~/ --app-id='nvtop' --hold fish -c 'nvtop' &",
   }
 }
