@@ -6,7 +6,7 @@ on:
       - 'home/**'
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - 'GNOME.md'
       - 'README.md'
