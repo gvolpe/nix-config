@@ -6,6 +6,19 @@
 
   environment.systemPackages = with pkgs; [ quickemu ];
 
+  # the default network isn't started by default
+  systemd.services.libvirt-net-start = {
+    description = "Automatically start libvirt default network on boot";
+    after = [ "libvirtd.service" ];
+    requires = [ "libvirtd.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default";
+      RemainAfterExit = true;
+    };
+  };
+
   users = {
     groups.nixosvmtest = { };
     groups.libvirtd.members = [ "gvolpe" ];
