@@ -112,6 +112,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dankcalendar = {
+      url = github:AvengeMedia/dankcalendar;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     waycal = {
       url = github:forrestknight/waycal;
       flake = false;

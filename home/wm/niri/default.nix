@@ -77,6 +77,7 @@ in
   imports = includeConfig ++ [
     ../../shared
     ../../programs/cava
+    ../../programs/dankcalendar
     ../../programs/fuzzel
     ../../programs/helium
     ../../programs/kitty

@@ -216,6 +216,26 @@
         "type": "github"
       }
     },
+    "dankcalendar": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783046648,
+        "narHash": "sha256-SNkBGEkksCPwU049QFBEJRR4Z2siGc08IYanQnQNees=",
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "rev": "65f0fcdb5639cb0a02b4322cfee9a0d87b7f43a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "type": "github"
+      }
+    },
     "dial-nvim": {
       "flake": false,
       "locked": {
@@ -2041,6 +2061,7 @@
     "root": {
       "inputs": {
         "cowsay": "cowsay",
+        "dankcalendar": "dankcalendar",
         "diskonaut": "diskonaut",
         "fish-bobthefish-theme": "fish-bobthefish-theme",
         "fish-keytool-completions": "fish-keytool-completions",
