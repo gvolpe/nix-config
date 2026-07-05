@@ -80,6 +80,7 @@ in
     ../../programs/dankcalendar
     ../../programs/fuzzel
     ../../programs/helium
+    ../../programs/jujutsu
     ../../programs/kitty
     ../../programs/waybar
     ../../programs/waypaper
