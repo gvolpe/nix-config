@@ -48,7 +48,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Spotify"
+    match app-id="Spotify|spotify"
     open-on-workspace "scratch"
     open-floating true
     default-column-width { fixed 1596; }

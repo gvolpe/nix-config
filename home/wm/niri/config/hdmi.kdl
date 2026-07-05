@@ -36,7 +36,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Spotify"
+    match app-id="Spotify|spotify"
     default-column-width { fixed 1596; }
     default-window-height { fixed 1240; }
 }
