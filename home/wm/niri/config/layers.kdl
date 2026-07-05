@@ -46,6 +46,26 @@ layer-rule {
     }
 }
 
+// waycal widget
+layer-rule {
+    match namespace="gtk4-layer-shell"
+    opacity 0.8
+
+    shadow {
+        on
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+    }
+
+    geometry-corner-radius 1
+
+    background-effect {
+        blur true
+    }
+}
+
 layer-rule {
     match namespace="vicinae"
     geometry-corner-radius 10

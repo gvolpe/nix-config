@@ -14,7 +14,19 @@ in
   home.packages = with pkgs; [
     gpu-usage-waybar # gpu usage plugin
     nvtopPackages.amd # gpu status cli
+    waycal # minimal calendar pop-up
   ];
+
+  # scale waycal
+  gtk.gtk4.extraCss = ''
+    window.waycal, .waycal {
+        font-size: 2.0rem;
+    }
+
+    window.waycal button, window.waycal label {
+        padding: 6px 12px;
+    }
+  '';
 
   # status bar for niri/wayland
   programs.waybar = {
@@ -43,7 +55,7 @@ in
           "tray"
           "custom/right-arrow-dark"
           "custom/right-arrow-light"
-          "clock#3"
+          "clock#4"
           "custom/right-arrow-dark"
         ];
         modules-right = lib.optionals config.hidpi

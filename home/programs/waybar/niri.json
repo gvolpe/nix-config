@@ -227,6 +227,11 @@
     "exec": "gpu-usage-waybar",
     "return-type": "json",
     "format-icons": "󰾲",
-    "on-click": "kitty -d ~/ --app-id='nvtop' --hold fish -c 'nvtop' &",
-  }
+    "on-click": "kitty -d ~/ --app-id='nvtop' --hold fish -c 'nvtop' &"
+  },
+  "clock#4": {
+		"format": "{:%b %d}",
+		"tooltip": false,
+    "on-click": "pgrep -io 'waycal' | xargs kill || waycal"
+	}
 }

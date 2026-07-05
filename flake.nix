@@ -112,6 +112,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    waycal = {
+      url = github:forrestknight/waycal;
+      flake = false;
+    };
+
     wooz-flake = {
       url = github:negrel/wooz;
       inputs.nixpkgs.follows = "nixpkgs";

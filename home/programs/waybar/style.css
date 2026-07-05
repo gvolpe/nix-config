@@ -1,35 +1,39 @@
+@define-color background-color #1a1a1a;
+@define-color bar-background-color #292b2e;
+@define-color bar-foreground-color #fdf6e3;
+
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
+	background: @bar-background-color;
+	color: @bar-foreground-color;
 }
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-	color: #1a1a1a;
+	color: @background-color;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
+	color: @bar-background-color;
+	background: @background-color;
 }
 
 /* just the logo */
 #custom-spotify {
-	background: #1a1a1a;
+	background: @background-color;
   color: #04982c;
 	padding: 5px 5px;
 }
 
 /* the info displayed by playerctl */
 #custom-mpris {
-	background: #1a1a1a;
+	background: @background-color;
 	color: #2aa198;
 	padding: 5px 5px;
 }
 
 /* gpu usage */
 #custom-gpu-usage {
-  background: #1a1a1a;
+  background: @background-color;
   color: #8BAEF0;
   padding: 0 10px;
 }
@@ -38,6 +42,7 @@ window#waybar {
 #clock.1,
 #clock.2,
 #clock.3,
+#clock.4,
 #pulseaudio,
 #language,
 #network,
@@ -48,12 +53,12 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-	background: #1a1a1a;
+	background: @background-color;
 }
 
 #workspaces button {
 	padding: 0 2px;
-	color: #fdf6e3;
+	color: @bar-foreground-color;
 }
 #workspaces button.active {
 	color: #268bd2;
@@ -66,8 +71,8 @@ window#waybar {
 	text-shadow: inherit;
 }
 #workspaces button:hover {
-	background: #1a1a1a;
-	border: #1a1a1a;
+	background: @background-color;
+	border: @background-color;
 	padding: 0 3px;
 }
 
@@ -114,22 +119,22 @@ window#waybar {
 
 #custom-quit {
   color: #f59809;
-	background: #1a1a1a;
+	background: @background-color;
 }
 
 #custom-lock {
   color: #6f05e5;
-	background: #1a1a1a;
+	background: @background-color;
 }
 
 #custom-reboot {
   color: #00aba3;
-	background: #1a1a1a;
+	background: @background-color;
 }
 
 #custom-power {
   color: #ff1818;
-	background: #1a1a1a;
+	background: @background-color;
 }
 
 #not-power {
@@ -138,18 +143,18 @@ window#waybar {
 }
 
 #idle_inhibitor {
-	background: #1a1a1a;
+	background: @background-color;
 	padding: 0px 15px;
 }
 
 #custom-audio_idle_inhibitor {
   color: #A66EDB;
-	background: #1a1a1a;
+	background: @background-color;
 	padding: 0px 15px;
 }
 
 #network {
-	background: #1a1a1a;
+	background: @background-color;
 	padding: 0px 15px;
 }
 
@@ -171,18 +176,18 @@ window#waybar {
 
 #language {
 	color: #b58900;
-	background: #1a1a1a;
+	background: @background-color;
   border-radius: 0px;
 	padding: 0px 5px;
 }
 
 #window {
-	background: #1a1a1a;
+	background: @background-color;
 	padding: 0px 0px;
 }
 
 #custom-notification {
   font-family: "JetBrainsMono Nerd Font";
   color: #A66EDB;
-	background: #1a1a1a;
+	background: @background-color;
 }

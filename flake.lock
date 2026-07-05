@@ -2069,6 +2069,7 @@
         "rycee-nurpkgs": "rycee-nurpkgs",
         "snitch": "snitch",
         "vicinae": "vicinae",
+        "waycal": "waycal",
         "wooz-flake": "wooz-flake",
         "wshowkeys": "wshowkeys"
       }
@@ -2640,6 +2641,22 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "vim-vsnip",
+        "type": "github"
+      }
+    },
+    "waycal": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776364928,
+        "narHash": "sha256-h/+L1cAVdamfUGcz5wFGgLNcXCq/O3/LSQJ4Ap8kS2E=",
+        "owner": "forrestknight",
+        "repo": "waycal",
+        "rev": "237640a09242408e767d68e2080b0f011fecc8e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "forrestknight",
+        "repo": "waycal",
         "type": "github"
       }
     },

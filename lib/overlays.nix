@@ -65,7 +65,7 @@ let
     wooz = inputs.wooz-flake.packages.${system}.default;
 
     sources = {
-      inherit (inputs) diskonaut gh-md-toc hyprlax wshowkeys hypr-monitor-attached pyprland;
+      inherit (inputs) diskonaut gh-md-toc hyprlax wshowkeys hypr-monitor-attached pyprland waycal;
     };
 
     xargs = {
@@ -91,5 +91,6 @@ in
   (import ../home/overlays/pyprland)
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
+  (import ../home/overlays/waycal)
   (import ../home/overlays/wshowkeys)
 ]
