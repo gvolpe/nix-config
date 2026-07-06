@@ -1073,11 +1073,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1781986370,
-        "narHash": "sha256-MCiVIrprNa5uoShb8eaLORMqlF54Z5RkaJgzRcVCSXA=",
+        "lastModified": 1783328215,
+        "narHash": "sha256-OngVt1KrQfR8td4XdwqImD3k2g+9eXlW5qPnq7zto7I=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "8a5d7e67fddad33e6cb676c3f404383445468966",
+        "rev": "f60fa5ee175a5ce11b7a5256094ab334fd32d7aa",
         "type": "github"
       },
       "original": {
