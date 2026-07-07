@@ -145,6 +145,7 @@
           gitsigns.enable = true;
           neogit.enable = false;
         };
+        jujutsu.enable = true;
         spider = {
           enable = false;
           skipInsignificantPunctuation = true;

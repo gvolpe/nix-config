@@ -135,6 +135,7 @@
     # Fish shell
 
     fish-bobthefish-theme = {
+      #url = git+file:///home/gvolpe/workspace/theme-bobthefish;
       url = github:gvolpe/theme-bobthefish;
       flake = false;
     };

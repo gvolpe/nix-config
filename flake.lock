@@ -288,11 +288,11 @@
     "fish-bobthefish-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1640180970,
-        "narHash": "sha256-9uuM5fwWl98uDrTHet4MdVpRZYLIQfW0HOfTxGb2o5o=",
+        "lastModified": 1783416424,
+        "narHash": "sha256-6t09hyCeQozvFkISg+xprhvx8UpT9TDGMe8tZddAlxk=",
         "owner": "gvolpe",
         "repo": "theme-bobthefish",
-        "rev": "e4418e8a7de9fbd6b5053a9b9009aa84a48398cd",
+        "rev": "7f5ffd0280d58c66a17b1f4dcf3b10f9722b6c2f",
         "type": "github"
       },
       "original": {
