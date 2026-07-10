@@ -166,6 +166,10 @@ window#waybar {
   color: #aba8a8;
 }
 
+#network.linked {
+	color: #2aa198;
+}
+
 #network.ethernet {
 	color: #2aa198;
 }
