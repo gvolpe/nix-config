@@ -76,6 +76,7 @@ in
 
   imports = includeConfig ++ [
     ../../shared
+    ../../programs/atuin
     ../../programs/cava
     ../../programs/dankcalendar
     ../../programs/fuzzel
