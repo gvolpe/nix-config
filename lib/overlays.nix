@@ -64,8 +64,19 @@ let
 
     wooz = inputs.wooz-flake.packages.${system}.default;
 
+    # gram v3.0.1
+    gram = inputs.nixpkgs-gram.legacyPackages.${system}.gram;
+
+    gram-ext = {
+      inherit (inputs.gram-extensions.packages.${system})
+        buildGramExtension buildGramRustExtension linkGramExtensions
+        bearded-icons catppuccin catppuccin-icons git-firefly night-owlz;
+    };
+
     sources = {
-      inherit (inputs) diskonaut gh-md-toc hyprlax wshowkeys hypr-monitor-attached pyprland waycal;
+      inherit (inputs)
+        diskonaut gh-md-toc hyprlax hypr-monitor-attached pyprland
+        metals-zed tree-sitter-scala waycal wshowkeys;
     };
 
     xargs = {

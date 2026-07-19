@@ -79,6 +79,7 @@ in
     ../../programs/cava
     ../../programs/dankcalendar
     ../../programs/fuzzel
+    ../../programs/gram
     ../../programs/helium
     ../../programs/jujutsu
     ../../programs/kitty

@@ -1,0 +1,48 @@
+// Gram keymap
+//
+// For information on binding keys, see the Gram
+// documentation: gram://docs/key-bindings
+//
+// To see the default key bindings run `gram: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-o": "projects::OpenRecent",
+      "shift shift": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "(VimControl && !menu)", // work for editor and assistant panel
+    "bindings": {
+      "space": "command_palette::Toggle", // leader key
+      "space f o": "workspace::Open", // open a project in a new window
+      "space f s": "workspace::Save", // save file
+      "space b b": "tab_switcher::Toggle", // switch to another open file
+      "space b l": "pane::AlternateFile", // switch to last focused buffer
+      "space w s": "pane::SplitDown", // split window horizontally
+      "space w v": "pane::SplitRight", // split window vertically
+      "space t t": "terminal_panel::ToggleFocus", // open terminal
+      "space w d": "pane::CloseActiveItem", // close current window
+      "space p d": "workspace::ToggleLeftDock", // open filetree view
+      // lsp commands as I have them in neovim
+      "space l g d": "editor::GoToDefinition",
+      "space l g i": "editor::GoToImplementation",
+      "space l g r": "editor::FindAllReferences",
+      "space l g t": "diagnostics::Toggle",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "space t t": "pane::CloseActiveItem", // close the terminal
+    },
+  },
+]

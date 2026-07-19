@@ -1,0 +1,74 @@
+// Gram settings
+//
+// For information on how to configure Gram, see the Gram
+// documentation: gram://docs/configuring-gram
+//
+// To see all of Gram's default settings without changing your
+// custom settings, run `gram: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "restore_on_startup": "launchpad",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "project_panel": {
+    "file_icons": true,
+    "folder_icons": true,
+  },
+  "icon_theme": "Catppuccin Latte",
+  "node": {
+    "allow_binary_download": false,
+  },
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "theme": {
+    "mode": "system",
+    "light": "Rosé Pine Dawn",
+    "dark": "Tokyo Night Moon",
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+  },
+  "lsp": {
+    "metals": {
+      "binary": {
+        "arguments": ["-Dmetals.http=on"],
+      },
+      "initialization_options": {
+        "isHttpEnabled": true,
+      },
+      "settings": {
+        "autoImportBuilds": "all",
+        "inlayHints": {
+          "inferredTypes": {
+            "enable": true,
+          },
+          "implicitArguments": {
+            "enable": true,
+          },
+          "implicitConversions": {
+            "enable": true,
+          },
+          "typeParameters": {
+            "enable": true,
+          },
+          "hintsInPatternMatch": {
+            "enable": true,
+          },
+        },
+      },
+    },
+  },
+  "languages": {
+    "Scala": {
+      "enable_auto_indent": false,
+      "language_servers": ["metals"],
+    },
+  },
+}

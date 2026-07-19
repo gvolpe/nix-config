@@ -160,6 +160,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Gram editor
+    # TODO: remove on next nixpkgs upgrade
+    nixpkgs-gram.url = "nixpkgs/770b9bbb84018993c8f009d437fff6c2e3077037"; # v3.0.1
+
+    gram-extensions = {
+      url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions";
+      #inputs.nixpkgs.follows = "nixpkgs"; # needs https://github.com/NixOS/nixpkgs/pull/537433
+    };
+
+    # Scala plugin for gram
+    metals-zed = {
+      url = github:scalameta/metals-zed?ref=v0.2.4;
+      flake = false;
+    };
+
+    # Revision that metals-zed pins in their extension.toml file
+    tree-sitter-scala = {
+      url = github:tree-sitter/tree-sitter-scala?ref=97aead18d97708190a51d4f551ea9b05b60641c9;
+      flake = false;
+    };
+
     # Miscelaneous
 
     cowsay = {
