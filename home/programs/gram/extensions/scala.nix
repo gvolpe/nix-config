@@ -2,16 +2,11 @@
 
 gram-ext.buildGramRustExtension (attrs: {
   id = "scala";
-  version = "0.2.4";
+  version = "0.2.5-rc0";
 
   src = sources.metals-zed;
 
-  # the upstream lock file is git-ignored: https://github.com/scalameta/metals-zed/blob/a5228e7069bf9d4bb70bc42824e13dd41c161b47/.gitignore#L8
-  cargoLock.lockFile = ./metals-zed-cargo.lock;
-
-  prePatch = ''
-    cp ${./metals-zed-cargo.lock} Cargo.lock
-  '';
+  cargoHash = "sha256-sdzJD7oczNtT4cBEB4n9md6Ob6xkdmj+vIABbxClJ7s=";
 
   # fix incompatibility with gram
   postPatch = ''

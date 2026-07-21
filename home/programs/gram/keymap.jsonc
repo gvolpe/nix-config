@@ -10,7 +10,8 @@
     "context": "Workspace",
     "bindings": {
       "ctrl-o": "projects::OpenRecent",
-      "shift shift": "file_finder::Toggle",
+      "ctrl-s": "workspace::ToggleLeftDock", // filetree viewer
+      "space l d": "diagnostics::Toggle", // lsp diagnostics
     },
   },
   {
@@ -31,12 +32,11 @@
       "space w v": "pane::SplitRight", // split window vertically
       "space t t": "terminal_panel::ToggleFocus", // open terminal
       "space w d": "pane::CloseActiveItem", // close current window
-      "space p d": "workspace::ToggleLeftDock", // open filetree view
-      // lsp commands as I have them in neovim
+      // lsp commands
       "space l g d": "editor::GoToDefinition",
       "space l g i": "editor::GoToImplementation",
       "space l g r": "editor::FindAllReferences",
-      "space l g t": "diagnostics::Toggle",
+      "space l h": "editor::ToggleInlayHints",
     },
   },
   {

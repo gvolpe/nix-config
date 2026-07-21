@@ -4,7 +4,7 @@ let
   inherit (config.lib.file) mkOutOfStoreSymlink;
 
   # gram needs nodejs to dynamically discover the system architecture
-  binaries = with pkgs;[ metals nodejs ];
+  binaries = with pkgs;[ metals nil nodejs ];
 
   gram = pkgs.symlinkJoin {
     name = "gram-wrapped";

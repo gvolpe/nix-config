@@ -171,7 +171,8 @@
 
     # Scala plugin for gram
     metals-zed = {
-      url = github:scalameta/metals-zed?ref=v0.2.4;
+      #url = github:scalameta/metals-zed?ref=v0.2.4;
+      url = github:scalameta/metals-zed;
       flake = false;
     };
 

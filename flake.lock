@@ -944,16 +944,15 @@
     "metals-zed": {
       "flake": false,
       "locked": {
-        "lastModified": 1782914050,
-        "narHash": "sha256-jmSYiThBY4Rz1gmtrU+PpRAvsxnvxKukV7SHsuarDqQ=",
+        "lastModified": 1784645206,
+        "narHash": "sha256-z8qeE5UxeMBxnB6GQp4z0qsFYB25qzRWhTYGr/ZO00s=",
         "owner": "scalameta",
         "repo": "metals-zed",
-        "rev": "a5228e7069bf9d4bb70bc42824e13dd41c161b47",
+        "rev": "c88759e7e5e49d1ee7bba1284dfe2fb3170c979b",
         "type": "github"
       },
       "original": {
         "owner": "scalameta",
-        "ref": "v0.2.4",
         "repo": "metals-zed",
         "type": "github"
       }
