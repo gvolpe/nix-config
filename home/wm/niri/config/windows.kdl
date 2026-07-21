@@ -11,7 +11,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^Slack$"#
+    match app-id=r#"^Slack$|^slack$"#
     match app-id=r#"^org.telegram.desktop$"#
     open-on-workspace "chat"
     open-maximized true
