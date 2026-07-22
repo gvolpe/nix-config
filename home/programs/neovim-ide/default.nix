@@ -1,32 +1,66 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.neovim-ide = {
     enable = true;
     settings = {
       vim = {
-        viAlias = false;
-        vimAlias = true;
-        preventJunkFiles = true;
+        autocomplete.enable = true;
+        autopairs.enable = true;
+        chatgpt = {
+          inherit (config.secrets) openaiApiKey;
+          enable = true;
+        };
+        comments = {
+          enable = true;
+          type = "nerdcommenter";
+        };
         customPlugins = with pkgs.vimPlugins; [
           vim-mergetool
           vim-multiple-cursors
           vim-repeat
         ];
+        dial.enable = true;
+        filetree.nvimTreeLua = {
+          enable = true;
+          hideDotFiles = false;
+          hideFiles = [ "node_modules" ".cache" ];
+          openOnSetup = false;
+        };
+        fx.automaton.enable = true;
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          neogit.enable = false;
+        };
+        harpoon.enable = true;
+        hurl.enable = true;
+        jujutsu.enable = true;
+        keys = {
+          enable = true;
+          whichKey.enable = true;
+        };
         #neovim.package = pkgs.neovim-nightly;
         lsp = {
+          clang = false;
+          dhall = false;
+          elm = true;
           enable = true;
           folds = true;
           formatOnSave = false;
+          go = false;
+          haskell = false;
           lightbulb.enable = true;
-          lspsaga.enable = false;
-          nvimCodeActionMenu.enable = true;
-          trouble.enable = true;
           lspSignature.enable = false;
+          lspsaga.enable = false;
           nix = {
             enable = true;
+            formatter = "${lib.exe pkgs.pedantix}";
             type = "nil";
           };
+          nvimCodeActionMenu.enable = true;
+          python = false;
+          rust.enable = false;
           scala = {
             enable = true;
             metals = {
@@ -43,112 +77,16 @@
               ];
             };
           };
-          ts = true;
           smithy.enable = false;
-          rust.enable = false;
-          dhall = false;
-          elm = true;
-          haskell = false;
-          unison = true;
           sql = false;
-          python = false;
-          clang = false;
-          go = false;
-        };
-        hurl.enable = true;
-        plantuml.enable = true;
-        fx.automaton.enable = true;
-        snacks.enable = false;
-        visuals = {
-          enable = true;
-          noice.enable = true;
-          nvimWebDevicons.enable = true;
-          lspkind.enable = true;
-          indentBlankline = {
-            enable = true;
-            fillChar = "";
-            eolChar = "";
-            showCurrContext = true;
-          };
-          cursorWordline = {
-            enable = true;
-            lineTimeout = 0;
-          };
-        };
-        statusline.lualine = {
-          enable = true;
-          theme = "onedark";
-        };
-        theme = {
-          enable = true;
-          name = "onedark";
-          style = "deep";
-          transparency = true;
-        };
-        autopairs.enable = true;
-        autocomplete.enable = true;
-        filetree.nvimTreeLua = {
-          enable = true;
-          hideDotFiles = false;
-          hideFiles = [ "node_modules" ".cache" ];
-          openOnSetup = false;
-        };
-        mini.enable = true;
-        neoclip.enable = true;
-        dial.enable = true;
-        harpoon.enable = true;
-        notifications.enable = true;
-        snippets.vsnip.enable = true;
-        tide = {
-          enable = true;
-          keys.splits.vertical = "~";
-        };
-        todo.enable = true;
-        tabline.nvimBufferline.enable = true;
-        zen.enable = true;
-        treesitter = {
-          enable = true;
-          autotagHtml = true;
-          context.enable = true;
-          textobjects.enable = false;
-        };
-        keys = {
-          enable = true;
-          whichKey.enable = true;
-        };
-        comments = {
-          enable = true;
-          type = "nerdcommenter";
-        };
-        shortcuts = {
-          enable = true;
-        };
-        surround = {
-          enable = true;
-        };
-        telescope = {
-          enable = true;
-          mediaFiles.enable = true;
-          tabs.enable = true;
+          trouble.enable = true;
+          ts = true;
+          unison = true;
         };
         markdown = {
           enable = true;
           glow.enable = true;
           render.enable = false;
-        };
-        chatgpt = {
-          enable = true;
-          inherit (config.secrets) openaiApiKey;
-        };
-        git = {
-          enable = true;
-          gitsigns.enable = true;
-          neogit.enable = false;
-        };
-        jujutsu.enable = true;
-        spider = {
-          enable = false;
-          skipInsignificantPunctuation = true;
         };
         mind = {
           enable = true;
@@ -158,6 +96,69 @@
             statePath = "~/Documents/mind.nvim/mind.json";
           };
         };
+        mini.enable = true;
+        neoclip.enable = true;
+        notifications.enable = true;
+        plantuml.enable = true;
+        preventJunkFiles = true;
+        shortcuts = {
+          enable = true;
+        };
+        snacks.enable = false;
+        snippets.vsnip.enable = true;
+        spider = {
+          enable = false;
+          skipInsignificantPunctuation = true;
+        };
+        statusline.lualine = {
+          enable = true;
+          theme = "onedark";
+        };
+        surround = {
+          enable = true;
+        };
+        tabline.nvimBufferline.enable = true;
+        telescope = {
+          enable = true;
+          mediaFiles.enable = true;
+          tabs.enable = true;
+        };
+        theme = {
+          enable = true;
+          name = "onedark";
+          style = "deep";
+          transparency = true;
+        };
+        tide = {
+          enable = true;
+          keys.splits.vertical = "~";
+        };
+        todo.enable = true;
+        treesitter = {
+          autotagHtml = true;
+          context.enable = true;
+          enable = true;
+          textobjects.enable = false;
+        };
+        viAlias = false;
+        vimAlias = true;
+        visuals = {
+          cursorWordline = {
+            enable = true;
+            lineTimeout = 0;
+          };
+          enable = true;
+          indentBlankline = {
+            enable = true;
+            eolChar = "";
+            fillChar = "";
+            showCurrContext = true;
+          };
+          lspkind.enable = true;
+          noice.enable = true;
+          nvimWebDevicons.enable = true;
+        };
+        zen.enable = true;
       };
     };
   };

@@ -194,15 +194,21 @@
       flake = false;
     };
 
+    nord-tmux = {
+      url = github:arcticicestudio/nord-tmux;
+      flake = false;
+    };
+
+    pedantix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = github:swarsel/pedantix;
+    };
+
     snitch = {
       url = github:karol-broda/snitch;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nord-tmux = {
-      url = github:arcticicestudio/nord-tmux;
-      flake = false;
-    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:

@@ -76,7 +76,7 @@ let
     sources = {
       inherit (inputs)
         diskonaut gh-md-toc hyprlax hypr-monitor-attached pyprland
-        metals-zed tree-sitter-scala waycal wshowkeys;
+        metals-zed tree-sitter-scala pedantix waycal wshowkeys;
     };
 
     xargs = {
@@ -99,6 +99,7 @@ in
   (import ../home/overlays/gh-md-toc)
   (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
+  (import ../home/overlays/pedantix)
   (import ../home/overlays/pyprland)
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
