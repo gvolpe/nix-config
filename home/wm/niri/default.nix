@@ -36,6 +36,7 @@ let
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland
+    handy # speech to text
     hyprlax # dynamic wallpapers
     kooha # screencast recorder
     libnotify # notifications

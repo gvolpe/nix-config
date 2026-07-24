@@ -27,6 +27,9 @@ binds {
     //Mod+P hotkey-overlay-title="Launcher: fuzzel" { spawn-sh "fuzzel -p '  '"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock-cmd"; }
 
+    // text-to-speech app
+    Mod+T repeat=false hotkey-overlay-title="Transcribe text" { spawn-sh "handy --toggle-transcription"; }
+
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).

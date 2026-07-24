@@ -97,6 +97,7 @@ in
   (import ../home/overlays/bazecor)
   (import ../home/overlays/diskonaut)
   (import ../home/overlays/gh-md-toc)
+  (import ../home/overlays/handy)
   (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pedantix)

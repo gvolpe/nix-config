@@ -7,7 +7,7 @@
     daemon.enable = true;
     settings = {
       auto_sync = true;
-      enter_accept = false;
+      enter_accept = true;
       filter_mode = "global";
       sync_frequency = "5m";
       sync_address = "https://atuin.gvolpe.com";
