@@ -239,9 +239,7 @@
 
       packages.${system} = {
         inherit neovim;
-        inherit (pkgs) bazecor quickemu metals metals-updater;
-        # crappy software I need for $work
-        inherit (pkgs) slack;
+        inherit (pkgs) bazecor metals metals-updater quickemu slack;
       };
     };
 }

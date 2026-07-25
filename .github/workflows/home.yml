@@ -27,10 +27,7 @@ jobs:
         config_name:
           - niri-edp
           - niri-hdmi
-          - hyprland-edp
           - hyprland-hdmi
-          - hyprland-hdmi-mutable
-          - xmonad-edp
           - xmonad-hdmi
 
     steps:
