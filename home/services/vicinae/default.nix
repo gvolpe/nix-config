@@ -1,11 +1,6 @@
 { pkgs, config, ... }:
 
 let
-  filePath = "${config.dotfiles.path}/services/vicinae/settings.json";
-  configSrc =
-    if !config.dotfiles.mutable then ./settings.json
-    else config.lib.file.mkOutOfStoreSymlink filePath;
-
   gifSearch = pkgs.mkRayCastExtension {
     name = "gif-search";
     sha256 = "sha256-/59ZaKe6gUkemauakgSvwkb76kN3aciKHgAh2yYk6jI=";
@@ -31,5 +26,6 @@ in
     };
   };
 
-  xdg.configFile."vicinae/settings.json".source = configSrc;
+  xdg.configFile."vicinae/settings.json".source =
+    config.dotfiles.make ./settings.json "services/vicinae";
 }

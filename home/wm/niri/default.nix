@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
+  inherit (config) dotfiles;
 
   nerdFonts = with (pkgs.nerd-fonts); [
     jetbrains-mono
@@ -52,15 +52,10 @@ let
     wooz # zoom / magnifier utility
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
-  configPath = "${config.dotfiles.path}/wm/niri";
-
-  configSrc =
-    if !config.dotfiles.mutable then ./config.kdl
-    else mkOutOfStoreSymlink "${configPath}/config.kdl";
+  configSrc = dotfiles.make ./config.kdl "wm/niri";
 
   genConfigFileName = name:
-    if !config.dotfiles.mutable then ./config/${name}.kdl
-    else mkOutOfStoreSymlink "${configPath}/config/${name}.kdl";
+    dotfiles.make ./config/${name}.kdl "wm/niri/config";
 
   includeConfig =
     lib.lists.forEach
@@ -131,5 +126,3 @@ in
     xdgOpenUsePortal = true;
   };
 }
-
-

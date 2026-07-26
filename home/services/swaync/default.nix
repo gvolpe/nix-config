@@ -7,15 +7,9 @@ let
   filePath = "${config.dotfiles.path}/services/swaync";
   jsonConfig = builtins.fromJSON (builtins.readFile ./config.json);
 
-  style =
-    if !config.dotfiles.mutable then ./style.css
-    else mkOutOfStoreSymlink "${filePath}/style.css";
+  style = config.dotfiles.make ./style.css "services/swaync";
 in
 {
-  xdg.configFile."swaync/config.json" = lib.mkIf config.dotfiles.mutable {
-    source = lib.mkForce (mkOutOfStoreSymlink "${filePath}/config.json");
-  };
-
   services.swaync = {
     inherit style;
     enable = true;
@@ -24,5 +18,9 @@ in
         "$schema" = "${cfg.package}/etc/xdg/swaync/configSchema.json";
       }
     );
+  };
+
+  xdg.configFile."swaync/config.json" = lib.mkIf config.dotfiles.mutable {
+    source = lib.mkForce (mkOutOfStoreSymlink "${filePath}/config.json");
   };
 }

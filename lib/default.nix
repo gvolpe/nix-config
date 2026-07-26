@@ -32,10 +32,10 @@
        secretManager :: String -> (String -> a) -> String -> a -> a
   */
   secretManager =
-    { filepath
-    , fileAction ? import
+    { emptyValue
     , encryptedSha256
-    , emptyValue
+    , fileAction ? import
+    , filepath
     }:
     let
       fileHash = builtins.hashFile "sha256" filepath;

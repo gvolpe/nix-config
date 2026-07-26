@@ -1,15 +1,15 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
+  inherit (config) dotfiles;
 
   # gram needs nodejs to dynamically discover the system architecture
   binaries = with pkgs;[ metals nil nodejs ];
 
   gram = pkgs.symlinkJoin {
     name = "gram-wrapped";
-    paths = [ pkgs.gram ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
+    paths = [ pkgs.gram ];
     postBuild = ''
       wrapProgram $out/bin/gram \
         --prefix PATH : ${lib.makeBinPath binaries}
@@ -19,14 +19,9 @@ let
   extensions = pkgs.callPackage ./extensions { };
   extensions-dir = pkgs.gram-ext.linkGramExtensions extensions;
 
-  configPath = "${config.dotfiles.path}/programs/gram";
-
-  mkConfigFile = filepath: filename:
-    if !config.dotfiles.mutable then filepath
-    else mkOutOfStoreSymlink "${configPath}/${filename}";
-
-  keymapFile = mkConfigFile ./keymap.jsonc "keymap.jsonc";
-  settingsFile = mkConfigFile ./settings.jsonc "settings.jsonc";
+  subpath = "programs/gram";
+  keymapFile = dotfiles.make ./keymap.jsonc subpath;
+  settingsFile = dotfiles.make ./settings.jsonc subpath;
 in
 {
   home.packages = [ gram ];
@@ -36,10 +31,10 @@ in
 
   xdg.dataFile."gram/extensions/installed" = {
     enable = true;
-    source = extensions-dir;
     onChange = ''
       cd "${config.xdg.dataHome}/gram/extensions"
       mv index.json index.json.backup
     '';
+    source = extensions-dir;
   };
 }
