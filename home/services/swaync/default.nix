@@ -1,13 +1,10 @@
 { config, lib, ... }:
 
 let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-
   cfg = config.services.swaync;
-  filePath = "${config.dotfiles.path}/services/swaync";
   jsonConfig = builtins.fromJSON (builtins.readFile ./config.json);
 
-  style = config.dotfiles.make ./style.css "services/swaync";
+  style = config.dotfiles.make ./style.css ./.;
 in
 {
   services.swaync = {
@@ -21,6 +18,6 @@ in
   };
 
   xdg.configFile."swaync/config.json" = lib.mkIf config.dotfiles.mutable {
-    source = lib.mkForce (mkOutOfStoreSymlink "${filePath}/config.json");
+    source = lib.mkForce (config.dotfiles.make ./config.json ./.);
   };
 }

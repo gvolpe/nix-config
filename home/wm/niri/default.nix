@@ -52,23 +52,27 @@ let
     wooz # zoom / magnifier utility
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
-  configSrc = dotfiles.make ./config.kdl "wm/niri";
-
-  genConfigFileName = name:
-    dotfiles.make ./config/${name}.kdl "wm/niri/config";
+  genConfigFile = name:
+    dotfiles.make ./config/${name}.kdl ./config;
 
   includeConfig =
     lib.lists.forEach
       [ "animations" "binds" "edp" "hdmi" "input" "layers" "layout" "misc" "windows" "workspaces" ]
-      (n: { xdg.configFile."niri/config/${n}.kdl".source = genConfigFileName n; });
+      (n: { xdg.configFile."niri/config/${n}.kdl".source = genConfigFile n; });
 in
 {
-  xdg.configFile."niri/config.kdl".source = configSrc;
-  xdg.configFile."niri/config/output.kdl".text =
-    if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';
+  fonts.fontconfig.enable = true;
 
-  services.polkit-gnome.enable = true;
-  software.defaults.enable = true;
+  home = {
+    inherit packages;
+    sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      MOZ_ENABLE_WAYLAND = 1;
+      NIXOS_OZONE_WL = 1;
+      SHELL = "${lib.exe pkgs.fish}";
+    };
+    stateVersion = "23.05";
+  };
 
   imports = includeConfig ++ [
     ../../shared
@@ -89,19 +93,9 @@ in
     ../../services/vicinae
   ];
 
-  home = {
-    inherit packages;
-    stateVersion = "23.05";
+  services.polkit-gnome.enable = true;
 
-    sessionVariables = {
-      NIXOS_OZONE_WL = 1;
-      SHELL = "${lib.exe pkgs.fish}";
-      MOZ_ENABLE_WAYLAND = 1;
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    };
-  };
-
-  fonts.fontconfig.enable = true;
+  software.defaults.enable = true;
 
   # e.g. for slack, etc
   xdg.configFile."electron-flags.conf".text = ''
@@ -109,8 +103,12 @@ in
     --ozone-platform=wayland
   '';
 
+  xdg.configFile."niri/config.kdl".source = dotfiles.make ./config.kdl ./.;
+
+  xdg.configFile."niri/config/output.kdl".text =
+    if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';
+
   xdg.portal = {
-    enable = true;
     config = {
       common = {
         default = [ "gtk" "gnome" ];
@@ -119,6 +117,7 @@ in
         default = [ "gtk" "gnome" ];
       };
     };
+    enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
