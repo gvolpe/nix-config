@@ -93,7 +93,7 @@ in
   overlays
   inputs.helium-nix.overlays.default
   inputs.neovim-flake.overlays.default
-  inputs.nix-index.overlays.${system}.default
+  inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
   inputs.niri-flake.overlays.niri
   inputs.vicinae.overlays.default

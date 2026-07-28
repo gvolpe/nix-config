@@ -51,6 +51,7 @@
     };
 
     nix-index = {
+      #url = git+file:///home/gvolpe/workspace/nix-index;
       url = github:gvolpe/nix-index;
       inputs.nix-index-database.follows = "nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
