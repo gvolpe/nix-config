@@ -33,6 +33,9 @@ in
     };
   };
 
+  # https://github.com/nix-community/home-manager/issues/7935
+  manual.manpages.enable = false;
+
   # garbage collection
   nix.gc = {
     automatic = true;
