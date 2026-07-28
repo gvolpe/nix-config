@@ -1,7 +1,7 @@
-{ writeShellScriptBin, ripgrep, xorg, ... }:
+{ writeShellScriptBin, ripgrep, setxkbmap, ... }:
 
 let
-  xkbmap = "${xorg.setxkbmap}/bin/setxkbmap";
+  xkbmap = "${setxkbmap}/bin/setxkbmap";
   rg = "${ripgrep}/bin/rg";
 in
 writeShellScriptBin "kls" ''

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  openCalendar = "${pkgs.xfce.orage}/bin/orage";
+  openCalendar = "${pkgs.orage}/bin/orage";
 
   mainBar = import ./bar.nix { inherit config; };
 
@@ -82,7 +82,7 @@ in
   home.packages = with pkgs; [
     font-awesome          # awesome fonts
     material-design-icons # fonts with glyphs
-    xfce.orage            # lightweight calendar
+    orage                 # lightweight calendar
   ];
 
   services.polybar = {

@@ -105,6 +105,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     extraConfig = (builtins.readFile ./hyprland.conf) + ''
       bindd=,F1,Show keybindings,exec,hypr-binds
       bindd=SUPER,P,App launcher,exec,${lib.exe pkgs.wofi} --show run --style=${./wofi.css} --term=footclient --prompt=Run

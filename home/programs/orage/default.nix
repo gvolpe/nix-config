@@ -38,7 +38,7 @@
     Start minimized=false
     Set sticked=true
     Set ontop=false
-    Own icon file=${pkgs.xfce.orage}/share/icons/hicolor/160x160/apps/org.xfce.orage.xpm
+    Own icon file=${pkgs.orage}/share/icons/hicolor/160x160/apps/org.xfce.orage.xpm
     Own icon row1 data=%a
     Own icon row2 data=%d
     Own icon row3 data=%b
