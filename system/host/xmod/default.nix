@@ -16,7 +16,9 @@ in
 
     sharedModules = [
       inputs.neovim-flake.homeManagerModules.${system}.default
-      inputs.nix-index.homeManagerModules.${system}.default
+      # the nix-index hm module injects nixpkgs.overlays
+      # inputs.nix-index.homeManagerModules.${system}.default
+      (import (inputs.nix-index + "/modules/hm.nix"))
       ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
       { hidpi = false; dotfiles.mutable = false; }
     ];

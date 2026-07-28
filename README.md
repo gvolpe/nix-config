@@ -156,34 +156,33 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 <summary>Expand to see available ouputs</summary>
 
 ```console
-$ nix flake show github:gvolpe/nix-config
-├───apps
-│   └───x86_64-linux
-│       └───nix: app
+$ dnix flake show --drv-names github:gvolpe/nix-config
 ├───homeConfigurations
-│   ├───niri-edp: Home Manager configuration [home-manager-generation]
-│   ├───niri-hdmi: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-edp: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-hdmi: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-hdmi-mutable: Home Manager configuration [home-manager-generation]
+│   ├───niri-edp: Home Manager configuration [home-manager-generation]
+│   ├───niri-hdmi: Home Manager configuration [home-manager-generation]
 │   ├───xmonad-edp: Home Manager configuration [home-manager-generation]
 │   └───xmonad-hdmi: Home Manager configuration [home-manager-generation]
 ├───nixosConfigurations
-│   ├───aorus: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
-│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-24.11.20240620.d603719]
-│   ├───thinkpad: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
-│   ├───tongfang-amd: NixOS configuration [nixos-system-thinkpad-x1-24.11.20240620.d603719]
-│   └───xmod: NixOS configuration [nixos-system-tongfang-amd-24.11.20240620.d603719]
+│   ├───aorus: NixOS configuration [nixos-system-aorus-26.11.20260702.6517942]
+│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-26.11.20260702.6517942]
+│   ├───thinkpad-x1: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260702.6517942]
+│   ├───tongfang-amd: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260702.6517942]
+│   └───xmod: NixOS configuration [nixos-system-nixos-vm-26.11.20260702.6517942]
 ├───out
 │   ├───overlays: custom instance to be used by consumers of this flake
 │   └───pkgs: custom instance to be used by consumers of this flake
 └───packages
     └───x86_64-linux
-        ├───bazecor: package [bazecor-1.5.4-patched]
-        ├───metals: package [metals-1.4.1]
+        ├───bazecor: package [bazecor-1.6.5]
+        ├───metals: package [metals-1.6.7]
         ├───metals-updater: package [metals-updater-script]
-        ├───neovim: package [neovim-0.10.2]
-        └───slack: package [slack-4.41.97]
+        ├───neovim: package [neovim-0.12.3]
+        ├───nix: package [determinate-nix-3.21.8]
+        ├───quickemu: package [quickemu-4.9.9]
+        └───slack: package [slack-4.49.89]
 ```
 
 As well as all the declared flake inputs.

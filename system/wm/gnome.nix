@@ -5,6 +5,10 @@
 
   # Enable the X11 windowing system.
   services = {
+    # Enable the Gnome3 desktop manager
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
     # Gnome config
     dbus.packages = [ pkgs.dconf ];
     udev.packages = [ pkgs.gnome-settings-daemon ];
@@ -16,10 +20,6 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
-
-      # Enable the Gnome3 desktop manager
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
     };
   };
 }

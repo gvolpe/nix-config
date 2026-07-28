@@ -75,7 +75,7 @@ let
 
     sources = {
       inherit (inputs)
-        diskonaut gh-md-toc hyprlax hypr-monitor-attached pyprland
+        determinate-nix diskonaut gh-md-toc hyprlax hypr-monitor-attached pyprland
         metals-zed tree-sitter-scala pedantix waycal wshowkeys;
     };
 
@@ -95,6 +95,7 @@ in
   inputs.niri-flake.overlays.niri
   inputs.vicinae.overlays.default
   (import ../home/overlays/bazecor)
+  (import ../home/overlays/determinate-nix)
   (import ../home/overlays/diskonaut)
   (import ../home/overlays/gh-md-toc)
   (import ../home/overlays/handy)

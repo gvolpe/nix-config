@@ -6,11 +6,13 @@
       "https://cache.nixos.org"
       "https://gvolpe-nixos.cachix.org"
       "https://helium-nix.cachix.org"
+      "https://install.determinate.systems"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "gvolpe-nixos.cachix.org-1:0MPlBIMwYmrNqoEaYTox15Ds2t1+3R+6Ycj0hZWMcL0="
       "helium-nix.cachix.org-1:a8YPjt9O4GPyX0u3gjg/aWpb14teU9aRiSG/MOaSFgw="
+      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
     ];
   };
 
@@ -19,7 +21,8 @@
     # nix doesn't need the full history, this should be the default ¯\_(ツ)_/¯
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
-    flake-schemas.url = github:DeterminateSystems/flake-schemas;
+    determinate-nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
+    flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/0";
 
     # https://github.com/hyprwm/Hyprland/issues/9518
     nixpkgs-hyprland.url = "nixpkgs/b582bb5b0d7af253b05d58314b85ab8ec46b8d19";
@@ -239,6 +242,7 @@
 
       packages.${system} = {
         inherit neovim;
+        inherit (inputs.determinate-nix.packages.${system}) nix;
         inherit (pkgs) bazecor metals metals-updater quickemu slack;
       };
     };

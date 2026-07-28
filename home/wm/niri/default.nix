@@ -33,6 +33,7 @@ let
   packages = with pkgs; [
     brightnessctl # control laptop display brightness
     diskonaut # disk space manager tui
+    dnix # determinate nix binary with flake schemas support
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland
