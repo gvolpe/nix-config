@@ -2,7 +2,6 @@
 
 let
   inherit (specialArgs) inputs;
-  inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
   imports = [
@@ -15,7 +14,7 @@ in
     useGlobalPkgs = true;
 
     sharedModules = [
-      inputs.neovim-flake.homeManagerModules.${system}.default
+      inputs.neovim-flake.homeModules.default
       # the nix-index hm module injects nixpkgs.overlays
       # inputs.nix-index.homeManagerModules.${system}.default
       (import (inputs.nix-index + "/modules/hm.nix"))

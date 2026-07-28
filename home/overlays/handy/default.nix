@@ -1,14 +1,14 @@
-self: super:
+final: prev:
 
 {
   # add wayland text input tool to handy's path
-  handy = self.symlinkJoin {
+  handy = prev.symlinkJoin {
     name = "handy-wrapped";
-    nativeBuildInputs = [ self.makeWrapper ];
-    paths = [ super.handy ];
+    nativeBuildInputs = [ prev.makeWrapper ];
+    paths = [ prev.handy ];
     postBuild = ''
       wrapProgram $out/bin/handy \
-        --prefix PATH : ${self.lib.makeBinPath [ self.wtype ]}
+        --prefix PATH : ${prev.lib.makeBinPath [ prev.wtype ]}
     '';
   };
 }

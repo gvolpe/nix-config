@@ -1,7 +1,7 @@
-self: super:
+final: prev:
 
 let
-  scripts = self.callPackage ../../scripts { };
+  scripts = prev.callPackage ../../scripts { };
 in
 {
   inherit (scripts) bat-lvl gen-ssh-key kls satty-shot show-zombie-parents;

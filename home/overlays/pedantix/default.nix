@@ -1,13 +1,13 @@
-self: super:
+final: prev:
 
 {
-  pedantix = self.symlinkJoin {
+  pedantix = prev.symlinkJoin {
     name = "pedantix-wrapped";
-    nativeBuildInputs = [ self.makeWrapper ];
-    paths = [ super.sources.pedantix.packages.${self.stdenv.hostPlatform.system}.pedantix ];
+    nativeBuildInputs = [ prev.makeWrapper ];
+    paths = [ prev.sources.pedantix.packages.${prev.stdenv.hostPlatform.system}.pedantix ];
     postBuild = ''
       wrapProgram $out/bin/pedantix \
-        --prefix PATH : ${self.lib.makeBinPath [ self.nixpkgs-fmt ]} \
+        --prefix PATH : ${prev.lib.makeBinPath [ prev.nixpkgs-fmt ]} \
         --add-flags "--formatter nixpkgs-fmt"
     '';
   };

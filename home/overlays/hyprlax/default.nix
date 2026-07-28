@@ -1,5 +1,5 @@
-self: super:
+final: prev:
 
 {
-  hyprlax = super.callPackage ./drv.nix { };
+  hyprlax = prev.callPackage ./drv.nix { };
 }

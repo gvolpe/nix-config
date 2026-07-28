@@ -1,5 +1,5 @@
-self: super:
+final: prev:
 
 {
-  beauty-line-icon-theme = self.callPackage ../../themes/beauty-line {};
+  beauty-line-icon-theme = prev.callPackage ../../themes/beauty-line {};
 }

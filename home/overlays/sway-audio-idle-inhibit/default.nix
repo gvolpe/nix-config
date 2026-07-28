@@ -1,4 +1,4 @@
-self: super:
+final: prev:
 
 let
   newcode = ''
@@ -7,7 +7,7 @@ let
   '';
 in
 {
-  sway-audio-idle-inhibit = super.sway-audio-idle-inhibit.overrideAttrs (old: {
+  sway-audio-idle-inhibit = prev.sway-audio-idle-inhibit.overrideAttrs (old: {
     preConfigure = (old.preConfigure or "") + ''
       # https://github.com/ErikReider/SwayAudioIdleInhibit/issues/36
       substituteInPlace src/main.cpp \

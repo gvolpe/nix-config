@@ -1,5 +1,5 @@
-self: super:
+final: prev:
 
 {
-  diskonaut = super.callPackage ./drv.nix { };
+  diskonaut = prev.callPackage ./drv.nix { };
 }

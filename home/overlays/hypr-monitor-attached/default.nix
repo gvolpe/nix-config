@@ -1,17 +1,17 @@
-self: super:
+final: prev:
 
 let
-  toml = fromTOML (builtins.readFile "${super.sources.hypr-monitor-attached}/Cargo.toml");
+  toml = fromTOML (builtins.readFile "${prev.sources.hypr-monitor-attached}/Cargo.toml");
 in
 {
-  hypr-monitor-attached = super.rustPlatform.buildRustPackage {
+  hypr-monitor-attached = prev.rustPlatform.buildRustPackage {
     pname = "hyprland-monitor-attached";
     version = toml.package.version;
 
-    src = super.sources.hypr-monitor-attached;
+    src = prev.sources.hypr-monitor-attached;
     cargoHash = "sha256-pBg5R7k3xEE1EoSdLO4jmibTnGE+ndZnkWeMO+UXN6Q=";
 
-    meta = with super.lib; {
+    meta = with prev.lib; {
       description = "Run the user's script when you attach the monitor on Hyprland";
       homepage = "https://github.com/coffebar/hyprland-monitor-attached";
       license = licenses.mit;

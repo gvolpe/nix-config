@@ -2,7 +2,7 @@
 
 let
   modules' = [
-    inputs.neovim-flake.homeManagerModules.${system}.default
+    inputs.neovim-flake.homeModules.default
     inputs.nix-index.homeManagerModules.${system}.default
     { nix.registry.nixpkgs.flake = inputs.nixpkgs; }
     extraHomeConfig

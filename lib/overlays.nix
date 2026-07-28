@@ -11,6 +11,12 @@ let
     })).extend libVersionOverlay;
   };
 
+  # needs to be imported after the neovim-flake overlays
+  metalsOverlay = f: p: {
+    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
+    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
+  };
+
   overlays = f: p: {
     inherit (inputs.cowsay.packages.${system}) cowsay;
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
@@ -35,9 +41,6 @@ let
     };
 
     nix-search = inputs.nix-search.packages.${system}.default;
-
-    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
-    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
 
     treesitterGrammars = ts: ts.withPlugins (p: [
       p.tree-sitter-scala
@@ -89,11 +92,12 @@ in
   libOverlay
   overlays
   inputs.helium-nix.overlays.default
+  inputs.neovim-flake.overlays.default
   inputs.nix-index.overlays.${system}.default
   inputs.nurpkgs.overlays.default
-  inputs.neovim-flake.overlays.${system}.default
   inputs.niri-flake.overlays.niri
   inputs.vicinae.overlays.default
+  metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
   (import ../home/overlays/diskonaut)

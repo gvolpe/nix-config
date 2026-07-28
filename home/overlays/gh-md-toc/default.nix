@@ -1,11 +1,11 @@
-self: super:
+final: prev:
 
 {
   # generate ToC in markdown files
-  md-toc = super.stdenv.mkDerivation {
+  md-toc = prev.stdenv.mkDerivation {
     name = "gh-md-toc-24-08-2022";
 
-    src = super.sources.gh-md-toc;
+    src = prev.sources.gh-md-toc;
 
     phases = [ "installPhase" "patchPhase" ];
 

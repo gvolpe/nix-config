@@ -1,9 +1,9 @@
-self: super:
+final: prev:
 
 {
-  wshowkeys-mao = super.wshowkeys.overrideAttrs (_: {
+  wshowkeys-mao = prev.wshowkeys.overrideAttrs (_: {
     pname = "wshowkeys-mao-git";
-    version = super.sources.wshowkeys.rev;
-    src = super.sources.wshowkeys;
+    version = prev.sources.wshowkeys.rev;
+    src = prev.sources.wshowkeys;
   });
 }

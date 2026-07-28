@@ -1,8 +1,8 @@
-self: super:
+final: prev:
 
 {
-  pyprland = super.pyprland.overrideAttrs (old: {
+  pyprland = prev.pyprland.overrideAttrs (old: {
     version = "2.3.8";
-    src = super.sources.pyprland;
+    src = prev.sources.pyprland;
   });
 }
