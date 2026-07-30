@@ -140,7 +140,7 @@ in
 
     if [[ -e /run/current-system ]]; then
       echo -e "$BLUE   $CLEAR System Diff Report $BLUE   $CLEAR"
-      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${config.nix.package}/bin diff /run/current-system "$systemConfig"
+      ${pkgs.dix}/bin/dix /run/current-system "$systemConfig"
       echo -e "$BLUE                $CLEAR"
     fi
   '';
