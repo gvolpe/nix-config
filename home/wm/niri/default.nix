@@ -85,6 +85,7 @@ in
     ../../programs/helium
     ../../programs/jujutsu
     ../../programs/kitty
+    ../../programs/sunix
     ../../programs/waybar
     ../../programs/waypaper
     ../../programs/wlogout

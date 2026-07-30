@@ -67,6 +67,17 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="sunix"
+    opacity 0.9
+
+    geometry-corner-radius 1
+
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
     match namespace="vicinae"
     geometry-corner-radius 10
     background-effect {

@@ -111,13 +111,19 @@
       flake = false;
     };
 
-    vicinae = {
-      url = github:vicinaehq/vicinae;
+    dankcalendar = {
+      url = github:AvengeMedia/dankcalendar;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dankcalendar = {
-      url = github:AvengeMedia/dankcalendar;
+    sunix = {
+      #url = git+file:///home/gvolpe/workspace/sunix;
+      url = github:gvolpe/sunix;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    vicinae = {
+      url = github:vicinaehq/vicinae;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

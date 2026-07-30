@@ -229,6 +229,12 @@
     "format-icons": "󰾲",
     "on-click": "kitty -d ~/ --app-id='nvtop' --hold fish -c 'nvtop' &"
   },
+  "custom/sunix": {
+    "format": " SUNix",
+    "on-click": "pgrep -io 'sunix' | xargs kill || sunix",
+    "tooltip-format": "Software Updates for Nix",
+    "tooltip": false
+  },
   "clock#4": {
 		"format": "{:%b %d}",
 		"tooltip": false,

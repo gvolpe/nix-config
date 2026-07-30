@@ -2367,6 +2367,7 @@
         "pyprland": "pyprland",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "snitch": "snitch",
+        "sunix": "sunix",
         "tree-sitter-scala": "tree-sitter-scala_2",
         "vicinae": "vicinae",
         "waycal": "waycal",
@@ -2525,6 +2526,26 @@
       "original": {
         "owner": "nanotee",
         "repo": "sqls.nvim",
+        "type": "github"
+      }
+    },
+    "sunix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785430874,
+        "narHash": "sha256-+M4Gjvzsn0DBst9DZ/Zf8LOsdEqQBQKQ3+/5bGPyP0s=",
+        "owner": "gvolpe",
+        "repo": "sunix",
+        "rev": "2d93228a57edea597b2952eae271f2d141430e88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "sunix",
         "type": "github"
       }
     },

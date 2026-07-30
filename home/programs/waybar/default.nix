@@ -46,6 +46,11 @@ in
         modules-left = [
           "niri/workspaces"
           "custom/right-arrow-dark"
+          "custom/right-arrow-light"
+          "custom/right-arrow-dark"
+          "custom/right-arrow-light"
+          "custom/sunix"
+          "custom/right-arrow-dark"
         ];
         modules-center = [
           "custom/left-arrow-dark"

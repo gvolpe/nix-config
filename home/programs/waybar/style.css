@@ -38,6 +38,13 @@ window#waybar {
   padding: 0 10px;
 }
 
+/* software updates for nix */
+#custom-sunix {
+  background: @background-color;
+  color: #8BAEF0;
+  padding: 0 10px;
+}
+
 #workspaces,
 #clock.1,
 #clock.2,
