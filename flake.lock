@@ -827,17 +827,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1784322176,
-        "narHash": "sha256-GbwlyCMD+nWBr2UPw1MLvqzPePX5jPIzW1D20zfNFCE=",
+        "lastModified": 1785267976,
+        "narHash": "sha256-SwjaSeXgB4MFsn3VdaPn2qDjvme62JXEL3AnvGYMILo=",
         "ref": "refs/heads/main",
-        "rev": "294fb728adcc51987f6c63f8f2d27f602c46f915",
-        "revCount": 44,
+        "rev": "0f1da2c130f2524756839a2822fe79e990535d54",
+        "revCount": 54,
         "type": "git",
-        "url": "https://codeberg.org/niklaskorz/nix-gram-extensions"
+        "url": "https://tangled.org/niklaskorz.eu/nix-gram-extensions"
       },
       "original": {
         "type": "git",
-        "url": "https://codeberg.org/niklaskorz/nix-gram-extensions"
+        "url": "https://tangled.org/niklaskorz.eu/nix-gram-extensions"
       }
     },
     "harpoon": {

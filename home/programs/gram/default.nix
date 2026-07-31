@@ -3,8 +3,16 @@
 let
   inherit (config) dotfiles;
 
-  # gram needs nodejs to dynamically discover the system architecture
-  binaries = with pkgs;[ metals nil nodejs ];
+  # debugger extension for Rust (among others)
+  codeLLDB = pkgs.vscode-extensions.vadimcn.vscode-lldb;
+  codeLLDBAdapter = "${codeLLDB}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+
+  binaries = [
+    pkgs.metals # scala lsp server
+    pkgs.nil # nix lsp server
+    pkgs.nodejs # required by gram
+    pkgs.rust-analyzer # rust
+  ];
 
   gram = pkgs.symlinkJoin {
     name = "gram-wrapped";
@@ -24,6 +32,9 @@ let
 in
 {
   home.packages = [ gram ];
+
+  # rust debugger symlink
+  home.file.".local/bin/gram-codelldb".source = codeLLDBAdapter;
 
   xdg.configFile."gram/keymap.jsonc".source = keymapFile;
   xdg.configFile."gram/settings.jsonc".source = settingsFile;

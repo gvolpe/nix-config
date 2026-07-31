@@ -175,7 +175,9 @@
     nixpkgs-gram.url = "nixpkgs/770b9bbb84018993c8f009d437fff6c2e3077037"; # v3.0.1
 
     gram-extensions = {
-      url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions";
+      url = "git+https://tangled.org/niklaskorz.eu/nix-gram-extensions";
+      # codeberg is very slow and unreliable
+      #url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions";
       #inputs.nixpkgs.follows = "nixpkgs"; # needs https://github.com/NixOS/nixpkgs/pull/537433
     };
 

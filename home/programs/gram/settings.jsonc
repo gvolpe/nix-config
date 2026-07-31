@@ -35,6 +35,11 @@
     "edit_debounce_ms": 700,
     "scroll_debounce_ms": 50,
   },
+  "dap": {
+    "CodeLLDB": {
+      "binary": "/home/gvolpe/.local/bin/gram-codelldb",
+    },
+  },
   "lsp": {
     "metals": {
       "binary": {
@@ -63,6 +68,13 @@
           },
         },
       },
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "rust": {
+          "analyzerTargetDir": true
+        }
+      }
     },
   },
   "languages": {
