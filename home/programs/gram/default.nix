@@ -27,8 +27,8 @@ let
   extensions = pkgs.callPackage ./extensions { };
   extensions-dir = pkgs.gram-ext.linkGramExtensions extensions;
 
-  keymapFile = dotfiles.make ./keymap.jsonc ./.;
-  settingsFile = dotfiles.make ./settings.jsonc ./.;
+  keymapFile = dotfiles.make ./keymap.jsonc;
+  settingsFile = dotfiles.make ./settings.jsonc;
 in
 {
   home.packages = [ gram ];

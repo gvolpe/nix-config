@@ -54,7 +54,7 @@ let
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
 
   genConfigFile = name:
-    dotfiles.make ./config/${name}.kdl ./config;
+    dotfiles.make ./config/${name}.kdl;
 
   includeConfig =
     lib.lists.forEach
@@ -105,7 +105,7 @@ in
     --ozone-platform=wayland
   '';
 
-  xdg.configFile."niri/config.kdl".source = dotfiles.make ./config.kdl ./.;
+  xdg.configFile."niri/config.kdl".source = dotfiles.make ./config.kdl;
 
   xdg.configFile."niri/config/output.kdl".text =
     if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';

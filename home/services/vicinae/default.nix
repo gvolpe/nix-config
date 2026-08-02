@@ -27,5 +27,5 @@ in
   };
 
   xdg.configFile."vicinae/settings.json".source =
-    config.dotfiles.make ./settings.json ./.;
+    config.dotfiles.make ./settings.json;
 }

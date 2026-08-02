@@ -17,5 +17,5 @@ in
   home.packages = [ pkgs.hyfetch neofetchSixelsSupport ];
   xdg.configFile."hyfetch.json".source = ./hyfetch.json;
   xdg.configFile."neofetch/config.conf".source =
-    config.dotfiles.make ./electric.conf ./.;
+    config.dotfiles.make ./electric.conf;
 }
