@@ -37,7 +37,6 @@ let
     mods = [
       inputs.dankcalendar.homeModules.default
       inputs.sunix.homeModules.default
-      inputs.vicinae.homeManagerModules.default
       ../home/wm/niri
     ];
   };

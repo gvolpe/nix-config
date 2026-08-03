@@ -1,16 +1,18 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 let
-  gifSearch = pkgs.mkRayCastExtension {
+  inherit (config.lib.vicinae) mkRayCastExtension;
+
+  gifSearch = mkRayCastExtension {
     name = "gif-search";
-    sha256 = "sha256-/59ZaKe6gUkemauakgSvwkb76kN3aciKHgAh2yYk6jI=";
     rev = "365c9557780eb21293979aed3de9e06c05fab51f";
+    sha256 = "sha256-/59ZaKe6gUkemauakgSvwkb76kN3aciKHgAh2yYk6jI=";
   };
 
-  jwtDecoder = pkgs.mkRayCastExtension {
+  jwtDecoder = mkRayCastExtension {
     name = "jwt-decoder";
-    sha256 = "sha256-/dHuBYGcN/uJWKHdjCLByP9GCk+UoxefuWhT/RPWWzA=";
     rev = "365c9557780eb21293979aed3de9e06c05fab51f";
+    sha256 = "sha256-/dHuBYGcN/uJWKHdjCLByP9GCk+UoxefuWhT/RPWWzA=";
   };
 in
 {
@@ -18,12 +20,10 @@ in
     enable = true;
     extensions = [ gifSearch jwtDecoder ];
     systemd = {
-      enable = true;
       autoStart = true;
-      environment = {
-        USE_LAYER_SHELL = 1;
-      };
+      enable = true;
     };
+    useLayerShell = true;
   };
 
   xdg.configFile."vicinae/settings.json".source =

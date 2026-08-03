@@ -28,7 +28,6 @@ in
       gimp # gnu image manipulation program
       hyperfine # command-line benchmarking tool
       insomnia # rest client with graphql support
-      jmtpfs # mount mtp devices
       killall # kill processes by name
       libreoffice # office suite
       lnav # log file navigator on the terminal

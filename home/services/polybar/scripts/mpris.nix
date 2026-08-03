@@ -2,7 +2,6 @@
 
 let
   pctl = "${pkgs.playerctl}/bin/playerctl";
-  zsc = "${pkgs.zscroll}/bin/zscroll";
 
   format = ''
     {{ artist }} - {{ title }} [{{ duration(mpris:length) }}]
@@ -27,8 +26,9 @@ let
   '';
 in
 # Credits to https://github.com/PrayagS/polybar-spotify for the scrolling idea
+# needs the zscroll which has been removed from nixpkgs
 pkgs.writeShellScriptBin "mpris" ''
-  ${zsc} -l 40 \
+  zscroll -l 40 \
          --delay 0.3 \
          --scroll-padding "  " \
          --match-command "${status}/bin/spotify_status" \

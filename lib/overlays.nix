@@ -67,9 +67,6 @@ let
 
     wooz = inputs.wooz-flake.packages.${system}.default;
 
-    # gram v3.0.1
-    gram = inputs.nixpkgs-gram.legacyPackages.${system}.gram;
-
     gram-ext = {
       inherit (inputs.gram-extensions.packages.${system})
         buildGramExtension buildGramRustExtension linkGramExtensions
@@ -96,7 +93,6 @@ in
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
   inputs.niri-flake.overlays.niri
-  inputs.vicinae.overlays.default
   metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
