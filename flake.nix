@@ -174,9 +174,6 @@
     };
 
     # Gram editor
-    # TODO: remove on next nixpkgs upgrade
-    nixpkgs-gram.url = "nixpkgs/770b9bbb84018993c8f009d437fff6c2e3077037"; # v3.0.1
-
     gram-extensions = {
       url = "git+https://tangled.org/niklaskorz.eu/nix-gram-extensions";
       # codeberg is very slow and unreliable

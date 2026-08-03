@@ -67,9 +67,6 @@ let
 
     wooz = inputs.wooz-flake.packages.${system}.default;
 
-    # gram v3.0.1
-    gram = inputs.nixpkgs-gram.legacyPackages.${system}.gram;
-
     gram-ext = {
       inherit (inputs.gram-extensions.packages.${system})
         buildGramExtension buildGramRustExtension linkGramExtensions
