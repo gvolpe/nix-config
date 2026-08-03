@@ -1,19 +1,21 @@
-{ extraHomeConfig, inputs, system, pkgs, ... }:
+{ extraHomeConfig, inputs, pkgs, system, ... }:
 
 let
   modules' = [
+    inputs.dots.homeModules.default
     inputs.neovim-flake.homeModules.default
     inputs.nix-index.homeModules.default
     { nix.registry.nixpkgs.flake = inputs.nixpkgs; }
     extraHomeConfig
   ];
 
-  mkHome = { hidpi, mut ? false, mods ? [ ] }:
+  mkHome = { hidpi, mods ? [ ], mut ? false }:
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = pkgs.xargs;
       modules = modules' ++ mods ++ [
-        { inherit hidpi; dotfiles.mutable = mut; }
+        (import ../home/dotfiles.nix { mutable = mut; })
+        { inherit hidpi; }
       ];
     };
 
@@ -41,11 +43,11 @@ let
   };
 in
 {
-  niri-edp = mkNiriHome { hidpi = false; mut = true; };
-  niri-hdmi = mkNiriHome { hidpi = true; mut = true; };
   hyprland-edp = mkHyprlandHome { hidpi = false; };
   hyprland-hdmi = mkHyprlandHome { hidpi = true; };
   hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mut = true; };
+  niri-edp = mkNiriHome { hidpi = false; mut = true; };
+  niri-hdmi = mkNiriHome { hidpi = true; mut = true; };
   xmonad-edp = mkXmonadHome { hidpi = false; };
   xmonad-hdmi = mkXmonadHome { hidpi = true; };
 }

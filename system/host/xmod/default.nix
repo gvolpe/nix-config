@@ -14,10 +14,12 @@ in
     useGlobalPkgs = true;
 
     sharedModules = [
+      inputs.dots.homeModules.default
       inputs.neovim-flake.homeModules.default
       inputs.nix-index.homeModules.default
       ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
-      { hidpi = false; dotfiles.mutable = false; }
+      (import ../../../home/dotfiles.nix { mutable = false; })
+      { hidpi = false; }
     ];
 
     users.gvolpe = import ./home.nix;

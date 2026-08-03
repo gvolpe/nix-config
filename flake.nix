@@ -39,6 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dots.url = github:gvolpe/dots;
+    #dots.url = git+file:///home/gvolpe/workspace/dots;
+
     neovim-flake = {
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;

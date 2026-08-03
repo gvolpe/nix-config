@@ -306,6 +306,21 @@
         "type": "github"
       }
     },
+    "dots": {
+      "locked": {
+        "lastModified": 1785740384,
+        "narHash": "sha256-r29kUNo40mNV0mJMm4EBPoZU60x8Ug9QQukmQg3DXK8=",
+        "owner": "gvolpe",
+        "repo": "dots",
+        "rev": "e50907622f50c404522fd12d95776f0376a952ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "dots",
+        "type": "github"
+      }
+    },
     "fish-bobthefish-theme": {
       "flake": false,
       "locked": {
@@ -2337,6 +2352,7 @@
         "dankcalendar": "dankcalendar",
         "determinate-nix": "determinate-nix",
         "diskonaut": "diskonaut",
+        "dots": "dots",
         "fish-bobthefish-theme": "fish-bobthefish-theme",
         "fish-keytool-completions": "fish-keytool-completions",
         "flake-schemas": "flake-schemas",
