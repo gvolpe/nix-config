@@ -79,7 +79,6 @@ in
     ../../shared
     ../../programs/atuin
     ../../programs/cava
-    ../../programs/dankcalendar
     ../../programs/fuzzel
     ../../programs/gram
     ../../programs/helium

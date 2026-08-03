@@ -35,7 +35,6 @@ let
   mkNiriHome = { hidpi, mut ? false }: mkHome {
     inherit hidpi mut;
     mods = [
-      inputs.dankcalendar.homeModules.default
       inputs.sunix.homeModules.default
       ../home/wm/niri
     ];

@@ -114,11 +114,6 @@
       flake = false;
     };
 
-    dankcalendar = {
-      url = github:AvengeMedia/dankcalendar;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sunix = {
       #url = git+file:///home/gvolpe/workspace/sunix;
       url = github:gvolpe/sunix;

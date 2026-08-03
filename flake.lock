@@ -216,43 +216,6 @@
         "type": "github"
       }
     },
-    "dank-qml-common": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784074596,
-        "narHash": "sha256-/rCqHgC39mHvBDxb/dZLWCQ3W4ev94y3/1KtCRSPDp8=",
-        "owner": "AvengeMedia",
-        "repo": "dank-qml-common",
-        "rev": "b50afcf549f7e9c8f07c85b7f3fbba867701650d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "dank-qml-common",
-        "type": "github"
-      }
-    },
-    "dankcalendar": {
-      "inputs": {
-        "dank-qml-common": "dank-qml-common",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785617619,
-        "narHash": "sha256-MDUHB9hKjP6nse+zTqgbcb1/pBgjV/FJ1j/4hkChu+M=",
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
-        "rev": "01a431722fe2afbfc6e99698a7ba9894ca834a5e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
-        "type": "github"
-      }
-    },
     "determinate-nix": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -2351,7 +2314,6 @@
     "root": {
       "inputs": {
         "cowsay": "cowsay",
-        "dankcalendar": "dankcalendar",
         "determinate-nix": "determinate-nix",
         "diskonaut": "diskonaut",
         "dots": "dots",
@@ -2552,11 +2514,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785430874,
-        "narHash": "sha256-+M4Gjvzsn0DBst9DZ/Zf8LOsdEqQBQKQ3+/5bGPyP0s=",
+        "lastModified": 1785776113,
+        "narHash": "sha256-QrguvzoD+hL9YHtKuYQ8t6Cjki4HELw7EgodYolEjew=",
         "owner": "gvolpe",
         "repo": "sunix",
-        "rev": "2d93228a57edea597b2952eae271f2d141430e88",
+        "rev": "744fce9cb05f8fe881c2c4221d840420acd1cde7",
         "type": "github"
       },
       "original": {
