@@ -93,7 +93,6 @@ in
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
   inputs.niri-flake.overlays.niri
-  inputs.vicinae.overlays.default
   metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
