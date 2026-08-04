@@ -42,41 +42,28 @@ rebuild_niri_hdmi() {
   activate_hm
 }
 
-rebuild_aorus() {
-  sudo nixos-rebuild switch --flake .#aorus
+rebuild_nixos() {
+  echo "> Switching to .#$HOSTNAME flake"
+  sudo nixos-rebuild switch --flake ".#$HOSTNAME"
 }
 
-rebuild_thinkpad() {
-  sudo nixos-rebuild switch --flake .#thinkpad-x1
-}
-
-rebuild_tongfang() {
-  # nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel
-  # sudo result/bin/switch-to-configuration switch
-  sudo nixos-rebuild switch --flake .#tongfang-amd
-}
-
-rebuild_tongfang_vm() {
-  nixos-rebuild build-vm --flake .#tongfang-amd
+rebuild_xmod_vm() {
+  nixos-rebuild build-vm --flake .#xmod
 }
 
 case $1 in
-  "aorus")
-    rebuild_aorus;;
   "niri")
     rebuild_niri_hdmi;;
   "niri-edp")
     rebuild_niri_edp;;
+  "os")
+    rebuild_nixos;;
   "update-fish")
     fish -c fish_update_completions;;
   "update-nix-index")
     nix-index --filter-prefix '/bin/';;
-  "thinkpad")
-    rebuild_thinkpad;;
-  "tongfang")
-    rebuild_tongfang;;
   "vm")
-    rebuild_tongfang_vm;;
+    rebuild_xmod_vm;;
   *)
     echo "Wrong argument: look at the switch script.";;
 esac

@@ -19,7 +19,7 @@
   };
 
   networking = {
-    hostName = "dell-xps-15-9560";
+    hostName = "dell-xps";
     interfaces.wlp2s0.useDHCP = true;
   };
 
