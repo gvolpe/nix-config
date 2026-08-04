@@ -2514,11 +2514,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785776113,
-        "narHash": "sha256-QrguvzoD+hL9YHtKuYQ8t6Cjki4HELw7EgodYolEjew=",
+        "lastModified": 1785827163,
+        "narHash": "sha256-DBq5XwrNTGCk/wlVQTTcOfXR4fcYZFT9+jiX8fl27g4=",
         "owner": "gvolpe",
         "repo": "sunix",
-        "rev": "744fce9cb05f8fe881c2c4221d840420acd1cde7",
+        "rev": "9cc8e9ae94edcca201c6d75f32e80c4d71576bc2",
         "type": "github"
       },
       "original": {
