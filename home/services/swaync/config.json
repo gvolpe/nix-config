@@ -36,7 +36,6 @@
     "dnd",
     "mpris",
     "volume",
-    "backlight",
     "title",
     "notifications"
   ],
@@ -59,9 +58,6 @@
     },
     "volume": {
       "label": ""
-    },
-    "backlight": {
-      "label": "󰃞"
     }
   }
 }

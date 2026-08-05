@@ -92,8 +92,6 @@
   border-radius: 10px;
   padding: 3px 10px;
   margin-left: 21px;
-
-  &:checked {}
 }
 
 .widget-dnd > switch:hover {
