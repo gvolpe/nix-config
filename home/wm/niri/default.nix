@@ -41,6 +41,7 @@ let
     hyprlax # dynamic wallpapers
     kooha # screencast recorder
     libnotify # notifications
+    mpvpaper # video as wallpapers
     nemo # file manager
     networkmanagerapplet # network manager systray app
     nfsm # niri fullscreen manager daemon
