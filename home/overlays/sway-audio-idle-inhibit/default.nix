@@ -8,6 +8,10 @@ let
 in
 {
   sway-audio-idle-inhibit = prev.sway-audio-idle-inhibit.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [
+      ./no-abort-on-logind-race.patch
+    ];
+
     preConfigure = (old.preConfigure or "") + ''
       # https://github.com/ErikReider/SwayAudioIdleInhibit/issues/36
       substituteInPlace src/main.cpp \

@@ -1,0 +1,67 @@
+diff --git a/src/idle.cpp b/src/idle.cpp
+index 1d39d04..e10b1f7 100644
+--- a/src/idle.cpp
++++ b/src/idle.cpp
+@@ -1,35 +1,46 @@
+-#include <cassert>
+ #include <cstdio>
++#include <cstring>
+ #include <fcntl.h>
+ #include <iostream>
+ #include <unistd.h>
+ 
+ #include "idle.hpp"
+ 
+ using namespace std;
+ 
+ void Idle::block() {
+-	assert(bus);
++	if (!bus) {
++		int ret = sd_bus_default_system(&bus);
++		if (ret < 0) {
++			fprintf(stderr, "Failed to get DBus connection: %s\n", strerror(-ret));
++			return;
++		}
++	}
+ 
+ 	// Skip if already inhibiting
+ 	if (fd >= 0) {
+ 		return;
+ 	}
+ 
+ 	sd_bus_message *message = nullptr;
+ 	sd_bus_error error = SD_BUS_ERROR_NULL;
+ 	int ret = sd_bus_call_method(
+ 		bus, "org.freedesktop.login1", "/org/freedesktop/login1",
+ 		"org.freedesktop.login1.Manager", "Inhibit", &error, &message, "ssss",
+ 		"idle", "sway-audio-idle-inhibit", "Audio is playing", "block");
+ 	if (ret < 0) {
+-		fprintf(stderr, "Could not send inhibit signal!\n");
+-		abort();
++		fprintf(stderr, "Could not send inhibit signal: %s\n",
++				error.message ? error.message : strerror(-ret));
++		sd_bus_error_free(&error);
++		sd_bus_message_unref(message);
++		return;
+ 	}
+ 
+ 	ret = sd_bus_message_read(message, "h", &fd);
+ 	if (ret < 0) {
+ 		errno = -ret;
+-		fprintf(stderr, "Could not get DBus response\n");
+-		abort();
++		perror("Could not get DBus response");
++		sd_bus_error_free(&error);
++		sd_bus_message_unref(message);
++		return;
+ 	}
+@@ -55,8 +66,8 @@ void Idle::release_block() {
+ 	// Connect to DBus
+ 	int ret = sd_bus_default_system(&bus);
+ 	if (ret < 0) {
+-		fprintf(stderr, "Failed to get DBus connection\n");
+-		abort();
++		fprintf(stderr, "Failed to get DBus connection: %s\n", strerror(-ret));
++		bus = nullptr;
+ 	}
+ }
