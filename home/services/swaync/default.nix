@@ -10,14 +10,13 @@ in
   services.swaync = {
     inherit style;
     enable = true;
-    settings = lib.mkIf (!config.dotfiles.mutable) (
-      jsonConfig // {
-        "$schema" = "${cfg.package}/etc/xdg/swaync/configSchema.json";
-      }
-    );
+    settings = lib.mkIf (!config.dotfiles.mutable) jsonConfig;
   };
 
-  xdg.configFile."swaync/config.json" = lib.mkIf config.dotfiles.mutable {
-    source = lib.mkForce (config.dotfiles.make ./config.json);
+  xdg.configFile = {
+    "swaync/config.json" = lib.mkIf config.dotfiles.mutable {
+      source = lib.mkForce (config.dotfiles.make ./config.json);
+    };
+    "swaync/configSchema.json".source = "${cfg.package}/etc/xdg/swaync/configSchema.json";
   };
 }

@@ -25,8 +25,8 @@ spawn-sh-at-startup "nm-applet --sm-disable --indicator"
 
 // wallpaper
 spawn-sh-at-startup "waypaper --restore"
+spawn-sh-at-startup "mpvpaper -vp -o 'no-audio loop' ALL ~/Pictures/wallpapers/hollow-knight/glowing-grove.mp4"
 //spawn-sh-at-startup "hyprlax ~/Pictures/wallpapers/4k-sci-fi/685192.jpg"
-//spawn-sh-at-startup "mpvpaper -vp -o 'no-audio loop' DP-1 ~/Pictures/wallpapers/hollow-knight/glowing-grove.mp4"
 
 // workspace apps
 spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
