@@ -1,4 +1,4 @@
-{ grim, satty, slurp, writeShellApplication, ... }:
+{ grim, satty, slurp, writeShellApplication }:
 
 # screenshot tooling script: https://github.com/gabm/satty?tab=readme-ov-file#wlroots-based-compositors-sway-hyprland-wayfire-river
 writeShellApplication {

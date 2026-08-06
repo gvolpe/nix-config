@@ -41,11 +41,10 @@ let
   };
 in
 {
-  hyprland-edp = mkHyprlandHome { hidpi = false; };
-  hyprland-hdmi = mkHyprlandHome { hidpi = true; };
-  hyprland-hdmi-mutable = mkHyprlandHome { hidpi = true; mut = true; };
-  niri-edp = mkNiriHome { hidpi = false; mut = true; };
-  niri-hdmi = mkNiriHome { hidpi = true; mut = true; };
-  xmonad-edp = mkXmonadHome { hidpi = false; };
-  xmonad-hdmi = mkXmonadHome { hidpi = true; };
+  hyprland-laptop = mkHyprlandHome { hidpi = false; };
+  hyprland-desktop = mkHyprlandHome { hidpi = true; };
+  niri-laptop = mkNiriHome { hidpi = false; mut = true; };
+  niri-desktop = mkNiriHome { hidpi = true; mut = true; };
+  xmonad-laptop= mkXmonadHome { hidpi = false; };
+  xmonad-desktop = mkXmonadHome { hidpi = true; };
 }

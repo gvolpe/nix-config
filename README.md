@@ -158,13 +158,12 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 ```console
 $ dnix flake show --drv-names github:gvolpe/nix-config
 ├───homeConfigurations
-│   ├───hyprland-edp: Home Manager configuration [home-manager-generation]
-│   ├───hyprland-hdmi: Home Manager configuration [home-manager-generation]
-│   ├───hyprland-hdmi-mutable: Home Manager configuration [home-manager-generation]
-│   ├───niri-edp: Home Manager configuration [home-manager-generation]
-│   ├───niri-hdmi: Home Manager configuration [home-manager-generation]
-│   ├───xmonad-edp: Home Manager configuration [home-manager-generation]
-│   └───xmonad-hdmi: Home Manager configuration [home-manager-generation]
+│   ├───hyprland-laptop: Home Manager configuration [home-manager-generation]
+│   ├───hyprland-desktop: Home Manager configuration [home-manager-generation]
+│   ├───niri-laptop: Home Manager configuration [home-manager-generation]
+│   ├───niri-desktop: Home Manager configuration [home-manager-generation]
+│   ├───xmonad-laptop: Home Manager configuration [home-manager-generation]
+│   └───xmonad-desktop: Home Manager configuration [home-manager-generation]
 ├───nixosConfigurations
 │   ├───aorus: NixOS configuration [nixos-system-aorus-26.11.20260702.6517942]
 │   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-26.11.20260702.6517942]

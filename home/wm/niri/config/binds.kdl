@@ -33,6 +33,10 @@ binds {
     // software updates for nix
     Mod+U hotkey-overlay-title="Software Updates for Nix (SUNix)" { spawn-sh "sunix"; }
 
+    // moving wallpapers
+    Mod+Ctrl+P hotkey-overlay-title="MPV Paper toggle" { spawn-sh "mpvpaper-toggle"; }
+    Mod+Ctrl+W hotkey-overlay-title="Hyprlax toggle" { spawn-sh "hyprlax-toggle"; }
+
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).

@@ -227,7 +227,7 @@
         };
       };
 
-      neovim = self.homeConfigurations.niri-hdmi.config.programs.neovim-ide.finalPackage;
+      neovim = self.homeConfigurations.niri-desktop.config.programs.neovim-ide.finalPackage;
     in
     {
       homeConfigurations = pkgs.builders.mkHome { };

@@ -10,7 +10,7 @@ nix flake clone github:gvolpe/nix-config --dest /choose/a/path
 First install the Home Manager stuff (disable `home.changes-report.report` before doing so, otherwise it'll fail because the `nvd` package is not yet available), e.g.
 
 ```console
-nix build .#homeConfigurations.niri-hdmi.activationPackage
+nix build .#homeConfigurations.niri-desktop.activationPackage
 result/activate
 ```
 

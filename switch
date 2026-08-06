@@ -7,38 +7,33 @@ activate_hm() {
   result/activate
 }
 
-rebuild_xmonad_edp() {
-  nom build .#homeConfigurations.xmonad-edp.activationPackage
+rebuild_xmonad_laptop() {
+  nom build .#homeConfigurations.xmonad-laptop.activationPackage
   activate_hm
 }
 
-rebuild_xmonad_hdmi() {
-  nom build .#homeConfigurations.xmonad-hdmi.activationPackage
+rebuild_xmonad_desktop() {
+  nom build .#homeConfigurations.xmonad-desktop.activationPackage
   activate_hm
 }
 
-rebuild_hyprland_edp() {
-  nom build .#homeConfigurations.hyprland-edp.activationPackage
+rebuild_hyprland_laptop() {
+  nom build .#homeConfigurations.hyprland-laptop.activationPackage
   activate_hm
 }
 
-rebuild_hyprland_hdmi() {
-  nom build .#homeConfigurations.hyprland-hdmi.activationPackage
+rebuild_hyprland_desktop() {
+  nom build .#homeConfigurations.hyprland-desktop.activationPackage
   activate_hm
 }
 
-rebuild_hyprland_hdmi_mutable() {
-  nom build .#homeConfigurations.hyprland-hdmi-mutable.activationPackage
+rebuild_niri_laptop() {
+  nom build .#homeConfigurations.niri-laptop.activationPackage
   activate_hm
 }
 
-rebuild_niri_edp() {
-  nom build .#homeConfigurations.niri-edp.activationPackage
-  activate_hm
-}
-
-rebuild_niri_hdmi() {
-  nom build .#homeConfigurations.niri-hdmi.activationPackage
+rebuild_niri_desktop() {
+  nom build .#homeConfigurations.niri-desktop.activationPackage
   activate_hm
 }
 
@@ -53,9 +48,9 @@ rebuild_xmod_vm() {
 
 case $1 in
   "niri")
-    rebuild_niri_hdmi;;
+    rebuild_niri_desktop;;
   "niri-edp")
-    rebuild_niri_edp;;
+    rebuild_niri_laptop;;
   "os")
     rebuild_nixos;;
   "update-fish")

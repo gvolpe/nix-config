@@ -1,4 +1,4 @@
-{ writeShellScriptBin, ripgrep, setxkbmap, ... }:
+{ ripgrep, setxkbmap, writeShellScriptBin }:
 
 let
   xkbmap = "${setxkbmap}/bin/setxkbmap";

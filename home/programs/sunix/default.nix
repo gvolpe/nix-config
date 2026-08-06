@@ -6,7 +6,7 @@
     settings = {
       dixBinary = "${pkgs.dix}/bin/dix";
       flakeDir = "$HOME/workspace/sxm-flake";
-      homeFlake = "niri-hdmi";
+      homeFlake = "niri-desktop";
       nixosFlake = "aorus";
       showDemo = false;
     };

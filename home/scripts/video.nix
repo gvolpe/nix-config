@@ -1,4 +1,4 @@
-{ bc, ffmpeg, wf-recorder, writeShellScriptBin, ... }:
+{ bc, ffmpeg, wf-recorder, writeShellScriptBin }:
 
 let
   ffm = "${ffmpeg}/bin/ffmpeg";

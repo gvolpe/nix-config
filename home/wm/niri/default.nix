@@ -39,9 +39,11 @@ let
     grimblast # screenshot program from hyprland
     handy # speech to text
     hyprlax # dynamic wallpapers
+    hyprlax-toggle # toggle animated wallpaper
     kooha # screencast recorder
     libnotify # notifications
     mpvpaper # video as wallpapers
+    mpvpaper-toggle # toggle video wallpaper
     nemo # file manager
     networkmanagerapplet # network manager systray app
     nfsm # niri fullscreen manager daemon
