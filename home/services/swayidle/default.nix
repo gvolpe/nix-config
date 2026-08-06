@@ -30,11 +30,11 @@ in
 
     events = {
       "before-sleep" = lib.exe lockcmd-bin;
-      "lock" = "lock";
+      "lock" = lib.exe lockcmd-bin;
     };
 
     timeouts = [
-      { timeout = 600; command = lib.exe lockcmd-bin; }
+      { command = lib.exe lockcmd-bin; timeout = 600; }
     ];
   };
 }
