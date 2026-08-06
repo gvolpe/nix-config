@@ -27,15 +27,6 @@ spawn-sh-at-startup "nm-applet --sm-disable --indicator"
 spawn-sh-at-startup "waypaper --restore"
 
 // workspace apps
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold fish -c 'nitch' &"
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='fastfetch' --hold fish -c 'fastfetch' &"
-spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold fish -c 'btm' &"
-
-// sticky windows support daemon
-spawn-sh-at-startup "nsticky"
-
-// niri fullscreen manager
-spawn-sh-at-startup "nfsm"
-
-// idle inhibitor
-spawn-sh-at-startup "sway-audio-idle-inhibit --ignore-source-outputs 'cava,PulseAudio Volume Control'"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='nitch' --hold 'nitch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='fastfetch' --hold 'fastfetch' &"
+spawn-sh-at-startup "kitty -d ~/workspace/nix-config --app-id='btm-monitor' --hold 'btm' &"

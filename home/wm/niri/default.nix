@@ -95,6 +95,7 @@ in
     ../../services/swayidle
     ../../services/swaync
     ../../services/vicinae
+    ./systemd.nix
   ];
 
   services.polkit-gnome.enable = true;

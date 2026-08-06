@@ -1,6 +1,7 @@
 // -------- window rules ---------~
 window-rule {
-    match at-startup=true app-id=r#"^fastfetch|nitch$"#
+    match app-id=r#"^fastfetch$"#
+    match app-id=r#"^nitch$"#
     open-on-workspace "nix"
 }
 
