@@ -71,11 +71,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hypr-monitor-attached = {
-      url = github:coffebar/hyprland-monitor-attached?ref=0.1.6;
-      flake = false;
-    };
-
     # Niri
     niri-main = {
       url = github:niri-wm/niri;

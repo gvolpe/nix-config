@@ -928,23 +928,6 @@
         "type": "github"
       }
     },
-    "hypr-monitor-attached": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714394078,
-        "narHash": "sha256-+bgOOm1B513COcWdUIJ/+GREQH5CR8/RNOcZVkjO2hI=",
-        "owner": "coffebar",
-        "repo": "hyprland-monitor-attached",
-        "rev": "2470fd711f5eb5f708492284f19087662e322233",
-        "type": "github"
-      },
-      "original": {
-        "owner": "coffebar",
-        "ref": "0.1.6",
-        "repo": "hyprland-monitor-attached",
-        "type": "github"
-      }
-    },
     "hyprland": {
       "flake": false,
       "locked": {
@@ -2291,7 +2274,6 @@
         "helium-nix": "helium-nix",
         "home-manager": "home-manager",
         "hypr-binds-flake": "hypr-binds-flake",
-        "hypr-monitor-attached": "hypr-monitor-attached",
         "hyprland": "hyprland",
         "metals-zed": "metals-zed",
         "neovim-flake": "neovim-flake",
