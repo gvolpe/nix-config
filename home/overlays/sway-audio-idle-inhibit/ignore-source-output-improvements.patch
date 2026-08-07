@@ -1,0 +1,31 @@
+diff --git a/src/main.cpp b/src/main.cpp
+index d6b9cf7..3c67751 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -47,11 +47,11 @@ int main(int argc, char *argv[]) {
+ 			} else if (strcmp(argv[i], "--ignore-source-outputs") == 0 &&
+ 					   i + 1 < argc) {
+ 				char *saveptr;
+-				char *token = strtok_r(argv[++i], " ", &saveptr);
++				char *token = strtok_r(argv[++i], ",", &saveptr);
+ 				while (token != nullptr &&
+ 					   ignoredSourceOutputsCount < MAX_IGNORED_SOURCE_OUTPUTS) {
+ 					ignoredSourceOutputs[ignoredSourceOutputsCount++] = token;
+-					token = strtok_r(nullptr, " ", &saveptr);
++					token = strtok_r(nullptr, ",", &saveptr);
+ 				}
+ 
+ 				ignoredSourceOutputs[ignoredSourceOutputsCount] = nullptr;
+diff --git a/src/pulse.cpp b/src/pulse.cpp
+index 18558b8..a0f7d74 100644
+--- a/src/pulse.cpp
++++ b/src/pulse.cpp
+@@ -38,6 +38,8 @@ void Pulse::source_output_info_callback(pa_context *,
+ 	bool ignoreSourceOutput = false;
+ 	if (i && i->proplist) {
+ 		const char *appName = pa_proplist_gets(i->proplist, "application.name");
++		if (!appName)
++			appName = pa_proplist_gets(i->proplist, PA_PROP_MEDIA_NAME);
+ 		if (appName) {
+ 			int ignoredSourceOutputsCount = 0;
+ 			while (data->ignoredSourceOutputs[ignoredSourceOutputsCount] !=
