@@ -229,7 +229,7 @@ Beware that the `hardware-configuration.nix` file is the result of the hardware 
 A fresh install requires the creation of certain directories (see what the `switch` script does). However, if you omit those steps, the entire HM configuration can also be built as any other flake.
 
 ```console
-nix build github:gvolpe/nix-config#homeConfigurations.xmonad-edp.activationPackage
+nix build github:gvolpe/nix-config#homeConfigurations.niri-laptop.activationPackage
 result/activate
 ```
 
