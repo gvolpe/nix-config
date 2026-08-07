@@ -25,10 +25,10 @@ jobs:
       fail-fast: true
       matrix:
         config_name:
-          - niri-edp
-          - niri-hdmi
-          - hyprland-hdmi
-          - xmonad-hdmi
+          - niri-laptop
+          - niri-desktop
+          - hyprland-desktop
+          - xmonad-desktop
 
     steps:
       - uses: actions/checkout@v2.3.2
