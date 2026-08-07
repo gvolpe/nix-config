@@ -176,11 +176,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    diskonaut = {
-      url = github:kfkonrad/diskonaut?ref=0.12.0;
-      flake = false;
-    };
-
     nord-tmux = {
       url = github:arcticicestudio/nord-tmux;
       flake = false;

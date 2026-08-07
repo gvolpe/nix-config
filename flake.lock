@@ -269,23 +269,6 @@
         "type": "github"
       }
     },
-    "diskonaut": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754988128,
-        "narHash": "sha256-3wVfkAYrfU2sx3yoeIyej9TL34RUDyoYyKrMXWaZtDc=",
-        "owner": "kfkonrad",
-        "repo": "diskonaut",
-        "rev": "6d325d14b183186ce63fa0ac2b6bd793beb6532e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kfkonrad",
-        "ref": "0.12.0",
-        "repo": "diskonaut",
-        "type": "github"
-      }
-    },
     "dots": {
       "locked": {
         "lastModified": 1785741684,
@@ -2264,7 +2247,6 @@
       "inputs": {
         "cowsay": "cowsay",
         "determinate-nix": "determinate-nix",
-        "diskonaut": "diskonaut",
         "dots": "dots",
         "fish-bobthefish-theme": "fish-bobthefish-theme",
         "fish-keytool-completions": "fish-keytool-completions",

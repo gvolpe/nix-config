@@ -74,9 +74,8 @@ let
     };
 
     sources = {
-      inherit (inputs)
-        determinate-nix diskonaut gh-md-toc metals-zed
-        tree-sitter-scala pedantix waycal wshowkeys;
+      inherit (inputs) determinate-nix gh-md-toc metals-zed
+      tree-sitter-scala pedantix waycal wshowkeys;
     };
 
     xargs = {
@@ -96,7 +95,6 @@ in
   metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
-  (import ../home/overlays/diskonaut)
   (import ../home/overlays/gh-md-toc)
   (import ../home/overlays/handy)
   (import ../home/overlays/pedantix)
