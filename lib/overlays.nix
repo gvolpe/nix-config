@@ -75,7 +75,7 @@ let
 
     sources = {
       inherit (inputs)
-        determinate-nix diskonaut gh-md-toc hyprlax hypr-monitor-attached pyprland
+        determinate-nix diskonaut gh-md-toc hyprlax hypr-monitor-attached
         metals-zed tree-sitter-scala pedantix waycal wshowkeys;
     };
 
@@ -102,7 +102,6 @@ in
   (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pedantix)
-  (import ../home/overlays/pyprland)
   (import ../home/overlays/sway-audio-idle-inhibit)
   (import ../home/overlays/scripts)
   (import ../home/overlays/waycal)

@@ -2278,23 +2278,6 @@
         "type": "github"
       }
     },
-    "pyprland": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718189911,
-        "narHash": "sha256-0YUI2/gJmBoummiHGpq2p2sT25SwCdnsRwfGK2pcm4s=",
-        "owner": "hyprland-community",
-        "repo": "pyprland",
-        "rev": "a609ceeea7b1aeedf6e82d7224f9c96ccbac5342",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprland-community",
-        "ref": "2.3.8",
-        "repo": "pyprland",
-        "type": "github"
-      }
-    },
     "render-markdown-nvim": {
       "flake": false,
       "locked": {
@@ -2343,7 +2326,6 @@
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",
         "pedantix": "pedantix",
-        "pyprland": "pyprland",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "snitch": "snitch",
         "sunix": "sunix",

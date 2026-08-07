@@ -76,11 +76,6 @@
       flake = false;
     };
 
-    pyprland = {
-      url = github:hyprland-community/pyprland?ref=2.3.8;
-      flake = false;
-    };
-
     # Niri
     niri-main = {
       url = github:niri-wm/niri;
