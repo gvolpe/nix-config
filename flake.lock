@@ -962,23 +962,6 @@
         "type": "github"
       }
     },
-    "hyprlax": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1760993228,
-        "narHash": "sha256-RIeMsQt6MxSTI7TunIxk7wd08sYmr3EvjAQifr+M4e8=",
-        "owner": "sandwichfarm",
-        "repo": "hyprlax",
-        "rev": "0a3763e84f9a623aae3e3325ff48b9ac6e471b57",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sandwichfarm",
-        "ref": "v2.2.0",
-        "repo": "hyprlax",
-        "type": "github"
-      }
-    },
     "indent-blankline": {
       "flake": false,
       "locked": {
@@ -2310,7 +2293,6 @@
         "hypr-binds-flake": "hypr-binds-flake",
         "hypr-monitor-attached": "hypr-monitor-attached",
         "hyprland": "hyprland",
-        "hyprlax": "hyprlax",
         "metals-zed": "metals-zed",
         "neovim-flake": "neovim-flake",
         "nfsm-flake": "nfsm-flake",

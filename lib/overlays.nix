@@ -75,7 +75,7 @@ let
 
     sources = {
       inherit (inputs)
-        determinate-nix diskonaut gh-md-toc hyprlax hypr-monitor-attached
+        determinate-nix diskonaut gh-md-toc hypr-monitor-attached
         metals-zed tree-sitter-scala pedantix waycal wshowkeys;
     };
 
@@ -99,7 +99,6 @@ in
   (import ../home/overlays/diskonaut)
   (import ../home/overlays/gh-md-toc)
   (import ../home/overlays/handy)
-  (import ../home/overlays/hyprlax)
   (import ../home/overlays/hypr-monitor-attached)
   (import ../home/overlays/pedantix)
   (import ../home/overlays/sway-audio-idle-inhibit)

@@ -104,11 +104,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprlax = {
-      url = github:sandwichfarm/hyprlax?ref=v2.2.0;
-      flake = false;
-    };
-
     sunix = {
       #url = git+file:///home/gvolpe/workspace/sunix;
       url = github:gvolpe/sunix;
