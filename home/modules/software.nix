@@ -26,6 +26,7 @@ in
       eza # a better `ls`
       fd # "find" for files
       gimp # gnu image manipulation program
+      hydra-check # check hydra for the build status of a package
       hyperfine # command-line benchmarking tool
       insomnia # rest client with graphql support
       killall # kill processes by name
