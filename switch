@@ -46,7 +46,13 @@ rebuild_xmod_vm() {
   nixos-rebuild build-vm --flake .#xmod
 }
 
+rebuild_live_iso() {
+  nix build .#nixosConfigurations.live.config.system.build.images.iso -L
+}
+
 case $1 in
+  "live")
+    rebuild_live_iso;;
   "niri")
     rebuild_niri_desktop;;
   "niri-edp")

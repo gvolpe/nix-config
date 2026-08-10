@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   customFonts = with (pkgs.nerd-fonts); [
@@ -148,8 +148,9 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gvolpe = {
     isNormalUser = true;
+    initialPassword = "test";
     # wheel for 'sudo', uucp for bazecor to access ttyAMC0 (keyboard firmware updates)
-    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" "uucp" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "libvirtd" "lp" "uucp" ];
     shell = pkgs.fish;
   };
 
