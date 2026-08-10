@@ -25,7 +25,10 @@ output "DP-2" {
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
 
-    position x=2560 y=0
+    position x=0 y=1440
+    // to set it next to DP-1 use this value:
+    //position x=2560 y=0
+    // also update the keybinds to use `move-window-to-monitor-left/right` instead of up/down.
 }
 
 // scratchpad window sizes on laptop's screen

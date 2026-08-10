@@ -106,8 +106,8 @@ binds {
     Mod+Ctrl+Comma  { focus-monitor-left; }
     Mod+Ctrl+Period { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+Comma  { move-window-to-monitor-left; }
-    Mod+Shift+Ctrl+Period  { move-window-to-monitor-right; }
+    Mod+Shift+Ctrl+Comma  { move-window-to-monitor-up; }
+    Mod+Shift+Ctrl+Period  { move-window-to-monitor-down; }
 
     // Alternatively, there are commands to move the entire column:
     // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
