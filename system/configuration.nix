@@ -133,6 +133,12 @@ in
 
   programs.fish.enable = true;
 
+  # airdrop alt
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Diff report
   system.activationScripts.diff = ''
     BLUE="\e[34m"
