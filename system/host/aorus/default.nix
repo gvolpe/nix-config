@@ -40,6 +40,10 @@ in
 
   programs.gamemode.enable = true;
 
+  # persistent journal logs and coredumps for troubleshooting
+  services.journald.storage = "persistent";
+  systemd.coredump.enable = true;
+
   # tailscale
   services.tailscale = {
     enable = true;
