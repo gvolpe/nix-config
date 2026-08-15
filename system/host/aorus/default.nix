@@ -46,7 +46,7 @@ in
 
   # tailscale
   services.tailscale = {
-    enable = true;
+    enable = false;
     useRoutingFeatures = "server";
     extraSetFlags = [ "--advertise-exit-node" ];
   };
