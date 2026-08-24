@@ -50,6 +50,7 @@ let
     nfsm-cli # niri fullscreen manager client
     niri-scratchpad # niri scratchpad support
     nsticky # niri sticky windows support
+    pv # pipe viewer
     satty-shot # screenshots
     snitch # inspect network connections
     wl-clipboard # clipboard support

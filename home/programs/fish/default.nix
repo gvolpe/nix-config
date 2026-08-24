@@ -42,6 +42,7 @@ in
 {
   home.shellAliases = {
     ".." = "cd ..";
+    hl = "rg --passthru";
     hm = "home-manager";
     ll = "ls -a";
     ns = "nix-search";
