@@ -31,6 +31,7 @@ let
   ];
 
   packages = with pkgs; [
+    bitwarden-desktop # password manager
     brightnessctl # control laptop display brightness
     diskonaut-ng # disk space manager tui
     dnix # determinate nix binary with flake schemas support
