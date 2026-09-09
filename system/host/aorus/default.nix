@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
+  cfg = config.services.tailscale;
   netdev = "enp132s0";
 in
 {
@@ -41,7 +42,7 @@ in
   programs.gamemode.enable = true;
 
   # persistent journal logs and coredumps for troubleshooting
-  services.journald.storage = "persistent";
+  services.journald.settings.Journal.Storage = "persistent";
   systemd.coredump.enable = true;
 
   # tailscale
@@ -51,7 +52,7 @@ in
     extraSetFlags = [ "--advertise-exit-node" ];
   };
   # https://tailscale.com/kb/1320/performance-best-practices#linux-optimizations-for-subnet-routers-and-exit-nodes
-  systemd.services = {
+  systemd.services = lib.mkIf cfg.enable {
     tailscale-udp-gro-forwarding = {
       description = "tailscale udp exit node optimization";
       serviceConfig = {

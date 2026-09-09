@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  cfg = config.programs.niri;
+in
 {
   environment.systemPackages = with pkgs; [
     wl-clipboard
@@ -14,7 +17,7 @@
     dconf.enable = true;
     niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = pkgs.niri;
     };
     wshowkeys = {
       enable = true;
@@ -61,7 +64,7 @@
       settings = rec {
         tuigreet_session =
           let
-            session = "${pkgs.niri-unstable}/bin/niri-session";
+            session = "${cfg.package}/bin/niri-session";
             tuigreet = "${lib.exe pkgs.tuigreet}";
           in
           {

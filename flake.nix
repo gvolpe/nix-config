@@ -18,9 +18,8 @@
 
   inputs = {
     #nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nix doesn't need the full history, this should be the default ¯\_(ツ)_/¯
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     determinate-nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/0";
 
@@ -72,14 +71,8 @@
     };
 
     # Niri
-    niri-main = {
+    niri = {
       url = github:niri-wm/niri;
-      flake = false;
-    };
-
-    niri-flake = {
-      url = github:sodiboo/niri-flake;
-      inputs.niri-unstable.follows = "niri-main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

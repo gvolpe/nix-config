@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
   extra = ''
@@ -11,7 +11,6 @@ let
   '';
 
   polybarOpts = ''
-    ${pkgs.nitrogen}/bin/nitrogen --restore &
     ${pkgs.pasystray}/bin/pasystray &
     ${pkgs.blueman}/bin/blueman-applet &
     ${pkgs.networkmanagerapplet}/bin/nm-applet --sm-disable --indicator &
@@ -54,7 +53,8 @@ let
     dialog # Dialog boxes on the terminal (to show key bindings)
     networkmanager_dmenu # networkmanager on dmenu
     networkmanagerapplet # networkmanager applet
-    nitrogen # wallpaper manager
+    # it has been removed from nixpkgs as it depended on the deprecated gtk2 via gtkmm2
+    #nitrogen # wallpaper manager
     xcape # keymaps modifier
     xorg.xkbcomp # keymaps modifier
     xorg.xmodmap # keymaps modifier
