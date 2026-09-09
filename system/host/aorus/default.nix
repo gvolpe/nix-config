@@ -42,7 +42,7 @@ in
   programs.gamemode.enable = true;
 
   # persistent journal logs and coredumps for troubleshooting
-  services.journald.storage = "persistent";
+  services.journald.settings.Journal.Storage = "persistent";
   systemd.coredump.enable = true;
 
   # tailscale
