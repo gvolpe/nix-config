@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 # docs: https://nixos.wiki/wiki/NixOS:nixos-rebuild_build-vm
+let
+  virsh = "${pkgs.libvirt}/bin/virsh";
+in
 {
   programs.virt-manager.enable = true;
 
@@ -14,7 +17,11 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default";
+      ExecStart = pkgs.writeShellScript "libvirt-net-start-default" ''
+        if ! ${virsh} net-info default | grep -q '^Active: *yes$'; then
+          ${virsh} net-start default
+        fi
+      '';
       RemainAfterExit = true;
     };
   };
