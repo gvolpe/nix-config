@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
+  cfg = config.services.tailscale;
   netdev = "enp132s0";
 in
 {
@@ -51,7 +52,7 @@ in
     extraSetFlags = [ "--advertise-exit-node" ];
   };
   # https://tailscale.com/kb/1320/performance-best-practices#linux-optimizations-for-subnet-routers-and-exit-nodes
-  systemd.services = {
+  systemd.services = lib.mkIf cfg.enable {
     tailscale-udp-gro-forwarding = {
       description = "tailscale udp exit node optimization";
       serviceConfig = {
