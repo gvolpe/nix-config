@@ -89,9 +89,9 @@ in
   overlays
   inputs.helium-nix.overlays.default
   inputs.neovim-flake.overlays.default
+  inputs.niri.overlays.default
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
-  inputs.niri-flake.overlays.niri
   metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)

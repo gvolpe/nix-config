@@ -71,15 +71,8 @@
     };
 
     # Niri
-    niri-main = {
+    niri = {
       url = github:niri-wm/niri;
-      flake = false;
-    };
-
-    niri-flake = {
-      # temp move to this fork due to https://github.com/sodiboo/niri-flake/issues/1851 (should use Home Manager's native support)
-      url = github:epireyn/niri-flake;
-      inputs.niri-unstable.follows = "niri-main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
