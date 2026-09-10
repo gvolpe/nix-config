@@ -10,6 +10,9 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "tray": {
+      "enabled": false
+   },
    "font": {
       "normal": {
          "family": "Inter Variable"
