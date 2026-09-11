@@ -50,6 +50,7 @@ let
     nfsm # niri fullscreen manager daemon
     nfsm-cli # niri fullscreen manager client
     niri-scratchpad # niri scratchpad support
+    nix-graph # tui for nix dependency graphs
     nsticky # niri sticky windows support
     pv # pipe viewer
     satty-shot # screenshots

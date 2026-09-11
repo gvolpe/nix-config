@@ -169,6 +169,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-graph = {
+      url = github:AlexAntonik/nix-graph;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nord-tmux = {
       url = github:arcticicestudio/nord-tmux;
       flake = false;

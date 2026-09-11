@@ -8,7 +8,7 @@
 [![Home](https://github.com/gvolpe/nix-config/actions/workflows/home.yml/badge.svg)](https://github.com/gvolpe/nix-config/actions/workflows/home.yml)
 [![NixOS](https://github.com/gvolpe/nix-config/actions/workflows/nixos.yml/badge.svg)](https://github.com/gvolpe/nix-config/actions/workflows/nixos.yml)
 
-My current — and always evolving — [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager/) configurations.
+My current — and ever evolving — [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager/) configurations.
 </div>
 
 ## Niri

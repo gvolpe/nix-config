@@ -1337,6 +1337,26 @@
         "type": "github"
       }
     },
+    "nix-graph": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789057111,
+        "narHash": "sha256-0kTb6etE3oEM5qVMowIo0g/TC9XoRR/wULj39hb+1tU=",
+        "owner": "AlexAntonik",
+        "repo": "nix-graph",
+        "rev": "520dec6e49968b9ed6b7f6bf45008dc863dc41a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AlexAntonik",
+        "repo": "nix-graph",
+        "type": "github"
+      }
+    },
     "nix-index": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -2199,6 +2219,7 @@
         "nfsm-flake": "nfsm-flake",
         "niri": "niri",
         "niri-scratchpad-flake": "niri-scratchpad-flake",
+        "nix-graph": "nix-graph",
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
