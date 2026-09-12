@@ -2,9 +2,11 @@
 
 let
   modules' = [
+    inputs.agenix.homeManagerModules.default
     inputs.dots.homeModules.default
     inputs.neovim-flake.homeModules.default
     inputs.nix-index.homeModules.default
+    (import ../home/secrets)
     { nix.registry.nixpkgs.flake = inputs.nixpkgs; }
     extraHomeConfig
   ];

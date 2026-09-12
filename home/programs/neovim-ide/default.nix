@@ -1,15 +1,28 @@
 { config, lib, pkgs, ... }:
 
+let
+  # set openai api key at runtime instead of build time
+  startLuaConfigRC = ''
+    do
+      local file = io.open("${config.age.secrets.openai-api-key.path}", "r")
+      if file then
+        vim.env.OPENAI_API_KEY = vim.trim(file:read("*a"))
+        file:close()
+      end
+    end
+  '';
+in
 {
   programs.neovim-ide = {
     enable = true;
     settings = {
       vim = {
+        inherit startLuaConfigRC;
         autocomplete.enable = true;
         autopairs.enable = true;
         chatgpt = {
-          inherit (config.secrets) openaiApiKey;
           enable = true;
+          openaiApiKey = null; # set via env var
         };
         comments = {
           enable = true;

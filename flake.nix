@@ -20,8 +20,19 @@
     #nixpkgs.url = "nixpkgs/nixos-unstable";
     #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
-    determinate-nix.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
+    determinate-nix = {
+      url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/0";
+
+    # inputs to avoid different flakes bringing their own
+    systems.url = github:nix-systems/x86_64-linux;
+    flake-parts.url = github:hercules-ci/flake-parts;
+    flake-utils = {
+      url = github:numtide/flake-utils;
+      inputs.systems.follows = "systems";
+    };
 
     # https://github.com/hyprwm/Hyprland/issues/9518
     nixpkgs-hyprland.url = "nixpkgs/b582bb5b0d7af253b05d58314b85ab8ec46b8d19";
@@ -31,7 +42,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nurpkgs.url = github:nix-community/NUR;
+    nurpkgs = {
+      url = github:nix-community/NUR;
+      inputs.flake-parts.follows = "flake-parts";
+    };
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -45,6 +59,9 @@
       #url = git+file:///home/gvolpe/workspace/neovim-flake;
       url = github:gvolpe/neovim-flake;
       inputs.flake-schemas.follows = "flake-schemas";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.neovim-nightly-overlay.inputs.flake-parts.follows = "flake-parts";
+      inputs.nixd.inputs.flake-parts.follows = "flake-parts";
     };
 
     nix-index-database = {
@@ -59,6 +76,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Secrets
+    agenix = {
+      url = github:ryantm/agenix;
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+
     # Hyprland
     hyprland = {
       url = github:hyprwm/Hyprland?ref=v0.46.2;
@@ -67,6 +92,7 @@
 
     hypr-binds-flake = {
       url = github:hyprland-community/hypr-binds;
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -78,13 +104,17 @@
 
     nfsm-flake = {
       url = github:gvolpe/nfsm;
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
 
     niri-scratchpad-flake = {
       #url = git+file:///home/gvolpe/workspace/niri-scratchpad;
       url = github:gvolpe/niri-scratchpad;
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
 
     nsticky-flake = {
@@ -105,6 +135,7 @@
 
     wooz-flake = {
       url = github:negrel/wooz;
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -138,6 +169,7 @@
     # Fast nix search client
     nix-search = {
       url = github:diamondburned/nix-search;
+      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -166,6 +198,7 @@
 
     cowsay = {
       url = github:snowfallorg/cowsay;
+      inputs.snowfall-lib.inputs.flake-utils-plus.inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -180,8 +213,9 @@
     };
 
     pedantix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = github:swarsel/pedantix;
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     snitch = {
@@ -221,6 +255,13 @@
         inherit neovim;
         inherit (inputs.determinate-nix.packages.${system}) nix;
         inherit (pkgs) bazecor metals metals-updater quickemu slack;
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        buildInputs = [
+          # cd home/secrets && agenix -e new-secret.age
+          inputs.agenix.packages.${system}.default
+        ];
       };
     };
 }
