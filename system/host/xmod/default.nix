@@ -6,9 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.agenix.homeManagerModules.default
     inputs.home-manager.nixosModules.home-manager
-    (import ../../../home/secrets)
   ];
 
   home-manager = {
@@ -16,12 +14,14 @@ in
     useGlobalPkgs = true;
 
     sharedModules = [
+      inputs.agenix.homeManagerModules.default
       inputs.dots.homeModules.default
       inputs.neovim-flake.homeModules.default
       inputs.nix-index.homeModules.default
       ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
       (import ../../../home/dotfiles.nix { mutable = false; })
       { hidpi = false; }
+      (import ../../../home/secrets)
     ];
 
     users.gvolpe = import ./home.nix;
