@@ -4,11 +4,25 @@ let
   # set openai api key at runtime instead of build time
   startLuaConfigRC = ''
     do
-      local file = io.open("${config.age.secrets.openai-api-key.path}", "r")
+      local function expand_env(path)
+        local function replace(name)
+          return vim.env[name] or os.getenv(name) or ("$" .. "{" .. name .. "}")
+        end
+
+        return path
+          :gsub("[$]{([%w_]+)}", replace)
+          :gsub("[$]([%w_]+)", replace)
+      end
+
+      local file = io.open(expand_env("${config.age.secrets.openai-api-key.path}"), "r")
+      local api_key = ""
+
       if file then
-        vim.env.OPENAI_API_KEY = vim.trim(file:read("*a"))
+        api_key = file:read("*a") or ""
         file:close()
       end
+
+      vim.env.OPENAI_API_KEY = vim.trim(api_key)
     end
   '';
 in

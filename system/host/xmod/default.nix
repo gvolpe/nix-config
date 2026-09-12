@@ -6,7 +6,9 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    inputs.agenix.homeManagerModules.default
     inputs.home-manager.nixosModules.home-manager
+    (import ../../../home/secrets)
   ];
 
   home-manager = {
