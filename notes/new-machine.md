@@ -45,7 +45,7 @@ NOTE: the `gen-ssh-key` should be installed by Home Manager (defined [here](../h
 
 ## GPG migration & secrets
 
-Once `git-crypt` is installed (set up via Home Manager in the previous step), we'll need a valid GPG key to decode secrets. The GPG key can be imported from another machine as follows:
+We'll need a valid GPG key to decode secrets. The GPG key can be imported from another machine as follows:
 
 1. Export private GPG key on the existing machine.
 
@@ -68,8 +68,34 @@ scp gvolpe@tongfang-amd:/home/gvolpe/workspace/private-key .
 gpg --import private-key
 ```
 
-4. Decode secrets on the private repo.
+## Agenix identity
+
+Agenix secrets need one matching private key at activation time. Do this before the first Home Manager activation that depends on `home/secrets`.
+
+The fastest path is to copy the existing age identity from a working machine.
 
 ```console
-git-crypt unlock
+mkdir -p ~/.config/agenix
+chmod 700 ~/.config/agenix
+scp USER@HOST:/home/gvolpe/.config/agenix/identity.txt ~/.config/agenix/identity.txt
+chmod 600 ~/.config/agenix/identity.txt
 ```
+
+Alternatively, create a new identity on the new machine and rekey the secrets from a machine that can already decrypt them.
+
+```console
+mkdir -p ~/.config/agenix
+chmod 700 ~/.config/agenix
+nix shell nixpkgs#age -c age-keygen -o ~/.config/agenix/identity.txt
+chmod 600 ~/.config/agenix/identity.txt
+nix shell nixpkgs#age -c age-keygen -y ~/.config/agenix/identity.txt
+```
+
+Add the printed public key to `home/secrets/secrets.nix`, then on a working machine run:
+
+```console
+cd home/secrets
+agenix --rekey -i ~/.config/agenix/identity.txt
+```
+
+Commit and pull the rekeyed `.age` files on the new machine before activating Home Manager.

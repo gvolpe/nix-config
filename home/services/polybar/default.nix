@@ -42,7 +42,7 @@ let
   github = ''
     [module/clickable-github]
     inherit = module/github
-    token = ${config.secrets.githubToken}
+    token = ''${env:GITHUB_ACCESS_TOKEN}
     user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
@@ -92,6 +92,7 @@ in
     extraConfig = bars + colors + mods1 + mods2 + customMods;
     # polybar top -l trace (or info) for debugging purposes
     script = ''
+      export GITHUB_ACCESS_TOKEN="$(cat ${config.age.secrets.github-token.path})"
       export MONITOR=$(${monitorScript}/bin/monitor)
       echo "Running polybar on $MONITOR"
       export ETH_INTERFACE=$(${networkScript}/bin/check-network eth)
