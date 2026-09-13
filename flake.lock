@@ -1051,11 +1051,11 @@
         "zen-mode": "zen-mode"
       },
       "locked": {
-        "lastModified": 1788979381,
-        "narHash": "sha256-HcsEMvBvIDdM8N5OpymCVRILFLAdd249F38zFZe216I=",
+        "lastModified": 1789285279,
+        "narHash": "sha256-vOF0vYfYv0XAYpn6RmFCEMhuE0mtfF2MDgv2OPcg5qg=",
         "owner": "gvolpe",
         "repo": "neovim-flake",
-        "rev": "e92206f37142ebef115d0e9de2ca8a2ad13573aa",
+        "rev": "e976791af5a7b7dbd90485ca8d4f5f4707ecbd51",
         "type": "github"
       },
       "original": {
@@ -1476,18 +1476,15 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
-        "type": "github"
+        "lastModified": 1789149629,
+        "narHash": "sha256-eQUZVehWLDBbpBR2rq6DnuRee1ULT6Y675RhsYDSjYI=",
+        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1072397.eaad089433ca/nixexprs.tar.zst"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
       }
     },
     "nixpkgs_7": {
