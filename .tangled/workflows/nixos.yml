@@ -1,0 +1,26 @@
+when:
+  - event: ["push"]
+    branch: ["main"]
+  - event: ["pull_request"]
+
+engine: microvm
+image: nixos
+
+dependencies:
+  - git
+  - nix
+
+environment:
+  NIX_CONFIG: |
+    accept-flake-config = true
+    experimental-features = nix-command flakes ca-derivations
+    extra-substituters = https://cache.nixos.org https://gvolpe-nixos.cachix.org https://helium-nix.cachix.org https://install.determinate.systems
+    extra-trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= gvolpe-nixos.cachix.org-1:0MPlBIMwYmrNqoEaYTox15Ds2t1+3R+6Ycj0hZWMcL0= helium-nix.cachix.org-1:a8YPjt9O4GPyX0u3gjg/aWpb14teU9aRiSG/MOaSFgw= cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM=
+
+steps:
+  - name: "Build aorus NixOS config"
+    command: nix build .#nixosConfigurations.aorus.config.system.build.toplevel -L --accept-flake-config
+  - name: "Build thinkpad-x1 NixOS config"
+    command: nix build .#nixosConfigurations.thinkpad-x1.config.system.build.toplevel -L --accept-flake-config
+  - name: "Build xmod NixOS VM config"
+    command: nix build .#nixosConfigurations.xmod.config.system.build.vm -L --accept-flake-config
