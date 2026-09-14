@@ -44,10 +44,10 @@ in
     ".." = "cd ..";
     hl = "rg --passthru";
     hm = "home-manager";
+    kssh = "kitty +kitten ssh";
     ll = "ls -a";
     ns = "nix-search";
     nsc = "nscratch";
-    ssh = "kitty +kitten ssh";
   };
 
   programs.fish = {
