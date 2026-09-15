@@ -242,8 +242,16 @@
       neovim = self.homeConfigurations.niri-desktop.config.programs.neovim-ide.finalPackage;
     in
     {
-      homeConfigurations = pkgs.builders.mkHome { };
-      nixosConfigurations = pkgs.builders.mkNixos { };
+      lib = {
+        mkHome = { extraHomeConfig ? { }, pkgs }:
+          import ./outputs/hm.nix { inherit inputs pkgs extraHomeConfig; };
+
+        mkNixos = { extraSystemConfig ? { }, pkgs }:
+          import ./outputs/os.nix { inherit inputs pkgs extraSystemConfig; };
+      };
+
+      homeConfigurations = self.lib.mkHome { inherit pkgs; };
+      nixosConfigurations = self.lib.mkNixos { inherit pkgs; };
 
       out = { inherit pkgs overlays; };
 

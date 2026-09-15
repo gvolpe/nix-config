@@ -33,14 +33,6 @@ let
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
 
-    builders = {
-      mkHome = { pkgs ? f, extraHomeConfig ? { } }:
-        import ../outputs/hm.nix { inherit extraHomeConfig inputs pkgs system; };
-
-      mkNixos = { pkgs ? f, extraSystemConfig ? { } }:
-        import ../outputs/os.nix { inherit extraSystemConfig inputs pkgs system; };
-    };
-
     nix-search = inputs.nix-search.packages.${system}.default;
 
     treesitterGrammars = ts: ts.withPlugins (p: [

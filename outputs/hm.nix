@@ -1,6 +1,8 @@
-{ extraHomeConfig, inputs, pkgs, system, ... }:
+{ extraHomeConfig ? { }, inputs, pkgs, ... }:
 
 let
+  inherit (pkgs.stdenv.hostPlatform) system;
+
   modules' = [
     inputs.agenix.homeManagerModules.default
     inputs.dots.homeModules.default
@@ -43,10 +45,10 @@ let
   };
 in
 {
-  hyprland-laptop = mkHyprlandHome { hidpi = false; };
   hyprland-desktop = mkHyprlandHome { hidpi = true; };
-  niri-laptop = mkNiriHome { hidpi = false; mut = true; };
+  hyprland-laptop = mkHyprlandHome { hidpi = false; };
   niri-desktop = mkNiriHome { hidpi = true; mut = true; };
-  xmonad-laptop= mkXmonadHome { hidpi = false; };
+  niri-laptop = mkNiriHome { hidpi = false; mut = true; };
   xmonad-desktop = mkXmonadHome { hidpi = true; };
+  xmonad-laptop = mkXmonadHome { hidpi = false; };
 }

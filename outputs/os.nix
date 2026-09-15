@@ -1,8 +1,9 @@
-{ extraSystemConfig, inputs, system, pkgs, ... }:
+{ extraSystemConfig ? { }, inputs, pkgs, ... }:
 
 let
-  inherit (inputs.nixpkgs.lib) nixosSystem;
   inherit (pkgs) lib;
+  inherit (pkgs.stdenv.hostPlatform) system;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
 
   hosts = [ "aorus" "dell-xps" "live" "thinkpad-x1" "tongfang-amd" "xmod" ];
 
@@ -16,8 +17,8 @@ let
   make = host: {
     ${host} = nixosSystem {
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
       modules = modules' ++ [ ../system/host/${host} ];
+      specialArgs = { inherit inputs; };
     };
   };
 in
