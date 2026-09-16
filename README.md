@@ -157,31 +157,36 @@ My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
 
 ```console
 $ dnix flake show --drv-names github:gvolpe/nix-config
+├───devShells
+│   └───x86_64-linux
+│       └───default: development environment [nix-shell]
 ├───homeConfigurations
-│   ├───hyprland-laptop: Home Manager configuration [home-manager-generation]
 │   ├───hyprland-desktop: Home Manager configuration [home-manager-generation]
-│   ├───niri-laptop: Home Manager configuration [home-manager-generation]
+│   ├───hyprland-laptop: Home Manager configuration [home-manager-generation]
 │   ├───niri-desktop: Home Manager configuration [home-manager-generation]
-│   ├───xmonad-laptop: Home Manager configuration [home-manager-generation]
-│   └───xmonad-desktop: Home Manager configuration [home-manager-generation]
+│   ├───niri-laptop: Home Manager configuration [home-manager-generation]
+│   ├───xmonad-desktop: Home Manager configuration [home-manager-generation]
+│   └───xmonad-laptop: Home Manager configuration [home-manager-generation]
+├───lib
+│   ├───mkHome: library function
+│   └───mkNixos: library function
 ├───nixosConfigurations
-│   ├───aorus: NixOS configuration [nixos-system-aorus-26.11.20260702.6517942]
-│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-15-9560-26.11.20260702.6517942]
-│   ├───thinkpad-x1: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260702.6517942]
-│   ├───tongfang-amd: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260702.6517942]
-│   └───xmod: NixOS configuration [nixos-system-nixos-vm-26.11.20260702.6517942]
+│   ├───aorus: NixOS configuration [nixos-system-aorus-26.11.20260908.d6524aa]
+│   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-26.11.20260908.d6524aa]
+│   ├───thinkpad-x1: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260908.d6524aa]
+│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-26.11.20260908.d6524aa]
 ├───out
 │   ├───overlays: custom instance to be used by consumers of this flake
 │   └───pkgs: custom instance to be used by consumers of this flake
 └───packages
     └───x86_64-linux
-        ├───bazecor: package [bazecor-1.6.5]
+        ├───bazecor: package [bazecor-1.10.0-patched]
         ├───metals: package [metals-1.6.7]
         ├───metals-updater: package [metals-updater-script]
-        ├───neovim: package [neovim-0.12.3]
-        ├───nix: package [determinate-nix-3.21.8]
+        ├───neovim: package [neovim-0.12.5]
+        ├───nix: package [determinate-nix-3.22.3]
         ├───quickemu: package [quickemu-4.9.9]
-        └───slack: package [slack-4.49.89]
+        └───slack: package [slack-4.51.180]
 ```
 
 As well as all the declared flake inputs.

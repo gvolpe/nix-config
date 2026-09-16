@@ -133,6 +133,9 @@ in
 
   programs.fish.enable = true;
 
+  # command-not-found is channel-oriented; Home Manager uses nix-index-fork instead.
+  programs.command-not-found.enable = false;
+
   # airdrop alt
   programs.localsend = {
     enable = true;
