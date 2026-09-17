@@ -4,9 +4,13 @@
 , jq
 , procps
 , rsync
+, settings
 , writeShellApplication
 }:
 
+let
+  enableGitOps = if settings.sync.enableGitOps then "1" else "0";
+in
 writeShellApplication {
   name = "helium-sync";
 
@@ -22,11 +26,13 @@ writeShellApplication {
   text = ''
     set -euo pipefail
 
-    profile_name="gvolpe"
-    profile_id="Default"
-    helium_config_dir="''${HELIUM_CONFIG_DIR:-$HOME/.config/net.imput.helium}"
+    profile_name="${settings.profile.name}"
+    profile_id="${settings.profile.id}"
+    helium_config_dir="${settings.configDir}"
+    sync_root="${settings.sync.directory}"
+    git_ops_enabled="${enableGitOps}"
+
     profile_dir="$helium_config_dir/$profile_id"
-    sync_root="''${HELIUM_SYNC_DIR:-$HOME/workspace/helium-sync}"
     state_dir="$sync_root/$profile_name"
     snapshot_dir="$state_dir/profile/$profile_id"
     host="$(${hostname}/bin/hostname)"
@@ -63,11 +69,6 @@ writeShellApplication {
       pull           Restore the last profile snapshot; refuses while Helium is running
       status         Show local paths and latest synced state
       paths          Print the profile and sync paths
-
-    Environment:
-      HELIUM_SYNC_DIR=$sync_root
-      HELIUM_CONFIG_DIR=$helium_config_dir
-      HELIUM_SYNC_GIT=1
     EOF
     }
 
@@ -97,7 +98,7 @@ writeShellApplication {
     }
 
     helium_is_running() {
-      pgrep -u "''${USER:-$(id -un)}" -f 'net\.imput\.helium|/libexec/helium/helium|(^|[ /])helium([[:space:]]|$)' >/dev/null
+      pgrep -u "$(id -u)" -f 'net\.imput\.helium|/libexec/helium/helium|(^|[ /])helium([[:space:]]|$)' >/dev/null
     }
 
     require_helium_closed() {
@@ -107,13 +108,13 @@ writeShellApplication {
     }
 
     maybe_git_pull() {
-      if [[ -d "$sync_root/.git" && "''${HELIUM_SYNC_GIT:-1}" == "1" ]]; then
+      if [[ -d "$sync_root/.git" && "$git_ops_enabled" == "1" ]]; then
         git -C "$sync_root" pull --ff-only
       fi
     }
 
     maybe_git_push() {
-      if [[ -d "$sync_root/.git" && "''${HELIUM_SYNC_GIT:-1}" == "1" ]]; then
+      if [[ -d "$sync_root/.git" && "$git_ops_enabled" == "1" ]]; then
         git -C "$sync_root" add "$profile_name"
         if ! git -C "$sync_root" diff --cached --quiet; then
           git -C "$sync_root" commit -m "helium profile sync from $host at $(now)"
