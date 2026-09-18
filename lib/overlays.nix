@@ -68,7 +68,7 @@ let
 
     sources = {
       inherit (inputs) determinate-nix gh-md-toc metals-zed
-      tree-sitter-scala pedantix waycal wshowkeys;
+      nirimation niri-shaders tree-sitter-scala pedantix waycal wshowkeys;
     };
 
     xargs = {

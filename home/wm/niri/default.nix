@@ -82,6 +82,7 @@ in
   };
 
   imports = includeConfig ++ [
+    ./animations
     ../../shared
     ../../programs/atuin
     ../../programs/cava

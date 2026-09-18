@@ -1211,6 +1211,38 @@
         "type": "github"
       }
     },
+    "niri-shaders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784811723,
+        "narHash": "sha256-ctcILT4UJWBTraB8eQDQdmTM6Va1Cd6Y85Ql7s30Qf0=",
+        "owner": "liixini",
+        "repo": "shaders",
+        "rev": "238e7c70e317bb0ca0b0366cf0851b8de3ddc969",
+        "type": "github"
+      },
+      "original": {
+        "owner": "liixini",
+        "repo": "shaders",
+        "type": "github"
+      }
+    },
+    "nirimation": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778706627,
+        "narHash": "sha256-KA9/w/nWkQtdwMVeELy1FWG1iPrdchVr11Tr0bVbKLA=",
+        "owner": "Xansidev",
+        "repo": "nirimation",
+        "rev": "a5f8f8b1eb693a92926db158ba1024cc02e70d54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Xansidev",
+        "repo": "nirimation",
+        "type": "github"
+      }
+    },
     "nix-graph": {
       "inputs": {
         "nixpkgs": [
@@ -2101,6 +2133,8 @@
         "nfsm-flake": "nfsm-flake",
         "niri": "niri",
         "niri-scratchpad-flake": "niri-scratchpad-flake",
+        "niri-shaders": "niri-shaders",
+        "nirimation": "nirimation",
         "nix-graph": "nix-graph",
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",

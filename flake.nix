@@ -122,6 +122,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nirimation = {
+      url = github:Xansidev/nirimation;
+      flake = false;
+    };
+
+    niri-shaders = {
+      url = github:liixini/shaders;
+      flake = false;
+    };
+
     sunix = {
       #url = git+file:///home/gvolpe/workspace/sunix;
       url = github:gvolpe/sunix;
