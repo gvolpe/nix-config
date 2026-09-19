@@ -95,6 +95,26 @@ window-rule {
     open-on-workspace "work"
 }
 
+// audio visualizer running on top of the bottom waybar for demo purposes
+window-rule {
+    match app-id="GLava"
+    open-on-workspace "nix"
+    open-floating true
+    open-focused false
+    default-column-width { proportion 1.0; }
+    default-window-height { fixed 300; }
+    default-floating-position x=0 y=0 relative-to="bottom-left"
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+    shadow {
+        off
+    }
+}
+
 // floating windows
 window-rule {
     match app-id=r#"^Audacious$"#

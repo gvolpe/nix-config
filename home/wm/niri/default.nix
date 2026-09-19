@@ -14,6 +14,7 @@ let
   ] ++ nerdFonts;
 
   audioPkgs = with pkgs; [
+    glava # audio visualizer
     paprefs # pulseaudio preferences
     pasystray # pulseaudio systray
     pavucontrol # pulseaudio volume control
