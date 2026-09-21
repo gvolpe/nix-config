@@ -24,7 +24,6 @@ let
     # FIXME: calibre is broken
     #calibre # e-book reader
     #cobang               # qr-code scanner
-    cowsay # cowsay fortune teller with random images
     dive # explore docker layers
     drawio # diagram design
     #gnomecast            # chromecast local files

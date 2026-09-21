@@ -206,12 +206,6 @@
 
     # Miscelaneous
 
-    cowsay = {
-      url = github:snowfallorg/cowsay;
-      inputs.snowfall-lib.inputs.flake-utils-plus.inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-graph = {
       url = github:AlexAntonik/nix-graph;
       inputs.nixpkgs.follows = "nixpkgs";

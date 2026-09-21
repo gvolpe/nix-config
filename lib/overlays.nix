@@ -18,7 +18,6 @@ let
   };
 
   overlays = f: p: {
-    inherit (inputs.cowsay.packages.${system}) cowsay;
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
     inherit (inputs.snitch.packages.${system}) snitch;
 
