@@ -283,11 +283,11 @@
     },
     "dots": {
       "locked": {
-        "lastModified": 1785924217,
-        "narHash": "sha256-hylCApFGg18vA0KiT56VCPdHlpx/yXR6kXZagQ2ses8=",
+        "lastModified": 1790151964,
+        "narHash": "sha256-9tLuhjKVp3efMxLX4Wos3a721yylgbHCzg+V83FbO1E=",
         "owner": "gvolpe",
         "repo": "dots",
-        "rev": "473f3f4a20ce3335c0033a91036df157c262a0aa",
+        "rev": "eb63362e4e928dca2b118972464e7384b8347bec",
         "type": "github"
       },
       "original": {
@@ -2027,6 +2027,7 @@
         "tree-sitter-scala": "tree-sitter-scala_2",
         "waycal": "waycal",
         "wooz-flake": "wooz-flake",
+        "wrappers": "wrappers",
         "wshowkeys": "wshowkeys"
       }
     },
@@ -2529,6 +2530,21 @@
         "owner": "negrel",
         "repo": "wooz",
         "type": "github"
+      }
+    },
+    "wrappers": {
+      "locked": {
+        "lastModified": 1788355120,
+        "narHash": "sha256-JEuM7FjlX48cpDhDrkeIch5nNYANux5o0wcw8vnwUuE=",
+        "ref": "refs/heads/master",
+        "rev": "5dbc685119c53a10c3f9a74b2716107413889796",
+        "revCount": 95,
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/viperML/wrapper-manager"
       }
     },
     "wshowkeys": {

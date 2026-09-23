@@ -227,6 +227,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wrappers = {
+      url = "git+https://codeberg.org/viperML/wrapper-manager";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:
@@ -242,6 +245,8 @@
           contentAddressedByDefault = false;
         };
       };
+
+      inherit (self.homeConfigurations.niri.config.wrappers) fastfetch;
 
       neovim = self.homeConfigurations.niri-desktop.config.programs.neovim-ide.finalPackage;
     in
@@ -264,7 +269,7 @@
         import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
 
       packages.${system} = {
-        inherit neovim;
+        inherit fastfetch neovim;
         inherit (inputs.determinate-nix.packages.${system}) nix;
         inherit (pkgs) bazecor metals metals-updater quickemu slack;
       };

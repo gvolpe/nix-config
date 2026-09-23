@@ -1,8 +1,14 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.dotfiles.make ./config.jsonc;
+in
 {
-  home.packages = [ pkgs.fastfetch ];
+  wrappers.fastfetch = lib.wrapWith pkgs {
+    basePackage = pkgs.fastfetch;
+    prependFlags = [ "--config" cfg ];
+  };
 
-  xdg.configFile."fastfetch/config.jsonc".source =
-    config.dotfiles.make ./config.jsonc;
+  # this is not required, but leaving it here for demo purposes
+  xdg.configFile."fastfetch/config.jsonc".source = cfg;
 }

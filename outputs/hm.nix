@@ -47,6 +47,7 @@ in
 {
   hyprland-desktop = mkHyprlandHome { hidpi = true; };
   hyprland-laptop = mkHyprlandHome { hidpi = false; };
+  niri = mkNiriHome { hidpi = true; mut = false; };
   niri-desktop = mkNiriHome { hidpi = true; mut = true; };
   niri-laptop = mkNiriHome { hidpi = false; mut = true; };
   xmonad-desktop = mkXmonadHome { hidpi = true; };
