@@ -8,7 +8,7 @@ let
     libx = import ./. { inherit (p) lib; };
     lib = (p.lib.extend (_: _: {
       inherit (libx) exe removeNewline secretManager;
-      inherit (inputs.wrappers.lib) wrapWith;
+      mkWrapper = inputs.wrappers.lib.wrapWith f;
     })).extend libVersionOverlay;
   };
 

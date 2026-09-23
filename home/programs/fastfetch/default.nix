@@ -4,7 +4,7 @@ let
   cfg = config.dotfiles.make ./config.jsonc;
 in
 {
-  wrappers.fastfetch = lib.wrapWith pkgs {
+  wrappers.fastfetch = lib.mkWrapper {
     basePackage = pkgs.fastfetch;
     prependFlags = [ "--config" cfg ];
   };
