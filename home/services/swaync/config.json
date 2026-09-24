@@ -1,6 +1,4 @@
 {
-  "$schema": "./configSchema.json",
-
   "positionX": "right",
   "positionY": "top",
   "control-center-positionX": "none",
