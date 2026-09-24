@@ -226,10 +226,6 @@
       url = github:karol-broda/snitch;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    wrappers = {
-      url = "git+https://codeberg.org/viperML/wrapper-manager";
-    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:

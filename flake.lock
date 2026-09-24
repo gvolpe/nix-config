@@ -2027,7 +2027,6 @@
         "tree-sitter-scala": "tree-sitter-scala_2",
         "waycal": "waycal",
         "wooz-flake": "wooz-flake",
-        "wrappers": "wrappers",
         "wshowkeys": "wshowkeys"
       }
     },
@@ -2530,21 +2529,6 @@
         "owner": "negrel",
         "repo": "wooz",
         "type": "github"
-      }
-    },
-    "wrappers": {
-      "locked": {
-        "lastModified": 1788355120,
-        "narHash": "sha256-JEuM7FjlX48cpDhDrkeIch5nNYANux5o0wcw8vnwUuE=",
-        "ref": "refs/heads/master",
-        "rev": "5dbc685119c53a10c3f9a74b2716107413889796",
-        "revCount": 95,
-        "type": "git",
-        "url": "https://codeberg.org/viperML/wrapper-manager"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/viperML/wrapper-manager"
       }
     },
     "wshowkeys": {

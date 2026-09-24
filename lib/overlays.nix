@@ -5,10 +5,9 @@ let
   libVersionOverlay = import "${inputs.nixpkgs}/lib/flake-version-info.nix" inputs.nixpkgs;
 
   libOverlay = f: p: rec {
-    libx = import ./. { inherit (p) lib; };
+    libx = import ./. { inherit (p) lib; pkgs = f; };
     lib = (p.lib.extend (_: _: {
-      inherit (libx) exe removeNewline secretManager;
-      mkWrapper = inputs.wrappers.lib.wrapWith f;
+      inherit (libx) exe removeNewline secretManager mkWrapper;
     })).extend libVersionOverlay;
   };
 
