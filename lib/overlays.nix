@@ -37,6 +37,7 @@ let
       p.tree-sitter-c
       p.tree-sitter-nix
       p.tree-sitter-elm
+      p.tree-sitter-lua
       p.tree-sitter-haskell
       p.tree-sitter-python
       p.tree-sitter-rust
