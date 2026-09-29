@@ -82,7 +82,7 @@ in
   ../programs/khal
   ../programs/mimeo
   ../programs/mpv
-  ../programs/neovim-ide
+  ../programs/neovim
   ../programs/ngrok
   ../programs/yubikey
   ../programs/zathura

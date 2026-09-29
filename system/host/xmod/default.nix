@@ -16,7 +16,6 @@ in
     sharedModules = [
       inputs.agenix.homeManagerModules.default
       inputs.dots.homeModules.default
-      inputs.neovim-flake.homeModules.default
       inputs.nix-index.homeModules.default
       ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
       (import ../../../home/dotfiles.nix { mutable = false; })

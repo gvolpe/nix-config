@@ -55,13 +55,13 @@
     dots.url = github:gvolpe/dots;
     #dots.url = git+file:///home/gvolpe/workspace/dots;
 
-    neovim-flake = {
-      #url = git+file:///home/gvolpe/workspace/neovim-flake;
-      url = github:gvolpe/neovim-flake;
-      inputs.flake-schemas.follows = "flake-schemas";
+    mnw-flake = {
+      #url = git+file:///home/gvolpe/workspace/mnw-flake;
+      url = github:gvolpe/mnw-flake;
       inputs.flake-utils.follows = "flake-utils";
       inputs.neovim-nightly-overlay.inputs.flake-parts.follows = "flake-parts";
-      inputs.nixd.inputs.flake-parts.follows = "flake-parts";
+      inputs.neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {
@@ -243,8 +243,6 @@
       };
 
       inherit (self.homeConfigurations.niri.config.wrappers) fastfetch;
-
-      neovim = self.homeConfigurations.niri-desktop.config.programs.neovim-ide.finalPackage;
     in
     {
       lib = {
@@ -265,9 +263,9 @@
         import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
 
       packages.${system} = {
-        inherit fastfetch neovim;
+        inherit fastfetch;
         inherit (inputs.determinate-nix.packages.${system}) nix;
-        inherit (pkgs) bazecor metals metals-updater quickemu slack;
+        inherit (pkgs) bazecor neovim-dev quickemu slack;
       };
 
       devShells.${system}.default = pkgs.mkShell {

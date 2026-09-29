@@ -18,7 +18,6 @@ in
 
       imports = [
         inputs.dots.homeModules.default
-        inputs.neovim-flake.homeModules.default
         inputs.nix-index.homeModules.default
         (import ../../../home/dotfiles.nix { mutable = false; })
         inputs.sunix.homeModules.default

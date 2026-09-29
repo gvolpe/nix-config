@@ -144,7 +144,7 @@ XMonad will be forever in my heart — the best X window manager!
 
 ## NeoVim
 
-My NeoVim configuration lives here: https://github.com/gvolpe/neovim-flake
+My NeoVim configuration lives here: https://github.com/gvolpe/mnw-flake
 
 ## Structure
 

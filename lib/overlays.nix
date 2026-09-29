@@ -11,12 +11,6 @@ let
     })).extend libVersionOverlay;
   };
 
-  # needs to be imported after the neovim-flake overlays
-  metalsOverlay = f: p: {
-    metals = p.callPackage ../home/programs/neovim-ide/metals.nix { };
-    metals-updater = p.callPackage ../home/programs/neovim-ide/update-metals.nix { };
-  };
-
   overlays = f: p: {
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
     inherit (inputs.snitch.packages.${system}) snitch;
@@ -31,6 +25,10 @@ let
 
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
+
+    neovim = inputs.mnw-flake.packages.${system}.default;
+    neovim-dev = inputs.mnw-flake.packages.${system}.dev;
+    neovim-nightly = inputs.mnw-flake.packages.${system}.nightly;
 
     nix-search = inputs.nix-search.packages.${system}.default;
 
@@ -80,11 +78,9 @@ in
   libOverlay
   overlays
   inputs.helium-nix.overlays.default
-  inputs.neovim-flake.overlays.default
   inputs.niri.overlays.default
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
-  metalsOverlay
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
   (import ../home/overlays/gh-md-toc)

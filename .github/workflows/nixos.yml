@@ -11,13 +11,11 @@ on:
       - 'GNOME.md'
       - 'README.md'
       - 'notes/**'
-      - '.git-crypt/**'
       - '.gitattributes'
       - '.gitignore'
       - 'home/**'
       - 'outputs/hm.nix'
       - 'switch'
-      - '.mergify.yml'
 
 jobs:
   build:
