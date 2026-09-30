@@ -56,6 +56,7 @@ let
     pv # pipe viewer
     satty-shot # screenshots
     snitch # inspect network connections
+    waypipe # network transparency for wayland
     wl-clipboard # clipboard support
     wooz # zoom / magnifier utility
   ] ++ fontPkgs ++ audioPkgs ++ videoPkgs;
