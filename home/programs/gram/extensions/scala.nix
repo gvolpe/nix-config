@@ -6,7 +6,7 @@ gram-ext.buildGramRustExtension (attrs: {
 
   src = sources.metals-zed;
 
-  cargoHash = "sha256-sdzJD7oczNtT4cBEB4n9md6Ob6xkdmj+vIABbxClJ7s=";
+  cargoHash = "";
 
   # fix incompatibility with gram
   postPatch = ''

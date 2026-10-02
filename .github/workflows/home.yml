@@ -6,7 +6,6 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'GNOME.md'
       - 'README.md'
       - 'notes/**'
       - '.gitattributes'
@@ -16,14 +15,42 @@ on:
       - 'switch'
 
 jobs:
+  build-niri:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.2
+
+      - name: "Free disk space for Nix"
+        uses: wimpysworld/nothing-but-nix@main
+        with:
+          hatchet-protocol: 'cleave' # holster, carve, cleave (default), rampage
+
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v31.8.4
+        with:
+          extra_nix_config: |
+            accept-flake-config = true
+            experimental-features = nix-command flakes ca-derivations
+            trusted-users = root runner
+
+      - name: "Install Cachix ❄️"
+        uses: cachix/cachix-action@v16
+        with:
+          name: gvolpe-nixos
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: "Build niri Home Manager config 🏠"
+        run: nix build .#homeConfigurations.niri.activationPackage -L --accept-flake-config
+
   build:
     runs-on: ubuntu-latest
+    needs: build-niri
 
     strategy:
       fail-fast: true
       matrix:
         config_name:
-          - niri
           - niri-laptop
           - niri-desktop
 
@@ -48,10 +75,6 @@ jobs:
         with:
           name: gvolpe-nixos
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-
-      # Needed because cachix is also installed by Home Manager
-      - name: "Set priority flag for Cachix 🚩"
-        run: nix-env --set-flag priority 0 cachix
 
       - name: "Build ${{ matrix.config_name }} Home Manager config 🏠"
         run: nix build .#homeConfigurations.${{ matrix.config_name }}.activationPackage -L --accept-flake-config
