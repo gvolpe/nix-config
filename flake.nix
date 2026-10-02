@@ -76,9 +76,7 @@
     # Secrets
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
     };
 
     # Niri
@@ -95,8 +93,8 @@
     };
 
     niri-scratchpad-flake = {
-      #url = git+file:///home/gvolpe/workspace/niri-scratchpad;
-      url = github:gvolpe/niri-scratchpad;
+      #url = "git+file:///home/gvolpe/workspace/niri-scratchpad";
+      url = "github:gvolpe/niri-scratchpad";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
