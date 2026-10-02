@@ -382,46 +382,6 @@
         "type": "github"
       }
     },
-    "hypr-binds-flake": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1763639092,
-        "narHash": "sha256-4LQV1bVvqEiyQtC9BF4sYDbgYM3BeFg9hOiHCZjU6Vg=",
-        "owner": "hyprland-community",
-        "repo": "hypr-binds",
-        "rev": "c1677b6d80a4d931a51cb0bb9e7b342e6098c3ed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprland-community",
-        "repo": "hypr-binds",
-        "type": "github"
-      }
-    },
-    "hyprland": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734636407,
-        "narHash": "sha256-HF5shWnOv5uJJSKJnnbLvE+lqCTCTKY2JlKs14kVKOo=",
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "rev": "0bd541f2fd902dbfa04c3ea2ccf679395e316887",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "ref": "v0.46.2",
-        "repo": "Hyprland",
-        "type": "github"
-      }
-    },
     "metals-zed": {
       "flake": false,
       "locked": {
@@ -760,21 +720,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-hyprland": {
-      "locked": {
-        "lastModified": 1737847078,
-        "narHash": "sha256-RlIl2QOvd0ijklqS+1W9YW8xzWJPqpfSblruQSlxBI8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b582bb5b0d7af253b05d58314b85ab8ec46b8d19",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "b582bb5b0d7af253b05d58314b85ab8ec46b8d19",
-        "type": "indirect"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1788057806,
@@ -981,8 +926,6 @@
         "gram-extensions": "gram-extensions",
         "helium-nix": "helium-nix",
         "home-manager": "home-manager",
-        "hypr-binds-flake": "hypr-binds-flake",
-        "hyprland": "hyprland",
         "metals-zed": "metals-zed",
         "mnw-flake": "mnw-flake",
         "nfsm-flake": "nfsm-flake",
@@ -995,7 +938,6 @@
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-hyprland": "nixpkgs-hyprland",
         "nord-tmux": "nord-tmux",
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",

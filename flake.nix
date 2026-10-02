@@ -27,37 +27,34 @@
     flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/0";
 
     # inputs to avoid different flakes bringing their own
-    systems.url = github:nix-systems/x86_64-linux;
-    flake-parts.url = github:hercules-ci/flake-parts;
+    systems.url = "github:nix-systems/x86_64-linux";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils = {
-      url = github:numtide/flake-utils;
+      url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
 
-    # https://github.com/hyprwm/Hyprland/issues/9518
-    nixpkgs-hyprland.url = "nixpkgs/b582bb5b0d7af253b05d58314b85ab8ec46b8d19";
-
     rycee-nurpkgs = {
-      url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nurpkgs = {
-      url = github:nix-community/NUR;
+      url = "github:nix-community/NUR";
       inputs.flake-parts.follows = "flake-parts";
     };
 
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dots.url = github:gvolpe/dots;
+    dots.url = "github:gvolpe/dots";
     #dots.url = git+file:///home/gvolpe/workspace/dots;
 
     mnw-flake = {
-      #url = git+file:///home/gvolpe/workspace/mnw-flake;
-      url = github:gvolpe/mnw-flake;
+      #url = "git+file:///home/gvolpe/workspace/mnw-flake";
+      url = "github:gvolpe/mnw-flake";
       inputs.flake-utils.follows = "flake-utils";
       inputs.neovim-nightly-overlay.inputs.flake-parts.follows = "flake-parts";
       inputs.neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -65,45 +62,33 @@
     };
 
     nix-index-database = {
-      url = github:nix-community/nix-index-database;
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index = {
-      #url = git+file:///home/gvolpe/workspace/nix-index;
-      url = github:gvolpe/nix-index;
+      #url = "git+file:///home/gvolpe/workspace/nix-index";
+      url = "github:gvolpe/nix-index";
       inputs.nix-index-database.follows = "nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Secrets
     agenix = {
-      url = github:ryantm/agenix;
+      url = "github:ryantm/agenix";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
     };
 
-    # Hyprland
-    hyprland = {
-      url = github:hyprwm/Hyprland?ref=v0.46.2;
-      flake = false;
-    };
-
-    hypr-binds-flake = {
-      url = github:hyprland-community/hypr-binds;
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Niri
     niri = {
-      url = github:niri-wm/niri;
+      url = "github:niri-wm/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nfsm-flake = {
-      url = github:gvolpe/nfsm;
+      url = "github:gvolpe/nfsm";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
@@ -118,67 +103,67 @@
     };
 
     nsticky-flake = {
-      url = github:lonerOrz/nsticky;
+      url = "github:lonerOrz/nsticky";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nirimation = {
-      url = github:Xansidev/nirimation;
+      url = "github:Xansidev/nirimation";
       flake = false;
     };
 
     niri-shaders = {
-      url = github:liixini/shaders;
+      url = "github:liixini/shaders";
       flake = false;
     };
 
     sunix = {
-      #url = git+file:///home/gvolpe/workspace/sunix;
-      url = github:gvolpe/sunix;
+      #url = "git+file:///home/gvolpe/workspace/sunix";
+      url = "github:gvolpe/sunix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     waycal = {
-      url = github:forrestknight/waycal;
+      url = "github:forrestknight/waycal";
       flake = false;
     };
 
     wooz-flake = {
-      url = github:negrel/wooz;
+      url = "github:negrel/wooz";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     wshowkeys = {
-      url = github:DreamMaoMao/wshowkeys;
+      url = "github:DreamMaoMao/wshowkeys";
       flake = false;
     };
 
     # Fish shell
 
     fish-bobthefish-theme = {
-      #url = git+file:///home/gvolpe/workspace/theme-bobthefish;
-      url = github:gvolpe/theme-bobthefish;
+      #url = "git+file:///home/gvolpe/workspace/theme-bobthefish";
+      url = "github:gvolpe/theme-bobthefish";
       flake = false;
     };
 
     fish-keytool-completions = {
-      url = github:ckipp01/keytool-fish-completions;
+      url = "github:ckipp01/keytool-fish-completions";
       flake = false;
     };
 
     # Helium browser
-    helium-nix.url = github:penal-colony/helium-nix?rev=62fc5f5f35de7cf6eafce21ef76e23d12965521f;
+    helium-nix.url = "github:penal-colony/helium-nix?rev=62fc5f5f35de7cf6eafce21ef76e23d12965521f";
 
     # Github Markdown ToC generator
     gh-md-toc = {
-      url = github:ekalinin/github-markdown-toc;
+      url = "github:ekalinin/github-markdown-toc";
       flake = false;
     };
 
     # Fast nix search client
     nix-search = {
-      url = github:diamondburned/nix-search;
+      url = "github:diamondburned/nix-search";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -193,37 +178,37 @@
 
     # Scala plugin for gram
     metals-zed = {
-      #url = github:scalameta/metals-zed?ref=v0.2.4;
-      url = github:scalameta/metals-zed;
+      #url = "github:scalameta/metals-zed?ref=v0.2.4";
+      url = "github:scalameta/metals-zed";
       flake = false;
     };
 
     # Revision that metals-zed pins in their extension.toml file
     tree-sitter-scala = {
-      url = github:tree-sitter/tree-sitter-scala?ref=97aead18d97708190a51d4f551ea9b05b60641c9;
+      url = "github:tree-sitter/tree-sitter-scala?ref=97aead18d97708190a51d4f551ea9b05b60641c9";
       flake = false;
     };
 
     # Miscelaneous
 
     nix-graph = {
-      url = github:AlexAntonik/nix-graph;
+      url = "github:AlexAntonik/nix-graph";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nord-tmux = {
-      url = github:arcticicestudio/nord-tmux;
+      url = "github:arcticicestudio/nord-tmux";
       flake = false;
     };
 
     pedantix = {
-      url = github:swarsel/pedantix;
+      url = "github:swarsel/pedantix";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     snitch = {
-      url = github:karol-broda/snitch;
+      url = "github:karol-broda/snitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

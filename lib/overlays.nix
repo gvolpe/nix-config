@@ -21,7 +21,6 @@ let
 
     inherit (inputs.nix-index-database.packages.${system}) nix-index-database nix-index-small-database;
     inherit (inputs.nix-graph.packages.${system}) nix-graph;
-    inherit (inputs.nixpkgs-hyprland.legacyPackages.${system}) hyprland;
 
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;

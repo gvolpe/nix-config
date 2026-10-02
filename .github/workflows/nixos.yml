@@ -28,7 +28,6 @@ jobs:
           - aorus
           - dell-xps
           - thinkpad-x1
-          - tongfang-amd
           - xmod
 
     steps:

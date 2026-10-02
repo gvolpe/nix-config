@@ -7,26 +7,6 @@ activate_hm() {
   result/activate
 }
 
-rebuild_xmonad_laptop() {
-  nom build .#homeConfigurations.xmonad-laptop.activationPackage
-  activate_hm
-}
-
-rebuild_xmonad_desktop() {
-  nom build .#homeConfigurations.xmonad-desktop.activationPackage
-  activate_hm
-}
-
-rebuild_hyprland_laptop() {
-  nom build .#homeConfigurations.hyprland-laptop.activationPackage
-  activate_hm
-}
-
-rebuild_hyprland_desktop() {
-  nom build .#homeConfigurations.hyprland-desktop.activationPackage
-  activate_hm
-}
-
 rebuild_niri_laptop() {
   nom build .#homeConfigurations.niri-laptop.activationPackage
   activate_hm

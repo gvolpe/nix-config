@@ -64,7 +64,7 @@ An incredible scrollable-tiling Wayland compositor.
 
 ## Hyprland
 
-My first Wayland compositor experience.
+My first Wayland compositor experience (see [Release v1.0.0](https://github.com/gvolpe/nix-config/tree/v1.0.0)).
 
 ![hyprland](imgs/hyprland/hyprland-2024.png)
 
@@ -104,7 +104,7 @@ My first Wayland compositor experience.
 
 ## XMonad
 
-XMonad will be forever in my heart — the best X window manager!
+XMonad will be forever in my heart — the best X window manager! (see [Release v1.0.0](https://github.com/gvolpe/nix-config/tree/v1.0.0)).
 
 ![neofetch](imgs/xmonad/neofetch.png)
 
@@ -161,20 +161,16 @@ $ dnix flake show --drv-names github:gvolpe/nix-config
 │   └───x86_64-linux
 │       └───default: development environment [nix-shell]
 ├───homeConfigurations
-│   ├───hyprland-desktop: Home Manager configuration [home-manager-generation]
-│   ├───hyprland-laptop: Home Manager configuration [home-manager-generation]
+│   ├───niri: Home Manager configuration [home-manager-generation]
 │   ├───niri-desktop: Home Manager configuration [home-manager-generation]
-│   ├───niri-laptop: Home Manager configuration [home-manager-generation]
-│   ├───xmonad-desktop: Home Manager configuration [home-manager-generation]
-│   └───xmonad-laptop: Home Manager configuration [home-manager-generation]
+│   └───niri-laptop: Home Manager configuration [home-manager-generation]
 ├───lib
 │   ├───mkHome: library function
 │   └───mkNixos: library function
 ├───nixosConfigurations
 │   ├───aorus: NixOS configuration [nixos-system-aorus-26.11.20260908.d6524aa]
 │   ├───dell-xps: NixOS configuration [nixos-system-dell-xps-26.11.20260908.d6524aa]
-│   ├───thinkpad-x1: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260908.d6524aa]
-│   └───tongfang-amd: NixOS configuration [nixos-system-tongfang-amd-26.11.20260908.d6524aa]
+│   └───thinkpad-x1: NixOS configuration [nixos-system-thinkpad-x1-26.11.20260908.d6524aa]
 ├───out
 │   ├───overlays: custom instance to be used by consumers of this flake
 │   └───pkgs: custom instance to be used by consumers of this flake
