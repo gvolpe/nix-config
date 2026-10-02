@@ -19,7 +19,7 @@ window-rule {
 }
 
 window-rule {
-    match at-startup=true app-id="firefox-beta"
+    match at-startup=true app-id="firefox"
     match at-startup=true app-id="helium"
     open-on-workspace "web"
     open-maximized true
@@ -118,7 +118,7 @@ window-rule {
 // floating windows
 window-rule {
     match app-id=r#"^Audacious$"#
-    match app-id=r#"^firefox-beta|firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"^firefox$"# title="^Picture-in-Picture$"
     match app-id=r#"^helium$"# title="^Picture-in-Picture$"
     match app-id="kitty" title="cava"
     match app-id="org.pwmt.zathura"
