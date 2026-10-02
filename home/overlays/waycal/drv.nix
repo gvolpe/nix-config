@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage {
   version = toml.package.version;
   src = sources.waycal;
 
-  cargoHash = "sha256-zOOG8vF0d3+X85O6bu0Y5XKNZSjcufKMHXQmZ54jCXw=";
+  cargoHash = "sha256-brC1igJxiX5JB0BfpZqpQf88JEZFfQcGnWtW3QElrvE=";
 
   doCheck = !stdenv.hostPlatform.isDarwin;
 

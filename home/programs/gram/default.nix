@@ -7,11 +7,11 @@ let
   codeLLDB = pkgs.vscode-extensions.vadimcn.vscode-lldb;
   codeLLDBAdapter = "${codeLLDB}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
 
-  binaries = [
-    pkgs.metals # scala lsp server
-    pkgs.nil # nix lsp server
-    pkgs.nodejs # required by gram
-    pkgs.rust-analyzer # rust
+  binaries = with pkgs; [
+    metals # scala lsp server
+    nil # nix lsp server
+    nodejs # required by gram
+    rust-analyzer # rust
   ];
 
   gram = pkgs.symlinkJoin {
