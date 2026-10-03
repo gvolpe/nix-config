@@ -115,6 +115,11 @@
       flake = false;
     };
 
+    latchshot = {
+      url = "github:so1ve/latchshot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sunix = {
       #url = "git+file:///home/gvolpe/workspace/sunix";
       url = "github:gvolpe/sunix";

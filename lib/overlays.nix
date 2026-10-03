@@ -78,6 +78,7 @@ in
   libOverlay
   overlays
   inputs.helium-nix.overlays.default
+  inputs.latchshot.overlays.default
   inputs.niri.overlays.default
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default

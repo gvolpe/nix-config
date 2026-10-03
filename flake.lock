@@ -371,6 +371,26 @@
         "type": "github"
       }
     },
+    "latchshot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790689572,
+        "narHash": "sha256-p5W329VvjUeqQOZYZCK88QGxMIbITs8BRt6SBPY8arU=",
+        "owner": "so1ve",
+        "repo": "latchshot",
+        "rev": "08f72dddc7f884e23bf030ef9fea24a9c4337cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "so1ve",
+        "repo": "latchshot",
+        "type": "github"
+      }
+    },
     "metals-zed": {
       "flake": false,
       "locked": {
@@ -915,6 +935,7 @@
         "gram-extensions": "gram-extensions",
         "helium-nix": "helium-nix",
         "home-manager": "home-manager",
+        "latchshot": "latchshot",
         "metals-zed": "metals-zed",
         "mnw-flake": "mnw-flake",
         "nfsm-flake": "nfsm-flake",

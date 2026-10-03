@@ -249,11 +249,12 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+A hotkey-overlay-title="Satty Screenshot" { spawn-sh "satty-shot"; }
-    Mod+Shift+P { screenshot-screen; }
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+Shift+A hotkey-overlay-title="Screenshot" { spawn-sh "satty-shot"; }
+    Mod+Shift+P hotkey-overlay-title="Screenshot" { spawn-sh "latchshot --output ~/Pictures/Screenshots/cap-$(date '+%Y%m%d-%H:%M:%S').png"; }
+    //Mod+Shift+P { screenshot-screen; }
+    //Print { screenshot; }
+    //Ctrl+Print { screenshot-screen; }
+    //Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

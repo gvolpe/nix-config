@@ -36,6 +36,7 @@ let
     brightnessctl # control laptop display brightness
     diskonaut-ng # disk space manager tui
     dnix # determinate nix binary with flake schemas support
+    latchshot # screenshots
     loupe # image viewer
     grim # screenshots
     grimblast # screenshot program from hyprland
