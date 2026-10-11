@@ -13,7 +13,6 @@ let
   mkHome = { hidpi, mods ? [ ], mut ? false }:
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = pkgs.xargs;
       modules = modules' ++ mods ++ [
         (import ../home/dotfiles.nix { mutable = mut; })
         { inherit hidpi; }

@@ -24,6 +24,7 @@ let
 
     # firefox addon builder function
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
+    inherit (f.nur.repos.rycee) firefox-addons;
 
     neovim = inputs.mnw-flake.packages.${system}.default;
     neovim-dev = inputs.mnw-flake.packages.${system}.dev;
@@ -64,13 +65,8 @@ let
     };
 
     sources = {
-      inherit (inputs) determinate-nix gh-md-toc metals-zed
+      inherit (inputs) determinate-nix gh-md-toc metals-zed nord-tmux
       nirimation niri-shaders tree-sitter-scala pedantix waycal wshowkeys;
-    };
-
-    xargs = {
-      inherit (inputs) nord-tmux;
-      addons = f.nur.repos.rycee.firefox-addons;
     };
   };
 in

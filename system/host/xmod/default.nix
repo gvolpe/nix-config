@@ -10,7 +10,6 @@ in
   ];
 
   home-manager = {
-    extraSpecialArgs = pkgs.xargs;
     useGlobalPkgs = true;
 
     sharedModules = [

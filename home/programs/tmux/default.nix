@@ -1,10 +1,12 @@
-{ pkgs, specialArgs, ... }:
+{ pkgs, ... }:
 
 let
+  inherit (pkgs.sources) nord-tmux;
+
   nord = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "nord";
-    src = specialArgs.nord-tmux;
-    version = specialArgs.nord-tmux.rev;
+    src = nord-tmux;
+    version = nord-tmux.rev;
   };
 in
 {

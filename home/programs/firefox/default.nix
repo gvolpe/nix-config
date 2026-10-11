@@ -1,11 +1,11 @@
-{ pkgs, config, specialArgs, ... }:
+{ pkgs, config, ... }:
 
 let
-  inherit (specialArgs) addons;
+  inherit (pkgs) firefox-addons;
 
   customAddons = pkgs.callPackage ./addons.nix { };
 
-  extensions = with addons; [
+  extensions = with firefox-addons; [
     bitwarden
     darkreader
     ff2mpv
