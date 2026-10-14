@@ -419,11 +419,11 @@
         "tree-sitter-scala": "tree-sitter-scala"
       },
       "locked": {
-        "lastModified": 1790766973,
-        "narHash": "sha256-uGzRVwKCxcTlb/y344IOLNkCITuU3fKzPxnID1iSQds=",
+        "lastModified": 1791981686,
+        "narHash": "sha256-0G74KjKqQa/GLwwcbrG8GLLQsiVUxgcXTYbBEGAVkAM=",
         "owner": "gvolpe",
         "repo": "mnw-flake",
-        "rev": "90a8aa33a8ac283862588c0135939ac6ce1b56be",
+        "rev": "45c1d1deec5e1cb39e6b2fa76a3e4d25b3d8eec1",
         "type": "github"
       },
       "original": {
