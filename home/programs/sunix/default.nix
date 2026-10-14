@@ -9,6 +9,8 @@
       homeFlake = "niri-desktop";
       nixosFlake = "aorus";
       showDemo = false;
+      nixpkgsInput = "nix-config/nixpkgs";
+      nixpkgsUrl = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     };
   };
 }

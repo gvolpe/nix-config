@@ -992,11 +992,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788983081,
-        "narHash": "sha256-KfyiBmI6+Q8IzpIq2kPioswgqv3qmRXLgAR3LHQkos4=",
+        "lastModified": 1791994577,
+        "narHash": "sha256-BM7NeSq+u9fvHZF0i8kpHn8tJt/sPv6UR+SGkcKh07Y=",
         "owner": "gvolpe",
         "repo": "sunix",
-        "rev": "bb505ba493c3e7f2ee52595b684acff329f9df47",
+        "rev": "33dd926260b0f1203f31dedd53e7720f7792eee7",
         "type": "github"
       },
       "original": {
