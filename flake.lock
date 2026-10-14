@@ -332,25 +332,6 @@
         "url": "https://tangled.org/niklaskorz.eu/nix-gram-extensions"
       }
     },
-    "helium-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1778775894,
-        "narHash": "sha256-ZPLMmyvhj7hhC4yUZFrJ/Mm48y1ScGdv2gcVwaBoVc8=",
-        "owner": "penal-colony",
-        "repo": "helium-nix",
-        "rev": "62fc5f5f35de7cf6eafce21ef76e23d12965521f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "penal-colony",
-        "repo": "helium-nix",
-        "rev": "62fc5f5f35de7cf6eafce21ef76e23d12965521f",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -729,6 +710,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-helium": {
+      "locked": {
+        "lastModified": 1791875796,
+        "narHash": "sha256-VQa/O4PBprynvwpkm5uaiRpjCAsuFqJ9+wk+qCABDGE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4555f937ce0bd4734c586f9a0756d7787e8b47e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/498572/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1790477367,
@@ -778,22 +775,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1777578337,
-        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
         "lastModified": 1790822859,
         "narHash": "sha256-VBA0QerzzmL+4wxgtwiCdiLwLpJg2/9xOxhgO3BRJQA=",
         "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
@@ -805,7 +786,7 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1770107345,
         "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
@@ -821,7 +802,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1790822859,
         "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
@@ -880,7 +861,7 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1790952221,
@@ -933,7 +914,6 @@
         "flake-utils": "flake-utils",
         "gh-md-toc": "gh-md-toc",
         "gram-extensions": "gram-extensions",
-        "helium-nix": "helium-nix",
         "home-manager": "home-manager",
         "latchshot": "latchshot",
         "metals-zed": "metals-zed",
@@ -947,7 +927,8 @@
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",
         "nix-search": "nix-search",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-helium": "nixpkgs-helium",
         "nord-tmux": "nord-tmux",
         "nsticky-flake": "nsticky-flake",
         "nurpkgs": "nurpkgs",
@@ -1106,7 +1087,7 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1786901030,

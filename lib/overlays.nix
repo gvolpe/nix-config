@@ -26,6 +26,37 @@ let
     inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
     inherit (f.nur.repos.rycee) firefox-addons;
 
+    # https://github.com/NixOS/nixpkgs/pull/498572
+    helium =
+      let
+        heliumPkgs = inputs.nixpkgs-helium.legacyPackages.${system};
+        upstream = heliumPkgs.helium;
+      in
+      upstream.override {
+        newScope = scope: heliumPkgs.newScope (scope // {
+          mkChromiumDerivation = args: (upstream.mkDerivation args).overrideAttrs (old: {
+            # Helium applies its own system-Python patch later in postPatch.
+            patches = p.lib.filter (patch: !(p.lib.hasSuffix
+              "chromium-153-revert-DEPS-use-DEPS-provided-python-instead-of-a-system-one.patch"
+              (toString patch))) old.patches;
+            # Temporary workaround: Helium's pruning also removes the TypeScript patch.
+            prePatch = (old.prePatch or "") + ''
+              cp third_party/typescript/linux-amd64/3pp/patches/typescript_native_preview.patch \
+                "$TMPDIR/helium-typescript-native-preview.patch"
+            '';
+            postPatch = p.lib.replaceStrings
+              [ "--input=../3pp/patches/typescript_native_preview.patch" ]
+              [ ''--input="$TMPDIR/helium-typescript-native-preview.patch"'' ]
+              old.postPatch;
+            # Chromium 154+ replaced these placeholders with desktop_icon/desktop_exec.
+            installPhase = p.lib.concatStringsSep "\n" (p.lib.filter (line:
+              !(p.lib.hasInfix ''--replace-fail "@@PACKAGE"'' line
+                || p.lib.hasInfix ''--replace-fail "/usr/bin/@@usr_bin_symlink_name"'' line)
+            ) (p.lib.splitString "\n" old.installPhase));
+          });
+        });
+      };
+
     neovim = inputs.mnw-flake.packages.${system}.default;
     neovim-dev = inputs.mnw-flake.packages.${system}.dev;
     neovim-nightly = inputs.mnw-flake.packages.${system}.nightly;
@@ -73,7 +104,6 @@ in
 [
   libOverlay
   overlays
-  inputs.helium-nix.overlays.default
   inputs.latchshot.overlays.default
   inputs.niri.overlays.default
   inputs.nix-index.overlays.default

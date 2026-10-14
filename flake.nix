@@ -5,13 +5,13 @@
     extra-substituters = [
       "https://cache.nixos.org"
       "https://gvolpe-nixos.cachix.org"
-      "https://helium-nix.cachix.org"
+      "https://helium-flake.cachix.org"
       "https://install.determinate.systems"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "gvolpe-nixos.cachix.org-1:0MPlBIMwYmrNqoEaYTox15Ds2t1+3R+6Ycj0hZWMcL0="
-      "helium-nix.cachix.org-1:a8YPjt9O4GPyX0u3gjg/aWpb14teU9aRiSG/MOaSFgw="
+      "helium-flake.cachix.org-1:ZNsLgOtylmV74bm0vOWzsu39LNSSIw90vIFVUNbYnJA="
       "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
     ];
   };
@@ -156,7 +156,7 @@
     };
 
     # Helium browser
-    helium-nix.url = "github:penal-colony/helium-nix?rev=62fc5f5f35de7cf6eafce21ef76e23d12965521f";
+    nixpkgs-helium.url = "github:NixOS/nixpkgs/pull/498572/head";
 
     # Github Markdown ToC generator
     gh-md-toc = {
@@ -253,11 +253,12 @@
       packages.${system} = {
         inherit fastfetch;
         inherit (inputs.determinate-nix.packages.${system}) nix;
-        inherit (pkgs) bazecor neovim-dev quickemu slack;
+        inherit (pkgs) bazecor helium neovim-dev quickemu slack;
       };
 
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
+          pkgs.cachix
           # cd home/secrets && agenix -e new-secret.age
           inputs.agenix.packages.${system}.default
         ];
