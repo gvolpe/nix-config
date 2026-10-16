@@ -35,6 +35,7 @@ let
     bitwarden-desktop # password manager
     brightnessctl # control laptop display brightness
     diskonaut-ng # disk space manager tui
+    dix # diffing
     dnix # determinate nix binary with flake schemas support
     latchshot # screenshots
     loupe # image viewer
@@ -57,6 +58,7 @@ let
     pv # pipe viewer
     satty-shot # screenshots
     snitch # inspect network connections
+    syncrain # matrix-like rain effects with NixOS logo
     waypipe # network transparency for wayland
     wl-clipboard # clipboard support
     wooz # zoom / magnifier utility

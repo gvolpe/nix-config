@@ -214,6 +214,11 @@
       url = "github:karol-broda/snitch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    syncrain = {
+      url = "github:Atyzze/syncrain";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:

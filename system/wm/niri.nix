@@ -25,6 +25,8 @@ in
     };
   };
 
+  security.pam.services.swaylock-plugin = { };
+
   # tty service config
   systemd.services.greetd.serviceConfig = {
     Type = "idle";

@@ -936,6 +936,7 @@
         "rycee-nurpkgs": "rycee-nurpkgs",
         "snitch": "snitch",
         "sunix": "sunix",
+        "syncrain": "syncrain",
         "systems": "systems",
         "tree-sitter-scala": "tree-sitter-scala_2",
         "waycal": "waycal",
@@ -1002,6 +1003,26 @@
       "original": {
         "owner": "gvolpe",
         "repo": "sunix",
+        "type": "github"
+      }
+    },
+    "syncrain": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792114006,
+        "narHash": "sha256-+088QX+pvSQumAMg/i49dJceiSwvnViw9PX/nU7mEj0=",
+        "owner": "Atyzze",
+        "repo": "syncrain",
+        "rev": "89cf260f50846bab47706ed71c9bf39c9aaf3e92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Atyzze",
+        "repo": "syncrain",
         "type": "github"
       }
     },

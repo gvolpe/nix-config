@@ -108,6 +108,7 @@ in
   inputs.niri.overlays.default
   inputs.nix-index.overlays.default
   inputs.nurpkgs.overlays.default
+  inputs.syncrain.overlays.default
   (import ../home/overlays/bazecor)
   (import ../home/overlays/determinate-nix)
   (import ../home/overlays/gh-md-toc)
