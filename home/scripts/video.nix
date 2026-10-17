@@ -10,18 +10,19 @@ let
     BLUE=$(tput setaf 4)
     NORMAL=$(tput sgr0)
 
-    echo $"$RED [ERROR]  $NORMAL - Usage: '$GREEN\$$BLUE ${command}$NORMAL'"
+    printf '%s\n' "$RED [ERROR]  $NORMAL - Usage: '$GREEN\$$BLUE ${command}$NORMAL'" >&2
     exit 1
   '';
 
   recording = writeShellScriptBin "video-record" ''
-    OUTPUT_FILE=$1
+    OUTPUT_FILE=''${1:-}
+    MONITOR=''${2:-}
 
-    if [[ -z $OUTPUT_FILE ]]; then
-      ${error "video-record <OUTPUT>"}
+    if [[ -z $OUTPUT_FILE || -z $MONITOR ]]; then
+      ${error "video-record <OUTPUT> <MONITOR>"}
     fi
 
-    ${wf-recorder}/bin/wf-recorder -f $OUTPUT_FILE
+    ${wf-recorder}/bin/wf-recorder -f $OUTPUT_FILE -o $MONITOR
   '';
 
   compression = writeShellScriptBin "video-compress" ''
