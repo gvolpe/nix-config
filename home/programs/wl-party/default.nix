@@ -3,7 +3,7 @@
 let
   inherit (config.dotfiles) make;
 
-  effects = [ "fireworks" ];
+  effects = [ "fireworks" "nixos-confetti" "nixos-rain" ];
 in
 {
   home.packages = [ pkgs.wl-party ];
