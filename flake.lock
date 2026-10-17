@@ -940,6 +940,7 @@
         "systems": "systems",
         "tree-sitter-scala": "tree-sitter-scala_2",
         "waycal": "waycal",
+        "wl-party": "wl-party",
         "wooz-flake": "wooz-flake",
         "wshowkeys": "wshowkeys"
       }
@@ -1158,6 +1159,26 @@
       "original": {
         "owner": "forrestknight",
         "repo": "waycal",
+        "type": "github"
+      }
+    },
+    "wl-party": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792219087,
+        "narHash": "sha256-Bu0r7Ii7MYQXtmYLobFHWi1tw8aRkJ04mkCOaJ57LlI=",
+        "owner": "kjvdven",
+        "repo": "wl-party",
+        "rev": "6ccd4b0f43384433832e10abdc627e11d346ca58",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kjvdven",
+        "repo": "wl-party",
         "type": "github"
       }
     },

@@ -87,6 +87,7 @@ let
       p.tree-sitter-smithy
     ]);
 
+    wl-party = inputs.wl-party.packages.${system}.default;
     wooz = inputs.wooz-flake.packages.${system}.default;
 
     gram-ext = {

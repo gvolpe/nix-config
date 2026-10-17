@@ -100,6 +100,7 @@ in
     ../../programs/waybar
     ../../programs/waypaper
     ../../programs/wlogout
+    ../../programs/wl-party
     ../../programs/yazi
     ../../services/swayidle
     ../../services/swaync

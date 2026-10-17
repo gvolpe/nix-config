@@ -219,6 +219,11 @@
       url = "github:Atyzze/syncrain";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wl-party = {
+      url = "github:kjvdven/wl-party";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }:

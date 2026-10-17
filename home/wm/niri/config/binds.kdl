@@ -270,6 +270,9 @@ binds {
     Mod+Shift+E { spawn-sh "wlogout -b 2"; }
     Ctrl+Alt+Delete { quit; }
 
+    // Confetti effects
+    Mod+Shift+C { spawn-sh "wl-party random"; }
+
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     //Mod+Shift+P { power-off-monitors; }
