@@ -42,6 +42,8 @@ An incredible scrollable-tiling Wayland compositor.
 
 ![overview](imgs/niri/overview0.png)
 
+![lockscreen](imgs/niri/lockscreen.png)
+
 ![swaylock](imgs/niri/swaylock.png)
 
 ![swaync](imgs/niri/swaync.png)
