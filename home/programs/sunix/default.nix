@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       dixBinary = "${pkgs.dix}/bin/dix";
+      enableBuildPlans = true;
       flakeDir = "$HOME/workspace/sxm-flake";
       homeFlake = "niri-desktop";
       nixosFlake = "aorus";
