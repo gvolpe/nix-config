@@ -12,6 +12,9 @@ in
 
   # bootloader.
   boot = {
+    # build arm64 systems on this machine
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
