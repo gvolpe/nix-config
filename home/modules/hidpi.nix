@@ -26,6 +26,19 @@ in
     };
 
     services = {
+      swaylock = {
+        ringsize = mkOption {
+          type = types.int;
+          default = if config.hidpi then 100 else 70;
+          description = "Swaylock-plugin ring size";
+        };
+        ringthickness = mkOption {
+          type = types.int;
+          default = if config.hidpi then 7 else 5;
+          description = "Swaylock-plugin ring thickness";
+        };
+      };
+
       waybar = {
         fontsize = mkOption {
           type = types.int;

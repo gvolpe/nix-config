@@ -1,6 +1,16 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
+  colors = {
+    navy = "15236E";
+    sky-blue = "7EBAE4";
+    light-purple = "C084FC";
+    blue = "348FEB";
+    transparent = "00000000";
+    translucent-black = "00000088";
+    white = "FFFFFF";
+  };
+
   lock-background = pkgs.writeShellScript "syncrain-lock-background" ''
     export WAYLAND_DISPLAY=swaylock-plugin
     export GDK_BACKEND=wayland
@@ -25,25 +35,26 @@ let
       --config /dev/null \
       --daemonize \
       --command ${lib.escapeShellArg (toString lock-background)} \
-      --indicator-radius 100 \
-      --indicator-thickness 7 \
-      --ring-color 15236E \
-      --ring-clear-color 7EBAE4 \
-      --ring-wrong-color C084FC \
-      --key-hl-color 348FEB \
-      --line-color 00000000 \
-      --line-clear-color 00000000 \
-      --line-wrong-color 00000000 \
-      --inside-color 00000088 \
-      --inside-clear-color 00000088 \
-      --inside-wrong-color 00000088 \
-      --text-color FFFFFF \
-      --text-clear-color FFFFFF \
-      --text-caps-lock-color FFFFFF \
-      --text-ver-color FFFFFF \
-      --text-wrong-color FFFFFF \
-      --layout-text-color FFFFFF \
-      --separator-color 00000000
+      --indicator-radius ${toString config.services.swaylock.ringsize} \
+      --indicator-thickness ${toString config.services.swaylock.ringthickness} \
+      --ring-color ${colors.navy} \
+      --ring-clear-color ${colors.sky-blue} \
+      --ring-wrong-color ${colors.light-purple} \
+      --bs-hl-color ${colors.light-purple} \
+      --key-hl-color ${colors.blue} \
+      --line-color ${colors.transparent} \
+      --line-clear-color ${colors.transparent} \
+      --line-wrong-color ${colors.transparent} \
+      --inside-color ${colors.translucent-black} \
+      --inside-clear-color ${colors.translucent-black} \
+      --inside-wrong-color ${colors.translucent-black} \
+      --text-color ${colors.white} \
+      --text-clear-color ${colors.white} \
+      --text-caps-lock-color ${colors.white} \
+      --text-ver-color ${colors.white} \
+      --text-wrong-color ${colors.white} \
+      --layout-text-color ${colors.white} \
+      --separator-color ${colors.transparent}
   '';
 in
 {
