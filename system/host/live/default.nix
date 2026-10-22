@@ -14,7 +14,7 @@ in
     extraSpecialArgs = pkgs.xargs;
     useGlobalPkgs = true;
     users.gvolpe = {
-      hidpi = true;
+      hidpi.enable = true;
 
       imports = [
         inputs.dots.homeModules.default

@@ -7,7 +7,7 @@ let
     if !config.dotfiles.mutable then ''@import url("${./style.css}");''
     else ''@import url("${filePath}");'';
 
-  output = if config.hidpi then [ "DP-1" "DP-3" "HDMI-1" "Virtual-1" ] else [ "eDP-1" ];
+  output = config.hidpi.waybar.outputs;
   include = [ "${./niri.json}" ];
 in
 {
@@ -33,7 +33,7 @@ in
     enable = true;
     style = ''
       * {
-        font-size: ${toString config.services.waybar.fontsize}px;
+        font-size: ${toString config.hidpi.waybar.fontsize}px;
         font-family: monospace;
       }
 
@@ -63,7 +63,7 @@ in
           "clock#4"
           "custom/right-arrow-dark"
         ];
-        modules-right = lib.optionals config.hidpi
+        modules-right = lib.optionals config.hidpi.enable
           ([
             "custom/left-arrow-dark"
             "memory"
@@ -85,7 +85,7 @@ in
           "custom/notification"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
-        ] ++ (lib.optionals (!config.hidpi) [
+        ] ++ (lib.optionals (!config.hidpi.enable) [
           "battery"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
@@ -136,7 +136,7 @@ in
             "(.*) Slack Grid Workspaces - Slack" = "   [$1]";
             "(.*)Meeting" = "   Meeting $1";
           };
-          "max-length" = config.services.waybar.window.maxlen;
+          "max-length" = config.hidpi.waybar.window.maxlen;
           "separate-outputs" = true;
         };
       }

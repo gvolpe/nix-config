@@ -15,7 +15,7 @@ let
       inherit pkgs;
       modules = modules' ++ mods ++ [
         (import ../home/dotfiles.nix { mutable = mut; })
-        { inherit hidpi; }
+        { hidpi.enable = hidpi; }
       ];
     };
 

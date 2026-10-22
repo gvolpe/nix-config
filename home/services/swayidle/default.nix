@@ -35,8 +35,8 @@ let
       --config /dev/null \
       --daemonize \
       --command ${lib.escapeShellArg (toString lock-background)} \
-      --indicator-radius ${toString config.services.swaylock.ringsize} \
-      --indicator-thickness ${toString config.services.swaylock.ringthickness} \
+      --indicator-radius ${toString config.hidpi.swaylock.ringsize} \
+      --indicator-thickness ${toString config.hidpi.swaylock.ringthickness} \
       --ring-color ${colors.navy} \
       --ring-clear-color ${colors.sky-blue} \
       --ring-wrong-color ${colors.light-purple} \

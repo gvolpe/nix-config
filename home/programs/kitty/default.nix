@@ -10,7 +10,7 @@ in
     themeFile = "OneDark";
     font = {
       name = "JetBrainsMono Nerdfont";
-      size = config.programs.kitty.fontsize;
+      size = config.hidpi.kitty.fontsize;
     };
     extraConfig = lib.mkIf config.dotfiles.mutable ''
       # Mutable config included below

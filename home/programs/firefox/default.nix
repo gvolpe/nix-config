@@ -32,7 +32,7 @@ let
   # DPI settings
   dpiSettings = {
     # see home/modules/browser.nix
-    "layout.css.devPixelsPerPx" = config.programs.browser.settings.dpi;
+    "layout.css.devPixelsPerPx" = config.hidpi.browser.settings.dpi;
   };
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js

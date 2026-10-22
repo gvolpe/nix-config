@@ -18,7 +18,7 @@ in
       inputs.nix-index.homeModules.default
       ({ nix.registry.nixpkgs.flake = inputs.nixpkgs; })
       (import ../../../home/dotfiles.nix { mutable = false; })
-      { hidpi = false; }
+      { hidpi.enable = false; }
       (import ../../../home/secrets)
     ];
 

@@ -119,9 +119,7 @@ in
   '';
 
   xdg.configFile."niri/config.kdl".source = dotfiles.make ./config.kdl;
-
-  xdg.configFile."niri/config/output.kdl".text =
-    if config.hidpi then ''include "hdmi.kdl"'' else ''include "edp.kdl"'';
+  xdg.configFile."niri/config/output.kdl".text = config.hidpi.niri.output;
 
   xdg.portal = {
     config = {
