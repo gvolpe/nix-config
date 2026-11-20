@@ -156,7 +156,8 @@
     };
 
     # Helium browser
-    nixpkgs-helium.url = "github:NixOS/nixpkgs/pull/498572/head";
+    # nixpkgs-helium.url = "github:NixOS/nixpkgs/pull/498572/head"; to get the latest commit
+    nixpkgs-helium.url = "github:NixOS/nixpkgs/4555f937ce0bd4734c586f9a0756d7787e8b47e6";
 
     # Github Markdown ToC generator
     gh-md-toc = {
