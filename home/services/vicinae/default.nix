@@ -23,7 +23,6 @@ in
       autoStart = true;
       enable = true;
     };
-    useLayerShell = true;
   };
 
   xdg.configFile."vicinae/settings.json".source =

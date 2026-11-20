@@ -25,6 +25,9 @@
       }
    },
    "launcher_window": {
+      "layer_shell": {
+         "enabled": false
+      },
       "opacity": 0.95
    },
    "providers": {
