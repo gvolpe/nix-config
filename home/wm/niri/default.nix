@@ -8,6 +8,13 @@ let
     iosevka
   ];
 
+  nemo-ext = pkgs.nemo-with-extensions.override {
+    extensions = with pkgs; [
+      nemo-fileroller # compress / extract functions in context menu (included by default)
+      nemo-preview # quick file preview
+    ];
+  };
+
   fontPkgs = with pkgs; [
     font-awesome # awesome fonts
     material-design-icons # fonts with glyphs
@@ -48,7 +55,7 @@ let
     libnotify # notifications
     mpvpaper # video as wallpapers
     mpvpaper-toggle # toggle video wallpaper
-    nemo # file manager
+    nemo-ext # file manager with extensions
     networkmanagerapplet # network manager systray app
     nfsm # niri fullscreen manager daemon
     nfsm-cli # niri fullscreen manager client
