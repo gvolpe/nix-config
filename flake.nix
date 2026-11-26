@@ -189,7 +189,7 @@
 
     # Revision that metals-zed pins in their extension.toml file
     tree-sitter-scala = {
-      url = "github:tree-sitter/tree-sitter-scala?ref=97aead18d97708190a51d4f551ea9b05b60641c9";
+      url = "github:tree-sitter/tree-sitter-scala?ref=851032fc97297bbe299dabe5bd826f778794d03c";
       flake = false;
     };
 
