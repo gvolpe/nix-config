@@ -66,6 +66,7 @@ let
     satty-shot # screenshots
     snitch # inspect network connections
     syncrain # matrix-like rain effects with NixOS logo
+    tack # nix pins/locks management with flakes support
     waypipe # network transparency for wayland
     wl-clipboard # clipboard support
     wooz # zoom / magnifier utility

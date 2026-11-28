@@ -12,6 +12,8 @@ let
   };
 
   overlays = f: p: {
+    inherit (inputs.tack.packages.${system}) tack;
+
     inherit (inputs) fish-bobthefish-theme fish-keytool-completions;
     inherit (inputs.snitch.packages.${system}) snitch;
 
@@ -97,7 +99,7 @@ let
     };
 
     sources = {
-      inherit (inputs) determinate-nix gh-md-toc metals-zed nord-tmux
+      inherit (inputs) _meta determinate-nix gh-md-toc metals-zed nord-tmux
       nirimation niri-shaders tree-sitter-scala pedantix waycal wshowkeys;
     };
   };

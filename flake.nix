@@ -4,6 +4,7 @@
   nixConfig = {
     extra-substituters = [
       "https://cache.nixos.org"
+      "https://cache.manic.systems"
       "https://gvolpe-nixos.cachix.org"
       "https://helium-flake.cachix.org"
       "https://install.determinate.systems"
@@ -13,227 +14,17 @@
       "gvolpe-nixos.cachix.org-1:0MPlBIMwYmrNqoEaYTox15Ds2t1+3R+6Ycj0hZWMcL0="
       "helium-flake.cachix.org-1:ZNsLgOtylmV74bm0vOWzsu39LNSSIw90vIFVUNbYnJA="
       "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+      "cache.manic.systems-1:s6OZanN8Us8vRi0jVivP3qlMn0cYHBjBALKrNe5nH8s="
     ];
   };
 
-  inputs = {
-    #nixpkgs.url = "nixpkgs/nixos-unstable";
-    #nixpkgs.url = github:gvolpe/nixpkgs/branch-name;
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
-    determinate-nix = {
-      url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-    flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/0";
-
-    # inputs to avoid different flakes bringing their own
-    systems.url = "github:nix-systems/x86_64-linux";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
-    };
-
-    rycee-nurpkgs = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nurpkgs = {
-      url = "github:nix-community/NUR";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dots.url = "github:gvolpe/dots";
-    #dots.url = git+file:///home/gvolpe/workspace/dots;
-
-    mnw-flake = {
-      #url = "git+file:///home/gvolpe/workspace/mnw-flake";
-      url = "github:gvolpe/mnw-flake";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.neovim-nightly-overlay.inputs.flake-parts.follows = "flake-parts";
-      inputs.neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index = {
-      #url = "git+file:///home/gvolpe/workspace/nix-index";
-      url = "github:gvolpe/nix-index";
-      inputs.nix-index-database.follows = "nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Secrets
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Niri
-    niri = {
-      url = "github:niri-wm/niri";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nfsm-flake = {
-      url = "github:gvolpe/nfsm";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-    };
-
-    niri-scratchpad-flake = {
-      #url = "git+file:///home/gvolpe/workspace/niri-scratchpad";
-      url = "github:gvolpe/niri-scratchpad";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-    };
-
-    nsticky-flake = {
-      url = "github:lonerOrz/nsticky";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nirimation = {
-      url = "github:Xansidev/nirimation";
-      flake = false;
-    };
-
-    niri-shaders = {
-      url = "github:liixini/shaders";
-      flake = false;
-    };
-
-    latchshot = {
-      url = "github:so1ve/latchshot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sunix = {
-      #url = "git+file:///home/gvolpe/workspace/sunix";
-      url = "github:gvolpe/sunix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    waycal = {
-      url = "github:forrestknight/waycal";
-      flake = false;
-    };
-
-    wooz-flake = {
-      url = "github:negrel/wooz";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wshowkeys = {
-      url = "github:DreamMaoMao/wshowkeys";
-      flake = false;
-    };
-
-    # Fish shell
-
-    fish-bobthefish-theme = {
-      #url = "git+file:///home/gvolpe/workspace/theme-bobthefish";
-      url = "github:gvolpe/theme-bobthefish";
-      flake = false;
-    };
-
-    fish-keytool-completions = {
-      url = "github:ckipp01/keytool-fish-completions";
-      flake = false;
-    };
-
-    # Helium browser
-    # nixpkgs-helium.url = "github:NixOS/nixpkgs/pull/498572/head"; to get the latest commit
-    nixpkgs-helium.url = "github:NixOS/nixpkgs/4555f937ce0bd4734c586f9a0756d7787e8b47e6";
-
-    # Github Markdown ToC generator
-    gh-md-toc = {
-      url = "github:ekalinin/github-markdown-toc";
-      flake = false;
-    };
-
-    # Fast nix search client
-    nix-search = {
-      url = "github:diamondburned/nix-search";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Gram editor
-    gram-extensions = {
-      url = "git+https://tangled.org/niklaskorz.eu/nix-gram-extensions";
-      # codeberg is very slow and unreliable
-      #url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions";
-      #inputs.nixpkgs.follows = "nixpkgs"; # needs https://github.com/NixOS/nixpkgs/pull/537433
-    };
-
-    # Scala plugin for gram
-    metals-zed = {
-      #url = "github:scalameta/metals-zed?ref=v0.2.4";
-      url = "github:scalameta/metals-zed";
-      flake = false;
-    };
-
-    # Revision that metals-zed pins in their extension.toml file
-    tree-sitter-scala = {
-      url = "github:tree-sitter/tree-sitter-scala?ref=851032fc97297bbe299dabe5bd826f778794d03c";
-      flake = false;
-    };
-
-    # Miscelaneous
-
-    nix-graph = {
-      url = "github:AlexAntonik/nix-graph";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nord-tmux = {
-      url = "github:arcticicestudio/nord-tmux";
-      flake = false;
-    };
-
-    pedantix = {
-      url = "github:swarsel/pedantix";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    snitch = {
-      url = "github:karol-broda/snitch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    syncrain = {
-      url = "github:Atyzze/syncrain";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    wl-party = {
-      url = "github:kjvdven/wl-party";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = inputs @ { self, nixpkgs, ... }:
+  outputs = args @ { self, ... }:
     let
       system = "x86_64-linux";
-
+      inputs = (import ./.tack) { overrides = args.tackOverrides or { }; };
       overlays = import ./lib/overlays.nix { inherit inputs system; };
 
-      pkgs = import nixpkgs {
+      pkgs = import inputs.nixpkgs {
         inherit overlays system;
         config = {
           allowUnfree = true;

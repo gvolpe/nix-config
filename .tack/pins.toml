@@ -1,0 +1,212 @@
+# shorturl schemes
+# scheme rest expands rest into {path}
+[shorturls]
+channel = "https://channels.nixos.org/{path}/nixexprs.tar.zst"
+local   = "git+file:///home/gvolpe/workspace/{path}"
+fh      = "https://flakehub.com/f/{path}"
+gh      = "github:{path}"
+gl      = "gitlab:{path}"
+tg      = "git+https://tangled.org/{path}"
+
+# all_follow maps input names at every depth to the top-level pin they follow
+# opt out per-input with exclude_follow, scope with flake: or tack:
+[all_follow]
+flake-parts = "flake-parts"
+flake-utils = "flake-utils"
+systems     = "systems"
+treefmt-nix = "treefmt-nix"
+# nixpkgs = "nixpkgs"
+# nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
+
+# recursively omit selected upstream inputs from every top-level pin
+[omit_inputs]
+# names = ["flake-compat", "tack:cachix"]
+
+# signers name the public keys pins can require, as an ssh key line, an
+# armored pgp key, a file under .tack holding either, or an array of those.
+# `tack signer add <name> --github <user>` fills one in from GitHub
+[signers]
+gvolpe = "keys/gvolpe.asc"
+# alice = "ssh-ed25519 AAAA..."
+
+# default fetch_mode for fetch pins ("eval" or "build")
+#[tack]
+#fetch_mode = "build"
+#type = "fetch"
+
+[groups]
+
+################## 🚀 --------- Core group ---------- 🚀 ####################
+[groups.core]
+
+[inputs.core.agenix]
+url = "gh:ryantm/agenix"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.core.determinate-nix]
+url = "fh:DeterminateSystems/nix-src/*"
+
+[inputs.core.flake-parts]
+url = "gh:hercules-ci/flake-parts"
+
+[inputs.core.flake-schemas]
+url = "fh:DeterminateSystems/flake-schemas/0"
+
+[inputs.core.flake-utils]
+url = "gh:numtide/flake-utils"
+
+[inputs.core.home-manager]
+url = "gh:nix-community/home-manager"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.core.nix-index]
+url = "gh:gvolpe/nix-index"
+follows = { nix-index-database="nix-index-database", nixpkgs="nixpkgs" }
+
+[inputs.core.nix-index-database]
+url = "gh:nix-community/nix-index-database"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.core.nix-search]
+url = "gh:diamondburned/nix-search"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.core.nixpkgs]
+url = "channel:nixos-unstable"
+
+[inputs.core.nixpkgs-helium]
+url = "gh:NixOS/nixpkgs/4555f937ce0bd4734c586f9a0756d7787e8b47e6"
+# url = "github:NixOS/nixpkgs/pull/498572/head"; to get the latest commit
+
+[inputs.core.treefmt-nix]
+url = "gh:numtide/treefmt-nix"
+
+[inputs.core.systems]
+url = "gh:nix-systems/x86_64-linux"
+
+[inputs.core.tack]
+url = "gh:manic-systems/tack"
+
+################## 🚀 --------- Niri Desktop group ---------- 🚀 ####################
+[groups.desktop]
+
+[inputs.desktop.dots]
+url = "gh:gvolpe/dots"
+#url = "local:dots"
+
+[inputs.desktop.fish-bobthefish-theme]
+url = "gh:gvolpe/theme-bobthefish"
+type = "fetch"
+
+[inputs.desktop.fish-keytool-completions]
+url = "gh:ckipp01/keytool-fish-completions"
+type = "fetch"
+
+[inputs.desktop.latchshot]
+url = "gh:so1ve/latchshot"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.niri]
+url = "gh:niri-wm/niri"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.niri-scratchpad-flake]
+url = "gh:gvolpe/niri-scratchpad"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.niri-shaders]
+url = "gh:liixini/shaders"
+type = "fetch"
+
+[inputs.desktop.nirimation]
+url = "gh:Xansidev/nirimation"
+type = "fetch"
+
+[inputs.desktop.nfsm-flake]
+url = "gh:gvolpe/nfsm"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.nsticky-flake]
+url = "gh:lonerOrz/nsticky"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.nurpkgs]
+url = "gh:nix-community/NUR"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.rycee-nurpkgs]
+url = "gl:rycee/nur-expressions"
+dir = "pkgs/firefox-addons"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.sunix]
+url = "gh:gvolpe/sunix"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.waycal]
+url = "gh:forrestknight/waycal"
+type = "fetch"
+
+[inputs.desktop.wooz-flake]
+url = "gh:negrel/wooz"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.desktop.wshowkeys]
+url = "gh:DreamMaoMao/wshowkeys"
+type = "fetch"
+
+################## 🚀 --------- Neovim group ---------- 🚀 ####################
+[groups.neovim]
+
+[inputs.neovim.mnw-flake]
+url = "gh:gvolpe/mnw-flake"
+#url = "local:mnw-flake"
+follows = { nixpkgs="nixpkgs", tree-sitter-scala="tree-sitter-scala" }
+
+################## 🚀 --------- Scala group ---------- 🚀 ####################
+[groups.scala]
+
+[inputs.scala.gram-extensions]
+url = "tg:niklaskorz.eu/nix-gram-extensions"
+# needs https://github.com/NixOS/nixpkgs/pull/537433 for wasm32-wasip2 support
+exclude_follow = ["nixpkgs"]
+
+[inputs.scala.metals-zed]
+url = "gh:scalameta/metals-zed"
+type = "fetch"
+
+[inputs.scala.tree-sitter-scala]
+# Revision that metals-zed pins in their extension.toml file
+url = "gh:tree-sitter/tree-sitter-scala?ref=851032fc97297bbe299dabe5bd826f778794d03c"
+type = "fetch"
+
+################## 🚀 --------- Miscelaneous group ---------- 🚀 ####################
+[groups.misc]
+
+[inputs.misc.gh-md-toc]
+url = "gh:ekalinin/github-markdown-toc"
+type = "fetch"
+
+[inputs.misc.nix-graph]
+url = "gh:AlexAntonik/nix-graph"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.misc.nord-tmux]
+url = "gh:arcticicestudio/nord-tmux"
+type = "fetch"
+
+[inputs.misc.pedantix]
+url = "gh:swarsel/pedantix"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.misc.snitch]
+url = "gh:karol-broda/snitch"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.misc.syncrain]
+url = "gh:Atyzze/syncrain"
+follows = { nixpkgs="nixpkgs" }
+
+[inputs.misc.wl-party]
+url = "gh:kjvdven/wl-party"
+follows = { nixpkgs="nixpkgs" }
