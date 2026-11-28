@@ -18,10 +18,10 @@
     ];
   };
 
-  outputs = { self }:
+  outputs = args @ { self, ... }:
     let
       system = "x86_64-linux";
-      inputs = import ./.tack;
+      inputs = (import ./.tack) { overrides = args.tackOverrides or { }; };
       overlays = import ./lib/overlays.nix { inherit inputs system; };
 
       pkgs = import inputs.nixpkgs {
